@@ -1178,7 +1178,7 @@
                 <div class="result-copy">
                   <strong><a href="/cinema-watch-snapshot/venues/cinepolis/recoleta/">cinepolis / Recoleta</a></strong>
                   
-                  <p>Classic • 2D • Subtitulado | Room 6 | 9% sold</p>
+                  <p data-i18n-meta-line>Classic • 2D • Subtitulado | Room 6 | 9% sold</p>
                   
                 </div>
               </div>
@@ -1236,6 +1236,20 @@
           'Sign out': 'Salir',
           'Sign in': 'Entrar',
 
+          'Now showing': 'Cartelera',
+          'What should we watch?': '¿Qué vemos hoy?',
+          'Useful showtimes first: today, tomorrow, Recoleta room 6, subtitled picks, IMAX, and Avellaneda.': 'Funciones útiles primero: hoy, mañana, Recoleta sala 6, subtituladas, IMAX y Avellaneda.',
+          'Search showtimes': 'Buscar funciones',
+          'Snapshot freshness': 'Frescura del snapshot',
+          'Open a board, pick a function.': 'Abrí una cartelera, elegí una función.',
+          'Start with the common questions. If nothing fits, jump into the full search.': 'Arrancá por las preguntas comunes. Si nada encaja, pasá a la búsqueda completa.',
+          'Across providers': 'Todos los proveedores',
+          'Favorite room': 'Sala favorita',
+          'Filters': 'Filtros',
+          'Subtitled, 4D, IMAX, venue': 'Subtituladas, 4D, IMAX, cine',
+          "Today's answers": 'Respuestas de hoy',
+          'Start here: compact boards for the questions you are most likely to ask first.': 'Arrancá acá: carteleras compactas para las preguntas que probablemente hagas primero.',
+
           'Cache-first cinema board': 'Cartelera primero, caché detrás',
           'Find the next screening without digging through noise.': 'Encontrá la próxima función sin revolver ruido.',
           'Cinema Watch should feel closer to a smart listings bulletin than a dashboard: stable venue boards, direct questions, and enough density to decide quickly without the interface trying to sell itself first.': 'Cinema Watch debería sentirse más como una cartelera inteligente que como un dashboard: cines estables, preguntas directas y la densidad justa para decidir rápido sin que la interfaz se venda antes.',
@@ -1281,6 +1295,35 @@
           'Cache health and latest runs': 'Salud del caché y últimas corridas',
           'Cinepolis Venues': 'Cines Cinépolis',
           'Venue-first Cinepolis board': 'Cartelera de Cinépolis por cine',
+          'Today Across Providers': 'Hoy en todos los cines',
+          "The quickest cross-provider answer for tonight's plan.": 'La respuesta más rápida para armar plan hoy.',
+          'Tomorrow Planner': 'Plan para mañana',
+          "Tomorrow's cache, without leaving the homepage.": 'La cartelera de mañana sin salir de la portada.',
+          'The favorite room stays visible even as the project gets bigger.': 'La sala favorita sigue visible aunque el proyecto crezca.',
+          'Subtitulado This Week': 'Subtituladas esta semana',
+          'Useful for spotting original-language options quickly.': 'Útil para encontrar opciones subtituladas rápido.',
+          'today': 'hoy',
+          'tomorrow': 'mañana',
+          'all providers': 'todos los cines',
+          'recoleta': 'recoleta',
+          'room 6': 'sala 6',
+          'next 7 days': 'próximos 7 días',
+          'subtitulado': 'subtituladas',
+          'No cached screenings yet for this board.': 'Todavía no hay funciones cacheadas para esta cartelera.',
+          'Open full board': 'Abrir cartelera completa',
+          'cached': 'cacheadas',
+          'browser-capable': 'con navegador',
+          'priority room': 'sala favorita',
+          'language watch': 'idioma y formato',
+          'showcase anchor': 'ancla Showcase',
+          'Avellaneda formats': 'Formatos en Avellaneda',
+          'Keep the image-and-sound favorite one tap away.': 'La favorita de imagen y sonido, siempre a un toque.',
+          'Fast entry point for dubbed vs subtitled and 4D/3D checks.': 'Entrada rápida para ver dobladas, subtituladas y 4D/3D.',
+          'Keep the Showcase/IMAX side visible in the same product.': 'Mantiene Showcase/IMAX visible dentro del mismo producto.',
+          'Hybrid backend keeps sold data from legacy Cinepolis while preferring /ar metadata when available.': 'El backend híbrido conserva datos de venta del Cinépolis legacy y prefiere metadata de /ar cuando está disponible.',
+          'Recoleta room 6 remains a first-class workflow inside the broader provider.': 'Recoleta sala 6 sigue siendo un flujo principal dentro del proveedor más amplio.',
+          'Backed by the existing Showcase IMAX scraper and now ingestible into the shared cache.': 'Usa el scraper IMAX de Showcase existente y ya se ingesta en el caché compartido.',
+          'Requests mode is the default fast path, while Selenium can still enrich sold-seat data when a logged-in profile is available.': 'El modo requests es el camino rápido por defecto; Selenium todavía puede enriquecer datos de butacas vendidas cuando hay un perfil logueado disponible.',
 
           'Screening board': 'Cartelera de funciones',
           'Cached screening search.': 'Búsqueda de funciones en caché.',
@@ -1483,6 +1526,47 @@
         return language === 'es' ? `${percent}% vendida` : `${percent}% sold`;
       }
 
+      function translateMetaLines(scope) {
+        scope.querySelectorAll('[data-i18n-meta-line]').forEach((element) => {
+          if (!element.dataset.i18nMetaOriginal) {
+            element.dataset.i18nMetaOriginal = normalizeSource(element.textContent);
+          }
+          const original = element.dataset.i18nMetaOriginal || '';
+          if (currentLanguage === 'en') {
+            element.textContent = original;
+            return;
+          }
+          element.textContent = original
+            .replace(/\bRoom\s+([A-Za-z0-9-]+)/gi, (_match, roomNumber) => formatRoom(roomNumber))
+            .replace(/\b(\d+)%\s+sold\b/gi, (_match, percent) => formatSold(percent));
+        });
+      }
+
+      function translateFreshnessLabels(scope) {
+        scope.querySelectorAll('[data-i18n-freshness]').forEach((element) => {
+          if (!element.dataset.i18nFreshnessOriginal) {
+            element.dataset.i18nFreshnessOriginal = normalizeSource(element.textContent);
+          }
+          const original = element.dataset.i18nFreshnessOriginal || '';
+          if (currentLanguage === 'en') {
+            element.textContent = original;
+            return;
+          }
+          if (original === 'Catalog seeded, no cached screenings yet') {
+            element.textContent = 'Catálogo cargado, todavía sin funciones en caché';
+            return;
+          }
+          if (original === 'Updated just now') {
+            element.textContent = 'Actualizado recién';
+            return;
+          }
+          const match = original.match(/^Updated\s+(\d+)\s+(min|h|d)\s+ago$/i);
+          if (match) {
+            element.textContent = `Actualizado hace ${match[1]} ${match[2]}`;
+          }
+        });
+      }
+
       function autoTranslateLeafElements(scope) {
         const candidates = scope.querySelectorAll(
           'h1, h2, h3, p, span, strong, a, button, option, label, .empty'
@@ -1512,6 +1596,10 @@
           const singular = element.dataset.i18nCount || 'screening';
           const plural = element.dataset.i18nCountPlural || `${singular}s`;
           const suffix = element.dataset.i18nCountSuffix || '';
+          if (currentLanguage === 'en' && suffix === 'cached') {
+            element.textContent = `${count} cached ${Number(count) === 1 ? singular : plural}`;
+            return;
+          }
           element.textContent = `${formatCount(count, singular, plural)}${suffix ? ` ${translateSource(suffix)}` : ''}`;
         });
       }
@@ -1530,6 +1618,8 @@
         });
         autoTranslateLeafElements(scope);
         translateCountElements(scope);
+        translateMetaLines(scope);
+        translateFreshnessLabels(scope);
         scope.querySelectorAll('[data-i18n-placeholder-source]').forEach((element) => {
           if (!(element instanceof HTMLInputElement || element instanceof HTMLTextAreaElement)) {
             return;

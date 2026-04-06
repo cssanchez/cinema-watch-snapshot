@@ -1064,52 +1064,34 @@
       
 <section class="hero hero-grid">
   <div class="hero-copy">
-    <span class="eyebrow" data-i18n-source>Cache-first cinema board</span>
-    <h1>Find the next screening without digging through noise.</h1>
-    <p>
-      Cinema Watch should feel closer to a smart listings bulletin than a dashboard: stable venue boards, direct
-      questions, and enough density to decide quickly without the interface trying to sell itself first.
+    <span class="eyebrow" data-i18n-source>Now showing</span>
+    <h1 data-i18n-source>What should we watch?</h1>
+    <p data-i18n-source>
+      Useful showtimes first: today, tomorrow, Recoleta room 6, subtitled picks, IMAX, and Avellaneda.
     </p>
     <div class="hero-actions">
-      <a class="button-pill is-active" href="/cinema-watch-snapshot/screenings/" data-tone="accent" data-i18n-source>Open search</a>
+      <a class="button-pill is-active" href="/cinema-watch-snapshot/screenings/" data-tone="accent" data-i18n-source>Search showtimes</a>
       <a class="button-pill" href="/cinema-watch-snapshot/movies/" data-i18n-source>Browse movies</a>
       
-      <a class="button-pill" href="/cinema-watch-snapshot/status/" data-tone="warm" data-i18n-source>View snapshot freshness</a>
+      <a class="button-pill" href="/cinema-watch-snapshot/status/" data-tone="warm" data-i18n-source>Snapshot freshness</a>
       
-    </div>
-    <div class="signal-strip">
-      <div class="signal">
-        <span data-i18n-source>Providers</span>
-        <strong>2</strong>
-      </div>
-      <div class="signal">
-        <span data-i18n-source>Seeded venues</span>
-        <strong>19</strong>
-      </div>
-      <div class="signal">
-        <span data-i18n-source>Cached venues</span>
-        <strong>3</strong>
-      </div>
     </div>
   </div>
   <div class="hero-side">
-    <strong>Fast to read, honest about freshness.</strong>
-    <p>
-      The site reads cached cinema data only. Refresh jobs do the scraping in the background, which keeps the boards
-      quick, the copy calm, and the upstream sites safer from noisy traffic spikes.
-    </p>
+    <strong data-i18n-source>Open a board, pick a function.</strong>
+    <p data-i18n-source>Start with the common questions. If nothing fits, jump into the full search.</p>
     <div class="meta-list">
       <div class="meta-row">
-        <span data-i18n-source>Default lens</span>
-        <strong>Recoleta room 6, Avellaneda sweeps, quick venue boards</strong>
+        <span data-i18n-source>Today</span>
+        <strong><a href="/cinema-watch-snapshot/screenings/" data-i18n-source>Across providers</a></strong>
       </div>
       <div class="meta-row">
-        <span data-i18n-source>Reading mode</span>
-        <strong>Search first, compare second, drill in only when needed</strong>
+        <span data-i18n-source>Favorite room</span>
+        <strong><a href="/cinema-watch-snapshot/venues/cinepolis/recoleta/" data-i18n-source>Recoleta room 6</a></strong>
       </div>
       <div class="meta-row">
-        <span data-i18n-source>Why cache</span>
-        <strong>Stable answers, lighter scraping, safer sharing</strong>
+        <span data-i18n-source>Filters</span>
+        <strong data-i18n-source>Subtitled, 4D, IMAX, venue</strong>
       </div>
     </div>
   </div>
@@ -1118,8 +1100,8 @@
 <section class="panel" style="margin-top: 1rem;">
   <div class="section-head">
     <div>
-      <h2 data-i18n-source>Live Answer Boards</h2>
-      <p class="board-kicker">The homepage should answer the obvious questions from the cache before asking you to navigate anywhere else.</p>
+      <h2 data-i18n-source>Today's answers</h2>
+      <p class="board-kicker" data-i18n-source>Start here: compact boards for the questions you are most likely to ask first.</p>
     </div>
   </div>
   <div class="home-board-grid">
@@ -1128,17 +1110,17 @@
       <div class="home-board-header">
         <div class="row-head">
           <div>
-            <strong>Today Across Providers</strong>
+            <strong data-i18n-source>Today Across Providers</strong>
           </div>
           <span class="chip" data-i18n-count="screening" data-i18n-count-value="10">10 screenings</span>
         </div>
-        <p>The quickest cross-provider answer for tonight&#39;s plan.</p>
+        <p data-i18n-source>The quickest cross-provider answer for tonight&#39;s plan.</p>
       </div>
       <div class="chips">
         
-        <span class="chip">today</span>
+        <span class="chip" data-i18n-source>today</span>
         
-        <span class="chip">all providers</span>
+        <span class="chip" data-i18n-source>all providers</span>
         
       </div>
       
@@ -1157,7 +1139,7 @@
                 <strong><a href="/cinema-watch-snapshot/movies/la-grazia-la-belleza-de-la-duda/" data-live-nav="true">La Grazia: La belleza de la duda</a></strong>
                 <p><a href="/cinema-watch-snapshot/venues/cinepolis/recoleta/">cinepolis / Recoleta</a></p>
                 
-                <p>Classic • 2D • Subtitulado | Room 1 | 2% sold</p>
+                <p data-i18n-meta-line>Classic • 2D • Subtitulado | Room 1 | 2% sold</p>
                 
               </div>
             </div>
@@ -1168,7 +1150,7 @@
                 <strong><a href="/cinema-watch-snapshot/movies/gioia-mia-un-verano-en-sicilia/" data-live-nav="true">Gioia Mia: Un verano en Sicilia</a></strong>
                 <p><a href="/cinema-watch-snapshot/venues/cinepolis/recoleta/">cinepolis / Recoleta</a></p>
                 
-                <p>Classic • 2D • Subtitulado | Room 3 | 2% sold</p>
+                <p data-i18n-meta-line>Classic • 2D • Subtitulado | Room 3 | 2% sold</p>
                 
               </div>
             </div>
@@ -1179,7 +1161,7 @@
                 <strong><a href="/cinema-watch-snapshot/movies/super-mario-galaxy-la-pelicula/" data-live-nav="true">Super Mario Galaxy: La película</a></strong>
                 <p><a href="/cinema-watch-snapshot/venues/cinepolis/avellaneda/">cinepolis / Avellaneda</a></p>
                 
-                <p>Classic • 2D • Español | Room 5 | 2% sold</p>
+                <p data-i18n-meta-line>Classic • 2D • Español | Room 5 | 2% sold</p>
                 
               </div>
             </div>
@@ -1198,17 +1180,17 @@
       <div class="home-board-header">
         <div class="row-head">
           <div>
-            <strong>Tomorrow Planner</strong>
+            <strong data-i18n-source>Tomorrow Planner</strong>
           </div>
           <span class="chip" data-i18n-count="screening" data-i18n-count-value="10">10 screenings</span>
         </div>
-        <p>Tomorrow&#39;s cache, without leaving the homepage.</p>
+        <p data-i18n-source>Tomorrow&#39;s cache, without leaving the homepage.</p>
       </div>
       <div class="chips">
         
-        <span class="chip">tomorrow</span>
+        <span class="chip" data-i18n-source>tomorrow</span>
         
-        <span class="chip">all providers</span>
+        <span class="chip" data-i18n-source>all providers</span>
         
       </div>
       
@@ -1227,7 +1209,7 @@
                 <strong><a href="/cinema-watch-snapshot/movies/super-mario-galaxy-la-pelicula/" data-live-nav="true">Super Mario Galaxy: La película</a></strong>
                 <p><a href="/cinema-watch-snapshot/venues/cinepolis/recoleta/">cinepolis / Recoleta</a></p>
                 
-                <p>Classic • 3D • Español | Room 7</p>
+                <p data-i18n-meta-line>Classic • 3D • Español | Room 7</p>
                 
               </div>
             </div>
@@ -1238,7 +1220,7 @@
                 <strong><a href="/cinema-watch-snapshot/movies/super-mario-galaxy-la-pelicula/" data-live-nav="true">Super Mario Galaxy: La película</a></strong>
                 <p><a href="/cinema-watch-snapshot/venues/cinepolis/recoleta/">cinepolis / Recoleta</a></p>
                 
-                <p>4D • 3D • Español | Room 10 | 5% sold</p>
+                <p data-i18n-meta-line>4D • 3D • Español | Room 10 | 5% sold</p>
                 
               </div>
             </div>
@@ -1249,7 +1231,7 @@
                 <strong><a href="/cinema-watch-snapshot/movies/super-mario-galaxy-la-pelicula/" data-live-nav="true">Super Mario Galaxy: La película</a></strong>
                 <p><a href="/cinema-watch-snapshot/venues/cinepolis/recoleta/">cinepolis / Recoleta</a></p>
                 
-                <p>Classic • 2D • Español | Room 5</p>
+                <p data-i18n-meta-line>Classic • 2D • Español | Room 5</p>
                 
               </div>
             </div>
@@ -1268,19 +1250,19 @@
       <div class="home-board-header">
         <div class="row-head">
           <div>
-            <strong>Recoleta Room 6</strong>
+            <strong data-i18n-source>Recoleta Room 6</strong>
           </div>
           <span class="chip" data-i18n-count="screening" data-i18n-count-value="10">10 screenings</span>
         </div>
-        <p>The favorite room stays visible even as the project gets bigger.</p>
+        <p data-i18n-source>The favorite room stays visible even as the project gets bigger.</p>
       </div>
       <div class="chips">
         
-        <span class="chip">recoleta</span>
+        <span class="chip" data-i18n-source>recoleta</span>
         
-        <span class="chip">room 6</span>
+        <span class="chip" data-i18n-source>room 6</span>
         
-        <span class="chip">next 7 days</span>
+        <span class="chip" data-i18n-source>next 7 days</span>
         
       </div>
       
@@ -1299,7 +1281,7 @@
                 <strong><a href="/cinema-watch-snapshot/movies/super-mario-galaxy-la-pelicula/" data-live-nav="true">Super Mario Galaxy: La película</a></strong>
                 <p><a href="/cinema-watch-snapshot/venues/cinepolis/recoleta/">cinepolis / Recoleta</a></p>
                 
-                <p>Classic • 2D • Español | Room 6</p>
+                <p data-i18n-meta-line>Classic • 2D • Español | Room 6</p>
                 
               </div>
             </div>
@@ -1310,7 +1292,7 @@
                 <strong><a href="/cinema-watch-snapshot/movies/super-mario-galaxy-la-pelicula/" data-live-nav="true">Super Mario Galaxy: La película</a></strong>
                 <p><a href="/cinema-watch-snapshot/venues/cinepolis/recoleta/">cinepolis / Recoleta</a></p>
                 
-                <p>Classic • 2D • Español | Room 6 | 2% sold</p>
+                <p data-i18n-meta-line>Classic • 2D • Español | Room 6 | 2% sold</p>
                 
               </div>
             </div>
@@ -1321,7 +1303,7 @@
                 <strong><a href="/cinema-watch-snapshot/movies/super-mario-galaxy-la-pelicula/" data-live-nav="true">Super Mario Galaxy: La película</a></strong>
                 <p><a href="/cinema-watch-snapshot/venues/cinepolis/recoleta/">cinepolis / Recoleta</a></p>
                 
-                <p>Classic • 2D • Español | Room 6 | 2% sold</p>
+                <p data-i18n-meta-line>Classic • 2D • Español | Room 6 | 2% sold</p>
                 
               </div>
             </div>
@@ -1342,7 +1324,7 @@
                 <strong><a href="/cinema-watch-snapshot/movies/super-mario-galaxy-la-pelicula/" data-live-nav="true">Super Mario Galaxy: La película</a></strong>
                 <p><a href="/cinema-watch-snapshot/venues/cinepolis/recoleta/">cinepolis / Recoleta</a></p>
                 
-                <p>Classic • 2D • Español | Room 6</p>
+                <p data-i18n-meta-line>Classic • 2D • Español | Room 6</p>
                 
               </div>
             </div>
@@ -1353,7 +1335,7 @@
                 <strong><a href="/cinema-watch-snapshot/movies/super-mario-galaxy-la-pelicula/" data-live-nav="true">Super Mario Galaxy: La película</a></strong>
                 <p><a href="/cinema-watch-snapshot/venues/cinepolis/recoleta/">cinepolis / Recoleta</a></p>
                 
-                <p>Classic • 2D • Español | Room 6</p>
+                <p data-i18n-meta-line>Classic • 2D • Español | Room 6</p>
                 
               </div>
             </div>
@@ -1364,7 +1346,7 @@
                 <strong><a href="/cinema-watch-snapshot/movies/super-mario-galaxy-la-pelicula/" data-live-nav="true">Super Mario Galaxy: La película</a></strong>
                 <p><a href="/cinema-watch-snapshot/venues/cinepolis/recoleta/">cinepolis / Recoleta</a></p>
                 
-                <p>Classic • 2D • Español | Room 6 | 7% sold</p>
+                <p data-i18n-meta-line>Classic • 2D • Español | Room 6 | 7% sold</p>
                 
               </div>
             </div>
@@ -1383,17 +1365,17 @@
       <div class="home-board-header">
         <div class="row-head">
           <div>
-            <strong>Subtitulado This Week</strong>
+            <strong data-i18n-source>Subtitulado This Week</strong>
           </div>
           <span class="chip" data-i18n-count="screening" data-i18n-count-value="8">8 screenings</span>
         </div>
-        <p>Useful for spotting original-language options quickly.</p>
+        <p data-i18n-source>Useful for spotting original-language options quickly.</p>
       </div>
       <div class="chips">
         
-        <span class="chip">subtitulado</span>
+        <span class="chip" data-i18n-source>subtitulado</span>
         
-        <span class="chip">next 7 days</span>
+        <span class="chip" data-i18n-source>next 7 days</span>
         
       </div>
       
@@ -1412,7 +1394,7 @@
                 <strong><a href="/cinema-watch-snapshot/movies/la-grazia-la-belleza-de-la-duda/" data-live-nav="true">La Grazia: La belleza de la duda</a></strong>
                 <p><a href="/cinema-watch-snapshot/venues/cinepolis/recoleta/">cinepolis / Recoleta</a></p>
                 
-                <p>Classic • 2D • Subtitulado | Room 1 | 2% sold</p>
+                <p data-i18n-meta-line>Classic • 2D • Subtitulado | Room 1 | 2% sold</p>
                 
               </div>
             </div>
@@ -1423,7 +1405,7 @@
                 <strong><a href="/cinema-watch-snapshot/movies/gioia-mia-un-verano-en-sicilia/" data-live-nav="true">Gioia Mia: Un verano en Sicilia</a></strong>
                 <p><a href="/cinema-watch-snapshot/venues/cinepolis/recoleta/">cinepolis / Recoleta</a></p>
                 
-                <p>Classic • 2D • Subtitulado | Room 3 | 2% sold</p>
+                <p data-i18n-meta-line>Classic • 2D • Subtitulado | Room 3 | 2% sold</p>
                 
               </div>
             </div>
@@ -1434,7 +1416,7 @@
                 <strong><a href="/cinema-watch-snapshot/movies/super-mario-galaxy-la-pelicula/" data-live-nav="true">Super Mario Galaxy: La película</a></strong>
                 <p><a href="/cinema-watch-snapshot/venues/cinepolis/avellaneda/">cinepolis / Avellaneda</a></p>
                 
-                <p>Classic • 2D • Subtitulado | Room 1 | 2% sold</p>
+                <p data-i18n-meta-line>Classic • 2D • Subtitulado | Room 1 | 2% sold</p>
                 
               </div>
             </div>
@@ -1519,7 +1501,7 @@
           <div class="row-head">
             <div>
               <strong>Cinepolis Argentina</strong>
-              <div class="kicker">Cinepolis / 10 venues</div>
+              <div class="kicker">Cinepolis / <span data-i18n-count="venue" data-i18n-count-value="10">10 venues</span></div>
             </div>
             <div class="chips">
               <span class="chip">cinepolis</span>
@@ -1532,12 +1514,12 @@
             </div>
           </div>
           <div class="stats">
-            <span class="stat">349 cached screenings</span>
-            <span class="stat">28 cached titles</span>
+            <span class="stat" data-i18n-count="screening" data-i18n-count-value="349" data-i18n-count-suffix="cached">349 cached screenings</span>
+            <span class="stat" data-i18n-count="title" data-i18n-count-value="28" data-i18n-count-suffix="cached">28 cached titles</span>
           </div>
-          <p>Updated 4 h ago</p>
+          <p data-i18n-freshness>Updated 4 h ago</p>
           
-          <p>Hybrid backend keeps sold data from legacy Cinepolis while preferring /ar metadata when available.</p>
+          <p data-i18n-source>Hybrid backend keeps sold data from legacy Cinepolis while preferring /ar metadata when available.</p>
           
         </a>
         
@@ -1545,7 +1527,7 @@
           <div class="row-head">
             <div>
               <strong>Showcase / IMAX</strong>
-              <div class="kicker">Showcase / 9 venues</div>
+              <div class="kicker">Showcase / <span data-i18n-count="venue" data-i18n-count-value="9">9 venues</span></div>
             </div>
             <div class="chips">
               <span class="chip">showcase</span>
@@ -1558,12 +1540,12 @@
             </div>
           </div>
           <div class="stats">
-            <span class="stat">19 cached screenings</span>
-            <span class="stat">2 cached titles</span>
+            <span class="stat" data-i18n-count="screening" data-i18n-count-value="19" data-i18n-count-suffix="cached">19 cached screenings</span>
+            <span class="stat" data-i18n-count="title" data-i18n-count-value="2" data-i18n-count-suffix="cached">2 cached titles</span>
           </div>
-          <p>Updated 1 d ago</p>
+          <p data-i18n-freshness>Updated 1 d ago</p>
           
-          <p>Backed by the existing Showcase IMAX scraper and now ingestible into the shared cache.</p>
+          <p data-i18n-source>Backed by the existing Showcase IMAX scraper and now ingestible into the shared cache.</p>
           
         </a>
         
@@ -1584,7 +1566,7 @@
         <a class="button-card" href="/cinema-watch-snapshot/venues/cinepolis/recoleta/">
           <strong data-i18n-source>Recoleta room 6</strong>
           <div class="chips">
-            <span class="chip">priority room</span>
+            <span class="chip" data-i18n-source>priority room</span>
           </div>
           <p data-i18n-source>Keep the image-and-sound favorite one tap away.</p>
         </a>
@@ -1592,7 +1574,7 @@
         <a class="button-card" href="/cinema-watch-snapshot/venues/cinepolis/avellaneda/">
           <strong data-i18n-source>Avellaneda formats</strong>
           <div class="chips">
-            <span class="chip">language watch</span>
+            <span class="chip" data-i18n-source>language watch</span>
           </div>
           <p data-i18n-source>Fast entry point for dubbed vs subtitled and 4D/3D checks.</p>
         </a>
@@ -1600,7 +1582,7 @@
         <a class="button-card" href="/cinema-watch-snapshot/venues/showcase/imax_norcenter/">
           <strong data-i18n-source>IMAX Norcenter</strong>
           <div class="chips">
-            <span class="chip">showcase anchor</span>
+            <span class="chip" data-i18n-source>showcase anchor</span>
           </div>
           <p data-i18n-source>Keep the Showcase/IMAX side visible in the same product.</p>
         </a>
@@ -1629,6 +1611,20 @@
           'Recoleta room 6': 'Recoleta sala 6',
           'Sign out': 'Salir',
           'Sign in': 'Entrar',
+
+          'Now showing': 'Cartelera',
+          'What should we watch?': '¿Qué vemos hoy?',
+          'Useful showtimes first: today, tomorrow, Recoleta room 6, subtitled picks, IMAX, and Avellaneda.': 'Funciones útiles primero: hoy, mañana, Recoleta sala 6, subtituladas, IMAX y Avellaneda.',
+          'Search showtimes': 'Buscar funciones',
+          'Snapshot freshness': 'Frescura del snapshot',
+          'Open a board, pick a function.': 'Abrí una cartelera, elegí una función.',
+          'Start with the common questions. If nothing fits, jump into the full search.': 'Arrancá por las preguntas comunes. Si nada encaja, pasá a la búsqueda completa.',
+          'Across providers': 'Todos los proveedores',
+          'Favorite room': 'Sala favorita',
+          'Filters': 'Filtros',
+          'Subtitled, 4D, IMAX, venue': 'Subtituladas, 4D, IMAX, cine',
+          "Today's answers": 'Respuestas de hoy',
+          'Start here: compact boards for the questions you are most likely to ask first.': 'Arrancá acá: carteleras compactas para las preguntas que probablemente hagas primero.',
 
           'Cache-first cinema board': 'Cartelera primero, caché detrás',
           'Find the next screening without digging through noise.': 'Encontrá la próxima función sin revolver ruido.',
@@ -1675,6 +1671,35 @@
           'Cache health and latest runs': 'Salud del caché y últimas corridas',
           'Cinepolis Venues': 'Cines Cinépolis',
           'Venue-first Cinepolis board': 'Cartelera de Cinépolis por cine',
+          'Today Across Providers': 'Hoy en todos los cines',
+          "The quickest cross-provider answer for tonight's plan.": 'La respuesta más rápida para armar plan hoy.',
+          'Tomorrow Planner': 'Plan para mañana',
+          "Tomorrow's cache, without leaving the homepage.": 'La cartelera de mañana sin salir de la portada.',
+          'The favorite room stays visible even as the project gets bigger.': 'La sala favorita sigue visible aunque el proyecto crezca.',
+          'Subtitulado This Week': 'Subtituladas esta semana',
+          'Useful for spotting original-language options quickly.': 'Útil para encontrar opciones subtituladas rápido.',
+          'today': 'hoy',
+          'tomorrow': 'mañana',
+          'all providers': 'todos los cines',
+          'recoleta': 'recoleta',
+          'room 6': 'sala 6',
+          'next 7 days': 'próximos 7 días',
+          'subtitulado': 'subtituladas',
+          'No cached screenings yet for this board.': 'Todavía no hay funciones cacheadas para esta cartelera.',
+          'Open full board': 'Abrir cartelera completa',
+          'cached': 'cacheadas',
+          'browser-capable': 'con navegador',
+          'priority room': 'sala favorita',
+          'language watch': 'idioma y formato',
+          'showcase anchor': 'ancla Showcase',
+          'Avellaneda formats': 'Formatos en Avellaneda',
+          'Keep the image-and-sound favorite one tap away.': 'La favorita de imagen y sonido, siempre a un toque.',
+          'Fast entry point for dubbed vs subtitled and 4D/3D checks.': 'Entrada rápida para ver dobladas, subtituladas y 4D/3D.',
+          'Keep the Showcase/IMAX side visible in the same product.': 'Mantiene Showcase/IMAX visible dentro del mismo producto.',
+          'Hybrid backend keeps sold data from legacy Cinepolis while preferring /ar metadata when available.': 'El backend híbrido conserva datos de venta del Cinépolis legacy y prefiere metadata de /ar cuando está disponible.',
+          'Recoleta room 6 remains a first-class workflow inside the broader provider.': 'Recoleta sala 6 sigue siendo un flujo principal dentro del proveedor más amplio.',
+          'Backed by the existing Showcase IMAX scraper and now ingestible into the shared cache.': 'Usa el scraper IMAX de Showcase existente y ya se ingesta en el caché compartido.',
+          'Requests mode is the default fast path, while Selenium can still enrich sold-seat data when a logged-in profile is available.': 'El modo requests es el camino rápido por defecto; Selenium todavía puede enriquecer datos de butacas vendidas cuando hay un perfil logueado disponible.',
 
           'Screening board': 'Cartelera de funciones',
           'Cached screening search.': 'Búsqueda de funciones en caché.',
@@ -1877,6 +1902,47 @@
         return language === 'es' ? `${percent}% vendida` : `${percent}% sold`;
       }
 
+      function translateMetaLines(scope) {
+        scope.querySelectorAll('[data-i18n-meta-line]').forEach((element) => {
+          if (!element.dataset.i18nMetaOriginal) {
+            element.dataset.i18nMetaOriginal = normalizeSource(element.textContent);
+          }
+          const original = element.dataset.i18nMetaOriginal || '';
+          if (currentLanguage === 'en') {
+            element.textContent = original;
+            return;
+          }
+          element.textContent = original
+            .replace(/\bRoom\s+([A-Za-z0-9-]+)/gi, (_match, roomNumber) => formatRoom(roomNumber))
+            .replace(/\b(\d+)%\s+sold\b/gi, (_match, percent) => formatSold(percent));
+        });
+      }
+
+      function translateFreshnessLabels(scope) {
+        scope.querySelectorAll('[data-i18n-freshness]').forEach((element) => {
+          if (!element.dataset.i18nFreshnessOriginal) {
+            element.dataset.i18nFreshnessOriginal = normalizeSource(element.textContent);
+          }
+          const original = element.dataset.i18nFreshnessOriginal || '';
+          if (currentLanguage === 'en') {
+            element.textContent = original;
+            return;
+          }
+          if (original === 'Catalog seeded, no cached screenings yet') {
+            element.textContent = 'Catálogo cargado, todavía sin funciones en caché';
+            return;
+          }
+          if (original === 'Updated just now') {
+            element.textContent = 'Actualizado recién';
+            return;
+          }
+          const match = original.match(/^Updated\s+(\d+)\s+(min|h|d)\s+ago$/i);
+          if (match) {
+            element.textContent = `Actualizado hace ${match[1]} ${match[2]}`;
+          }
+        });
+      }
+
       function autoTranslateLeafElements(scope) {
         const candidates = scope.querySelectorAll(
           'h1, h2, h3, p, span, strong, a, button, option, label, .empty'
@@ -1906,6 +1972,10 @@
           const singular = element.dataset.i18nCount || 'screening';
           const plural = element.dataset.i18nCountPlural || `${singular}s`;
           const suffix = element.dataset.i18nCountSuffix || '';
+          if (currentLanguage === 'en' && suffix === 'cached') {
+            element.textContent = `${count} cached ${Number(count) === 1 ? singular : plural}`;
+            return;
+          }
           element.textContent = `${formatCount(count, singular, plural)}${suffix ? ` ${translateSource(suffix)}` : ''}`;
         });
       }
@@ -1924,6 +1994,8 @@
         });
         autoTranslateLeafElements(scope);
         translateCountElements(scope);
+        translateMetaLines(scope);
+        translateFreshnessLabels(scope);
         scope.querySelectorAll('[data-i18n-placeholder-source]').forEach((element) => {
           if (!(element instanceof HTMLInputElement || element instanceof HTMLTextAreaElement)) {
             return;
