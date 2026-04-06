@@ -1,0 +1,1326 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Movies | Cinema Watch Snapshot</title>
+  <style>
+    :root {
+      color-scheme: light;
+      --bg: #f2eadf;
+      --bg-deep: #e7ddcf;
+      --surface: rgba(255, 251, 245, 0.9);
+      --surface-strong: rgba(255, 252, 247, 0.98);
+      --surface-ink: #f8f0e5;
+      --ink: #15120f;
+      --muted: #625950;
+      --line: rgba(36, 28, 22, 0.12);
+      --line-strong: rgba(36, 28, 22, 0.24);
+      --accent: #0f6c5f;
+      --accent-soft: rgba(15, 108, 95, 0.12);
+      --warm: #b35a37;
+      --warm-soft: rgba(179, 90, 55, 0.12);
+      --gold: #8a6a21;
+      --gold-soft: rgba(138, 106, 33, 0.12);
+      --shadow: 0 18px 50px rgba(54, 34, 20, 0.08);
+      --shadow-soft: 0 8px 24px rgba(54, 34, 20, 0.06);
+      --radius-xl: 28px;
+      --radius-lg: 22px;
+      --radius-md: 16px;
+      --radius-sm: 12px;
+      --heading-font: "Iowan Old Style", "Palatino Linotype", "Book Antiqua", "Baskerville Old Face", serif;
+      --ui-font: "Aptos", "Segoe UI", "Trebuchet MS", sans-serif;
+      --mono-font: "Consolas", "SFMono-Regular", "Courier New", monospace;
+    }
+
+    * {
+      box-sizing: border-box;
+    }
+
+    html {
+      scroll-behavior: smooth;
+    }
+
+    body {
+      margin: 0;
+      min-height: 100vh;
+      color: var(--ink);
+      font-family: var(--ui-font);
+      background:
+        radial-gradient(circle at top left, rgba(179, 90, 55, 0.16), transparent 22rem),
+        radial-gradient(circle at 88% 8%, rgba(15, 108, 95, 0.12), transparent 24rem),
+        linear-gradient(180deg, #fbf6ef 0%, var(--bg) 52%, var(--bg-deep) 100%);
+      position: relative;
+    }
+
+    body::before {
+      content: "";
+      position: fixed;
+      inset: 0;
+      pointer-events: none;
+      background:
+        linear-gradient(transparent, rgba(255, 255, 255, 0.06)),
+        repeating-linear-gradient(
+          90deg,
+          rgba(255, 255, 255, 0.015) 0,
+          rgba(255, 255, 255, 0.015) 1px,
+          transparent 1px,
+          transparent 110px
+        );
+      opacity: 0.55;
+    }
+
+    a {
+      color: inherit;
+      text-decoration: none;
+    }
+
+    .shell {
+      width: min(1540px, calc(100% - 2rem));
+      margin: 0 auto;
+      padding: 0.95rem 0 3rem;
+      position: relative;
+      z-index: 1;
+    }
+
+    .topbar {
+      display: flex;
+      justify-content: space-between;
+      gap: 1rem;
+      align-items: center;
+      padding: 0.9rem 1.1rem;
+      border: 1px solid var(--line);
+      border-radius: 999px;
+      background: rgba(255, 250, 243, 0.82);
+      box-shadow: var(--shadow-soft);
+      position: sticky;
+      top: 0.8rem;
+      z-index: 20;
+      backdrop-filter: blur(14px);
+    }
+
+    .brand {
+      display: flex;
+      flex-direction: column;
+      gap: 0.12rem;
+      min-width: 0;
+    }
+
+    .brand strong {
+      font-family: var(--heading-font);
+      font-size: 1.24rem;
+      line-height: 1;
+      letter-spacing: 0.01em;
+    }
+
+    .brand span,
+    .nav a,
+    .muted {
+      color: var(--muted);
+    }
+
+    .brand span {
+      font-size: 0.88rem;
+    }
+
+    .nav {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 0.55rem;
+      justify-content: flex-end;
+      font-size: 0.93rem;
+      align-items: center;
+    }
+
+    .nav a,
+    .nav button {
+      padding: 0.46rem 0.84rem;
+      border-radius: 999px;
+      border: 1px solid transparent;
+      transition: background 140ms ease, border-color 140ms ease, color 140ms ease, transform 140ms ease;
+      background: transparent;
+      font: inherit;
+      cursor: pointer;
+    }
+
+    .nav a:hover,
+    .nav button:hover {
+      border-color: var(--line);
+      background: rgba(255, 255, 255, 0.58);
+      color: var(--ink);
+      transform: translateY(-1px);
+    }
+
+    .nav form {
+      margin: 0;
+    }
+
+    main {
+      margin-top: 1.1rem;
+      transition: opacity 140ms ease;
+    }
+
+    body[data-live-loading="1"] #app-main {
+      opacity: 0.62;
+    }
+
+    h1,
+    h2,
+    h3,
+    p {
+      margin: 0;
+    }
+
+    h1,
+    h2,
+    h3,
+    .brand strong,
+    .button-card strong,
+    .row-head strong,
+    .metric strong {
+      font-family: var(--heading-font);
+      font-weight: 600;
+    }
+
+    h1 {
+      font-size: clamp(2.25rem, 5vw, 4.5rem);
+      line-height: 0.98;
+      letter-spacing: -0.02em;
+      max-width: 14ch;
+    }
+
+    h2 {
+      font-size: 1rem;
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+    }
+
+    p {
+      line-height: 1.58;
+    }
+
+    .eyebrow {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.45rem;
+      padding: 0.36rem 0.7rem;
+      border-radius: 999px;
+      background: rgba(21, 18, 15, 0.05);
+      color: var(--muted);
+      text-transform: uppercase;
+      letter-spacing: 0.1em;
+      font-size: 0.72rem;
+      font-weight: 700;
+    }
+
+    .eyebrow::before {
+      content: "";
+      width: 0.48rem;
+      height: 0.48rem;
+      border-radius: 999px;
+      background: linear-gradient(180deg, var(--warm), var(--accent));
+    }
+
+    .hero,
+    .panel {
+      border: 1px solid var(--line);
+      border-radius: var(--radius-xl);
+      background:
+        linear-gradient(180deg, rgba(255, 255, 255, 0.38), transparent 40%),
+        var(--surface);
+      box-shadow: var(--shadow);
+      overflow: hidden;
+    }
+
+    .hero {
+      padding: 1.5rem;
+      display: grid;
+      gap: 1.1rem;
+      position: relative;
+      isolation: isolate;
+    }
+
+    .hero::after {
+      content: "";
+      position: absolute;
+      inset: auto -10% -28% auto;
+      width: 18rem;
+      height: 18rem;
+      border-radius: 999px;
+      background: radial-gradient(circle, rgba(15, 108, 95, 0.14), transparent 70%);
+      z-index: -1;
+    }
+
+    .hero-grid {
+      grid-template-columns: minmax(0, 1.45fr) minmax(280px, 0.9fr);
+      align-items: end;
+    }
+
+    .hero-copy {
+      max-width: 48rem;
+      display: grid;
+      gap: 0.9rem;
+    }
+
+    .hero-copy p {
+      color: var(--muted);
+      font-size: 1rem;
+      max-width: 55ch;
+    }
+
+    .hero-actions,
+    .hero-tags {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 0.55rem;
+    }
+
+    .hero-side {
+      padding: 1.15rem;
+      border-radius: var(--radius-lg);
+      border: 1px solid var(--line);
+      background:
+        linear-gradient(180deg, rgba(15, 108, 95, 0.08), rgba(255, 255, 255, 0.42)),
+        rgba(255, 252, 247, 0.72);
+      display: grid;
+      gap: 0.7rem;
+    }
+
+    .hero-side strong {
+      font-size: 1.22rem;
+      line-height: 1.08;
+    }
+
+    .hero-side p {
+      color: var(--muted);
+      font-size: 0.94rem;
+    }
+
+    .metrics {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+      gap: 0.75rem;
+    }
+
+    .metric {
+      padding: 1rem 1rem 1.05rem;
+      border-radius: var(--radius-lg);
+      background:
+        linear-gradient(180deg, rgba(255, 255, 255, 0.76), rgba(252, 247, 239, 0.82));
+      border: 1px solid rgba(36, 28, 22, 0.1);
+      position: relative;
+      overflow: hidden;
+    }
+
+    .metric::before {
+      content: "";
+      position: absolute;
+      inset: 0 auto auto 0;
+      width: 100%;
+      height: 3px;
+      background: linear-gradient(90deg, var(--accent), var(--warm));
+      opacity: 0.75;
+    }
+
+    .metric strong {
+      display: block;
+      font-size: 1.55rem;
+      margin-top: 0.25rem;
+      line-height: 1;
+    }
+
+    .layout {
+      display: grid;
+      grid-template-columns: minmax(0, 1.55fr) minmax(310px, 0.95fr);
+      gap: 1.1rem;
+      margin-top: 1.1rem;
+      align-items: start;
+    }
+
+    .stack {
+      display: grid;
+      gap: 1rem;
+    }
+
+    .stack-sticky {
+      position: sticky;
+      top: 6.2rem;
+    }
+
+    .panel {
+      padding: 1.08rem;
+    }
+
+    .section-head {
+      display: flex;
+      justify-content: space-between;
+      align-items: baseline;
+      gap: 0.75rem;
+      margin-bottom: 0.95rem;
+    }
+
+    .section-head p {
+      color: var(--muted);
+      font-size: 0.92rem;
+      max-width: 52ch;
+    }
+
+    .dense-list {
+      display: grid;
+      gap: 0.78rem;
+    }
+
+    .button-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(190px, 1fr));
+      gap: 0.75rem;
+    }
+
+    .home-board-grid {
+      display: grid;
+      grid-template-columns: repeat(2, minmax(0, 1fr));
+      gap: 1rem;
+      align-items: start;
+    }
+
+    .home-board-card {
+      display: grid;
+      gap: 0.9rem;
+      padding: 1.05rem;
+      border-radius: var(--radius-lg);
+      border: 1px solid var(--line);
+      background:
+        linear-gradient(180deg, rgba(255, 255, 255, 0.66), rgba(248, 242, 234, 0.76));
+      box-shadow: var(--shadow-soft);
+    }
+
+    .home-board-header {
+      display: grid;
+      gap: 0.45rem;
+    }
+
+    .home-board-header p {
+      color: var(--muted);
+      max-width: 44ch;
+      font-size: 0.94rem;
+    }
+
+    .home-board-sections {
+      display: grid;
+      gap: 0.7rem;
+    }
+
+    .home-board-day {
+      display: grid;
+      gap: 0.65rem;
+      padding: 0.85rem 0.9rem;
+      border-radius: var(--radius-md);
+      border: 1px solid rgba(36, 28, 22, 0.11);
+      background: rgba(255, 255, 255, 0.55);
+    }
+
+    .mini-results {
+      display: grid;
+      gap: 0.55rem;
+    }
+
+    .mini-result {
+      display: grid;
+      grid-template-columns: 76px minmax(0, 1fr);
+      gap: 0.7rem;
+      align-items: start;
+      padding-top: 0.55rem;
+      border-top: 1px dashed rgba(36, 28, 22, 0.12);
+    }
+
+    .mini-result:first-child {
+      padding-top: 0;
+      border-top: 0;
+    }
+
+    .mini-time {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      min-height: 2rem;
+      padding: 0.25rem 0.6rem;
+      border-radius: 999px;
+      background: rgba(21, 18, 15, 0.06);
+      border: 1px solid rgba(36, 28, 22, 0.1);
+      font-family: var(--mono-font);
+      font-size: 0.88rem;
+      font-weight: 700;
+    }
+
+    .mini-copy {
+      display: grid;
+      gap: 0.14rem;
+      min-width: 0;
+    }
+
+    .mini-copy strong {
+      font-size: 1rem;
+      line-height: 1.14;
+    }
+
+    .mini-copy p {
+      color: var(--muted);
+      font-size: 0.92rem;
+      line-height: 1.45;
+    }
+
+    .button-strip {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 0.45rem;
+    }
+
+    .button-group {
+      display: grid;
+      gap: 0.58rem;
+    }
+
+    .button-card,
+    .button-pill {
+      border: 1px solid var(--line-strong);
+      transition:
+        transform 120ms ease,
+        border-color 120ms ease,
+        background 120ms ease,
+        box-shadow 120ms ease;
+    }
+
+    .button-card:hover,
+    .button-pill:hover {
+      transform: translateY(-1px);
+      border-color: rgba(21, 18, 15, 0.28);
+      box-shadow: var(--shadow-soft);
+    }
+
+    .button-card {
+      display: grid;
+      gap: 0.38rem;
+      padding: 1rem;
+      border-radius: var(--radius-lg);
+      background:
+        linear-gradient(180deg, rgba(255, 255, 255, 0.78), rgba(247, 241, 233, 0.9));
+      box-shadow: var(--shadow-soft);
+      text-align: left;
+      width: 100%;
+    }
+
+    .button-card strong {
+      font-size: 1.03rem;
+      line-height: 1.06;
+    }
+
+    .button-card p {
+      color: var(--muted);
+      font-size: 0.9rem;
+    }
+
+    .button-card[data-tone="accent"] {
+      background:
+        linear-gradient(180deg, rgba(15, 108, 95, 0.18), rgba(255, 255, 255, 0.88));
+      border-color: rgba(15, 108, 95, 0.28);
+    }
+
+    .button-card[data-tone="warm"] {
+      background:
+        linear-gradient(180deg, rgba(179, 90, 55, 0.2), rgba(255, 255, 255, 0.88));
+      border-color: rgba(179, 90, 55, 0.28);
+    }
+
+    .button-pill {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      gap: 0.35rem;
+      min-height: 2.3rem;
+      padding: 0.5rem 0.85rem;
+      border-radius: 999px;
+      background: rgba(255, 255, 255, 0.76);
+      color: var(--ink);
+      font-size: 0.9rem;
+      font-weight: 600;
+      white-space: nowrap;
+      box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.6);
+    }
+
+    .button-pill[data-tone="accent"] {
+      background: rgba(15, 108, 95, 0.12);
+      color: var(--accent);
+    }
+
+    .button-pill[data-tone="warm"] {
+      background: rgba(179, 90, 55, 0.12);
+      color: var(--warm);
+    }
+
+    .button-pill.is-active {
+      background: var(--accent);
+      border-color: var(--accent);
+      color: white;
+    }
+
+    .button-pill.is-active[data-tone="warm"] {
+      background: var(--warm);
+      border-color: var(--warm);
+      color: white;
+    }
+
+    .row-card,
+    .result-day {
+      display: grid;
+      gap: 0.48rem;
+      padding: 1rem;
+      border-radius: var(--radius-lg);
+      border: 1px solid var(--line);
+      background:
+        linear-gradient(180deg, rgba(255, 255, 255, 0.62), rgba(248, 242, 234, 0.72));
+      box-shadow: var(--shadow-soft);
+    }
+
+    .row-head {
+      display: flex;
+      justify-content: space-between;
+      gap: 0.75rem;
+      align-items: start;
+    }
+
+    .row-head strong {
+      font-size: 1.12rem;
+      line-height: 1.08;
+    }
+
+    .kicker {
+      color: var(--muted);
+      font-size: 0.9rem;
+    }
+
+    .chips,
+    .stats {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 0.42rem;
+    }
+
+    .chip,
+    .stat {
+      border-radius: 999px;
+      padding: 0.26rem 0.6rem;
+      font-size: 0.79rem;
+      font-weight: 600;
+      letter-spacing: 0.01em;
+    }
+
+    .chip {
+      background: var(--accent-soft);
+      color: var(--accent);
+    }
+
+    .stat {
+      background: var(--warm-soft);
+      color: var(--warm);
+    }
+
+    .chip-ok {
+      background: rgba(15, 108, 95, 0.14);
+      color: var(--accent);
+    }
+
+    .chip-fail {
+      background: rgba(179, 90, 55, 0.17);
+      color: var(--warm);
+    }
+
+    .chip-pending {
+      background: var(--gold-soft);
+      color: var(--gold);
+    }
+
+    .chip-neutral {
+      background: rgba(21, 18, 15, 0.08);
+      color: var(--muted);
+    }
+
+    .mono {
+      font-family: var(--mono-font);
+      font-size: 0.88rem;
+      line-height: 1.45;
+    }
+
+    .row-card p,
+    .result-copy p {
+      color: var(--muted);
+      font-size: 0.94rem;
+    }
+
+    .result-list {
+      display: grid;
+      gap: 0.6rem;
+    }
+
+    .result-item {
+      display: grid;
+      grid-template-columns: 74px minmax(0, 1fr);
+      gap: 0.8rem;
+      align-items: start;
+      padding-top: 0.65rem;
+      border-top: 1px dashed rgba(36, 28, 22, 0.14);
+    }
+
+    .result-item:first-child {
+      border-top: 0;
+      padding-top: 0;
+    }
+
+    .time-badge {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      min-height: 2.2rem;
+      padding: 0.25rem 0.55rem;
+      border-radius: 999px;
+      background: rgba(21, 18, 15, 0.06);
+      border: 1px solid rgba(36, 28, 22, 0.12);
+      font-family: var(--mono-font);
+      font-size: 0.9rem;
+      font-weight: 700;
+      color: var(--ink);
+    }
+
+    .result-copy {
+      display: grid;
+      gap: 0.2rem;
+      min-width: 0;
+    }
+
+    .result-copy strong {
+      font-size: 1rem;
+      line-height: 1.2;
+    }
+
+    .result-copy a:hover {
+      color: var(--accent);
+    }
+
+    .meta-list {
+      display: grid;
+      gap: 0.55rem;
+    }
+
+    .meta-row {
+      display: flex;
+      justify-content: space-between;
+      gap: 1rem;
+      padding-bottom: 0.55rem;
+      border-bottom: 1px dashed var(--line);
+      font-size: 0.94rem;
+    }
+
+    .meta-row:last-child {
+      border-bottom: 0;
+      padding-bottom: 0;
+    }
+
+    .meta-row span:first-child {
+      color: var(--muted);
+      text-transform: uppercase;
+      letter-spacing: 0.04em;
+      font-size: 0.78rem;
+    }
+
+    .form-grid {
+      display: grid;
+      grid-template-columns: repeat(2, minmax(0, 1fr));
+      gap: 0.8rem;
+    }
+
+    .field {
+      display: grid;
+      gap: 0.38rem;
+    }
+
+    .field label,
+    .field span {
+      color: var(--muted);
+      font-size: 0.78rem;
+      font-weight: 700;
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+    }
+
+    .field-wide {
+      grid-column: 1 / -1;
+    }
+
+    .form-actions {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 0.6rem;
+      margin-top: 0.1rem;
+    }
+
+    .form-actions .button-pill {
+      width: auto;
+    }
+
+    .empty {
+      padding: 1rem 1.05rem;
+      border-radius: var(--radius-md);
+      background: rgba(255, 255, 255, 0.44);
+      border: 1px dashed var(--line-strong);
+      color: var(--muted);
+    }
+
+    input,
+    select,
+    button {
+      width: 100%;
+      font: inherit;
+      color: var(--ink);
+      border: 1px solid rgba(36, 28, 22, 0.18);
+      border-radius: var(--radius-sm);
+      background: rgba(255, 255, 255, 0.82);
+      padding: 0.7rem 0.78rem;
+      box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.72);
+    }
+
+    input:focus,
+    select:focus,
+    button:focus,
+    .button-pill:focus,
+    .button-card:focus {
+      outline: 2px solid rgba(15, 108, 95, 0.22);
+      outline-offset: 2px;
+    }
+
+    button {
+      cursor: pointer;
+      background: linear-gradient(180deg, #147a6c, var(--accent));
+      color: white;
+      border-color: rgba(15, 108, 95, 0.7);
+      font-weight: 700;
+    }
+
+    button.button-card {
+      color: var(--ink);
+      border-color: var(--line-strong);
+      background:
+        linear-gradient(180deg, rgba(255, 255, 255, 0.78), rgba(247, 241, 233, 0.9));
+    }
+
+    button.button-card[data-tone="accent"] {
+      background:
+        linear-gradient(180deg, rgba(15, 108, 95, 0.18), rgba(255, 255, 255, 0.88));
+    }
+
+    button.button-card[data-tone="warm"] {
+      background:
+        linear-gradient(180deg, rgba(179, 90, 55, 0.2), rgba(255, 255, 255, 0.88));
+    }
+
+    button.button-pill {
+      width: auto;
+      background: rgba(255, 255, 255, 0.76);
+      color: var(--ink);
+      border-color: var(--line-strong);
+      font-weight: 600;
+    }
+
+    button.button-pill[data-tone="accent"] {
+      background: rgba(15, 108, 95, 0.12);
+      color: var(--accent);
+      border-color: rgba(15, 108, 95, 0.22);
+    }
+
+    button.button-pill[data-tone="warm"] {
+      background: rgba(179, 90, 55, 0.12);
+      color: var(--warm);
+      border-color: rgba(179, 90, 55, 0.22);
+    }
+
+    @media (max-width: 1080px) {
+      .hero-grid,
+      .layout {
+        grid-template-columns: 1fr;
+      }
+
+      .stack-sticky {
+        position: static;
+      }
+
+      .home-board-grid {
+        grid-template-columns: 1fr;
+      }
+    }
+
+    @media (max-width: 860px) {
+      .shell {
+        width: min(100%, calc(100% - 0.9rem));
+        padding-top: 0.6rem;
+      }
+
+      .topbar {
+        align-items: start;
+        flex-direction: column;
+        border-radius: 26px;
+      }
+
+      .nav {
+        justify-content: start;
+      }
+
+      .hero,
+      .panel {
+        border-radius: 24px;
+      }
+
+      .button-grid,
+      .form-grid {
+        grid-template-columns: 1fr;
+      }
+
+      .mini-result {
+        grid-template-columns: 1fr;
+      }
+
+      .mini-time {
+        justify-self: start;
+      }
+
+      .result-item {
+        grid-template-columns: 1fr;
+      }
+
+      .time-badge {
+        justify-self: start;
+      }
+    }
+  </style>
+</head>
+<body>
+  <div class="shell">
+    <header class="topbar">
+      <a href="/cinema-watch-snapshot/" class="brand">
+        <strong>Cinema Watch</strong>
+        <span>Static cinema snapshot, published from the local cache</span>
+      </a>
+      <nav class="nav">
+        <a href="/cinema-watch-snapshot/">Home</a>
+        <a href="/cinema-watch-snapshot/screenings/">Search</a>
+        <a href="/cinema-watch-snapshot/movies/">Movies</a>
+        
+        <a href="/cinema-watch-snapshot/status/">Snapshot</a>
+        
+        <a href="/cinema-watch-snapshot/providers/cinepolis/">Cinepolis</a>
+        <a href="/cinema-watch-snapshot/providers/showcase/">Showcase</a>
+        <a href="/cinema-watch-snapshot/venues/cinepolis/recoleta/">Recoleta room 6</a>
+        
+      </nav>
+    </header>
+    <main id="app-main">
+      
+<section class="hero hero-grid">
+  <div class="hero-copy">
+    <span class="eyebrow">Static movie board</span>
+    <h1>Browse movies from the published snapshot.</h1>
+    <p>
+      This page groups the same exported screenings by movie title, so friends can start with the film name even when the live app is offline.
+    </p>
+  </div>
+  <div class="hero-side">
+    <strong>Movie-first view</strong>
+    <p>The board is rebuilt in the browser from the exported screening snapshot, so it still honors provider, venue, language, format, and date filters.</p>
+  </div>
+  <div class="metrics">
+    <div class="metric">
+      <span class="muted">Snapshot day</span>
+      <strong>2026-04-06</strong>
+    </div>
+    <div class="metric">
+      <span class="muted">Movies seen</span>
+      <strong>27</strong>
+    </div>
+    <div class="metric">
+      <span class="muted">Screenings behind them</span>
+      <strong>322</strong>
+    </div>
+  </div>
+</section>
+
+<div class="layout">
+  <div class="stack">
+    <section class="panel">
+      <div class="section-head">
+        <div>
+          <h2>Quick Filters</h2>
+          <p>Jump straight into the usual pivots, then refine from the filter rail.</p>
+        </div>
+      </div>
+      <div class="button-strip">
+        
+        <a class="button-pill" href="/cinema-watch-snapshot/movies/?limit=2000" data-tone="soft">All</a>
+        
+        <a class="button-pill" href="/cinema-watch-snapshot/movies/?provider=cinepolis&amp;limit=2000" data-tone="soft">Cinepolis</a>
+        
+        <a class="button-pill" href="/cinema-watch-snapshot/movies/?provider=showcase&amp;limit=2000" data-tone="soft">Showcase</a>
+        
+        <a class="button-pill" href="/cinema-watch-snapshot/movies/?limit=2000" data-tone="soft">Any</a>
+        
+        <a class="button-pill" href="/cinema-watch-snapshot/movies/?language=espanol&amp;limit=2000" data-tone="soft">Espanol</a>
+        
+        <a class="button-pill" href="/cinema-watch-snapshot/movies/?language=subtitulado&amp;limit=2000" data-tone="soft">Subtitulado</a>
+        
+        <a class="button-pill" href="/cinema-watch-snapshot/movies/?limit=2000" data-tone="soft">Any</a>
+        
+        <a class="button-pill" href="/cinema-watch-snapshot/movies/?format=2D&amp;limit=2000" data-tone="soft">2D</a>
+        
+      </div>
+    </section>
+
+    <section class="panel" style="margin-top: 1rem;">
+      <div class="section-head">
+        <div>
+          <h2>Movie Results</h2>
+          <p id="movie-results-summary">Loading snapshot data...</p>
+        </div>
+      </div>
+      <div id="movie-results" class="dense-list">
+        <div class="empty">Loading static movie snapshot…</div>
+      </div>
+    </section>
+  </div>
+
+  <div class="stack stack-sticky">
+    <section class="panel">
+      <div class="section-head">
+        <div>
+          <h2>Filter Rail</h2>
+          <p>These filters reshape the snapshot in your browser only.</p>
+        </div>
+      </div>
+      <form id="static-movies-form" class="dense-list" data-provider-venue-form="true">
+        <div class="form-grid">
+          <label class="field">
+            <span>Provider</span>
+            <select name="provider" data-provider-select="true">
+              <option value="">All providers</option>
+              
+              <option value="cinepolis">Cinepolis Argentina</option>
+              
+              <option value="showcase">Showcase / IMAX</option>
+              
+            </select>
+          </label>
+          <label class="field">
+            <span>Venue</span>
+            <select name="venue" data-venue-select="true">
+              <option value="">All venues</option>
+              
+              <option value="avellaneda" data-provider="cinepolis">Cinepolis Argentina / Avellaneda</option>
+              
+              <option value="maipu" data-provider="cinepolis">Cinepolis Argentina / Cinépolis Arena Maipú</option>
+              
+              <option value="lujan" data-provider="cinepolis">Cinepolis Argentina / Cinépolis Luján</option>
+              
+              <option value="mendoza" data-provider="cinepolis">Cinepolis Argentina / Cinépolis Mendoza Plaza</option>
+              
+              <option value="merlo" data-provider="cinepolis">Cinepolis Argentina / Cinépolis Merlo</option>
+              
+              <option value="neuquen" data-provider="cinepolis">Cinepolis Argentina / Cinépolis Neuquén</option>
+              
+              <option value="pilar" data-provider="cinepolis">Cinepolis Argentina / Cinépolis Pilar</option>
+              
+              <option value="houssay" data-provider="cinepolis">Cinepolis Argentina / Cinépolis Plaza Houssay</option>
+              
+              <option value="rosario" data-provider="cinepolis">Cinepolis Argentina / Cinépolis Rosario</option>
+              
+              <option value="recoleta" data-provider="cinepolis">Cinepolis Argentina / Recoleta</option>
+              
+              <option value="imax_norcenter" data-provider="showcase">Showcase / IMAX / IMAX Theatre (Norcenter)</option>
+              
+              <option value="play_cinema_san_juan" data-provider="showcase">Showcase / IMAX / Play Cinema San Juan</option>
+              
+              <option value="showcase_belgrano" data-provider="showcase">Showcase / IMAX / Showcase Belgrano</option>
+              
+              <option value="showcase_cordoba_villa_cabrera" data-provider="showcase">Showcase / IMAX / Showcase Cordoba (Villa Cabrera)</option>
+              
+              <option value="showcase_haedo" data-provider="showcase">Showcase / IMAX / Showcase Haedo</option>
+              
+              <option value="showcase_norcenter" data-provider="showcase">Showcase / IMAX / Showcase Norcenter</option>
+              
+              <option value="showcase_quilmes" data-provider="showcase">Showcase / IMAX / Showcase Quilmes</option>
+              
+              <option value="showcase_rosario" data-provider="showcase">Showcase / IMAX / Showcase Rosario</option>
+              
+              <option value="showcase_villa_allende" data-provider="showcase">Showcase / IMAX / Showcase Villa Allende</option>
+              
+            </select>
+          </label>
+          <label class="field field-wide">
+            <span>Movie contains</span>
+            <input type="text" name="movie" placeholder="Mario, Hamnet, Proyecto..." />
+          </label>
+          <label class="field">
+            <span>Language</span>
+            <select name="language">
+              <option value="">Any</option>
+              <option value="espanol">Español</option>
+              <option value="subtitulado">Subtitulado</option>
+            </select>
+          </label>
+          <label class="field">
+            <span>Format</span>
+            <input type="text" name="format" placeholder="2D, 3D, 4D, IMAX..." />
+          </label>
+          <label class="field">
+            <span>From date</span>
+            <input type="date" name="from_date" />
+          </label>
+          <label class="field">
+            <span>To date</span>
+            <input type="date" name="to_date" />
+          </label>
+          <label class="field field-wide">
+            <span>History</span>
+            <div class="button-strip">
+              <label class="button-pill" style="justify-content: flex-start; width: 100%;">
+                <input type="checkbox" name="include_past" value="1" style="width:auto; margin:0 0.45rem 0 0;" />
+                Include older cached dates
+              </label>
+            </div>
+          </label>
+        </div>
+        <div class="form-actions">
+          <button type="submit">Filter movies</button>
+          <a class="button-pill" href="/cinema-watch-snapshot/movies/">Clear filters</a>
+        </div>
+      </form>
+    </section>
+  </div>
+</div>
+
+    </main>
+  </div>
+  
+<script>
+(() => {
+  const dataHref = "/cinema-watch-snapshot/cinema-watch-snapshot/data/site-data.json";
+  const todayIso = "2026-04-06";
+  const form = document.getElementById('static-movies-form');
+  const summary = document.getElementById('movie-results-summary');
+  const results = document.getElementById('movie-results');
+
+  function escapeHtml(value) {
+    return String(value ?? '')
+      .replaceAll('&', '&amp;')
+      .replaceAll('<', '&lt;')
+      .replaceAll('>', '&gt;')
+      .replaceAll('"', '&quot;')
+      .replaceAll("'", '&#39;');
+  }
+
+  function foldText(value) {
+    return String(value ?? '')
+      .normalize('NFD')
+      .replace(/[\u0300-\u036f]/g, '')
+      .toLowerCase()
+      .trim();
+  }
+
+  function canonicalLanguage(value) {
+    const text = foldText(value);
+    if (!text) return '';
+    if (text.includes('subti')) return 'subtitulado';
+    if (['espanol', 'español', 'castellano', 'doblada'].includes(text)) return 'espanol';
+    return text;
+  }
+
+  function canonicalFormat(value) {
+    return foldText(value).replace(/\s+/g, '');
+  }
+
+  function syncVenueSelect() {
+    const providerSelect = form.querySelector('[name="provider"]');
+    const venueSelect = form.querySelector('[name="venue"]');
+    if (!(providerSelect instanceof HTMLSelectElement) || !(venueSelect instanceof HTMLSelectElement)) return;
+    const provider = providerSelect.value.trim();
+    const current = venueSelect.value;
+    let valid = !current;
+    for (const option of venueSelect.options) {
+      if (!option.value) {
+        option.hidden = false;
+        option.disabled = false;
+        continue;
+      }
+      const visible = !provider || option.dataset.provider === provider;
+      option.hidden = !visible;
+      option.disabled = !visible;
+      if (visible && option.value === current) valid = true;
+    }
+    if (!valid) venueSelect.value = '';
+  }
+
+  function applyUrlToForm() {
+    const params = new URLSearchParams(window.location.search);
+    for (const [key, value] of params.entries()) {
+      const field = form.elements.namedItem(key);
+      if (!field) continue;
+      if (field instanceof RadioNodeList) continue;
+      if (field instanceof HTMLInputElement && field.type === 'checkbox') {
+        field.checked = value === '1' || value === 'true';
+      } else {
+        field.value = value;
+      }
+    }
+    syncVenueSelect();
+  }
+
+  function readFilters() {
+    const data = new FormData(form);
+    return {
+      provider: String(data.get('provider') || '').trim(),
+      venue: String(data.get('venue') || '').trim(),
+      movie: String(data.get('movie') || '').trim(),
+      language: canonicalLanguage(data.get('language') || ''),
+      format: canonicalFormat(data.get('format') || ''),
+      from_date: String(data.get('from_date') || '').trim(),
+      to_date: String(data.get('to_date') || '').trim(),
+      include_past: data.get('include_past') === '1',
+    };
+  }
+
+  function updateUrl(filters) {
+    const params = new URLSearchParams();
+    for (const [key, value] of Object.entries(filters)) {
+      if (typeof value === 'boolean') {
+        if (value) params.set(key, '1');
+        continue;
+      }
+      if (String(value).trim()) params.set(key, String(value).trim());
+    }
+    const query = params.toString();
+    const next = query ? `?${query}` : window.location.pathname;
+    window.history.replaceState({}, '', next);
+  }
+
+  function filterRows(rows, filters) {
+    return rows.filter((row) => {
+      if (filters.provider && row.provider !== filters.provider) return false;
+      if (filters.venue && row.venue_key !== filters.venue) return false;
+      if (!filters.include_past && !filters.from_date && row.date_iso < todayIso) return false;
+      if (filters.from_date && row.date_iso < filters.from_date) return false;
+      if (filters.to_date && row.date_iso > filters.to_date) return false;
+      if (filters.movie && !foldText(row.movie_title).includes(foldText(filters.movie))) return false;
+      if (filters.language && canonicalLanguage(row.language) !== filters.language) return false;
+      if (filters.format) {
+        const formatMatch = [canonicalFormat(row.format_label), canonicalFormat(row.experience)].includes(filters.format);
+        if (!formatMatch) return false;
+      }
+      return true;
+    });
+  }
+
+  function groupMovies(rows) {
+    const grouped = new Map();
+    for (const row of rows) {
+      const slug = row.movie_slug;
+      if (!grouped.has(slug)) {
+        grouped.set(slug, {
+          title: row.movie_title,
+          movie_href: row.movie_href,
+          screening_count: 0,
+          venues: new Set(),
+          languages: new Set(),
+          formats: new Set(),
+          min_date: '',
+          max_date: '',
+        });
+      }
+      const bucket = grouped.get(slug);
+      bucket.screening_count += 1;
+      bucket.venues.add(`${row.provider}:${row.venue_key}`);
+      if (row.language) bucket.languages.add(row.language);
+      if (row.format_label) bucket.formats.add(row.format_label);
+      if (row.experience) bucket.formats.add(row.experience);
+      if (!bucket.min_date || row.date_iso < bucket.min_date) bucket.min_date = row.date_iso;
+      if (!bucket.max_date || row.date_iso > bucket.max_date) bucket.max_date = row.date_iso;
+    }
+    return Array.from(grouped.values()).sort((a, b) => {
+      if (b.screening_count !== a.screening_count) return b.screening_count - a.screening_count;
+      return a.title.localeCompare(b.title);
+    });
+  }
+
+  function renderMovies(rows) {
+    const grouped = groupMovies(rows);
+    if (!grouped.length) {
+      summary.textContent = 'No movies matched the published snapshot with these filters.';
+      results.innerHTML = '<div class="empty"><strong>No movies matched.</strong><p style="margin-top:0.45rem;">Try widening the filters or waiting for the next local publish.</p></div>';
+      return;
+    }
+
+    summary.textContent = `${grouped.length} movie${grouped.length === 1 ? '' : 's'} matched this snapshot.`;
+    results.innerHTML = `<div class="dense-list">${grouped.map((movie) => {
+      const dateRange = movie.min_date && movie.max_date
+        ? (movie.min_date === movie.max_date ? movie.min_date : `${movie.min_date} to ${movie.max_date}`)
+        : '';
+      return `
+        <a class="row-card" href="${escapeHtml(movie.movie_href)}">
+          <div class="row-head">
+            <strong>${escapeHtml(movie.title)}</strong>
+            <div class="chips">
+              <span class="chip">${movie.screening_count} screenings</span>
+              <span class="chip">${movie.venues.size} venues</span>
+            </div>
+          </div>
+          ${dateRange ? `<p>Cached dates: ${escapeHtml(dateRange)}</p>` : ''}
+          <div class="chips">
+            ${Array.from(movie.languages).map((value) => `<span class="chip">${escapeHtml(value)}</span>`).join('')}
+            ${Array.from(movie.formats).map((value) => `<span class="stat">${escapeHtml(value)}</span>`).join('')}
+          </div>
+        </a>
+      `;
+    }).join('')}</div>`;
+  }
+
+  async function main() {
+    applyUrlToForm();
+    form.addEventListener('change', (event) => {
+      syncVenueSelect();
+      if (!(event.target instanceof HTMLInputElement) || event.target.type !== 'text') {
+        run(window.__siteData || null);
+      }
+    });
+    form.addEventListener('submit', (event) => {
+      event.preventDefault();
+      run(window.__siteData || null);
+    });
+
+    const response = await fetch(dataHref);
+    const payload = await response.json();
+    window.__siteData = payload;
+    run(payload);
+  }
+
+  function run(payload) {
+    if (!payload) return;
+    const filters = readFilters();
+    updateUrl(filters);
+    renderMovies(filterRows(payload.screenings || [], filters));
+  }
+
+  main().catch((error) => {
+    summary.textContent = 'Snapshot data failed to load.';
+    results.innerHTML = `<div class="empty"><strong>Could not load the static data file.</strong><p style="margin-top:0.45rem;">${escapeHtml(error)}</p></div>`;
+  });
+
+  form.querySelector('[name="provider"]')?.addEventListener('change', syncVenueSelect);
+})();
+</script>
+
+  
+</body>
+</html>

@@ -1,0 +1,1156 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Cumbres Borrascosas | Cinema Watch</title>
+  <style>
+    :root {
+      color-scheme: light;
+      --bg: #f2eadf;
+      --bg-deep: #e7ddcf;
+      --surface: rgba(255, 251, 245, 0.9);
+      --surface-strong: rgba(255, 252, 247, 0.98);
+      --surface-ink: #f8f0e5;
+      --ink: #15120f;
+      --muted: #625950;
+      --line: rgba(36, 28, 22, 0.12);
+      --line-strong: rgba(36, 28, 22, 0.24);
+      --accent: #0f6c5f;
+      --accent-soft: rgba(15, 108, 95, 0.12);
+      --warm: #b35a37;
+      --warm-soft: rgba(179, 90, 55, 0.12);
+      --gold: #8a6a21;
+      --gold-soft: rgba(138, 106, 33, 0.12);
+      --shadow: 0 18px 50px rgba(54, 34, 20, 0.08);
+      --shadow-soft: 0 8px 24px rgba(54, 34, 20, 0.06);
+      --radius-xl: 28px;
+      --radius-lg: 22px;
+      --radius-md: 16px;
+      --radius-sm: 12px;
+      --heading-font: "Iowan Old Style", "Palatino Linotype", "Book Antiqua", "Baskerville Old Face", serif;
+      --ui-font: "Aptos", "Segoe UI", "Trebuchet MS", sans-serif;
+      --mono-font: "Consolas", "SFMono-Regular", "Courier New", monospace;
+    }
+
+    * {
+      box-sizing: border-box;
+    }
+
+    html {
+      scroll-behavior: smooth;
+    }
+
+    body {
+      margin: 0;
+      min-height: 100vh;
+      color: var(--ink);
+      font-family: var(--ui-font);
+      background:
+        radial-gradient(circle at top left, rgba(179, 90, 55, 0.16), transparent 22rem),
+        radial-gradient(circle at 88% 8%, rgba(15, 108, 95, 0.12), transparent 24rem),
+        linear-gradient(180deg, #fbf6ef 0%, var(--bg) 52%, var(--bg-deep) 100%);
+      position: relative;
+    }
+
+    body::before {
+      content: "";
+      position: fixed;
+      inset: 0;
+      pointer-events: none;
+      background:
+        linear-gradient(transparent, rgba(255, 255, 255, 0.06)),
+        repeating-linear-gradient(
+          90deg,
+          rgba(255, 255, 255, 0.015) 0,
+          rgba(255, 255, 255, 0.015) 1px,
+          transparent 1px,
+          transparent 110px
+        );
+      opacity: 0.55;
+    }
+
+    a {
+      color: inherit;
+      text-decoration: none;
+    }
+
+    .shell {
+      width: min(1540px, calc(100% - 2rem));
+      margin: 0 auto;
+      padding: 0.95rem 0 3rem;
+      position: relative;
+      z-index: 1;
+    }
+
+    .topbar {
+      display: flex;
+      justify-content: space-between;
+      gap: 1rem;
+      align-items: center;
+      padding: 0.9rem 1.1rem;
+      border: 1px solid var(--line);
+      border-radius: 999px;
+      background: rgba(255, 250, 243, 0.82);
+      box-shadow: var(--shadow-soft);
+      position: sticky;
+      top: 0.8rem;
+      z-index: 20;
+      backdrop-filter: blur(14px);
+    }
+
+    .brand {
+      display: flex;
+      flex-direction: column;
+      gap: 0.12rem;
+      min-width: 0;
+    }
+
+    .brand strong {
+      font-family: var(--heading-font);
+      font-size: 1.24rem;
+      line-height: 1;
+      letter-spacing: 0.01em;
+    }
+
+    .brand span,
+    .nav a,
+    .muted {
+      color: var(--muted);
+    }
+
+    .brand span {
+      font-size: 0.88rem;
+    }
+
+    .nav {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 0.55rem;
+      justify-content: flex-end;
+      font-size: 0.93rem;
+      align-items: center;
+    }
+
+    .nav a,
+    .nav button {
+      padding: 0.46rem 0.84rem;
+      border-radius: 999px;
+      border: 1px solid transparent;
+      transition: background 140ms ease, border-color 140ms ease, color 140ms ease, transform 140ms ease;
+      background: transparent;
+      font: inherit;
+      cursor: pointer;
+    }
+
+    .nav a:hover,
+    .nav button:hover {
+      border-color: var(--line);
+      background: rgba(255, 255, 255, 0.58);
+      color: var(--ink);
+      transform: translateY(-1px);
+    }
+
+    .nav form {
+      margin: 0;
+    }
+
+    main {
+      margin-top: 1.1rem;
+      transition: opacity 140ms ease;
+    }
+
+    body[data-live-loading="1"] #app-main {
+      opacity: 0.62;
+    }
+
+    h1,
+    h2,
+    h3,
+    p {
+      margin: 0;
+    }
+
+    h1,
+    h2,
+    h3,
+    .brand strong,
+    .button-card strong,
+    .row-head strong,
+    .metric strong {
+      font-family: var(--heading-font);
+      font-weight: 600;
+    }
+
+    h1 {
+      font-size: clamp(2.25rem, 5vw, 4.5rem);
+      line-height: 0.98;
+      letter-spacing: -0.02em;
+      max-width: 14ch;
+    }
+
+    h2 {
+      font-size: 1rem;
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+    }
+
+    p {
+      line-height: 1.58;
+    }
+
+    .eyebrow {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.45rem;
+      padding: 0.36rem 0.7rem;
+      border-radius: 999px;
+      background: rgba(21, 18, 15, 0.05);
+      color: var(--muted);
+      text-transform: uppercase;
+      letter-spacing: 0.1em;
+      font-size: 0.72rem;
+      font-weight: 700;
+    }
+
+    .eyebrow::before {
+      content: "";
+      width: 0.48rem;
+      height: 0.48rem;
+      border-radius: 999px;
+      background: linear-gradient(180deg, var(--warm), var(--accent));
+    }
+
+    .hero,
+    .panel {
+      border: 1px solid var(--line);
+      border-radius: var(--radius-xl);
+      background:
+        linear-gradient(180deg, rgba(255, 255, 255, 0.38), transparent 40%),
+        var(--surface);
+      box-shadow: var(--shadow);
+      overflow: hidden;
+    }
+
+    .hero {
+      padding: 1.5rem;
+      display: grid;
+      gap: 1.1rem;
+      position: relative;
+      isolation: isolate;
+    }
+
+    .hero::after {
+      content: "";
+      position: absolute;
+      inset: auto -10% -28% auto;
+      width: 18rem;
+      height: 18rem;
+      border-radius: 999px;
+      background: radial-gradient(circle, rgba(15, 108, 95, 0.14), transparent 70%);
+      z-index: -1;
+    }
+
+    .hero-grid {
+      grid-template-columns: minmax(0, 1.45fr) minmax(280px, 0.9fr);
+      align-items: end;
+    }
+
+    .hero-copy {
+      max-width: 48rem;
+      display: grid;
+      gap: 0.9rem;
+    }
+
+    .hero-copy p {
+      color: var(--muted);
+      font-size: 1rem;
+      max-width: 55ch;
+    }
+
+    .hero-actions,
+    .hero-tags {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 0.55rem;
+    }
+
+    .hero-side {
+      padding: 1.15rem;
+      border-radius: var(--radius-lg);
+      border: 1px solid var(--line);
+      background:
+        linear-gradient(180deg, rgba(15, 108, 95, 0.08), rgba(255, 255, 255, 0.42)),
+        rgba(255, 252, 247, 0.72);
+      display: grid;
+      gap: 0.7rem;
+    }
+
+    .hero-side strong {
+      font-size: 1.22rem;
+      line-height: 1.08;
+    }
+
+    .hero-side p {
+      color: var(--muted);
+      font-size: 0.94rem;
+    }
+
+    .metrics {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+      gap: 0.75rem;
+    }
+
+    .metric {
+      padding: 1rem 1rem 1.05rem;
+      border-radius: var(--radius-lg);
+      background:
+        linear-gradient(180deg, rgba(255, 255, 255, 0.76), rgba(252, 247, 239, 0.82));
+      border: 1px solid rgba(36, 28, 22, 0.1);
+      position: relative;
+      overflow: hidden;
+    }
+
+    .metric::before {
+      content: "";
+      position: absolute;
+      inset: 0 auto auto 0;
+      width: 100%;
+      height: 3px;
+      background: linear-gradient(90deg, var(--accent), var(--warm));
+      opacity: 0.75;
+    }
+
+    .metric strong {
+      display: block;
+      font-size: 1.55rem;
+      margin-top: 0.25rem;
+      line-height: 1;
+    }
+
+    .layout {
+      display: grid;
+      grid-template-columns: minmax(0, 1.55fr) minmax(310px, 0.95fr);
+      gap: 1.1rem;
+      margin-top: 1.1rem;
+      align-items: start;
+    }
+
+    .stack {
+      display: grid;
+      gap: 1rem;
+    }
+
+    .stack-sticky {
+      position: sticky;
+      top: 6.2rem;
+    }
+
+    .panel {
+      padding: 1.08rem;
+    }
+
+    .section-head {
+      display: flex;
+      justify-content: space-between;
+      align-items: baseline;
+      gap: 0.75rem;
+      margin-bottom: 0.95rem;
+    }
+
+    .section-head p {
+      color: var(--muted);
+      font-size: 0.92rem;
+      max-width: 52ch;
+    }
+
+    .dense-list {
+      display: grid;
+      gap: 0.78rem;
+    }
+
+    .button-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(190px, 1fr));
+      gap: 0.75rem;
+    }
+
+    .home-board-grid {
+      display: grid;
+      grid-template-columns: repeat(2, minmax(0, 1fr));
+      gap: 1rem;
+      align-items: start;
+    }
+
+    .home-board-card {
+      display: grid;
+      gap: 0.9rem;
+      padding: 1.05rem;
+      border-radius: var(--radius-lg);
+      border: 1px solid var(--line);
+      background:
+        linear-gradient(180deg, rgba(255, 255, 255, 0.66), rgba(248, 242, 234, 0.76));
+      box-shadow: var(--shadow-soft);
+    }
+
+    .home-board-header {
+      display: grid;
+      gap: 0.45rem;
+    }
+
+    .home-board-header p {
+      color: var(--muted);
+      max-width: 44ch;
+      font-size: 0.94rem;
+    }
+
+    .home-board-sections {
+      display: grid;
+      gap: 0.7rem;
+    }
+
+    .home-board-day {
+      display: grid;
+      gap: 0.65rem;
+      padding: 0.85rem 0.9rem;
+      border-radius: var(--radius-md);
+      border: 1px solid rgba(36, 28, 22, 0.11);
+      background: rgba(255, 255, 255, 0.55);
+    }
+
+    .mini-results {
+      display: grid;
+      gap: 0.55rem;
+    }
+
+    .mini-result {
+      display: grid;
+      grid-template-columns: 76px minmax(0, 1fr);
+      gap: 0.7rem;
+      align-items: start;
+      padding-top: 0.55rem;
+      border-top: 1px dashed rgba(36, 28, 22, 0.12);
+    }
+
+    .mini-result:first-child {
+      padding-top: 0;
+      border-top: 0;
+    }
+
+    .mini-time {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      min-height: 2rem;
+      padding: 0.25rem 0.6rem;
+      border-radius: 999px;
+      background: rgba(21, 18, 15, 0.06);
+      border: 1px solid rgba(36, 28, 22, 0.1);
+      font-family: var(--mono-font);
+      font-size: 0.88rem;
+      font-weight: 700;
+    }
+
+    .mini-copy {
+      display: grid;
+      gap: 0.14rem;
+      min-width: 0;
+    }
+
+    .mini-copy strong {
+      font-size: 1rem;
+      line-height: 1.14;
+    }
+
+    .mini-copy p {
+      color: var(--muted);
+      font-size: 0.92rem;
+      line-height: 1.45;
+    }
+
+    .button-strip {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 0.45rem;
+    }
+
+    .button-group {
+      display: grid;
+      gap: 0.58rem;
+    }
+
+    .button-card,
+    .button-pill {
+      border: 1px solid var(--line-strong);
+      transition:
+        transform 120ms ease,
+        border-color 120ms ease,
+        background 120ms ease,
+        box-shadow 120ms ease;
+    }
+
+    .button-card:hover,
+    .button-pill:hover {
+      transform: translateY(-1px);
+      border-color: rgba(21, 18, 15, 0.28);
+      box-shadow: var(--shadow-soft);
+    }
+
+    .button-card {
+      display: grid;
+      gap: 0.38rem;
+      padding: 1rem;
+      border-radius: var(--radius-lg);
+      background:
+        linear-gradient(180deg, rgba(255, 255, 255, 0.78), rgba(247, 241, 233, 0.9));
+      box-shadow: var(--shadow-soft);
+      text-align: left;
+      width: 100%;
+    }
+
+    .button-card strong {
+      font-size: 1.03rem;
+      line-height: 1.06;
+    }
+
+    .button-card p {
+      color: var(--muted);
+      font-size: 0.9rem;
+    }
+
+    .button-card[data-tone="accent"] {
+      background:
+        linear-gradient(180deg, rgba(15, 108, 95, 0.18), rgba(255, 255, 255, 0.88));
+      border-color: rgba(15, 108, 95, 0.28);
+    }
+
+    .button-card[data-tone="warm"] {
+      background:
+        linear-gradient(180deg, rgba(179, 90, 55, 0.2), rgba(255, 255, 255, 0.88));
+      border-color: rgba(179, 90, 55, 0.28);
+    }
+
+    .button-pill {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      gap: 0.35rem;
+      min-height: 2.3rem;
+      padding: 0.5rem 0.85rem;
+      border-radius: 999px;
+      background: rgba(255, 255, 255, 0.76);
+      color: var(--ink);
+      font-size: 0.9rem;
+      font-weight: 600;
+      white-space: nowrap;
+      box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.6);
+    }
+
+    .button-pill[data-tone="accent"] {
+      background: rgba(15, 108, 95, 0.12);
+      color: var(--accent);
+    }
+
+    .button-pill[data-tone="warm"] {
+      background: rgba(179, 90, 55, 0.12);
+      color: var(--warm);
+    }
+
+    .button-pill.is-active {
+      background: var(--accent);
+      border-color: var(--accent);
+      color: white;
+    }
+
+    .button-pill.is-active[data-tone="warm"] {
+      background: var(--warm);
+      border-color: var(--warm);
+      color: white;
+    }
+
+    .row-card,
+    .result-day {
+      display: grid;
+      gap: 0.48rem;
+      padding: 1rem;
+      border-radius: var(--radius-lg);
+      border: 1px solid var(--line);
+      background:
+        linear-gradient(180deg, rgba(255, 255, 255, 0.62), rgba(248, 242, 234, 0.72));
+      box-shadow: var(--shadow-soft);
+    }
+
+    .row-head {
+      display: flex;
+      justify-content: space-between;
+      gap: 0.75rem;
+      align-items: start;
+    }
+
+    .row-head strong {
+      font-size: 1.12rem;
+      line-height: 1.08;
+    }
+
+    .kicker {
+      color: var(--muted);
+      font-size: 0.9rem;
+    }
+
+    .chips,
+    .stats {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 0.42rem;
+    }
+
+    .chip,
+    .stat {
+      border-radius: 999px;
+      padding: 0.26rem 0.6rem;
+      font-size: 0.79rem;
+      font-weight: 600;
+      letter-spacing: 0.01em;
+    }
+
+    .chip {
+      background: var(--accent-soft);
+      color: var(--accent);
+    }
+
+    .stat {
+      background: var(--warm-soft);
+      color: var(--warm);
+    }
+
+    .chip-ok {
+      background: rgba(15, 108, 95, 0.14);
+      color: var(--accent);
+    }
+
+    .chip-fail {
+      background: rgba(179, 90, 55, 0.17);
+      color: var(--warm);
+    }
+
+    .chip-pending {
+      background: var(--gold-soft);
+      color: var(--gold);
+    }
+
+    .chip-neutral {
+      background: rgba(21, 18, 15, 0.08);
+      color: var(--muted);
+    }
+
+    .mono {
+      font-family: var(--mono-font);
+      font-size: 0.88rem;
+      line-height: 1.45;
+    }
+
+    .row-card p,
+    .result-copy p {
+      color: var(--muted);
+      font-size: 0.94rem;
+    }
+
+    .result-list {
+      display: grid;
+      gap: 0.6rem;
+    }
+
+    .result-item {
+      display: grid;
+      grid-template-columns: 74px minmax(0, 1fr);
+      gap: 0.8rem;
+      align-items: start;
+      padding-top: 0.65rem;
+      border-top: 1px dashed rgba(36, 28, 22, 0.14);
+    }
+
+    .result-item:first-child {
+      border-top: 0;
+      padding-top: 0;
+    }
+
+    .time-badge {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      min-height: 2.2rem;
+      padding: 0.25rem 0.55rem;
+      border-radius: 999px;
+      background: rgba(21, 18, 15, 0.06);
+      border: 1px solid rgba(36, 28, 22, 0.12);
+      font-family: var(--mono-font);
+      font-size: 0.9rem;
+      font-weight: 700;
+      color: var(--ink);
+    }
+
+    .result-copy {
+      display: grid;
+      gap: 0.2rem;
+      min-width: 0;
+    }
+
+    .result-copy strong {
+      font-size: 1rem;
+      line-height: 1.2;
+    }
+
+    .result-copy a:hover {
+      color: var(--accent);
+    }
+
+    .meta-list {
+      display: grid;
+      gap: 0.55rem;
+    }
+
+    .meta-row {
+      display: flex;
+      justify-content: space-between;
+      gap: 1rem;
+      padding-bottom: 0.55rem;
+      border-bottom: 1px dashed var(--line);
+      font-size: 0.94rem;
+    }
+
+    .meta-row:last-child {
+      border-bottom: 0;
+      padding-bottom: 0;
+    }
+
+    .meta-row span:first-child {
+      color: var(--muted);
+      text-transform: uppercase;
+      letter-spacing: 0.04em;
+      font-size: 0.78rem;
+    }
+
+    .form-grid {
+      display: grid;
+      grid-template-columns: repeat(2, minmax(0, 1fr));
+      gap: 0.8rem;
+    }
+
+    .field {
+      display: grid;
+      gap: 0.38rem;
+    }
+
+    .field label,
+    .field span {
+      color: var(--muted);
+      font-size: 0.78rem;
+      font-weight: 700;
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+    }
+
+    .field-wide {
+      grid-column: 1 / -1;
+    }
+
+    .form-actions {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 0.6rem;
+      margin-top: 0.1rem;
+    }
+
+    .form-actions .button-pill {
+      width: auto;
+    }
+
+    .empty {
+      padding: 1rem 1.05rem;
+      border-radius: var(--radius-md);
+      background: rgba(255, 255, 255, 0.44);
+      border: 1px dashed var(--line-strong);
+      color: var(--muted);
+    }
+
+    input,
+    select,
+    button {
+      width: 100%;
+      font: inherit;
+      color: var(--ink);
+      border: 1px solid rgba(36, 28, 22, 0.18);
+      border-radius: var(--radius-sm);
+      background: rgba(255, 255, 255, 0.82);
+      padding: 0.7rem 0.78rem;
+      box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.72);
+    }
+
+    input:focus,
+    select:focus,
+    button:focus,
+    .button-pill:focus,
+    .button-card:focus {
+      outline: 2px solid rgba(15, 108, 95, 0.22);
+      outline-offset: 2px;
+    }
+
+    button {
+      cursor: pointer;
+      background: linear-gradient(180deg, #147a6c, var(--accent));
+      color: white;
+      border-color: rgba(15, 108, 95, 0.7);
+      font-weight: 700;
+    }
+
+    button.button-card {
+      color: var(--ink);
+      border-color: var(--line-strong);
+      background:
+        linear-gradient(180deg, rgba(255, 255, 255, 0.78), rgba(247, 241, 233, 0.9));
+    }
+
+    button.button-card[data-tone="accent"] {
+      background:
+        linear-gradient(180deg, rgba(15, 108, 95, 0.18), rgba(255, 255, 255, 0.88));
+    }
+
+    button.button-card[data-tone="warm"] {
+      background:
+        linear-gradient(180deg, rgba(179, 90, 55, 0.2), rgba(255, 255, 255, 0.88));
+    }
+
+    button.button-pill {
+      width: auto;
+      background: rgba(255, 255, 255, 0.76);
+      color: var(--ink);
+      border-color: var(--line-strong);
+      font-weight: 600;
+    }
+
+    button.button-pill[data-tone="accent"] {
+      background: rgba(15, 108, 95, 0.12);
+      color: var(--accent);
+      border-color: rgba(15, 108, 95, 0.22);
+    }
+
+    button.button-pill[data-tone="warm"] {
+      background: rgba(179, 90, 55, 0.12);
+      color: var(--warm);
+      border-color: rgba(179, 90, 55, 0.22);
+    }
+
+    @media (max-width: 1080px) {
+      .hero-grid,
+      .layout {
+        grid-template-columns: 1fr;
+      }
+
+      .stack-sticky {
+        position: static;
+      }
+
+      .home-board-grid {
+        grid-template-columns: 1fr;
+      }
+    }
+
+    @media (max-width: 860px) {
+      .shell {
+        width: min(100%, calc(100% - 0.9rem));
+        padding-top: 0.6rem;
+      }
+
+      .topbar {
+        align-items: start;
+        flex-direction: column;
+        border-radius: 26px;
+      }
+
+      .nav {
+        justify-content: start;
+      }
+
+      .hero,
+      .panel {
+        border-radius: 24px;
+      }
+
+      .button-grid,
+      .form-grid {
+        grid-template-columns: 1fr;
+      }
+
+      .mini-result {
+        grid-template-columns: 1fr;
+      }
+
+      .mini-time {
+        justify-self: start;
+      }
+
+      .result-item {
+        grid-template-columns: 1fr;
+      }
+
+      .time-badge {
+        justify-self: start;
+      }
+    }
+  </style>
+</head>
+<body>
+  <div class="shell">
+    <header class="topbar">
+      <a href="/cinema-watch-snapshot/" class="brand">
+        <strong>Cinema Watch</strong>
+        <span>Static cinema snapshot, published from the local cache</span>
+      </a>
+      <nav class="nav">
+        <a href="/cinema-watch-snapshot/">Home</a>
+        <a href="/cinema-watch-snapshot/screenings/">Search</a>
+        <a href="/cinema-watch-snapshot/movies/">Movies</a>
+        
+        <a href="/cinema-watch-snapshot/status/">Snapshot</a>
+        
+        <a href="/cinema-watch-snapshot/providers/cinepolis/">Cinepolis</a>
+        <a href="/cinema-watch-snapshot/providers/showcase/">Showcase</a>
+        <a href="/cinema-watch-snapshot/venues/cinepolis/recoleta/">Recoleta room 6</a>
+        
+      </nav>
+    </header>
+    <main id="app-main">
+      
+<div data-live-page="movie">
+  <section class="hero hero-grid">
+    <div class="hero-copy">
+      <span class="eyebrow">Movie board</span>
+      <h1>Cumbres Borrascosas</h1>
+      <p>
+        Cached movie page across providers and venues. This is one of the most important product pages because it answers
+        the natural question directly: where and when is this playing?
+      </p>
+      <div class="hero-tags">
+        
+        <span class="chip">Español</span>
+        
+        <span class="chip">Subtitulado</span>
+        
+        
+        <span class="stat">2D</span>
+        
+        <span class="stat">Classic</span>
+        
+      </div>
+    </div>
+    <div class="hero-side">
+      <strong>Title footprint</strong>
+      <p>Use the quick actions to flip this page from broad discovery into a much narrower answer.</p>
+      <div class="stats">
+        <span class="stat">6 screenings</span>
+        <span class="stat">2 venues</span>
+        <span class="stat">1 providers</span>
+      </div>
+    </div>
+    <div class="metrics">
+      <div class="metric">
+        <span class="muted">Screenings</span>
+        <strong>6</strong>
+      </div>
+      <div class="metric">
+        <span class="muted">Venues</span>
+        <strong>2</strong>
+      </div>
+      <div class="metric">
+        <span class="muted">Providers</span>
+        <strong>1</strong>
+      </div>
+    </div>
+  </section>
+
+  <section class="panel" style="margin-top: 1rem;">
+    <div class="section-head">
+      <div>
+        <h2>Quick Actions</h2>
+        <p>Switch the question around this title without retyping filters.</p>
+      </div>
+    </div>
+    <div class="button-grid">
+      
+      <a class="button-card" href="/cinema-watch-snapshot/movies/cumbres-borrascosas/" data-tone="accent" data-live-nav="true">
+        <strong>All Screenings</strong>
+        
+        <p>Reset filters for this title</p>
+        
+      </a>
+      
+      <a class="button-card" href="/cinema-watch-snapshot/movies/cumbres-borrascosas/?from_date=2026-04-06&amp;to_date=2026-04-06" data-tone="accent" data-live-nav="true">
+        <strong>Today</strong>
+        
+        <p>Where it plays today</p>
+        
+      </a>
+      
+      <a class="button-card" href="/cinema-watch-snapshot/movies/cumbres-borrascosas/?from_date=2026-04-07&amp;to_date=2026-04-07" data-tone="soft" data-live-nav="true">
+        <strong>Tomorrow</strong>
+        
+        <p>Tomorrow only</p>
+        
+      </a>
+      
+      <a class="button-card" href="/cinema-watch-snapshot/movies/cumbres-borrascosas/?language=subtitulado" data-tone="soft" data-live-nav="true">
+        <strong>Subtitulado</strong>
+        
+        <p>Original-language focus</p>
+        
+      </a>
+      
+      <a class="button-card" href="/cinema-watch-snapshot/screenings/?movie=Cumbres+Borrascosas&amp;from_date=2026-04-06&amp;to_date=2026-04-12" data-tone="warm" data-live-nav="true">
+        <strong>Search This Title</strong>
+        
+        <p>Chronological search view</p>
+        
+      </a>
+      
+    </div>
+  </section>
+
+  <div class="layout">
+    <div class="stack">
+      <section class="panel">
+        <div class="section-head">
+          <div>
+            <h2>Showtimes</h2>
+            <p>Grouped chronologically so the page reads like an answer, not a dump.</p>
+          </div>
+        </div>
+        
+        <div class="dense-list">
+          
+          <div class="result-day">
+            <div class="row-head">
+              <strong>2026-04-06</strong>
+              <span class="chip">2 screenings</span>
+            </div>
+            <div class="result-list">
+              
+              <div class="result-item">
+                <span class="time-badge">20:15</span>
+                <div class="result-copy">
+                  <strong><a href="/cinema-watch-snapshot/venues/cinepolis/avellaneda/">cinepolis / Avellaneda</a></strong>
+                  
+                  <p>Classic • 2D • Subtitulado | Room 1 | 7% sold</p>
+                  
+                </div>
+              </div>
+              
+              <div class="result-item">
+                <span class="time-badge">22:50</span>
+                <div class="result-copy">
+                  <strong><a href="/cinema-watch-snapshot/venues/cinepolis/recoleta/">cinepolis / Recoleta</a></strong>
+                  
+                  <p>Classic • 2D • Subtitulado | Room 5 | 1% sold</p>
+                  
+                </div>
+              </div>
+              
+            </div>
+          </div>
+          
+          <div class="result-day">
+            <div class="row-head">
+              <strong>2026-04-07</strong>
+              <span class="chip">2 screenings</span>
+            </div>
+            <div class="result-list">
+              
+              <div class="result-item">
+                <span class="time-badge">20:15</span>
+                <div class="result-copy">
+                  <strong><a href="/cinema-watch-snapshot/venues/cinepolis/avellaneda/">cinepolis / Avellaneda</a></strong>
+                  
+                  <p>Classic • 2D • Subtitulado | Room 1 | 2% sold</p>
+                  
+                </div>
+              </div>
+              
+              <div class="result-item">
+                <span class="time-badge">22:30</span>
+                <div class="result-copy">
+                  <strong><a href="/cinema-watch-snapshot/venues/cinepolis/recoleta/">cinepolis / Recoleta</a></strong>
+                  
+                  <p>Classic • 2D • Subtitulado | Room 2 | 2% sold</p>
+                  
+                </div>
+              </div>
+              
+            </div>
+          </div>
+          
+          <div class="result-day">
+            <div class="row-head">
+              <strong>2026-04-08</strong>
+              <span class="chip">2 screenings</span>
+            </div>
+            <div class="result-list">
+              
+              <div class="result-item">
+                <span class="time-badge">20:15</span>
+                <div class="result-copy">
+                  <strong><a href="/cinema-watch-snapshot/venues/cinepolis/avellaneda/">cinepolis / Avellaneda</a></strong>
+                  
+                  <p>Classic • 2D • Español | Room 1 | 5% sold</p>
+                  
+                </div>
+              </div>
+              
+              <div class="result-item">
+                <span class="time-badge">22:30</span>
+                <div class="result-copy">
+                  <strong><a href="/cinema-watch-snapshot/venues/cinepolis/recoleta/">cinepolis / Recoleta</a></strong>
+                  
+                  <p>Classic • 2D • Subtitulado | Room 2</p>
+                  
+                </div>
+              </div>
+              
+            </div>
+          </div>
+          
+        </div>
+        
+      </section>
+    </div>
+
+    <div class="stack stack-sticky">
+      
+      <section class="panel">
+        <div class="section-head">
+          <div>
+            <h2>Static Snapshot</h2>
+            <p>This movie page is a published snapshot from the cache, so the filter rail stays on the main search and movie boards.</p>
+          </div>
+        </div>
+        <div class="meta-list">
+          <div class="meta-row">
+            <span>Snapshot mode</span>
+            <strong>Read-only</strong>
+          </div>
+          <div class="meta-row">
+            <span>More filtering</span>
+            <strong><a href="/cinema-watch-snapshot/screenings/">Open search board</a></strong>
+          </div>
+        </div>
+      </section>
+      
+    </div>
+  </div>
+</div>
+
+    </main>
+  </div>
+  
+  
+</body>
+</html>
