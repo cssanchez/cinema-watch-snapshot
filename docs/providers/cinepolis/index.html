@@ -84,15 +84,17 @@
     }
 
     .topbar {
-      display: flex;
-      justify-content: space-between;
-      gap: 1rem;
+      display: grid;
+      grid-template-columns: minmax(12rem, auto) minmax(0, 1fr);
+      gap: clamp(0.75rem, 1.8vw, 1.45rem);
       align-items: center;
-      padding: 0.9rem 1.1rem;
-      border: 1px solid var(--line);
-      border-radius: 999px;
-      background: rgba(9, 12, 18, 0.8);
-      box-shadow: var(--shadow-soft);
+      padding: 0.54rem 0.62rem 0.54rem 1rem;
+      border: 1px solid rgba(165, 178, 198, 0.18);
+      border-radius: 24px;
+      background:
+        linear-gradient(90deg, rgba(15, 18, 27, 0.92), rgba(8, 11, 17, 0.78)),
+        rgba(9, 12, 18, 0.86);
+      box-shadow: 0 14px 34px rgba(0, 0, 0, 0.28);
       position: sticky;
       top: 0.8rem;
       z-index: 20;
@@ -104,11 +106,12 @@
       flex-direction: column;
       gap: 0.12rem;
       min-width: 0;
+      padding-left: 0.16rem;
     }
 
     .brand strong {
       font-family: var(--heading-font);
-      font-size: 1.24rem;
+      font-size: clamp(1.08rem, 1.8vw, 1.28rem);
       line-height: 1;
       letter-spacing: 0.01em;
     }
@@ -120,21 +123,27 @@
     }
 
     .brand span {
-      font-size: 0.88rem;
+      font-size: 0.78rem;
+      line-height: 1.2;
+      max-width: 24ch;
+      overflow: hidden;
+      text-overflow: ellipsis;
+      white-space: nowrap;
     }
 
     .nav {
       display: flex;
-      flex-wrap: wrap;
-      gap: 0.55rem;
+      flex-wrap: nowrap;
+      gap: 0.2rem;
       justify-content: flex-end;
-      font-size: 0.93rem;
+      font-size: 0.88rem;
       align-items: center;
+      min-width: 0;
     }
 
     .nav a,
     .nav button {
-      padding: 0.46rem 0.84rem;
+      padding: 0.42rem 0.68rem;
       border-radius: 999px;
       border: 1px solid transparent;
       transition: background 140ms ease, border-color 140ms ease, color 140ms ease, transform 140ms ease;
@@ -158,7 +167,7 @@
     .language-switch {
       display: inline-flex;
       gap: 0.15rem;
-      padding: 0.18rem;
+      padding: 0.16rem;
       border-radius: 999px;
       border: 1px solid var(--line);
       background: rgba(255, 255, 255, 0.04);
@@ -166,14 +175,14 @@
 
     .language-switch button {
       width: auto;
-      min-height: 1.9rem;
-      padding: 0.32rem 0.56rem;
+      min-height: 1.74rem;
+      padding: 0.27rem 0.49rem;
       border-radius: 999px;
       border: 1px solid transparent;
       background: transparent;
       color: var(--muted);
       box-shadow: none;
-      font-size: 0.78rem;
+      font-size: 0.72rem;
       font-weight: 800;
       letter-spacing: 0.04em;
     }
@@ -182,6 +191,27 @@
       background: var(--accent);
       color: #05100e;
       border-color: var(--accent);
+    }
+
+    .nav-links,
+    .nav-tools {
+      display: flex;
+      align-items: center;
+      gap: 0.12rem;
+      min-width: 0;
+    }
+
+    .nav-links {
+      justify-content: flex-end;
+      padding: 0.18rem;
+      border: 1px solid rgba(165, 178, 198, 0.1);
+      border-radius: 999px;
+      background: rgba(255, 255, 255, 0.025);
+      overflow: hidden;
+    }
+
+    .nav-tools {
+      justify-content: flex-end;
     }
 
     main {
@@ -974,6 +1004,28 @@
     }
 
     @media (max-width: 1080px) {
+      .topbar {
+        grid-template-columns: 1fr auto;
+      }
+
+      .brand span {
+        display: none;
+      }
+
+      .nav {
+        grid-column: 1 / -1;
+        justify-content: space-between;
+      }
+
+      .nav-links {
+        overflow-x: auto;
+        scrollbar-width: none;
+      }
+
+      .nav-links::-webkit-scrollbar {
+        display: none;
+      }
+
       .hero-grid,
       .layout {
         grid-template-columns: 1fr;
@@ -1000,12 +1052,26 @@
 
       .topbar {
         align-items: start;
-        flex-direction: column;
-        border-radius: 26px;
+        border-radius: 22px;
+        grid-template-columns: 1fr;
+        padding: 0.72rem;
       }
 
       .nav {
         justify-content: start;
+        gap: 0.42rem;
+        width: 100%;
+        align-items: stretch;
+      }
+
+      .nav-links {
+        justify-content: start;
+        flex: 1 1 auto;
+        min-width: 0;
+      }
+
+      .nav-tools {
+        flex: 0 0 auto;
       }
 
       .hero,
@@ -1043,21 +1109,25 @@
         <strong>Cinema Watch</strong>
         <span data-i18n-source>Static cinema snapshot, published from the local cache</span>
       </a>
-      <nav class="nav">
-        <a href="/cinema-watch-snapshot/" data-i18n-source>Home</a>
-        <a href="/cinema-watch-snapshot/screenings/" data-i18n-source>Search</a>
-        <a href="/cinema-watch-snapshot/movies/" data-i18n-source>Movies</a>
-        
-        <a href="/cinema-watch-snapshot/status/" data-i18n-source>Snapshot</a>
-        
-        <a href="/cinema-watch-snapshot/providers/cinepolis/">Cinepolis</a>
-        <a href="/cinema-watch-snapshot/providers/showcase/">Showcase</a>
-        <a href="/cinema-watch-snapshot/venues/cinepolis/recoleta/" data-i18n-source>Recoleta room 6</a>
+      <nav class="nav" aria-label="Primary">
+        <div class="nav-links">
+          <a href="/cinema-watch-snapshot/" data-i18n-source>Home</a>
+          <a href="/cinema-watch-snapshot/screenings/" data-i18n-source>Search</a>
+          <a href="/cinema-watch-snapshot/movies/" data-i18n-source>Movies</a>
+          
+          <a href="/cinema-watch-snapshot/status/" data-i18n-source>Snapshot</a>
+          
+          <a href="/cinema-watch-snapshot/providers/cinepolis/">Cinepolis</a>
+          <a href="/cinema-watch-snapshot/providers/showcase/">Showcase</a>
+          <a href="/cinema-watch-snapshot/venues/cinepolis/recoleta/" data-i18n-source>Recoleta room 6</a>
+        </div>
+        <div class="nav-tools">
         <div class="language-switch" aria-label="Language">
           <button type="button" data-language-option="en" aria-pressed="false">EN</button>
           <button type="button" data-language-option="es" aria-pressed="false">ES</button>
         </div>
         
+        </div>
       </nav>
     </header>
     <main id="app-main">
@@ -1073,7 +1143,7 @@
   </div>
   <div class="hero-side">
     <strong>Provider snapshot</strong>
-    <p data-i18n-freshness>Updated 4 h ago</p>
+    <p data-i18n-freshness>Updated 5 h ago</p>
     <div class="stats">
       <span class="stat">349 cached screenings</span>
       <span class="stat">28 cached titles</span>
@@ -1090,7 +1160,7 @@
     </div>
     <div class="metric">
       <span class="muted">Freshness</span>
-      <strong style="font-size:1rem;" data-i18n-freshness>Updated 4 h ago</strong>
+      <strong style="font-size:1rem;" data-i18n-freshness>Updated 5 h ago</strong>
     </div>
   </div>
 </section>
@@ -1162,7 +1232,7 @@
             <span class="stat">194 cached screenings</span>
             <span class="stat">12 cached titles</span>
           </div>
-          <p data-i18n-freshness>Updated 4 h ago</p>
+          <p data-i18n-freshness>Updated 5 h ago</p>
           
           <p>Date range: 2026-04-04 to 2026-04-11</p>
           
