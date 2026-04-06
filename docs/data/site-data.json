@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-04-06T23:44:59.425720+00:00",
+  "generated_at": "2026-04-06T23:50:16.682582+00:00",
   "today": "2026-04-06",
   "providers": [
     {
@@ -16,115 +16,134 @@
       "provider": "cinepolis",
       "key": "avellaneda",
       "name": "Avellaneda",
-      "label": "Cinepolis Argentina / Avellaneda"
+      "label": "Cinepolis Argentina / Avellaneda",
+      "short_label": "Avellaneda"
     },
     {
       "provider": "cinepolis",
       "key": "maipu",
       "name": "Cinépolis Arena Maipú",
-      "label": "Cinepolis Argentina / Cinépolis Arena Maipú"
+      "label": "Cinepolis Argentina / Cinépolis Arena Maipú",
+      "short_label": "Cinépolis Arena Maipú"
     },
     {
       "provider": "cinepolis",
       "key": "lujan",
       "name": "Cinépolis Luján",
-      "label": "Cinepolis Argentina / Cinépolis Luján"
+      "label": "Cinepolis Argentina / Cinépolis Luján",
+      "short_label": "Cinépolis Luján"
     },
     {
       "provider": "cinepolis",
       "key": "mendoza",
       "name": "Cinépolis Mendoza Plaza",
-      "label": "Cinepolis Argentina / Cinépolis Mendoza Plaza"
+      "label": "Cinepolis Argentina / Cinépolis Mendoza Plaza",
+      "short_label": "Cinépolis Mendoza Plaza"
     },
     {
       "provider": "cinepolis",
       "key": "merlo",
       "name": "Cinépolis Merlo",
-      "label": "Cinepolis Argentina / Cinépolis Merlo"
+      "label": "Cinepolis Argentina / Cinépolis Merlo",
+      "short_label": "Cinépolis Merlo"
     },
     {
       "provider": "cinepolis",
       "key": "neuquen",
       "name": "Cinépolis Neuquén",
-      "label": "Cinepolis Argentina / Cinépolis Neuquén"
+      "label": "Cinepolis Argentina / Cinépolis Neuquén",
+      "short_label": "Cinépolis Neuquén"
     },
     {
       "provider": "cinepolis",
       "key": "pilar",
       "name": "Cinépolis Pilar",
-      "label": "Cinepolis Argentina / Cinépolis Pilar"
+      "label": "Cinepolis Argentina / Cinépolis Pilar",
+      "short_label": "Cinépolis Pilar"
     },
     {
       "provider": "cinepolis",
       "key": "houssay",
       "name": "Cinépolis Plaza Houssay",
-      "label": "Cinepolis Argentina / Cinépolis Plaza Houssay"
+      "label": "Cinepolis Argentina / Cinépolis Plaza Houssay",
+      "short_label": "Cinépolis Plaza Houssay"
     },
     {
       "provider": "cinepolis",
       "key": "rosario",
       "name": "Cinépolis Rosario",
-      "label": "Cinepolis Argentina / Cinépolis Rosario"
+      "label": "Cinepolis Argentina / Cinépolis Rosario",
+      "short_label": "Cinépolis Rosario"
     },
     {
       "provider": "cinepolis",
       "key": "recoleta",
       "name": "Recoleta",
-      "label": "Cinepolis Argentina / Recoleta"
+      "label": "Cinepolis Argentina / Recoleta",
+      "short_label": "Recoleta"
     },
     {
       "provider": "showcase",
       "key": "imax_norcenter",
       "name": "IMAX Theatre (Norcenter)",
-      "label": "Showcase / IMAX / IMAX Theatre (Norcenter)"
+      "label": "Showcase / IMAX / IMAX Theatre (Norcenter)",
+      "short_label": "IMAX Theatre (Norcenter)"
     },
     {
       "provider": "showcase",
       "key": "play_cinema_san_juan",
       "name": "Play Cinema San Juan",
-      "label": "Showcase / IMAX / Play Cinema San Juan"
+      "label": "Showcase / IMAX / Play Cinema San Juan",
+      "short_label": "Play Cinema San Juan"
     },
     {
       "provider": "showcase",
       "key": "showcase_belgrano",
       "name": "Showcase Belgrano",
-      "label": "Showcase / IMAX / Showcase Belgrano"
+      "label": "Showcase / IMAX / Showcase Belgrano",
+      "short_label": "Showcase Belgrano"
     },
     {
       "provider": "showcase",
       "key": "showcase_cordoba_villa_cabrera",
       "name": "Showcase Cordoba (Villa Cabrera)",
-      "label": "Showcase / IMAX / Showcase Cordoba (Villa Cabrera)"
+      "label": "Showcase / IMAX / Showcase Cordoba (Villa Cabrera)",
+      "short_label": "Showcase Cordoba (Villa Cabrera)"
     },
     {
       "provider": "showcase",
       "key": "showcase_haedo",
       "name": "Showcase Haedo",
-      "label": "Showcase / IMAX / Showcase Haedo"
+      "label": "Showcase / IMAX / Showcase Haedo",
+      "short_label": "Showcase Haedo"
     },
     {
       "provider": "showcase",
       "key": "showcase_norcenter",
       "name": "Showcase Norcenter",
-      "label": "Showcase / IMAX / Showcase Norcenter"
+      "label": "Showcase / IMAX / Showcase Norcenter",
+      "short_label": "Showcase Norcenter"
     },
     {
       "provider": "showcase",
       "key": "showcase_quilmes",
       "name": "Showcase Quilmes",
-      "label": "Showcase / IMAX / Showcase Quilmes"
+      "label": "Showcase / IMAX / Showcase Quilmes",
+      "short_label": "Showcase Quilmes"
     },
     {
       "provider": "showcase",
       "key": "showcase_rosario",
       "name": "Showcase Rosario",
-      "label": "Showcase / IMAX / Showcase Rosario"
+      "label": "Showcase / IMAX / Showcase Rosario",
+      "short_label": "Showcase Rosario"
     },
     {
       "provider": "showcase",
       "key": "showcase_villa_allende",
       "name": "Showcase Villa Allende",
-      "label": "Showcase / IMAX / Showcase Villa Allende"
+      "label": "Showcase / IMAX / Showcase Villa Allende",
+      "short_label": "Showcase Villa Allende"
     }
   ],
   "summary": {
