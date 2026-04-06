@@ -1113,8 +1113,8 @@
         <div class="nav-links">
           <a href="/cinema-watch-snapshot/screenings/" data-i18n-source>Showtimes</a>
           <a href="/cinema-watch-snapshot/movies/" data-i18n-source>Movies</a>
-          <a href="/cinema-watch-snapshot/venues/cinepolis/recoleta/" data-i18n-source>Room 6</a>
-          <a href="/cinema-watch-snapshot/venues/showcase/imax_norcenter/">IMAX</a>
+          <a href="/cinema-watch-snapshot/screenings/?category=imax">IMAX</a>
+          <a href="/cinema-watch-snapshot/screenings/?category=dolby_atmos">Dolby Atmos</a>
         </div>
         <div class="nav-tools">
         <div class="language-switch" aria-label="Language">
@@ -1279,6 +1279,14 @@
             </select>
           </label>
           <label class="field">
+            <span data-i18n-source>Special room</span>
+            <select name="category">
+              <option value="" data-i18n-source>Any</option>
+              <option value="imax">IMAX</option>
+              <option value="dolby_atmos">Dolby Atmos</option>
+            </select>
+          </label>
+          <label class="field">
             <span>Format</span>
             <select name="format">
               <option value="">Any</option>
@@ -1404,6 +1412,7 @@
       movie: String(data.get('movie') || '').trim(),
       language: canonicalLanguage(data.get('language') || ''),
       format: canonicalFormat(data.get('format') || ''),
+      category: canonicalFormat(data.get('category') || '').replaceAll('-', '_'),
       from_date: String(data.get('from_date') || '').trim(),
       to_date: String(data.get('to_date') || '').trim(),
       room: String(data.get('room') || '').trim(),
@@ -1450,6 +1459,7 @@
       if (filters.room && String(row.room_number || '') !== filters.room) return false;
       if (filters.movie && !foldText(row.movie_title).includes(foldText(filters.movie))) return false;
       if (filters.language && canonicalLanguage(row.language) !== filters.language) return false;
+      if (filters.category && !(row.special_categories || []).includes(filters.category)) return false;
       if (filters.format) {
         const formatMatch = [canonicalFormat(row.format_label), canonicalFormat(row.experience)].includes(filters.format);
         if (!formatMatch) return false;
@@ -1479,6 +1489,9 @@
         const meta = [item.listing_label, item.room_number ? roomLabel(item.room_number) : '', Number.isInteger(item.sold_percent) ? soldLabel(item.sold_percent) : '']
           .filter(Boolean)
           .join(' | ');
+        const tagHtml = (item.special_tags || []).length
+          ? `<div class="chips">${(item.special_tags || []).map((tag) => `<span class="chip">${escapeHtml(tag)}</span>`).join('')}</div>`
+          : '';
         return `
           <div class="result-item">
             <span class="time-badge">${escapeHtml(item.time_label)}</span>
@@ -1486,6 +1499,7 @@
               <strong><a href="${escapeHtml(item.movie_href)}">${escapeHtml(item.movie_title)}</a></strong>
               <p><a href="${escapeHtml(item.venue_href)}">${escapeHtml(item.provider_name)} / ${escapeHtml(item.venue_name)}</a></p>
               ${meta ? `<p>${escapeHtml(meta)}</p>` : ''}
+              ${tagHtml}
             </div>
           </div>
         `;
@@ -1558,6 +1572,7 @@
           'Unlock admin': 'Desbloquear admin',
           'Recoleta room 6': 'Recoleta sala 6',
           'Room 6': 'Sala 6',
+          'Special room': 'Sala especial',
           'Sign out': 'Salir',
           'Sign in': 'Entrar',
 
@@ -1662,6 +1677,7 @@
           'Use the common pivots first, then drop into the full filter rail when you need precision.': 'Usá primero los pivotes comunes y bajá al filtro completo cuando necesites precisión.',
           'Language': 'Idioma',
           'Format': 'Formato',
+          'Special Rooms': 'Salas especiales',
           'Dates': 'Fechas',
           'Venue Shortcuts': 'Atajos de cines',
           'All': 'Todos',

@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-04-06T22:15:31.789586+00:00",
+  "generated_at": "2026-04-06T23:12:03.281318+00:00",
   "today": "2026-04-06",
   "providers": [
     {
@@ -155,6 +155,8 @@
       "language": "Español",
       "sold_percent": null,
       "listing_label": "Classic • 2D • Español",
+      "special_categories": [],
+      "special_tags": [],
       "ticket_url": "https://tickets.cinepolis.com.ar/ticketing/visSelectTickets.aspx?cinemacode=1025&txtSessionId=169961",
       "screening_url": "https://www.cinepolis.com.ar/funciones/1025/169961"
     },
@@ -177,6 +179,8 @@
       "language": "Español",
       "sold_percent": null,
       "listing_label": "Classic • 3D • Español",
+      "special_categories": [],
+      "special_tags": [],
       "ticket_url": "https://tickets.cinepolis.com.ar/ticketing/visSelectTickets.aspx?cinemacode=1025&txtSessionId=168724",
       "screening_url": "https://www.cinepolis.com.ar/funciones/1025/168724"
     },
@@ -199,6 +203,8 @@
       "language": "Subtitulado",
       "sold_percent": null,
       "listing_label": "Classic • 2D • Subtitulado",
+      "special_categories": [],
+      "special_tags": [],
       "ticket_url": "https://tickets.cinepolis.com.ar/ticketing/visSelectTickets.aspx?cinemacode=1025&txtSessionId=170175",
       "screening_url": "https://www.cinepolis.com.ar/funciones/1025/170175"
     },
@@ -221,6 +227,8 @@
       "language": "Español",
       "sold_percent": null,
       "listing_label": "Classic • 2D • Español",
+      "special_categories": [],
+      "special_tags": [],
       "ticket_url": "https://tickets.cinepolis.com.ar/ticketing/visSelectTickets.aspx?cinemacode=1025&txtSessionId=168719",
       "screening_url": "https://www.cinepolis.com.ar/funciones/1025/168719"
     },
@@ -243,6 +251,8 @@
       "language": "Español",
       "sold_percent": null,
       "listing_label": "Classic • 3D • Español",
+      "special_categories": [],
+      "special_tags": [],
       "ticket_url": "https://tickets.cinepolis.com.ar/ticketing/visSelectTickets.aspx?cinemacode=1025&txtSessionId=169957",
       "screening_url": "https://www.cinepolis.com.ar/funciones/1025/169957"
     },
@@ -265,6 +275,8 @@
       "language": "Español",
       "sold_percent": null,
       "listing_label": "Classic • 2D • Español",
+      "special_categories": [],
+      "special_tags": [],
       "ticket_url": "https://tickets.cinepolis.com.ar/ticketing/visSelectTickets.aspx?cinemacode=1025&txtSessionId=170221",
       "screening_url": "https://www.cinepolis.com.ar/funciones/1025/170221"
     },
@@ -287,6 +299,8 @@
       "language": "Español",
       "sold_percent": null,
       "listing_label": "Classic • 2D • Español",
+      "special_categories": [],
+      "special_tags": [],
       "ticket_url": "https://tickets.cinepolis.com.ar/ticketing/visSelectTickets.aspx?cinemacode=1025&txtSessionId=170268",
       "screening_url": "https://www.cinepolis.com.ar/funciones/1025/170268"
     },
@@ -309,6 +323,8 @@
       "language": "Español",
       "sold_percent": null,
       "listing_label": "Classic • 2D • Español",
+      "special_categories": [],
+      "special_tags": [],
       "ticket_url": "https://tickets.cinepolis.com.ar/ticketing/visSelectTickets.aspx?cinemacode=1025&txtSessionId=170149",
       "screening_url": "https://www.cinepolis.com.ar/funciones/1025/170149"
     },
@@ -331,6 +347,8 @@
       "language": "Español",
       "sold_percent": null,
       "listing_label": "Classic • 2D • Español",
+      "special_categories": [],
+      "special_tags": [],
       "ticket_url": "https://tickets.cinepolis.com.ar/ticketing/visSelectTickets.aspx?cinemacode=1025&txtSessionId=168711",
       "screening_url": "https://www.cinepolis.com.ar/funciones/1025/168711"
     },
@@ -353,6 +371,8 @@
       "language": "Español",
       "sold_percent": null,
       "listing_label": "4D • 3D • Español",
+      "special_categories": [],
+      "special_tags": [],
       "ticket_url": "https://tickets.cinepolis.com.ar/ticketing/visSelectTickets.aspx?cinemacode=1025&txtSessionId=168715",
       "screening_url": "https://www.cinepolis.com.ar/funciones/1025/168715"
     },
@@ -375,6 +395,8 @@
       "language": "Español",
       "sold_percent": null,
       "listing_label": "Classic • 2D • Español",
+      "special_categories": [],
+      "special_tags": [],
       "ticket_url": "https://tickets.cinepolis.com.ar/ticketing/visSelectTickets.aspx?cinemacode=1025&txtSessionId=170225",
       "screening_url": "https://www.cinepolis.com.ar/funciones/1025/170225"
     },
@@ -397,6 +419,8 @@
       "language": "Subtitulado",
       "sold_percent": null,
       "listing_label": "Classic • 2D • Subtitulado",
+      "special_categories": [],
+      "special_tags": [],
       "ticket_url": "https://tickets.cinepolis.com.ar/ticketing/visSelectTickets.aspx?cinemacode=1025&txtSessionId=170176",
       "screening_url": "https://www.cinepolis.com.ar/funciones/1025/170176"
     },
@@ -419,6 +443,8 @@
       "language": "Español",
       "sold_percent": null,
       "listing_label": "Classic • 2D • Español",
+      "special_categories": [],
+      "special_tags": [],
       "ticket_url": "https://tickets.cinepolis.com.ar/ticketing/visSelectTickets.aspx?cinemacode=1025&txtSessionId=169966",
       "screening_url": "https://www.cinepolis.com.ar/funciones/1025/169966"
     },
@@ -441,6 +467,8 @@
       "language": "Español",
       "sold_percent": null,
       "listing_label": "Classic • 2D • Español",
+      "special_categories": [],
+      "special_tags": [],
       "ticket_url": "https://tickets.cinepolis.com.ar/ticketing/visSelectTickets.aspx?cinemacode=1025&txtSessionId=169950",
       "screening_url": "https://www.cinepolis.com.ar/funciones/1025/169950"
     },
@@ -463,6 +491,8 @@
       "language": "Español",
       "sold_percent": null,
       "listing_label": "Classic • 2D • Español",
+      "special_categories": [],
+      "special_tags": [],
       "ticket_url": "https://tickets.cinepolis.com.ar/ticketing/visSelectTickets.aspx?cinemacode=1025&txtSessionId=169962",
       "screening_url": "https://www.cinepolis.com.ar/funciones/1025/169962"
     },
@@ -485,6 +515,8 @@
       "language": "Español",
       "sold_percent": null,
       "listing_label": "Classic • 3D • Español",
+      "special_categories": [],
+      "special_tags": [],
       "ticket_url": "https://tickets.cinepolis.com.ar/ticketing/visSelectTickets.aspx?cinemacode=1025&txtSessionId=168725",
       "screening_url": "https://www.cinepolis.com.ar/funciones/1025/168725"
     },
@@ -507,6 +539,8 @@
       "language": "Español",
       "sold_percent": null,
       "listing_label": "Classic • 2D • Español",
+      "special_categories": [],
+      "special_tags": [],
       "ticket_url": "https://tickets.cinepolis.com.ar/ticketing/visSelectTickets.aspx?cinemacode=1025&txtSessionId=168720",
       "screening_url": "https://www.cinepolis.com.ar/funciones/1025/168720"
     },
@@ -529,6 +563,8 @@
       "language": "Español",
       "sold_percent": null,
       "listing_label": "Classic • 3D • Español",
+      "special_categories": [],
+      "special_tags": [],
       "ticket_url": "https://tickets.cinepolis.com.ar/ticketing/visSelectTickets.aspx?cinemacode=1025&txtSessionId=169958",
       "screening_url": "https://www.cinepolis.com.ar/funciones/1025/169958"
     },
@@ -551,6 +587,8 @@
       "language": "Español",
       "sold_percent": null,
       "listing_label": "Classic • 2D • Español",
+      "special_categories": [],
+      "special_tags": [],
       "ticket_url": "https://tickets.cinepolis.com.ar/ticketing/visSelectTickets.aspx?cinemacode=1025&txtSessionId=169953",
       "screening_url": "https://www.cinepolis.com.ar/funciones/1025/169953"
     },
@@ -573,6 +611,8 @@
       "language": "Español",
       "sold_percent": null,
       "listing_label": "Classic • 2D • Español",
+      "special_categories": [],
+      "special_tags": [],
       "ticket_url": "https://tickets.cinepolis.com.ar/ticketing/visSelectTickets.aspx?cinemacode=1025&txtSessionId=170137",
       "screening_url": "https://www.cinepolis.com.ar/funciones/1025/170137"
     },
@@ -595,6 +635,8 @@
       "language": "Subtitulado",
       "sold_percent": 51,
       "listing_label": "Classic • 2D • Subtitulado",
+      "special_categories": [],
+      "special_tags": [],
       "ticket_url": "https://tickets.cinepolis.com.ar/ticketing/visSelectTickets.aspx?cinemacode=1029&txtSessionId=124794",
       "screening_url": "https://www.cinepolis.com.ar/funciones/1029/124794"
     },
@@ -617,6 +659,8 @@
       "language": "Español",
       "sold_percent": null,
       "listing_label": "Classic • 2D • Español",
+      "special_categories": [],
+      "special_tags": [],
       "ticket_url": "https://tickets.cinepolis.com.ar/ticketing/visSelectTickets.aspx?cinemacode=1025&txtSessionId=170270",
       "screening_url": "https://www.cinepolis.com.ar/funciones/1025/170270"
     },
@@ -639,6 +683,8 @@
       "language": "Español",
       "sold_percent": null,
       "listing_label": "Classic • 2D • Español",
+      "special_categories": [],
+      "special_tags": [],
       "ticket_url": "https://tickets.cinepolis.com.ar/ticketing/visSelectTickets.aspx?cinemacode=1025&txtSessionId=170150",
       "screening_url": "https://www.cinepolis.com.ar/funciones/1025/170150"
     },
@@ -661,6 +707,8 @@
       "language": "Español",
       "sold_percent": null,
       "listing_label": "4D • 3D • Español",
+      "special_categories": [],
+      "special_tags": [],
       "ticket_url": "https://tickets.cinepolis.com.ar/ticketing/visSelectTickets.aspx?cinemacode=1025&txtSessionId=168716",
       "screening_url": "https://www.cinepolis.com.ar/funciones/1025/168716"
     },
@@ -683,6 +731,8 @@
       "language": "Subtitulado",
       "sold_percent": 52,
       "listing_label": "Classic • 2D • Subtitulado",
+      "special_categories": [],
+      "special_tags": [],
       "ticket_url": "https://tickets.cinepolis.com.ar/ticketing/visSelectTickets.aspx?cinemacode=1029&txtSessionId=124802",
       "screening_url": "https://www.cinepolis.com.ar/funciones/1029/124802"
     },
@@ -705,6 +755,8 @@
       "language": "Subtitulado",
       "sold_percent": 66,
       "listing_label": "Classic • 2D • Subtitulado",
+      "special_categories": [],
+      "special_tags": [],
       "ticket_url": "https://tickets.cinepolis.com.ar/ticketing/visSelectTickets.aspx?cinemacode=1029&txtSessionId=124691",
       "screening_url": "https://www.cinepolis.com.ar/funciones/1029/124691"
     },
@@ -727,6 +779,8 @@
       "language": "Subtitulado",
       "sold_percent": 62,
       "listing_label": "Classic • 2D • Subtitulado",
+      "special_categories": [],
+      "special_tags": [],
       "ticket_url": "https://tickets.cinepolis.com.ar/ticketing/visSelectTickets.aspx?cinemacode=1029&txtSessionId=124722",
       "screening_url": "https://www.cinepolis.com.ar/funciones/1029/124722"
     },
@@ -749,6 +803,12 @@
       "language": "Subtitulado",
       "sold_percent": null,
       "listing_label": "",
+      "special_categories": [
+        "imax"
+      ],
+      "special_tags": [
+        "IMAX"
+      ],
       "ticket_url": "https://entradas.todoshowcase.com/showcase/boleteria.aspx",
       "screening_url": ""
     },
@@ -771,6 +831,8 @@
       "language": "Español",
       "sold_percent": null,
       "listing_label": "Classic • 2D • Español",
+      "special_categories": [],
+      "special_tags": [],
       "ticket_url": "https://tickets.cinepolis.com.ar/ticketing/visSelectTickets.aspx?cinemacode=1025&txtSessionId=168712",
       "screening_url": "https://www.cinepolis.com.ar/funciones/1025/168712"
     },
@@ -793,6 +855,8 @@
       "language": "Subtitulado",
       "sold_percent": 67,
       "listing_label": "4D • 2D • Subtitulado",
+      "special_categories": [],
+      "special_tags": [],
       "ticket_url": "https://tickets.cinepolis.com.ar/ticketing/visSelectTickets.aspx?cinemacode=1029&txtSessionId=124698",
       "screening_url": "https://www.cinepolis.com.ar/funciones/1029/124698"
     },
@@ -815,6 +879,8 @@
       "language": "Subtitulado",
       "sold_percent": 43,
       "listing_label": "Classic • 2D • Subtitulado",
+      "special_categories": [],
+      "special_tags": [],
       "ticket_url": "https://tickets.cinepolis.com.ar/ticketing/visSelectTickets.aspx?cinemacode=1029&txtSessionId=124776",
       "screening_url": "https://www.cinepolis.com.ar/funciones/1029/124776"
     },
@@ -837,6 +903,8 @@
       "language": "Subtitulado",
       "sold_percent": null,
       "listing_label": "Classic • 2D • Subtitulado",
+      "special_categories": [],
+      "special_tags": [],
       "ticket_url": "https://tickets.cinepolis.com.ar/ticketing/visSelectTickets.aspx?cinemacode=1025&txtSessionId=170177",
       "screening_url": "https://www.cinepolis.com.ar/funciones/1025/170177"
     },
@@ -859,6 +927,8 @@
       "language": "Subtitulado",
       "sold_percent": 52,
       "listing_label": "Classic • 2D • Subtitulado",
+      "special_categories": [],
+      "special_tags": [],
       "ticket_url": "https://tickets.cinepolis.com.ar/ticketing/visSelectTickets.aspx?cinemacode=1029&txtSessionId=124811",
       "screening_url": "https://www.cinepolis.com.ar/funciones/1029/124811"
     },
@@ -881,6 +951,8 @@
       "language": "Español",
       "sold_percent": null,
       "listing_label": "Classic • 2D • Español",
+      "special_categories": [],
+      "special_tags": [],
       "ticket_url": "https://tickets.cinepolis.com.ar/ticketing/visSelectTickets.aspx?cinemacode=1025&txtSessionId=170263",
       "screening_url": "https://www.cinepolis.com.ar/funciones/1025/170263"
     },
@@ -903,6 +975,8 @@
       "language": "Español",
       "sold_percent": null,
       "listing_label": "Classic • 3D • Español",
+      "special_categories": [],
+      "special_tags": [],
       "ticket_url": "https://tickets.cinepolis.com.ar/ticketing/visSelectTickets.aspx?cinemacode=1025&txtSessionId=168726",
       "screening_url": "https://www.cinepolis.com.ar/funciones/1025/168726"
     },
@@ -925,6 +999,8 @@
       "language": "Subtitulado",
       "sold_percent": 5,
       "listing_label": "Classic • 2D • Subtitulado",
+      "special_categories": [],
+      "special_tags": [],
       "ticket_url": "https://tickets.cinepolis.com.ar/ticketing/visSelectTickets.aspx?cinemacode=1029&txtSessionId=124775",
       "screening_url": "https://www.cinepolis.com.ar/funciones/1029/124775"
     },
@@ -947,6 +1023,8 @@
       "language": "Español",
       "sold_percent": null,
       "listing_label": "Classic • 2D • Español",
+      "special_categories": [],
+      "special_tags": [],
       "ticket_url": "https://tickets.cinepolis.com.ar/ticketing/visSelectTickets.aspx?cinemacode=1025&txtSessionId=168721",
       "screening_url": "https://www.cinepolis.com.ar/funciones/1025/168721"
     },
@@ -969,6 +1047,12 @@
       "language": "Subtitulado",
       "sold_percent": 30,
       "listing_label": "Classic • 2D • Subtitulado",
+      "special_categories": [
+        "dolby_atmos"
+      ],
+      "special_tags": [
+        "Dolby Atmos"
+      ],
       "ticket_url": "https://tickets.cinepolis.com.ar/ticketing/visSelectTickets.aspx?cinemacode=1029&txtSessionId=123933",
       "screening_url": "https://www.cinepolis.com.ar/funciones/1029/123933"
     },
@@ -991,6 +1075,8 @@
       "language": "Subtitulado",
       "sold_percent": 21,
       "listing_label": "Classic • 2D • Subtitulado",
+      "special_categories": [],
+      "special_tags": [],
       "ticket_url": "https://tickets.cinepolis.com.ar/ticketing/visSelectTickets.aspx?cinemacode=1029&txtSessionId=124714",
       "screening_url": "https://www.cinepolis.com.ar/funciones/1029/124714"
     },
@@ -1013,6 +1099,8 @@
       "language": "Español",
       "sold_percent": null,
       "listing_label": "Classic • 2D • Español",
+      "special_categories": [],
+      "special_tags": [],
       "ticket_url": "https://tickets.cinepolis.com.ar/ticketing/visSelectTickets.aspx?cinemacode=1025&txtSessionId=169951",
       "screening_url": "https://www.cinepolis.com.ar/funciones/1025/169951"
     },
@@ -1035,6 +1123,8 @@
       "language": "Español",
       "sold_percent": null,
       "listing_label": "Classic • 2D • Español",
+      "special_categories": [],
+      "special_tags": [],
       "ticket_url": "https://tickets.cinepolis.com.ar/ticketing/visSelectTickets.aspx?cinemacode=1025&txtSessionId=170135",
       "screening_url": "https://www.cinepolis.com.ar/funciones/1025/170135"
     },
@@ -1057,6 +1147,8 @@
       "language": "Español",
       "sold_percent": null,
       "listing_label": "Classic • 2D • Español",
+      "special_categories": [],
+      "special_tags": [],
       "ticket_url": "https://tickets.cinepolis.com.ar/ticketing/visSelectTickets.aspx?cinemacode=1025&txtSessionId=169959",
       "screening_url": "https://www.cinepolis.com.ar/funciones/1025/169959"
     },
@@ -1079,6 +1171,12 @@
       "language": "Doblada",
       "sold_percent": null,
       "listing_label": "",
+      "special_categories": [
+        "imax"
+      ],
+      "special_tags": [
+        "IMAX"
+      ],
       "ticket_url": "https://entradas.todoshowcase.com/showcase/boleteria.aspx",
       "screening_url": ""
     },
@@ -1101,6 +1199,12 @@
       "language": "Doblada",
       "sold_percent": null,
       "listing_label": "",
+      "special_categories": [
+        "imax"
+      ],
+      "special_tags": [
+        "IMAX"
+      ],
       "ticket_url": "https://entradas.todoshowcase.com/showcase/boleteria.aspx",
       "screening_url": ""
     },
@@ -1123,6 +1227,12 @@
       "language": "Doblada",
       "sold_percent": null,
       "listing_label": "",
+      "special_categories": [
+        "imax"
+      ],
+      "special_tags": [
+        "IMAX"
+      ],
       "ticket_url": "https://entradas.todoshowcase.com/showcase/boleteria.aspx",
       "screening_url": ""
     },
@@ -1145,6 +1255,12 @@
       "language": "Subtitulado",
       "sold_percent": null,
       "listing_label": "",
+      "special_categories": [
+        "imax"
+      ],
+      "special_tags": [
+        "IMAX"
+      ],
       "ticket_url": "https://entradas.todoshowcase.com/showcase/boleteria.aspx",
       "screening_url": ""
     },
@@ -1167,6 +1283,8 @@
       "language": "Subtitulado",
       "sold_percent": 2,
       "listing_label": "Classic • 2D • Subtitulado",
+      "special_categories": [],
+      "special_tags": [],
       "ticket_url": "https://tickets.cinepolis.com.ar/ticketing/visSelectTickets.aspx?cinemacode=1029&txtSessionId=124817",
       "screening_url": "https://www.cinepolis.com.ar/funciones/1029/124817"
     },
@@ -1189,6 +1307,8 @@
       "language": "Subtitulado",
       "sold_percent": 2,
       "listing_label": "Classic • 2D • Subtitulado",
+      "special_categories": [],
+      "special_tags": [],
       "ticket_url": "https://tickets.cinepolis.com.ar/ticketing/visSelectTickets.aspx?cinemacode=1029&txtSessionId=124844",
       "screening_url": "https://www.cinepolis.com.ar/funciones/1029/124844"
     },
@@ -1211,6 +1331,8 @@
       "language": "Español",
       "sold_percent": 2,
       "listing_label": "Classic • 2D • Español",
+      "special_categories": [],
+      "special_tags": [],
       "ticket_url": "https://tickets.cinepolis.com.ar/ticketing/visSelectTickets.aspx?cinemacode=1025&txtSessionId=168745",
       "screening_url": "https://www.cinepolis.com.ar/funciones/1025/168745"
     },
@@ -1233,6 +1355,8 @@
       "language": "Español",
       "sold_percent": 2,
       "listing_label": "Classic • 2D • Español",
+      "special_categories": [],
+      "special_tags": [],
       "ticket_url": "https://tickets.cinepolis.com.ar/ticketing/visSelectTickets.aspx?cinemacode=1029&txtSessionId=124856",
       "screening_url": "https://www.cinepolis.com.ar/funciones/1029/124856"
     },
@@ -1255,6 +1379,8 @@
       "language": "Español",
       "sold_percent": 4,
       "listing_label": "Classic • 2D • Español",
+      "special_categories": [],
+      "special_tags": [],
       "ticket_url": "https://tickets.cinepolis.com.ar/ticketing/visSelectTickets.aspx?cinemacode=1025&txtSessionId=170027",
       "screening_url": "https://www.cinepolis.com.ar/funciones/1025/170027"
     },
@@ -1277,6 +1403,8 @@
       "language": "Español",
       "sold_percent": 4,
       "listing_label": "4D • 3D • Español",
+      "special_categories": [],
+      "special_tags": [],
       "ticket_url": "https://tickets.cinepolis.com.ar/ticketing/visSelectTickets.aspx?cinemacode=1025&txtSessionId=168749",
       "screening_url": "https://www.cinepolis.com.ar/funciones/1025/168749"
     },
@@ -1299,6 +1427,8 @@
       "language": "Español",
       "sold_percent": 3,
       "listing_label": "Classic • 3D • Español",
+      "special_categories": [],
+      "special_tags": [],
       "ticket_url": "https://tickets.cinepolis.com.ar/ticketing/visSelectTickets.aspx?cinemacode=1029&txtSessionId=123973",
       "screening_url": "https://www.cinepolis.com.ar/funciones/1029/123973"
     },
@@ -1321,6 +1451,8 @@
       "language": "Español",
       "sold_percent": 1,
       "listing_label": "Classic • 2D • Español",
+      "special_categories": [],
+      "special_tags": [],
       "ticket_url": "https://tickets.cinepolis.com.ar/ticketing/visSelectTickets.aspx?cinemacode=1025&txtSessionId=170014",
       "screening_url": "https://www.cinepolis.com.ar/funciones/1025/170014"
     },
@@ -1343,6 +1475,8 @@
       "language": "Español",
       "sold_percent": 7,
       "listing_label": "4D • 3D • Español",
+      "special_categories": [],
+      "special_tags": [],
       "ticket_url": "https://tickets.cinepolis.com.ar/ticketing/visSelectTickets.aspx?cinemacode=1029&txtSessionId=123988",
       "screening_url": "https://www.cinepolis.com.ar/funciones/1029/123988"
     },
@@ -1365,6 +1499,8 @@
       "language": "Español",
       "sold_percent": 2,
       "listing_label": "Classic • 2D • Español",
+      "special_categories": [],
+      "special_tags": [],
       "ticket_url": "https://tickets.cinepolis.com.ar/ticketing/visSelectTickets.aspx?cinemacode=1025&txtSessionId=170006",
       "screening_url": "https://www.cinepolis.com.ar/funciones/1025/170006"
     },
@@ -1387,6 +1523,8 @@
       "language": "Español",
       "sold_percent": null,
       "listing_label": "Classic • 2D • Español",
+      "special_categories": [],
+      "special_tags": [],
       "ticket_url": "https://tickets.cinepolis.com.ar/ticketing/visSelectTickets.aspx?cinemacode=1029&txtSessionId=124869",
       "screening_url": "https://www.cinepolis.com.ar/funciones/1029/124869"
     },
@@ -1409,6 +1547,12 @@
       "language": "Doblada",
       "sold_percent": null,
       "listing_label": "",
+      "special_categories": [
+        "imax"
+      ],
+      "special_tags": [
+        "IMAX"
+      ],
       "ticket_url": "https://entradas.todoshowcase.com/showcase/boleteria.aspx",
       "screening_url": ""
     },
@@ -1431,6 +1575,8 @@
       "language": "Español",
       "sold_percent": null,
       "listing_label": "Classic • 2D • Español",
+      "special_categories": [],
+      "special_tags": [],
       "ticket_url": "https://tickets.cinepolis.com.ar/ticketing/visSelectTickets.aspx?cinemacode=1025&txtSessionId=170037",
       "screening_url": "https://www.cinepolis.com.ar/funciones/1025/170037"
     },
@@ -1453,6 +1599,8 @@
       "language": "Español",
       "sold_percent": 1,
       "listing_label": "Classic • 3D • Español",
+      "special_categories": [],
+      "special_tags": [],
       "ticket_url": "https://tickets.cinepolis.com.ar/ticketing/visSelectTickets.aspx?cinemacode=1025&txtSessionId=168759",
       "screening_url": "https://www.cinepolis.com.ar/funciones/1025/168759"
     },
@@ -1475,6 +1623,8 @@
       "language": "Español",
       "sold_percent": 3,
       "listing_label": "Classic • 2D • Español",
+      "special_categories": [],
+      "special_tags": [],
       "ticket_url": "https://tickets.cinepolis.com.ar/ticketing/visSelectTickets.aspx?cinemacode=1029&txtSessionId=124830",
       "screening_url": "https://www.cinepolis.com.ar/funciones/1029/124830"
     },
@@ -1497,6 +1647,8 @@
       "language": "Subtitulado",
       "sold_percent": 2,
       "listing_label": "Classic • 2D • Subtitulado",
+      "special_categories": [],
+      "special_tags": [],
       "ticket_url": "https://tickets.cinepolis.com.ar/ticketing/visSelectTickets.aspx?cinemacode=1025&txtSessionId=170182",
       "screening_url": "https://www.cinepolis.com.ar/funciones/1025/170182"
     },
@@ -1519,6 +1671,8 @@
       "language": "Español",
       "sold_percent": null,
       "listing_label": "Classic • 2D • Español",
+      "special_categories": [],
+      "special_tags": [],
       "ticket_url": "https://tickets.cinepolis.com.ar/ticketing/visSelectTickets.aspx?cinemacode=1025&txtSessionId=168754",
       "screening_url": "https://www.cinepolis.com.ar/funciones/1025/168754"
     },
@@ -1541,6 +1695,12 @@
       "language": "Español",
       "sold_percent": null,
       "listing_label": "Classic • 2D • Español",
+      "special_categories": [
+        "dolby_atmos"
+      ],
+      "special_tags": [
+        "Dolby Atmos"
+      ],
       "ticket_url": "https://tickets.cinepolis.com.ar/ticketing/visSelectTickets.aspx?cinemacode=1029&txtSessionId=123958",
       "screening_url": "https://www.cinepolis.com.ar/funciones/1029/123958"
     },
@@ -1563,6 +1723,8 @@
       "language": "Español",
       "sold_percent": 2,
       "listing_label": "Classic • 2D • Español",
+      "special_categories": [],
+      "special_tags": [],
       "ticket_url": "https://tickets.cinepolis.com.ar/ticketing/visSelectTickets.aspx?cinemacode=1025&txtSessionId=170042",
       "screening_url": "https://www.cinepolis.com.ar/funciones/1025/170042"
     },
@@ -1585,6 +1747,8 @@
       "language": "Subtitulado",
       "sold_percent": 1,
       "listing_label": "Classic • 2D • Subtitulado",
+      "special_categories": [],
+      "special_tags": [],
       "ticket_url": "https://tickets.cinepolis.com.ar/ticketing/visSelectTickets.aspx?cinemacode=1029&txtSessionId=124740",
       "screening_url": "https://www.cinepolis.com.ar/funciones/1029/124740"
     },
@@ -1607,6 +1771,8 @@
       "language": "Español",
       "sold_percent": 1,
       "listing_label": "Classic • 3D • Español",
+      "special_categories": [],
+      "special_tags": [],
       "ticket_url": "https://tickets.cinepolis.com.ar/ticketing/visSelectTickets.aspx?cinemacode=1025&txtSessionId=170032",
       "screening_url": "https://www.cinepolis.com.ar/funciones/1025/170032"
     },
@@ -1629,6 +1795,8 @@
       "language": "Subtitulado",
       "sold_percent": 5,
       "listing_label": "Classic • 2D • Subtitulado",
+      "special_categories": [],
+      "special_tags": [],
       "ticket_url": "https://tickets.cinepolis.com.ar/ticketing/visSelectTickets.aspx?cinemacode=1029&txtSessionId=124845",
       "screening_url": "https://www.cinepolis.com.ar/funciones/1029/124845"
     },
@@ -1651,6 +1819,8 @@
       "language": "Español",
       "sold_percent": 1,
       "listing_label": "Classic • 2D • Español",
+      "special_categories": [],
+      "special_tags": [],
       "ticket_url": "https://tickets.cinepolis.com.ar/ticketing/visSelectTickets.aspx?cinemacode=1025&txtSessionId=170019",
       "screening_url": "https://www.cinepolis.com.ar/funciones/1025/170019"
     },
@@ -1673,6 +1843,8 @@
       "language": "Subtitulado",
       "sold_percent": 4,
       "listing_label": "Classic • 2D • Subtitulado",
+      "special_categories": [],
+      "special_tags": [],
       "ticket_url": "https://tickets.cinepolis.com.ar/ticketing/visSelectTickets.aspx?cinemacode=1029&txtSessionId=124818",
       "screening_url": "https://www.cinepolis.com.ar/funciones/1029/124818"
     },
@@ -1695,6 +1867,8 @@
       "language": "Español",
       "sold_percent": 2,
       "listing_label": "Classic • 3D • Español",
+      "special_categories": [],
+      "special_tags": [],
       "ticket_url": "https://tickets.cinepolis.com.ar/ticketing/visSelectTickets.aspx?cinemacode=1025&txtSessionId=170012",
       "screening_url": "https://www.cinepolis.com.ar/funciones/1025/170012"
     },
@@ -1717,6 +1891,8 @@
       "language": "Subtitulado",
       "sold_percent": 2,
       "listing_label": "Classic • 2D • Subtitulado",
+      "special_categories": [],
+      "special_tags": [],
       "ticket_url": "https://tickets.cinepolis.com.ar/ticketing/visSelectTickets.aspx?cinemacode=1029&txtSessionId=124728",
       "screening_url": "https://www.cinepolis.com.ar/funciones/1029/124728"
     },
@@ -1739,6 +1915,8 @@
       "language": "Español",
       "sold_percent": 1,
       "listing_label": "Classic • 2D • Español",
+      "special_categories": [],
+      "special_tags": [],
       "ticket_url": "https://tickets.cinepolis.com.ar/ticketing/visSelectTickets.aspx?cinemacode=1025&txtSessionId=168746",
       "screening_url": "https://www.cinepolis.com.ar/funciones/1025/168746"
     },
@@ -1761,6 +1939,8 @@
       "language": "Español",
       "sold_percent": 2,
       "listing_label": "Classic • 2D • Español",
+      "special_categories": [],
+      "special_tags": [],
       "ticket_url": "https://tickets.cinepolis.com.ar/ticketing/visSelectTickets.aspx?cinemacode=1029&txtSessionId=124857",
       "screening_url": "https://www.cinepolis.com.ar/funciones/1029/124857"
     },
@@ -1783,6 +1963,8 @@
       "language": "Español",
       "sold_percent": 3,
       "listing_label": "Classic • 2D • Español",
+      "special_categories": [],
+      "special_tags": [],
       "ticket_url": "https://tickets.cinepolis.com.ar/ticketing/visSelectTickets.aspx?cinemacode=1025&txtSessionId=170028",
       "screening_url": "https://www.cinepolis.com.ar/funciones/1025/170028"
     },
@@ -1805,6 +1987,8 @@
       "language": "Español",
       "sold_percent": 13,
       "listing_label": "4D • 3D • Español",
+      "special_categories": [],
+      "special_tags": [],
       "ticket_url": "https://tickets.cinepolis.com.ar/ticketing/visSelectTickets.aspx?cinemacode=1025&txtSessionId=168750",
       "screening_url": "https://www.cinepolis.com.ar/funciones/1025/168750"
     },
@@ -1827,6 +2011,8 @@
       "language": "Español",
       "sold_percent": 5,
       "listing_label": "Classic • 3D • Español",
+      "special_categories": [],
+      "special_tags": [],
       "ticket_url": "https://tickets.cinepolis.com.ar/ticketing/visSelectTickets.aspx?cinemacode=1029&txtSessionId=123974",
       "screening_url": "https://www.cinepolis.com.ar/funciones/1029/123974"
     },
@@ -1849,6 +2035,8 @@
       "language": "Español",
       "sold_percent": 1,
       "listing_label": "Classic • 2D • Español",
+      "special_categories": [],
+      "special_tags": [],
       "ticket_url": "https://tickets.cinepolis.com.ar/ticketing/visSelectTickets.aspx?cinemacode=1025&txtSessionId=170015",
       "screening_url": "https://www.cinepolis.com.ar/funciones/1025/170015"
     },
@@ -1871,6 +2059,8 @@
       "language": "Español",
       "sold_percent": 12,
       "listing_label": "4D • 3D • Español",
+      "special_categories": [],
+      "special_tags": [],
       "ticket_url": "https://tickets.cinepolis.com.ar/ticketing/visSelectTickets.aspx?cinemacode=1029&txtSessionId=123989",
       "screening_url": "https://www.cinepolis.com.ar/funciones/1029/123989"
     },
@@ -1893,6 +2083,12 @@
       "language": "Doblada",
       "sold_percent": null,
       "listing_label": "",
+      "special_categories": [
+        "imax"
+      ],
+      "special_tags": [
+        "IMAX"
+      ],
       "ticket_url": "https://entradas.todoshowcase.com/showcase/boleteria.aspx",
       "screening_url": ""
     },
@@ -1915,6 +2111,8 @@
       "language": "Español",
       "sold_percent": 2,
       "listing_label": "Classic • 2D • Español",
+      "special_categories": [],
+      "special_tags": [],
       "ticket_url": "https://tickets.cinepolis.com.ar/ticketing/visSelectTickets.aspx?cinemacode=1025&txtSessionId=170007",
       "screening_url": "https://www.cinepolis.com.ar/funciones/1025/170007"
     },
@@ -1937,6 +2135,8 @@
       "language": "Español",
       "sold_percent": null,
       "listing_label": "Classic • 2D • Español",
+      "special_categories": [],
+      "special_tags": [],
       "ticket_url": "https://tickets.cinepolis.com.ar/ticketing/visSelectTickets.aspx?cinemacode=1029&txtSessionId=124870",
       "screening_url": "https://www.cinepolis.com.ar/funciones/1029/124870"
     },
@@ -1959,6 +2159,8 @@
       "language": "Español",
       "sold_percent": null,
       "listing_label": "Classic • 2D • Español",
+      "special_categories": [],
+      "special_tags": [],
       "ticket_url": "https://tickets.cinepolis.com.ar/ticketing/visSelectTickets.aspx?cinemacode=1025&txtSessionId=170038",
       "screening_url": "https://www.cinepolis.com.ar/funciones/1025/170038"
     },
@@ -1981,6 +2183,8 @@
       "language": "Español",
       "sold_percent": 2,
       "listing_label": "Classic • 3D • Español",
+      "special_categories": [],
+      "special_tags": [],
       "ticket_url": "https://tickets.cinepolis.com.ar/ticketing/visSelectTickets.aspx?cinemacode=1025&txtSessionId=168760",
       "screening_url": "https://www.cinepolis.com.ar/funciones/1025/168760"
     },
@@ -2003,6 +2207,8 @@
       "language": "Español",
       "sold_percent": 12,
       "listing_label": "Classic • 2D • Español",
+      "special_categories": [],
+      "special_tags": [],
       "ticket_url": "https://tickets.cinepolis.com.ar/ticketing/visSelectTickets.aspx?cinemacode=1029&txtSessionId=124831",
       "screening_url": "https://www.cinepolis.com.ar/funciones/1029/124831"
     },
@@ -2025,6 +2231,8 @@
       "language": "Subtitulado",
       "sold_percent": 2,
       "listing_label": "Classic • 2D • Subtitulado",
+      "special_categories": [],
+      "special_tags": [],
       "ticket_url": "https://tickets.cinepolis.com.ar/ticketing/visSelectTickets.aspx?cinemacode=1025&txtSessionId=170183",
       "screening_url": "https://www.cinepolis.com.ar/funciones/1025/170183"
     },
@@ -2047,6 +2255,8 @@
       "language": "Español",
       "sold_percent": null,
       "listing_label": "Classic • 2D • Español",
+      "special_categories": [],
+      "special_tags": [],
       "ticket_url": "https://tickets.cinepolis.com.ar/ticketing/visSelectTickets.aspx?cinemacode=1025&txtSessionId=168755",
       "screening_url": "https://www.cinepolis.com.ar/funciones/1025/168755"
     },
@@ -2069,6 +2279,12 @@
       "language": "Español",
       "sold_percent": 2,
       "listing_label": "Classic • 2D • Español",
+      "special_categories": [
+        "dolby_atmos"
+      ],
+      "special_tags": [
+        "Dolby Atmos"
+      ],
       "ticket_url": "https://tickets.cinepolis.com.ar/ticketing/visSelectTickets.aspx?cinemacode=1029&txtSessionId=123959",
       "screening_url": "https://www.cinepolis.com.ar/funciones/1029/123959"
     },
@@ -2091,6 +2307,8 @@
       "language": "Español",
       "sold_percent": 3,
       "listing_label": "Classic • 3D • Español",
+      "special_categories": [],
+      "special_tags": [],
       "ticket_url": "https://tickets.cinepolis.com.ar/ticketing/visSelectTickets.aspx?cinemacode=1025&txtSessionId=170033",
       "screening_url": "https://www.cinepolis.com.ar/funciones/1025/170033"
     },
@@ -2113,6 +2331,8 @@
       "language": "Español",
       "sold_percent": 2,
       "listing_label": "Classic • 2D • Español",
+      "special_categories": [],
+      "special_tags": [],
       "ticket_url": "https://tickets.cinepolis.com.ar/ticketing/visSelectTickets.aspx?cinemacode=1025&txtSessionId=170020",
       "screening_url": "https://www.cinepolis.com.ar/funciones/1025/170020"
     },
@@ -2135,6 +2355,8 @@
       "language": "Subtitulado",
       "sold_percent": 5,
       "listing_label": "Classic • 2D • Subtitulado",
+      "special_categories": [],
+      "special_tags": [],
       "ticket_url": "https://tickets.cinepolis.com.ar/ticketing/visSelectTickets.aspx?cinemacode=1029&txtSessionId=124846",
       "screening_url": "https://www.cinepolis.com.ar/funciones/1029/124846"
     },
@@ -2157,6 +2379,8 @@
       "language": "Subtitulado",
       "sold_percent": 2,
       "listing_label": "Classic • 2D • Subtitulado",
+      "special_categories": [],
+      "special_tags": [],
       "ticket_url": "https://tickets.cinepolis.com.ar/ticketing/visSelectTickets.aspx?cinemacode=1025&txtSessionId=170227",
       "screening_url": "https://www.cinepolis.com.ar/funciones/1025/170227"
     },
@@ -2179,6 +2403,8 @@
       "language": "Español",
       "sold_percent": 6,
       "listing_label": "Classic • 2D • Español",
+      "special_categories": [],
+      "special_tags": [],
       "ticket_url": "https://tickets.cinepolis.com.ar/ticketing/visSelectTickets.aspx?cinemacode=1025&txtSessionId=168747",
       "screening_url": "https://www.cinepolis.com.ar/funciones/1025/168747"
     },
@@ -2201,6 +2427,8 @@
       "language": "Subtitulado",
       "sold_percent": 9,
       "listing_label": "Classic • 2D • Subtitulado",
+      "special_categories": [],
+      "special_tags": [],
       "ticket_url": "https://tickets.cinepolis.com.ar/ticketing/visSelectTickets.aspx?cinemacode=1025&txtSessionId=170206",
       "screening_url": "https://www.cinepolis.com.ar/funciones/1025/170206"
     },
@@ -2223,6 +2451,8 @@
       "language": "Subtitulado",
       "sold_percent": 4,
       "listing_label": "Classic • 2D • Subtitulado",
+      "special_categories": [],
+      "special_tags": [],
       "ticket_url": "https://tickets.cinepolis.com.ar/ticketing/visSelectTickets.aspx?cinemacode=1029&txtSessionId=124858",
       "screening_url": "https://www.cinepolis.com.ar/funciones/1029/124858"
     },
@@ -2245,6 +2475,8 @@
       "language": "Subtitulado",
       "sold_percent": 9,
       "listing_label": "Classic • 2D • Subtitulado",
+      "special_categories": [],
+      "special_tags": [],
       "ticket_url": "https://tickets.cinepolis.com.ar/ticketing/visSelectTickets.aspx?cinemacode=1029&txtSessionId=124741",
       "screening_url": "https://www.cinepolis.com.ar/funciones/1029/124741"
     },
@@ -2267,6 +2499,8 @@
       "language": "Español",
       "sold_percent": 8,
       "listing_label": "Classic • 2D • Español",
+      "special_categories": [],
+      "special_tags": [],
       "ticket_url": "https://tickets.cinepolis.com.ar/ticketing/visSelectTickets.aspx?cinemacode=1025&txtSessionId=170029",
       "screening_url": "https://www.cinepolis.com.ar/funciones/1025/170029"
     },
@@ -2289,6 +2523,8 @@
       "language": "Subtitulado",
       "sold_percent": null,
       "listing_label": "Classic • 2D • Subtitulado",
+      "special_categories": [],
+      "special_tags": [],
       "ticket_url": "https://tickets.cinepolis.com.ar/ticketing/visSelectTickets.aspx?cinemacode=1029&txtSessionId=124833",
       "screening_url": "https://www.cinepolis.com.ar/funciones/1029/124833"
     },
@@ -2311,6 +2547,8 @@
       "language": "Español",
       "sold_percent": 36,
       "listing_label": "4D • 3D • Español",
+      "special_categories": [],
+      "special_tags": [],
       "ticket_url": "https://tickets.cinepolis.com.ar/ticketing/visSelectTickets.aspx?cinemacode=1025&txtSessionId=168751",
       "screening_url": "https://www.cinepolis.com.ar/funciones/1025/168751"
     },
@@ -2333,6 +2571,8 @@
       "language": "Español",
       "sold_percent": 6,
       "listing_label": "Classic • 3D • Español",
+      "special_categories": [],
+      "special_tags": [],
       "ticket_url": "https://tickets.cinepolis.com.ar/ticketing/visSelectTickets.aspx?cinemacode=1029&txtSessionId=123975",
       "screening_url": "https://www.cinepolis.com.ar/funciones/1029/123975"
     },
@@ -2355,6 +2595,8 @@
       "language": "Español",
       "sold_percent": 2,
       "listing_label": "Classic • 2D • Español",
+      "special_categories": [],
+      "special_tags": [],
       "ticket_url": "https://tickets.cinepolis.com.ar/ticketing/visSelectTickets.aspx?cinemacode=1025&txtSessionId=170016",
       "screening_url": "https://www.cinepolis.com.ar/funciones/1025/170016"
     },
@@ -2377,6 +2619,8 @@
       "language": "Subtitulado",
       "sold_percent": 12,
       "listing_label": "Classic • 2D • Subtitulado",
+      "special_categories": [],
+      "special_tags": [],
       "ticket_url": "https://tickets.cinepolis.com.ar/ticketing/visSelectTickets.aspx?cinemacode=1029&txtSessionId=124729",
       "screening_url": "https://www.cinepolis.com.ar/funciones/1029/124729"
     },
@@ -2399,6 +2643,8 @@
       "language": "Español",
       "sold_percent": 27,
       "listing_label": "4D • 3D • Español",
+      "special_categories": [],
+      "special_tags": [],
       "ticket_url": "https://tickets.cinepolis.com.ar/ticketing/visSelectTickets.aspx?cinemacode=1029&txtSessionId=123990",
       "screening_url": "https://www.cinepolis.com.ar/funciones/1029/123990"
     },
@@ -2421,6 +2667,12 @@
       "language": "Doblada",
       "sold_percent": null,
       "listing_label": "",
+      "special_categories": [
+        "imax"
+      ],
+      "special_tags": [
+        "IMAX"
+      ],
       "ticket_url": "https://entradas.todoshowcase.com/showcase/boleteria.aspx",
       "screening_url": ""
     },
@@ -2443,6 +2695,8 @@
       "language": "Subtitulado",
       "sold_percent": 17,
       "listing_label": "Classic • 2D • Subtitulado",
+      "special_categories": [],
+      "special_tags": [],
       "ticket_url": "https://tickets.cinepolis.com.ar/ticketing/visSelectTickets.aspx?cinemacode=1029&txtSessionId=123960",
       "screening_url": "https://www.cinepolis.com.ar/funciones/1029/123960"
     },
@@ -2465,6 +2719,8 @@
       "language": "Subtitulado",
       "sold_percent": 2,
       "listing_label": "Classic • 2D • Subtitulado",
+      "special_categories": [],
+      "special_tags": [],
       "ticket_url": "https://tickets.cinepolis.com.ar/ticketing/visSelectTickets.aspx?cinemacode=1025&txtSessionId=170184",
       "screening_url": "https://www.cinepolis.com.ar/funciones/1025/170184"
     },
@@ -2487,6 +2743,8 @@
       "language": "Subtitulado",
       "sold_percent": 2,
       "listing_label": "Classic • 2D • Subtitulado",
+      "special_categories": [],
+      "special_tags": [],
       "ticket_url": "https://tickets.cinepolis.com.ar/ticketing/visSelectTickets.aspx?cinemacode=1029&txtSessionId=124832",
       "screening_url": "https://www.cinepolis.com.ar/funciones/1029/124832"
     },
@@ -2509,6 +2767,8 @@
       "language": "Subtitulado",
       "sold_percent": 7,
       "listing_label": "Classic • 2D • Subtitulado",
+      "special_categories": [],
+      "special_tags": [],
       "ticket_url": "https://tickets.cinepolis.com.ar/ticketing/visSelectTickets.aspx?cinemacode=1025&txtSessionId=170203",
       "screening_url": "https://www.cinepolis.com.ar/funciones/1025/170203"
     },
@@ -2531,6 +2791,8 @@
       "language": "Subtitulado",
       "sold_percent": null,
       "listing_label": "Classic • 2D • Subtitulado",
+      "special_categories": [],
+      "special_tags": [],
       "ticket_url": "https://tickets.cinepolis.com.ar/ticketing/visSelectTickets.aspx?cinemacode=1025&txtSessionId=170205",
       "screening_url": "https://www.cinepolis.com.ar/funciones/1025/170205"
     },
@@ -2553,6 +2815,8 @@
       "language": "Español",
       "sold_percent": 2,
       "listing_label": "Classic • 3D • Español",
+      "special_categories": [],
+      "special_tags": [],
       "ticket_url": "https://tickets.cinepolis.com.ar/ticketing/visSelectTickets.aspx?cinemacode=1025&txtSessionId=168761",
       "screening_url": "https://www.cinepolis.com.ar/funciones/1025/168761"
     },
@@ -2575,6 +2839,8 @@
       "language": "Español",
       "sold_percent": null,
       "listing_label": "Classic • 2D • Español",
+      "special_categories": [],
+      "special_tags": [],
       "ticket_url": "https://tickets.cinepolis.com.ar/ticketing/visSelectTickets.aspx?cinemacode=1025&txtSessionId=168756",
       "screening_url": "https://www.cinepolis.com.ar/funciones/1025/168756"
     },
@@ -2597,6 +2863,12 @@
       "language": "Español",
       "sold_percent": 2,
       "listing_label": "Classic • 2D • Español",
+      "special_categories": [
+        "dolby_atmos"
+      ],
+      "special_tags": [
+        "Dolby Atmos"
+      ],
       "ticket_url": "https://tickets.cinepolis.com.ar/ticketing/visSelectTickets.aspx?cinemacode=1029&txtSessionId=124871",
       "screening_url": "https://www.cinepolis.com.ar/funciones/1029/124871"
     },
@@ -2619,6 +2891,8 @@
       "language": "Español",
       "sold_percent": 2,
       "listing_label": "Classic • 3D • Español",
+      "special_categories": [],
+      "special_tags": [],
       "ticket_url": "https://tickets.cinepolis.com.ar/ticketing/visSelectTickets.aspx?cinemacode=1025&txtSessionId=170034",
       "screening_url": "https://www.cinepolis.com.ar/funciones/1025/170034"
     },
@@ -2641,6 +2915,8 @@
       "language": "Español",
       "sold_percent": 3,
       "listing_label": "Classic • 2D • Español",
+      "special_categories": [],
+      "special_tags": [],
       "ticket_url": "https://tickets.cinepolis.com.ar/ticketing/visSelectTickets.aspx?cinemacode=1025&txtSessionId=170021",
       "screening_url": "https://www.cinepolis.com.ar/funciones/1025/170021"
     },
@@ -2663,6 +2939,8 @@
       "language": "Español",
       "sold_percent": 2,
       "listing_label": "Classic • 2D • Español",
+      "special_categories": [],
+      "special_tags": [],
       "ticket_url": "https://tickets.cinepolis.com.ar/ticketing/visSelectTickets.aspx?cinemacode=1025&txtSessionId=168748",
       "screening_url": "https://www.cinepolis.com.ar/funciones/1025/168748"
     },
@@ -2685,6 +2963,8 @@
       "language": "Subtitulado",
       "sold_percent": 3,
       "listing_label": "Classic • 2D • Subtitulado",
+      "special_categories": [],
+      "special_tags": [],
       "ticket_url": "https://tickets.cinepolis.com.ar/ticketing/visSelectTickets.aspx?cinemacode=1029&txtSessionId=124872",
       "screening_url": "https://www.cinepolis.com.ar/funciones/1029/124872"
     },
@@ -2707,6 +2987,8 @@
       "language": "Español",
       "sold_percent": 3,
       "listing_label": "Classic • 2D • Español",
+      "special_categories": [],
+      "special_tags": [],
       "ticket_url": "https://tickets.cinepolis.com.ar/ticketing/visSelectTickets.aspx?cinemacode=1025&txtSessionId=170030",
       "screening_url": "https://www.cinepolis.com.ar/funciones/1025/170030"
     },
@@ -2729,6 +3011,8 @@
       "language": "Español",
       "sold_percent": 11,
       "listing_label": "4D • 3D • Español",
+      "special_categories": [],
+      "special_tags": [],
       "ticket_url": "https://tickets.cinepolis.com.ar/ticketing/visSelectTickets.aspx?cinemacode=1025&txtSessionId=168752",
       "screening_url": "https://www.cinepolis.com.ar/funciones/1025/168752"
     },
@@ -2751,6 +3035,8 @@
       "language": "Subtitulado",
       "sold_percent": 4,
       "listing_label": "Classic • 2D • Subtitulado",
+      "special_categories": [],
+      "special_tags": [],
       "ticket_url": "https://tickets.cinepolis.com.ar/ticketing/visSelectTickets.aspx?cinemacode=1029&txtSessionId=124859",
       "screening_url": "https://www.cinepolis.com.ar/funciones/1029/124859"
     },
@@ -2773,6 +3059,8 @@
       "language": "Subtitulado",
       "sold_percent": 3,
       "listing_label": "Classic • 2D • Subtitulado",
+      "special_categories": [],
+      "special_tags": [],
       "ticket_url": "https://tickets.cinepolis.com.ar/ticketing/visSelectTickets.aspx?cinemacode=1029&txtSessionId=124694",
       "screening_url": "https://www.cinepolis.com.ar/funciones/1029/124694"
     },
@@ -2795,6 +3083,8 @@
       "language": "Subtitulado",
       "sold_percent": 5,
       "listing_label": "Classic • 2D • Subtitulado",
+      "special_categories": [],
+      "special_tags": [],
       "ticket_url": "https://tickets.cinepolis.com.ar/ticketing/visSelectTickets.aspx?cinemacode=1025&txtSessionId=170204",
       "screening_url": "https://www.cinepolis.com.ar/funciones/1025/170204"
     },
@@ -2817,6 +3107,8 @@
       "language": "Español",
       "sold_percent": 1,
       "listing_label": "Classic • 2D • Español",
+      "special_categories": [],
+      "special_tags": [],
       "ticket_url": "https://tickets.cinepolis.com.ar/ticketing/visSelectTickets.aspx?cinemacode=1025&txtSessionId=170017",
       "screening_url": "https://www.cinepolis.com.ar/funciones/1025/170017"
     },
@@ -2839,6 +3131,8 @@
       "language": "Subtitulado",
       "sold_percent": 2,
       "listing_label": "Classic • 2D • Subtitulado",
+      "special_categories": [],
+      "special_tags": [],
       "ticket_url": "https://tickets.cinepolis.com.ar/ticketing/visSelectTickets.aspx?cinemacode=1029&txtSessionId=124742",
       "screening_url": "https://www.cinepolis.com.ar/funciones/1029/124742"
     },
@@ -2861,6 +3155,12 @@
       "language": "Subtitulado",
       "sold_percent": null,
       "listing_label": "",
+      "special_categories": [
+        "imax"
+      ],
+      "special_tags": [
+        "IMAX"
+      ],
       "ticket_url": "https://entradas.todoshowcase.com/showcase/boleteria.aspx",
       "screening_url": ""
     },
@@ -2883,6 +3183,8 @@
       "language": "Subtitulado",
       "sold_percent": 20,
       "listing_label": "4D • 2D • Subtitulado",
+      "special_categories": [],
+      "special_tags": [],
       "ticket_url": "https://tickets.cinepolis.com.ar/ticketing/visSelectTickets.aspx?cinemacode=1029&txtSessionId=124700",
       "screening_url": "https://www.cinepolis.com.ar/funciones/1029/124700"
     },
@@ -2905,6 +3207,8 @@
       "language": "Español",
       "sold_percent": 2,
       "listing_label": "Classic • 2D • Español",
+      "special_categories": [],
+      "special_tags": [],
       "ticket_url": "https://tickets.cinepolis.com.ar/ticketing/visSelectTickets.aspx?cinemacode=1025&txtSessionId=170044",
       "screening_url": "https://www.cinepolis.com.ar/funciones/1025/170044"
     },
@@ -2927,6 +3231,8 @@
       "language": "Subtitulado",
       "sold_percent": 2,
       "listing_label": "Classic • 2D • Subtitulado",
+      "special_categories": [],
+      "special_tags": [],
       "ticket_url": "https://tickets.cinepolis.com.ar/ticketing/visSelectTickets.aspx?cinemacode=1029&txtSessionId=124847",
       "screening_url": "https://www.cinepolis.com.ar/funciones/1029/124847"
     },
@@ -2949,6 +3255,8 @@
       "language": "Subtitulado",
       "sold_percent": 2,
       "listing_label": "Classic • 2D • Subtitulado",
+      "special_categories": [],
+      "special_tags": [],
       "ticket_url": "https://tickets.cinepolis.com.ar/ticketing/visSelectTickets.aspx?cinemacode=1025&txtSessionId=170185",
       "screening_url": "https://www.cinepolis.com.ar/funciones/1025/170185"
     },
@@ -2971,6 +3279,8 @@
       "language": "Español",
       "sold_percent": null,
       "listing_label": "Classic • 2D • Español",
+      "special_categories": [],
+      "special_tags": [],
       "ticket_url": "https://tickets.cinepolis.com.ar/ticketing/visSelectTickets.aspx?cinemacode=1025&txtSessionId=170267",
       "screening_url": "https://www.cinepolis.com.ar/funciones/1025/170267"
     },
@@ -2993,6 +3303,8 @@
       "language": "Español",
       "sold_percent": 1,
       "listing_label": "Classic • 3D • Español",
+      "special_categories": [],
+      "special_tags": [],
       "ticket_url": "https://tickets.cinepolis.com.ar/ticketing/visSelectTickets.aspx?cinemacode=1025&txtSessionId=168762",
       "screening_url": "https://www.cinepolis.com.ar/funciones/1025/168762"
     },
@@ -3015,6 +3327,8 @@
       "language": "Subtitulado",
       "sold_percent": null,
       "listing_label": "Classic • 2D • Subtitulado",
+      "special_categories": [],
+      "special_tags": [],
       "ticket_url": "https://tickets.cinepolis.com.ar/ticketing/visSelectTickets.aspx?cinemacode=1029&txtSessionId=124819",
       "screening_url": "https://www.cinepolis.com.ar/funciones/1029/124819"
     },
@@ -3037,6 +3351,8 @@
       "language": "Subtitulado",
       "sold_percent": 1,
       "listing_label": "Classic • 2D • Subtitulado",
+      "special_categories": [],
+      "special_tags": [],
       "ticket_url": "https://tickets.cinepolis.com.ar/ticketing/visSelectTickets.aspx?cinemacode=1029&txtSessionId=124820",
       "screening_url": "https://www.cinepolis.com.ar/funciones/1029/124820"
     },
@@ -3059,6 +3375,8 @@
       "language": "Español",
       "sold_percent": null,
       "listing_label": "Classic • 2D • Español",
+      "special_categories": [],
+      "special_tags": [],
       "ticket_url": "https://tickets.cinepolis.com.ar/ticketing/visSelectTickets.aspx?cinemacode=1025&txtSessionId=168757",
       "screening_url": "https://www.cinepolis.com.ar/funciones/1025/168757"
     },
@@ -3081,6 +3399,12 @@
       "language": "Subtitulado",
       "sold_percent": 1,
       "listing_label": "Classic • 2D • Subtitulado",
+      "special_categories": [
+        "dolby_atmos"
+      ],
+      "special_tags": [
+        "Dolby Atmos"
+      ],
       "ticket_url": "https://tickets.cinepolis.com.ar/ticketing/visSelectTickets.aspx?cinemacode=1029&txtSessionId=123961",
       "screening_url": "https://www.cinepolis.com.ar/funciones/1029/123961"
     },
@@ -3103,6 +3427,8 @@
       "language": "Subtitulado",
       "sold_percent": null,
       "listing_label": "Classic • 2D • Subtitulado",
+      "special_categories": [],
+      "special_tags": [],
       "ticket_url": "https://tickets.cinepolis.com.ar/ticketing/visSelectTickets.aspx?cinemacode=1029&txtSessionId=124730",
       "screening_url": "https://www.cinepolis.com.ar/funciones/1029/124730"
     },
@@ -3125,6 +3451,8 @@
       "language": "Subtitulado",
       "sold_percent": 5,
       "listing_label": "Classic • 2D • Subtitulado",
+      "special_categories": [],
+      "special_tags": [],
       "ticket_url": "https://tickets.cinepolis.com.ar/ticketing/visSelectTickets.aspx?cinemacode=1025&txtSessionId=170202",
       "screening_url": "https://www.cinepolis.com.ar/funciones/1025/170202"
     },
@@ -3147,6 +3475,8 @@
       "language": "Subtitulado",
       "sold_percent": 2,
       "listing_label": "Classic • 2D • Subtitulado",
+      "special_categories": [],
+      "special_tags": [],
       "ticket_url": "https://tickets.cinepolis.com.ar/ticketing/visSelectTickets.aspx?cinemacode=1025&txtSessionId=170207",
       "screening_url": "https://www.cinepolis.com.ar/funciones/1025/170207"
     },
@@ -3169,6 +3499,8 @@
       "language": "Español",
       "sold_percent": null,
       "listing_label": "Classic • 3D • Español",
+      "special_categories": [],
+      "special_tags": [],
       "ticket_url": "https://tickets.cinepolis.com.ar/ticketing/visSelectTickets.aspx?cinemacode=1029&txtSessionId=123977",
       "screening_url": "https://www.cinepolis.com.ar/funciones/1029/123977"
     },
@@ -3191,6 +3523,8 @@
       "language": "Español",
       "sold_percent": 5,
       "listing_label": "4D • 3D • Español",
+      "special_categories": [],
+      "special_tags": [],
       "ticket_url": "https://tickets.cinepolis.com.ar/ticketing/visSelectTickets.aspx?cinemacode=1029&txtSessionId=123991",
       "screening_url": "https://www.cinepolis.com.ar/funciones/1029/123991"
     },
@@ -3213,6 +3547,8 @@
       "language": "Español",
       "sold_percent": null,
       "listing_label": "Classic • 2D • Español",
+      "special_categories": [],
+      "special_tags": [],
       "ticket_url": "https://tickets.cinepolis.com.ar/ticketing/visSelectTickets.aspx?cinemacode=1029&txtSessionId=124873",
       "screening_url": "https://www.cinepolis.com.ar/funciones/1029/124873"
     },
@@ -3235,6 +3571,8 @@
       "language": "Subtitulado",
       "sold_percent": 1,
       "listing_label": "Classic • 2D • Subtitulado",
+      "special_categories": [],
+      "special_tags": [],
       "ticket_url": "https://tickets.cinepolis.com.ar/ticketing/visSelectTickets.aspx?cinemacode=1029&txtSessionId=124743",
       "screening_url": "https://www.cinepolis.com.ar/funciones/1029/124743"
     },
@@ -3257,6 +3595,8 @@
       "language": "Español",
       "sold_percent": null,
       "listing_label": "Classic • 2D • Español",
+      "special_categories": [],
+      "special_tags": [],
       "ticket_url": "https://tickets.cinepolis.com.ar/ticketing/visSelectTickets.aspx?cinemacode=1025&txtSessionId=170075",
       "screening_url": "https://www.cinepolis.com.ar/funciones/1025/170075"
     },
@@ -3279,6 +3619,8 @@
       "language": "Español",
       "sold_percent": null,
       "listing_label": "Classic • 2D • Español",
+      "special_categories": [],
+      "special_tags": [],
       "ticket_url": "https://tickets.cinepolis.com.ar/ticketing/visSelectTickets.aspx?cinemacode=1029&txtSessionId=124834",
       "screening_url": "https://www.cinepolis.com.ar/funciones/1029/124834"
     },
@@ -3301,6 +3643,8 @@
       "language": "Español",
       "sold_percent": null,
       "listing_label": "Classic • 2D • Español",
+      "special_categories": [],
+      "special_tags": [],
       "ticket_url": "https://tickets.cinepolis.com.ar/ticketing/visSelectTickets.aspx?cinemacode=1025&txtSessionId=168771",
       "screening_url": "https://www.cinepolis.com.ar/funciones/1025/168771"
     },
@@ -3323,6 +3667,12 @@
       "language": "Español",
       "sold_percent": null,
       "listing_label": "Classic • 2D • Español",
+      "special_categories": [
+        "dolby_atmos"
+      ],
+      "special_tags": [
+        "Dolby Atmos"
+      ],
       "ticket_url": "https://tickets.cinepolis.com.ar/ticketing/visSelectTickets.aspx?cinemacode=1029&txtSessionId=123962",
       "screening_url": "https://www.cinepolis.com.ar/funciones/1029/123962"
     },
@@ -3345,6 +3695,8 @@
       "language": "Subtitulado",
       "sold_percent": 4,
       "listing_label": "Classic • 2D • Subtitulado",
+      "special_categories": [],
+      "special_tags": [],
       "ticket_url": "https://tickets.cinepolis.com.ar/ticketing/visSelectTickets.aspx?cinemacode=1029&txtSessionId=124731",
       "screening_url": "https://www.cinepolis.com.ar/funciones/1029/124731"
     },
@@ -3367,6 +3719,8 @@
       "language": "Subtitulado",
       "sold_percent": null,
       "listing_label": "Classic • 2D • Subtitulado",
+      "special_categories": [],
+      "special_tags": [],
       "ticket_url": "https://tickets.cinepolis.com.ar/ticketing/visSelectTickets.aspx?cinemacode=1029&txtSessionId=124821",
       "screening_url": "https://www.cinepolis.com.ar/funciones/1029/124821"
     },
@@ -3389,6 +3743,8 @@
       "language": "Español",
       "sold_percent": 1,
       "listing_label": "Classic • 3D • Español",
+      "special_categories": [],
+      "special_tags": [],
       "ticket_url": "https://tickets.cinepolis.com.ar/ticketing/visSelectTickets.aspx?cinemacode=1025&txtSessionId=170070",
       "screening_url": "https://www.cinepolis.com.ar/funciones/1025/170070"
     },
@@ -3411,6 +3767,8 @@
       "language": "Español",
       "sold_percent": 2,
       "listing_label": "Classic • 3D • Español",
+      "special_categories": [],
+      "special_tags": [],
       "ticket_url": "https://tickets.cinepolis.com.ar/ticketing/visSelectTickets.aspx?cinemacode=1025&txtSessionId=170049",
       "screening_url": "https://www.cinepolis.com.ar/funciones/1025/170049"
     },
@@ -3433,6 +3791,8 @@
       "language": "Español",
       "sold_percent": 1,
       "listing_label": "Classic • 2D • Español",
+      "special_categories": [],
+      "special_tags": [],
       "ticket_url": "https://tickets.cinepolis.com.ar/ticketing/visSelectTickets.aspx?cinemacode=1025&txtSessionId=170057",
       "screening_url": "https://www.cinepolis.com.ar/funciones/1025/170057"
     },
@@ -3455,6 +3815,8 @@
       "language": "Subtitulado",
       "sold_percent": 1,
       "listing_label": "Classic • 2D • Subtitulado",
+      "special_categories": [],
+      "special_tags": [],
       "ticket_url": "https://tickets.cinepolis.com.ar/ticketing/visSelectTickets.aspx?cinemacode=1029&txtSessionId=124848",
       "screening_url": "https://www.cinepolis.com.ar/funciones/1029/124848"
     },
@@ -3477,6 +3839,8 @@
       "language": "Español",
       "sold_percent": 1,
       "listing_label": "Classic • 2D • Español",
+      "special_categories": [],
+      "special_tags": [],
       "ticket_url": "https://tickets.cinepolis.com.ar/ticketing/visSelectTickets.aspx?cinemacode=1025&txtSessionId=168763",
       "screening_url": "https://www.cinepolis.com.ar/funciones/1025/168763"
     },
@@ -3499,6 +3863,8 @@
       "language": "Español",
       "sold_percent": null,
       "listing_label": "Classic • 2D • Español",
+      "special_categories": [],
+      "special_tags": [],
       "ticket_url": "https://tickets.cinepolis.com.ar/ticketing/visSelectTickets.aspx?cinemacode=1029&txtSessionId=124860",
       "screening_url": "https://www.cinepolis.com.ar/funciones/1029/124860"
     },
@@ -3521,6 +3887,8 @@
       "language": "Español",
       "sold_percent": 3,
       "listing_label": "Classic • 2D • Español",
+      "special_categories": [],
+      "special_tags": [],
       "ticket_url": "https://tickets.cinepolis.com.ar/ticketing/visSelectTickets.aspx?cinemacode=1025&txtSessionId=170066",
       "screening_url": "https://www.cinepolis.com.ar/funciones/1025/170066"
     },
@@ -3543,6 +3911,8 @@
       "language": "Español",
       "sold_percent": 1,
       "listing_label": "4D • 3D • Español",
+      "special_categories": [],
+      "special_tags": [],
       "ticket_url": "https://tickets.cinepolis.com.ar/ticketing/visSelectTickets.aspx?cinemacode=1025&txtSessionId=168767",
       "screening_url": "https://www.cinepolis.com.ar/funciones/1025/168767"
     },
@@ -3565,6 +3935,8 @@
       "language": "Español",
       "sold_percent": null,
       "listing_label": "Classic • 3D • Español",
+      "special_categories": [],
+      "special_tags": [],
       "ticket_url": "https://tickets.cinepolis.com.ar/ticketing/visSelectTickets.aspx?cinemacode=1029&txtSessionId=123978",
       "screening_url": "https://www.cinepolis.com.ar/funciones/1029/123978"
     },
@@ -3587,6 +3959,8 @@
       "language": "Español",
       "sold_percent": 1,
       "listing_label": "Classic • 2D • Español",
+      "special_categories": [],
+      "special_tags": [],
       "ticket_url": "https://tickets.cinepolis.com.ar/ticketing/visSelectTickets.aspx?cinemacode=1025&txtSessionId=170053",
       "screening_url": "https://www.cinepolis.com.ar/funciones/1025/170053"
     },
@@ -3609,6 +3983,8 @@
       "language": "Español",
       "sold_percent": 7,
       "listing_label": "4D • 3D • Español",
+      "special_categories": [],
+      "special_tags": [],
       "ticket_url": "https://tickets.cinepolis.com.ar/ticketing/visSelectTickets.aspx?cinemacode=1029&txtSessionId=123992",
       "screening_url": "https://www.cinepolis.com.ar/funciones/1029/123992"
     },
@@ -3631,6 +4007,8 @@
       "language": "Español",
       "sold_percent": 2,
       "listing_label": "Classic • 2D • Español",
+      "special_categories": [],
+      "special_tags": [],
       "ticket_url": "https://tickets.cinepolis.com.ar/ticketing/visSelectTickets.aspx?cinemacode=1025&txtSessionId=170045",
       "screening_url": "https://www.cinepolis.com.ar/funciones/1025/170045"
     },
@@ -3653,6 +4031,8 @@
       "language": "Español",
       "sold_percent": null,
       "listing_label": "Classic • 2D • Español",
+      "special_categories": [],
+      "special_tags": [],
       "ticket_url": "https://tickets.cinepolis.com.ar/ticketing/visSelectTickets.aspx?cinemacode=1029&txtSessionId=124874",
       "screening_url": "https://www.cinepolis.com.ar/funciones/1029/124874"
     },
@@ -3675,6 +4055,12 @@
       "language": "Doblada",
       "sold_percent": null,
       "listing_label": "",
+      "special_categories": [
+        "imax"
+      ],
+      "special_tags": [
+        "IMAX"
+      ],
       "ticket_url": "https://entradas.todoshowcase.com/showcase/boleteria.aspx",
       "screening_url": ""
     },
@@ -3697,6 +4083,8 @@
       "language": "Español",
       "sold_percent": null,
       "listing_label": "Classic • 2D • Español",
+      "special_categories": [],
+      "special_tags": [],
       "ticket_url": "https://tickets.cinepolis.com.ar/ticketing/visSelectTickets.aspx?cinemacode=1025&txtSessionId=170076",
       "screening_url": "https://www.cinepolis.com.ar/funciones/1025/170076"
     },
@@ -3719,6 +4107,8 @@
       "language": "Español",
       "sold_percent": 1,
       "listing_label": "Classic • 3D • Español",
+      "special_categories": [],
+      "special_tags": [],
       "ticket_url": "https://tickets.cinepolis.com.ar/ticketing/visSelectTickets.aspx?cinemacode=1025&txtSessionId=168777",
       "screening_url": "https://www.cinepolis.com.ar/funciones/1025/168777"
     },
@@ -3741,6 +4131,8 @@
       "language": "Español",
       "sold_percent": null,
       "listing_label": "Classic • 2D • Español",
+      "special_categories": [],
+      "special_tags": [],
       "ticket_url": "https://tickets.cinepolis.com.ar/ticketing/visSelectTickets.aspx?cinemacode=1029&txtSessionId=124835",
       "screening_url": "https://www.cinepolis.com.ar/funciones/1029/124835"
     },
@@ -3763,6 +4155,8 @@
       "language": "Subtitulado",
       "sold_percent": 2,
       "listing_label": "Classic • 2D • Subtitulado",
+      "special_categories": [],
+      "special_tags": [],
       "ticket_url": "https://tickets.cinepolis.com.ar/ticketing/visSelectTickets.aspx?cinemacode=1025&txtSessionId=170186",
       "screening_url": "https://www.cinepolis.com.ar/funciones/1025/170186"
     },
@@ -3785,6 +4179,8 @@
       "language": "Español",
       "sold_percent": null,
       "listing_label": "Classic • 2D • Español",
+      "special_categories": [],
+      "special_tags": [],
       "ticket_url": "https://tickets.cinepolis.com.ar/ticketing/visSelectTickets.aspx?cinemacode=1025&txtSessionId=168772",
       "screening_url": "https://www.cinepolis.com.ar/funciones/1025/168772"
     },
@@ -3807,6 +4203,12 @@
       "language": "Español",
       "sold_percent": null,
       "listing_label": "Classic • 2D • Español",
+      "special_categories": [
+        "dolby_atmos"
+      ],
+      "special_tags": [
+        "Dolby Atmos"
+      ],
       "ticket_url": "https://tickets.cinepolis.com.ar/ticketing/visSelectTickets.aspx?cinemacode=1029&txtSessionId=123963",
       "screening_url": "https://www.cinepolis.com.ar/funciones/1029/123963"
     },
@@ -3829,6 +4231,8 @@
       "language": "Español",
       "sold_percent": 2,
       "listing_label": "Classic • 2D • Español",
+      "special_categories": [],
+      "special_tags": [],
       "ticket_url": "https://tickets.cinepolis.com.ar/ticketing/visSelectTickets.aspx?cinemacode=1025&txtSessionId=170081",
       "screening_url": "https://www.cinepolis.com.ar/funciones/1025/170081"
     },
@@ -3851,6 +4255,8 @@
       "language": "Subtitulado",
       "sold_percent": 2,
       "listing_label": "Classic • 2D • Subtitulado",
+      "special_categories": [],
+      "special_tags": [],
       "ticket_url": "https://tickets.cinepolis.com.ar/ticketing/visSelectTickets.aspx?cinemacode=1029&txtSessionId=124744",
       "screening_url": "https://www.cinepolis.com.ar/funciones/1029/124744"
     },
@@ -3873,6 +4279,8 @@
       "language": "Español",
       "sold_percent": 1,
       "listing_label": "Classic • 3D • Español",
+      "special_categories": [],
+      "special_tags": [],
       "ticket_url": "https://tickets.cinepolis.com.ar/ticketing/visSelectTickets.aspx?cinemacode=1025&txtSessionId=170071",
       "screening_url": "https://www.cinepolis.com.ar/funciones/1025/170071"
     },
@@ -3895,6 +4303,8 @@
       "language": "Subtitulado",
       "sold_percent": null,
       "listing_label": "Classic • 2D • Subtitulado",
+      "special_categories": [],
+      "special_tags": [],
       "ticket_url": "https://tickets.cinepolis.com.ar/ticketing/visSelectTickets.aspx?cinemacode=1029&txtSessionId=124849",
       "screening_url": "https://www.cinepolis.com.ar/funciones/1029/124849"
     },
@@ -3917,6 +4327,8 @@
       "language": "Español",
       "sold_percent": 1,
       "listing_label": "Classic • 2D • Español",
+      "special_categories": [],
+      "special_tags": [],
       "ticket_url": "https://tickets.cinepolis.com.ar/ticketing/visSelectTickets.aspx?cinemacode=1025&txtSessionId=170058",
       "screening_url": "https://www.cinepolis.com.ar/funciones/1025/170058"
     },
@@ -3939,6 +4351,8 @@
       "language": "Subtitulado",
       "sold_percent": null,
       "listing_label": "Classic • 2D • Subtitulado",
+      "special_categories": [],
+      "special_tags": [],
       "ticket_url": "https://tickets.cinepolis.com.ar/ticketing/visSelectTickets.aspx?cinemacode=1029&txtSessionId=124822",
       "screening_url": "https://www.cinepolis.com.ar/funciones/1029/124822"
     },
@@ -3961,6 +4375,8 @@
       "language": "Español",
       "sold_percent": 2,
       "listing_label": "Classic • 3D • Español",
+      "special_categories": [],
+      "special_tags": [],
       "ticket_url": "https://tickets.cinepolis.com.ar/ticketing/visSelectTickets.aspx?cinemacode=1025&txtSessionId=170051",
       "screening_url": "https://www.cinepolis.com.ar/funciones/1025/170051"
     },
@@ -3983,6 +4399,8 @@
       "language": "Subtitulado",
       "sold_percent": 1,
       "listing_label": "Classic • 2D • Subtitulado",
+      "special_categories": [],
+      "special_tags": [],
       "ticket_url": "https://tickets.cinepolis.com.ar/ticketing/visSelectTickets.aspx?cinemacode=1029&txtSessionId=124732",
       "screening_url": "https://www.cinepolis.com.ar/funciones/1029/124732"
     },
@@ -4005,6 +4423,8 @@
       "language": "Español",
       "sold_percent": 1,
       "listing_label": "Classic • 2D • Español",
+      "special_categories": [],
+      "special_tags": [],
       "ticket_url": "https://tickets.cinepolis.com.ar/ticketing/visSelectTickets.aspx?cinemacode=1025&txtSessionId=168764",
       "screening_url": "https://www.cinepolis.com.ar/funciones/1025/168764"
     },
@@ -4027,6 +4447,8 @@
       "language": "Español",
       "sold_percent": null,
       "listing_label": "Classic • 2D • Español",
+      "special_categories": [],
+      "special_tags": [],
       "ticket_url": "https://tickets.cinepolis.com.ar/ticketing/visSelectTickets.aspx?cinemacode=1029&txtSessionId=124861",
       "screening_url": "https://www.cinepolis.com.ar/funciones/1029/124861"
     },
@@ -4049,6 +4471,8 @@
       "language": "Español",
       "sold_percent": 3,
       "listing_label": "Classic • 2D • Español",
+      "special_categories": [],
+      "special_tags": [],
       "ticket_url": "https://tickets.cinepolis.com.ar/ticketing/visSelectTickets.aspx?cinemacode=1025&txtSessionId=170067",
       "screening_url": "https://www.cinepolis.com.ar/funciones/1025/170067"
     },
@@ -4071,6 +4495,8 @@
       "language": "Español",
       "sold_percent": 7,
       "listing_label": "4D • 3D • Español",
+      "special_categories": [],
+      "special_tags": [],
       "ticket_url": "https://tickets.cinepolis.com.ar/ticketing/visSelectTickets.aspx?cinemacode=1025&txtSessionId=168768",
       "screening_url": "https://www.cinepolis.com.ar/funciones/1025/168768"
     },
@@ -4093,6 +4519,8 @@
       "language": "Español",
       "sold_percent": 2,
       "listing_label": "Classic • 3D • Español",
+      "special_categories": [],
+      "special_tags": [],
       "ticket_url": "https://tickets.cinepolis.com.ar/ticketing/visSelectTickets.aspx?cinemacode=1029&txtSessionId=123979",
       "screening_url": "https://www.cinepolis.com.ar/funciones/1029/123979"
     },
@@ -4115,6 +4543,8 @@
       "language": "Español",
       "sold_percent": 1,
       "listing_label": "Classic • 2D • Español",
+      "special_categories": [],
+      "special_tags": [],
       "ticket_url": "https://tickets.cinepolis.com.ar/ticketing/visSelectTickets.aspx?cinemacode=1025&txtSessionId=170054",
       "screening_url": "https://www.cinepolis.com.ar/funciones/1025/170054"
     },
@@ -4137,6 +4567,8 @@
       "language": "Español",
       "sold_percent": 60,
       "listing_label": "4D • 3D • Español",
+      "special_categories": [],
+      "special_tags": [],
       "ticket_url": "https://tickets.cinepolis.com.ar/ticketing/visSelectTickets.aspx?cinemacode=1029&txtSessionId=123993",
       "screening_url": "https://www.cinepolis.com.ar/funciones/1029/123993"
     },
@@ -4159,6 +4591,12 @@
       "language": "Doblada",
       "sold_percent": null,
       "listing_label": "",
+      "special_categories": [
+        "imax"
+      ],
+      "special_tags": [
+        "IMAX"
+      ],
       "ticket_url": "https://entradas.todoshowcase.com/showcase/boleteria.aspx",
       "screening_url": ""
     },
@@ -4181,6 +4619,8 @@
       "language": "Español",
       "sold_percent": 2,
       "listing_label": "Classic • 2D • Español",
+      "special_categories": [],
+      "special_tags": [],
       "ticket_url": "https://tickets.cinepolis.com.ar/ticketing/visSelectTickets.aspx?cinemacode=1025&txtSessionId=170046",
       "screening_url": "https://www.cinepolis.com.ar/funciones/1025/170046"
     },
@@ -4203,6 +4643,8 @@
       "language": "Español",
       "sold_percent": null,
       "listing_label": "Classic • 2D • Español",
+      "special_categories": [],
+      "special_tags": [],
       "ticket_url": "https://tickets.cinepolis.com.ar/ticketing/visSelectTickets.aspx?cinemacode=1029&txtSessionId=124875",
       "screening_url": "https://www.cinepolis.com.ar/funciones/1029/124875"
     },
@@ -4225,6 +4667,8 @@
       "language": "Español",
       "sold_percent": null,
       "listing_label": "Classic • 2D • Español",
+      "special_categories": [],
+      "special_tags": [],
       "ticket_url": "https://tickets.cinepolis.com.ar/ticketing/visSelectTickets.aspx?cinemacode=1025&txtSessionId=170077",
       "screening_url": "https://www.cinepolis.com.ar/funciones/1025/170077"
     },
@@ -4247,6 +4691,8 @@
       "language": "Español",
       "sold_percent": 2,
       "listing_label": "Classic • 3D • Español",
+      "special_categories": [],
+      "special_tags": [],
       "ticket_url": "https://tickets.cinepolis.com.ar/ticketing/visSelectTickets.aspx?cinemacode=1025&txtSessionId=168778",
       "screening_url": "https://www.cinepolis.com.ar/funciones/1025/168778"
     },
@@ -4269,6 +4715,8 @@
       "language": "Español",
       "sold_percent": null,
       "listing_label": "Classic • 2D • Español",
+      "special_categories": [],
+      "special_tags": [],
       "ticket_url": "https://tickets.cinepolis.com.ar/ticketing/visSelectTickets.aspx?cinemacode=1029&txtSessionId=124836",
       "screening_url": "https://www.cinepolis.com.ar/funciones/1029/124836"
     },
@@ -4291,6 +4739,8 @@
       "language": "Subtitulado",
       "sold_percent": 2,
       "listing_label": "Classic • 2D • Subtitulado",
+      "special_categories": [],
+      "special_tags": [],
       "ticket_url": "https://tickets.cinepolis.com.ar/ticketing/visSelectTickets.aspx?cinemacode=1025&txtSessionId=170187",
       "screening_url": "https://www.cinepolis.com.ar/funciones/1025/170187"
     },
@@ -4313,6 +4763,8 @@
       "language": "Español",
       "sold_percent": 1,
       "listing_label": "Classic • 2D • Español",
+      "special_categories": [],
+      "special_tags": [],
       "ticket_url": "https://tickets.cinepolis.com.ar/ticketing/visSelectTickets.aspx?cinemacode=1025&txtSessionId=168773",
       "screening_url": "https://www.cinepolis.com.ar/funciones/1025/168773"
     },
@@ -4335,6 +4787,12 @@
       "language": "Español",
       "sold_percent": 7,
       "listing_label": "Classic • 2D • Español",
+      "special_categories": [
+        "dolby_atmos"
+      ],
+      "special_tags": [
+        "Dolby Atmos"
+      ],
       "ticket_url": "https://tickets.cinepolis.com.ar/ticketing/visSelectTickets.aspx?cinemacode=1029&txtSessionId=123964",
       "screening_url": "https://www.cinepolis.com.ar/funciones/1029/123964"
     },
@@ -4357,6 +4815,8 @@
       "language": "Español",
       "sold_percent": 2,
       "listing_label": "Classic • 3D • Español",
+      "special_categories": [],
+      "special_tags": [],
       "ticket_url": "https://tickets.cinepolis.com.ar/ticketing/visSelectTickets.aspx?cinemacode=1025&txtSessionId=170072",
       "screening_url": "https://www.cinepolis.com.ar/funciones/1025/170072"
     },
@@ -4379,6 +4839,8 @@
       "language": "Español",
       "sold_percent": 2,
       "listing_label": "Classic • 2D • Español",
+      "special_categories": [],
+      "special_tags": [],
       "ticket_url": "https://tickets.cinepolis.com.ar/ticketing/visSelectTickets.aspx?cinemacode=1025&txtSessionId=170218",
       "screening_url": "https://www.cinepolis.com.ar/funciones/1025/170218"
     },
@@ -4401,6 +4863,8 @@
       "language": "Español",
       "sold_percent": 1,
       "listing_label": "Classic • 2D • Español",
+      "special_categories": [],
+      "special_tags": [],
       "ticket_url": "https://tickets.cinepolis.com.ar/ticketing/visSelectTickets.aspx?cinemacode=1025&txtSessionId=170059",
       "screening_url": "https://www.cinepolis.com.ar/funciones/1025/170059"
     },
@@ -4423,6 +4887,8 @@
       "language": "Subtitulado",
       "sold_percent": 1,
       "listing_label": "Classic • 2D • Subtitulado",
+      "special_categories": [],
+      "special_tags": [],
       "ticket_url": "https://tickets.cinepolis.com.ar/ticketing/visSelectTickets.aspx?cinemacode=1029&txtSessionId=124850",
       "screening_url": "https://www.cinepolis.com.ar/funciones/1029/124850"
     },
@@ -4445,6 +4911,8 @@
       "language": "Español",
       "sold_percent": 4,
       "listing_label": "Classic • 2D • Español",
+      "special_categories": [],
+      "special_tags": [],
       "ticket_url": "https://tickets.cinepolis.com.ar/ticketing/visSelectTickets.aspx?cinemacode=1025&txtSessionId=168765",
       "screening_url": "https://www.cinepolis.com.ar/funciones/1025/168765"
     },
@@ -4467,6 +4935,8 @@
       "language": "Subtitulado",
       "sold_percent": 4,
       "listing_label": "Classic • 2D • Subtitulado",
+      "special_categories": [],
+      "special_tags": [],
       "ticket_url": "https://tickets.cinepolis.com.ar/ticketing/visSelectTickets.aspx?cinemacode=1025&txtSessionId=170213",
       "screening_url": "https://www.cinepolis.com.ar/funciones/1025/170213"
     },
@@ -4489,6 +4959,8 @@
       "language": "Subtitulado",
       "sold_percent": 5,
       "listing_label": "Classic • 2D • Subtitulado",
+      "special_categories": [],
+      "special_tags": [],
       "ticket_url": "https://tickets.cinepolis.com.ar/ticketing/visSelectTickets.aspx?cinemacode=1029&txtSessionId=124862",
       "screening_url": "https://www.cinepolis.com.ar/funciones/1029/124862"
     },
@@ -4511,6 +4983,8 @@
       "language": "Subtitulado",
       "sold_percent": 5,
       "listing_label": "Classic • 2D • Subtitulado",
+      "special_categories": [],
+      "special_tags": [],
       "ticket_url": "https://tickets.cinepolis.com.ar/ticketing/visSelectTickets.aspx?cinemacode=1029&txtSessionId=124745",
       "screening_url": "https://www.cinepolis.com.ar/funciones/1029/124745"
     },
@@ -4533,6 +5007,8 @@
       "language": "Español",
       "sold_percent": 4,
       "listing_label": "Classic • 2D • Español",
+      "special_categories": [],
+      "special_tags": [],
       "ticket_url": "https://tickets.cinepolis.com.ar/ticketing/visSelectTickets.aspx?cinemacode=1025&txtSessionId=170068",
       "screening_url": "https://www.cinepolis.com.ar/funciones/1025/170068"
     },
@@ -4555,6 +5031,8 @@
       "language": "Subtitulado",
       "sold_percent": 1,
       "listing_label": "Classic • 2D • Subtitulado",
+      "special_categories": [],
+      "special_tags": [],
       "ticket_url": "https://tickets.cinepolis.com.ar/ticketing/visSelectTickets.aspx?cinemacode=1029&txtSessionId=124838",
       "screening_url": "https://www.cinepolis.com.ar/funciones/1029/124838"
     },
@@ -4577,6 +5055,8 @@
       "language": "Español",
       "sold_percent": 21,
       "listing_label": "4D • 3D • Español",
+      "special_categories": [],
+      "special_tags": [],
       "ticket_url": "https://tickets.cinepolis.com.ar/ticketing/visSelectTickets.aspx?cinemacode=1025&txtSessionId=168769",
       "screening_url": "https://www.cinepolis.com.ar/funciones/1025/168769"
     },
@@ -4599,6 +5079,8 @@
       "language": "Español",
       "sold_percent": 2,
       "listing_label": "Classic • 3D • Español",
+      "special_categories": [],
+      "special_tags": [],
       "ticket_url": "https://tickets.cinepolis.com.ar/ticketing/visSelectTickets.aspx?cinemacode=1029&txtSessionId=123980",
       "screening_url": "https://www.cinepolis.com.ar/funciones/1029/123980"
     },
@@ -4621,6 +5103,8 @@
       "language": "Español",
       "sold_percent": 1,
       "listing_label": "Classic • 2D • Español",
+      "special_categories": [],
+      "special_tags": [],
       "ticket_url": "https://tickets.cinepolis.com.ar/ticketing/visSelectTickets.aspx?cinemacode=1025&txtSessionId=170055",
       "screening_url": "https://www.cinepolis.com.ar/funciones/1025/170055"
     },
@@ -4643,6 +5127,8 @@
       "language": "Subtitulado",
       "sold_percent": 7,
       "listing_label": "Classic • 2D • Subtitulado",
+      "special_categories": [],
+      "special_tags": [],
       "ticket_url": "https://tickets.cinepolis.com.ar/ticketing/visSelectTickets.aspx?cinemacode=1029&txtSessionId=124733",
       "screening_url": "https://www.cinepolis.com.ar/funciones/1029/124733"
     },
@@ -4665,6 +5151,8 @@
       "language": "Español",
       "sold_percent": 25,
       "listing_label": "4D • 3D • Español",
+      "special_categories": [],
+      "special_tags": [],
       "ticket_url": "https://tickets.cinepolis.com.ar/ticketing/visSelectTickets.aspx?cinemacode=1029&txtSessionId=123994",
       "screening_url": "https://www.cinepolis.com.ar/funciones/1029/123994"
     },
@@ -4687,6 +5175,12 @@
       "language": "Doblada",
       "sold_percent": null,
       "listing_label": "",
+      "special_categories": [
+        "imax"
+      ],
+      "special_tags": [
+        "IMAX"
+      ],
       "ticket_url": "https://entradas.todoshowcase.com/showcase/boleteria.aspx",
       "screening_url": ""
     },
@@ -4709,6 +5203,8 @@
       "language": "Subtitulado",
       "sold_percent": 2,
       "listing_label": "Classic • 2D • Subtitulado",
+      "special_categories": [],
+      "special_tags": [],
       "ticket_url": "https://tickets.cinepolis.com.ar/ticketing/visSelectTickets.aspx?cinemacode=1025&txtSessionId=170188",
       "screening_url": "https://www.cinepolis.com.ar/funciones/1025/170188"
     },
@@ -4731,6 +5227,8 @@
       "language": "Español",
       "sold_percent": null,
       "listing_label": "Classic • 2D • Español",
+      "special_categories": [],
+      "special_tags": [],
       "ticket_url": "https://tickets.cinepolis.com.ar/ticketing/visSelectTickets.aspx?cinemacode=1029&txtSessionId=124876",
       "screening_url": "https://www.cinepolis.com.ar/funciones/1029/124876"
     },
@@ -4753,6 +5251,8 @@
       "language": "Subtitulado",
       "sold_percent": 4,
       "listing_label": "Classic • 2D • Subtitulado",
+      "special_categories": [],
+      "special_tags": [],
       "ticket_url": "https://tickets.cinepolis.com.ar/ticketing/visSelectTickets.aspx?cinemacode=1029&txtSessionId=124837",
       "screening_url": "https://www.cinepolis.com.ar/funciones/1029/124837"
     },
@@ -4775,6 +5275,8 @@
       "language": "Subtitulado",
       "sold_percent": 2,
       "listing_label": "Classic • 2D • Subtitulado",
+      "special_categories": [],
+      "special_tags": [],
       "ticket_url": "https://tickets.cinepolis.com.ar/ticketing/visSelectTickets.aspx?cinemacode=1025&txtSessionId=170209",
       "screening_url": "https://www.cinepolis.com.ar/funciones/1025/170209"
     },
@@ -4797,6 +5299,8 @@
       "language": "Subtitulado",
       "sold_percent": 1,
       "listing_label": "Classic • 2D • Subtitulado",
+      "special_categories": [],
+      "special_tags": [],
       "ticket_url": "https://tickets.cinepolis.com.ar/ticketing/visSelectTickets.aspx?cinemacode=1025&txtSessionId=170212",
       "screening_url": "https://www.cinepolis.com.ar/funciones/1025/170212"
     },
@@ -4819,6 +5323,8 @@
       "language": "Español",
       "sold_percent": 1,
       "listing_label": "Classic • 3D • Español",
+      "special_categories": [],
+      "special_tags": [],
       "ticket_url": "https://tickets.cinepolis.com.ar/ticketing/visSelectTickets.aspx?cinemacode=1025&txtSessionId=168779",
       "screening_url": "https://www.cinepolis.com.ar/funciones/1025/168779"
     },
@@ -4841,6 +5347,8 @@
       "language": "Español",
       "sold_percent": null,
       "listing_label": "Classic • 2D • Español",
+      "special_categories": [],
+      "special_tags": [],
       "ticket_url": "https://tickets.cinepolis.com.ar/ticketing/visSelectTickets.aspx?cinemacode=1025&txtSessionId=168774",
       "screening_url": "https://www.cinepolis.com.ar/funciones/1025/168774"
     },
@@ -4863,6 +5371,12 @@
       "language": "Español",
       "sold_percent": null,
       "listing_label": "Classic • 2D • Español",
+      "special_categories": [
+        "dolby_atmos"
+      ],
+      "special_tags": [
+        "Dolby Atmos"
+      ],
       "ticket_url": "https://tickets.cinepolis.com.ar/ticketing/visSelectTickets.aspx?cinemacode=1029&txtSessionId=123965",
       "screening_url": "https://www.cinepolis.com.ar/funciones/1029/123965"
     },
@@ -4885,6 +5399,8 @@
       "language": "Español",
       "sold_percent": 1,
       "listing_label": "Classic • 3D • Español",
+      "special_categories": [],
+      "special_tags": [],
       "ticket_url": "https://tickets.cinepolis.com.ar/ticketing/visSelectTickets.aspx?cinemacode=1025&txtSessionId=170073",
       "screening_url": "https://www.cinepolis.com.ar/funciones/1025/170073"
     },
@@ -4907,6 +5423,8 @@
       "language": "Subtitulado",
       "sold_percent": 3,
       "listing_label": "Classic • 2D • Subtitulado",
+      "special_categories": [],
+      "special_tags": [],
       "ticket_url": "https://tickets.cinepolis.com.ar/ticketing/visSelectTickets.aspx?cinemacode=1025&txtSessionId=170210",
       "screening_url": "https://www.cinepolis.com.ar/funciones/1025/170210"
     },
@@ -4929,6 +5447,8 @@
       "language": "Español",
       "sold_percent": 1,
       "listing_label": "Classic • 2D • Español",
+      "special_categories": [],
+      "special_tags": [],
       "ticket_url": "https://tickets.cinepolis.com.ar/ticketing/visSelectTickets.aspx?cinemacode=1025&txtSessionId=170060",
       "screening_url": "https://www.cinepolis.com.ar/funciones/1025/170060"
     },
@@ -4951,6 +5471,8 @@
       "language": "Español",
       "sold_percent": 1,
       "listing_label": "Classic • 2D • Español",
+      "special_categories": [],
+      "special_tags": [],
       "ticket_url": "https://tickets.cinepolis.com.ar/ticketing/visSelectTickets.aspx?cinemacode=1025&txtSessionId=168766",
       "screening_url": "https://www.cinepolis.com.ar/funciones/1025/168766"
     },
@@ -4973,6 +5495,8 @@
       "language": "Subtitulado",
       "sold_percent": null,
       "listing_label": "Classic • 2D • Subtitulado",
+      "special_categories": [],
+      "special_tags": [],
       "ticket_url": "https://tickets.cinepolis.com.ar/ticketing/visSelectTickets.aspx?cinemacode=1029&txtSessionId=124851",
       "screening_url": "https://www.cinepolis.com.ar/funciones/1029/124851"
     },
@@ -4995,6 +5519,8 @@
       "language": "Español",
       "sold_percent": 3,
       "listing_label": "Classic • 2D • Español",
+      "special_categories": [],
+      "special_tags": [],
       "ticket_url": "https://tickets.cinepolis.com.ar/ticketing/visSelectTickets.aspx?cinemacode=1025&txtSessionId=170069",
       "screening_url": "https://www.cinepolis.com.ar/funciones/1025/170069"
     },
@@ -5017,6 +5543,8 @@
       "language": "Español",
       "sold_percent": 1,
       "listing_label": "4D • 3D • Español",
+      "special_categories": [],
+      "special_tags": [],
       "ticket_url": "https://tickets.cinepolis.com.ar/ticketing/visSelectTickets.aspx?cinemacode=1025&txtSessionId=168770",
       "screening_url": "https://www.cinepolis.com.ar/funciones/1025/168770"
     },
@@ -5039,6 +5567,8 @@
       "language": "Subtitulado",
       "sold_percent": null,
       "listing_label": "Classic • 2D • Subtitulado",
+      "special_categories": [],
+      "special_tags": [],
       "ticket_url": "https://tickets.cinepolis.com.ar/ticketing/visSelectTickets.aspx?cinemacode=1029&txtSessionId=124863",
       "screening_url": "https://www.cinepolis.com.ar/funciones/1029/124863"
     },
@@ -5061,6 +5591,8 @@
       "language": "Subtitulado",
       "sold_percent": 1,
       "listing_label": "Classic • 2D • Subtitulado",
+      "special_categories": [],
+      "special_tags": [],
       "ticket_url": "https://tickets.cinepolis.com.ar/ticketing/visSelectTickets.aspx?cinemacode=1029&txtSessionId=124695",
       "screening_url": "https://www.cinepolis.com.ar/funciones/1029/124695"
     },
@@ -5083,6 +5615,8 @@
       "language": "Español",
       "sold_percent": 1,
       "listing_label": "Classic • 2D • Español",
+      "special_categories": [],
+      "special_tags": [],
       "ticket_url": "https://tickets.cinepolis.com.ar/ticketing/visSelectTickets.aspx?cinemacode=1025&txtSessionId=170056",
       "screening_url": "https://www.cinepolis.com.ar/funciones/1025/170056"
     },
@@ -5105,6 +5639,8 @@
       "language": "Subtitulado",
       "sold_percent": 1,
       "listing_label": "Classic • 2D • Subtitulado",
+      "special_categories": [],
+      "special_tags": [],
       "ticket_url": "https://tickets.cinepolis.com.ar/ticketing/visSelectTickets.aspx?cinemacode=1029&txtSessionId=124746",
       "screening_url": "https://www.cinepolis.com.ar/funciones/1029/124746"
     },
@@ -5127,6 +5663,12 @@
       "language": "Subtitulado",
       "sold_percent": null,
       "listing_label": "",
+      "special_categories": [
+        "imax"
+      ],
+      "special_tags": [
+        "IMAX"
+      ],
       "ticket_url": "https://entradas.todoshowcase.com/showcase/boleteria.aspx",
       "screening_url": ""
     },
@@ -5149,6 +5691,8 @@
       "language": "Subtitulado",
       "sold_percent": 6,
       "listing_label": "4D • 2D • Subtitulado",
+      "special_categories": [],
+      "special_tags": [],
       "ticket_url": "https://tickets.cinepolis.com.ar/ticketing/visSelectTickets.aspx?cinemacode=1029&txtSessionId=124701",
       "screening_url": "https://www.cinepolis.com.ar/funciones/1029/124701"
     },
@@ -5171,6 +5715,8 @@
       "language": "Español",
       "sold_percent": 4,
       "listing_label": "Classic • 2D • Español",
+      "special_categories": [],
+      "special_tags": [],
       "ticket_url": "https://tickets.cinepolis.com.ar/ticketing/visSelectTickets.aspx?cinemacode=1025&txtSessionId=170083",
       "screening_url": "https://www.cinepolis.com.ar/funciones/1025/170083"
     },
@@ -5193,6 +5739,8 @@
       "language": "Subtitulado",
       "sold_percent": 2,
       "listing_label": "Classic • 2D • Subtitulado",
+      "special_categories": [],
+      "special_tags": [],
       "ticket_url": "https://tickets.cinepolis.com.ar/ticketing/visSelectTickets.aspx?cinemacode=1025&txtSessionId=170189",
       "screening_url": "https://www.cinepolis.com.ar/funciones/1025/170189"
     },
@@ -5215,6 +5763,8 @@
       "language": "Subtitulado",
       "sold_percent": 2,
       "listing_label": "Classic • 2D • Subtitulado",
+      "special_categories": [],
+      "special_tags": [],
       "ticket_url": "https://tickets.cinepolis.com.ar/ticketing/visSelectTickets.aspx?cinemacode=1029&txtSessionId=124824",
       "screening_url": "https://www.cinepolis.com.ar/funciones/1029/124824"
     },
@@ -5237,6 +5787,8 @@
       "language": "Subtitulado",
       "sold_percent": null,
       "listing_label": "Classic • 2D • Subtitulado",
+      "special_categories": [],
+      "special_tags": [],
       "ticket_url": "https://tickets.cinepolis.com.ar/ticketing/visSelectTickets.aspx?cinemacode=1029&txtSessionId=124877",
       "screening_url": "https://www.cinepolis.com.ar/funciones/1029/124877"
     },
@@ -5259,6 +5811,8 @@
       "language": "Español",
       "sold_percent": null,
       "listing_label": "Classic • 2D • Español",
+      "special_categories": [],
+      "special_tags": [],
       "ticket_url": "https://tickets.cinepolis.com.ar/ticketing/visSelectTickets.aspx?cinemacode=1025&txtSessionId=170266",
       "screening_url": "https://www.cinepolis.com.ar/funciones/1025/170266"
     },
@@ -5281,6 +5835,8 @@
       "language": "Español",
       "sold_percent": 1,
       "listing_label": "Classic • 3D • Español",
+      "special_categories": [],
+      "special_tags": [],
       "ticket_url": "https://tickets.cinepolis.com.ar/ticketing/visSelectTickets.aspx?cinemacode=1025&txtSessionId=168780",
       "screening_url": "https://www.cinepolis.com.ar/funciones/1025/168780"
     },
@@ -5303,6 +5859,8 @@
       "language": "Subtitulado",
       "sold_percent": null,
       "listing_label": "Classic • 2D • Subtitulado",
+      "special_categories": [],
+      "special_tags": [],
       "ticket_url": "https://tickets.cinepolis.com.ar/ticketing/visSelectTickets.aspx?cinemacode=1029&txtSessionId=124823",
       "screening_url": "https://www.cinepolis.com.ar/funciones/1029/124823"
     },
@@ -5325,6 +5883,8 @@
       "language": "Español",
       "sold_percent": null,
       "listing_label": "Classic • 2D • Español",
+      "special_categories": [],
+      "special_tags": [],
       "ticket_url": "https://tickets.cinepolis.com.ar/ticketing/visSelectTickets.aspx?cinemacode=1025&txtSessionId=168775",
       "screening_url": "https://www.cinepolis.com.ar/funciones/1025/168775"
     },
@@ -5347,6 +5907,12 @@
       "language": "Subtitulado",
       "sold_percent": 4,
       "listing_label": "Classic • 2D • Subtitulado",
+      "special_categories": [
+        "dolby_atmos"
+      ],
+      "special_tags": [
+        "Dolby Atmos"
+      ],
       "ticket_url": "https://tickets.cinepolis.com.ar/ticketing/visSelectTickets.aspx?cinemacode=1029&txtSessionId=123966",
       "screening_url": "https://www.cinepolis.com.ar/funciones/1029/123966"
     },
@@ -5369,6 +5935,8 @@
       "language": "Subtitulado",
       "sold_percent": null,
       "listing_label": "Classic • 2D • Subtitulado",
+      "special_categories": [],
+      "special_tags": [],
       "ticket_url": "https://tickets.cinepolis.com.ar/ticketing/visSelectTickets.aspx?cinemacode=1029&txtSessionId=124734",
       "screening_url": "https://www.cinepolis.com.ar/funciones/1029/124734"
     },
@@ -5391,6 +5959,8 @@
       "language": "Subtitulado",
       "sold_percent": 2,
       "listing_label": "Classic • 2D • Subtitulado",
+      "special_categories": [],
+      "special_tags": [],
       "ticket_url": "https://tickets.cinepolis.com.ar/ticketing/visSelectTickets.aspx?cinemacode=1025&txtSessionId=170208",
       "screening_url": "https://www.cinepolis.com.ar/funciones/1025/170208"
     },
@@ -5413,6 +5983,8 @@
       "language": "Subtitulado",
       "sold_percent": 1,
       "listing_label": "Classic • 2D • Subtitulado",
+      "special_categories": [],
+      "special_tags": [],
       "ticket_url": "https://tickets.cinepolis.com.ar/ticketing/visSelectTickets.aspx?cinemacode=1025&txtSessionId=170211",
       "screening_url": "https://www.cinepolis.com.ar/funciones/1025/170211"
     },
@@ -5435,6 +6007,8 @@
       "language": "Español",
       "sold_percent": null,
       "listing_label": "Classic • 3D • Español",
+      "special_categories": [],
+      "special_tags": [],
       "ticket_url": "https://tickets.cinepolis.com.ar/ticketing/visSelectTickets.aspx?cinemacode=1029&txtSessionId=123982",
       "screening_url": "https://www.cinepolis.com.ar/funciones/1029/123982"
     },
@@ -5457,6 +6031,8 @@
       "language": "Español",
       "sold_percent": 7,
       "listing_label": "4D • 3D • Español",
+      "special_categories": [],
+      "special_tags": [],
       "ticket_url": "https://tickets.cinepolis.com.ar/ticketing/visSelectTickets.aspx?cinemacode=1029&txtSessionId=123995",
       "screening_url": "https://www.cinepolis.com.ar/funciones/1029/123995"
     },
@@ -5479,6 +6055,8 @@
       "language": "Español",
       "sold_percent": null,
       "listing_label": "Classic • 2D • Español",
+      "special_categories": [],
+      "special_tags": [],
       "ticket_url": "https://tickets.cinepolis.com.ar/ticketing/visSelectTickets.aspx?cinemacode=1029&txtSessionId=124878",
       "screening_url": "https://www.cinepolis.com.ar/funciones/1029/124878"
     },
@@ -5501,6 +6079,8 @@
       "language": "Subtitulado",
       "sold_percent": null,
       "listing_label": "Classic • 2D • Subtitulado",
+      "special_categories": [],
+      "special_tags": [],
       "ticket_url": "https://tickets.cinepolis.com.ar/ticketing/visSelectTickets.aspx?cinemacode=1029&txtSessionId=124747",
       "screening_url": "https://www.cinepolis.com.ar/funciones/1029/124747"
     },
@@ -5523,6 +6103,8 @@
       "language": "Español",
       "sold_percent": null,
       "listing_label": "Classic • 2D • Español",
+      "special_categories": [],
+      "special_tags": [],
       "ticket_url": "https://tickets.cinepolis.com.ar/ticketing/visSelectTickets.aspx?cinemacode=1025&txtSessionId=170114",
       "screening_url": "https://www.cinepolis.com.ar/funciones/1025/170114"
     },
@@ -5545,6 +6127,8 @@
       "language": "Español",
       "sold_percent": null,
       "listing_label": "Classic • 2D • Español",
+      "special_categories": [],
+      "special_tags": [],
       "ticket_url": "https://tickets.cinepolis.com.ar/ticketing/visSelectTickets.aspx?cinemacode=1029&txtSessionId=124839",
       "screening_url": "https://www.cinepolis.com.ar/funciones/1029/124839"
     },
@@ -5567,6 +6151,8 @@
       "language": "Español",
       "sold_percent": null,
       "listing_label": "Classic • 2D • Español",
+      "special_categories": [],
+      "special_tags": [],
       "ticket_url": "https://tickets.cinepolis.com.ar/ticketing/visSelectTickets.aspx?cinemacode=1025&txtSessionId=168789",
       "screening_url": "https://www.cinepolis.com.ar/funciones/1025/168789"
     },
@@ -5589,6 +6175,12 @@
       "language": "Español",
       "sold_percent": null,
       "listing_label": "Classic • 2D • Español",
+      "special_categories": [
+        "dolby_atmos"
+      ],
+      "special_tags": [
+        "Dolby Atmos"
+      ],
       "ticket_url": "https://tickets.cinepolis.com.ar/ticketing/visSelectTickets.aspx?cinemacode=1029&txtSessionId=123967",
       "screening_url": "https://www.cinepolis.com.ar/funciones/1029/123967"
     },
@@ -5611,6 +6203,8 @@
       "language": "Subtitulado",
       "sold_percent": null,
       "listing_label": "Classic • 2D • Subtitulado",
+      "special_categories": [],
+      "special_tags": [],
       "ticket_url": "https://tickets.cinepolis.com.ar/ticketing/visSelectTickets.aspx?cinemacode=1029&txtSessionId=124735",
       "screening_url": "https://www.cinepolis.com.ar/funciones/1029/124735"
     },
@@ -5633,6 +6227,8 @@
       "language": "Subtitulado",
       "sold_percent": null,
       "listing_label": "Classic • 2D • Subtitulado",
+      "special_categories": [],
+      "special_tags": [],
       "ticket_url": "https://tickets.cinepolis.com.ar/ticketing/visSelectTickets.aspx?cinemacode=1029&txtSessionId=124825",
       "screening_url": "https://www.cinepolis.com.ar/funciones/1029/124825"
     },
@@ -5655,6 +6251,8 @@
       "language": "Español",
       "sold_percent": 1,
       "listing_label": "Classic • 3D • Español",
+      "special_categories": [],
+      "special_tags": [],
       "ticket_url": "https://tickets.cinepolis.com.ar/ticketing/visSelectTickets.aspx?cinemacode=1025&txtSessionId=170109",
       "screening_url": "https://www.cinepolis.com.ar/funciones/1025/170109"
     },
@@ -5677,6 +6275,8 @@
       "language": "Español",
       "sold_percent": 2,
       "listing_label": "Classic • 3D • Español",
+      "special_categories": [],
+      "special_tags": [],
       "ticket_url": "https://tickets.cinepolis.com.ar/ticketing/visSelectTickets.aspx?cinemacode=1025&txtSessionId=170088",
       "screening_url": "https://www.cinepolis.com.ar/funciones/1025/170088"
     },
@@ -5699,6 +6299,8 @@
       "language": "Español",
       "sold_percent": 1,
       "listing_label": "Classic • 2D • Español",
+      "special_categories": [],
+      "special_tags": [],
       "ticket_url": "https://tickets.cinepolis.com.ar/ticketing/visSelectTickets.aspx?cinemacode=1025&txtSessionId=170096",
       "screening_url": "https://www.cinepolis.com.ar/funciones/1025/170096"
     },
@@ -5721,6 +6323,8 @@
       "language": "Subtitulado",
       "sold_percent": null,
       "listing_label": "Classic • 2D • Subtitulado",
+      "special_categories": [],
+      "special_tags": [],
       "ticket_url": "https://tickets.cinepolis.com.ar/ticketing/visSelectTickets.aspx?cinemacode=1029&txtSessionId=124852",
       "screening_url": "https://www.cinepolis.com.ar/funciones/1029/124852"
     },
@@ -5743,6 +6347,8 @@
       "language": "Español",
       "sold_percent": 1,
       "listing_label": "Classic • 2D • Español",
+      "special_categories": [],
+      "special_tags": [],
       "ticket_url": "https://tickets.cinepolis.com.ar/ticketing/visSelectTickets.aspx?cinemacode=1025&txtSessionId=168781",
       "screening_url": "https://www.cinepolis.com.ar/funciones/1025/168781"
     },
@@ -5765,6 +6371,8 @@
       "language": "Español",
       "sold_percent": null,
       "listing_label": "Classic • 2D • Español",
+      "special_categories": [],
+      "special_tags": [],
       "ticket_url": "https://tickets.cinepolis.com.ar/ticketing/visSelectTickets.aspx?cinemacode=1029&txtSessionId=124864",
       "screening_url": "https://www.cinepolis.com.ar/funciones/1029/124864"
     },
@@ -5787,6 +6395,8 @@
       "language": "Español",
       "sold_percent": 3,
       "listing_label": "Classic • 2D • Español",
+      "special_categories": [],
+      "special_tags": [],
       "ticket_url": "https://tickets.cinepolis.com.ar/ticketing/visSelectTickets.aspx?cinemacode=1025&txtSessionId=170105",
       "screening_url": "https://www.cinepolis.com.ar/funciones/1025/170105"
     },
@@ -5809,6 +6419,8 @@
       "language": "Español",
       "sold_percent": 1,
       "listing_label": "4D • 3D • Español",
+      "special_categories": [],
+      "special_tags": [],
       "ticket_url": "https://tickets.cinepolis.com.ar/ticketing/visSelectTickets.aspx?cinemacode=1025&txtSessionId=168785",
       "screening_url": "https://www.cinepolis.com.ar/funciones/1025/168785"
     },
@@ -5831,6 +6443,8 @@
       "language": "Español",
       "sold_percent": null,
       "listing_label": "Classic • 3D • Español",
+      "special_categories": [],
+      "special_tags": [],
       "ticket_url": "https://tickets.cinepolis.com.ar/ticketing/visSelectTickets.aspx?cinemacode=1029&txtSessionId=123983",
       "screening_url": "https://www.cinepolis.com.ar/funciones/1029/123983"
     },
@@ -5853,6 +6467,8 @@
       "language": "Español",
       "sold_percent": 1,
       "listing_label": "Classic • 2D • Español",
+      "special_categories": [],
+      "special_tags": [],
       "ticket_url": "https://tickets.cinepolis.com.ar/ticketing/visSelectTickets.aspx?cinemacode=1025&txtSessionId=170092",
       "screening_url": "https://www.cinepolis.com.ar/funciones/1025/170092"
     },
@@ -5875,6 +6491,8 @@
       "language": "Español",
       "sold_percent": 5,
       "listing_label": "4D • 3D • Español",
+      "special_categories": [],
+      "special_tags": [],
       "ticket_url": "https://tickets.cinepolis.com.ar/ticketing/visSelectTickets.aspx?cinemacode=1029&txtSessionId=123996",
       "screening_url": "https://www.cinepolis.com.ar/funciones/1029/123996"
     },
@@ -5897,6 +6515,8 @@
       "language": "Español",
       "sold_percent": 2,
       "listing_label": "Classic • 2D • Español",
+      "special_categories": [],
+      "special_tags": [],
       "ticket_url": "https://tickets.cinepolis.com.ar/ticketing/visSelectTickets.aspx?cinemacode=1025&txtSessionId=170084",
       "screening_url": "https://www.cinepolis.com.ar/funciones/1025/170084"
     },
@@ -5919,6 +6539,8 @@
       "language": "Español",
       "sold_percent": null,
       "listing_label": "Classic • 2D • Español",
+      "special_categories": [],
+      "special_tags": [],
       "ticket_url": "https://tickets.cinepolis.com.ar/ticketing/visSelectTickets.aspx?cinemacode=1029&txtSessionId=124879",
       "screening_url": "https://www.cinepolis.com.ar/funciones/1029/124879"
     },
@@ -5941,6 +6563,12 @@
       "language": "Doblada",
       "sold_percent": null,
       "listing_label": "",
+      "special_categories": [
+        "imax"
+      ],
+      "special_tags": [
+        "IMAX"
+      ],
       "ticket_url": "https://entradas.todoshowcase.com/showcase/boleteria.aspx",
       "screening_url": ""
     },
@@ -5963,6 +6591,8 @@
       "language": "Español",
       "sold_percent": null,
       "listing_label": "Classic • 2D • Español",
+      "special_categories": [],
+      "special_tags": [],
       "ticket_url": "https://tickets.cinepolis.com.ar/ticketing/visSelectTickets.aspx?cinemacode=1025&txtSessionId=170115",
       "screening_url": "https://www.cinepolis.com.ar/funciones/1025/170115"
     },
@@ -5985,6 +6615,8 @@
       "language": "Español",
       "sold_percent": 1,
       "listing_label": "Classic • 3D • Español",
+      "special_categories": [],
+      "special_tags": [],
       "ticket_url": "https://tickets.cinepolis.com.ar/ticketing/visSelectTickets.aspx?cinemacode=1025&txtSessionId=168795",
       "screening_url": "https://www.cinepolis.com.ar/funciones/1025/168795"
     },
@@ -6007,6 +6639,8 @@
       "language": "Español",
       "sold_percent": 1,
       "listing_label": "Classic • 2D • Español",
+      "special_categories": [],
+      "special_tags": [],
       "ticket_url": "https://tickets.cinepolis.com.ar/ticketing/visSelectTickets.aspx?cinemacode=1029&txtSessionId=124840",
       "screening_url": "https://www.cinepolis.com.ar/funciones/1029/124840"
     },
@@ -6029,6 +6663,8 @@
       "language": "Subtitulado",
       "sold_percent": 2,
       "listing_label": "Classic • 2D • Subtitulado",
+      "special_categories": [],
+      "special_tags": [],
       "ticket_url": "https://tickets.cinepolis.com.ar/ticketing/visSelectTickets.aspx?cinemacode=1025&txtSessionId=170190",
       "screening_url": "https://www.cinepolis.com.ar/funciones/1025/170190"
     },
@@ -6051,6 +6687,8 @@
       "language": "Español",
       "sold_percent": null,
       "listing_label": "Classic • 2D • Español",
+      "special_categories": [],
+      "special_tags": [],
       "ticket_url": "https://tickets.cinepolis.com.ar/ticketing/visSelectTickets.aspx?cinemacode=1025&txtSessionId=168790",
       "screening_url": "https://www.cinepolis.com.ar/funciones/1025/168790"
     },
@@ -6073,6 +6711,12 @@
       "language": "Español",
       "sold_percent": null,
       "listing_label": "Classic • 2D • Español",
+      "special_categories": [
+        "dolby_atmos"
+      ],
+      "special_tags": [
+        "Dolby Atmos"
+      ],
       "ticket_url": "https://tickets.cinepolis.com.ar/ticketing/visSelectTickets.aspx?cinemacode=1029&txtSessionId=123968",
       "screening_url": "https://www.cinepolis.com.ar/funciones/1029/123968"
     },
@@ -6095,6 +6739,8 @@
       "language": "Español",
       "sold_percent": 2,
       "listing_label": "Classic • 2D • Español",
+      "special_categories": [],
+      "special_tags": [],
       "ticket_url": "https://tickets.cinepolis.com.ar/ticketing/visSelectTickets.aspx?cinemacode=1025&txtSessionId=170120",
       "screening_url": "https://www.cinepolis.com.ar/funciones/1025/170120"
     },
@@ -6117,6 +6763,8 @@
       "language": "Subtitulado",
       "sold_percent": null,
       "listing_label": "Classic • 2D • Subtitulado",
+      "special_categories": [],
+      "special_tags": [],
       "ticket_url": "https://tickets.cinepolis.com.ar/ticketing/visSelectTickets.aspx?cinemacode=1029&txtSessionId=124748",
       "screening_url": "https://www.cinepolis.com.ar/funciones/1029/124748"
     },
@@ -6139,6 +6787,8 @@
       "language": "Español",
       "sold_percent": 1,
       "listing_label": "Classic • 3D • Español",
+      "special_categories": [],
+      "special_tags": [],
       "ticket_url": "https://tickets.cinepolis.com.ar/ticketing/visSelectTickets.aspx?cinemacode=1025&txtSessionId=170110",
       "screening_url": "https://www.cinepolis.com.ar/funciones/1025/170110"
     },
@@ -6161,6 +6811,8 @@
       "language": "Subtitulado",
       "sold_percent": null,
       "listing_label": "Classic • 2D • Subtitulado",
+      "special_categories": [],
+      "special_tags": [],
       "ticket_url": "https://tickets.cinepolis.com.ar/ticketing/visSelectTickets.aspx?cinemacode=1029&txtSessionId=124853",
       "screening_url": "https://www.cinepolis.com.ar/funciones/1029/124853"
     },
@@ -6183,6 +6835,8 @@
       "language": "Español",
       "sold_percent": 1,
       "listing_label": "Classic • 2D • Español",
+      "special_categories": [],
+      "special_tags": [],
       "ticket_url": "https://tickets.cinepolis.com.ar/ticketing/visSelectTickets.aspx?cinemacode=1025&txtSessionId=170097",
       "screening_url": "https://www.cinepolis.com.ar/funciones/1025/170097"
     },
@@ -6205,6 +6859,8 @@
       "language": "Subtitulado",
       "sold_percent": null,
       "listing_label": "Classic • 2D • Subtitulado",
+      "special_categories": [],
+      "special_tags": [],
       "ticket_url": "https://tickets.cinepolis.com.ar/ticketing/visSelectTickets.aspx?cinemacode=1029&txtSessionId=124826",
       "screening_url": "https://www.cinepolis.com.ar/funciones/1029/124826"
     },
@@ -6227,6 +6883,8 @@
       "language": "Español",
       "sold_percent": 2,
       "listing_label": "Classic • 3D • Español",
+      "special_categories": [],
+      "special_tags": [],
       "ticket_url": "https://tickets.cinepolis.com.ar/ticketing/visSelectTickets.aspx?cinemacode=1025&txtSessionId=170090",
       "screening_url": "https://www.cinepolis.com.ar/funciones/1025/170090"
     },
@@ -6249,6 +6907,8 @@
       "language": "Subtitulado",
       "sold_percent": 1,
       "listing_label": "Classic • 2D • Subtitulado",
+      "special_categories": [],
+      "special_tags": [],
       "ticket_url": "https://tickets.cinepolis.com.ar/ticketing/visSelectTickets.aspx?cinemacode=1029&txtSessionId=124736",
       "screening_url": "https://www.cinepolis.com.ar/funciones/1029/124736"
     },
@@ -6271,6 +6931,8 @@
       "language": "Español",
       "sold_percent": 1,
       "listing_label": "Classic • 2D • Español",
+      "special_categories": [],
+      "special_tags": [],
       "ticket_url": "https://tickets.cinepolis.com.ar/ticketing/visSelectTickets.aspx?cinemacode=1025&txtSessionId=168782",
       "screening_url": "https://www.cinepolis.com.ar/funciones/1025/168782"
     },
@@ -6293,6 +6955,8 @@
       "language": "Español",
       "sold_percent": null,
       "listing_label": "Classic • 2D • Español",
+      "special_categories": [],
+      "special_tags": [],
       "ticket_url": "https://tickets.cinepolis.com.ar/ticketing/visSelectTickets.aspx?cinemacode=1029&txtSessionId=124865",
       "screening_url": "https://www.cinepolis.com.ar/funciones/1029/124865"
     },
@@ -6315,6 +6979,8 @@
       "language": "Español",
       "sold_percent": 3,
       "listing_label": "Classic • 2D • Español",
+      "special_categories": [],
+      "special_tags": [],
       "ticket_url": "https://tickets.cinepolis.com.ar/ticketing/visSelectTickets.aspx?cinemacode=1025&txtSessionId=170106",
       "screening_url": "https://www.cinepolis.com.ar/funciones/1025/170106"
     },
@@ -6337,6 +7003,8 @@
       "language": "Español",
       "sold_percent": 3,
       "listing_label": "4D • 3D • Español",
+      "special_categories": [],
+      "special_tags": [],
       "ticket_url": "https://tickets.cinepolis.com.ar/ticketing/visSelectTickets.aspx?cinemacode=1025&txtSessionId=168786",
       "screening_url": "https://www.cinepolis.com.ar/funciones/1025/168786"
     },
@@ -6359,6 +7027,8 @@
       "language": "Español",
       "sold_percent": null,
       "listing_label": "Classic • 3D • Español",
+      "special_categories": [],
+      "special_tags": [],
       "ticket_url": "https://tickets.cinepolis.com.ar/ticketing/visSelectTickets.aspx?cinemacode=1029&txtSessionId=123984",
       "screening_url": "https://www.cinepolis.com.ar/funciones/1029/123984"
     },
@@ -6381,6 +7051,8 @@
       "language": "Español",
       "sold_percent": 2,
       "listing_label": "Classic • 2D • Español",
+      "special_categories": [],
+      "special_tags": [],
       "ticket_url": "https://tickets.cinepolis.com.ar/ticketing/visSelectTickets.aspx?cinemacode=1025&txtSessionId=170093",
       "screening_url": "https://www.cinepolis.com.ar/funciones/1025/170093"
     },
@@ -6403,6 +7075,8 @@
       "language": "Español",
       "sold_percent": 11,
       "listing_label": "4D • 3D • Español",
+      "special_categories": [],
+      "special_tags": [],
       "ticket_url": "https://tickets.cinepolis.com.ar/ticketing/visSelectTickets.aspx?cinemacode=1029&txtSessionId=123997",
       "screening_url": "https://www.cinepolis.com.ar/funciones/1029/123997"
     },
@@ -6425,6 +7099,12 @@
       "language": "Doblada",
       "sold_percent": null,
       "listing_label": "",
+      "special_categories": [
+        "imax"
+      ],
+      "special_tags": [
+        "IMAX"
+      ],
       "ticket_url": "https://entradas.todoshowcase.com/showcase/boleteria.aspx",
       "screening_url": ""
     },
@@ -6447,6 +7127,8 @@
       "language": "Español",
       "sold_percent": 2,
       "listing_label": "Classic • 2D • Español",
+      "special_categories": [],
+      "special_tags": [],
       "ticket_url": "https://tickets.cinepolis.com.ar/ticketing/visSelectTickets.aspx?cinemacode=1025&txtSessionId=170085",
       "screening_url": "https://www.cinepolis.com.ar/funciones/1025/170085"
     },
@@ -6469,6 +7151,8 @@
       "language": "Español",
       "sold_percent": 2,
       "listing_label": "Classic • 2D • Español",
+      "special_categories": [],
+      "special_tags": [],
       "ticket_url": "https://tickets.cinepolis.com.ar/ticketing/visSelectTickets.aspx?cinemacode=1029&txtSessionId=124880",
       "screening_url": "https://www.cinepolis.com.ar/funciones/1029/124880"
     },
@@ -6491,6 +7175,8 @@
       "language": "Español",
       "sold_percent": null,
       "listing_label": "Classic • 2D • Español",
+      "special_categories": [],
+      "special_tags": [],
       "ticket_url": "https://tickets.cinepolis.com.ar/ticketing/visSelectTickets.aspx?cinemacode=1025&txtSessionId=170116",
       "screening_url": "https://www.cinepolis.com.ar/funciones/1025/170116"
     },
@@ -6513,6 +7199,8 @@
       "language": "Español",
       "sold_percent": 1,
       "listing_label": "Classic • 3D • Español",
+      "special_categories": [],
+      "special_tags": [],
       "ticket_url": "https://tickets.cinepolis.com.ar/ticketing/visSelectTickets.aspx?cinemacode=1025&txtSessionId=168796",
       "screening_url": "https://www.cinepolis.com.ar/funciones/1025/168796"
     },
@@ -6535,6 +7223,8 @@
       "language": "Español",
       "sold_percent": null,
       "listing_label": "Classic • 2D • Español",
+      "special_categories": [],
+      "special_tags": [],
       "ticket_url": "https://tickets.cinepolis.com.ar/ticketing/visSelectTickets.aspx?cinemacode=1029&txtSessionId=124841",
       "screening_url": "https://www.cinepolis.com.ar/funciones/1029/124841"
     },
@@ -6557,6 +7247,8 @@
       "language": "Subtitulado",
       "sold_percent": 2,
       "listing_label": "Classic • 2D • Subtitulado",
+      "special_categories": [],
+      "special_tags": [],
       "ticket_url": "https://tickets.cinepolis.com.ar/ticketing/visSelectTickets.aspx?cinemacode=1025&txtSessionId=170191",
       "screening_url": "https://www.cinepolis.com.ar/funciones/1025/170191"
     },
@@ -6579,6 +7271,8 @@
       "language": "Español",
       "sold_percent": 5,
       "listing_label": "Classic • 2D • Español",
+      "special_categories": [],
+      "special_tags": [],
       "ticket_url": "https://tickets.cinepolis.com.ar/ticketing/visSelectTickets.aspx?cinemacode=1025&txtSessionId=168791",
       "screening_url": "https://www.cinepolis.com.ar/funciones/1025/168791"
     },
@@ -6601,6 +7295,12 @@
       "language": "Español",
       "sold_percent": null,
       "listing_label": "Classic • 2D • Español",
+      "special_categories": [
+        "dolby_atmos"
+      ],
+      "special_tags": [
+        "Dolby Atmos"
+      ],
       "ticket_url": "https://tickets.cinepolis.com.ar/ticketing/visSelectTickets.aspx?cinemacode=1029&txtSessionId=123969",
       "screening_url": "https://www.cinepolis.com.ar/funciones/1029/123969"
     },
@@ -6623,6 +7323,8 @@
       "language": "Español",
       "sold_percent": 1,
       "listing_label": "Classic • 3D • Español",
+      "special_categories": [],
+      "special_tags": [],
       "ticket_url": "https://tickets.cinepolis.com.ar/ticketing/visSelectTickets.aspx?cinemacode=1025&txtSessionId=170111",
       "screening_url": "https://www.cinepolis.com.ar/funciones/1025/170111"
     },
@@ -6645,6 +7347,8 @@
       "language": "Español",
       "sold_percent": 3,
       "listing_label": "Classic • 2D • Español",
+      "special_categories": [],
+      "special_tags": [],
       "ticket_url": "https://tickets.cinepolis.com.ar/ticketing/visSelectTickets.aspx?cinemacode=1025&txtSessionId=170228",
       "screening_url": "https://www.cinepolis.com.ar/funciones/1025/170228"
     },
@@ -6667,6 +7371,8 @@
       "language": "Español",
       "sold_percent": 1,
       "listing_label": "Classic • 2D • Español",
+      "special_categories": [],
+      "special_tags": [],
       "ticket_url": "https://tickets.cinepolis.com.ar/ticketing/visSelectTickets.aspx?cinemacode=1025&txtSessionId=170098",
       "screening_url": "https://www.cinepolis.com.ar/funciones/1025/170098"
     },
@@ -6689,6 +7395,8 @@
       "language": "Subtitulado",
       "sold_percent": 1,
       "listing_label": "Classic • 2D • Subtitulado",
+      "special_categories": [],
+      "special_tags": [],
       "ticket_url": "https://tickets.cinepolis.com.ar/ticketing/visSelectTickets.aspx?cinemacode=1029&txtSessionId=124854",
       "screening_url": "https://www.cinepolis.com.ar/funciones/1029/124854"
     },
@@ -6711,6 +7419,8 @@
       "language": "Español",
       "sold_percent": 1,
       "listing_label": "Classic • 2D • Español",
+      "special_categories": [],
+      "special_tags": [],
       "ticket_url": "https://tickets.cinepolis.com.ar/ticketing/visSelectTickets.aspx?cinemacode=1025&txtSessionId=168783",
       "screening_url": "https://www.cinepolis.com.ar/funciones/1025/168783"
     },
@@ -6733,6 +7443,8 @@
       "language": "Español",
       "sold_percent": 3,
       "listing_label": "Classic • 2D • Español",
+      "special_categories": [],
+      "special_tags": [],
       "ticket_url": "https://tickets.cinepolis.com.ar/ticketing/visSelectTickets.aspx?cinemacode=1025&txtSessionId=170121",
       "screening_url": "https://www.cinepolis.com.ar/funciones/1025/170121"
     },
@@ -6755,6 +7467,8 @@
       "language": "Subtitulado",
       "sold_percent": 1,
       "listing_label": "Classic • 2D • Subtitulado",
+      "special_categories": [],
+      "special_tags": [],
       "ticket_url": "https://tickets.cinepolis.com.ar/ticketing/visSelectTickets.aspx?cinemacode=1029&txtSessionId=124866",
       "screening_url": "https://www.cinepolis.com.ar/funciones/1029/124866"
     },
@@ -6777,6 +7491,8 @@
       "language": "Subtitulado",
       "sold_percent": 5,
       "listing_label": "Classic • 2D • Subtitulado",
+      "special_categories": [],
+      "special_tags": [],
       "ticket_url": "https://tickets.cinepolis.com.ar/ticketing/visSelectTickets.aspx?cinemacode=1029&txtSessionId=124749",
       "screening_url": "https://www.cinepolis.com.ar/funciones/1029/124749"
     },
@@ -6799,6 +7515,8 @@
       "language": "Español",
       "sold_percent": 3,
       "listing_label": "Classic • 2D • Español",
+      "special_categories": [],
+      "special_tags": [],
       "ticket_url": "https://tickets.cinepolis.com.ar/ticketing/visSelectTickets.aspx?cinemacode=1025&txtSessionId=170107",
       "screening_url": "https://www.cinepolis.com.ar/funciones/1025/170107"
     },
@@ -6821,6 +7539,8 @@
       "language": "Subtitulado",
       "sold_percent": null,
       "listing_label": "Classic • 2D • Subtitulado",
+      "special_categories": [],
+      "special_tags": [],
       "ticket_url": "https://tickets.cinepolis.com.ar/ticketing/visSelectTickets.aspx?cinemacode=1029&txtSessionId=124843",
       "screening_url": "https://www.cinepolis.com.ar/funciones/1029/124843"
     },
@@ -6843,6 +7563,8 @@
       "language": "Español",
       "sold_percent": 18,
       "listing_label": "4D • 3D • Español",
+      "special_categories": [],
+      "special_tags": [],
       "ticket_url": "https://tickets.cinepolis.com.ar/ticketing/visSelectTickets.aspx?cinemacode=1025&txtSessionId=168787",
       "screening_url": "https://www.cinepolis.com.ar/funciones/1025/168787"
     },
@@ -6865,6 +7587,8 @@
       "language": "Español",
       "sold_percent": null,
       "listing_label": "Classic • 3D • Español",
+      "special_categories": [],
+      "special_tags": [],
       "ticket_url": "https://tickets.cinepolis.com.ar/ticketing/visSelectTickets.aspx?cinemacode=1029&txtSessionId=123985",
       "screening_url": "https://www.cinepolis.com.ar/funciones/1029/123985"
     },
@@ -6887,6 +7611,8 @@
       "language": "Español",
       "sold_percent": 1,
       "listing_label": "Classic • 2D • Español",
+      "special_categories": [],
+      "special_tags": [],
       "ticket_url": "https://tickets.cinepolis.com.ar/ticketing/visSelectTickets.aspx?cinemacode=1025&txtSessionId=170094",
       "screening_url": "https://www.cinepolis.com.ar/funciones/1025/170094"
     },
@@ -6909,6 +7635,8 @@
       "language": "Subtitulado",
       "sold_percent": 5,
       "listing_label": "Classic • 2D • Subtitulado",
+      "special_categories": [],
+      "special_tags": [],
       "ticket_url": "https://tickets.cinepolis.com.ar/ticketing/visSelectTickets.aspx?cinemacode=1029&txtSessionId=124737",
       "screening_url": "https://www.cinepolis.com.ar/funciones/1029/124737"
     },
@@ -6931,6 +7659,8 @@
       "language": "Español",
       "sold_percent": 26,
       "listing_label": "4D • 3D • Español",
+      "special_categories": [],
+      "special_tags": [],
       "ticket_url": "https://tickets.cinepolis.com.ar/ticketing/visSelectTickets.aspx?cinemacode=1029&txtSessionId=123998",
       "screening_url": "https://www.cinepolis.com.ar/funciones/1029/123998"
     },
@@ -6953,6 +7683,12 @@
       "language": "Doblada",
       "sold_percent": null,
       "listing_label": "",
+      "special_categories": [
+        "imax"
+      ],
+      "special_tags": [
+        "IMAX"
+      ],
       "ticket_url": "https://entradas.todoshowcase.com/showcase/boleteria.aspx",
       "screening_url": ""
     },
@@ -6975,6 +7711,8 @@
       "language": "Subtitulado",
       "sold_percent": 2,
       "listing_label": "Classic • 2D • Subtitulado",
+      "special_categories": [],
+      "special_tags": [],
       "ticket_url": "https://tickets.cinepolis.com.ar/ticketing/visSelectTickets.aspx?cinemacode=1025&txtSessionId=170192",
       "screening_url": "https://www.cinepolis.com.ar/funciones/1025/170192"
     },
@@ -6997,6 +7735,8 @@
       "language": "Español",
       "sold_percent": null,
       "listing_label": "Classic • 2D • Español",
+      "special_categories": [],
+      "special_tags": [],
       "ticket_url": "https://tickets.cinepolis.com.ar/ticketing/visSelectTickets.aspx?cinemacode=1029&txtSessionId=124881",
       "screening_url": "https://www.cinepolis.com.ar/funciones/1029/124881"
     },
@@ -7019,6 +7759,8 @@
       "language": "Subtitulado",
       "sold_percent": 1,
       "listing_label": "Classic • 2D • Subtitulado",
+      "special_categories": [],
+      "special_tags": [],
       "ticket_url": "https://tickets.cinepolis.com.ar/ticketing/visSelectTickets.aspx?cinemacode=1029&txtSessionId=124842",
       "screening_url": "https://www.cinepolis.com.ar/funciones/1029/124842"
     },
@@ -7041,6 +7783,8 @@
       "language": "Español",
       "sold_percent": 5,
       "listing_label": "Classic • 2D • Español",
+      "special_categories": [],
+      "special_tags": [],
       "ticket_url": "https://tickets.cinepolis.com.ar/ticketing/visSelectTickets.aspx?cinemacode=1025&txtSessionId=170086",
       "screening_url": "https://www.cinepolis.com.ar/funciones/1025/170086"
     },
@@ -7063,6 +7807,8 @@
       "language": "Español",
       "sold_percent": null,
       "listing_label": "Classic • 2D • Español",
+      "special_categories": [],
+      "special_tags": [],
       "ticket_url": "https://tickets.cinepolis.com.ar/ticketing/visSelectTickets.aspx?cinemacode=1025&txtSessionId=170117",
       "screening_url": "https://www.cinepolis.com.ar/funciones/1025/170117"
     },
@@ -7085,6 +7831,8 @@
       "language": "Español",
       "sold_percent": 1,
       "listing_label": "Classic • 3D • Español",
+      "special_categories": [],
+      "special_tags": [],
       "ticket_url": "https://tickets.cinepolis.com.ar/ticketing/visSelectTickets.aspx?cinemacode=1025&txtSessionId=168797",
       "screening_url": "https://www.cinepolis.com.ar/funciones/1025/168797"
     },
@@ -7107,6 +7855,8 @@
       "language": "Español",
       "sold_percent": 2,
       "listing_label": "Classic • 2D • Español",
+      "special_categories": [],
+      "special_tags": [],
       "ticket_url": "https://tickets.cinepolis.com.ar/ticketing/visSelectTickets.aspx?cinemacode=1025&txtSessionId=168792",
       "screening_url": "https://www.cinepolis.com.ar/funciones/1025/168792"
     },
@@ -7129,6 +7879,12 @@
       "language": "Español",
       "sold_percent": null,
       "listing_label": "Classic • 2D • Español",
+      "special_categories": [
+        "dolby_atmos"
+      ],
+      "special_tags": [
+        "Dolby Atmos"
+      ],
       "ticket_url": "https://tickets.cinepolis.com.ar/ticketing/visSelectTickets.aspx?cinemacode=1029&txtSessionId=123970",
       "screening_url": "https://www.cinepolis.com.ar/funciones/1029/123970"
     },
@@ -7151,6 +7907,8 @@
       "language": "Español",
       "sold_percent": 1,
       "listing_label": "Classic • 3D • Español",
+      "special_categories": [],
+      "special_tags": [],
       "ticket_url": "https://tickets.cinepolis.com.ar/ticketing/visSelectTickets.aspx?cinemacode=1025&txtSessionId=170112",
       "screening_url": "https://www.cinepolis.com.ar/funciones/1025/170112"
     },
@@ -7173,6 +7931,8 @@
       "language": "Español",
       "sold_percent": 3,
       "listing_label": "Classic • 2D • Español",
+      "special_categories": [],
+      "special_tags": [],
       "ticket_url": "https://tickets.cinepolis.com.ar/ticketing/visSelectTickets.aspx?cinemacode=1025&txtSessionId=170089",
       "screening_url": "https://www.cinepolis.com.ar/funciones/1025/170089"
     },
@@ -7195,6 +7955,8 @@
       "language": "Español",
       "sold_percent": 2,
       "listing_label": "Classic • 2D • Español",
+      "special_categories": [],
+      "special_tags": [],
       "ticket_url": "https://tickets.cinepolis.com.ar/ticketing/visSelectTickets.aspx?cinemacode=1025&txtSessionId=170099",
       "screening_url": "https://www.cinepolis.com.ar/funciones/1025/170099"
     },
@@ -7217,6 +7979,8 @@
       "language": "Español",
       "sold_percent": 1,
       "listing_label": "Classic • 2D • Español",
+      "special_categories": [],
+      "special_tags": [],
       "ticket_url": "https://tickets.cinepolis.com.ar/ticketing/visSelectTickets.aspx?cinemacode=1025&txtSessionId=168784",
       "screening_url": "https://www.cinepolis.com.ar/funciones/1025/168784"
     },
@@ -7239,6 +8003,8 @@
       "language": "Subtitulado",
       "sold_percent": null,
       "listing_label": "Classic • 2D • Subtitulado",
+      "special_categories": [],
+      "special_tags": [],
       "ticket_url": "https://tickets.cinepolis.com.ar/ticketing/visSelectTickets.aspx?cinemacode=1029&txtSessionId=124855",
       "screening_url": "https://www.cinepolis.com.ar/funciones/1029/124855"
     },
@@ -7261,6 +8027,8 @@
       "language": "Español",
       "sold_percent": 3,
       "listing_label": "Classic • 2D • Español",
+      "special_categories": [],
+      "special_tags": [],
       "ticket_url": "https://tickets.cinepolis.com.ar/ticketing/visSelectTickets.aspx?cinemacode=1025&txtSessionId=170108",
       "screening_url": "https://www.cinepolis.com.ar/funciones/1025/170108"
     },
@@ -7283,6 +8051,8 @@
       "language": "Español",
       "sold_percent": 13,
       "listing_label": "4D • 3D • Español",
+      "special_categories": [],
+      "special_tags": [],
       "ticket_url": "https://tickets.cinepolis.com.ar/ticketing/visSelectTickets.aspx?cinemacode=1025&txtSessionId=168788",
       "screening_url": "https://www.cinepolis.com.ar/funciones/1025/168788"
     },
@@ -7305,6 +8075,8 @@
       "language": "Subtitulado",
       "sold_percent": 2,
       "listing_label": "Classic • 2D • Subtitulado",
+      "special_categories": [],
+      "special_tags": [],
       "ticket_url": "https://tickets.cinepolis.com.ar/ticketing/visSelectTickets.aspx?cinemacode=1029&txtSessionId=124867",
       "screening_url": "https://www.cinepolis.com.ar/funciones/1029/124867"
     },
@@ -7327,6 +8099,8 @@
       "language": "Subtitulado",
       "sold_percent": 5,
       "listing_label": "Classic • 2D • Subtitulado",
+      "special_categories": [],
+      "special_tags": [],
       "ticket_url": "https://tickets.cinepolis.com.ar/ticketing/visSelectTickets.aspx?cinemacode=1029&txtSessionId=124696",
       "screening_url": "https://www.cinepolis.com.ar/funciones/1029/124696"
     },
@@ -7349,6 +8123,8 @@
       "language": "Español",
       "sold_percent": 1,
       "listing_label": "Classic • 2D • Español",
+      "special_categories": [],
+      "special_tags": [],
       "ticket_url": "https://tickets.cinepolis.com.ar/ticketing/visSelectTickets.aspx?cinemacode=1025&txtSessionId=170095",
       "screening_url": "https://www.cinepolis.com.ar/funciones/1025/170095"
     },
@@ -7371,6 +8147,8 @@
       "language": "Subtitulado",
       "sold_percent": 1,
       "listing_label": "Classic • 2D • Subtitulado",
+      "special_categories": [],
+      "special_tags": [],
       "ticket_url": "https://tickets.cinepolis.com.ar/ticketing/visSelectTickets.aspx?cinemacode=1029&txtSessionId=124750",
       "screening_url": "https://www.cinepolis.com.ar/funciones/1029/124750"
     },
@@ -7393,6 +8171,12 @@
       "language": "Subtitulado",
       "sold_percent": null,
       "listing_label": "",
+      "special_categories": [
+        "imax"
+      ],
+      "special_tags": [
+        "IMAX"
+      ],
       "ticket_url": "https://entradas.todoshowcase.com/showcase/boleteria.aspx",
       "screening_url": ""
     },
@@ -7415,6 +8199,8 @@
       "language": "Subtitulado",
       "sold_percent": 10,
       "listing_label": "4D • 2D • Subtitulado",
+      "special_categories": [],
+      "special_tags": [],
       "ticket_url": "https://tickets.cinepolis.com.ar/ticketing/visSelectTickets.aspx?cinemacode=1029&txtSessionId=124702",
       "screening_url": "https://www.cinepolis.com.ar/funciones/1029/124702"
     },
@@ -7437,6 +8223,8 @@
       "language": "Español",
       "sold_percent": 4,
       "listing_label": "Classic • 2D • Español",
+      "special_categories": [],
+      "special_tags": [],
       "ticket_url": "https://tickets.cinepolis.com.ar/ticketing/visSelectTickets.aspx?cinemacode=1025&txtSessionId=170122",
       "screening_url": "https://www.cinepolis.com.ar/funciones/1025/170122"
     },
@@ -7459,6 +8247,8 @@
       "language": "Subtitulado",
       "sold_percent": 2,
       "listing_label": "Classic • 2D • Subtitulado",
+      "special_categories": [],
+      "special_tags": [],
       "ticket_url": "https://tickets.cinepolis.com.ar/ticketing/visSelectTickets.aspx?cinemacode=1025&txtSessionId=170193",
       "screening_url": "https://www.cinepolis.com.ar/funciones/1025/170193"
     },
@@ -7481,6 +8271,8 @@
       "language": "Subtitulado",
       "sold_percent": null,
       "listing_label": "Classic • 2D • Subtitulado",
+      "special_categories": [],
+      "special_tags": [],
       "ticket_url": "https://tickets.cinepolis.com.ar/ticketing/visSelectTickets.aspx?cinemacode=1029&txtSessionId=124828",
       "screening_url": "https://www.cinepolis.com.ar/funciones/1029/124828"
     },
@@ -7503,6 +8295,8 @@
       "language": "Subtitulado",
       "sold_percent": 1,
       "listing_label": "Classic • 2D • Subtitulado",
+      "special_categories": [],
+      "special_tags": [],
       "ticket_url": "https://tickets.cinepolis.com.ar/ticketing/visSelectTickets.aspx?cinemacode=1029&txtSessionId=124882",
       "screening_url": "https://www.cinepolis.com.ar/funciones/1029/124882"
     },
@@ -7525,6 +8319,8 @@
       "language": "Español",
       "sold_percent": null,
       "listing_label": "Classic • 2D • Español",
+      "special_categories": [],
+      "special_tags": [],
       "ticket_url": "https://tickets.cinepolis.com.ar/ticketing/visSelectTickets.aspx?cinemacode=1025&txtSessionId=170265",
       "screening_url": "https://www.cinepolis.com.ar/funciones/1025/170265"
     },
@@ -7547,6 +8343,8 @@
       "language": "Español",
       "sold_percent": 1,
       "listing_label": "Classic • 3D • Español",
+      "special_categories": [],
+      "special_tags": [],
       "ticket_url": "https://tickets.cinepolis.com.ar/ticketing/visSelectTickets.aspx?cinemacode=1025&txtSessionId=168798",
       "screening_url": "https://www.cinepolis.com.ar/funciones/1025/168798"
     },
@@ -7569,6 +8367,8 @@
       "language": "Subtitulado",
       "sold_percent": null,
       "listing_label": "Classic • 2D • Subtitulado",
+      "special_categories": [],
+      "special_tags": [],
       "ticket_url": "https://tickets.cinepolis.com.ar/ticketing/visSelectTickets.aspx?cinemacode=1029&txtSessionId=124827",
       "screening_url": "https://www.cinepolis.com.ar/funciones/1029/124827"
     },
@@ -7591,6 +8391,8 @@
       "language": "Español",
       "sold_percent": null,
       "listing_label": "Classic • 2D • Español",
+      "special_categories": [],
+      "special_tags": [],
       "ticket_url": "https://tickets.cinepolis.com.ar/ticketing/visSelectTickets.aspx?cinemacode=1025&txtSessionId=168793",
       "screening_url": "https://www.cinepolis.com.ar/funciones/1025/168793"
     },
@@ -7613,6 +8415,12 @@
       "language": "Subtitulado",
       "sold_percent": 3,
       "listing_label": "Classic • 2D • Subtitulado",
+      "special_categories": [
+        "dolby_atmos"
+      ],
+      "special_tags": [
+        "Dolby Atmos"
+      ],
       "ticket_url": "https://tickets.cinepolis.com.ar/ticketing/visSelectTickets.aspx?cinemacode=1029&txtSessionId=123971",
       "screening_url": "https://www.cinepolis.com.ar/funciones/1029/123971"
     },
@@ -7635,6 +8443,8 @@
       "language": "Subtitulado",
       "sold_percent": 4,
       "listing_label": "Classic • 2D • Subtitulado",
+      "special_categories": [],
+      "special_tags": [],
       "ticket_url": "https://tickets.cinepolis.com.ar/ticketing/visSelectTickets.aspx?cinemacode=1029&txtSessionId=124738",
       "screening_url": "https://www.cinepolis.com.ar/funciones/1029/124738"
     },
@@ -7657,6 +8467,8 @@
       "language": "Español",
       "sold_percent": 3,
       "listing_label": "Classic • 2D • Español",
+      "special_categories": [],
+      "special_tags": [],
       "ticket_url": "https://tickets.cinepolis.com.ar/ticketing/visSelectTickets.aspx?cinemacode=1025&txtSessionId=170164",
       "screening_url": "https://www.cinepolis.com.ar/funciones/1025/170164"
     },
@@ -7679,6 +8491,8 @@
       "language": "Español",
       "sold_percent": 1,
       "listing_label": "Classic • 2D • Español",
+      "special_categories": [],
+      "special_tags": [],
       "ticket_url": "https://tickets.cinepolis.com.ar/ticketing/visSelectTickets.aspx?cinemacode=1025&txtSessionId=170113",
       "screening_url": "https://www.cinepolis.com.ar/funciones/1025/170113"
     },
@@ -7701,6 +8515,12 @@
       "language": "Subtitulado",
       "sold_percent": 84,
       "listing_label": "Classic • 2D • Subtitulado",
+      "special_categories": [
+        "dolby_atmos"
+      ],
+      "special_tags": [
+        "Dolby Atmos"
+      ],
       "ticket_url": "https://tickets.cinepolis.com.ar/ticketing/visSelectTickets.aspx?cinemacode=1029&txtSessionId=124636",
       "screening_url": "https://www.cinepolis.com.ar/funciones/1029/124636"
     },
@@ -7723,6 +8543,8 @@
       "language": "Subtitulado",
       "sold_percent": 9,
       "listing_label": "Classic • 2D • Subtitulado",
+      "special_categories": [],
+      "special_tags": [],
       "ticket_url": "https://tickets.cinepolis.com.ar/ticketing/visSelectTickets.aspx?cinemacode=1029&txtSessionId=124637",
       "screening_url": "https://www.cinepolis.com.ar/funciones/1029/124637"
     },
@@ -7745,6 +8567,12 @@
       "language": "Subtitulado",
       "sold_percent": null,
       "listing_label": "",
+      "special_categories": [
+        "imax"
+      ],
+      "special_tags": [
+        "IMAX"
+      ],
       "ticket_url": "https://entradas.todoshowcase.com/showcase/boleteria.aspx",
       "screening_url": ""
     },
@@ -7767,6 +8595,12 @@
       "language": "Subtitulado",
       "sold_percent": 31,
       "listing_label": "Classic • 2D • Subtitulado",
+      "special_categories": [
+        "dolby_atmos"
+      ],
+      "special_tags": [
+        "Dolby Atmos"
+      ],
       "ticket_url": "https://tickets.cinepolis.com.ar/ticketing/visSelectTickets.aspx?cinemacode=1029&txtSessionId=124638",
       "screening_url": "https://www.cinepolis.com.ar/funciones/1029/124638"
     },
@@ -7789,6 +8623,12 @@
       "language": "Subtitulado",
       "sold_percent": 54,
       "listing_label": "Classic • 2D • Subtitulado",
+      "special_categories": [
+        "dolby_atmos"
+      ],
+      "special_tags": [
+        "Dolby Atmos"
+      ],
       "ticket_url": "https://tickets.cinepolis.com.ar/ticketing/visSelectTickets.aspx?cinemacode=1029&txtSessionId=124639",
       "screening_url": "https://www.cinepolis.com.ar/funciones/1029/124639"
     },
@@ -7811,6 +8651,12 @@
       "language": "Subtitulado",
       "sold_percent": 38,
       "listing_label": "Classic • 2D • Subtitulado",
+      "special_categories": [
+        "dolby_atmos"
+      ],
+      "special_tags": [
+        "Dolby Atmos"
+      ],
       "ticket_url": "https://tickets.cinepolis.com.ar/ticketing/visSelectTickets.aspx?cinemacode=1029&txtSessionId=124640",
       "screening_url": "https://www.cinepolis.com.ar/funciones/1029/124640"
     },
@@ -7833,6 +8679,12 @@
       "language": "Subtitulado",
       "sold_percent": null,
       "listing_label": "",
+      "special_categories": [
+        "imax"
+      ],
+      "special_tags": [
+        "IMAX"
+      ],
       "ticket_url": "https://entradas.todoshowcase.com/showcase/boleteria.aspx",
       "screening_url": ""
     },
@@ -7855,6 +8707,12 @@
       "language": "Español",
       "sold_percent": 53,
       "listing_label": "Classic • 2D • Español",
+      "special_categories": [
+        "dolby_atmos"
+      ],
+      "special_tags": [
+        "Dolby Atmos"
+      ],
       "ticket_url": "https://tickets.cinepolis.com.ar/ticketing/visSelectTickets.aspx?cinemacode=1029&txtSessionId=124641",
       "screening_url": "https://www.cinepolis.com.ar/funciones/1029/124641"
     },
@@ -7877,6 +8735,8 @@
       "language": "Subtitulado",
       "sold_percent": 29,
       "listing_label": "Classic • 2D • Subtitulado",
+      "special_categories": [],
+      "special_tags": [],
       "ticket_url": "https://tickets.cinepolis.com.ar/ticketing/visSelectTickets.aspx?cinemacode=1025&txtSessionId=166492",
       "screening_url": "https://www.cinepolis.com.ar/funciones/1025/166492"
     },
@@ -7899,6 +8759,8 @@
       "language": "Subtitulado",
       "sold_percent": 29,
       "listing_label": "Classic • 2D • Subtitulado",
+      "special_categories": [],
+      "special_tags": [],
       "ticket_url": "https://tickets.cinepolis.com.ar/ticketing/visSelectTickets.aspx?cinemacode=1025&txtSessionId=166494",
       "screening_url": "https://www.cinepolis.com.ar/funciones/1025/166494"
     },
@@ -7921,6 +8783,8 @@
       "language": "Subtitulado",
       "sold_percent": 38,
       "listing_label": "Classic • 2D • Subtitulado",
+      "special_categories": [],
+      "special_tags": [],
       "ticket_url": "https://tickets.cinepolis.com.ar/ticketing/visSelectTickets.aspx?cinemacode=1025&txtSessionId=166496",
       "screening_url": "https://www.cinepolis.com.ar/funciones/1025/166496"
     },
@@ -7943,6 +8807,8 @@
       "language": "Subtitulado",
       "sold_percent": 89,
       "listing_label": "Classic • 2D • Subtitulado",
+      "special_categories": [],
+      "special_tags": [],
       "ticket_url": "https://tickets.cinepolis.com.ar/ticketing/visSelectTickets.aspx?cinemacode=1029&txtSessionId=122744",
       "screening_url": "https://www.cinepolis.com.ar/funciones/1029/122744"
     },
@@ -7965,6 +8831,8 @@
       "language": "Subtitulado",
       "sold_percent": 93,
       "listing_label": "Classic • 2D • Subtitulado",
+      "special_categories": [],
+      "special_tags": [],
       "ticket_url": "https://tickets.cinepolis.com.ar/ticketing/visSelectTickets.aspx?cinemacode=1029&txtSessionId=122745",
       "screening_url": "https://www.cinepolis.com.ar/funciones/1029/122745"
     },
@@ -7987,6 +8855,12 @@
       "language": "Subtitulado",
       "sold_percent": 37,
       "listing_label": "Classic • 2D • Subtitulado",
+      "special_categories": [
+        "dolby_atmos"
+      ],
+      "special_tags": [
+        "Dolby Atmos"
+      ],
       "ticket_url": "https://tickets.cinepolis.com.ar/ticketing/visSelectTickets.aspx?cinemacode=1029&txtSessionId=124642",
       "screening_url": "https://www.cinepolis.com.ar/funciones/1029/124642"
     },
@@ -8009,6 +8883,12 @@
       "language": "Subtitulado",
       "sold_percent": 55,
       "listing_label": "Classic • 2D • Subtitulado",
+      "special_categories": [
+        "dolby_atmos"
+      ],
+      "special_tags": [
+        "Dolby Atmos"
+      ],
       "ticket_url": "https://tickets.cinepolis.com.ar/ticketing/visSelectTickets.aspx?cinemacode=1029&txtSessionId=124643",
       "screening_url": "https://www.cinepolis.com.ar/funciones/1029/124643"
     },
@@ -8031,6 +8911,8 @@
       "language": "Subtitulado",
       "sold_percent": 15,
       "listing_label": "Classic • 2D • Subtitulado",
+      "special_categories": [],
+      "special_tags": [],
       "ticket_url": "https://tickets.cinepolis.com.ar/ticketing/visSelectTickets.aspx?cinemacode=1025&txtSessionId=166493",
       "screening_url": "https://www.cinepolis.com.ar/funciones/1025/166493"
     },
@@ -8053,6 +8935,8 @@
       "language": "Subtitulado",
       "sold_percent": 16,
       "listing_label": "Classic • 2D • Subtitulado",
+      "special_categories": [],
+      "special_tags": [],
       "ticket_url": "https://tickets.cinepolis.com.ar/ticketing/visSelectTickets.aspx?cinemacode=1025&txtSessionId=166495",
       "screening_url": "https://www.cinepolis.com.ar/funciones/1025/166495"
     },
@@ -8075,6 +8959,8 @@
       "language": "Subtitulado",
       "sold_percent": 14,
       "listing_label": "Classic • 2D • Subtitulado",
+      "special_categories": [],
+      "special_tags": [],
       "ticket_url": "https://tickets.cinepolis.com.ar/ticketing/visSelectTickets.aspx?cinemacode=1025&txtSessionId=166497",
       "screening_url": "https://www.cinepolis.com.ar/funciones/1025/166497"
     },
@@ -8097,6 +8983,8 @@
       "language": "Subtitulado",
       "sold_percent": 64,
       "listing_label": "Classic • 2D • Subtitulado",
+      "special_categories": [],
+      "special_tags": [],
       "ticket_url": "https://tickets.cinepolis.com.ar/ticketing/visSelectTickets.aspx?cinemacode=1029&txtSessionId=122748",
       "screening_url": "https://www.cinepolis.com.ar/funciones/1029/122748"
     },
@@ -8119,6 +9007,8 @@
       "language": "Subtitulado",
       "sold_percent": 76,
       "listing_label": "Classic • 2D • Subtitulado",
+      "special_categories": [],
+      "special_tags": [],
       "ticket_url": "https://tickets.cinepolis.com.ar/ticketing/visSelectTickets.aspx?cinemacode=1029&txtSessionId=122749",
       "screening_url": "https://www.cinepolis.com.ar/funciones/1029/122749"
     },
@@ -8141,6 +9031,12 @@
       "language": "Subtitulado",
       "sold_percent": 36,
       "listing_label": "Classic • 2D • Subtitulado",
+      "special_categories": [
+        "dolby_atmos"
+      ],
+      "special_tags": [
+        "Dolby Atmos"
+      ],
       "ticket_url": "https://tickets.cinepolis.com.ar/ticketing/visSelectTickets.aspx?cinemacode=1029&txtSessionId=124644",
       "screening_url": "https://www.cinepolis.com.ar/funciones/1029/124644"
     },
@@ -8163,6 +9059,12 @@
       "language": "Subtitulado",
       "sold_percent": 9,
       "listing_label": "Classic • 2D • Subtitulado",
+      "special_categories": [
+        "dolby_atmos"
+      ],
+      "special_tags": [
+        "Dolby Atmos"
+      ],
       "ticket_url": "https://tickets.cinepolis.com.ar/ticketing/visSelectTickets.aspx?cinemacode=1029&txtSessionId=124645",
       "screening_url": "https://www.cinepolis.com.ar/funciones/1029/124645"
     },
@@ -8185,6 +9087,12 @@
       "language": "Subtitulado",
       "sold_percent": 60,
       "listing_label": "Classic • 2D • Subtitulado",
+      "special_categories": [
+        "dolby_atmos"
+      ],
+      "special_tags": [
+        "Dolby Atmos"
+      ],
       "ticket_url": "https://tickets.cinepolis.com.ar/ticketing/visSelectTickets.aspx?cinemacode=1029&txtSessionId=124646",
       "screening_url": "https://www.cinepolis.com.ar/funciones/1029/124646"
     },
@@ -8207,6 +9115,12 @@
       "language": "Subtitulado",
       "sold_percent": 35,
       "listing_label": "Classic • 2D • Subtitulado",
+      "special_categories": [
+        "dolby_atmos"
+      ],
+      "special_tags": [
+        "Dolby Atmos"
+      ],
       "ticket_url": "https://tickets.cinepolis.com.ar/ticketing/visSelectTickets.aspx?cinemacode=1029&txtSessionId=124647",
       "screening_url": "https://www.cinepolis.com.ar/funciones/1029/124647"
     },
@@ -8229,6 +9143,12 @@
       "language": "Subtitulado",
       "sold_percent": 13,
       "listing_label": "Classic • 2D • Subtitulado",
+      "special_categories": [
+        "dolby_atmos"
+      ],
+      "special_tags": [
+        "Dolby Atmos"
+      ],
       "ticket_url": "https://tickets.cinepolis.com.ar/ticketing/visSelectTickets.aspx?cinemacode=1029&txtSessionId=124648",
       "screening_url": "https://www.cinepolis.com.ar/funciones/1029/124648"
     }
