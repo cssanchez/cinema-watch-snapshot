@@ -1495,8 +1495,8 @@
           ) {
             return;
           }
-          const key = normalizeSource(element.textContent);
-          if (!key || !sourceTranslations.es[key]) {
+          const key = element.dataset.i18nAutoOriginal || normalizeSource(element.textContent);
+          if (!key || (!element.dataset.i18nAutoOriginal && !sourceTranslations.es[key])) {
             return;
           }
           if (!element.dataset.i18nAutoOriginal) {
