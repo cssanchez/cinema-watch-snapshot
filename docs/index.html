@@ -275,6 +275,40 @@
       gap: 0.55rem;
     }
 
+    .signal-strip {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 0.7rem;
+      margin-top: 0.15rem;
+    }
+
+    .signal {
+      min-width: 132px;
+      padding: 0.72rem 0.82rem 0.78rem;
+      border-radius: var(--radius-md);
+      border: 1px solid var(--line);
+      background:
+        linear-gradient(180deg, rgba(255, 255, 255, 0.04), rgba(10, 13, 19, 0.92));
+      box-shadow: var(--shadow-soft);
+      display: grid;
+      gap: 0.18rem;
+    }
+
+    .signal span {
+      color: var(--muted);
+      font-size: 0.78rem;
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+      font-weight: 700;
+    }
+
+    .signal strong {
+      font-family: var(--heading-font);
+      font-size: 1.2rem;
+      line-height: 1;
+      font-weight: 600;
+    }
+
     .hero-side {
       padding: 1.15rem;
       border-radius: var(--radius-lg);
@@ -376,11 +410,73 @@
       gap: 0.75rem;
     }
 
+    .editorial-toolbar,
+    .filter-toolbar {
+      display: grid;
+      gap: 0.85rem;
+    }
+
+    .toolbar-group {
+      display: grid;
+      gap: 0.5rem;
+      padding-top: 0.2rem;
+      border-top: 1px dashed rgba(255, 255, 255, 0.08);
+    }
+
+    .toolbar-group:first-child {
+      border-top: 0;
+      padding-top: 0;
+    }
+
+    .toolbar-head {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: space-between;
+      gap: 0.6rem;
+      align-items: baseline;
+    }
+
+    .toolbar-title {
+      font-family: var(--heading-font);
+      font-size: 1.02rem;
+      line-height: 1.1;
+    }
+
+    .toolbar-note {
+      color: var(--muted);
+      font-size: 0.9rem;
+      max-width: 56ch;
+    }
+
+    .quick-link-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+      gap: 0.8rem;
+    }
+
+    .quick-link-block {
+      display: grid;
+      gap: 0.55rem;
+      padding: 0.95rem 0.98rem;
+      border-radius: var(--radius-lg);
+      border: 1px solid var(--line);
+      background:
+        linear-gradient(180deg, rgba(255, 255, 255, 0.045), rgba(10, 13, 19, 0.9));
+      box-shadow: var(--shadow-soft);
+    }
+
     .home-board-grid {
       display: grid;
       grid-template-columns: repeat(2, minmax(0, 1fr));
       gap: 1rem;
       align-items: start;
+    }
+
+    .board-kicker {
+      color: var(--muted);
+      font-size: 0.88rem;
+      line-height: 1.5;
+      max-width: 54ch;
     }
 
     .home-board-card {
@@ -762,10 +858,6 @@
       margin-top: 0.1rem;
     }
 
-    .form-actions .button-pill {
-      width: auto;
-    }
-
     .empty {
       padding: 1rem 1.05rem;
       border-radius: var(--radius-md);
@@ -854,6 +946,10 @@
       .home-board-grid {
         grid-template-columns: 1fr;
       }
+
+      .quick-link-grid {
+        grid-template-columns: 1fr;
+      }
     }
 
     @media (max-width: 860px) {
@@ -925,10 +1021,10 @@
 <section class="hero hero-grid">
   <div class="hero-copy">
     <span class="eyebrow">Cache-first cinema board</span>
-    <h1>Find the next screening fast, without scraping on page load.</h1>
+    <h1>Find the next screening before the interface starts performing.</h1>
     <p>
-      Cinema Watch is meant to feel like a fast bulletin for moviegoing: stable venue pages, one-click questions,
-      clear cache coverage, and enough density to answer the question before the interface gets in the way.
+      Cinema Watch should feel closer to a smart listings bulletin than a dashboard: stable venue boards, direct
+      questions, and enough density to decide quickly without poking through decorative chrome.
     </p>
     <div class="hero-actions">
       <a class="button-pill is-active" href="/cinema-watch-snapshot/screenings/" data-tone="accent">Open search</a>
@@ -937,31 +1033,40 @@
       <a class="button-pill" href="/cinema-watch-snapshot/status/" data-tone="warm">View snapshot freshness</a>
       
     </div>
+    <div class="signal-strip">
+      <div class="signal">
+        <span>Providers</span>
+        <strong>2</strong>
+      </div>
+      <div class="signal">
+        <span>Seeded venues</span>
+        <strong>19</strong>
+      </div>
+      <div class="signal">
+        <span>Cached venues</span>
+        <strong>3</strong>
+      </div>
+    </div>
   </div>
   <div class="hero-side">
-    <strong>Read fast, refresh safely.</strong>
+    <strong>Fast to read, honest about freshness.</strong>
     <p>
-      The site reads cached cinema data only. Background workers and queued refreshes do the scraping work,
-      which keeps the UI quick and keeps Cinepolis safer from noisy traffic spikes.
+      The site reads cached cinema data only. Refresh jobs do the scraping in the background, which keeps the boards
+      quick, the copy calm, and the upstream sites safer from noisy traffic spikes.
     </p>
-    <div class="chips">
-      <span class="chip">cache-backed</span>
-      <span class="chip">multi-provider</span>
-      <span class="chip">mobile-first density</span>
-    </div>
-  </div>
-  <div class="metrics">
-    <div class="metric">
-      <span class="muted">Providers</span>
-      <strong>2</strong>
-    </div>
-    <div class="metric">
-      <span class="muted">Seeded venues</span>
-      <strong>19</strong>
-    </div>
-    <div class="metric">
-      <span class="muted">Cached venue snapshots</span>
-      <strong>3</strong>
+    <div class="meta-list">
+      <div class="meta-row">
+        <span>Default lens</span>
+        <strong>Recoleta room 6, Avellaneda sweeps, quick venue boards</strong>
+      </div>
+      <div class="meta-row">
+        <span>Reading mode</span>
+        <strong>Search first, compare second, drill in only when needed</strong>
+      </div>
+      <div class="meta-row">
+        <span>Why cache</span>
+        <strong>Stable answers, lighter scraping, safer sharing</strong>
+      </div>
     </div>
   </div>
 </section>
@@ -973,79 +1078,63 @@
       <p>The homepage should already feel like a tool, not a brochure.</p>
     </div>
   </div>
-  <div class="dense-list">
+  <div class="editorial-toolbar">
     
-    <div class="button-group">
-      <div>
-        <strong>Start Here</strong>
-        <p class="muted">The first questions should be one click away.</p>
+    <div class="toolbar-group">
+      <div class="toolbar-head">
+        <strong class="toolbar-title">Start Here</strong>
+        <span class="toolbar-note">The first questions should be one click away.</span>
       </div>
-      <div class="button-grid">
+      <div class="quick-link-grid">
         
-        <a class="button-card" href="/cinema-watch-snapshot/screenings/?from_date=2026-04-06&amp;to_date=2026-04-06" data-tone="accent">
+        <a class="quick-link-block" href="/cinema-watch-snapshot/screenings/?from_date=2026-04-06&amp;to_date=2026-04-06">
           <strong>What&#39;s On Today</strong>
-          
-          <p>Cross-provider daily board</p>
-          
+          <p class="muted">Cross-provider daily board</p>
         </a>
         
-        <a class="button-card" href="/cinema-watch-snapshot/screenings/?provider=cinepolis&amp;venue=recoleta&amp;room=6&amp;from_date=2026-04-06&amp;to_date=2026-04-06" data-tone="warm">
+        <a class="quick-link-block" href="/cinema-watch-snapshot/screenings/?provider=cinepolis&amp;venue=recoleta&amp;room=6&amp;from_date=2026-04-06&amp;to_date=2026-04-06">
           <strong>Recoleta Room 6 (Today)</strong>
-          
-          <p>Current cached board</p>
-          
+          <p class="muted">Current cached board</p>
         </a>
         
-        <a class="button-card" href="/cinema-watch-snapshot/screenings/?provider=cinepolis&amp;venue=avellaneda&amp;language=subtitulado&amp;from_date=2026-04-06&amp;to_date=2026-04-12" data-tone="soft">
+        <a class="quick-link-block" href="/cinema-watch-snapshot/screenings/?provider=cinepolis&amp;venue=avellaneda&amp;language=subtitulado&amp;from_date=2026-04-06&amp;to_date=2026-04-12">
           <strong>Avellaneda Subtitled</strong>
-          
-          <p>This week&#39;s original-language options</p>
-          
+          <p class="muted">This week&#39;s original-language options</p>
         </a>
         
-        <a class="button-card" href="/cinema-watch-snapshot/screenings/?provider=showcase&amp;venue=imax_norcenter&amp;from_date=2026-04-06&amp;to_date=2026-04-12" data-tone="soft">
+        <a class="quick-link-block" href="/cinema-watch-snapshot/screenings/?provider=showcase&amp;venue=imax_norcenter&amp;from_date=2026-04-06&amp;to_date=2026-04-12">
           <strong>IMAX This Week</strong>
-          
-          <p>Norcenter screenings</p>
-          
+          <p class="muted">Norcenter screenings</p>
         </a>
         
       </div>
     </div>
     
-    <div class="button-group">
-      <div>
-        <strong>Browse Boards</strong>
-        <p class="muted">Venue, movie, and status pages should all feel like obvious buttons.</p>
+    <div class="toolbar-group">
+      <div class="toolbar-head">
+        <strong class="toolbar-title">Browse Boards</strong>
+        <span class="toolbar-note">Venue, movie, and status pages should all feel like obvious buttons.</span>
       </div>
-      <div class="button-grid">
+      <div class="quick-link-grid">
         
-        <a class="button-card" href="/cinema-watch-snapshot/movies/?from_date=2026-04-06&amp;to_date=2026-04-12" data-tone="soft">
+        <a class="quick-link-block" href="/cinema-watch-snapshot/movies/?from_date=2026-04-06&amp;to_date=2026-04-12">
           <strong>Movies Board</strong>
-          
-          <p>One row per title</p>
-          
+          <p class="muted">One row per title</p>
         </a>
         
-        <a class="button-card" href="/cinema-watch-snapshot/screenings/?from_date=2026-04-07&amp;to_date=2026-04-07" data-tone="soft">
+        <a class="quick-link-block" href="/cinema-watch-snapshot/screenings/?from_date=2026-04-07&amp;to_date=2026-04-07">
           <strong>Tomorrow</strong>
-          
-          <p>Plan the next day quickly</p>
-          
+          <p class="muted">Plan the next day quickly</p>
         </a>
         
-        <a class="button-card" href="/cinema-watch-snapshot/status/" data-tone="soft">
+        <a class="quick-link-block" href="/cinema-watch-snapshot/status/">
           <strong>Refresh Status</strong>
-          
-          <p>Cache health and latest runs</p>
-          
+          <p class="muted">Cache health and latest runs</p>
         </a>
         
-        <a class="button-card" href="/cinema-watch-snapshot/providers/cinepolis/" data-tone="soft">
+        <a class="quick-link-block" href="/cinema-watch-snapshot/providers/cinepolis/">
           <strong>Cinepolis Venues</strong>
-          
-          <p>Venue-first Cinepolis board</p>
-          
+          <p class="muted">Venue-first Cinepolis board</p>
         </a>
         
       </div>
@@ -1058,7 +1147,7 @@
   <div class="section-head">
     <div>
       <h2>Live Answer Boards</h2>
-      <p>The homepage should already answer the obvious questions from the cache, not just link somewhere else.</p>
+      <p class="board-kicker">The homepage should answer the obvious questions from the cache, not just gesture toward other pages.</p>
     </div>
   </div>
   <div class="home-board-grid">
@@ -1422,7 +1511,7 @@
             <span class="stat">349 cached screenings</span>
             <span class="stat">28 cached titles</span>
           </div>
-          <p>Updated 3 h ago</p>
+          <p>Updated 4 h ago</p>
           
           <p>Hybrid backend keeps sold data from legacy Cinepolis while preferring /ar metadata when available.</p>
           
