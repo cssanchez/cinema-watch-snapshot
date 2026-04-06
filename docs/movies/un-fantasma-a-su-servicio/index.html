@@ -6,24 +6,24 @@
   <title>Un fantasma a su servicio | Cinema Watch</title>
   <style>
     :root {
-      color-scheme: light;
-      --bg: #f2eadf;
-      --bg-deep: #e7ddcf;
-      --surface: rgba(255, 251, 245, 0.9);
-      --surface-strong: rgba(255, 252, 247, 0.98);
-      --surface-ink: #f8f0e5;
-      --ink: #15120f;
-      --muted: #625950;
-      --line: rgba(36, 28, 22, 0.12);
-      --line-strong: rgba(36, 28, 22, 0.24);
-      --accent: #0f6c5f;
-      --accent-soft: rgba(15, 108, 95, 0.12);
-      --warm: #b35a37;
-      --warm-soft: rgba(179, 90, 55, 0.12);
-      --gold: #8a6a21;
-      --gold-soft: rgba(138, 106, 33, 0.12);
-      --shadow: 0 18px 50px rgba(54, 34, 20, 0.08);
-      --shadow-soft: 0 8px 24px rgba(54, 34, 20, 0.06);
+      color-scheme: dark;
+      --bg: #0c0f14;
+      --bg-deep: #06080d;
+      --surface: rgba(13, 16, 23, 0.92);
+      --surface-strong: rgba(10, 13, 19, 0.94);
+      --surface-ink: #10151d;
+      --ink: #f1ebe4;
+      --muted: #a7afbc;
+      --line: rgba(165, 178, 198, 0.14);
+      --line-strong: rgba(165, 178, 198, 0.28);
+      --accent: #58c7b3;
+      --accent-soft: rgba(88, 199, 179, 0.16);
+      --warm: #f08b65;
+      --warm-soft: rgba(240, 139, 101, 0.16);
+      --gold: #d7b569;
+      --gold-soft: rgba(215, 181, 105, 0.16);
+      --shadow: 0 20px 54px rgba(0, 0, 0, 0.36);
+      --shadow-soft: 0 10px 30px rgba(0, 0, 0, 0.26);
       --radius-xl: 28px;
       --radius-lg: 22px;
       --radius-md: 16px;
@@ -47,9 +47,9 @@
       color: var(--ink);
       font-family: var(--ui-font);
       background:
-        radial-gradient(circle at top left, rgba(179, 90, 55, 0.16), transparent 22rem),
-        radial-gradient(circle at 88% 8%, rgba(15, 108, 95, 0.12), transparent 24rem),
-        linear-gradient(180deg, #fbf6ef 0%, var(--bg) 52%, var(--bg-deep) 100%);
+        radial-gradient(circle at top left, rgba(240, 139, 101, 0.14), transparent 24rem),
+        radial-gradient(circle at 88% 8%, rgba(88, 199, 179, 0.12), transparent 26rem),
+        linear-gradient(180deg, #10141b 0%, var(--bg) 54%, var(--bg-deep) 100%);
       position: relative;
     }
 
@@ -59,15 +59,15 @@
       inset: 0;
       pointer-events: none;
       background:
-        linear-gradient(transparent, rgba(255, 255, 255, 0.06)),
+        linear-gradient(transparent, rgba(255, 255, 255, 0.025)),
         repeating-linear-gradient(
           90deg,
-          rgba(255, 255, 255, 0.015) 0,
-          rgba(255, 255, 255, 0.015) 1px,
+          rgba(255, 255, 255, 0.012) 0,
+          rgba(255, 255, 255, 0.012) 1px,
           transparent 1px,
           transparent 110px
         );
-      opacity: 0.55;
+      opacity: 0.5;
     }
 
     a {
@@ -91,7 +91,7 @@
       padding: 0.9rem 1.1rem;
       border: 1px solid var(--line);
       border-radius: 999px;
-      background: rgba(255, 250, 243, 0.82);
+      background: rgba(9, 12, 18, 0.8);
       box-shadow: var(--shadow-soft);
       position: sticky;
       top: 0.8rem;
@@ -146,7 +146,7 @@
     .nav a:hover,
     .nav button:hover {
       border-color: var(--line);
-      background: rgba(255, 255, 255, 0.58);
+      background: rgba(255, 255, 255, 0.06);
       color: var(--ink);
       transform: translateY(-1px);
     }
@@ -205,7 +205,7 @@
       gap: 0.45rem;
       padding: 0.36rem 0.7rem;
       border-radius: 999px;
-      background: rgba(21, 18, 15, 0.05);
+      background: rgba(255, 255, 255, 0.05);
       color: var(--muted);
       text-transform: uppercase;
       letter-spacing: 0.1em;
@@ -226,7 +226,7 @@
       border: 1px solid var(--line);
       border-radius: var(--radius-xl);
       background:
-        linear-gradient(180deg, rgba(255, 255, 255, 0.38), transparent 40%),
+        linear-gradient(180deg, rgba(255, 255, 255, 0.04), transparent 42%),
         var(--surface);
       box-shadow: var(--shadow);
       overflow: hidden;
@@ -247,7 +247,7 @@
       width: 18rem;
       height: 18rem;
       border-radius: 999px;
-      background: radial-gradient(circle, rgba(15, 108, 95, 0.14), transparent 70%);
+      background: radial-gradient(circle, rgba(88, 199, 179, 0.15), transparent 70%);
       z-index: -1;
     }
 
@@ -280,8 +280,8 @@
       border-radius: var(--radius-lg);
       border: 1px solid var(--line);
       background:
-        linear-gradient(180deg, rgba(15, 108, 95, 0.08), rgba(255, 255, 255, 0.42)),
-        rgba(255, 252, 247, 0.72);
+        linear-gradient(180deg, rgba(88, 199, 179, 0.12), rgba(255, 255, 255, 0.03)),
+        rgba(18, 22, 30, 0.86);
       display: grid;
       gap: 0.7rem;
     }
@@ -306,8 +306,8 @@
       padding: 1rem 1rem 1.05rem;
       border-radius: var(--radius-lg);
       background:
-        linear-gradient(180deg, rgba(255, 255, 255, 0.76), rgba(252, 247, 239, 0.82));
-      border: 1px solid rgba(36, 28, 22, 0.1);
+        linear-gradient(180deg, rgba(255, 255, 255, 0.07), rgba(12, 15, 21, 0.9));
+      border: 1px solid var(--line);
       position: relative;
       overflow: hidden;
     }
@@ -390,7 +390,7 @@
       border-radius: var(--radius-lg);
       border: 1px solid var(--line);
       background:
-        linear-gradient(180deg, rgba(255, 255, 255, 0.66), rgba(248, 242, 234, 0.76));
+        linear-gradient(180deg, rgba(255, 255, 255, 0.05), rgba(16, 20, 28, 0.88));
       box-shadow: var(--shadow-soft);
     }
 
@@ -415,8 +415,8 @@
       gap: 0.65rem;
       padding: 0.85rem 0.9rem;
       border-radius: var(--radius-md);
-      border: 1px solid rgba(36, 28, 22, 0.11);
-      background: rgba(255, 255, 255, 0.55);
+      border: 1px solid var(--line);
+      background: rgba(255, 255, 255, 0.035);
     }
 
     .mini-results {
@@ -430,7 +430,7 @@
       gap: 0.7rem;
       align-items: start;
       padding-top: 0.55rem;
-      border-top: 1px dashed rgba(36, 28, 22, 0.12);
+      border-top: 1px dashed rgba(255, 255, 255, 0.08);
     }
 
     .mini-result:first-child {
@@ -445,8 +445,8 @@
       min-height: 2rem;
       padding: 0.25rem 0.6rem;
       border-radius: 999px;
-      background: rgba(21, 18, 15, 0.06);
-      border: 1px solid rgba(36, 28, 22, 0.1);
+      background: rgba(255, 255, 255, 0.04);
+      border: 1px solid rgba(255, 255, 255, 0.1);
       font-family: var(--mono-font);
       font-size: 0.88rem;
       font-weight: 700;
@@ -493,7 +493,7 @@
     .button-card:hover,
     .button-pill:hover {
       transform: translateY(-1px);
-      border-color: rgba(21, 18, 15, 0.28);
+      border-color: rgba(255, 255, 255, 0.16);
       box-shadow: var(--shadow-soft);
     }
 
@@ -503,7 +503,7 @@
       padding: 1rem;
       border-radius: var(--radius-lg);
       background:
-        linear-gradient(180deg, rgba(255, 255, 255, 0.78), rgba(247, 241, 233, 0.9));
+        linear-gradient(180deg, rgba(255, 255, 255, 0.05), rgba(16, 20, 28, 0.92));
       box-shadow: var(--shadow-soft);
       text-align: left;
       width: 100%;
@@ -521,14 +521,14 @@
 
     .button-card[data-tone="accent"] {
       background:
-        linear-gradient(180deg, rgba(15, 108, 95, 0.18), rgba(255, 255, 255, 0.88));
-      border-color: rgba(15, 108, 95, 0.28);
+        linear-gradient(180deg, rgba(88, 199, 179, 0.16), rgba(16, 20, 28, 0.92));
+      border-color: rgba(88, 199, 179, 0.28);
     }
 
     .button-card[data-tone="warm"] {
       background:
-        linear-gradient(180deg, rgba(179, 90, 55, 0.2), rgba(255, 255, 255, 0.88));
-      border-color: rgba(179, 90, 55, 0.28);
+        linear-gradient(180deg, rgba(240, 139, 101, 0.18), rgba(16, 20, 28, 0.92));
+      border-color: rgba(240, 139, 101, 0.28);
     }
 
     .button-pill {
@@ -539,12 +539,12 @@
       min-height: 2.3rem;
       padding: 0.5rem 0.85rem;
       border-radius: 999px;
-      background: rgba(255, 255, 255, 0.76);
+      background: rgba(255, 255, 255, 0.05);
       color: var(--ink);
       font-size: 0.9rem;
       font-weight: 600;
       white-space: nowrap;
-      box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.6);
+      box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.04);
     }
 
     .button-pill[data-tone="accent"] {
@@ -577,7 +577,7 @@
       border-radius: var(--radius-lg);
       border: 1px solid var(--line);
       background:
-        linear-gradient(180deg, rgba(255, 255, 255, 0.62), rgba(248, 242, 234, 0.72));
+        linear-gradient(180deg, rgba(255, 255, 255, 0.04), rgba(16, 20, 28, 0.84));
       box-shadow: var(--shadow-soft);
     }
 
@@ -640,7 +640,7 @@
     }
 
     .chip-neutral {
-      background: rgba(21, 18, 15, 0.08);
+      background: rgba(255, 255, 255, 0.06);
       color: var(--muted);
     }
 
@@ -667,7 +667,7 @@
       gap: 0.8rem;
       align-items: start;
       padding-top: 0.65rem;
-      border-top: 1px dashed rgba(36, 28, 22, 0.14);
+      border-top: 1px dashed rgba(255, 255, 255, 0.08);
     }
 
     .result-item:first-child {
@@ -682,8 +682,8 @@
       min-height: 2.2rem;
       padding: 0.25rem 0.55rem;
       border-radius: 999px;
-      background: rgba(21, 18, 15, 0.06);
-      border: 1px solid rgba(36, 28, 22, 0.12);
+      background: rgba(255, 255, 255, 0.04);
+      border: 1px solid rgba(255, 255, 255, 0.1);
       font-family: var(--mono-font);
       font-size: 0.9rem;
       font-weight: 700;
@@ -769,7 +769,7 @@
     .empty {
       padding: 1rem 1.05rem;
       border-radius: var(--radius-md);
-      background: rgba(255, 255, 255, 0.44);
+      background: rgba(255, 255, 255, 0.03);
       border: 1px dashed var(--line-strong);
       color: var(--muted);
     }
@@ -780,11 +780,11 @@
       width: 100%;
       font: inherit;
       color: var(--ink);
-      border: 1px solid rgba(36, 28, 22, 0.18);
+      border: 1px solid rgba(165, 178, 198, 0.22);
       border-radius: var(--radius-sm);
-      background: rgba(255, 255, 255, 0.82);
+      background: rgba(9, 12, 18, 0.92);
       padding: 0.7rem 0.78rem;
-      box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.72);
+      box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.03);
     }
 
     input:focus,
@@ -792,15 +792,15 @@
     button:focus,
     .button-pill:focus,
     .button-card:focus {
-      outline: 2px solid rgba(15, 108, 95, 0.22);
+      outline: 2px solid rgba(88, 199, 179, 0.28);
       outline-offset: 2px;
     }
 
     button {
       cursor: pointer;
-      background: linear-gradient(180deg, #147a6c, var(--accent));
+      background: linear-gradient(180deg, #3aa593, var(--accent));
       color: white;
-      border-color: rgba(15, 108, 95, 0.7);
+      border-color: rgba(88, 199, 179, 0.48);
       font-weight: 700;
     }
 
@@ -808,22 +808,22 @@
       color: var(--ink);
       border-color: var(--line-strong);
       background:
-        linear-gradient(180deg, rgba(255, 255, 255, 0.78), rgba(247, 241, 233, 0.9));
+        linear-gradient(180deg, rgba(255, 255, 255, 0.05), rgba(16, 20, 28, 0.92));
     }
 
     button.button-card[data-tone="accent"] {
       background:
-        linear-gradient(180deg, rgba(15, 108, 95, 0.18), rgba(255, 255, 255, 0.88));
+        linear-gradient(180deg, rgba(88, 199, 179, 0.16), rgba(16, 20, 28, 0.92));
     }
 
     button.button-card[data-tone="warm"] {
       background:
-        linear-gradient(180deg, rgba(179, 90, 55, 0.2), rgba(255, 255, 255, 0.88));
+        linear-gradient(180deg, rgba(240, 139, 101, 0.18), rgba(16, 20, 28, 0.92));
     }
 
     button.button-pill {
       width: auto;
-      background: rgba(255, 255, 255, 0.76);
+      background: rgba(255, 255, 255, 0.05);
       color: var(--ink);
       border-color: var(--line-strong);
       font-weight: 600;
