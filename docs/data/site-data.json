@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-04-07T00:10:08.348261+00:00",
+  "generated_at": "2026-04-07T00:17:24.595736+00:00",
   "today": "2026-04-06",
   "providers": [
     {
@@ -14,6 +14,7 @@
   "venues": [
     {
       "provider": "cinepolis",
+      "provider_name": "Cinepolis Argentina",
       "key": "avellaneda",
       "name": "Avellaneda",
       "label": "Cinepolis Argentina / Avellaneda",
@@ -21,6 +22,7 @@
     },
     {
       "provider": "cinepolis",
+      "provider_name": "Cinepolis Argentina",
       "key": "maipu",
       "name": "Cinépolis Arena Maipú",
       "label": "Cinepolis Argentina / Cinépolis Arena Maipú",
@@ -28,6 +30,7 @@
     },
     {
       "provider": "cinepolis",
+      "provider_name": "Cinepolis Argentina",
       "key": "lujan",
       "name": "Cinépolis Luján",
       "label": "Cinepolis Argentina / Cinépolis Luján",
@@ -35,6 +38,7 @@
     },
     {
       "provider": "cinepolis",
+      "provider_name": "Cinepolis Argentina",
       "key": "mendoza",
       "name": "Cinépolis Mendoza Plaza",
       "label": "Cinepolis Argentina / Cinépolis Mendoza Plaza",
@@ -42,6 +46,7 @@
     },
     {
       "provider": "cinepolis",
+      "provider_name": "Cinepolis Argentina",
       "key": "merlo",
       "name": "Cinépolis Merlo",
       "label": "Cinepolis Argentina / Cinépolis Merlo",
@@ -49,6 +54,7 @@
     },
     {
       "provider": "cinepolis",
+      "provider_name": "Cinepolis Argentina",
       "key": "neuquen",
       "name": "Cinépolis Neuquén",
       "label": "Cinepolis Argentina / Cinépolis Neuquén",
@@ -56,6 +62,7 @@
     },
     {
       "provider": "cinepolis",
+      "provider_name": "Cinepolis Argentina",
       "key": "pilar",
       "name": "Cinépolis Pilar",
       "label": "Cinepolis Argentina / Cinépolis Pilar",
@@ -63,6 +70,7 @@
     },
     {
       "provider": "cinepolis",
+      "provider_name": "Cinepolis Argentina",
       "key": "houssay",
       "name": "Cinépolis Plaza Houssay",
       "label": "Cinepolis Argentina / Cinépolis Plaza Houssay",
@@ -70,6 +78,7 @@
     },
     {
       "provider": "cinepolis",
+      "provider_name": "Cinepolis Argentina",
       "key": "rosario",
       "name": "Cinépolis Rosario",
       "label": "Cinepolis Argentina / Cinépolis Rosario",
@@ -77,6 +86,7 @@
     },
     {
       "provider": "cinepolis",
+      "provider_name": "Cinepolis Argentina",
       "key": "recoleta",
       "name": "Recoleta",
       "label": "Cinepolis Argentina / Recoleta",
@@ -84,6 +94,7 @@
     },
     {
       "provider": "showcase",
+      "provider_name": "Showcase / IMAX",
       "key": "imax_norcenter",
       "name": "IMAX Theatre (Norcenter)",
       "label": "Showcase / IMAX / IMAX Theatre (Norcenter)",
@@ -91,6 +102,7 @@
     },
     {
       "provider": "showcase",
+      "provider_name": "Showcase / IMAX",
       "key": "play_cinema_san_juan",
       "name": "Play Cinema San Juan",
       "label": "Showcase / IMAX / Play Cinema San Juan",
@@ -98,6 +110,7 @@
     },
     {
       "provider": "showcase",
+      "provider_name": "Showcase / IMAX",
       "key": "showcase_belgrano",
       "name": "Showcase Belgrano",
       "label": "Showcase / IMAX / Showcase Belgrano",
@@ -105,6 +118,7 @@
     },
     {
       "provider": "showcase",
+      "provider_name": "Showcase / IMAX",
       "key": "showcase_cordoba_villa_cabrera",
       "name": "Showcase Cordoba (Villa Cabrera)",
       "label": "Showcase / IMAX / Showcase Cordoba (Villa Cabrera)",
@@ -112,6 +126,7 @@
     },
     {
       "provider": "showcase",
+      "provider_name": "Showcase / IMAX",
       "key": "showcase_haedo",
       "name": "Showcase Haedo",
       "label": "Showcase / IMAX / Showcase Haedo",
@@ -119,6 +134,7 @@
     },
     {
       "provider": "showcase",
+      "provider_name": "Showcase / IMAX",
       "key": "showcase_norcenter",
       "name": "Showcase Norcenter",
       "label": "Showcase / IMAX / Showcase Norcenter",
@@ -126,6 +142,7 @@
     },
     {
       "provider": "showcase",
+      "provider_name": "Showcase / IMAX",
       "key": "showcase_quilmes",
       "name": "Showcase Quilmes",
       "label": "Showcase / IMAX / Showcase Quilmes",
@@ -133,6 +150,7 @@
     },
     {
       "provider": "showcase",
+      "provider_name": "Showcase / IMAX",
       "key": "showcase_rosario",
       "name": "Showcase Rosario",
       "label": "Showcase / IMAX / Showcase Rosario",
@@ -140,6 +158,7 @@
     },
     {
       "provider": "showcase",
+      "provider_name": "Showcase / IMAX",
       "key": "showcase_villa_allende",
       "name": "Showcase Villa Allende",
       "label": "Showcase / IMAX / Showcase Villa Allende",
