@@ -635,6 +635,233 @@
       line-height: 1.45;
     }
 
+    .front-hero {
+      display: grid;
+      grid-template-columns: minmax(0, 1fr) auto;
+      gap: clamp(1rem, 4vw, 3rem);
+      align-items: end;
+      padding: clamp(1.1rem, 3.2vw, 2.6rem) 0 clamp(1rem, 2.6vw, 2rem);
+      border-bottom: 1px solid var(--line);
+      margin-bottom: 1.1rem;
+    }
+
+    .front-hero-copy {
+      display: grid;
+      gap: 0.8rem;
+      max-width: 48rem;
+    }
+
+    .front-hero-copy h1 {
+      max-width: 12ch;
+      font-size: clamp(2.45rem, 6vw, 5.8rem);
+      letter-spacing: -0.045em;
+      line-height: 0.88;
+    }
+
+    .front-hero-copy p {
+      max-width: 58ch;
+      color: var(--muted);
+      font-size: clamp(0.98rem, 1.5vw, 1.08rem);
+    }
+
+    .front-freshness {
+      display: grid;
+      gap: 0.18rem;
+      min-width: 13rem;
+      padding: 0.9rem 1rem;
+      border-radius: var(--radius-md);
+      border: 1px solid var(--line);
+      background: rgba(255, 255, 255, 0.035);
+    }
+
+    .front-freshness span {
+      color: var(--muted);
+      font-size: 0.82rem;
+    }
+
+    .front-freshness strong {
+      font-family: var(--heading-font);
+      font-size: 1.1rem;
+      line-height: 1.05;
+    }
+
+    .front-layout {
+      display: grid;
+      grid-template-columns: minmax(0, 1.12fr) minmax(340px, 0.88fr);
+      gap: 1rem;
+      align-items: start;
+    }
+
+    .front-panel {
+      border: 1px solid var(--line);
+      border-radius: var(--radius-xl);
+      background:
+        linear-gradient(180deg, rgba(255, 255, 255, 0.035), transparent 38%),
+        rgba(12, 15, 22, 0.86);
+      box-shadow: var(--shadow-soft);
+      padding: clamp(1rem, 2vw, 1.35rem);
+      overflow: hidden;
+    }
+
+    .front-lead {
+      min-height: 100%;
+    }
+
+    .front-stack {
+      display: grid;
+      gap: 1rem;
+    }
+
+    .front-section-head,
+    .front-mini-board-head,
+    .front-date-head,
+    .front-movie-row {
+      display: flex;
+      gap: 0.9rem;
+      align-items: start;
+      justify-content: space-between;
+    }
+
+    .front-section-head {
+      margin-bottom: 1rem;
+    }
+
+    .front-section-head h2 {
+      font-family: var(--heading-font);
+      text-transform: none;
+      letter-spacing: -0.01em;
+      font-size: clamp(1.35rem, 2.2vw, 2rem);
+      line-height: 1;
+    }
+
+    .front-section-head p,
+    .front-mini-board-head p {
+      color: var(--muted);
+      margin-top: 0.32rem;
+      font-size: 0.92rem;
+      max-width: 54ch;
+    }
+
+    .front-special-grid,
+    .front-local-grid {
+      display: grid;
+      gap: 0.85rem;
+    }
+
+    .front-mini-board {
+      display: grid;
+      gap: 0.75rem;
+      padding: 0.95rem;
+      border-radius: var(--radius-lg);
+      border: 1px solid rgba(165, 178, 198, 0.12);
+      background: rgba(255, 255, 255, 0.028);
+    }
+
+    .front-mini-board h3 {
+      font-size: 1.24rem;
+      line-height: 1;
+    }
+
+    .front-screening-groups,
+    .front-screening-list {
+      display: grid;
+      gap: 0.7rem;
+    }
+
+    .front-screening-groups.is-compact {
+      gap: 0.55rem;
+    }
+
+    .front-date-group {
+      display: grid;
+      gap: 0.64rem;
+    }
+
+    .front-date-head {
+      align-items: center;
+      padding-bottom: 0.45rem;
+      border-bottom: 1px solid rgba(255, 255, 255, 0.08);
+    }
+
+    .front-date-head strong {
+      font-family: var(--heading-font);
+      font-size: 1.08rem;
+      line-height: 1;
+    }
+
+    .front-screening-row {
+      display: grid;
+      grid-template-columns: 72px minmax(0, 1fr);
+      gap: 0.8rem;
+      align-items: start;
+      padding-top: 0.64rem;
+      border-top: 1px dashed rgba(255, 255, 255, 0.08);
+    }
+
+    .front-screening-row:first-child {
+      border-top: 0;
+      padding-top: 0;
+    }
+
+    .front-screening-groups.is-compact .front-screening-row {
+      grid-template-columns: 64px minmax(0, 1fr);
+      gap: 0.65rem;
+    }
+
+    .front-screening-copy {
+      display: grid;
+      gap: 0.16rem;
+      min-width: 0;
+    }
+
+    .front-screening-copy strong {
+      line-height: 1.14;
+    }
+
+    .front-screening-copy p {
+      color: var(--muted);
+      font-size: 0.9rem;
+      line-height: 1.38;
+    }
+
+    .front-locals {
+      margin-top: 1rem;
+    }
+
+    .front-local-grid {
+      grid-template-columns: repeat(3, minmax(0, 1fr));
+    }
+
+    .front-movie-list {
+      display: grid;
+      gap: 0.15rem;
+    }
+
+    .front-movie-row {
+      padding: 0.65rem 0;
+      border-top: 1px dashed rgba(255, 255, 255, 0.08);
+      align-items: baseline;
+    }
+
+    .front-movie-row:first-child {
+      border-top: 0;
+    }
+
+    .front-movie-row strong {
+      line-height: 1.14;
+    }
+
+    .front-movie-row span,
+    .text-link {
+      color: var(--accent);
+      font-size: 0.88rem;
+      font-weight: 700;
+    }
+
+    .text-link {
+      justify-self: start;
+    }
+
     .button-strip {
       display: flex;
       flex-wrap: wrap;
@@ -1027,7 +1254,9 @@
       }
 
       .hero-grid,
-      .layout {
+      .layout,
+      .front-hero,
+      .front-layout {
         grid-template-columns: 1fr;
       }
 
@@ -1041,6 +1270,14 @@
 
       .quick-link-grid {
         grid-template-columns: 1fr;
+      }
+
+      .front-local-grid {
+        grid-template-columns: 1fr;
+      }
+
+      .front-freshness {
+        width: min(100%, 22rem);
       }
     }
 
@@ -1093,6 +1330,19 @@
       }
 
       .result-item {
+        grid-template-columns: 1fr;
+      }
+
+      .front-section-head,
+      .front-mini-board-head,
+      .front-date-head,
+      .front-movie-row {
+        display: grid;
+        justify-content: stretch;
+      }
+
+      .front-screening-row,
+      .front-screening-groups.is-compact .front-screening-row {
         grid-template-columns: 1fr;
       }
 
@@ -1504,6 +1754,30 @@
           "Tomorrow's board, without leaving the homepage.": 'La cartelera de mañana sin salir de la portada.',
           'The image-and-sound favorite stays one tap away.': 'La favorita de imagen y sonido queda a un toque.',
           'Subtitled this week': 'Subtituladas esta semana',
+          'What should we watch today?': '¿Qué vemos hoy?',
+          "Fast picks from today's listings, special rooms, and the cinemas we actually care about.": 'Funciones a mano: hoy, salas especiales y los cines que nos importan.',
+          'Updated': 'Actualizado',
+          'Published': 'Publicada',
+          'Tonight first': 'Primero hoy',
+          'The fastest scan for tonight.': 'La lectura más rápida para armar plan hoy.',
+          'Worth the room': 'Vale por la sala',
+          'Large-format picks in the current snapshot.': 'Opciones de gran formato en la cartelera actual.',
+          'Known Atmos rooms, starting with the rooms we can identify.': 'Salas Atmos conocidas, empezando por las que podemos identificar.',
+          'See all': 'Ver todo',
+          'By title': 'Por título',
+          'Movies in play': 'Películas en cartel',
+          'Local habits': 'Costumbres locales',
+          'Favorite cuts': 'Cortes favoritos',
+          'Reusable answers for the rooms, language cuts, and planning windows we open most.': 'Respuestas reutilizables para las salas, idiomas y ventanas que abrimos seguido.',
+          'The image-and-sound favorite.': 'La favorita de imagen y sonido.',
+          'Avellaneda subtitled': 'Avellaneda subtitulada',
+          'Original-language options close to home.': 'Opciones subtituladas cerca de casa.',
+          'Tomorrow': 'Mañana',
+          'A quick plan for the next day.': 'Un plan rápido para el día siguiente.',
+          'No cached screenings for today yet.': 'Todavía no hay funciones cacheadas para hoy.',
+          'No IMAX screenings in the current snapshot.': 'No hay funciones IMAX en la cartelera actual.',
+          'No Dolby Atmos screenings in the current snapshot.': 'No hay funciones Dolby Atmos en la cartelera actual.',
+          'No cached screenings for tomorrow yet.': 'Todavía no hay funciones cacheadas para mañana.',
 
           'Now showing': 'Cartelera',
           'What should we watch?': '¿Qué vemos hoy?',

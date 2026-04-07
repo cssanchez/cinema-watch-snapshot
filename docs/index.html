@@ -635,6 +635,233 @@
       line-height: 1.45;
     }
 
+    .front-hero {
+      display: grid;
+      grid-template-columns: minmax(0, 1fr) auto;
+      gap: clamp(1rem, 4vw, 3rem);
+      align-items: end;
+      padding: clamp(1.1rem, 3.2vw, 2.6rem) 0 clamp(1rem, 2.6vw, 2rem);
+      border-bottom: 1px solid var(--line);
+      margin-bottom: 1.1rem;
+    }
+
+    .front-hero-copy {
+      display: grid;
+      gap: 0.8rem;
+      max-width: 48rem;
+    }
+
+    .front-hero-copy h1 {
+      max-width: 12ch;
+      font-size: clamp(2.45rem, 6vw, 5.8rem);
+      letter-spacing: -0.045em;
+      line-height: 0.88;
+    }
+
+    .front-hero-copy p {
+      max-width: 58ch;
+      color: var(--muted);
+      font-size: clamp(0.98rem, 1.5vw, 1.08rem);
+    }
+
+    .front-freshness {
+      display: grid;
+      gap: 0.18rem;
+      min-width: 13rem;
+      padding: 0.9rem 1rem;
+      border-radius: var(--radius-md);
+      border: 1px solid var(--line);
+      background: rgba(255, 255, 255, 0.035);
+    }
+
+    .front-freshness span {
+      color: var(--muted);
+      font-size: 0.82rem;
+    }
+
+    .front-freshness strong {
+      font-family: var(--heading-font);
+      font-size: 1.1rem;
+      line-height: 1.05;
+    }
+
+    .front-layout {
+      display: grid;
+      grid-template-columns: minmax(0, 1.12fr) minmax(340px, 0.88fr);
+      gap: 1rem;
+      align-items: start;
+    }
+
+    .front-panel {
+      border: 1px solid var(--line);
+      border-radius: var(--radius-xl);
+      background:
+        linear-gradient(180deg, rgba(255, 255, 255, 0.035), transparent 38%),
+        rgba(12, 15, 22, 0.86);
+      box-shadow: var(--shadow-soft);
+      padding: clamp(1rem, 2vw, 1.35rem);
+      overflow: hidden;
+    }
+
+    .front-lead {
+      min-height: 100%;
+    }
+
+    .front-stack {
+      display: grid;
+      gap: 1rem;
+    }
+
+    .front-section-head,
+    .front-mini-board-head,
+    .front-date-head,
+    .front-movie-row {
+      display: flex;
+      gap: 0.9rem;
+      align-items: start;
+      justify-content: space-between;
+    }
+
+    .front-section-head {
+      margin-bottom: 1rem;
+    }
+
+    .front-section-head h2 {
+      font-family: var(--heading-font);
+      text-transform: none;
+      letter-spacing: -0.01em;
+      font-size: clamp(1.35rem, 2.2vw, 2rem);
+      line-height: 1;
+    }
+
+    .front-section-head p,
+    .front-mini-board-head p {
+      color: var(--muted);
+      margin-top: 0.32rem;
+      font-size: 0.92rem;
+      max-width: 54ch;
+    }
+
+    .front-special-grid,
+    .front-local-grid {
+      display: grid;
+      gap: 0.85rem;
+    }
+
+    .front-mini-board {
+      display: grid;
+      gap: 0.75rem;
+      padding: 0.95rem;
+      border-radius: var(--radius-lg);
+      border: 1px solid rgba(165, 178, 198, 0.12);
+      background: rgba(255, 255, 255, 0.028);
+    }
+
+    .front-mini-board h3 {
+      font-size: 1.24rem;
+      line-height: 1;
+    }
+
+    .front-screening-groups,
+    .front-screening-list {
+      display: grid;
+      gap: 0.7rem;
+    }
+
+    .front-screening-groups.is-compact {
+      gap: 0.55rem;
+    }
+
+    .front-date-group {
+      display: grid;
+      gap: 0.64rem;
+    }
+
+    .front-date-head {
+      align-items: center;
+      padding-bottom: 0.45rem;
+      border-bottom: 1px solid rgba(255, 255, 255, 0.08);
+    }
+
+    .front-date-head strong {
+      font-family: var(--heading-font);
+      font-size: 1.08rem;
+      line-height: 1;
+    }
+
+    .front-screening-row {
+      display: grid;
+      grid-template-columns: 72px minmax(0, 1fr);
+      gap: 0.8rem;
+      align-items: start;
+      padding-top: 0.64rem;
+      border-top: 1px dashed rgba(255, 255, 255, 0.08);
+    }
+
+    .front-screening-row:first-child {
+      border-top: 0;
+      padding-top: 0;
+    }
+
+    .front-screening-groups.is-compact .front-screening-row {
+      grid-template-columns: 64px minmax(0, 1fr);
+      gap: 0.65rem;
+    }
+
+    .front-screening-copy {
+      display: grid;
+      gap: 0.16rem;
+      min-width: 0;
+    }
+
+    .front-screening-copy strong {
+      line-height: 1.14;
+    }
+
+    .front-screening-copy p {
+      color: var(--muted);
+      font-size: 0.9rem;
+      line-height: 1.38;
+    }
+
+    .front-locals {
+      margin-top: 1rem;
+    }
+
+    .front-local-grid {
+      grid-template-columns: repeat(3, minmax(0, 1fr));
+    }
+
+    .front-movie-list {
+      display: grid;
+      gap: 0.15rem;
+    }
+
+    .front-movie-row {
+      padding: 0.65rem 0;
+      border-top: 1px dashed rgba(255, 255, 255, 0.08);
+      align-items: baseline;
+    }
+
+    .front-movie-row:first-child {
+      border-top: 0;
+    }
+
+    .front-movie-row strong {
+      line-height: 1.14;
+    }
+
+    .front-movie-row span,
+    .text-link {
+      color: var(--accent);
+      font-size: 0.88rem;
+      font-weight: 700;
+    }
+
+    .text-link {
+      justify-self: start;
+    }
+
     .button-strip {
       display: flex;
       flex-wrap: wrap;
@@ -1027,7 +1254,9 @@
       }
 
       .hero-grid,
-      .layout {
+      .layout,
+      .front-hero,
+      .front-layout {
         grid-template-columns: 1fr;
       }
 
@@ -1041,6 +1270,14 @@
 
       .quick-link-grid {
         grid-template-columns: 1fr;
+      }
+
+      .front-local-grid {
+        grid-template-columns: 1fr;
+      }
+
+      .front-freshness {
+        width: min(100%, 22rem);
       }
     }
 
@@ -1096,6 +1333,19 @@
         grid-template-columns: 1fr;
       }
 
+      .front-section-head,
+      .front-mini-board-head,
+      .front-date-head,
+      .front-movie-row {
+        display: grid;
+        justify-content: stretch;
+      }
+
+      .front-screening-row,
+      .front-screening-groups.is-compact .front-screening-row {
+        grid-template-columns: 1fr;
+      }
+
       .time-badge {
         justify-self: start;
       }
@@ -1126,522 +1376,558 @@
     </header>
     <main id="app-main">
       
-<section class="hero hero-grid">
-  <div class="hero-copy">
+<section class="front-hero">
+  <div class="front-hero-copy">
     <span class="eyebrow" data-i18n-source>Now showing</span>
-    <h1 data-i18n-source>What should we watch?</h1>
-    <p data-i18n-source>
-      Useful showtimes first: today, tomorrow, Recoleta room 6, subtitled picks, IMAX, and Avellaneda.
-    </p>
-    <div class="hero-actions">
-      <a class="button-pill is-active" href="/cinema-watch-snapshot/screenings/" data-tone="accent" data-i18n-source>Search showtimes</a>
-      <a class="button-pill" href="/cinema-watch-snapshot/movies/" data-i18n-source>Browse movies</a>
-      
-    </div>
+    <h1 data-i18n-source>What should we watch today?</h1>
+    <p data-i18n-source>Fast picks from today's listings, special rooms, and the cinemas we actually care about.</p>
   </div>
-  <div class="hero-side">
-    <strong data-i18n-source>Open a board, pick a function.</strong>
-    <p data-i18n-source>Start with the common questions. If nothing fits, jump into the full search.</p>
-    <div class="meta-list">
-      <div class="meta-row">
-        <span data-i18n-source>Today</span>
-        <strong><a href="/cinema-watch-snapshot/screenings/" data-i18n-source>Across providers</a></strong>
-      </div>
-      <div class="meta-row">
-        <span data-i18n-source>Favorite room</span>
-        <strong><a href="/cinema-watch-snapshot/venues/cinepolis/recoleta/" data-i18n-source>Recoleta room 6</a></strong>
-      </div>
-      <div class="meta-row">
-        <span data-i18n-source>Filters</span>
-        <strong data-i18n-source>Subtitled, 4D, IMAX, venue</strong>
-      </div>
-    </div>
+  <div class="front-freshness">
+    <span data-i18n-source>Published</span>
+    <strong data-i18n-freshness>Updated 1 h ago</strong>
+    <span data-i18n-count="screening" data-i18n-count-value="2711">2711 screenings</span>
   </div>
 </section>
 
-<section class="panel" style="margin-top: 1rem;">
-  <div class="section-head">
+<section class="front-layout">
+  <article class="front-panel front-lead">
+    <div class="front-section-head">
+      <div>
+        <span class="kicker" data-i18n-source>Tonight first</span>
+        <h2 data-i18n-source>Today</h2>
+        <p data-i18n-source>The fastest scan for tonight.</p>
+      </div>
+      <a class="button-pill" href="/cinema-watch-snapshot/screenings/?from_date=2026-04-06&amp;to_date=2026-04-06" data-tone="accent" data-i18n-source>Open full board</a>
+    </div>
+    
+  <div class="front-screening-groups">
+    
+    <section class="front-date-group">
+      <div class="front-date-head">
+        <strong>2026-04-06</strong>
+        <span class="chip" data-i18n-count="shown" data-i18n-count-value="8">8 shown</span>
+      </div>
+      <div class="front-screening-list">
+        
+        <div class="front-screening-row">
+          <span class="mini-time">20:15</span>
+          <div class="front-screening-copy">
+            <strong><a href="/cinema-watch-snapshot/movies/cumbres-borrascosas/" data-live-nav="true">Cumbres Borrascosas</a></strong>
+            <p><a href="/cinema-watch-snapshot/venues/cinepolis/avellaneda/">Avellaneda</a> <span data-i18n-meta-line>| Classic • 2D • Subtitulado | Room 1</span></p>
+          </div>
+        </div>
+        
+        <div class="front-screening-row">
+          <span class="mini-time">20:15</span>
+          <div class="front-screening-copy">
+            <strong><a href="/cinema-watch-snapshot/movies/jugada-maestra/" data-live-nav="true">Jugada Maestra</a></strong>
+            <p><a href="/cinema-watch-snapshot/venues/cinepolis/avellaneda/">Avellaneda</a> <span data-i18n-meta-line>| Classic • 2D • Subtitulado | Room 10</span></p>
+          </div>
+        </div>
+        
+        <div class="front-screening-row">
+          <span class="mini-time">20:15</span>
+          <div class="front-screening-copy">
+            <strong><a href="/cinema-watch-snapshot/movies/super-mario-galaxy-la-pelicula/" data-live-nav="true">Super Mario Galaxy: La película</a></strong>
+            <p><a href="/cinema-watch-snapshot/venues/cinepolis/avellaneda/">Avellaneda</a> <span data-i18n-meta-line>| Classic • 3D • Español | Room 13</span></p>
+          </div>
+        </div>
+        
+        <div class="front-screening-row">
+          <span class="mini-time">20:15</span>
+          <div class="front-screening-copy">
+            <strong><a href="/cinema-watch-snapshot/movies/super-mario-galaxy-la-pelicula/" data-live-nav="true">Super Mario Galaxy: La película</a></strong>
+            <p><a href="/cinema-watch-snapshot/venues/cinepolis/mendoza/">Mendoza Plaza</a> <span data-i18n-meta-line>| Classic • 3D • Español | Room 6</span></p>
+          </div>
+        </div>
+        
+        <div class="front-screening-row">
+          <span class="mini-time">20:15</span>
+          <div class="front-screening-copy">
+            <strong><a href="/cinema-watch-snapshot/movies/hoppers/" data-live-nav="true">HOPPERS</a></strong>
+            <p><a href="/cinema-watch-snapshot/venues/cinepolis/neuquen/">Neuquén</a> <span data-i18n-meta-line>| Classic • 2D • Español | Room 6</span></p>
+          </div>
+        </div>
+        
+        <div class="front-screening-row">
+          <span class="mini-time">20:20</span>
+          <div class="front-screening-copy">
+            <strong><a href="/cinema-watch-snapshot/movies/jugada-maestra/" data-live-nav="true">Jugada Maestra</a></strong>
+            <p><a href="/cinema-watch-snapshot/venues/cinepolis/pilar/">Pilar</a> <span data-i18n-meta-line>| Classic • 2D • Subtitulado | Room 2</span></p>
+          </div>
+        </div>
+        
+        <div class="front-screening-row">
+          <span class="mini-time">20:20</span>
+          <div class="front-screening-copy">
+            <strong><a href="/cinema-watch-snapshot/movies/super-mario-galaxy-la-pelicula/" data-live-nav="true">Super Mario Galaxy: La película</a></strong>
+            <p><a href="/cinema-watch-snapshot/venues/cinepolis/pilar/">Pilar</a> <span data-i18n-meta-line>| Classic • 2D • Español | Room 8</span></p>
+          </div>
+        </div>
+        
+        <div class="front-screening-row">
+          <span class="mini-time">20:30</span>
+          <div class="front-screening-copy">
+            <strong><a href="/cinema-watch-snapshot/movies/super-mario-galaxy-la-pelicula/" data-live-nav="true">Super Mario Galaxy: La película</a></strong>
+            <p><a href="/cinema-watch-snapshot/venues/cinepolis/avellaneda/">Avellaneda</a> <span data-i18n-meta-line>| Classic • 2D • Subtitulado | Room 11</span></p>
+          </div>
+        </div>
+        
+      </div>
+    </section>
+    
+  </div>
+  
+  </article>
+
+  <aside class="front-stack">
+    <section class="front-panel front-specials">
+      <div class="front-section-head">
+        <div>
+          <span class="kicker" data-i18n-source>Worth the room</span>
+          <h2 data-i18n-source>Special rooms</h2>
+        </div>
+      </div>
+      <div class="front-special-grid">
+        
+        <article class="front-mini-board">
+          <div class="front-mini-board-head">
+            <div>
+              <h3 data-i18n-source>IMAX</h3>
+              <p data-i18n-source>Large-format picks in the current snapshot.</p>
+            </div>
+            <span class="chip" data-i18n-count="screening" data-i18n-count-value="1">1 screenings</span>
+          </div>
+          
+  <div class="front-screening-groups is-compact">
+    
+    <section class="front-date-group">
+      <div class="front-date-head">
+        <strong>2026-04-06</strong>
+        <span class="chip" data-i18n-count="shown" data-i18n-count-value="1">1 shown</span>
+      </div>
+      <div class="front-screening-list">
+        
+        <div class="front-screening-row">
+          <span class="mini-time">22:10</span>
+          <div class="front-screening-copy">
+            <strong><a href="/cinema-watch-snapshot/movies/super-mario-galaxy-la-pelicula/" data-live-nav="true">Súper Mario Galaxy: la película</a></strong>
+            <p><a href="/cinema-watch-snapshot/venues/showcase/imax_norcenter/">IMAX Theatre (Norcenter)</a></p>
+          </div>
+        </div>
+        
+      </div>
+    </section>
+    
+  </div>
+  
+          <a class="text-link" href="/cinema-watch-snapshot/screenings/?category=imax" data-i18n-source>See all</a>
+        </article>
+        
+        <article class="front-mini-board">
+          <div class="front-mini-board-head">
+            <div>
+              <h3 data-i18n-source>Dolby Atmos</h3>
+              <p data-i18n-source>Known Atmos rooms, starting with the rooms we can identify.</p>
+            </div>
+            <span class="chip" data-i18n-count="screening" data-i18n-count-value="7">7 screenings</span>
+          </div>
+          
+  <div class="front-screening-groups is-compact">
+    
+    <section class="front-date-group">
+      <div class="front-date-head">
+        <strong>2026-04-06</strong>
+        <span class="chip" data-i18n-count="shown" data-i18n-count-value="3">3 shown</span>
+      </div>
+      <div class="front-screening-list">
+        
+        <div class="front-screening-row">
+          <span class="mini-time">20:30</span>
+          <div class="front-screening-copy">
+            <strong><a href="/cinema-watch-snapshot/movies/super-mario-galaxy-la-pelicula/" data-live-nav="true">Super Mario Galaxy: La película</a></strong>
+            <p><a href="/cinema-watch-snapshot/venues/cinepolis/recoleta/">Recoleta</a> <span data-i18n-meta-line>| Classic • 2D • Español | Room 6</span></p>
+          </div>
+        </div>
+        
+        <div class="front-screening-row">
+          <span class="mini-time">22:00</span>
+          <div class="front-screening-copy">
+            <strong><a href="/cinema-watch-snapshot/movies/super-mario-galaxy-la-pelicula/" data-live-nav="true">Super Mario Galaxy: La película</a></strong>
+            <p><a href="/cinema-watch-snapshot/venues/cinepolis/neuquen/">Neuquén</a> <span data-i18n-meta-line>| Monster Screen • 2D • Español | Room 7</span></p>
+          </div>
+        </div>
+        
+        <div class="front-screening-row">
+          <span class="mini-time">22:00</span>
+          <div class="front-screening-copy">
+            <strong><a href="/cinema-watch-snapshot/movies/super-mario-galaxy-la-pelicula/" data-live-nav="true">Super Mario Galaxy: La película</a></strong>
+            <p><a href="/cinema-watch-snapshot/venues/cinepolis/pilar/">Pilar</a> <span data-i18n-meta-line>| Monster Screen • 2D • Español | Room 9</span></p>
+          </div>
+        </div>
+        
+      </div>
+    </section>
+    
+    <section class="front-date-group">
+      <div class="front-date-head">
+        <strong>2026-04-07</strong>
+        <span class="chip" data-i18n-count="shown" data-i18n-count-value="3">3 shown</span>
+      </div>
+      <div class="front-screening-list">
+        
+        <div class="front-screening-row">
+          <span class="mini-time">12:40</span>
+          <div class="front-screening-copy">
+            <strong><a href="/cinema-watch-snapshot/movies/super-mario-galaxy-la-pelicula/" data-live-nav="true">Super Mario Galaxy: La película</a></strong>
+            <p><a href="/cinema-watch-snapshot/venues/cinepolis/pilar/">Pilar</a> <span data-i18n-meta-line>| Monster Screen • 2D • Español | Room 9</span></p>
+          </div>
+        </div>
+        
+        <div class="front-screening-row">
+          <span class="mini-time">13:00</span>
+          <div class="front-screening-copy">
+            <strong><a href="/cinema-watch-snapshot/movies/super-mario-galaxy-la-pelicula/" data-live-nav="true">Super Mario Galaxy: La película</a></strong>
+            <p><a href="/cinema-watch-snapshot/venues/cinepolis/recoleta/">Recoleta</a> <span data-i18n-meta-line>| Classic • 2D • Español | Room 6</span></p>
+          </div>
+        </div>
+        
+        <div class="front-screening-row">
+          <span class="mini-time">13:45</span>
+          <div class="front-screening-copy">
+            <strong><a href="/cinema-watch-snapshot/movies/super-mario-galaxy-la-pelicula/" data-live-nav="true">Super Mario Galaxy: La película</a></strong>
+            <p><a href="/cinema-watch-snapshot/venues/cinepolis/neuquen/">Neuquén</a> <span data-i18n-meta-line>| Monster Screen • 3D • Español | Room 7</span></p>
+          </div>
+        </div>
+        
+      </div>
+    </section>
+    
+  </div>
+  
+          <a class="text-link" href="/cinema-watch-snapshot/screenings/?category=dolby_atmos" data-i18n-source>See all</a>
+        </article>
+        
+      </div>
+    </section>
+
+    <section class="front-panel front-movies">
+      <div class="front-section-head">
+        <div>
+          <span class="kicker" data-i18n-source>By title</span>
+          <h2 data-i18n-source>Movies in play</h2>
+        </div>
+        <a class="text-link" href="/cinema-watch-snapshot/movies/" data-i18n-source>Browse movies</a>
+      </div>
+      <div class="front-movie-list">
+        
+        <a class="front-movie-row" href="/cinema-watch-snapshot/movies/super-mario-galaxy-la-pelicula/">
+          <strong>Super Mario Galaxy: La película</strong>
+          <span data-i18n-count="screening" data-i18n-count-value="122">122 screenings</span>
+        </a>
+        
+        <a class="front-movie-row" href="/cinema-watch-snapshot/movies/proyecto-fin-del-mundo/">
+          <strong>Proyecto fin del mundo</strong>
+          <span data-i18n-count="screening" data-i18n-count-value="32">32 screenings</span>
+        </a>
+        
+        <a class="front-movie-row" href="/cinema-watch-snapshot/movies/nuremberg-el-juicio-del-siglo/">
+          <strong>Nuremberg: el juicio del siglo</strong>
+          <span data-i18n-count="screening" data-i18n-count-value="16">16 screenings</span>
+        </a>
+        
+        <a class="front-movie-row" href="/cinema-watch-snapshot/movies/jugada-maestra/">
+          <strong>Jugada Maestra</strong>
+          <span data-i18n-count="screening" data-i18n-count-value="14">14 screenings</span>
+        </a>
+        
+        <a class="front-movie-row" href="/cinema-watch-snapshot/movies/hoppers/">
+          <strong>HOPPERS</strong>
+          <span data-i18n-count="screening" data-i18n-count-value="10">10 screenings</span>
+        </a>
+        
+        <a class="front-movie-row" href="/cinema-watch-snapshot/movies/scream-7/">
+          <strong>Scream 7</strong>
+          <span data-i18n-count="screening" data-i18n-count-value="10">10 screenings</span>
+        </a>
+        
+        <a class="front-movie-row" href="/cinema-watch-snapshot/movies/cumbres-borrascosas/">
+          <strong>Cumbres Borrascosas</strong>
+          <span data-i18n-count="screening" data-i18n-count-value="6">6 screenings</span>
+        </a>
+        
+        <a class="front-movie-row" href="/cinema-watch-snapshot/movies/hoppers-operacion-castor/">
+          <strong>Hoppers: operación castor</strong>
+          <span data-i18n-count="screening" data-i18n-count-value="5">5 screenings</span>
+        </a>
+        
+      </div>
+    </section>
+  </aside>
+</section>
+
+<section class="front-panel front-locals">
+  <div class="front-section-head">
     <div>
-      <h2 data-i18n-source>Today's answers</h2>
-      <p class="board-kicker" data-i18n-source>Start here: compact boards for the questions you are most likely to ask first.</p>
+      <span class="kicker" data-i18n-source>Local habits</span>
+      <h2 data-i18n-source>Favorite cuts</h2>
+      <p data-i18n-source>Reusable answers for the rooms, language cuts, and planning windows we open most.</p>
     </div>
   </div>
-  <div class="home-board-grid">
+  <div class="front-local-grid">
     
-    <article class="home-board-card">
-      <div class="home-board-header">
-        <div class="row-head">
-          <div>
-            <strong data-i18n-source>Today&#39;s board</strong>
-          </div>
-          <span class="chip" data-i18n-count="screening" data-i18n-count-value="10">10 screenings</span>
+    <article class="front-mini-board">
+      <div class="front-mini-board-head">
+        <div>
+          <h3 data-i18n-source>Recoleta room 6</h3>
+          <p data-i18n-source>The image-and-sound favorite.</p>
         </div>
-        <p data-i18n-source>The quickest cross-provider answer for tonight&#39;s plan.</p>
-      </div>
-      <div class="chips">
-        
-        <span class="chip" data-i18n-source>today</span>
-        
-        <span class="chip" data-i18n-source>all providers</span>
-        
+        <span class="chip" data-i18n-count="screening" data-i18n-count-value="14">14 screenings</span>
       </div>
       
-      <div class="home-board-sections">
+  <div class="front-screening-groups is-compact">
+    
+    <section class="front-date-group">
+      <div class="front-date-head">
+        <strong>2026-04-06</strong>
+        <span class="chip" data-i18n-count="shown" data-i18n-count-value="2">2 shown</span>
+      </div>
+      <div class="front-screening-list">
         
-        <section class="home-board-day">
-          <div class="row-head">
-            <strong>2026-04-06</strong>
-            <span class="chip" data-i18n-count="shown" data-i18n-count-value="3">3 shown</span>
+        <div class="front-screening-row">
+          <span class="mini-time">20:30</span>
+          <div class="front-screening-copy">
+            <strong><a href="/cinema-watch-snapshot/movies/super-mario-galaxy-la-pelicula/" data-live-nav="true">Super Mario Galaxy: La película</a></strong>
+            <p><a href="/cinema-watch-snapshot/venues/cinepolis/recoleta/">Recoleta</a> <span data-i18n-meta-line>| Classic • 2D • Español | Room 6</span></p>
           </div>
-          <div class="mini-results">
-            
-            <div class="mini-result">
-              <span class="mini-time">20:15</span>
-              <div class="mini-copy">
-                <strong><a href="/cinema-watch-snapshot/movies/cumbres-borrascosas/" data-live-nav="true">Cumbres Borrascosas</a></strong>
-                <p><a href="/cinema-watch-snapshot/venues/cinepolis/avellaneda/">cinepolis / Avellaneda</a></p>
-                
-                <p data-i18n-meta-line>Classic • 2D • Subtitulado | Room 1</p>
-                
-              </div>
-            </div>
-            
-            <div class="mini-result">
-              <span class="mini-time">20:15</span>
-              <div class="mini-copy">
-                <strong><a href="/cinema-watch-snapshot/movies/jugada-maestra/" data-live-nav="true">Jugada Maestra</a></strong>
-                <p><a href="/cinema-watch-snapshot/venues/cinepolis/avellaneda/">cinepolis / Avellaneda</a></p>
-                
-                <p data-i18n-meta-line>Classic • 2D • Subtitulado | Room 10</p>
-                
-              </div>
-            </div>
-            
-            <div class="mini-result">
-              <span class="mini-time">20:15</span>
-              <div class="mini-copy">
-                <strong><a href="/cinema-watch-snapshot/movies/super-mario-galaxy-la-pelicula/" data-live-nav="true">Super Mario Galaxy: La película</a></strong>
-                <p><a href="/cinema-watch-snapshot/venues/cinepolis/avellaneda/">cinepolis / Avellaneda</a></p>
-                
-                <p data-i18n-meta-line>Classic • 3D • Español | Room 13</p>
-                
-              </div>
-            </div>
-            
+        </div>
+        
+        <div class="front-screening-row">
+          <span class="mini-time">23:00</span>
+          <div class="front-screening-copy">
+            <strong><a href="/cinema-watch-snapshot/movies/super-mario-galaxy-la-pelicula/" data-live-nav="true">Super Mario Galaxy: La película</a></strong>
+            <p><a href="/cinema-watch-snapshot/venues/cinepolis/recoleta/">Recoleta</a> <span data-i18n-meta-line>| Classic • 2D • Subtitulado | Room 6</span></p>
           </div>
-        </section>
+        </div>
         
       </div>
-      
-      <div class="form-actions" style="margin-top: 0.2rem;">
-        <a class="button-pill" href="/cinema-watch-snapshot/screenings/?from_date=2026-04-06&amp;to_date=2026-04-06" data-tone="accent" data-i18n-source>Open full board</a>
+    </section>
+    
+    <section class="front-date-group">
+      <div class="front-date-head">
+        <strong>2026-04-07</strong>
+        <span class="chip" data-i18n-count="shown" data-i18n-count-value="4">4 shown</span>
       </div>
+      <div class="front-screening-list">
+        
+        <div class="front-screening-row">
+          <span class="mini-time">13:00</span>
+          <div class="front-screening-copy">
+            <strong><a href="/cinema-watch-snapshot/movies/super-mario-galaxy-la-pelicula/" data-live-nav="true">Super Mario Galaxy: La película</a></strong>
+            <p><a href="/cinema-watch-snapshot/venues/cinepolis/recoleta/">Recoleta</a> <span data-i18n-meta-line>| Classic • 2D • Español | Room 6</span></p>
+          </div>
+        </div>
+        
+        <div class="front-screening-row">
+          <span class="mini-time">15:30</span>
+          <div class="front-screening-copy">
+            <strong><a href="/cinema-watch-snapshot/movies/super-mario-galaxy-la-pelicula/" data-live-nav="true">Super Mario Galaxy: La película</a></strong>
+            <p><a href="/cinema-watch-snapshot/venues/cinepolis/recoleta/">Recoleta</a> <span data-i18n-meta-line>| Classic • 2D • Español | Room 6</span></p>
+          </div>
+        </div>
+        
+        <div class="front-screening-row">
+          <span class="mini-time">18:00</span>
+          <div class="front-screening-copy">
+            <strong><a href="/cinema-watch-snapshot/movies/super-mario-galaxy-la-pelicula/" data-live-nav="true">Super Mario Galaxy: La película</a></strong>
+            <p><a href="/cinema-watch-snapshot/venues/cinepolis/recoleta/">Recoleta</a> <span data-i18n-meta-line>| Classic • 2D • Español | Room 6</span></p>
+          </div>
+        </div>
+        
+        <div class="front-screening-row">
+          <span class="mini-time">20:30</span>
+          <div class="front-screening-copy">
+            <strong><a href="/cinema-watch-snapshot/movies/super-mario-galaxy-la-pelicula/" data-live-nav="true">Super Mario Galaxy: La película</a></strong>
+            <p><a href="/cinema-watch-snapshot/venues/cinepolis/recoleta/">Recoleta</a> <span data-i18n-meta-line>| Classic • 2D • Español | Room 6</span></p>
+          </div>
+        </div>
+        
+      </div>
+    </section>
+    
+  </div>
+  
+      <a class="text-link" href="/cinema-watch-snapshot/screenings/?provider=cinepolis&amp;venue=recoleta&amp;room=6&amp;from_date=2026-04-06&amp;to_date=2026-04-12" data-i18n-source>Open full board</a>
     </article>
     
-    <article class="home-board-card">
-      <div class="home-board-header">
-        <div class="row-head">
-          <div>
-            <strong data-i18n-source>Tomorrow board</strong>
-          </div>
-          <span class="chip" data-i18n-count="screening" data-i18n-count-value="10">10 screenings</span>
+    <article class="front-mini-board">
+      <div class="front-mini-board-head">
+        <div>
+          <h3 data-i18n-source>Avellaneda subtitled</h3>
+          <p data-i18n-source>Original-language options close to home.</p>
         </div>
-        <p data-i18n-source>Tomorrow&#39;s board, without leaving the homepage.</p>
-      </div>
-      <div class="chips">
-        
-        <span class="chip" data-i18n-source>tomorrow</span>
-        
-        <span class="chip" data-i18n-source>all providers</span>
-        
+        <span class="chip" data-i18n-count="screening" data-i18n-count-value="14">14 screenings</span>
       </div>
       
-      <div class="home-board-sections">
+  <div class="front-screening-groups is-compact">
+    
+    <section class="front-date-group">
+      <div class="front-date-head">
+        <strong>2026-04-06</strong>
+        <span class="chip" data-i18n-count="shown" data-i18n-count-value="4">4 shown</span>
+      </div>
+      <div class="front-screening-list">
         
-        <section class="home-board-day">
-          <div class="row-head">
-            <strong>2026-04-07</strong>
-            <span class="chip" data-i18n-count="shown" data-i18n-count-value="3">3 shown</span>
+        <div class="front-screening-row">
+          <span class="mini-time">20:15</span>
+          <div class="front-screening-copy">
+            <strong><a href="/cinema-watch-snapshot/movies/cumbres-borrascosas/" data-live-nav="true">Cumbres Borrascosas</a></strong>
+            <p><a href="/cinema-watch-snapshot/venues/cinepolis/avellaneda/">Avellaneda</a> <span data-i18n-meta-line>| Classic • 2D • Subtitulado | Room 1</span></p>
           </div>
-          <div class="mini-results">
-            
-            <div class="mini-result">
-              <span class="mini-time">12:00</span>
-              <div class="mini-copy">
-                <strong><a href="/cinema-watch-snapshot/movies/super-mario-galaxy-la-pelicula/" data-live-nav="true">Super Mario Galaxy: La película</a></strong>
-                <p><a href="/cinema-watch-snapshot/venues/cinepolis/mendoza/">cinepolis / Cinépolis Mendoza Plaza</a></p>
-                
-                <p data-i18n-meta-line>Classic • 2D • Español | Room 4</p>
-                
-              </div>
-            </div>
-            
-            <div class="mini-result">
-              <span class="mini-time">12:00</span>
-              <div class="mini-copy">
-                <strong><a href="/cinema-watch-snapshot/movies/super-mario-galaxy-la-pelicula/" data-live-nav="true">Super Mario Galaxy: La película</a></strong>
-                <p><a href="/cinema-watch-snapshot/venues/cinepolis/mendoza/">cinepolis / Cinépolis Mendoza Plaza</a></p>
-                
-                <p data-i18n-meta-line>Classic • 3D • Español | Room 5</p>
-                
-              </div>
-            </div>
-            
-            <div class="mini-result">
-              <span class="mini-time">12:00</span>
-              <div class="mini-copy">
-                <strong><a href="/cinema-watch-snapshot/movies/super-mario-galaxy-la-pelicula/" data-live-nav="true">Super Mario Galaxy: La película</a></strong>
-                <p><a href="/cinema-watch-snapshot/venues/cinepolis/neuquen/">cinepolis / Cinépolis Neuquén</a></p>
-                
-                <p data-i18n-meta-line>Classic • 2D • Español | Room 1</p>
-                
-              </div>
-            </div>
-            
+        </div>
+        
+        <div class="front-screening-row">
+          <span class="mini-time">20:15</span>
+          <div class="front-screening-copy">
+            <strong><a href="/cinema-watch-snapshot/movies/jugada-maestra/" data-live-nav="true">Jugada Maestra</a></strong>
+            <p><a href="/cinema-watch-snapshot/venues/cinepolis/avellaneda/">Avellaneda</a> <span data-i18n-meta-line>| Classic • 2D • Subtitulado | Room 10</span></p>
           </div>
-        </section>
+        </div>
+        
+        <div class="front-screening-row">
+          <span class="mini-time">20:30</span>
+          <div class="front-screening-copy">
+            <strong><a href="/cinema-watch-snapshot/movies/super-mario-galaxy-la-pelicula/" data-live-nav="true">Super Mario Galaxy: La película</a></strong>
+            <p><a href="/cinema-watch-snapshot/venues/cinepolis/avellaneda/">Avellaneda</a> <span data-i18n-meta-line>| Classic • 2D • Subtitulado | Room 11</span></p>
+          </div>
+        </div>
+        
+        <div class="front-screening-row">
+          <span class="mini-time">22:10</span>
+          <div class="front-screening-copy">
+            <strong><a href="/cinema-watch-snapshot/movies/nuremberg-el-juicio-del-siglo/" data-live-nav="true">Núremberg: El juicio del siglo</a></strong>
+            <p><a href="/cinema-watch-snapshot/venues/cinepolis/avellaneda/">Avellaneda</a> <span data-i18n-meta-line>| Classic • 2D • Subtitulado | Room 2</span></p>
+          </div>
+        </div>
         
       </div>
-      
-      <div class="form-actions" style="margin-top: 0.2rem;">
-        <a class="button-pill" href="/cinema-watch-snapshot/screenings/?from_date=2026-04-07&amp;to_date=2026-04-07" data-tone="accent" data-i18n-source>Open full board</a>
+    </section>
+    
+    <section class="front-date-group">
+      <div class="front-date-head">
+        <strong>2026-04-07</strong>
+        <span class="chip" data-i18n-count="shown" data-i18n-count-value="4">4 shown</span>
       </div>
+      <div class="front-screening-list">
+        
+        <div class="front-screening-row">
+          <span class="mini-time">15:20</span>
+          <div class="front-screening-copy">
+            <strong><a href="/cinema-watch-snapshot/movies/super-mario-galaxy-la-pelicula/" data-live-nav="true">Super Mario Galaxy: La película</a></strong>
+            <p><a href="/cinema-watch-snapshot/venues/cinepolis/avellaneda/">Avellaneda</a> <span data-i18n-meta-line>| Classic • 2D • Subtitulado | Room 1</span></p>
+          </div>
+        </div>
+        
+        <div class="front-screening-row">
+          <span class="mini-time">17:50</span>
+          <div class="front-screening-copy">
+            <strong><a href="/cinema-watch-snapshot/movies/super-mario-galaxy-la-pelicula/" data-live-nav="true">Super Mario Galaxy: La película</a></strong>
+            <p><a href="/cinema-watch-snapshot/venues/cinepolis/avellaneda/">Avellaneda</a> <span data-i18n-meta-line>| Classic • 2D • Subtitulado | Room 1</span></p>
+          </div>
+        </div>
+        
+        <div class="front-screening-row">
+          <span class="mini-time">19:00</span>
+          <div class="front-screening-copy">
+            <strong><a href="/cinema-watch-snapshot/movies/proyecto-fin-del-mundo/" data-live-nav="true">Proyecto fin del mundo</a></strong>
+            <p><a href="/cinema-watch-snapshot/venues/cinepolis/avellaneda/">Avellaneda</a> <span data-i18n-meta-line>| Classic • 2D • Subtitulado | Room 12</span></p>
+          </div>
+        </div>
+        
+        <div class="front-screening-row">
+          <span class="mini-time">20:00</span>
+          <div class="front-screening-copy">
+            <strong><a href="/cinema-watch-snapshot/movies/super-mario-galaxy-la-pelicula/" data-live-nav="true">Super Mario Galaxy: La película</a></strong>
+            <p><a href="/cinema-watch-snapshot/venues/cinepolis/avellaneda/">Avellaneda</a> <span data-i18n-meta-line>| Classic • 2D • Subtitulado | Room 6</span></p>
+          </div>
+        </div>
+        
+      </div>
+    </section>
+    
+  </div>
+  
+      <a class="text-link" href="/cinema-watch-snapshot/screenings/?provider=cinepolis&amp;venue=avellaneda&amp;language=subtitulado&amp;from_date=2026-04-06&amp;to_date=2026-04-12" data-i18n-source>Open full board</a>
     </article>
     
-    <article class="home-board-card">
-      <div class="home-board-header">
-        <div class="row-head">
-          <div>
-            <strong data-i18n-source>Recoleta Room 6</strong>
-          </div>
-          <span class="chip" data-i18n-count="screening" data-i18n-count-value="10">10 screenings</span>
+    <article class="front-mini-board">
+      <div class="front-mini-board-head">
+        <div>
+          <h3 data-i18n-source>Tomorrow</h3>
+          <p data-i18n-source>A quick plan for the next day.</p>
         </div>
-        <p data-i18n-source>The image-and-sound favorite stays one tap away.</p>
-      </div>
-      <div class="chips">
-        
-        <span class="chip" data-i18n-source>recoleta</span>
-        
-        <span class="chip" data-i18n-source>room 6</span>
-        
-        <span class="chip" data-i18n-source>next 7 days</span>
-        
+        <span class="chip" data-i18n-count="screening" data-i18n-count-value="14">14 screenings</span>
       </div>
       
-      <div class="home-board-sections">
-        
-        <section class="home-board-day">
-          <div class="row-head">
-            <strong>2026-04-06</strong>
-            <span class="chip" data-i18n-count="shown" data-i18n-count-value="2">2 shown</span>
-          </div>
-          <div class="mini-results">
-            
-            <div class="mini-result">
-              <span class="mini-time">20:30</span>
-              <div class="mini-copy">
-                <strong><a href="/cinema-watch-snapshot/movies/super-mario-galaxy-la-pelicula/" data-live-nav="true">Super Mario Galaxy: La película</a></strong>
-                <p><a href="/cinema-watch-snapshot/venues/cinepolis/recoleta/">cinepolis / Recoleta</a></p>
-                
-                <p data-i18n-meta-line>Classic • 2D • Español | Room 6</p>
-                
-              </div>
-            </div>
-            
-            <div class="mini-result">
-              <span class="mini-time">23:00</span>
-              <div class="mini-copy">
-                <strong><a href="/cinema-watch-snapshot/movies/super-mario-galaxy-la-pelicula/" data-live-nav="true">Super Mario Galaxy: La película</a></strong>
-                <p><a href="/cinema-watch-snapshot/venues/cinepolis/recoleta/">cinepolis / Recoleta</a></p>
-                
-                <p data-i18n-meta-line>Classic • 2D • Subtitulado | Room 6</p>
-                
-              </div>
-            </div>
-            
-          </div>
-        </section>
-        
-        <section class="home-board-day">
-          <div class="row-head">
-            <strong>2026-04-07</strong>
-            <span class="chip" data-i18n-count="shown" data-i18n-count-value="3">3 shown</span>
-          </div>
-          <div class="mini-results">
-            
-            <div class="mini-result">
-              <span class="mini-time">13:00</span>
-              <div class="mini-copy">
-                <strong><a href="/cinema-watch-snapshot/movies/super-mario-galaxy-la-pelicula/" data-live-nav="true">Super Mario Galaxy: La película</a></strong>
-                <p><a href="/cinema-watch-snapshot/venues/cinepolis/recoleta/">cinepolis / Recoleta</a></p>
-                
-                <p data-i18n-meta-line>Classic • 2D • Español | Room 6</p>
-                
-              </div>
-            </div>
-            
-            <div class="mini-result">
-              <span class="mini-time">15:30</span>
-              <div class="mini-copy">
-                <strong><a href="/cinema-watch-snapshot/movies/super-mario-galaxy-la-pelicula/" data-live-nav="true">Super Mario Galaxy: La película</a></strong>
-                <p><a href="/cinema-watch-snapshot/venues/cinepolis/recoleta/">cinepolis / Recoleta</a></p>
-                
-                <p data-i18n-meta-line>Classic • 2D • Español | Room 6</p>
-                
-              </div>
-            </div>
-            
-            <div class="mini-result">
-              <span class="mini-time">18:00</span>
-              <div class="mini-copy">
-                <strong><a href="/cinema-watch-snapshot/movies/super-mario-galaxy-la-pelicula/" data-live-nav="true">Super Mario Galaxy: La película</a></strong>
-                <p><a href="/cinema-watch-snapshot/venues/cinepolis/recoleta/">cinepolis / Recoleta</a></p>
-                
-                <p data-i18n-meta-line>Classic • 2D • Español | Room 6</p>
-                
-              </div>
-            </div>
-            
-          </div>
-        </section>
-        
-      </div>
-      
-      <div class="form-actions" style="margin-top: 0.2rem;">
-        <a class="button-pill" href="/cinema-watch-snapshot/screenings/?provider=cinepolis&amp;venue=recoleta&amp;room=6&amp;from_date=2026-04-06&amp;to_date=2026-04-12" data-tone="accent" data-i18n-source>Open full board</a>
-      </div>
-    </article>
+  <div class="front-screening-groups is-compact">
     
-    <article class="home-board-card">
-      <div class="home-board-header">
-        <div class="row-head">
-          <div>
-            <strong data-i18n-source>Subtitled this week</strong>
+    <section class="front-date-group">
+      <div class="front-date-head">
+        <strong>2026-04-07</strong>
+        <span class="chip" data-i18n-count="shown" data-i18n-count-value="5">5 shown</span>
+      </div>
+      <div class="front-screening-list">
+        
+        <div class="front-screening-row">
+          <span class="mini-time">12:00</span>
+          <div class="front-screening-copy">
+            <strong><a href="/cinema-watch-snapshot/movies/super-mario-galaxy-la-pelicula/" data-live-nav="true">Super Mario Galaxy: La película</a></strong>
+            <p><a href="/cinema-watch-snapshot/venues/cinepolis/mendoza/">Mendoza Plaza</a> <span data-i18n-meta-line>| Classic • 2D • Español | Room 4</span></p>
           </div>
-          <span class="chip" data-i18n-count="screening" data-i18n-count-value="6">6 screenings</span>
         </div>
-        <p data-i18n-source>Useful for spotting original-language options quickly.</p>
-      </div>
-      <div class="chips">
         
-        <span class="chip" data-i18n-source>subtitulado</span>
-        
-        <span class="chip" data-i18n-source>next 7 days</span>
-        
-      </div>
-      
-      <div class="home-board-sections">
-        
-        <section class="home-board-day">
-          <div class="row-head">
-            <strong>2026-04-06</strong>
-            <span class="chip" data-i18n-count="shown" data-i18n-count-value="3">3 shown</span>
+        <div class="front-screening-row">
+          <span class="mini-time">12:00</span>
+          <div class="front-screening-copy">
+            <strong><a href="/cinema-watch-snapshot/movies/super-mario-galaxy-la-pelicula/" data-live-nav="true">Super Mario Galaxy: La película</a></strong>
+            <p><a href="/cinema-watch-snapshot/venues/cinepolis/mendoza/">Mendoza Plaza</a> <span data-i18n-meta-line>| Classic • 3D • Español | Room 5</span></p>
           </div>
-          <div class="mini-results">
-            
-            <div class="mini-result">
-              <span class="mini-time">20:15</span>
-              <div class="mini-copy">
-                <strong><a href="/cinema-watch-snapshot/movies/cumbres-borrascosas/" data-live-nav="true">Cumbres Borrascosas</a></strong>
-                <p><a href="/cinema-watch-snapshot/venues/cinepolis/avellaneda/">cinepolis / Avellaneda</a></p>
-                
-                <p data-i18n-meta-line>Classic • 2D • Subtitulado | Room 1</p>
-                
-              </div>
-            </div>
-            
-            <div class="mini-result">
-              <span class="mini-time">20:15</span>
-              <div class="mini-copy">
-                <strong><a href="/cinema-watch-snapshot/movies/jugada-maestra/" data-live-nav="true">Jugada Maestra</a></strong>
-                <p><a href="/cinema-watch-snapshot/venues/cinepolis/avellaneda/">cinepolis / Avellaneda</a></p>
-                
-                <p data-i18n-meta-line>Classic • 2D • Subtitulado | Room 10</p>
-                
-              </div>
-            </div>
-            
-            <div class="mini-result">
-              <span class="mini-time">20:20</span>
-              <div class="mini-copy">
-                <strong><a href="/cinema-watch-snapshot/movies/jugada-maestra/" data-live-nav="true">Jugada Maestra</a></strong>
-                <p><a href="/cinema-watch-snapshot/venues/cinepolis/pilar/">cinepolis / Cinépolis Pilar</a></p>
-                
-                <p data-i18n-meta-line>Classic • 2D • Subtitulado | Room 2</p>
-                
-              </div>
-            </div>
-            
+        </div>
+        
+        <div class="front-screening-row">
+          <span class="mini-time">12:00</span>
+          <div class="front-screening-copy">
+            <strong><a href="/cinema-watch-snapshot/movies/super-mario-galaxy-la-pelicula/" data-live-nav="true">Super Mario Galaxy: La película</a></strong>
+            <p><a href="/cinema-watch-snapshot/venues/cinepolis/neuquen/">Neuquén</a> <span data-i18n-meta-line>| Classic • 2D • Español | Room 1</span></p>
           </div>
-        </section>
+        </div>
+        
+        <div class="front-screening-row">
+          <span class="mini-time">12:00</span>
+          <div class="front-screening-copy">
+            <strong><a href="/cinema-watch-snapshot/movies/super-mario-galaxy-la-pelicula/" data-live-nav="true">Super Mario Galaxy: La película</a></strong>
+            <p><a href="/cinema-watch-snapshot/venues/cinepolis/recoleta/">Recoleta</a> <span data-i18n-meta-line>| Classic • 3D • Español | Room 7</span></p>
+          </div>
+        </div>
+        
+        <div class="front-screening-row">
+          <span class="mini-time">12:15</span>
+          <div class="front-screening-copy">
+            <strong><a href="/cinema-watch-snapshot/movies/super-mario-galaxy-la-pelicula/" data-live-nav="true">Super Mario Galaxy: La película</a></strong>
+            <p><a href="/cinema-watch-snapshot/venues/cinepolis/mendoza/">Mendoza Plaza</a> <span data-i18n-meta-line>| 4D • 3D • Español | Room 3</span></p>
+          </div>
+        </div>
         
       </div>
-      
-      <div class="form-actions" style="margin-top: 0.2rem;">
-        <a class="button-pill" href="/cinema-watch-snapshot/screenings/?language=subtitulado&amp;from_date=2026-04-06&amp;to_date=2026-04-12" data-tone="accent" data-i18n-source>Open full board</a>
-      </div>
+    </section>
+    
+  </div>
+  
+      <a class="text-link" href="/cinema-watch-snapshot/screenings/?from_date=2026-04-07&amp;to_date=2026-04-07" data-i18n-source>Open full board</a>
     </article>
     
   </div>
 </section>
-
-<div class="layout">
-  <div class="stack">
-    <section class="panel">
-      <div class="section-head">
-        <div>
-          <h2 data-i18n-source>One-Click Questions</h2>
-          <p>Use the shortcuts when you already know the kind of answer you want.</p>
-        </div>
-      </div>
-      <div class="editorial-toolbar">
-        <div class="toolbar-group">
-          <div class="toolbar-head">
-            <strong class="toolbar-title" data-i18n-source>Start Here</strong>
-            <span class="toolbar-note" data-i18n-source>The first questions should be one click away.</span>
-          </div>
-          <div class="quick-link-grid">
-            <a class="quick-link-block" href="/cinema-watch-snapshot/screenings/?from_date=2026-04-06&amp;to_date=2026-04-06">
-              <strong data-i18n-source>What&#39;s On Today</strong>
-              <p class="muted" data-i18n-source>Cross-provider daily board</p>
-            </a><a class="quick-link-block" href="/cinema-watch-snapshot/screenings/?provider=cinepolis&amp;venue=recoleta&amp;room=6&amp;from_date=2026-04-06&amp;to_date=2026-04-06">
-              <strong data-i18n-source>Recoleta Room 6 (Today)</strong>
-              <p class="muted" data-i18n-source>Current cached board</p>
-            </a><a class="quick-link-block" href="/cinema-watch-snapshot/screenings/?provider=cinepolis&amp;venue=avellaneda&amp;language=subtitulado&amp;from_date=2026-04-06&amp;to_date=2026-04-12">
-              <strong data-i18n-source>Avellaneda Subtitled</strong>
-              <p class="muted" data-i18n-source>This week&#39;s original-language options</p>
-            </a><a class="quick-link-block" href="/cinema-watch-snapshot/screenings/?provider=showcase&amp;venue=imax_norcenter&amp;from_date=2026-04-06&amp;to_date=2026-04-12">
-              <strong data-i18n-source>IMAX This Week</strong>
-              <p class="muted" data-i18n-source>Norcenter screenings</p>
-            </a>
-          </div>
-        </div><div class="toolbar-group">
-          <div class="toolbar-head">
-            <strong class="toolbar-title" data-i18n-source>Browse Boards</strong>
-            <span class="toolbar-note" data-i18n-source>Venue, movie, and status pages should all feel like obvious buttons.</span>
-          </div>
-          <div class="quick-link-grid">
-            <a class="quick-link-block" href="/cinema-watch-snapshot/movies/?from_date=2026-04-06&amp;to_date=2026-04-12">
-              <strong data-i18n-source>Movies Board</strong>
-              <p class="muted" data-i18n-source>One row per title</p>
-            </a><a class="quick-link-block" href="/cinema-watch-snapshot/screenings/?from_date=2026-04-07&amp;to_date=2026-04-07">
-              <strong data-i18n-source>Tomorrow</strong>
-              <p class="muted" data-i18n-source>Plan the next day quickly</p>
-            </a><a class="quick-link-block" href="/cinema-watch-snapshot/status/">
-              <strong data-i18n-source>Refresh Status</strong>
-              <p class="muted" data-i18n-source>Cache health and latest runs</p>
-            </a><a class="quick-link-block" href="/cinema-watch-snapshot/providers/cinepolis/">
-              <strong data-i18n-source>Cinepolis Venues</strong>
-              <p class="muted" data-i18n-source>Venue-first Cinepolis board</p>
-            </a>
-          </div>
-        </div>
-      </div>
-    </section>
-
-    <section class="panel">
-      <div class="section-head">
-        <div>
-          <h2 data-i18n-source>Live Boards</h2>
-          <p>Providers should read like active boards, not hidden data sources.</p>
-        </div>
-      </div>
-      <div class="dense-list">
-        
-        <a class="row-card" href="/cinema-watch-snapshot/providers/cinepolis/">
-          <div class="row-head">
-            <div>
-              <strong>Cinepolis Argentina</strong>
-              <div class="kicker">Cinepolis / <span data-i18n-count="venue" data-i18n-count-value="10">10 venues</span></div>
-            </div>
-            <div class="chips">
-              <span class="chip">cinepolis</span>
-              
-              <span class="chip" data-i18n-source>sold data</span>
-              
-              
-              <span class="chip" data-i18n-source>browser-capable</span>
-              
-            </div>
-          </div>
-          <div class="stats">
-            <span class="stat" data-i18n-count="screening" data-i18n-count-value="1582" data-i18n-count-suffix="cached">1582 cached screenings</span>
-            <span class="stat" data-i18n-count="title" data-i18n-count-value="35" data-i18n-count-suffix="cached">35 cached titles</span>
-          </div>
-          <p data-i18n-freshness>Updated 57 min ago</p>
-          
-          <p data-i18n-source>Hybrid backend keeps sold data from legacy Cinepolis while preferring /ar metadata when available.</p>
-          
-        </a>
-        
-        <a class="row-card" href="/cinema-watch-snapshot/providers/showcase/">
-          <div class="row-head">
-            <div>
-              <strong>Showcase / IMAX</strong>
-              <div class="kicker">Showcase / <span data-i18n-count="venue" data-i18n-count-value="9">9 venues</span></div>
-            </div>
-            <div class="chips">
-              <span class="chip">showcase</span>
-              
-              <span class="chip" data-i18n-source>sold data</span>
-              
-              
-              <span class="chip" data-i18n-source>browser-capable</span>
-              
-            </div>
-          </div>
-          <div class="stats">
-            <span class="stat" data-i18n-count="screening" data-i18n-count-value="1129" data-i18n-count-suffix="cached">1129 cached screenings</span>
-            <span class="stat" data-i18n-count="title" data-i18n-count-value="20" data-i18n-count-suffix="cached">20 cached titles</span>
-          </div>
-          <p data-i18n-freshness>Updated 56 min ago</p>
-          
-          <p data-i18n-source>Backed by the existing Showcase IMAX scraper and now ingestible into the shared cache.</p>
-          
-        </a>
-        
-      </div>
-    </section>
-  </div>
-
-  <div class="stack">
-    <section class="panel">
-      <div class="section-head">
-        <div>
-          <h2 data-i18n-source>Focus Views</h2>
-          <p>Opinionated shortcuts for the views you will probably open more than once a day.</p>
-        </div>
-      </div>
-      <div class="button-grid">
-        
-        <a class="button-card" href="/cinema-watch-snapshot/venues/cinepolis/recoleta/">
-          <strong data-i18n-source>Recoleta room 6</strong>
-          <div class="chips">
-            <span class="chip" data-i18n-source>priority room</span>
-          </div>
-          <p data-i18n-source>Keep the image-and-sound favorite one tap away.</p>
-        </a>
-        
-        <a class="button-card" href="/cinema-watch-snapshot/venues/cinepolis/avellaneda/">
-          <strong data-i18n-source>Avellaneda formats</strong>
-          <div class="chips">
-            <span class="chip" data-i18n-source>language watch</span>
-          </div>
-          <p data-i18n-source>Fast entry point for dubbed vs subtitled and 4D/3D checks.</p>
-        </a>
-        
-        <a class="button-card" href="/cinema-watch-snapshot/venues/showcase/imax_norcenter/">
-          <strong data-i18n-source>IMAX Norcenter</strong>
-          <div class="chips">
-            <span class="chip" data-i18n-source>showcase anchor</span>
-          </div>
-          <p data-i18n-source>Keep the Showcase/IMAX side visible in the same product.</p>
-        </a>
-        
-      </div>
-    </section>
-  </div>
-</div>
 
     </main>
   </div>
@@ -1709,6 +1995,30 @@
           "Tomorrow's board, without leaving the homepage.": 'La cartelera de mañana sin salir de la portada.',
           'The image-and-sound favorite stays one tap away.': 'La favorita de imagen y sonido queda a un toque.',
           'Subtitled this week': 'Subtituladas esta semana',
+          'What should we watch today?': '¿Qué vemos hoy?',
+          "Fast picks from today's listings, special rooms, and the cinemas we actually care about.": 'Funciones a mano: hoy, salas especiales y los cines que nos importan.',
+          'Updated': 'Actualizado',
+          'Published': 'Publicada',
+          'Tonight first': 'Primero hoy',
+          'The fastest scan for tonight.': 'La lectura más rápida para armar plan hoy.',
+          'Worth the room': 'Vale por la sala',
+          'Large-format picks in the current snapshot.': 'Opciones de gran formato en la cartelera actual.',
+          'Known Atmos rooms, starting with the rooms we can identify.': 'Salas Atmos conocidas, empezando por las que podemos identificar.',
+          'See all': 'Ver todo',
+          'By title': 'Por título',
+          'Movies in play': 'Películas en cartel',
+          'Local habits': 'Costumbres locales',
+          'Favorite cuts': 'Cortes favoritos',
+          'Reusable answers for the rooms, language cuts, and planning windows we open most.': 'Respuestas reutilizables para las salas, idiomas y ventanas que abrimos seguido.',
+          'The image-and-sound favorite.': 'La favorita de imagen y sonido.',
+          'Avellaneda subtitled': 'Avellaneda subtitulada',
+          'Original-language options close to home.': 'Opciones subtituladas cerca de casa.',
+          'Tomorrow': 'Mañana',
+          'A quick plan for the next day.': 'Un plan rápido para el día siguiente.',
+          'No cached screenings for today yet.': 'Todavía no hay funciones cacheadas para hoy.',
+          'No IMAX screenings in the current snapshot.': 'No hay funciones IMAX en la cartelera actual.',
+          'No Dolby Atmos screenings in the current snapshot.': 'No hay funciones Dolby Atmos en la cartelera actual.',
+          'No cached screenings for tomorrow yet.': 'Todavía no hay funciones cacheadas para mañana.',
 
           'Now showing': 'Cartelera',
           'What should we watch?': '¿Qué vemos hoy?',
