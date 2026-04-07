@@ -1473,6 +1473,81 @@
         justify-self: start;
       }
     }
+
+    /* Topbar location selector styles */
+    .location-dropdown {
+      position: relative;
+      display: inline-block;
+      margin-left: auto;
+    }
+
+    .location-dropdown-toggle {
+      background: transparent;
+      border: 1px solid transparent;
+      color: var(--ink);
+      padding: 0.42rem 0.68rem;
+      border-radius: 999px;
+      cursor: pointer;
+      font-size: 0.88rem;
+      display: flex;
+      align-items: center;
+      gap: 0.5rem;
+      transition: background 140ms ease, border-color 140ms ease, color 140ms ease, transform 140ms ease;
+    }
+
+    .location-dropdown-toggle:hover {
+      border-color: var(--line);
+      background: rgba(255, 255, 255, 0.06);
+      transform: translateY(-1px);
+    }
+
+    .location-dropdown-toggle::after {
+      content: '▼';
+      font-size: 0.7em;
+    }
+
+    .location-dropdown-menu {
+      display: none;
+      position: absolute;
+      top: 100%;
+      right: 0;
+      margin-top: 0.5rem;
+      background-color: var(--surface);
+      border: 1px solid var(--line);
+      border-radius: var(--radius-md);
+      min-width: 200px;
+      z-index: 100;
+      box-shadow: 0 4px 12px rgba(0,0,0,0.2);
+      flex-direction: column;
+      gap: 0.25rem;
+      padding: 0.5rem;
+    }
+
+    .location-dropdown-menu.show {
+      display: flex;
+    }
+
+    .location-dropdown-menu .zone-toggle {
+      width: 100%;
+      text-align: left;
+      padding: 0.5rem 0.75rem;
+      justify-content: flex-start;
+      background: transparent;
+      border: 1px solid transparent;
+      border-radius: 4px;
+      color: var(--ink);
+      cursor: pointer;
+    }
+
+    .location-dropdown-menu .zone-toggle:hover {
+      background: rgba(255, 255, 255, 0.06);
+    }
+
+    .location-dropdown-menu .zone-toggle.active {
+      background: rgba(255, 255, 255, 0.06);
+      border-color: var(--line);
+      color: var(--accent);
+    }
   </style>
 </head>
 <body>
@@ -1488,6 +1563,18 @@
           <a href="/cinema-watch-snapshot/movies/" data-i18n-source>Movies</a>
           <a href="/cinema-watch-snapshot/screenings/?category=imax">IMAX</a>
           <a href="/cinema-watch-snapshot/screenings/?category=dolby_atmos">Dolby Atmos</a>
+
+          <div class="location-dropdown" data-location-switcher>
+            <button class="location-dropdown-toggle" id="locationDropdownBtn">
+              <span class="current-zone-label">AMBA</span>
+            </button>
+            <div class="location-dropdown-menu" id="locationDropdownMenu">
+              <button class="zone-toggle active" data-zone="amba">AMBA</button>
+              <button class="zone-toggle" data-zone="caba">CABA</button>
+              <button class="zone-toggle" data-zone="gba-sur">GBA Sur</button>
+              <button class="zone-toggle" data-zone="mar-del-plata" disabled>Mar del Plata <span class="badge" style="font-size: 0.7em; background: var(--surface-strong); padding: 0.2rem 0.4rem; border-radius: 4px;">Coming soon</span></button>
+            </div>
+          </div>
         </div>
         <div class="nav-tools">
         <div class="language-switch" aria-label="Language">
@@ -2244,5 +2331,57 @@
     })();
   </script>
   
+
+  <script>
+    document.addEventListener('DOMContentLoaded', function() {
+      const dropdownBtn = document.getElementById('locationDropdownBtn');
+      const dropdownMenu = document.getElementById('locationDropdownMenu');
+      const currentZoneLabel = document.querySelector('.current-zone-label');
+
+      if (dropdownBtn && dropdownMenu) {
+        // Toggle dropdown visibility
+        dropdownBtn.addEventListener('click', function(e) {
+          e.stopPropagation();
+          dropdownMenu.classList.toggle('show');
+        });
+
+        // Close dropdown when clicking outside
+        document.addEventListener('click', function(e) {
+          if (!dropdownBtn.contains(e.target) && !dropdownMenu.contains(e.target)) {
+            dropdownMenu.classList.remove('show');
+          }
+        });
+      }
+
+      // Hook into existing zone toggles if available
+      const zoneToggles = document.querySelectorAll('.zone-toggle:not([disabled])');
+      zoneToggles.forEach(toggle => {
+        toggle.addEventListener('click', function() {
+          const zoneId = this.getAttribute('data-zone');
+          // Update all active classes in dropdown
+          document.querySelectorAll('.location-dropdown-menu .zone-toggle').forEach(t => t.classList.remove('active'));
+          // Find this specific toggle in the dropdown (it might be the one clicked, or another one)
+          const dropdownToggle = document.querySelector(`.location-dropdown-menu .zone-toggle[data-zone="${zoneId}"]`);
+          if (dropdownToggle) {
+             dropdownToggle.classList.add('active');
+             const zoneName = dropdownToggle.childNodes[0].textContent.trim();
+             if (currentZoneLabel) {
+               currentZoneLabel.textContent = zoneName;
+             }
+          }
+
+          if (dropdownMenu) {
+            dropdownMenu.classList.remove('show');
+          }
+        });
+      });
+
+      // Set initial state
+      const activeToggle = document.querySelector('.zone-toggle.active');
+      if (activeToggle && currentZoneLabel) {
+          currentZoneLabel.textContent = activeToggle.childNodes[0].textContent.trim();
+      }
+    });
+  </script>
 </body>
 </html>
