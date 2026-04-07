@@ -1276,7 +1276,6 @@
               <option value="2D">2D</option>
               <option value="3D">3D</option>
               <option value="4D">4D</option>
-              <option value="IMAX">IMAX</option>
             </select>
           </label>
           <label class="field">
@@ -1380,6 +1379,15 @@
 
   function applyUrlToForm() {
     const params = new URLSearchParams(window.location.search);
+    const urlFormat = canonicalFormat(params.get('format') || '');
+    if (urlFormat === 'imax') {
+      if (!params.get('category')) params.set('category', 'imax');
+      params.delete('format');
+    }
+    if (['atmos', 'dolby', 'dolby_atmos', 'dolby atmos'].includes(urlFormat)) {
+      if (!params.get('category')) params.set('category', 'dolby_atmos');
+      params.delete('format');
+    }
     for (const [key, value] of params.entries()) {
       const field = form.elements.namedItem(key);
       if (!field) continue;
@@ -1395,7 +1403,7 @@
 
   function readFilters() {
     const data = new FormData(form);
-    return {
+    const filters = {
       provider: String(data.get('provider') || '').trim(),
       venue: String(data.get('venue') || '').trim(),
       movie: String(data.get('movie') || '').trim(),
@@ -1406,6 +1414,15 @@
       to_date: String(data.get('to_date') || '').trim(),
       include_past: data.get('include_past') === '1',
     };
+    if (filters.format === 'imax') {
+      filters.category = filters.category || 'imax';
+      filters.format = '';
+    }
+    if (['atmos', 'dolby', 'dolby_atmos', 'dolby atmos'].includes(filters.format)) {
+      filters.category = filters.category || 'dolby_atmos';
+      filters.format = '';
+    }
+    return filters;
   }
 
   function updateUrl(filters) {
