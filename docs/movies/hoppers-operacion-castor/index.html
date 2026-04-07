@@ -685,6 +685,88 @@
       line-height: 1.05;
     }
 
+    .location-selector {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: space-between;
+      gap: 0.9rem 1.25rem;
+      align-items: center;
+      margin: 0 0 1rem;
+      padding: 0.9rem 1rem;
+      border: 1px solid var(--line);
+      border-radius: var(--radius-lg);
+      background:
+        linear-gradient(180deg, rgba(255, 255, 255, 0.035), rgba(12, 15, 22, 0.74)),
+        rgba(255, 255, 255, 0.018);
+    }
+
+    .location-selector p {
+      color: var(--muted);
+      font-size: 0.94rem;
+      line-height: 1.42;
+      margin-top: 0.22rem;
+    }
+
+    .location-selector-options {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 0.45rem;
+      justify-content: flex-end;
+    }
+
+    .location-option {
+      width: auto;
+      min-height: 2.38rem;
+      display: inline-flex;
+      align-items: center;
+      gap: 0.5rem;
+      padding: 0.52rem 0.8rem;
+      border-radius: 999px;
+      border-color: var(--line-strong);
+      background: rgba(255, 255, 255, 0.045);
+      color: var(--ink);
+      box-shadow: none;
+      font-weight: 800;
+    }
+
+    .location-option[aria-pressed="true"] {
+      background: rgba(88, 199, 179, 0.18);
+      border-color: rgba(88, 199, 179, 0.44);
+      color: var(--accent);
+    }
+
+    .location-option[data-coming-soon="true"] {
+      color: var(--muted);
+    }
+
+    .location-option small {
+      color: var(--warm);
+      font-size: 0.72rem;
+      font-weight: 800;
+    }
+
+    .front-location-panel[hidden] {
+      display: none;
+    }
+
+    .front-coming-soon {
+      display: grid;
+      gap: 0.55rem;
+      min-height: 16rem;
+      align-content: center;
+    }
+
+    .front-coming-soon h2 {
+      font-size: clamp(1.7rem, 3.4vw, 3rem);
+      text-transform: none;
+      letter-spacing: -0.02em;
+    }
+
+    .front-coming-soon p {
+      color: var(--muted);
+      max-width: 54ch;
+    }
+
     .front-layout {
       display: grid;
       grid-template-columns: minmax(0, 1.12fr) minmax(340px, 0.88fr);
@@ -1278,6 +1360,11 @@
 
       .front-freshness {
         width: min(100%, 22rem);
+      }
+
+      .location-selector,
+      .location-selector-options {
+        justify-content: flex-start;
       }
     }
 
@@ -2360,6 +2447,10 @@
           'Subtitled this week': 'Subtituladas esta semana',
           'Where should we go?': '¿A dónde vamos?',
           "A quick guide to today's screenings, special rooms, and favorite cinemas.": 'Una guía rápida de las funciones de hoy, salas especiales y cines favoritos.',
+          'Zone': 'Zona',
+          'Change the area and the boards below follow that choice.': 'Cambiá la zona y las carteleras de abajo siguen esa elección.',
+          'Coming soon': 'Próximamente',
+          'We do not have cached screenings for this zone yet. Aldrey and other local boards can plug in here later.': 'Todavía no tenemos funciones cacheadas para esta zona. Aldrey y otras carteleras locales pueden entrar acá más adelante.',
           'Updated': 'Actualizado',
           'Published': 'Publicada',
           'Listings': 'Cartelera',
@@ -2813,6 +2904,61 @@
 
       applyTranslations(document);
       window.dispatchEvent(new CustomEvent('cinema-watch-i18n-ready', { detail: { language: currentLanguage } }));
+    })();
+  </script>
+  <script>
+    (() => {
+      const storageKey = 'cinema-watch-location';
+
+      function setHomepageLocation(root, key, { persist = true } = {}) {
+        const switcher = root.querySelector?.('[data-location-switcher]');
+        if (!switcher) {
+          return;
+        }
+        const buttons = Array.from(root.querySelectorAll('[data-location-target]'));
+        const panels = Array.from(root.querySelectorAll('[data-location-panel]'));
+        const availableKeys = new Set(panels.map((panel) => panel.dataset.locationPanel || ''));
+        let nextKey = key && availableKeys.has(key) ? key : '';
+        if (!nextKey) {
+          const activeButton = buttons.find((button) => button.getAttribute('aria-pressed') === 'true');
+          nextKey = activeButton?.dataset.locationTarget || buttons[0]?.dataset.locationTarget || '';
+        }
+        if (!nextKey) {
+          return;
+        }
+
+        for (const button of buttons) {
+          const pressed = button.dataset.locationTarget === nextKey;
+          button.setAttribute('aria-pressed', pressed ? 'true' : 'false');
+        }
+        for (const panel of panels) {
+          panel.hidden = panel.dataset.locationPanel !== nextKey;
+        }
+        if (persist) {
+          window.localStorage.setItem(storageKey, nextKey);
+        }
+      }
+
+      function initHomepageLocation(root = document) {
+        const switcher = root.querySelector?.('[data-location-switcher]');
+        if (!switcher) {
+          return;
+        }
+        const saved = window.localStorage.getItem(storageKey) || '';
+        setHomepageLocation(root, saved, { persist: false });
+      }
+
+      document.addEventListener('click', (event) => {
+        const button = event.target.closest('[data-location-target]');
+        if (!(button instanceof HTMLButtonElement)) {
+          return;
+        }
+        event.preventDefault();
+        setHomepageLocation(document, button.dataset.locationTarget || '');
+      });
+
+      initHomepageLocation(document);
+      window.CinemaWatchLocations = { init: initHomepageLocation };
     })();
   </script>
   
