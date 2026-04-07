@@ -1,0 +1,4 @@
+## 2025-04-07 - [Added Content-Security-Policy (CSP)]
+**Vulnerability:** Missing Content-Security-Policy (CSP) headers or meta tags across the static application.
+**Learning:** The static website hosted on GitHub Pages did not define a Content-Security-Policy. Although no immediately exploitable Cross-Site Scripting (XSS) vulnerability was found, defense-in-depth is critical for mitigating the impact of future script injection flaws, especially in a client-heavy application relying on URL parameters and innerHTML.
+**Prevention:** Apply a strict Content-Security-Policy using `<meta http-equiv="Content-Security-Policy">` restricting scripts and resources to the same origin (`'self'`) to protect the static site.
