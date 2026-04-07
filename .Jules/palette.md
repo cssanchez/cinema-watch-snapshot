@@ -1,0 +1,2 @@
+# Palette's Journal
+## 2024-04-07 - Accessibility Polish\n**Learning:** In a static site generated via Python templates, focus styles for keyboard navigation need to use `:focus-visible` rather than `:focus` to maintain good mouse UX, and language switcher buttons without text labels need `aria-label` attributes.\n**Action:** Replaced `:focus` with `:focus-visible` on interactive elements and added `aria-label` to language toggle buttons across all static HTML files.
