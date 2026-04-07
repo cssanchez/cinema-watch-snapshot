@@ -1805,13 +1805,13 @@
     return filters;
   }
 
-  function rowMatchesRoomScope(row, filters) {
+  function rowMatchesRoomScope(row, filters, foldedMovieFilter) {
     if (filters.provider && row.provider !== filters.provider) return false;
     if (filters.venue && row.venue_key !== filters.venue) return false;
     if (!filters.include_past && !filters.from_date && row.date_iso < todayIso) return false;
     if (filters.from_date && row.date_iso < filters.from_date) return false;
     if (filters.to_date && row.date_iso > filters.to_date) return false;
-    if (filters.movie && !foldText(row.movie_title).includes(foldText(filters.movie))) return false;
+    if (filters.movie && !foldText(row.movie_title).includes(foldedMovieFilter)) return false;
     if (filters.language && canonicalLanguage(row.language) !== filters.language) return false;
     if (filters.category && !(row.special_categories || []).includes(filters.category)) return false;
     if (filters.format) {
@@ -1826,9 +1826,11 @@
     if (!(roomSelect instanceof HTMLSelectElement) || !Array.isArray(rows)) return;
     const current = roomSelect.value;
     const filters = readFilters();
+    // Optimization: Compute folded movie filter once before the iteration
+    const foldedMovieFilter = filters.movie ? foldText(filters.movie) : '';
     const rooms = Array.from(new Set(
       rows
-        .filter((row) => rowMatchesRoomScope(row, filters))
+        .filter((row) => rowMatchesRoomScope(row, filters, foldedMovieFilter))
         .map((row) => Number(row.room_number))
         .filter((room) => Number.isInteger(room) && room > 0)
     )).sort((left, right) => left - right);
@@ -1882,6 +1884,8 @@
   }
 
   function filterRows(rows, filters) {
+    // Optimization: Pre-compute the folded text once before iterating to avoid doing regex and NFD normalizations 2700+ times
+    const foldedMovieFilter = filters.movie ? foldText(filters.movie) : '';
     return rows.filter((row) => {
       if (filters.provider && row.provider !== filters.provider) return false;
       if (filters.venue && row.venue_key !== filters.venue) return false;
@@ -1889,7 +1893,7 @@
       if (filters.from_date && row.date_iso < filters.from_date) return false;
       if (filters.to_date && row.date_iso > filters.to_date) return false;
       if (filters.room && String(row.room_number || '') !== filters.room) return false;
-      if (filters.movie && !foldText(row.movie_title).includes(foldText(filters.movie))) return false;
+      if (filters.movie && !foldText(row.movie_title).includes(foldedMovieFilter)) return false;
       if (filters.language && canonicalLanguage(row.language) !== filters.language) return false;
       if (filters.category && !(row.special_categories || []).includes(filters.category)) return false;
       if (filters.format) {
