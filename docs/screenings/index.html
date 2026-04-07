@@ -1290,7 +1290,9 @@
           </label>
           <label class="field">
             <span>Room</span>
-            <input type="number" min="1" name="room" placeholder="6" />
+            <select name="room" data-room-select="true">
+              <option value="">Any room</option>
+            </select>
           </label>
           <label class="field field-wide">
             <span>History</span>
@@ -1416,6 +1418,41 @@
     return filters;
   }
 
+  function rowMatchesRoomScope(row, filters) {
+    if (filters.provider && row.provider !== filters.provider) return false;
+    if (filters.venue && row.venue_key !== filters.venue) return false;
+    if (!filters.include_past && !filters.from_date && row.date_iso < todayIso) return false;
+    if (filters.from_date && row.date_iso < filters.from_date) return false;
+    if (filters.to_date && row.date_iso > filters.to_date) return false;
+    if (filters.movie && !foldText(row.movie_title).includes(foldText(filters.movie))) return false;
+    if (filters.language && canonicalLanguage(row.language) !== filters.language) return false;
+    if (filters.category && !(row.special_categories || []).includes(filters.category)) return false;
+    if (filters.format) {
+      const formatMatch = [canonicalFormat(row.format_label), canonicalFormat(row.experience)].includes(filters.format);
+      if (!formatMatch) return false;
+    }
+    return true;
+  }
+
+  function syncRoomSelect(rows) {
+    const roomSelect = form.querySelector('[data-room-select="true"]');
+    if (!(roomSelect instanceof HTMLSelectElement) || !Array.isArray(rows)) return;
+    const current = roomSelect.value;
+    const filters = readFilters();
+    const rooms = Array.from(new Set(
+      rows
+        .filter((row) => rowMatchesRoomScope(row, filters))
+        .map((row) => Number(row.room_number))
+        .filter((room) => Number.isInteger(room) && room > 0)
+    )).sort((left, right) => left - right);
+    if (current && !rooms.includes(Number(current))) rooms.push(Number(current));
+    roomSelect.innerHTML = `<option value="">${escapeHtml(t('Any room'))}</option>${rooms
+      .sort((left, right) => left - right)
+      .map((room) => `<option value="${room}">${escapeHtml(roomLabel(room))}</option>`)
+      .join('')}`;
+    roomSelect.value = current && rooms.includes(Number(current)) ? current : '';
+  }
+
   function applyUrlToForm() {
     const params = new URLSearchParams(window.location.search);
     const urlFormat = canonicalFormat(params.get('format') || '');
@@ -1433,6 +1470,9 @@
       if (field instanceof RadioNodeList) continue;
       if (field instanceof HTMLInputElement && field.type === 'checkbox') {
         field.checked = value === '1' || value === 'true';
+      } else if (field instanceof HTMLSelectElement && key === 'room' && value && !Array.from(field.options).some((option) => option.value === value)) {
+        field.add(new Option(roomLabel(value), value));
+        field.value = value;
       } else {
         field.value = value;
       }
@@ -1528,6 +1568,7 @@
     applyUrlToForm();
     form.addEventListener('change', (event) => {
       syncVenueSelect();
+      syncRoomSelect(window.__siteData?.screenings || []);
       if (!(event.target instanceof HTMLInputElement) || event.target.type !== 'text') {
         run(window.__siteData || null);
       }
@@ -1540,11 +1581,13 @@
     const response = await fetch(dataHref);
     const payload = await response.json();
     window.__siteData = payload;
+    syncRoomSelect(payload.screenings || []);
     run(payload);
   }
 
   function run(payload) {
     if (!payload) return;
+    syncRoomSelect(payload.screenings || []);
     const filters = readFilters();
     updateUrl(filters);
     renderRows(filterRows(payload.screenings || [], filters));
@@ -1759,6 +1802,7 @@
           'From date': 'Desde',
           'To date': 'Hasta',
           'Room': 'Sala',
+          'Any room': 'Todas las salas',
           'Limit': 'Límite',
           'History': 'Historial',
           'Include older cached dates': 'Incluir fechas anteriores cacheadas',
