@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-04-07T00:17:24.595736+00:00",
+  "generated_at": "2026-04-07T00:26:26.989484+00:00",
   "today": "2026-04-06",
   "providers": [
     {
@@ -26,7 +26,7 @@
       "key": "maipu",
       "name": "Cinépolis Arena Maipú",
       "label": "Cinepolis Argentina / Cinépolis Arena Maipú",
-      "short_label": "Cinépolis Arena Maipú"
+      "short_label": "Arena Maipú"
     },
     {
       "provider": "cinepolis",
@@ -34,7 +34,7 @@
       "key": "lujan",
       "name": "Cinépolis Luján",
       "label": "Cinepolis Argentina / Cinépolis Luján",
-      "short_label": "Cinépolis Luján"
+      "short_label": "Luján"
     },
     {
       "provider": "cinepolis",
@@ -42,7 +42,7 @@
       "key": "mendoza",
       "name": "Cinépolis Mendoza Plaza",
       "label": "Cinepolis Argentina / Cinépolis Mendoza Plaza",
-      "short_label": "Cinépolis Mendoza Plaza"
+      "short_label": "Mendoza Plaza"
     },
     {
       "provider": "cinepolis",
@@ -50,7 +50,7 @@
       "key": "merlo",
       "name": "Cinépolis Merlo",
       "label": "Cinepolis Argentina / Cinépolis Merlo",
-      "short_label": "Cinépolis Merlo"
+      "short_label": "Merlo"
     },
     {
       "provider": "cinepolis",
@@ -58,7 +58,7 @@
       "key": "neuquen",
       "name": "Cinépolis Neuquén",
       "label": "Cinepolis Argentina / Cinépolis Neuquén",
-      "short_label": "Cinépolis Neuquén"
+      "short_label": "Neuquén"
     },
     {
       "provider": "cinepolis",
@@ -66,7 +66,7 @@
       "key": "pilar",
       "name": "Cinépolis Pilar",
       "label": "Cinepolis Argentina / Cinépolis Pilar",
-      "short_label": "Cinépolis Pilar"
+      "short_label": "Pilar"
     },
     {
       "provider": "cinepolis",
@@ -74,7 +74,7 @@
       "key": "houssay",
       "name": "Cinépolis Plaza Houssay",
       "label": "Cinepolis Argentina / Cinépolis Plaza Houssay",
-      "short_label": "Cinépolis Plaza Houssay"
+      "short_label": "Plaza Houssay"
     },
     {
       "provider": "cinepolis",
@@ -82,7 +82,7 @@
       "key": "rosario",
       "name": "Cinépolis Rosario",
       "label": "Cinepolis Argentina / Cinépolis Rosario",
-      "short_label": "Cinépolis Rosario"
+      "short_label": "Rosario"
     },
     {
       "provider": "cinepolis",
@@ -114,7 +114,7 @@
       "key": "showcase_belgrano",
       "name": "Showcase Belgrano",
       "label": "Showcase / IMAX / Showcase Belgrano",
-      "short_label": "Showcase Belgrano"
+      "short_label": "Belgrano"
     },
     {
       "provider": "showcase",
@@ -122,7 +122,7 @@
       "key": "showcase_cordoba_villa_cabrera",
       "name": "Showcase Cordoba (Villa Cabrera)",
       "label": "Showcase / IMAX / Showcase Cordoba (Villa Cabrera)",
-      "short_label": "Showcase Cordoba (Villa Cabrera)"
+      "short_label": "Cordoba (Villa Cabrera)"
     },
     {
       "provider": "showcase",
@@ -130,7 +130,7 @@
       "key": "showcase_haedo",
       "name": "Showcase Haedo",
       "label": "Showcase / IMAX / Showcase Haedo",
-      "short_label": "Showcase Haedo"
+      "short_label": "Haedo"
     },
     {
       "provider": "showcase",
@@ -138,7 +138,7 @@
       "key": "showcase_norcenter",
       "name": "Showcase Norcenter",
       "label": "Showcase / IMAX / Showcase Norcenter",
-      "short_label": "Showcase Norcenter"
+      "short_label": "Norcenter"
     },
     {
       "provider": "showcase",
@@ -146,7 +146,7 @@
       "key": "showcase_quilmes",
       "name": "Showcase Quilmes",
       "label": "Showcase / IMAX / Showcase Quilmes",
-      "short_label": "Showcase Quilmes"
+      "short_label": "Quilmes"
     },
     {
       "provider": "showcase",
@@ -154,7 +154,7 @@
       "key": "showcase_rosario",
       "name": "Showcase Rosario",
       "label": "Showcase / IMAX / Showcase Rosario",
-      "short_label": "Showcase Rosario"
+      "short_label": "Rosario"
     },
     {
       "provider": "showcase",
@@ -162,7 +162,7 @@
       "key": "showcase_villa_allende",
       "name": "Showcase Villa Allende",
       "label": "Showcase / IMAX / Showcase Villa Allende",
-      "short_label": "Showcase Villa Allende"
+      "short_label": "Villa Allende"
     }
   ],
   "summary": {
