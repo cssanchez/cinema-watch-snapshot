@@ -12,12 +12,12 @@
   <meta property="og:description" content="Browse movies from the published snapshot with fast in-browser filtering (no live scraping on page load).">
   
   
-  <meta property="og:url" content="/movies/">
-  <meta property="og:image" content="/og-image.svg">
+  <meta property="og:url" content="/cinema-watch-snapshot/movies/">
+  <meta property="og:image" content="/cinema-watch-snapshot/og-image.svg">
   <meta name="twitter:card" content="summary_large_image">
   <meta name="twitter:title" content="Movies | Cine Vicio">
   <meta name="twitter:description" content="Browse movies from the published snapshot with fast in-browser filtering (no live scraping on page load).">
-  <meta name="twitter:image" content="/og-image.svg">
+  <meta name="twitter:image" content="/cinema-watch-snapshot/og-image.svg">
   <title>Movies | Cine Vicio</title>
   <style>
     :root {
@@ -46,27 +46,6 @@
       --heading-font: "Iowan Old Style", "Palatino Linotype", "Book Antiqua", "Baskerville Old Face", serif;
       --ui-font: "Aptos", "Segoe UI", "Trebuchet MS", sans-serif;
       --mono-font: "Consolas", "SFMono-Regular", "Courier New", monospace;
-    }
-
-    .light {
-      color-scheme: light;
-      --bg: #f8f9fa;
-      --bg-deep: #e9ecef;
-      --surface: rgba(255, 255, 255, 0.95);
-      --surface-strong: rgba(255, 255, 255, 0.98);
-      --surface-ink: #ffffff;
-      --ink: #212529;
-      --muted: #6c757d;
-      --line: rgba(0, 0, 0, 0.1);
-      --line-strong: rgba(0, 0, 0, 0.2);
-      --accent: #007bff;
-      --accent-soft: rgba(0, 123, 255, 0.1);
-      --warm: #fd7e14;
-      --warm-soft: rgba(253, 126, 20, 0.1);
-      --gold: #ffc107;
-      --gold-soft: rgba(255, 193, 7, 0.1);
-      --shadow: 0 20px 54px rgba(0, 0, 0, 0.1);
-      --shadow-soft: 0 10px 30px rgba(0, 0, 0, 0.05);
     }
 
     .skip-link {
@@ -245,35 +224,6 @@
     }
 
     .language-switch button[aria-pressed="true"] {
-      background: var(--accent);
-      color: #05100e;
-      border-color: var(--accent);
-    }
-
-    .theme-switch {
-      display: inline-flex;
-      gap: 0.15rem;
-      padding: 0.16rem;
-      border-radius: 999px;
-      border: 1px solid var(--line);
-      background: rgba(255, 255, 255, 0.04);
-    }
-
-    .theme-switch button {
-      width: auto;
-      min-height: 1.74rem;
-      padding: 0.27rem 0.49rem;
-      border-radius: 999px;
-      border: 1px solid transparent;
-      background: transparent;
-      color: var(--muted);
-      box-shadow: none;
-      font-size: 0.72rem;
-      font-weight: 800;
-      letter-spacing: 0.04em;
-    }
-
-    .theme-switch button[aria-pressed="true"] {
       background: var(--accent);
       color: #05100e;
       border-color: var(--accent);
@@ -1727,25 +1677,21 @@
   <a class="skip-link" href="#app-main">Skip to content</a>
   <div class="shell">
     <header class="topbar">
-      <a href="/" class="brand">
+      <a href="/cinema-watch-snapshot/" class="brand">
         <strong>Cine Vicio</strong>
       </a>
       <nav class="nav" aria-label="Primary">
         <div class="nav-links">
-          <a href="/screenings/" data-i18n-source>Showtimes</a>
-          <a href="/movies/" data-i18n-source>Movies</a>
-          <a href="/screenings/?category=imax">IMAX</a>
-          <a href="/screenings/?category=dolby_atmos">Dolby Atmos</a>
+          <a href="/cinema-watch-snapshot/screenings/" data-i18n-source>Showtimes</a>
+          <a href="/cinema-watch-snapshot/movies/" data-i18n-source>Movies</a>
+          <a href="/cinema-watch-snapshot/screenings/?category=imax">IMAX</a>
+          <a href="/cinema-watch-snapshot/screenings/?category=dolby_atmos">Dolby Atmos</a>
         </div>
         
         <div class="nav-tools">
         <div class="language-switch" aria-label="Language">
           <button type="button" data-language-option="en" aria-pressed="false">EN</button>
           <button type="button" data-language-option="es" aria-pressed="false">ES</button>
-        </div>
-        <div class="theme-switch" aria-label="Theme">
-          <button type="button" data-theme-option="dark" aria-pressed="true">Dark</button>
-          <button type="button" data-theme-option="light" aria-pressed="false">Light</button>
         </div>
         
         </div>
@@ -1778,21 +1724,21 @@
       </div>
       <div class="button-strip">
         
-        <a class="button-pill" href="/movies/?limit=2000" data-tone="soft">All</a>
+        <a class="button-pill" href="/cinema-watch-snapshot/movies/?limit=2000" data-tone="soft">All</a>
         
-        <a class="button-pill" href="/movies/?provider=cinepolis&amp;limit=2000" data-tone="soft">Cinepolis</a>
+        <a class="button-pill" href="/cinema-watch-snapshot/movies/?provider=cinepolis&amp;limit=2000" data-tone="soft">Cinepolis</a>
         
-        <a class="button-pill" href="/movies/?provider=showcase&amp;limit=2000" data-tone="soft">Showcase</a>
+        <a class="button-pill" href="/cinema-watch-snapshot/movies/?provider=showcase&amp;limit=2000" data-tone="soft">Showcase</a>
         
-        <a class="button-pill" href="/movies/?limit=2000" data-tone="soft">Any</a>
+        <a class="button-pill" href="/cinema-watch-snapshot/movies/?limit=2000" data-tone="soft">Any</a>
         
-        <a class="button-pill" href="/movies/?language=espanol&amp;limit=2000" data-tone="soft">Espanol</a>
+        <a class="button-pill" href="/cinema-watch-snapshot/movies/?language=espanol&amp;limit=2000" data-tone="soft">Espanol</a>
         
-        <a class="button-pill" href="/movies/?language=subtitulado&amp;limit=2000" data-tone="soft">Subtitulado</a>
+        <a class="button-pill" href="/cinema-watch-snapshot/movies/?language=subtitulado&amp;limit=2000" data-tone="soft">Subtitulado</a>
         
-        <a class="button-pill" href="/movies/?limit=2000" data-tone="soft">Any</a>
+        <a class="button-pill" href="/cinema-watch-snapshot/movies/?limit=2000" data-tone="soft">Any</a>
         
-        <a class="button-pill" href="/movies/?category=imax&amp;limit=2000" data-tone="accent">IMAX</a>
+        <a class="button-pill" href="/cinema-watch-snapshot/movies/?category=imax&amp;limit=2000" data-tone="accent">IMAX</a>
         
       </div>
     </section>
@@ -1917,7 +1863,7 @@
         </div>
         <div class="form-actions">
           <button type="submit">Filter movies</button>
-          <a class="button-pill" href="/movies/">Clear filters</a>
+          <a class="button-pill" href="/cinema-watch-snapshot/movies/">Clear filters</a>
         </div>
       </form>
     </section>
@@ -1929,7 +1875,7 @@
   
 <script>
 (() => {
-  const dataHref = "/data/site-data.json";
+  const dataHref = "/cinema-watch-snapshot/data/site-data.json";
   const todayIso = "2026-04-07";
   const form = document.getElementById('static-movies-form');
   const summary = document.getElementById('movie-results-summary');
