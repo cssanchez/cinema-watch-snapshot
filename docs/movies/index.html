@@ -1826,13 +1826,15 @@
   }
 
   function filterRows(rows, filters) {
+    // Optimization: Compute folded movie filter once instead of inside the filter loop (avoids O(N) regex overhead)
+    const foldedMovieFilter = filters.movie ? foldText(filters.movie) : '';
     return rows.filter((row) => {
       if (filters.provider && row.provider !== filters.provider) return false;
       if (filters.venue && row.venue_key !== filters.venue) return false;
       if (!filters.include_past && !filters.from_date && row.date_iso < todayIso) return false;
       if (filters.from_date && row.date_iso < filters.from_date) return false;
       if (filters.to_date && row.date_iso > filters.to_date) return false;
-      if (filters.movie && !foldText(row.movie_title).includes(foldText(filters.movie))) return false;
+      if (filters.movie && !foldText(row.movie_title).includes(foldedMovieFilter)) return false;
       if (filters.language && canonicalLanguage(row.language) !== filters.language) return false;
       if (filters.category && !(row.special_categories || []).includes(filters.category)) return false;
       if (filters.format) {
