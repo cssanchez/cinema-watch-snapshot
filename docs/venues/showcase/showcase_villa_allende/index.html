@@ -1843,18 +1843,19 @@
           "Tomorrow's board, without leaving the homepage.": 'La cartelera de mañana sin salir de la portada.',
           'The image-and-sound favorite stays one tap away.': 'La favorita de imagen y sonido queda a un toque.',
           'Subtitled this week': 'Subtituladas esta semana',
-          'What should we watch today?': '¿Qué vemos hoy?',
-          "Fast picks from today's listings, special rooms, and the cinemas we actually care about.": 'Funciones a mano: hoy, salas especiales y los cines que nos importan.',
+          'Where should we go?': '¿A dónde vamos?',
+          "A quick guide to today's screenings, special rooms, and favorite cinemas.": 'Una guía rápida de las funciones de hoy, salas especiales y cines favoritos.',
           'Updated': 'Actualizado',
           'Published': 'Publicada',
+          'Listings': 'Cartelera',
           'Tonight first': 'Primero hoy',
-          'The fastest scan for tonight.': 'La lectura más rápida para armar plan hoy.',
-          'Worth the room': 'Vale por la sala',
+          'The fastest scan for today.': 'La lectura más rápida para hoy.',
+          'Format and sound': 'Formato y sonido',
           'Large-format picks in the current snapshot.': 'Opciones de gran formato en la cartelera actual.',
           'Known Atmos rooms, starting with the rooms we can identify.': 'Salas Atmos conocidas, empezando por las que podemos identificar.',
           'See all': 'Ver todo',
           'By title': 'Por título',
-          'Movies in play': 'Películas en cartel',
+          'Movies with the most screenings': 'Películas con más funciones',
           'Local habits': 'Costumbres locales',
           'Favorite cuts': 'Cortes favoritos',
           'Reusable answers for the rooms, language cuts, and planning windows we open most.': 'Respuestas reutilizables para las salas, idiomas y ventanas que abrimos seguido.',
@@ -2191,12 +2192,12 @@
             return;
           }
           if (original === 'Updated just now') {
-            element.textContent = 'Actualizado recién';
+            element.textContent = 'Actualizada recién';
             return;
           }
           const match = original.match(/^Updated\s+(\d+)\s+(min|h|d)\s+ago$/i);
           if (match) {
-            element.textContent = `Actualizado hace ${match[1]} ${match[2]}`;
+            element.textContent = `Actualizada hace ${match[1]} ${match[2]}`;
           }
         });
       }
