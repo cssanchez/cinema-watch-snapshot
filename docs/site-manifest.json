@@ -1,10 +1,10 @@
 {
-  "generated_at": "2026-04-07T03:08:52.766044+00:00",
-  "base_path": "/cinema-watch-snapshot",
+  "generated_at": "2026-04-07T16:10:56.693942+00:00",
+  "base_path": "",
   "providers": [
     "cinepolis",
     "showcase"
   ],
-  "movie_count": 43,
-  "screening_count": 2711
+  "movie_count": 37,
+  "screening_count": 2123
 }
