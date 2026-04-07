@@ -3,6 +3,21 @@
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="description" content="Cine Vicio is a cached cinema listings snapshot: fast, focused showtime boards for today and tomorrow.">
+  <meta name="robots" content="index,follow">
+  <meta name="theme-color" content="#0c0f14">
+  <meta property="og:site_name" content="Cine Vicio">
+  <meta property="og:type" content="website">
+  <meta property="og:title" content="Showtimes | Cine Vicio">
+  <meta property="og:description" content="Find showtimes in the cached cinema snapshot. Filter by cinema, language, room, format, and date.">
+  
+  
+  <meta property="og:url" content="https://cssanchez.github.io/cinema-watch-snapshot/screenings/">
+  <meta property="og:image" content="https://cssanchez.github.io/cinema-watch-snapshot/og-image.svg">
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:title" content="Showtimes | Cine Vicio">
+  <meta name="twitter:description" content="Find showtimes in the cached cinema snapshot. Filter by cinema, language, room, format, and date.">
+  <meta name="twitter:image" content="https://cssanchez.github.io/cinema-watch-snapshot/og-image.svg">
   <title>Showtimes | Cine Vicio</title>
   <style>
     :root {
@@ -31,6 +46,27 @@
       --heading-font: "Iowan Old Style", "Palatino Linotype", "Book Antiqua", "Baskerville Old Face", serif;
       --ui-font: "Aptos", "Segoe UI", "Trebuchet MS", sans-serif;
       --mono-font: "Consolas", "SFMono-Regular", "Courier New", monospace;
+    }
+
+    .skip-link {
+      position: absolute;
+      left: 1rem;
+      top: 1rem;
+      z-index: 1000;
+      transform: translateY(-140%);
+      background: rgba(88, 199, 179, 0.96);
+      color: #05100e;
+      padding: 0.62rem 0.86rem;
+      border-radius: 14px;
+      font-weight: 900;
+      border: 1px solid rgba(88, 199, 179, 0.55);
+      transition: transform 120ms ease;
+    }
+
+    .skip-link:focus {
+      transform: translateY(0);
+      outline: 2px solid rgba(88, 199, 179, 0.55);
+      outline-offset: 2px;
     }
 
     * {
@@ -1440,6 +1476,7 @@
   </style>
 </head>
 <body>
+  <a class="skip-link" href="#app-main">Skip to content</a>
   <div class="shell">
     <header class="topbar">
       <a href="/cinema-watch-snapshot/" class="brand">
@@ -1494,15 +1531,15 @@
       </div>
       <div class="button-strip">
         
-        <a class="button-pill" href="/cinema-watch-snapshot/screenings/?from_date=2026-04-06&amp;to_date=2026-04-06" data-tone="accent">What&#39;s On Today</a>
+        <a class="button-pill" href="/cinema-watch-snapshot/screenings/?from_date=2026-04-07&amp;to_date=2026-04-07" data-tone="accent">What&#39;s On Today</a>
         
-        <a class="button-pill" href="/cinema-watch-snapshot/screenings/?provider=cinepolis&amp;venue=recoleta&amp;room=6&amp;from_date=2026-04-06&amp;to_date=2026-04-06" data-tone="warm">Recoleta Room 6 (Today)</a>
+        <a class="button-pill" href="/cinema-watch-snapshot/screenings/?provider=cinepolis&amp;venue=recoleta&amp;room=6&amp;from_date=2026-04-07&amp;to_date=2026-04-07" data-tone="warm">Recoleta Room 6 (Today)</a>
         
-        <a class="button-pill" href="/cinema-watch-snapshot/screenings/?provider=cinepolis&amp;venue=avellaneda&amp;language=subtitulado&amp;from_date=2026-04-06&amp;to_date=2026-04-12" data-tone="soft">Avellaneda Subtitled</a>
+        <a class="button-pill" href="/cinema-watch-snapshot/screenings/?provider=cinepolis&amp;venue=avellaneda&amp;language=subtitulado&amp;from_date=2026-04-07&amp;to_date=2026-04-13" data-tone="soft">Avellaneda Subtitled</a>
         
-        <a class="button-pill" href="/cinema-watch-snapshot/screenings/?provider=showcase&amp;venue=imax_norcenter&amp;from_date=2026-04-06&amp;to_date=2026-04-12" data-tone="soft">IMAX This Week</a>
+        <a class="button-pill" href="/cinema-watch-snapshot/screenings/?provider=showcase&amp;venue=imax_norcenter&amp;from_date=2026-04-07&amp;to_date=2026-04-13" data-tone="soft">IMAX This Week</a>
         
-        <a class="button-pill" href="/cinema-watch-snapshot/screenings/?from_date=2026-04-07&amp;to_date=2026-04-07" data-tone="soft">Tomorrow</a>
+        <a class="button-pill" href="/cinema-watch-snapshot/screenings/?from_date=2026-04-08&amp;to_date=2026-04-08" data-tone="soft">Tomorrow</a>
         
         <a class="button-pill" href="/cinema-watch-snapshot/screenings/" data-tone="soft">All upcoming</a>
         
@@ -1664,7 +1701,7 @@
 <script>
 (() => {
   const dataHref = "/cinema-watch-snapshot/data/site-data.json";
-  const todayIso = "2026-04-06";
+  const todayIso = "2026-04-07";
   const form = document.getElementById('static-search-form');
   const summary = document.getElementById('search-results-summary');
   const results = document.getElementById('search-results');

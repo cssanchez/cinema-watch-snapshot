@@ -3,6 +3,21 @@
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="description" content="Cine Vicio is a cached cinema listings snapshot: fast, focused showtime boards for today and tomorrow.">
+  <meta name="robots" content="index,follow">
+  <meta name="theme-color" content="#0c0f14">
+  <meta property="og:site_name" content="Cine Vicio">
+  <meta property="og:type" content="website">
+  <meta property="og:title" content="HOPPERS | Cine Vicio">
+  <meta property="og:description" content="Showtimes for HOPPERS from the cached cinema snapshot. Filter and plan in your browser.">
+  
+  
+  <meta property="og:url" content="https://cssanchez.github.io/cinema-watch-snapshot/movies/hoppers/">
+  <meta property="og:image" content="https://cssanchez.github.io/cinema-watch-snapshot/og-image.svg">
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:title" content="HOPPERS | Cine Vicio">
+  <meta name="twitter:description" content="Showtimes for HOPPERS from the cached cinema snapshot. Filter and plan in your browser.">
+  <meta name="twitter:image" content="https://cssanchez.github.io/cinema-watch-snapshot/og-image.svg">
   <title>HOPPERS | Cine Vicio</title>
   <style>
     :root {
@@ -31,6 +46,27 @@
       --heading-font: "Iowan Old Style", "Palatino Linotype", "Book Antiqua", "Baskerville Old Face", serif;
       --ui-font: "Aptos", "Segoe UI", "Trebuchet MS", sans-serif;
       --mono-font: "Consolas", "SFMono-Regular", "Courier New", monospace;
+    }
+
+    .skip-link {
+      position: absolute;
+      left: 1rem;
+      top: 1rem;
+      z-index: 1000;
+      transform: translateY(-140%);
+      background: rgba(88, 199, 179, 0.96);
+      color: #05100e;
+      padding: 0.62rem 0.86rem;
+      border-radius: 14px;
+      font-weight: 900;
+      border: 1px solid rgba(88, 199, 179, 0.55);
+      transition: transform 120ms ease;
+    }
+
+    .skip-link:focus {
+      transform: translateY(0);
+      outline: 2px solid rgba(88, 199, 179, 0.55);
+      outline-offset: 2px;
     }
 
     * {
@@ -1440,6 +1476,7 @@
   </style>
 </head>
 <body>
+  <a class="skip-link" href="#app-main">Skip to content</a>
   <div class="shell">
     <header class="topbar">
       <a href="/cinema-watch-snapshot/" class="brand">
@@ -1491,7 +1528,7 @@
       <strong>Title footprint</strong>
       <p>Use the quick actions to flip this page from broad discovery into a much narrower answer.</p>
       <div class="stats">
-        <span class="stat">98 screenings</span>
+        <span class="stat">107 screenings</span>
         <span class="stat">10 venues</span>
         <span class="stat">1 providers</span>
       </div>
@@ -1499,7 +1536,7 @@
     <div class="metrics">
       <div class="metric">
         <span class="muted">Screenings</span>
-        <strong>98</strong>
+        <strong>107</strong>
       </div>
       <div class="metric">
         <span class="muted">Venues</span>
@@ -1528,14 +1565,14 @@
         
       </a>
       
-      <a class="button-card" href="/cinema-watch-snapshot/movies/hoppers/?from_date=2026-04-06&amp;to_date=2026-04-06" data-tone="accent" data-live-nav="true">
+      <a class="button-card" href="/cinema-watch-snapshot/movies/hoppers/?from_date=2026-04-07&amp;to_date=2026-04-07" data-tone="accent" data-live-nav="true">
         <strong>Today</strong>
         
         <p>Where it plays today</p>
         
       </a>
       
-      <a class="button-card" href="/cinema-watch-snapshot/movies/hoppers/?from_date=2026-04-07&amp;to_date=2026-04-07" data-tone="soft" data-live-nav="true">
+      <a class="button-card" href="/cinema-watch-snapshot/movies/hoppers/?from_date=2026-04-08&amp;to_date=2026-04-08" data-tone="soft" data-live-nav="true">
         <strong>Tomorrow</strong>
         
         <p>Tomorrow only</p>
@@ -1549,7 +1586,7 @@
         
       </a>
       
-      <a class="button-card" href="/cinema-watch-snapshot/screenings/?movie=HOPPERS&amp;from_date=2026-04-06&amp;to_date=2026-04-12" data-tone="warm" data-live-nav="true">
+      <a class="button-card" href="/cinema-watch-snapshot/screenings/?movie=HOPPERS&amp;from_date=2026-04-07&amp;to_date=2026-04-13" data-tone="warm" data-live-nav="true">
         <strong>Search This Title</strong>
         
         <p>Chronological search view</p>
@@ -1570,27 +1607,6 @@
         </div>
         
         <div class="dense-list">
-          
-          <div class="result-day">
-            <div class="row-head">
-              <strong>2026-04-06</strong>
-              <span class="chip">1 screening</span>
-            </div>
-            <div class="result-list">
-              
-              <div class="result-item">
-                <span class="time-badge">20:15</span>
-                <div class="result-copy">
-                  <strong><a href="/cinema-watch-snapshot/venues/cinepolis/neuquen/">cinepolis / Cinépolis Neuquén</a></strong>
-                  
-                  <p data-i18n-meta-line>Classic • 2D • Español | Room 6</p>
-                  
-                  
-                </div>
-              </div>
-              
-            </div>
-          </div>
           
           <div class="result-day">
             <div class="row-head">
@@ -2592,7 +2608,7 @@
           <div class="result-day">
             <div class="row-head">
               <strong>2026-04-11</strong>
-              <span class="chip">10 screenings</span>
+              <span class="chip">11 screenings</span>
             </div>
             <div class="result-list">
               
@@ -2701,6 +2717,126 @@
                   <strong><a href="/cinema-watch-snapshot/venues/cinepolis/maipu/">cinepolis / Cinépolis Arena Maipú</a></strong>
                   
                   <p data-i18n-meta-line>Gc • 2D • Español | Room 1</p>
+                  
+                  
+                </div>
+              </div>
+              
+              <div class="result-item">
+                <span class="time-badge">18:30</span>
+                <div class="result-copy">
+                  <strong><a href="/cinema-watch-snapshot/venues/cinepolis/avellaneda/">cinepolis / Avellaneda</a></strong>
+                  
+                  <p data-i18n-meta-line>Classic • 2D • Español | Room 7</p>
+                  
+                  
+                </div>
+              </div>
+              
+            </div>
+          </div>
+          
+          <div class="result-day">
+            <div class="row-head">
+              <strong>2026-04-12</strong>
+              <span class="chip">9 screenings</span>
+            </div>
+            <div class="result-list">
+              
+              <div class="result-item">
+                <span class="time-badge">12:50</span>
+                <div class="result-copy">
+                  <strong><a href="/cinema-watch-snapshot/venues/cinepolis/merlo/">cinepolis / Cinépolis Merlo</a></strong>
+                  
+                  <p data-i18n-meta-line>Classic • 2D • Español | Room 5</p>
+                  
+                  
+                </div>
+              </div>
+              
+              <div class="result-item">
+                <span class="time-badge">13:00</span>
+                <div class="result-copy">
+                  <strong><a href="/cinema-watch-snapshot/venues/cinepolis/lujan/">cinepolis / Cinépolis Luján</a></strong>
+                  
+                  <p data-i18n-meta-line>Classic • 2D • Español | Room 6</p>
+                  
+                  
+                </div>
+              </div>
+              
+              <div class="result-item">
+                <span class="time-badge">13:15</span>
+                <div class="result-copy">
+                  <strong><a href="/cinema-watch-snapshot/venues/cinepolis/mendoza/">cinepolis / Cinépolis Mendoza Plaza</a></strong>
+                  
+                  <p data-i18n-meta-line>Classic • 2D • Español | Room 7</p>
+                  
+                  
+                </div>
+              </div>
+              
+              <div class="result-item">
+                <span class="time-badge">13:30</span>
+                <div class="result-copy">
+                  <strong><a href="/cinema-watch-snapshot/venues/cinepolis/avellaneda/">cinepolis / Avellaneda</a></strong>
+                  
+                  <p data-i18n-meta-line>Classic • 2D • Español | Room 7</p>
+                  
+                  
+                </div>
+              </div>
+              
+              <div class="result-item">
+                <span class="time-badge">13:40</span>
+                <div class="result-copy">
+                  <strong><a href="/cinema-watch-snapshot/venues/cinepolis/recoleta/">cinepolis / Recoleta</a></strong>
+                  
+                  <p data-i18n-meta-line>Classic • 2D • Español | Room 4</p>
+                  
+                  
+                </div>
+              </div>
+              
+              <div class="result-item">
+                <span class="time-badge">14:00</span>
+                <div class="result-copy">
+                  <strong><a href="/cinema-watch-snapshot/venues/cinepolis/maipu/">cinepolis / Cinépolis Arena Maipú</a></strong>
+                  
+                  <p data-i18n-meta-line>Gc • 2D • Español | Room 2</p>
+                  
+                  
+                </div>
+              </div>
+              
+              <div class="result-item">
+                <span class="time-badge">14:30</span>
+                <div class="result-copy">
+                  <strong><a href="/cinema-watch-snapshot/venues/cinepolis/recoleta/">cinepolis / Recoleta</a></strong>
+                  
+                  <p data-i18n-meta-line>Classic • 2D • Español | Room 2</p>
+                  
+                  
+                </div>
+              </div>
+              
+              <div class="result-item">
+                <span class="time-badge">15:20</span>
+                <div class="result-copy">
+                  <strong><a href="/cinema-watch-snapshot/venues/cinepolis/lujan/">cinepolis / Cinépolis Luján</a></strong>
+                  
+                  <p data-i18n-meta-line>Classic • 2D • Español | Room 6</p>
+                  
+                  
+                </div>
+              </div>
+              
+              <div class="result-item">
+                <span class="time-badge">15:20</span>
+                <div class="result-copy">
+                  <strong><a href="/cinema-watch-snapshot/venues/cinepolis/merlo/">cinepolis / Cinépolis Merlo</a></strong>
+                  
+                  <p data-i18n-meta-line>Classic • 2D • Español | Room 5</p>
                   
                   
                 </div>
