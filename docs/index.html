@@ -1131,6 +1131,62 @@
       max-width: 54ch;
     }
 
+    .front-board-signals {
+      display: grid;
+      gap: 0.58rem;
+      padding-bottom: 0.08rem;
+      border-bottom: 1px solid rgba(255, 255, 255, 0.08);
+    }
+
+    .front-board-summary {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 0.45rem 0.9rem;
+      color: var(--muted);
+      font-size: 0.84rem;
+      line-height: 1.45;
+    }
+
+    .front-board-summary span {
+      min-width: 0;
+    }
+
+    .front-board-peak {
+      display: flex;
+      gap: 0.75rem;
+      align-items: start;
+      justify-content: space-between;
+    }
+
+    .front-board-peak-copy {
+      display: grid;
+      gap: 0.18rem;
+      min-width: 0;
+    }
+
+    .front-board-peak-label {
+      color: var(--muted);
+      font-size: 0.78rem;
+      font-weight: 700;
+      letter-spacing: 0.06em;
+      text-transform: uppercase;
+    }
+
+    .front-board-peak-copy strong {
+      line-height: 1.16;
+    }
+
+    .front-board-peak-copy p {
+      color: var(--muted);
+      font-size: 0.86rem;
+      line-height: 1.38;
+    }
+
+    .front-board-peak-copy p span {
+      display: inline-block;
+      margin-left: 0.4rem;
+    }
+
     .front-special-grid {
       display: grid;
       grid-template-columns: repeat(2, minmax(0, 1fr));
@@ -1782,6 +1838,14 @@
         grid-template-columns: 1fr;
       }
 
+      .front-board-peak {
+        display: grid;
+      }
+
+      .front-board-peak-copy p span {
+        margin-left: 0;
+      }
+
       .time-badge {
         justify-self: start;
       }
@@ -1923,7 +1987,7 @@
   </div>
   <div class="front-freshness">
     <span data-i18n-source>Listings</span>
-    <strong data-i18n-freshness>Updated 3 h ago</strong>
+    <strong data-i18n-freshness>Updated 4 h ago</strong>
     <span data-i18n-count="screening" data-i18n-count-value="5732">5732 screenings</span>
   </div>
 </section>
@@ -2337,6 +2401,47 @@
             <span class="chip" data-i18n-count="screening" data-i18n-count-value="220">220 screenings</span>
           </div>
           
+  <div class="front-board-signals">
+    <div class="front-board-summary">
+      
+      <span><span data-i18n-source>Cache range</span>: 2026-04-08</span>
+      
+      
+      <span><span data-i18n-source>Rooms identified</span>: 13</span>
+      
+      
+      <span><span data-i18n-source>Sold data</span>: 78</span>
+      
+      
+      <span><span data-i18n-source>Top venue</span>: <a href="/cinema-watch-snapshot/venues/showcase/showcase_norcenter/" data-live-nav="true">Norcenter</a></span>
+      
+    </div>
+    
+    <div class="front-board-peak">
+      <div class="front-board-peak-copy">
+        <span class="front-board-peak-label" data-i18n-source>Peak crowd</span>
+        <strong><a href="/cinema-watch-snapshot/movies/super-mario-galaxy-la-pelicula/" data-live-nav="true">Super Mario Galaxy: La película</a></strong>
+        <p>
+          <a href="/cinema-watch-snapshot/venues/cinepolis/merlo/" data-live-nav="true">Merlo</a>
+          <span>2026-04-08 17:00</span>
+        </p>
+      </div>
+      <div class="chips">
+        <span class="chip" data-i18n-meta-line>36% sold | Room 4</span>
+        
+        <span
+          class="chip chip-neutral"
+          data-i18n-seat-note
+          data-seats-total="282"
+          data-seats-available="181"
+        >181 available of 282</span>
+        
+      </div>
+    </div>
+    
+  </div>
+  
+          
   <div class="front-screening-groups">
     
     <section class="front-date-group">
@@ -2350,7 +2455,7 @@
           <span class="mini-time">12:00</span>
           <div class="front-screening-copy">
             <strong><a href="/cinema-watch-snapshot/movies/super-mario-galaxy-la-pelicula/" data-live-nav="true">Super Mario Galaxy: La película</a></strong>
-            <p><a href="/cinema-watch-snapshot/venues/cinepolis/recoleta/">Recoleta</a> <span data-i18n-meta-line>| Classic • 3D • Español | Room 7</span></p>
+            <p><a href="/cinema-watch-snapshot/venues/cinepolis/recoleta/" data-live-nav="true">Recoleta</a> <span data-i18n-meta-line>| Classic • 3D • Español | Room 7</span></p>
           </div>
         </div>
         
@@ -2358,7 +2463,7 @@
           <span class="mini-time">12:15</span>
           <div class="front-screening-copy">
             <strong><a href="/cinema-watch-snapshot/movies/super-mario-galaxy-la-pelicula/" data-live-nav="true">Super Mario Galaxy: La película</a></strong>
-            <p><a href="/cinema-watch-snapshot/venues/cinepolis/recoleta/">Recoleta</a> <span data-i18n-meta-line>| 4D • 3D • Español | Room 10 | 7% sold</span></p>
+            <p><a href="/cinema-watch-snapshot/venues/cinepolis/recoleta/" data-live-nav="true">Recoleta</a> <span data-i18n-meta-line>| 4D • 3D • Español | Room 10 | 7% sold</span></p>
           </div>
         </div>
         
@@ -2366,7 +2471,7 @@
           <span class="mini-time">12:30</span>
           <div class="front-screening-copy">
             <strong><a href="/cinema-watch-snapshot/movies/super-mario-galaxy-la-pelicula/" data-live-nav="true">Super Mario Galaxy: La película</a></strong>
-            <p><a href="/cinema-watch-snapshot/venues/cinepolis/recoleta/">Recoleta</a> <span data-i18n-meta-line>| Classic • 2D • Español | Room 5</span></p>
+            <p><a href="/cinema-watch-snapshot/venues/cinepolis/recoleta/" data-live-nav="true">Recoleta</a> <span data-i18n-meta-line>| Classic • 2D • Español | Room 5</span></p>
           </div>
         </div>
         
@@ -2374,7 +2479,7 @@
           <span class="mini-time">12:30</span>
           <div class="front-screening-copy">
             <strong><a href="/cinema-watch-snapshot/movies/nuremberg-el-juicio-del-siglo/" data-live-nav="true">Nuremberg: El juicio del siglo</a></strong>
-            <p><a href="/cinema-watch-snapshot/venues/cinepolis/recoleta/">Recoleta</a> <span data-i18n-meta-line>| Classic • 2D • Subtitulado | Room 9 | 1% sold</span></p>
+            <p><a href="/cinema-watch-snapshot/venues/cinepolis/recoleta/" data-live-nav="true">Recoleta</a> <span data-i18n-meta-line>| Classic • 2D • Subtitulado | Room 9 | 1% sold</span></p>
           </div>
         </div>
         
@@ -2382,7 +2487,7 @@
           <span class="mini-time">12:40</span>
           <div class="front-screening-copy">
             <strong><a href="/cinema-watch-snapshot/movies/hoppers/" data-live-nav="true">Hoppers</a></strong>
-            <p><a href="/cinema-watch-snapshot/venues/cinepolis/merlo/">Merlo</a> <span data-i18n-meta-line>| Classic • 2D • Español | Room 5 | 14% sold</span></p>
+            <p><a href="/cinema-watch-snapshot/venues/cinepolis/merlo/" data-live-nav="true">Merlo</a> <span data-i18n-meta-line>| Classic • 2D • Español | Room 5 | 14% sold</span></p>
           </div>
         </div>
         
@@ -2390,7 +2495,7 @@
           <span class="mini-time">12:40</span>
           <div class="front-screening-copy">
             <strong><a href="/cinema-watch-snapshot/movies/hoppers/" data-live-nav="true">Hoppers</a></strong>
-            <p><a href="/cinema-watch-snapshot/venues/cinepolis/pilar/">Pilar</a> <span data-i18n-meta-line>| Classic • 2D • Español | Room 2 | 2% sold</span></p>
+            <p><a href="/cinema-watch-snapshot/venues/cinepolis/pilar/" data-live-nav="true">Pilar</a> <span data-i18n-meta-line>| Classic • 2D • Español | Room 2 | 2% sold</span></p>
           </div>
         </div>
         
@@ -2398,7 +2503,7 @@
           <span class="mini-time">12:40</span>
           <div class="front-screening-copy">
             <strong><a href="/cinema-watch-snapshot/movies/super-mario-galaxy-la-pelicula/" data-live-nav="true">Super Mario Galaxy: La película</a></strong>
-            <p><a href="/cinema-watch-snapshot/venues/cinepolis/pilar/">Pilar</a> <span data-i18n-meta-line>| Monster Screen • 2D • Español | Room 9 | 1% sold</span></p>
+            <p><a href="/cinema-watch-snapshot/venues/cinepolis/pilar/" data-live-nav="true">Pilar</a> <span data-i18n-meta-line>| Monster Screen • 2D • Español | Room 9 | 1% sold</span></p>
           </div>
         </div>
         
@@ -2406,7 +2511,7 @@
           <span class="mini-time">12:45</span>
           <div class="front-screening-copy">
             <strong><a href="/cinema-watch-snapshot/movies/hoppers/" data-live-nav="true">Hoppers</a></strong>
-            <p><a href="/cinema-watch-snapshot/venues/cinepolis/avellaneda/">Avellaneda</a> <span data-i18n-meta-line>| Classic • 2D • Español | Room 10</span></p>
+            <p><a href="/cinema-watch-snapshot/venues/cinepolis/avellaneda/" data-live-nav="true">Avellaneda</a> <span data-i18n-meta-line>| Classic • 2D • Español | Room 10</span></p>
           </div>
         </div>
         
@@ -2414,7 +2519,7 @@
           <span class="mini-time">12:45</span>
           <div class="front-screening-copy">
             <strong><a href="/cinema-watch-snapshot/movies/hoppers/" data-live-nav="true">Hoppers</a></strong>
-            <p><a href="/cinema-watch-snapshot/venues/cinepolis/recoleta/">Recoleta</a> <span data-i18n-meta-line>| Classic • 2D • Español | Room 2</span></p>
+            <p><a href="/cinema-watch-snapshot/venues/cinepolis/recoleta/" data-live-nav="true">Recoleta</a> <span data-i18n-meta-line>| Classic • 2D • Español | Room 2</span></p>
           </div>
         </div>
         
@@ -2422,7 +2527,7 @@
           <span class="mini-time">12:50</span>
           <div class="front-screening-copy">
             <strong><a href="/cinema-watch-snapshot/movies/proyecto-fin-del-mundo/" data-live-nav="true">Proyecto fin del mundo</a></strong>
-            <p><a href="/cinema-watch-snapshot/venues/cinepolis/pilar/">Pilar</a> <span data-i18n-meta-line>| Classic • 2D • Español | Room 8</span></p>
+            <p><a href="/cinema-watch-snapshot/venues/cinepolis/pilar/" data-live-nav="true">Pilar</a> <span data-i18n-meta-line>| Classic • 2D • Español | Room 8</span></p>
           </div>
         </div>
         
@@ -2447,6 +2552,47 @@
             <span class="chip" data-i18n-count="screening" data-i18n-count-value="220">220 screenings</span>
           </div>
           
+  <div class="front-board-signals">
+    <div class="front-board-summary">
+      
+      <span><span data-i18n-source>Cache range</span>: 2026-04-09</span>
+      
+      
+      <span><span data-i18n-source>Rooms identified</span>: 13</span>
+      
+      
+      <span><span data-i18n-source>Sold data</span>: 65</span>
+      
+      
+      <span><span data-i18n-source>Top venue</span>: <a href="/cinema-watch-snapshot/venues/showcase/showcase_norcenter/" data-live-nav="true">Norcenter</a></span>
+      
+    </div>
+    
+    <div class="front-board-peak">
+      <div class="front-board-peak-copy">
+        <span class="front-board-peak-label" data-i18n-source>Peak crowd</span>
+        <strong><a href="/cinema-watch-snapshot/movies/los-colores-del-tiempo/" data-live-nav="true">Los colores del tiempo</a></strong>
+        <p>
+          <a href="/cinema-watch-snapshot/venues/cinepolis/recoleta/" data-live-nav="true">Recoleta</a>
+          <span>2026-04-09 19:00</span>
+        </p>
+      </div>
+      <div class="chips">
+        <span class="chip" data-i18n-meta-line>91% sold | Room 6</span>
+        
+        <span
+          class="chip chip-neutral"
+          data-i18n-seat-note
+          data-seats-total="223"
+          data-seats-available="20"
+        >20 available of 223</span>
+        
+      </div>
+    </div>
+    
+  </div>
+  
+          
   <div class="front-screening-groups">
     
     <section class="front-date-group">
@@ -2460,7 +2606,7 @@
           <span class="mini-time">12:00</span>
           <div class="front-screening-copy">
             <strong><a href="/cinema-watch-snapshot/movies/super-mario-galaxy-la-pelicula/" data-live-nav="true">Super Mario Galaxy: La película</a></strong>
-            <p><a href="/cinema-watch-snapshot/venues/cinepolis/recoleta/">Recoleta</a> <span data-i18n-meta-line>| Classic • 2D • Español | Room 7</span></p>
+            <p><a href="/cinema-watch-snapshot/venues/cinepolis/recoleta/" data-live-nav="true">Recoleta</a> <span data-i18n-meta-line>| Classic • 2D • Español | Room 7</span></p>
           </div>
         </div>
         
@@ -2468,7 +2614,7 @@
           <span class="mini-time">12:15</span>
           <div class="front-screening-copy">
             <strong><a href="/cinema-watch-snapshot/movies/super-mario-galaxy-la-pelicula/" data-live-nav="true">Super Mario Galaxy: La película</a></strong>
-            <p><a href="/cinema-watch-snapshot/venues/cinepolis/recoleta/">Recoleta</a> <span data-i18n-meta-line>| Classic • 2D • Español | Room 1</span></p>
+            <p><a href="/cinema-watch-snapshot/venues/cinepolis/recoleta/" data-live-nav="true">Recoleta</a> <span data-i18n-meta-line>| Classic • 2D • Español | Room 1</span></p>
           </div>
         </div>
         
@@ -2476,7 +2622,7 @@
           <span class="mini-time">12:15</span>
           <div class="front-screening-copy">
             <strong><a href="/cinema-watch-snapshot/movies/super-mario-galaxy-la-pelicula/" data-live-nav="true">Super Mario Galaxy: La película</a></strong>
-            <p><a href="/cinema-watch-snapshot/venues/cinepolis/recoleta/">Recoleta</a> <span data-i18n-meta-line>| 4D • 3D • Español | Room 10 | 5% sold</span></p>
+            <p><a href="/cinema-watch-snapshot/venues/cinepolis/recoleta/" data-live-nav="true">Recoleta</a> <span data-i18n-meta-line>| 4D • 3D • Español | Room 10 | 5% sold</span></p>
           </div>
         </div>
         
@@ -2484,7 +2630,7 @@
           <span class="mini-time">12:15</span>
           <div class="front-screening-copy">
             <strong><a href="/cinema-watch-snapshot/movies/el-drama/" data-live-nav="true">El Drama</a></strong>
-            <p><a href="/cinema-watch-snapshot/venues/cinepolis/recoleta/">Recoleta</a> <span data-i18n-meta-line>| Classic • 2D • Subtitulado | Room 3 | 1% sold</span></p>
+            <p><a href="/cinema-watch-snapshot/venues/cinepolis/recoleta/" data-live-nav="true">Recoleta</a> <span data-i18n-meta-line>| Classic • 2D • Subtitulado | Room 3 | 1% sold</span></p>
           </div>
         </div>
         
@@ -2492,7 +2638,7 @@
           <span class="mini-time">12:30</span>
           <div class="front-screening-copy">
             <strong><a href="/cinema-watch-snapshot/movies/super-mario-galaxy-la-pelicula/" data-live-nav="true">Super Mario Galaxy: La película</a></strong>
-            <p><a href="/cinema-watch-snapshot/venues/cinepolis/recoleta/">Recoleta</a> <span data-i18n-meta-line>| Classic • 2D • Español | Room 4</span></p>
+            <p><a href="/cinema-watch-snapshot/venues/cinepolis/recoleta/" data-live-nav="true">Recoleta</a> <span data-i18n-meta-line>| Classic • 2D • Español | Room 4</span></p>
           </div>
         </div>
         
@@ -2500,7 +2646,7 @@
           <span class="mini-time">12:40</span>
           <div class="front-screening-copy">
             <strong><a href="/cinema-watch-snapshot/movies/super-mario-galaxy-la-pelicula/" data-live-nav="true">Super Mario Galaxy: La película</a></strong>
-            <p><a href="/cinema-watch-snapshot/venues/cinepolis/merlo/">Merlo</a> <span data-i18n-meta-line>| Classic • 2D • Español | Room 3 | 33% sold</span></p>
+            <p><a href="/cinema-watch-snapshot/venues/cinepolis/merlo/" data-live-nav="true">Merlo</a> <span data-i18n-meta-line>| Classic • 2D • Español | Room 3 | 33% sold</span></p>
           </div>
         </div>
         
@@ -2508,7 +2654,7 @@
           <span class="mini-time">12:40</span>
           <div class="front-screening-copy">
             <strong><a href="/cinema-watch-snapshot/movies/el-drama/" data-live-nav="true">El Drama</a></strong>
-            <p><a href="/cinema-watch-snapshot/venues/cinepolis/pilar/">Pilar</a> <span data-i18n-meta-line>| Classic • 2D • Español | Room 7 | 3% sold</span></p>
+            <p><a href="/cinema-watch-snapshot/venues/cinepolis/pilar/" data-live-nav="true">Pilar</a> <span data-i18n-meta-line>| Classic • 2D • Español | Room 7 | 3% sold</span></p>
           </div>
         </div>
         
@@ -2516,7 +2662,7 @@
           <span class="mini-time">12:40</span>
           <div class="front-screening-copy">
             <strong><a href="/cinema-watch-snapshot/movies/super-mario-galaxy-la-pelicula/" data-live-nav="true">Super Mario Galaxy: La película</a></strong>
-            <p><a href="/cinema-watch-snapshot/venues/cinepolis/pilar/">Pilar</a> <span data-i18n-meta-line>| Monster Screen • 2D • Español | Room 9 | 1% sold</span></p>
+            <p><a href="/cinema-watch-snapshot/venues/cinepolis/pilar/" data-live-nav="true">Pilar</a> <span data-i18n-meta-line>| Monster Screen • 2D • Español | Room 9 | 1% sold</span></p>
           </div>
         </div>
         
@@ -2524,7 +2670,7 @@
           <span class="mini-time">12:40</span>
           <div class="front-screening-copy">
             <strong><a href="/cinema-watch-snapshot/movies/proyecto-fin-del-mundo/" data-live-nav="true">Proyecto fin del mundo</a></strong>
-            <p><a href="/cinema-watch-snapshot/venues/cinepolis/recoleta/">Recoleta</a> <span data-i18n-meta-line>| Classic • 2D • Subtitulado | Room 8</span></p>
+            <p><a href="/cinema-watch-snapshot/venues/cinepolis/recoleta/" data-live-nav="true">Recoleta</a> <span data-i18n-meta-line>| Classic • 2D • Subtitulado | Room 8</span></p>
           </div>
         </div>
         
@@ -2532,7 +2678,7 @@
           <span class="mini-time">12:45</span>
           <div class="front-screening-copy">
             <strong><a href="/cinema-watch-snapshot/movies/super-mario-galaxy-la-pelicula/" data-live-nav="true">Super Mario Galaxy: La película</a></strong>
-            <p><a href="/cinema-watch-snapshot/venues/cinepolis/avellaneda/">Avellaneda</a> <span data-i18n-meta-line>| Classic • 2D • Español | Room 4 | 1% sold</span></p>
+            <p><a href="/cinema-watch-snapshot/venues/cinepolis/avellaneda/" data-live-nav="true">Avellaneda</a> <span data-i18n-meta-line>| Classic • 2D • Español | Room 4 | 1% sold</span></p>
           </div>
         </div>
         
@@ -2557,6 +2703,47 @@
             <span class="chip" data-i18n-count="screening" data-i18n-count-value="220">220 screenings</span>
           </div>
           
+  <div class="front-board-signals">
+    <div class="front-board-summary">
+      
+      <span><span data-i18n-source>Cache range</span>: 2026-04-08</span>
+      
+      
+      <span><span data-i18n-source>Rooms identified</span>: 13</span>
+      
+      
+      <span><span data-i18n-source>Sold data</span>: 78</span>
+      
+      
+      <span><span data-i18n-source>Top venue</span>: <a href="/cinema-watch-snapshot/venues/showcase/showcase_norcenter/" data-live-nav="true">Norcenter</a></span>
+      
+    </div>
+    
+    <div class="front-board-peak">
+      <div class="front-board-peak-copy">
+        <span class="front-board-peak-label" data-i18n-source>Peak crowd</span>
+        <strong><a href="/cinema-watch-snapshot/movies/super-mario-galaxy-la-pelicula/" data-live-nav="true">Super Mario Galaxy: La película</a></strong>
+        <p>
+          <a href="/cinema-watch-snapshot/venues/cinepolis/merlo/" data-live-nav="true">Merlo</a>
+          <span>2026-04-08 17:00</span>
+        </p>
+      </div>
+      <div class="chips">
+        <span class="chip" data-i18n-meta-line>36% sold | Room 4</span>
+        
+        <span
+          class="chip chip-neutral"
+          data-i18n-seat-note
+          data-seats-total="282"
+          data-seats-available="181"
+        >181 available of 282</span>
+        
+      </div>
+    </div>
+    
+  </div>
+  
+          
   <div class="front-screening-groups">
     
     <section class="front-date-group">
@@ -2570,7 +2757,7 @@
           <span class="mini-time">12:00</span>
           <div class="front-screening-copy">
             <strong><a href="/cinema-watch-snapshot/movies/super-mario-galaxy-la-pelicula/" data-live-nav="true">Super Mario Galaxy: La película</a></strong>
-            <p><a href="/cinema-watch-snapshot/venues/cinepolis/recoleta/">Recoleta</a> <span data-i18n-meta-line>| Classic • 3D • Español | Room 7</span></p>
+            <p><a href="/cinema-watch-snapshot/venues/cinepolis/recoleta/" data-live-nav="true">Recoleta</a> <span data-i18n-meta-line>| Classic • 3D • Español | Room 7</span></p>
           </div>
         </div>
         
@@ -2578,7 +2765,7 @@
           <span class="mini-time">12:15</span>
           <div class="front-screening-copy">
             <strong><a href="/cinema-watch-snapshot/movies/super-mario-galaxy-la-pelicula/" data-live-nav="true">Super Mario Galaxy: La película</a></strong>
-            <p><a href="/cinema-watch-snapshot/venues/cinepolis/recoleta/">Recoleta</a> <span data-i18n-meta-line>| 4D • 3D • Español | Room 10 | 7% sold</span></p>
+            <p><a href="/cinema-watch-snapshot/venues/cinepolis/recoleta/" data-live-nav="true">Recoleta</a> <span data-i18n-meta-line>| 4D • 3D • Español | Room 10 | 7% sold</span></p>
           </div>
         </div>
         
@@ -2586,7 +2773,7 @@
           <span class="mini-time">12:30</span>
           <div class="front-screening-copy">
             <strong><a href="/cinema-watch-snapshot/movies/super-mario-galaxy-la-pelicula/" data-live-nav="true">Super Mario Galaxy: La película</a></strong>
-            <p><a href="/cinema-watch-snapshot/venues/cinepolis/recoleta/">Recoleta</a> <span data-i18n-meta-line>| Classic • 2D • Español | Room 5</span></p>
+            <p><a href="/cinema-watch-snapshot/venues/cinepolis/recoleta/" data-live-nav="true">Recoleta</a> <span data-i18n-meta-line>| Classic • 2D • Español | Room 5</span></p>
           </div>
         </div>
         
@@ -2594,7 +2781,7 @@
           <span class="mini-time">12:30</span>
           <div class="front-screening-copy">
             <strong><a href="/cinema-watch-snapshot/movies/nuremberg-el-juicio-del-siglo/" data-live-nav="true">Nuremberg: El juicio del siglo</a></strong>
-            <p><a href="/cinema-watch-snapshot/venues/cinepolis/recoleta/">Recoleta</a> <span data-i18n-meta-line>| Classic • 2D • Subtitulado | Room 9 | 1% sold</span></p>
+            <p><a href="/cinema-watch-snapshot/venues/cinepolis/recoleta/" data-live-nav="true">Recoleta</a> <span data-i18n-meta-line>| Classic • 2D • Subtitulado | Room 9 | 1% sold</span></p>
           </div>
         </div>
         
@@ -2602,7 +2789,7 @@
           <span class="mini-time">12:40</span>
           <div class="front-screening-copy">
             <strong><a href="/cinema-watch-snapshot/movies/hoppers/" data-live-nav="true">Hoppers</a></strong>
-            <p><a href="/cinema-watch-snapshot/venues/cinepolis/merlo/">Merlo</a> <span data-i18n-meta-line>| Classic • 2D • Español | Room 5 | 14% sold</span></p>
+            <p><a href="/cinema-watch-snapshot/venues/cinepolis/merlo/" data-live-nav="true">Merlo</a> <span data-i18n-meta-line>| Classic • 2D • Español | Room 5 | 14% sold</span></p>
           </div>
         </div>
         
@@ -2610,7 +2797,7 @@
           <span class="mini-time">12:40</span>
           <div class="front-screening-copy">
             <strong><a href="/cinema-watch-snapshot/movies/hoppers/" data-live-nav="true">Hoppers</a></strong>
-            <p><a href="/cinema-watch-snapshot/venues/cinepolis/pilar/">Pilar</a> <span data-i18n-meta-line>| Classic • 2D • Español | Room 2 | 2% sold</span></p>
+            <p><a href="/cinema-watch-snapshot/venues/cinepolis/pilar/" data-live-nav="true">Pilar</a> <span data-i18n-meta-line>| Classic • 2D • Español | Room 2 | 2% sold</span></p>
           </div>
         </div>
         
@@ -2618,7 +2805,7 @@
           <span class="mini-time">12:40</span>
           <div class="front-screening-copy">
             <strong><a href="/cinema-watch-snapshot/movies/super-mario-galaxy-la-pelicula/" data-live-nav="true">Super Mario Galaxy: La película</a></strong>
-            <p><a href="/cinema-watch-snapshot/venues/cinepolis/pilar/">Pilar</a> <span data-i18n-meta-line>| Monster Screen • 2D • Español | Room 9 | 1% sold</span></p>
+            <p><a href="/cinema-watch-snapshot/venues/cinepolis/pilar/" data-live-nav="true">Pilar</a> <span data-i18n-meta-line>| Monster Screen • 2D • Español | Room 9 | 1% sold</span></p>
           </div>
         </div>
         
@@ -2643,6 +2830,47 @@
             <span class="chip" data-i18n-count="screening" data-i18n-count-value="220">220 screenings</span>
           </div>
           
+  <div class="front-board-signals">
+    <div class="front-board-summary">
+      
+      <span><span data-i18n-source>Cache range</span>: 2026-04-09</span>
+      
+      
+      <span><span data-i18n-source>Rooms identified</span>: 13</span>
+      
+      
+      <span><span data-i18n-source>Sold data</span>: 65</span>
+      
+      
+      <span><span data-i18n-source>Top venue</span>: <a href="/cinema-watch-snapshot/venues/showcase/showcase_norcenter/" data-live-nav="true">Norcenter</a></span>
+      
+    </div>
+    
+    <div class="front-board-peak">
+      <div class="front-board-peak-copy">
+        <span class="front-board-peak-label" data-i18n-source>Peak crowd</span>
+        <strong><a href="/cinema-watch-snapshot/movies/los-colores-del-tiempo/" data-live-nav="true">Los colores del tiempo</a></strong>
+        <p>
+          <a href="/cinema-watch-snapshot/venues/cinepolis/recoleta/" data-live-nav="true">Recoleta</a>
+          <span>2026-04-09 19:00</span>
+        </p>
+      </div>
+      <div class="chips">
+        <span class="chip" data-i18n-meta-line>91% sold | Room 6</span>
+        
+        <span
+          class="chip chip-neutral"
+          data-i18n-seat-note
+          data-seats-total="223"
+          data-seats-available="20"
+        >20 available of 223</span>
+        
+      </div>
+    </div>
+    
+  </div>
+  
+          
   <div class="front-screening-groups">
     
     <section class="front-date-group">
@@ -2656,7 +2884,7 @@
           <span class="mini-time">12:00</span>
           <div class="front-screening-copy">
             <strong><a href="/cinema-watch-snapshot/movies/super-mario-galaxy-la-pelicula/" data-live-nav="true">Super Mario Galaxy: La película</a></strong>
-            <p><a href="/cinema-watch-snapshot/venues/cinepolis/recoleta/">Recoleta</a> <span data-i18n-meta-line>| Classic • 2D • Español | Room 7</span></p>
+            <p><a href="/cinema-watch-snapshot/venues/cinepolis/recoleta/" data-live-nav="true">Recoleta</a> <span data-i18n-meta-line>| Classic • 2D • Español | Room 7</span></p>
           </div>
         </div>
         
@@ -2664,7 +2892,7 @@
           <span class="mini-time">12:15</span>
           <div class="front-screening-copy">
             <strong><a href="/cinema-watch-snapshot/movies/super-mario-galaxy-la-pelicula/" data-live-nav="true">Super Mario Galaxy: La película</a></strong>
-            <p><a href="/cinema-watch-snapshot/venues/cinepolis/recoleta/">Recoleta</a> <span data-i18n-meta-line>| Classic • 2D • Español | Room 1</span></p>
+            <p><a href="/cinema-watch-snapshot/venues/cinepolis/recoleta/" data-live-nav="true">Recoleta</a> <span data-i18n-meta-line>| Classic • 2D • Español | Room 1</span></p>
           </div>
         </div>
         
@@ -2672,7 +2900,7 @@
           <span class="mini-time">12:15</span>
           <div class="front-screening-copy">
             <strong><a href="/cinema-watch-snapshot/movies/super-mario-galaxy-la-pelicula/" data-live-nav="true">Super Mario Galaxy: La película</a></strong>
-            <p><a href="/cinema-watch-snapshot/venues/cinepolis/recoleta/">Recoleta</a> <span data-i18n-meta-line>| 4D • 3D • Español | Room 10 | 5% sold</span></p>
+            <p><a href="/cinema-watch-snapshot/venues/cinepolis/recoleta/" data-live-nav="true">Recoleta</a> <span data-i18n-meta-line>| 4D • 3D • Español | Room 10 | 5% sold</span></p>
           </div>
         </div>
         
@@ -2680,7 +2908,7 @@
           <span class="mini-time">12:15</span>
           <div class="front-screening-copy">
             <strong><a href="/cinema-watch-snapshot/movies/el-drama/" data-live-nav="true">El Drama</a></strong>
-            <p><a href="/cinema-watch-snapshot/venues/cinepolis/recoleta/">Recoleta</a> <span data-i18n-meta-line>| Classic • 2D • Subtitulado | Room 3 | 1% sold</span></p>
+            <p><a href="/cinema-watch-snapshot/venues/cinepolis/recoleta/" data-live-nav="true">Recoleta</a> <span data-i18n-meta-line>| Classic • 2D • Subtitulado | Room 3 | 1% sold</span></p>
           </div>
         </div>
         
@@ -2688,7 +2916,7 @@
           <span class="mini-time">12:30</span>
           <div class="front-screening-copy">
             <strong><a href="/cinema-watch-snapshot/movies/super-mario-galaxy-la-pelicula/" data-live-nav="true">Super Mario Galaxy: La película</a></strong>
-            <p><a href="/cinema-watch-snapshot/venues/cinepolis/recoleta/">Recoleta</a> <span data-i18n-meta-line>| Classic • 2D • Español | Room 4</span></p>
+            <p><a href="/cinema-watch-snapshot/venues/cinepolis/recoleta/" data-live-nav="true">Recoleta</a> <span data-i18n-meta-line>| Classic • 2D • Español | Room 4</span></p>
           </div>
         </div>
         
@@ -2696,7 +2924,7 @@
           <span class="mini-time">12:40</span>
           <div class="front-screening-copy">
             <strong><a href="/cinema-watch-snapshot/movies/super-mario-galaxy-la-pelicula/" data-live-nav="true">Super Mario Galaxy: La película</a></strong>
-            <p><a href="/cinema-watch-snapshot/venues/cinepolis/merlo/">Merlo</a> <span data-i18n-meta-line>| Classic • 2D • Español | Room 3 | 33% sold</span></p>
+            <p><a href="/cinema-watch-snapshot/venues/cinepolis/merlo/" data-live-nav="true">Merlo</a> <span data-i18n-meta-line>| Classic • 2D • Español | Room 3 | 33% sold</span></p>
           </div>
         </div>
         
@@ -2704,7 +2932,7 @@
           <span class="mini-time">12:40</span>
           <div class="front-screening-copy">
             <strong><a href="/cinema-watch-snapshot/movies/el-drama/" data-live-nav="true">El Drama</a></strong>
-            <p><a href="/cinema-watch-snapshot/venues/cinepolis/pilar/">Pilar</a> <span data-i18n-meta-line>| Classic • 2D • Español | Room 7 | 3% sold</span></p>
+            <p><a href="/cinema-watch-snapshot/venues/cinepolis/pilar/" data-live-nav="true">Pilar</a> <span data-i18n-meta-line>| Classic • 2D • Español | Room 7 | 3% sold</span></p>
           </div>
         </div>
         
@@ -2729,6 +2957,21 @@
             <span class="chip" data-i18n-count="screening" data-i18n-count-value="27">27 screenings</span>
           </div>
           
+  <div class="front-board-signals">
+    <div class="front-board-summary">
+      
+      <span><span data-i18n-source>Cache range</span>: 2026-04-08 to 2026-04-14</span>
+      
+      
+      
+      
+      <span><span data-i18n-source>Top venue</span>: <a href="/cinema-watch-snapshot/venues/showcase/imax_norcenter/" data-live-nav="true">IMAX Theatre (Norcenter)</a></span>
+      
+    </div>
+    
+  </div>
+  
+          
   <div class="front-screening-groups">
     
     <section class="front-date-group">
@@ -2742,7 +2985,7 @@
           <span class="mini-time">15:00</span>
           <div class="front-screening-copy">
             <strong><a href="/cinema-watch-snapshot/movies/super-mario-galaxy-la-pelicula/" data-live-nav="true">Súper Mario Galaxy: la película</a></strong>
-            <p><a href="/cinema-watch-snapshot/venues/showcase/imax_norcenter/">IMAX Theatre (Norcenter)</a></p>
+            <p><a href="/cinema-watch-snapshot/venues/showcase/imax_norcenter/" data-live-nav="true">IMAX Theatre (Norcenter)</a></p>
           </div>
         </div>
         
@@ -2750,7 +2993,7 @@
           <span class="mini-time">17:25</span>
           <div class="front-screening-copy">
             <strong><a href="/cinema-watch-snapshot/movies/super-mario-galaxy-la-pelicula/" data-live-nav="true">Súper Mario Galaxy: la película</a></strong>
-            <p><a href="/cinema-watch-snapshot/venues/showcase/imax_norcenter/">IMAX Theatre (Norcenter)</a></p>
+            <p><a href="/cinema-watch-snapshot/venues/showcase/imax_norcenter/" data-live-nav="true">IMAX Theatre (Norcenter)</a></p>
           </div>
         </div>
         
@@ -2758,7 +3001,7 @@
           <span class="mini-time">19:45</span>
           <div class="front-screening-copy">
             <strong><a href="/cinema-watch-snapshot/movies/super-mario-galaxy-la-pelicula/" data-live-nav="true">Súper Mario Galaxy: la película</a></strong>
-            <p><a href="/cinema-watch-snapshot/venues/showcase/imax_norcenter/">IMAX Theatre (Norcenter)</a></p>
+            <p><a href="/cinema-watch-snapshot/venues/showcase/imax_norcenter/" data-live-nav="true">IMAX Theatre (Norcenter)</a></p>
           </div>
         </div>
         
@@ -2766,7 +3009,7 @@
           <span class="mini-time">22:10</span>
           <div class="front-screening-copy">
             <strong><a href="/cinema-watch-snapshot/movies/super-mario-galaxy-la-pelicula/" data-live-nav="true">Súper Mario Galaxy: la película</a></strong>
-            <p><a href="/cinema-watch-snapshot/venues/showcase/imax_norcenter/">IMAX Theatre (Norcenter)</a></p>
+            <p><a href="/cinema-watch-snapshot/venues/showcase/imax_norcenter/" data-live-nav="true">IMAX Theatre (Norcenter)</a></p>
           </div>
         </div>
         
@@ -2784,7 +3027,7 @@
           <span class="mini-time">15:00</span>
           <div class="front-screening-copy">
             <strong><a href="/cinema-watch-snapshot/movies/super-mario-galaxy-la-pelicula/" data-live-nav="true">Súper Mario Galaxy: la película</a></strong>
-            <p><a href="/cinema-watch-snapshot/venues/showcase/imax_norcenter/">IMAX Theatre (Norcenter)</a></p>
+            <p><a href="/cinema-watch-snapshot/venues/showcase/imax_norcenter/" data-live-nav="true">IMAX Theatre (Norcenter)</a></p>
           </div>
         </div>
         
@@ -2792,7 +3035,7 @@
           <span class="mini-time">17:25</span>
           <div class="front-screening-copy">
             <strong><a href="/cinema-watch-snapshot/movies/super-mario-galaxy-la-pelicula/" data-live-nav="true">Súper Mario Galaxy: la película</a></strong>
-            <p><a href="/cinema-watch-snapshot/venues/showcase/imax_norcenter/">IMAX Theatre (Norcenter)</a></p>
+            <p><a href="/cinema-watch-snapshot/venues/showcase/imax_norcenter/" data-live-nav="true">IMAX Theatre (Norcenter)</a></p>
           </div>
         </div>
         
@@ -2800,7 +3043,7 @@
           <span class="mini-time">19:45</span>
           <div class="front-screening-copy">
             <strong><a href="/cinema-watch-snapshot/movies/super-mario-galaxy-la-pelicula/" data-live-nav="true">Súper Mario Galaxy: la película</a></strong>
-            <p><a href="/cinema-watch-snapshot/venues/showcase/imax_norcenter/">IMAX Theatre (Norcenter)</a></p>
+            <p><a href="/cinema-watch-snapshot/venues/showcase/imax_norcenter/" data-live-nav="true">IMAX Theatre (Norcenter)</a></p>
           </div>
         </div>
         
@@ -2808,7 +3051,7 @@
           <span class="mini-time">22:10</span>
           <div class="front-screening-copy">
             <strong><a href="/cinema-watch-snapshot/movies/proyecto-fin-del-mundo/" data-live-nav="true">Proyecto fin del mundo</a></strong>
-            <p><a href="/cinema-watch-snapshot/venues/showcase/imax_norcenter/">IMAX Theatre (Norcenter)</a></p>
+            <p><a href="/cinema-watch-snapshot/venues/showcase/imax_norcenter/" data-live-nav="true">IMAX Theatre (Norcenter)</a></p>
           </div>
         </div>
         
@@ -2833,6 +3076,47 @@
             <span class="chip" data-i18n-count="screening" data-i18n-count-value="57">57 screenings</span>
           </div>
           
+  <div class="front-board-signals">
+    <div class="front-board-summary">
+      
+      <span><span data-i18n-source>Cache range</span>: 2026-04-08 to 2026-04-14</span>
+      
+      
+      <span><span data-i18n-source>Rooms identified</span>: 2</span>
+      
+      
+      <span><span data-i18n-source>Sold data</span>: 55</span>
+      
+      
+      <span><span data-i18n-source>Top venue</span>: <a href="/cinema-watch-snapshot/venues/cinepolis/pilar/" data-live-nav="true">Pilar</a></span>
+      
+    </div>
+    
+    <div class="front-board-peak">
+      <div class="front-board-peak-copy">
+        <span class="front-board-peak-label" data-i18n-source>Peak crowd</span>
+        <strong><a href="/cinema-watch-snapshot/movies/los-colores-del-tiempo/" data-live-nav="true">Los colores del tiempo</a></strong>
+        <p>
+          <a href="/cinema-watch-snapshot/venues/cinepolis/recoleta/" data-live-nav="true">Recoleta</a>
+          <span>2026-04-09 19:00</span>
+        </p>
+      </div>
+      <div class="chips">
+        <span class="chip" data-i18n-meta-line>91% sold | Room 6</span>
+        
+        <span
+          class="chip chip-neutral"
+          data-i18n-seat-note
+          data-seats-total="223"
+          data-seats-available="20"
+        >20 available of 223</span>
+        
+      </div>
+    </div>
+    
+  </div>
+  
+          
   <div class="front-screening-groups">
     
     <section class="front-date-group">
@@ -2846,7 +3130,7 @@
           <span class="mini-time">12:40</span>
           <div class="front-screening-copy">
             <strong><a href="/cinema-watch-snapshot/movies/super-mario-galaxy-la-pelicula/" data-live-nav="true">Super Mario Galaxy: La película</a></strong>
-            <p><a href="/cinema-watch-snapshot/venues/cinepolis/pilar/">Pilar</a> <span data-i18n-meta-line>| Monster Screen • 2D • Español | Room 9 | 1% sold</span></p>
+            <p><a href="/cinema-watch-snapshot/venues/cinepolis/pilar/" data-live-nav="true">Pilar</a> <span data-i18n-meta-line>| Monster Screen • 2D • Español | Room 9 | 1% sold</span></p>
           </div>
         </div>
         
@@ -2854,7 +3138,7 @@
           <span class="mini-time">13:00</span>
           <div class="front-screening-copy">
             <strong><a href="/cinema-watch-snapshot/movies/super-mario-galaxy-la-pelicula/" data-live-nav="true">Super Mario Galaxy: La película</a></strong>
-            <p><a href="/cinema-watch-snapshot/venues/cinepolis/recoleta/">Recoleta</a> <span data-i18n-meta-line>| Classic • 2D • Español | Room 6</span></p>
+            <p><a href="/cinema-watch-snapshot/venues/cinepolis/recoleta/" data-live-nav="true">Recoleta</a> <span data-i18n-meta-line>| Classic • 2D • Español | Room 6</span></p>
           </div>
         </div>
         
@@ -2862,7 +3146,7 @@
           <span class="mini-time">15:00</span>
           <div class="front-screening-copy">
             <strong><a href="/cinema-watch-snapshot/movies/super-mario-galaxy-la-pelicula/" data-live-nav="true">Super Mario Galaxy: La película</a></strong>
-            <p><a href="/cinema-watch-snapshot/venues/cinepolis/pilar/">Pilar</a> <span data-i18n-meta-line>| Monster Screen • 2D • Español | Room 9 | 2% sold</span></p>
+            <p><a href="/cinema-watch-snapshot/venues/cinepolis/pilar/" data-live-nav="true">Pilar</a> <span data-i18n-meta-line>| Monster Screen • 2D • Español | Room 9 | 2% sold</span></p>
           </div>
         </div>
         
@@ -2870,7 +3154,7 @@
           <span class="mini-time">15:30</span>
           <div class="front-screening-copy">
             <strong><a href="/cinema-watch-snapshot/movies/super-mario-galaxy-la-pelicula/" data-live-nav="true">Super Mario Galaxy: La película</a></strong>
-            <p><a href="/cinema-watch-snapshot/venues/cinepolis/recoleta/">Recoleta</a> <span data-i18n-meta-line>| Classic • 2D • Español | Room 6</span></p>
+            <p><a href="/cinema-watch-snapshot/venues/cinepolis/recoleta/" data-live-nav="true">Recoleta</a> <span data-i18n-meta-line>| Classic • 2D • Español | Room 6</span></p>
           </div>
         </div>
         
@@ -2878,7 +3162,7 @@
           <span class="mini-time">17:20</span>
           <div class="front-screening-copy">
             <strong><a href="/cinema-watch-snapshot/movies/super-mario-galaxy-la-pelicula/" data-live-nav="true">Super Mario Galaxy: La película</a></strong>
-            <p><a href="/cinema-watch-snapshot/venues/cinepolis/pilar/">Pilar</a> <span data-i18n-meta-line>| Monster Screen • 3D • Español | Room 9 | 1% sold</span></p>
+            <p><a href="/cinema-watch-snapshot/venues/cinepolis/pilar/" data-live-nav="true">Pilar</a> <span data-i18n-meta-line>| Monster Screen • 3D • Español | Room 9 | 1% sold</span></p>
           </div>
         </div>
         
@@ -2886,7 +3170,7 @@
           <span class="mini-time">18:00</span>
           <div class="front-screening-copy">
             <strong><a href="/cinema-watch-snapshot/movies/super-mario-galaxy-la-pelicula/" data-live-nav="true">Super Mario Galaxy: La película</a></strong>
-            <p><a href="/cinema-watch-snapshot/venues/cinepolis/recoleta/">Recoleta</a> <span data-i18n-meta-line>| Classic • 2D • Español | Room 6 | 1% sold</span></p>
+            <p><a href="/cinema-watch-snapshot/venues/cinepolis/recoleta/" data-live-nav="true">Recoleta</a> <span data-i18n-meta-line>| Classic • 2D • Español | Room 6 | 1% sold</span></p>
           </div>
         </div>
         
@@ -2904,7 +3188,7 @@
           <span class="mini-time">12:40</span>
           <div class="front-screening-copy">
             <strong><a href="/cinema-watch-snapshot/movies/super-mario-galaxy-la-pelicula/" data-live-nav="true">Super Mario Galaxy: La película</a></strong>
-            <p><a href="/cinema-watch-snapshot/venues/cinepolis/pilar/">Pilar</a> <span data-i18n-meta-line>| Monster Screen • 2D • Español | Room 9 | 1% sold</span></p>
+            <p><a href="/cinema-watch-snapshot/venues/cinepolis/pilar/" data-live-nav="true">Pilar</a> <span data-i18n-meta-line>| Monster Screen • 2D • Español | Room 9 | 1% sold</span></p>
           </div>
         </div>
         
@@ -2912,7 +3196,7 @@
           <span class="mini-time">15:00</span>
           <div class="front-screening-copy">
             <strong><a href="/cinema-watch-snapshot/movies/super-mario-galaxy-la-pelicula/" data-live-nav="true">Super Mario Galaxy: La película</a></strong>
-            <p><a href="/cinema-watch-snapshot/venues/cinepolis/pilar/">Pilar</a> <span data-i18n-meta-line>| Monster Screen • 2D • Español | Room 9 | 1% sold</span></p>
+            <p><a href="/cinema-watch-snapshot/venues/cinepolis/pilar/" data-live-nav="true">Pilar</a> <span data-i18n-meta-line>| Monster Screen • 2D • Español | Room 9 | 1% sold</span></p>
           </div>
         </div>
         
@@ -2920,7 +3204,7 @@
           <span class="mini-time">17:20</span>
           <div class="front-screening-copy">
             <strong><a href="/cinema-watch-snapshot/movies/super-mario-galaxy-la-pelicula/" data-live-nav="true">Super Mario Galaxy: La película</a></strong>
-            <p><a href="/cinema-watch-snapshot/venues/cinepolis/pilar/">Pilar</a> <span data-i18n-meta-line>| Monster Screen • 3D • Español | Room 9 | 1% sold</span></p>
+            <p><a href="/cinema-watch-snapshot/venues/cinepolis/pilar/" data-live-nav="true">Pilar</a> <span data-i18n-meta-line>| Monster Screen • 3D • Español | Room 9 | 1% sold</span></p>
           </div>
         </div>
         
@@ -2928,7 +3212,7 @@
           <span class="mini-time">19:00</span>
           <div class="front-screening-copy">
             <strong><a href="/cinema-watch-snapshot/movies/los-colores-del-tiempo/" data-live-nav="true">Los colores del tiempo</a></strong>
-            <p><a href="/cinema-watch-snapshot/venues/cinepolis/recoleta/">Recoleta</a> <span data-i18n-meta-line>| Classic • 2D • Subtitulado | Room 6 | 91% sold</span></p>
+            <p><a href="/cinema-watch-snapshot/venues/cinepolis/recoleta/" data-live-nav="true">Recoleta</a> <span data-i18n-meta-line>| Classic • 2D • Subtitulado | Room 6 | 91% sold</span></p>
           </div>
         </div>
         
@@ -2936,7 +3220,7 @@
           <span class="mini-time">19:40</span>
           <div class="front-screening-copy">
             <strong><a href="/cinema-watch-snapshot/movies/super-mario-galaxy-la-pelicula/" data-live-nav="true">Super Mario Galaxy: La película</a></strong>
-            <p><a href="/cinema-watch-snapshot/venues/cinepolis/pilar/">Pilar</a> <span data-i18n-meta-line>| Monster Screen • 3D • Español | Room 9 | 2% sold</span></p>
+            <p><a href="/cinema-watch-snapshot/venues/cinepolis/pilar/" data-live-nav="true">Pilar</a> <span data-i18n-meta-line>| Monster Screen • 3D • Español | Room 9 | 2% sold</span></p>
           </div>
         </div>
         
@@ -2944,7 +3228,7 @@
           <span class="mini-time">22:00</span>
           <div class="front-screening-copy">
             <strong><a href="/cinema-watch-snapshot/movies/proyecto-fin-del-mundo/" data-live-nav="true">Proyecto fin del mundo</a></strong>
-            <p><a href="/cinema-watch-snapshot/venues/cinepolis/pilar/">Pilar</a> <span data-i18n-meta-line>| Monster Screen • 2D • Subtitulado | Room 9 | 1% sold</span></p>
+            <p><a href="/cinema-watch-snapshot/venues/cinepolis/pilar/" data-live-nav="true">Pilar</a> <span data-i18n-meta-line>| Monster Screen • 2D • Subtitulado | Room 9 | 1% sold</span></p>
           </div>
         </div>
         
@@ -2969,6 +3253,47 @@
             <span class="chip" data-i18n-count="screening" data-i18n-count-value="220">220 screenings</span>
           </div>
           
+  <div class="front-board-signals">
+    <div class="front-board-summary">
+      
+      <span><span data-i18n-source>Cache range</span>: 2026-04-08 to 2026-04-10</span>
+      
+      
+      <span><span data-i18n-source>Rooms identified</span>: 12</span>
+      
+      
+      <span><span data-i18n-source>Sold data</span>: 57</span>
+      
+      
+      <span><span data-i18n-source>Top venue</span>: <a href="/cinema-watch-snapshot/venues/showcase/showcase_norcenter/" data-live-nav="true">Norcenter</a></span>
+      
+    </div>
+    
+    <div class="front-board-peak">
+      <div class="front-board-peak-copy">
+        <span class="front-board-peak-label" data-i18n-source>Peak crowd</span>
+        <strong><a href="/cinema-watch-snapshot/movies/los-colores-del-tiempo/" data-live-nav="true">Los colores del tiempo</a></strong>
+        <p>
+          <a href="/cinema-watch-snapshot/venues/cinepolis/recoleta/" data-live-nav="true">Recoleta</a>
+          <span>2026-04-09 19:00</span>
+        </p>
+      </div>
+      <div class="chips">
+        <span class="chip" data-i18n-meta-line>91% sold | Room 6</span>
+        
+        <span
+          class="chip chip-neutral"
+          data-i18n-seat-note
+          data-seats-total="223"
+          data-seats-available="20"
+        >20 available of 223</span>
+        
+      </div>
+    </div>
+    
+  </div>
+  
+          
   <div class="front-screening-groups">
     
     <section class="front-date-group">
@@ -2982,7 +3307,7 @@
           <span class="mini-time">12:30</span>
           <div class="front-screening-copy">
             <strong><a href="/cinema-watch-snapshot/movies/nuremberg-el-juicio-del-siglo/" data-live-nav="true">Nuremberg: El juicio del siglo</a></strong>
-            <p><a href="/cinema-watch-snapshot/venues/cinepolis/recoleta/">Recoleta</a> <span data-i18n-meta-line>| Classic • 2D • Subtitulado | Room 9 | 1% sold</span></p>
+            <p><a href="/cinema-watch-snapshot/venues/cinepolis/recoleta/" data-live-nav="true">Recoleta</a> <span data-i18n-meta-line>| Classic • 2D • Subtitulado | Room 9 | 1% sold</span></p>
           </div>
         </div>
         
@@ -2990,7 +3315,7 @@
           <span class="mini-time">13:00</span>
           <div class="front-screening-copy">
             <strong><a href="/cinema-watch-snapshot/movies/proyecto-fin-del-mundo/" data-live-nav="true">Proyecto fin del mundo</a></strong>
-            <p><a href="/cinema-watch-snapshot/venues/cinepolis/recoleta/">Recoleta</a> <span data-i18n-meta-line>| Classic • 2D • Subtitulado | Room 8</span></p>
+            <p><a href="/cinema-watch-snapshot/venues/cinepolis/recoleta/" data-live-nav="true">Recoleta</a> <span data-i18n-meta-line>| Classic • 2D • Subtitulado | Room 8</span></p>
           </div>
         </div>
         
@@ -2998,7 +3323,7 @@
           <span class="mini-time">13:20</span>
           <div class="front-screening-copy">
             <strong><a href="/cinema-watch-snapshot/movies/la-grazia-la-belleza-de-la-duda/" data-live-nav="true">La grazia: La belleza de la duda</a></strong>
-            <p><a href="/cinema-watch-snapshot/venues/cinepolis/recoleta/">Recoleta</a> <span data-i18n-meta-line>| Classic • 2D • Subtitulado | Room 1</span></p>
+            <p><a href="/cinema-watch-snapshot/venues/cinepolis/recoleta/" data-live-nav="true">Recoleta</a> <span data-i18n-meta-line>| Classic • 2D • Subtitulado | Room 1</span></p>
           </div>
         </div>
         
@@ -3006,7 +3331,7 @@
           <span class="mini-time">13:45</span>
           <div class="front-screening-copy">
             <strong><a href="/cinema-watch-snapshot/movies/gioia-mia-un-verano-en-sicilia/" data-live-nav="true">Gioia mia: Un verano en Sicilia</a></strong>
-            <p><a href="/cinema-watch-snapshot/venues/cinepolis/recoleta/">Recoleta</a> <span data-i18n-meta-line>| Classic • 2D • Subtitulado | Room 3</span></p>
+            <p><a href="/cinema-watch-snapshot/venues/cinepolis/recoleta/" data-live-nav="true">Recoleta</a> <span data-i18n-meta-line>| Classic • 2D • Subtitulado | Room 3</span></p>
           </div>
         </div>
         
@@ -3014,7 +3339,7 @@
           <span class="mini-time">14:00</span>
           <div class="front-screening-copy">
             <strong><a href="/cinema-watch-snapshot/movies/gioia-mia-un-verano-en-sicilia/" data-live-nav="true">Gioia mia: un verano en Sicilia</a></strong>
-            <p><a href="/cinema-watch-snapshot/venues/showcase/showcase_belgrano/">Belgrano</a></p>
+            <p><a href="/cinema-watch-snapshot/venues/showcase/showcase_belgrano/" data-live-nav="true">Belgrano</a></p>
           </div>
         </div>
         
@@ -3022,7 +3347,7 @@
           <span class="mini-time">14:00</span>
           <div class="front-screening-copy">
             <strong><a href="/cinema-watch-snapshot/movies/gioia-mia-un-verano-en-sicilia/" data-live-nav="true">Gioia mia: un verano en Sicilia</a></strong>
-            <p><a href="/cinema-watch-snapshot/venues/showcase/showcase_norcenter/">Norcenter</a></p>
+            <p><a href="/cinema-watch-snapshot/venues/showcase/showcase_norcenter/" data-live-nav="true">Norcenter</a></p>
           </div>
         </div>
         
@@ -3040,7 +3365,7 @@
           <span class="mini-time">12:15</span>
           <div class="front-screening-copy">
             <strong><a href="/cinema-watch-snapshot/movies/el-drama/" data-live-nav="true">El Drama</a></strong>
-            <p><a href="/cinema-watch-snapshot/venues/cinepolis/recoleta/">Recoleta</a> <span data-i18n-meta-line>| Classic • 2D • Subtitulado | Room 3 | 1% sold</span></p>
+            <p><a href="/cinema-watch-snapshot/venues/cinepolis/recoleta/" data-live-nav="true">Recoleta</a> <span data-i18n-meta-line>| Classic • 2D • Subtitulado | Room 3 | 1% sold</span></p>
           </div>
         </div>
         
@@ -3048,7 +3373,7 @@
           <span class="mini-time">12:40</span>
           <div class="front-screening-copy">
             <strong><a href="/cinema-watch-snapshot/movies/proyecto-fin-del-mundo/" data-live-nav="true">Proyecto fin del mundo</a></strong>
-            <p><a href="/cinema-watch-snapshot/venues/cinepolis/recoleta/">Recoleta</a> <span data-i18n-meta-line>| Classic • 2D • Subtitulado | Room 8</span></p>
+            <p><a href="/cinema-watch-snapshot/venues/cinepolis/recoleta/" data-live-nav="true">Recoleta</a> <span data-i18n-meta-line>| Classic • 2D • Subtitulado | Room 8</span></p>
           </div>
         </div>
         
@@ -3056,7 +3381,7 @@
           <span class="mini-time">14:25</span>
           <div class="front-screening-copy">
             <strong><a href="/cinema-watch-snapshot/movies/no-te-olvidare/" data-live-nav="true">No te olvidaré</a></strong>
-            <p><a href="/cinema-watch-snapshot/venues/showcase/showcase_belgrano/">Belgrano</a></p>
+            <p><a href="/cinema-watch-snapshot/venues/showcase/showcase_belgrano/" data-live-nav="true">Belgrano</a></p>
           </div>
         </div>
         
@@ -3064,7 +3389,7 @@
           <span class="mini-time">14:25</span>
           <div class="front-screening-copy">
             <strong><a href="/cinema-watch-snapshot/movies/gioia-mia-un-verano-en-sicilia/" data-live-nav="true">Gioia mia: un verano en Sicilia</a></strong>
-            <p><a href="/cinema-watch-snapshot/venues/showcase/showcase_norcenter/">Norcenter</a></p>
+            <p><a href="/cinema-watch-snapshot/venues/showcase/showcase_norcenter/" data-live-nav="true">Norcenter</a></p>
           </div>
         </div>
         
@@ -3072,7 +3397,7 @@
           <span class="mini-time">14:30</span>
           <div class="front-screening-copy">
             <strong><a href="/cinema-watch-snapshot/movies/padre-madre-hermana-hermano/" data-live-nav="true">Padre madre hermana hermano</a></strong>
-            <p><a href="/cinema-watch-snapshot/venues/showcase/showcase_belgrano/">Belgrano</a></p>
+            <p><a href="/cinema-watch-snapshot/venues/showcase/showcase_belgrano/" data-live-nav="true">Belgrano</a></p>
           </div>
         </div>
         
@@ -3080,7 +3405,7 @@
           <span class="mini-time">14:35</span>
           <div class="front-screening-copy">
             <strong><a href="/cinema-watch-snapshot/movies/padre-madre-hermana-hermano/" data-live-nav="true">Padre madre hermana hermano</a></strong>
-            <p><a href="/cinema-watch-snapshot/venues/showcase/showcase_norcenter/">Norcenter</a></p>
+            <p><a href="/cinema-watch-snapshot/venues/showcase/showcase_norcenter/" data-live-nav="true">Norcenter</a></p>
           </div>
         </div>
         
@@ -3104,6 +3429,7 @@
             </div>
             <span class="chip" data-front-advanced-count data-i18n-count="screening" data-i18n-count-value="0">0 screenings</span>
           </div>
+          <div class="front-board-signals" data-front-advanced-signals hidden></div>
           <div class="front-screening-groups" data-front-advanced-results></div>
         </article>
       </div>
@@ -3140,7 +3466,7 @@
           <span class="mini-time">15:00</span>
           <div class="front-screening-copy">
             <strong><a href="/cinema-watch-snapshot/movies/super-mario-galaxy-la-pelicula/" data-live-nav="true">Súper Mario Galaxy: la película</a></strong>
-            <p><a href="/cinema-watch-snapshot/venues/showcase/imax_norcenter/">IMAX Theatre (Norcenter)</a></p>
+            <p><a href="/cinema-watch-snapshot/venues/showcase/imax_norcenter/" data-live-nav="true">IMAX Theatre (Norcenter)</a></p>
           </div>
         </div>
         
@@ -3148,7 +3474,7 @@
           <span class="mini-time">17:25</span>
           <div class="front-screening-copy">
             <strong><a href="/cinema-watch-snapshot/movies/super-mario-galaxy-la-pelicula/" data-live-nav="true">Súper Mario Galaxy: la película</a></strong>
-            <p><a href="/cinema-watch-snapshot/venues/showcase/imax_norcenter/">IMAX Theatre (Norcenter)</a></p>
+            <p><a href="/cinema-watch-snapshot/venues/showcase/imax_norcenter/" data-live-nav="true">IMAX Theatre (Norcenter)</a></p>
           </div>
         </div>
         
@@ -3156,7 +3482,7 @@
           <span class="mini-time">19:45</span>
           <div class="front-screening-copy">
             <strong><a href="/cinema-watch-snapshot/movies/super-mario-galaxy-la-pelicula/" data-live-nav="true">Súper Mario Galaxy: la película</a></strong>
-            <p><a href="/cinema-watch-snapshot/venues/showcase/imax_norcenter/">IMAX Theatre (Norcenter)</a></p>
+            <p><a href="/cinema-watch-snapshot/venues/showcase/imax_norcenter/" data-live-nav="true">IMAX Theatre (Norcenter)</a></p>
           </div>
         </div>
         
@@ -3174,7 +3500,7 @@
           <span class="mini-time">15:00</span>
           <div class="front-screening-copy">
             <strong><a href="/cinema-watch-snapshot/movies/super-mario-galaxy-la-pelicula/" data-live-nav="true">Súper Mario Galaxy: la película</a></strong>
-            <p><a href="/cinema-watch-snapshot/venues/showcase/imax_norcenter/">IMAX Theatre (Norcenter)</a></p>
+            <p><a href="/cinema-watch-snapshot/venues/showcase/imax_norcenter/" data-live-nav="true">IMAX Theatre (Norcenter)</a></p>
           </div>
         </div>
         
@@ -3182,7 +3508,7 @@
           <span class="mini-time">17:25</span>
           <div class="front-screening-copy">
             <strong><a href="/cinema-watch-snapshot/movies/super-mario-galaxy-la-pelicula/" data-live-nav="true">Súper Mario Galaxy: la película</a></strong>
-            <p><a href="/cinema-watch-snapshot/venues/showcase/imax_norcenter/">IMAX Theatre (Norcenter)</a></p>
+            <p><a href="/cinema-watch-snapshot/venues/showcase/imax_norcenter/" data-live-nav="true">IMAX Theatre (Norcenter)</a></p>
           </div>
         </div>
         
@@ -3190,7 +3516,7 @@
           <span class="mini-time">19:45</span>
           <div class="front-screening-copy">
             <strong><a href="/cinema-watch-snapshot/movies/super-mario-galaxy-la-pelicula/" data-live-nav="true">Súper Mario Galaxy: la película</a></strong>
-            <p><a href="/cinema-watch-snapshot/venues/showcase/imax_norcenter/">IMAX Theatre (Norcenter)</a></p>
+            <p><a href="/cinema-watch-snapshot/venues/showcase/imax_norcenter/" data-live-nav="true">IMAX Theatre (Norcenter)</a></p>
           </div>
         </div>
         
@@ -3208,7 +3534,7 @@
           <span class="mini-time">15:00</span>
           <div class="front-screening-copy">
             <strong><a href="/cinema-watch-snapshot/movies/super-mario-galaxy-la-pelicula/" data-live-nav="true">Súper Mario Galaxy: la película</a></strong>
-            <p><a href="/cinema-watch-snapshot/venues/showcase/imax_norcenter/">IMAX Theatre (Norcenter)</a></p>
+            <p><a href="/cinema-watch-snapshot/venues/showcase/imax_norcenter/" data-live-nav="true">IMAX Theatre (Norcenter)</a></p>
           </div>
         </div>
         
@@ -3216,7 +3542,7 @@
           <span class="mini-time">17:25</span>
           <div class="front-screening-copy">
             <strong><a href="/cinema-watch-snapshot/movies/super-mario-galaxy-la-pelicula/" data-live-nav="true">Súper Mario Galaxy: la película</a></strong>
-            <p><a href="/cinema-watch-snapshot/venues/showcase/imax_norcenter/">IMAX Theatre (Norcenter)</a></p>
+            <p><a href="/cinema-watch-snapshot/venues/showcase/imax_norcenter/" data-live-nav="true">IMAX Theatre (Norcenter)</a></p>
           </div>
         </div>
         
@@ -3224,7 +3550,7 @@
           <span class="mini-time">19:45</span>
           <div class="front-screening-copy">
             <strong><a href="/cinema-watch-snapshot/movies/super-mario-galaxy-la-pelicula/" data-live-nav="true">Súper Mario Galaxy: la película</a></strong>
-            <p><a href="/cinema-watch-snapshot/venues/showcase/imax_norcenter/">IMAX Theatre (Norcenter)</a></p>
+            <p><a href="/cinema-watch-snapshot/venues/showcase/imax_norcenter/" data-live-nav="true">IMAX Theatre (Norcenter)</a></p>
           </div>
         </div>
         
@@ -3233,7 +3559,7 @@
     
   </div>
   
-          <a class="text-link" href="/cinema-watch-snapshot/screenings/?category=imax" data-i18n-source>See all</a>
+          <a class="text-link" href="?focus=imax#salas-especiales" data-i18n-source>See all</a>
         </article>
         
         <article class="front-mini-board">
@@ -3258,7 +3584,7 @@
           <span class="mini-time">12:40</span>
           <div class="front-screening-copy">
             <strong><a href="/cinema-watch-snapshot/movies/super-mario-galaxy-la-pelicula/" data-live-nav="true">Super Mario Galaxy: La película</a></strong>
-            <p><a href="/cinema-watch-snapshot/venues/cinepolis/pilar/">Pilar</a> <span data-i18n-meta-line>| Monster Screen • 2D • Español | Room 9 | 1% sold</span></p>
+            <p><a href="/cinema-watch-snapshot/venues/cinepolis/pilar/" data-live-nav="true">Pilar</a> <span data-i18n-meta-line>| Monster Screen • 2D • Español | Room 9 | 1% sold</span></p>
           </div>
         </div>
         
@@ -3266,7 +3592,7 @@
           <span class="mini-time">13:00</span>
           <div class="front-screening-copy">
             <strong><a href="/cinema-watch-snapshot/movies/super-mario-galaxy-la-pelicula/" data-live-nav="true">Super Mario Galaxy: La película</a></strong>
-            <p><a href="/cinema-watch-snapshot/venues/cinepolis/recoleta/">Recoleta</a> <span data-i18n-meta-line>| Classic • 2D • Español | Room 6</span></p>
+            <p><a href="/cinema-watch-snapshot/venues/cinepolis/recoleta/" data-live-nav="true">Recoleta</a> <span data-i18n-meta-line>| Classic • 2D • Español | Room 6</span></p>
           </div>
         </div>
         
@@ -3274,7 +3600,7 @@
           <span class="mini-time">15:00</span>
           <div class="front-screening-copy">
             <strong><a href="/cinema-watch-snapshot/movies/super-mario-galaxy-la-pelicula/" data-live-nav="true">Super Mario Galaxy: La película</a></strong>
-            <p><a href="/cinema-watch-snapshot/venues/cinepolis/pilar/">Pilar</a> <span data-i18n-meta-line>| Monster Screen • 2D • Español | Room 9 | 2% sold</span></p>
+            <p><a href="/cinema-watch-snapshot/venues/cinepolis/pilar/" data-live-nav="true">Pilar</a> <span data-i18n-meta-line>| Monster Screen • 2D • Español | Room 9 | 2% sold</span></p>
           </div>
         </div>
         
@@ -3292,7 +3618,7 @@
           <span class="mini-time">12:40</span>
           <div class="front-screening-copy">
             <strong><a href="/cinema-watch-snapshot/movies/super-mario-galaxy-la-pelicula/" data-live-nav="true">Super Mario Galaxy: La película</a></strong>
-            <p><a href="/cinema-watch-snapshot/venues/cinepolis/pilar/">Pilar</a> <span data-i18n-meta-line>| Monster Screen • 2D • Español | Room 9 | 1% sold</span></p>
+            <p><a href="/cinema-watch-snapshot/venues/cinepolis/pilar/" data-live-nav="true">Pilar</a> <span data-i18n-meta-line>| Monster Screen • 2D • Español | Room 9 | 1% sold</span></p>
           </div>
         </div>
         
@@ -3300,7 +3626,7 @@
           <span class="mini-time">15:00</span>
           <div class="front-screening-copy">
             <strong><a href="/cinema-watch-snapshot/movies/super-mario-galaxy-la-pelicula/" data-live-nav="true">Super Mario Galaxy: La película</a></strong>
-            <p><a href="/cinema-watch-snapshot/venues/cinepolis/pilar/">Pilar</a> <span data-i18n-meta-line>| Monster Screen • 2D • Español | Room 9 | 1% sold</span></p>
+            <p><a href="/cinema-watch-snapshot/venues/cinepolis/pilar/" data-live-nav="true">Pilar</a> <span data-i18n-meta-line>| Monster Screen • 2D • Español | Room 9 | 1% sold</span></p>
           </div>
         </div>
         
@@ -3308,7 +3634,7 @@
           <span class="mini-time">17:20</span>
           <div class="front-screening-copy">
             <strong><a href="/cinema-watch-snapshot/movies/super-mario-galaxy-la-pelicula/" data-live-nav="true">Super Mario Galaxy: La película</a></strong>
-            <p><a href="/cinema-watch-snapshot/venues/cinepolis/pilar/">Pilar</a> <span data-i18n-meta-line>| Monster Screen • 3D • Español | Room 9 | 1% sold</span></p>
+            <p><a href="/cinema-watch-snapshot/venues/cinepolis/pilar/" data-live-nav="true">Pilar</a> <span data-i18n-meta-line>| Monster Screen • 3D • Español | Room 9 | 1% sold</span></p>
           </div>
         </div>
         
@@ -3326,7 +3652,7 @@
           <span class="mini-time">12:40</span>
           <div class="front-screening-copy">
             <strong><a href="/cinema-watch-snapshot/movies/super-mario-galaxy-la-pelicula/" data-live-nav="true">Super Mario Galaxy: La película</a></strong>
-            <p><a href="/cinema-watch-snapshot/venues/cinepolis/pilar/">Pilar</a> <span data-i18n-meta-line>| Monster Screen • 2D • Español | Room 9 | 1% sold</span></p>
+            <p><a href="/cinema-watch-snapshot/venues/cinepolis/pilar/" data-live-nav="true">Pilar</a> <span data-i18n-meta-line>| Monster Screen • 2D • Español | Room 9 | 1% sold</span></p>
           </div>
         </div>
         
@@ -3334,7 +3660,7 @@
           <span class="mini-time">15:00</span>
           <div class="front-screening-copy">
             <strong><a href="/cinema-watch-snapshot/movies/super-mario-galaxy-la-pelicula/" data-live-nav="true">Super Mario Galaxy: La película</a></strong>
-            <p><a href="/cinema-watch-snapshot/venues/cinepolis/pilar/">Pilar</a> <span data-i18n-meta-line>| Monster Screen • 2D • Español | Room 9 | 1% sold</span></p>
+            <p><a href="/cinema-watch-snapshot/venues/cinepolis/pilar/" data-live-nav="true">Pilar</a> <span data-i18n-meta-line>| Monster Screen • 2D • Español | Room 9 | 1% sold</span></p>
           </div>
         </div>
         
@@ -3342,7 +3668,7 @@
           <span class="mini-time">16:30</span>
           <div class="front-screening-copy">
             <strong><a href="/cinema-watch-snapshot/movies/la-divina-sarah-bernhardt/" data-live-nav="true">La divina Sarah Bernhardt</a></strong>
-            <p><a href="/cinema-watch-snapshot/venues/cinepolis/recoleta/">Recoleta</a> <span data-i18n-meta-line>| Classic • 2D • Subtitulado | Room 6 | 39% sold</span></p>
+            <p><a href="/cinema-watch-snapshot/venues/cinepolis/recoleta/" data-live-nav="true">Recoleta</a> <span data-i18n-meta-line>| Classic • 2D • Subtitulado | Room 6 | 39% sold</span></p>
           </div>
         </div>
         
@@ -3351,7 +3677,7 @@
     
   </div>
   
-          <a class="text-link" href="/cinema-watch-snapshot/screenings/?category=dolby_atmos" data-i18n-source>See all</a>
+          <a class="text-link" href="?focus=dolby_atmos#salas-especiales" data-i18n-source>See all</a>
         </article>
         
       </div>
@@ -3969,6 +4295,47 @@
             <span class="chip" data-i18n-count="screening" data-i18n-count-value="101">101 screenings</span>
           </div>
           
+  <div class="front-board-signals">
+    <div class="front-board-summary">
+      
+      <span><span data-i18n-source>Cache range</span>: 2026-04-08</span>
+      
+      
+      <span><span data-i18n-source>Rooms identified</span>: 10</span>
+      
+      
+      <span><span data-i18n-source>Sold data</span>: 41</span>
+      
+      
+      <span><span data-i18n-source>Top venue</span>: <a href="/cinema-watch-snapshot/venues/cinepolis/recoleta/" data-live-nav="true">Recoleta</a></span>
+      
+    </div>
+    
+    <div class="front-board-peak">
+      <div class="front-board-peak-copy">
+        <span class="front-board-peak-label" data-i18n-source>Peak crowd</span>
+        <strong><a href="/cinema-watch-snapshot/movies/super-mario-galaxy-la-pelicula/" data-live-nav="true">Super Mario Galaxy: La película</a></strong>
+        <p>
+          <a href="/cinema-watch-snapshot/venues/cinepolis/recoleta/" data-live-nav="true">Recoleta</a>
+          <span>2026-04-08 19:45</span>
+        </p>
+      </div>
+      <div class="chips">
+        <span class="chip" data-i18n-meta-line>48% sold | Room 10</span>
+        
+        <span
+          class="chip chip-neutral"
+          data-i18n-seat-note
+          data-seats-total="84"
+          data-seats-available="44"
+        >44 available of 84</span>
+        
+      </div>
+    </div>
+    
+  </div>
+  
+          
   <div class="front-screening-groups">
     
     <section class="front-date-group">
@@ -3982,7 +4349,7 @@
           <span class="mini-time">12:00</span>
           <div class="front-screening-copy">
             <strong><a href="/cinema-watch-snapshot/movies/super-mario-galaxy-la-pelicula/" data-live-nav="true">Super Mario Galaxy: La película</a></strong>
-            <p><a href="/cinema-watch-snapshot/venues/cinepolis/recoleta/">Recoleta</a> <span data-i18n-meta-line>| Classic • 3D • Español | Room 7</span></p>
+            <p><a href="/cinema-watch-snapshot/venues/cinepolis/recoleta/" data-live-nav="true">Recoleta</a> <span data-i18n-meta-line>| Classic • 3D • Español | Room 7</span></p>
           </div>
         </div>
         
@@ -3990,7 +4357,7 @@
           <span class="mini-time">12:15</span>
           <div class="front-screening-copy">
             <strong><a href="/cinema-watch-snapshot/movies/super-mario-galaxy-la-pelicula/" data-live-nav="true">Super Mario Galaxy: La película</a></strong>
-            <p><a href="/cinema-watch-snapshot/venues/cinepolis/recoleta/">Recoleta</a> <span data-i18n-meta-line>| 4D • 3D • Español | Room 10 | 7% sold</span></p>
+            <p><a href="/cinema-watch-snapshot/venues/cinepolis/recoleta/" data-live-nav="true">Recoleta</a> <span data-i18n-meta-line>| 4D • 3D • Español | Room 10 | 7% sold</span></p>
           </div>
         </div>
         
@@ -3998,7 +4365,7 @@
           <span class="mini-time">12:30</span>
           <div class="front-screening-copy">
             <strong><a href="/cinema-watch-snapshot/movies/super-mario-galaxy-la-pelicula/" data-live-nav="true">Super Mario Galaxy: La película</a></strong>
-            <p><a href="/cinema-watch-snapshot/venues/cinepolis/recoleta/">Recoleta</a> <span data-i18n-meta-line>| Classic • 2D • Español | Room 5</span></p>
+            <p><a href="/cinema-watch-snapshot/venues/cinepolis/recoleta/" data-live-nav="true">Recoleta</a> <span data-i18n-meta-line>| Classic • 2D • Español | Room 5</span></p>
           </div>
         </div>
         
@@ -4006,7 +4373,7 @@
           <span class="mini-time">12:30</span>
           <div class="front-screening-copy">
             <strong><a href="/cinema-watch-snapshot/movies/nuremberg-el-juicio-del-siglo/" data-live-nav="true">Nuremberg: El juicio del siglo</a></strong>
-            <p><a href="/cinema-watch-snapshot/venues/cinepolis/recoleta/">Recoleta</a> <span data-i18n-meta-line>| Classic • 2D • Subtitulado | Room 9 | 1% sold</span></p>
+            <p><a href="/cinema-watch-snapshot/venues/cinepolis/recoleta/" data-live-nav="true">Recoleta</a> <span data-i18n-meta-line>| Classic • 2D • Subtitulado | Room 9 | 1% sold</span></p>
           </div>
         </div>
         
@@ -4014,7 +4381,7 @@
           <span class="mini-time">12:45</span>
           <div class="front-screening-copy">
             <strong><a href="/cinema-watch-snapshot/movies/hoppers/" data-live-nav="true">Hoppers</a></strong>
-            <p><a href="/cinema-watch-snapshot/venues/cinepolis/recoleta/">Recoleta</a> <span data-i18n-meta-line>| Classic • 2D • Español | Room 2</span></p>
+            <p><a href="/cinema-watch-snapshot/venues/cinepolis/recoleta/" data-live-nav="true">Recoleta</a> <span data-i18n-meta-line>| Classic • 2D • Español | Room 2</span></p>
           </div>
         </div>
         
@@ -4022,7 +4389,7 @@
           <span class="mini-time">13:00</span>
           <div class="front-screening-copy">
             <strong><a href="/cinema-watch-snapshot/movies/super-mario-galaxy-la-pelicula/" data-live-nav="true">Super Mario Galaxy: La película</a></strong>
-            <p><a href="/cinema-watch-snapshot/venues/cinepolis/houssay/">Plaza Houssay</a> <span data-i18n-meta-line>| Classic • 2D • Español | Room 2</span></p>
+            <p><a href="/cinema-watch-snapshot/venues/cinepolis/houssay/" data-live-nav="true">Plaza Houssay</a> <span data-i18n-meta-line>| Classic • 2D • Español | Room 2</span></p>
           </div>
         </div>
         
@@ -4030,7 +4397,7 @@
           <span class="mini-time">13:00</span>
           <div class="front-screening-copy">
             <strong><a href="/cinema-watch-snapshot/movies/super-mario-galaxy-la-pelicula/" data-live-nav="true">Super Mario Galaxy: La película</a></strong>
-            <p><a href="/cinema-watch-snapshot/venues/cinepolis/recoleta/">Recoleta</a> <span data-i18n-meta-line>| Classic • 2D • Español | Room 6</span></p>
+            <p><a href="/cinema-watch-snapshot/venues/cinepolis/recoleta/" data-live-nav="true">Recoleta</a> <span data-i18n-meta-line>| Classic • 2D • Español | Room 6</span></p>
           </div>
         </div>
         
@@ -4038,7 +4405,7 @@
           <span class="mini-time">13:00</span>
           <div class="front-screening-copy">
             <strong><a href="/cinema-watch-snapshot/movies/proyecto-fin-del-mundo/" data-live-nav="true">Proyecto fin del mundo</a></strong>
-            <p><a href="/cinema-watch-snapshot/venues/cinepolis/recoleta/">Recoleta</a> <span data-i18n-meta-line>| Classic • 2D • Subtitulado | Room 8</span></p>
+            <p><a href="/cinema-watch-snapshot/venues/cinepolis/recoleta/" data-live-nav="true">Recoleta</a> <span data-i18n-meta-line>| Classic • 2D • Subtitulado | Room 8</span></p>
           </div>
         </div>
         
@@ -4046,7 +4413,7 @@
           <span class="mini-time">13:20</span>
           <div class="front-screening-copy">
             <strong><a href="/cinema-watch-snapshot/movies/la-grazia-la-belleza-de-la-duda/" data-live-nav="true">La grazia: La belleza de la duda</a></strong>
-            <p><a href="/cinema-watch-snapshot/venues/cinepolis/recoleta/">Recoleta</a> <span data-i18n-meta-line>| Classic • 2D • Subtitulado | Room 1</span></p>
+            <p><a href="/cinema-watch-snapshot/venues/cinepolis/recoleta/" data-live-nav="true">Recoleta</a> <span data-i18n-meta-line>| Classic • 2D • Subtitulado | Room 1</span></p>
           </div>
         </div>
         
@@ -4054,7 +4421,7 @@
           <span class="mini-time">13:30</span>
           <div class="front-screening-copy">
             <strong><a href="/cinema-watch-snapshot/movies/hoppers/" data-live-nav="true">Hoppers</a></strong>
-            <p><a href="/cinema-watch-snapshot/venues/cinepolis/houssay/">Plaza Houssay</a> <span data-i18n-meta-line>| Classic • 2D • Español | Room 3</span></p>
+            <p><a href="/cinema-watch-snapshot/venues/cinepolis/houssay/" data-live-nav="true">Plaza Houssay</a> <span data-i18n-meta-line>| Classic • 2D • Español | Room 3</span></p>
           </div>
         </div>
         
@@ -4079,6 +4446,47 @@
             <span class="chip" data-i18n-count="screening" data-i18n-count-value="101">101 screenings</span>
           </div>
           
+  <div class="front-board-signals">
+    <div class="front-board-summary">
+      
+      <span><span data-i18n-source>Cache range</span>: 2026-04-09</span>
+      
+      
+      <span><span data-i18n-source>Rooms identified</span>: 10</span>
+      
+      
+      <span><span data-i18n-source>Sold data</span>: 25</span>
+      
+      
+      <span><span data-i18n-source>Top venue</span>: <a href="/cinema-watch-snapshot/venues/cinepolis/recoleta/" data-live-nav="true">Recoleta</a></span>
+      
+    </div>
+    
+    <div class="front-board-peak">
+      <div class="front-board-peak-copy">
+        <span class="front-board-peak-label" data-i18n-source>Peak crowd</span>
+        <strong><a href="/cinema-watch-snapshot/movies/los-colores-del-tiempo/" data-live-nav="true">Los colores del tiempo</a></strong>
+        <p>
+          <a href="/cinema-watch-snapshot/venues/cinepolis/recoleta/" data-live-nav="true">Recoleta</a>
+          <span>2026-04-09 19:00</span>
+        </p>
+      </div>
+      <div class="chips">
+        <span class="chip" data-i18n-meta-line>91% sold | Room 6</span>
+        
+        <span
+          class="chip chip-neutral"
+          data-i18n-seat-note
+          data-seats-total="223"
+          data-seats-available="20"
+        >20 available of 223</span>
+        
+      </div>
+    </div>
+    
+  </div>
+  
+          
   <div class="front-screening-groups">
     
     <section class="front-date-group">
@@ -4092,7 +4500,7 @@
           <span class="mini-time">12:00</span>
           <div class="front-screening-copy">
             <strong><a href="/cinema-watch-snapshot/movies/super-mario-galaxy-la-pelicula/" data-live-nav="true">Super Mario Galaxy: La película</a></strong>
-            <p><a href="/cinema-watch-snapshot/venues/cinepolis/recoleta/">Recoleta</a> <span data-i18n-meta-line>| Classic • 2D • Español | Room 7</span></p>
+            <p><a href="/cinema-watch-snapshot/venues/cinepolis/recoleta/" data-live-nav="true">Recoleta</a> <span data-i18n-meta-line>| Classic • 2D • Español | Room 7</span></p>
           </div>
         </div>
         
@@ -4100,7 +4508,7 @@
           <span class="mini-time">12:15</span>
           <div class="front-screening-copy">
             <strong><a href="/cinema-watch-snapshot/movies/super-mario-galaxy-la-pelicula/" data-live-nav="true">Super Mario Galaxy: La película</a></strong>
-            <p><a href="/cinema-watch-snapshot/venues/cinepolis/recoleta/">Recoleta</a> <span data-i18n-meta-line>| Classic • 2D • Español | Room 1</span></p>
+            <p><a href="/cinema-watch-snapshot/venues/cinepolis/recoleta/" data-live-nav="true">Recoleta</a> <span data-i18n-meta-line>| Classic • 2D • Español | Room 1</span></p>
           </div>
         </div>
         
@@ -4108,7 +4516,7 @@
           <span class="mini-time">12:15</span>
           <div class="front-screening-copy">
             <strong><a href="/cinema-watch-snapshot/movies/super-mario-galaxy-la-pelicula/" data-live-nav="true">Super Mario Galaxy: La película</a></strong>
-            <p><a href="/cinema-watch-snapshot/venues/cinepolis/recoleta/">Recoleta</a> <span data-i18n-meta-line>| 4D • 3D • Español | Room 10 | 5% sold</span></p>
+            <p><a href="/cinema-watch-snapshot/venues/cinepolis/recoleta/" data-live-nav="true">Recoleta</a> <span data-i18n-meta-line>| 4D • 3D • Español | Room 10 | 5% sold</span></p>
           </div>
         </div>
         
@@ -4116,7 +4524,7 @@
           <span class="mini-time">12:15</span>
           <div class="front-screening-copy">
             <strong><a href="/cinema-watch-snapshot/movies/el-drama/" data-live-nav="true">El Drama</a></strong>
-            <p><a href="/cinema-watch-snapshot/venues/cinepolis/recoleta/">Recoleta</a> <span data-i18n-meta-line>| Classic • 2D • Subtitulado | Room 3 | 1% sold</span></p>
+            <p><a href="/cinema-watch-snapshot/venues/cinepolis/recoleta/" data-live-nav="true">Recoleta</a> <span data-i18n-meta-line>| Classic • 2D • Subtitulado | Room 3 | 1% sold</span></p>
           </div>
         </div>
         
@@ -4124,7 +4532,7 @@
           <span class="mini-time">12:30</span>
           <div class="front-screening-copy">
             <strong><a href="/cinema-watch-snapshot/movies/super-mario-galaxy-la-pelicula/" data-live-nav="true">Super Mario Galaxy: La película</a></strong>
-            <p><a href="/cinema-watch-snapshot/venues/cinepolis/recoleta/">Recoleta</a> <span data-i18n-meta-line>| Classic • 2D • Español | Room 4</span></p>
+            <p><a href="/cinema-watch-snapshot/venues/cinepolis/recoleta/" data-live-nav="true">Recoleta</a> <span data-i18n-meta-line>| Classic • 2D • Español | Room 4</span></p>
           </div>
         </div>
         
@@ -4132,7 +4540,7 @@
           <span class="mini-time">12:40</span>
           <div class="front-screening-copy">
             <strong><a href="/cinema-watch-snapshot/movies/proyecto-fin-del-mundo/" data-live-nav="true">Proyecto fin del mundo</a></strong>
-            <p><a href="/cinema-watch-snapshot/venues/cinepolis/recoleta/">Recoleta</a> <span data-i18n-meta-line>| Classic • 2D • Subtitulado | Room 8</span></p>
+            <p><a href="/cinema-watch-snapshot/venues/cinepolis/recoleta/" data-live-nav="true">Recoleta</a> <span data-i18n-meta-line>| Classic • 2D • Subtitulado | Room 8</span></p>
           </div>
         </div>
         
@@ -4140,7 +4548,7 @@
           <span class="mini-time">12:45</span>
           <div class="front-screening-copy">
             <strong><a href="/cinema-watch-snapshot/movies/super-mario-galaxy-la-pelicula/" data-live-nav="true">Super Mario Galaxy: La película</a></strong>
-            <p><a href="/cinema-watch-snapshot/venues/cinepolis/houssay/">Plaza Houssay</a> <span data-i18n-meta-line>| Classic • 2D • Español | Room 1</span></p>
+            <p><a href="/cinema-watch-snapshot/venues/cinepolis/houssay/" data-live-nav="true">Plaza Houssay</a> <span data-i18n-meta-line>| Classic • 2D • Español | Room 1</span></p>
           </div>
         </div>
         
@@ -4148,7 +4556,7 @@
           <span class="mini-time">13:00</span>
           <div class="front-screening-copy">
             <strong><a href="/cinema-watch-snapshot/movies/super-mario-galaxy-la-pelicula/" data-live-nav="true">Super Mario Galaxy: La película</a></strong>
-            <p><a href="/cinema-watch-snapshot/venues/cinepolis/houssay/">Plaza Houssay</a> <span data-i18n-meta-line>| Classic • 2D • Español | Room 3</span></p>
+            <p><a href="/cinema-watch-snapshot/venues/cinepolis/houssay/" data-live-nav="true">Plaza Houssay</a> <span data-i18n-meta-line>| Classic • 2D • Español | Room 3</span></p>
           </div>
         </div>
         
@@ -4156,7 +4564,7 @@
           <span class="mini-time">13:30</span>
           <div class="front-screening-copy">
             <strong><a href="/cinema-watch-snapshot/movies/hoppers/" data-live-nav="true">Hoppers</a></strong>
-            <p><a href="/cinema-watch-snapshot/venues/cinepolis/recoleta/">Recoleta</a> <span data-i18n-meta-line>| Classic • 2D • Español | Room 5</span></p>
+            <p><a href="/cinema-watch-snapshot/venues/cinepolis/recoleta/" data-live-nav="true">Recoleta</a> <span data-i18n-meta-line>| Classic • 2D • Español | Room 5</span></p>
           </div>
         </div>
         
@@ -4164,7 +4572,7 @@
           <span class="mini-time">14:00</span>
           <div class="front-screening-copy">
             <strong><a href="/cinema-watch-snapshot/movies/super-mario-galaxy-la-pelicula/" data-live-nav="true">Super Mario Galaxy: La película</a></strong>
-            <p><a href="/cinema-watch-snapshot/venues/cinepolis/houssay/">Plaza Houssay</a> <span data-i18n-meta-line>| Classic • 2D • Español | Room 2</span></p>
+            <p><a href="/cinema-watch-snapshot/venues/cinepolis/houssay/" data-live-nav="true">Plaza Houssay</a> <span data-i18n-meta-line>| Classic • 2D • Español | Room 2</span></p>
           </div>
         </div>
         
@@ -4189,6 +4597,47 @@
             <span class="chip" data-i18n-count="screening" data-i18n-count-value="101">101 screenings</span>
           </div>
           
+  <div class="front-board-signals">
+    <div class="front-board-summary">
+      
+      <span><span data-i18n-source>Cache range</span>: 2026-04-08</span>
+      
+      
+      <span><span data-i18n-source>Rooms identified</span>: 10</span>
+      
+      
+      <span><span data-i18n-source>Sold data</span>: 41</span>
+      
+      
+      <span><span data-i18n-source>Top venue</span>: <a href="/cinema-watch-snapshot/venues/cinepolis/recoleta/" data-live-nav="true">Recoleta</a></span>
+      
+    </div>
+    
+    <div class="front-board-peak">
+      <div class="front-board-peak-copy">
+        <span class="front-board-peak-label" data-i18n-source>Peak crowd</span>
+        <strong><a href="/cinema-watch-snapshot/movies/super-mario-galaxy-la-pelicula/" data-live-nav="true">Super Mario Galaxy: La película</a></strong>
+        <p>
+          <a href="/cinema-watch-snapshot/venues/cinepolis/recoleta/" data-live-nav="true">Recoleta</a>
+          <span>2026-04-08 19:45</span>
+        </p>
+      </div>
+      <div class="chips">
+        <span class="chip" data-i18n-meta-line>48% sold | Room 10</span>
+        
+        <span
+          class="chip chip-neutral"
+          data-i18n-seat-note
+          data-seats-total="84"
+          data-seats-available="44"
+        >44 available of 84</span>
+        
+      </div>
+    </div>
+    
+  </div>
+  
+          
   <div class="front-screening-groups">
     
     <section class="front-date-group">
@@ -4202,7 +4651,7 @@
           <span class="mini-time">12:00</span>
           <div class="front-screening-copy">
             <strong><a href="/cinema-watch-snapshot/movies/super-mario-galaxy-la-pelicula/" data-live-nav="true">Super Mario Galaxy: La película</a></strong>
-            <p><a href="/cinema-watch-snapshot/venues/cinepolis/recoleta/">Recoleta</a> <span data-i18n-meta-line>| Classic • 3D • Español | Room 7</span></p>
+            <p><a href="/cinema-watch-snapshot/venues/cinepolis/recoleta/" data-live-nav="true">Recoleta</a> <span data-i18n-meta-line>| Classic • 3D • Español | Room 7</span></p>
           </div>
         </div>
         
@@ -4210,7 +4659,7 @@
           <span class="mini-time">12:15</span>
           <div class="front-screening-copy">
             <strong><a href="/cinema-watch-snapshot/movies/super-mario-galaxy-la-pelicula/" data-live-nav="true">Super Mario Galaxy: La película</a></strong>
-            <p><a href="/cinema-watch-snapshot/venues/cinepolis/recoleta/">Recoleta</a> <span data-i18n-meta-line>| 4D • 3D • Español | Room 10 | 7% sold</span></p>
+            <p><a href="/cinema-watch-snapshot/venues/cinepolis/recoleta/" data-live-nav="true">Recoleta</a> <span data-i18n-meta-line>| 4D • 3D • Español | Room 10 | 7% sold</span></p>
           </div>
         </div>
         
@@ -4218,7 +4667,7 @@
           <span class="mini-time">12:30</span>
           <div class="front-screening-copy">
             <strong><a href="/cinema-watch-snapshot/movies/super-mario-galaxy-la-pelicula/" data-live-nav="true">Super Mario Galaxy: La película</a></strong>
-            <p><a href="/cinema-watch-snapshot/venues/cinepolis/recoleta/">Recoleta</a> <span data-i18n-meta-line>| Classic • 2D • Español | Room 5</span></p>
+            <p><a href="/cinema-watch-snapshot/venues/cinepolis/recoleta/" data-live-nav="true">Recoleta</a> <span data-i18n-meta-line>| Classic • 2D • Español | Room 5</span></p>
           </div>
         </div>
         
@@ -4226,7 +4675,7 @@
           <span class="mini-time">12:30</span>
           <div class="front-screening-copy">
             <strong><a href="/cinema-watch-snapshot/movies/nuremberg-el-juicio-del-siglo/" data-live-nav="true">Nuremberg: El juicio del siglo</a></strong>
-            <p><a href="/cinema-watch-snapshot/venues/cinepolis/recoleta/">Recoleta</a> <span data-i18n-meta-line>| Classic • 2D • Subtitulado | Room 9 | 1% sold</span></p>
+            <p><a href="/cinema-watch-snapshot/venues/cinepolis/recoleta/" data-live-nav="true">Recoleta</a> <span data-i18n-meta-line>| Classic • 2D • Subtitulado | Room 9 | 1% sold</span></p>
           </div>
         </div>
         
@@ -4234,7 +4683,7 @@
           <span class="mini-time">12:45</span>
           <div class="front-screening-copy">
             <strong><a href="/cinema-watch-snapshot/movies/hoppers/" data-live-nav="true">Hoppers</a></strong>
-            <p><a href="/cinema-watch-snapshot/venues/cinepolis/recoleta/">Recoleta</a> <span data-i18n-meta-line>| Classic • 2D • Español | Room 2</span></p>
+            <p><a href="/cinema-watch-snapshot/venues/cinepolis/recoleta/" data-live-nav="true">Recoleta</a> <span data-i18n-meta-line>| Classic • 2D • Español | Room 2</span></p>
           </div>
         </div>
         
@@ -4242,7 +4691,7 @@
           <span class="mini-time">13:00</span>
           <div class="front-screening-copy">
             <strong><a href="/cinema-watch-snapshot/movies/super-mario-galaxy-la-pelicula/" data-live-nav="true">Super Mario Galaxy: La película</a></strong>
-            <p><a href="/cinema-watch-snapshot/venues/cinepolis/houssay/">Plaza Houssay</a> <span data-i18n-meta-line>| Classic • 2D • Español | Room 2</span></p>
+            <p><a href="/cinema-watch-snapshot/venues/cinepolis/houssay/" data-live-nav="true">Plaza Houssay</a> <span data-i18n-meta-line>| Classic • 2D • Español | Room 2</span></p>
           </div>
         </div>
         
@@ -4250,7 +4699,7 @@
           <span class="mini-time">13:00</span>
           <div class="front-screening-copy">
             <strong><a href="/cinema-watch-snapshot/movies/super-mario-galaxy-la-pelicula/" data-live-nav="true">Super Mario Galaxy: La película</a></strong>
-            <p><a href="/cinema-watch-snapshot/venues/cinepolis/recoleta/">Recoleta</a> <span data-i18n-meta-line>| Classic • 2D • Español | Room 6</span></p>
+            <p><a href="/cinema-watch-snapshot/venues/cinepolis/recoleta/" data-live-nav="true">Recoleta</a> <span data-i18n-meta-line>| Classic • 2D • Español | Room 6</span></p>
           </div>
         </div>
         
@@ -4275,6 +4724,47 @@
             <span class="chip" data-i18n-count="screening" data-i18n-count-value="220">220 screenings</span>
           </div>
           
+  <div class="front-board-signals">
+    <div class="front-board-summary">
+      
+      <span><span data-i18n-source>Cache range</span>: 2026-04-09 to 2026-04-11</span>
+      
+      
+      <span><span data-i18n-source>Rooms identified</span>: 10</span>
+      
+      
+      <span><span data-i18n-source>Sold data</span>: 55</span>
+      
+      
+      <span><span data-i18n-source>Top venue</span>: <a href="/cinema-watch-snapshot/venues/cinepolis/recoleta/" data-live-nav="true">Recoleta</a></span>
+      
+    </div>
+    
+    <div class="front-board-peak">
+      <div class="front-board-peak-copy">
+        <span class="front-board-peak-label" data-i18n-source>Peak crowd</span>
+        <strong><a href="/cinema-watch-snapshot/movies/los-colores-del-tiempo/" data-live-nav="true">Los colores del tiempo</a></strong>
+        <p>
+          <a href="/cinema-watch-snapshot/venues/cinepolis/recoleta/" data-live-nav="true">Recoleta</a>
+          <span>2026-04-09 19:00</span>
+        </p>
+      </div>
+      <div class="chips">
+        <span class="chip" data-i18n-meta-line>91% sold | Room 6</span>
+        
+        <span
+          class="chip chip-neutral"
+          data-i18n-seat-note
+          data-seats-total="223"
+          data-seats-available="20"
+        >20 available of 223</span>
+        
+      </div>
+    </div>
+    
+  </div>
+  
+          
   <div class="front-screening-groups">
     
     <section class="front-date-group">
@@ -4288,7 +4778,7 @@
           <span class="mini-time">12:00</span>
           <div class="front-screening-copy">
             <strong><a href="/cinema-watch-snapshot/movies/super-mario-galaxy-la-pelicula/" data-live-nav="true">Super Mario Galaxy: La película</a></strong>
-            <p><a href="/cinema-watch-snapshot/venues/cinepolis/recoleta/">Recoleta</a> <span data-i18n-meta-line>| Classic • 2D • Español | Room 7</span></p>
+            <p><a href="/cinema-watch-snapshot/venues/cinepolis/recoleta/" data-live-nav="true">Recoleta</a> <span data-i18n-meta-line>| Classic • 2D • Español | Room 7</span></p>
           </div>
         </div>
         
@@ -4296,7 +4786,7 @@
           <span class="mini-time">12:15</span>
           <div class="front-screening-copy">
             <strong><a href="/cinema-watch-snapshot/movies/super-mario-galaxy-la-pelicula/" data-live-nav="true">Super Mario Galaxy: La película</a></strong>
-            <p><a href="/cinema-watch-snapshot/venues/cinepolis/recoleta/">Recoleta</a> <span data-i18n-meta-line>| Classic • 2D • Español | Room 1</span></p>
+            <p><a href="/cinema-watch-snapshot/venues/cinepolis/recoleta/" data-live-nav="true">Recoleta</a> <span data-i18n-meta-line>| Classic • 2D • Español | Room 1</span></p>
           </div>
         </div>
         
@@ -4304,7 +4794,7 @@
           <span class="mini-time">12:15</span>
           <div class="front-screening-copy">
             <strong><a href="/cinema-watch-snapshot/movies/super-mario-galaxy-la-pelicula/" data-live-nav="true">Super Mario Galaxy: La película</a></strong>
-            <p><a href="/cinema-watch-snapshot/venues/cinepolis/recoleta/">Recoleta</a> <span data-i18n-meta-line>| 4D • 3D • Español | Room 10 | 5% sold</span></p>
+            <p><a href="/cinema-watch-snapshot/venues/cinepolis/recoleta/" data-live-nav="true">Recoleta</a> <span data-i18n-meta-line>| 4D • 3D • Español | Room 10 | 5% sold</span></p>
           </div>
         </div>
         
@@ -4312,7 +4802,7 @@
           <span class="mini-time">12:15</span>
           <div class="front-screening-copy">
             <strong><a href="/cinema-watch-snapshot/movies/el-drama/" data-live-nav="true">El Drama</a></strong>
-            <p><a href="/cinema-watch-snapshot/venues/cinepolis/recoleta/">Recoleta</a> <span data-i18n-meta-line>| Classic • 2D • Subtitulado | Room 3 | 1% sold</span></p>
+            <p><a href="/cinema-watch-snapshot/venues/cinepolis/recoleta/" data-live-nav="true">Recoleta</a> <span data-i18n-meta-line>| Classic • 2D • Subtitulado | Room 3 | 1% sold</span></p>
           </div>
         </div>
         
@@ -4320,7 +4810,7 @@
           <span class="mini-time">12:30</span>
           <div class="front-screening-copy">
             <strong><a href="/cinema-watch-snapshot/movies/super-mario-galaxy-la-pelicula/" data-live-nav="true">Super Mario Galaxy: La película</a></strong>
-            <p><a href="/cinema-watch-snapshot/venues/cinepolis/recoleta/">Recoleta</a> <span data-i18n-meta-line>| Classic • 2D • Español | Room 4</span></p>
+            <p><a href="/cinema-watch-snapshot/venues/cinepolis/recoleta/" data-live-nav="true">Recoleta</a> <span data-i18n-meta-line>| Classic • 2D • Español | Room 4</span></p>
           </div>
         </div>
         
@@ -4328,7 +4818,7 @@
           <span class="mini-time">12:40</span>
           <div class="front-screening-copy">
             <strong><a href="/cinema-watch-snapshot/movies/proyecto-fin-del-mundo/" data-live-nav="true">Proyecto fin del mundo</a></strong>
-            <p><a href="/cinema-watch-snapshot/venues/cinepolis/recoleta/">Recoleta</a> <span data-i18n-meta-line>| Classic • 2D • Subtitulado | Room 8</span></p>
+            <p><a href="/cinema-watch-snapshot/venues/cinepolis/recoleta/" data-live-nav="true">Recoleta</a> <span data-i18n-meta-line>| Classic • 2D • Subtitulado | Room 8</span></p>
           </div>
         </div>
         
@@ -4336,7 +4826,7 @@
           <span class="mini-time">12:45</span>
           <div class="front-screening-copy">
             <strong><a href="/cinema-watch-snapshot/movies/super-mario-galaxy-la-pelicula/" data-live-nav="true">Super Mario Galaxy: La película</a></strong>
-            <p><a href="/cinema-watch-snapshot/venues/cinepolis/houssay/">Plaza Houssay</a> <span data-i18n-meta-line>| Classic • 2D • Español | Room 1</span></p>
+            <p><a href="/cinema-watch-snapshot/venues/cinepolis/houssay/" data-live-nav="true">Plaza Houssay</a> <span data-i18n-meta-line>| Classic • 2D • Español | Room 1</span></p>
           </div>
         </div>
         
@@ -4354,7 +4844,7 @@
           <span class="mini-time">12:00</span>
           <div class="front-screening-copy">
             <strong><a href="/cinema-watch-snapshot/movies/super-mario-galaxy-la-pelicula/" data-live-nav="true">Super Mario Galaxy: La película</a></strong>
-            <p><a href="/cinema-watch-snapshot/venues/cinepolis/recoleta/">Recoleta</a> <span data-i18n-meta-line>| Classic • 2D • Español | Room 7</span></p>
+            <p><a href="/cinema-watch-snapshot/venues/cinepolis/recoleta/" data-live-nav="true">Recoleta</a> <span data-i18n-meta-line>| Classic • 2D • Español | Room 7</span></p>
           </div>
         </div>
         
@@ -4362,7 +4852,7 @@
           <span class="mini-time">12:15</span>
           <div class="front-screening-copy">
             <strong><a href="/cinema-watch-snapshot/movies/super-mario-galaxy-la-pelicula/" data-live-nav="true">Super Mario Galaxy: La película</a></strong>
-            <p><a href="/cinema-watch-snapshot/venues/cinepolis/recoleta/">Recoleta</a> <span data-i18n-meta-line>| 4D • 3D • Español | Room 10 | 5% sold</span></p>
+            <p><a href="/cinema-watch-snapshot/venues/cinepolis/recoleta/" data-live-nav="true">Recoleta</a> <span data-i18n-meta-line>| 4D • 3D • Español | Room 10 | 5% sold</span></p>
           </div>
         </div>
         
@@ -4370,7 +4860,7 @@
           <span class="mini-time">12:15</span>
           <div class="front-screening-copy">
             <strong><a href="/cinema-watch-snapshot/movies/el-drama/" data-live-nav="true">El Drama</a></strong>
-            <p><a href="/cinema-watch-snapshot/venues/cinepolis/recoleta/">Recoleta</a> <span data-i18n-meta-line>| Classic • 2D • Subtitulado | Room 3</span></p>
+            <p><a href="/cinema-watch-snapshot/venues/cinepolis/recoleta/" data-live-nav="true">Recoleta</a> <span data-i18n-meta-line>| Classic • 2D • Subtitulado | Room 3</span></p>
           </div>
         </div>
         
@@ -4378,7 +4868,7 @@
           <span class="mini-time">12:30</span>
           <div class="front-screening-copy">
             <strong><a href="/cinema-watch-snapshot/movies/super-mario-galaxy-la-pelicula/" data-live-nav="true">Super Mario Galaxy: La película</a></strong>
-            <p><a href="/cinema-watch-snapshot/venues/cinepolis/recoleta/">Recoleta</a> <span data-i18n-meta-line>| Classic • 2D • Español | Room 1</span></p>
+            <p><a href="/cinema-watch-snapshot/venues/cinepolis/recoleta/" data-live-nav="true">Recoleta</a> <span data-i18n-meta-line>| Classic • 2D • Español | Room 1</span></p>
           </div>
         </div>
         
@@ -4386,7 +4876,7 @@
           <span class="mini-time">12:40</span>
           <div class="front-screening-copy">
             <strong><a href="/cinema-watch-snapshot/movies/proyecto-fin-del-mundo/" data-live-nav="true">Proyecto fin del mundo</a></strong>
-            <p><a href="/cinema-watch-snapshot/venues/cinepolis/recoleta/">Recoleta</a> <span data-i18n-meta-line>| Classic • 2D • Subtitulado | Room 8</span></p>
+            <p><a href="/cinema-watch-snapshot/venues/cinepolis/recoleta/" data-live-nav="true">Recoleta</a> <span data-i18n-meta-line>| Classic • 2D • Subtitulado | Room 8</span></p>
           </div>
         </div>
         
@@ -4394,7 +4884,7 @@
           <span class="mini-time">12:45</span>
           <div class="front-screening-copy">
             <strong><a href="/cinema-watch-snapshot/movies/super-mario-galaxy-la-pelicula/" data-live-nav="true">Super Mario Galaxy: La película</a></strong>
-            <p><a href="/cinema-watch-snapshot/venues/cinepolis/houssay/">Plaza Houssay</a> <span data-i18n-meta-line>| Classic • 2D • Español | Room 1</span></p>
+            <p><a href="/cinema-watch-snapshot/venues/cinepolis/houssay/" data-live-nav="true">Plaza Houssay</a> <span data-i18n-meta-line>| Classic • 2D • Español | Room 1</span></p>
           </div>
         </div>
         
@@ -4402,7 +4892,7 @@
           <span class="mini-time">13:00</span>
           <div class="front-screening-copy">
             <strong><a href="/cinema-watch-snapshot/movies/super-mario-galaxy-la-pelicula/" data-live-nav="true">Super Mario Galaxy: La película</a></strong>
-            <p><a href="/cinema-watch-snapshot/venues/cinepolis/houssay/">Plaza Houssay</a> <span data-i18n-meta-line>| Classic • 2D • Español | Room 3</span></p>
+            <p><a href="/cinema-watch-snapshot/venues/cinepolis/houssay/" data-live-nav="true">Plaza Houssay</a> <span data-i18n-meta-line>| Classic • 2D • Español | Room 3</span></p>
           </div>
         </div>
         
@@ -4420,7 +4910,7 @@
           <span class="mini-time">12:15</span>
           <div class="front-screening-copy">
             <strong><a href="/cinema-watch-snapshot/movies/super-mario-galaxy-la-pelicula/" data-live-nav="true">Super Mario Galaxy: La película</a></strong>
-            <p><a href="/cinema-watch-snapshot/venues/cinepolis/recoleta/">Recoleta</a> <span data-i18n-meta-line>| 4D • 3D • Español | Room 10 | 5% sold</span></p>
+            <p><a href="/cinema-watch-snapshot/venues/cinepolis/recoleta/" data-live-nav="true">Recoleta</a> <span data-i18n-meta-line>| 4D • 3D • Español | Room 10 | 5% sold</span></p>
           </div>
         </div>
         
@@ -4428,7 +4918,7 @@
           <span class="mini-time">12:15</span>
           <div class="front-screening-copy">
             <strong><a href="/cinema-watch-snapshot/movies/el-drama/" data-live-nav="true">El Drama</a></strong>
-            <p><a href="/cinema-watch-snapshot/venues/cinepolis/recoleta/">Recoleta</a> <span data-i18n-meta-line>| Classic • 2D • Subtitulado | Room 3</span></p>
+            <p><a href="/cinema-watch-snapshot/venues/cinepolis/recoleta/" data-live-nav="true">Recoleta</a> <span data-i18n-meta-line>| Classic • 2D • Subtitulado | Room 3</span></p>
           </div>
         </div>
         
@@ -4436,7 +4926,7 @@
           <span class="mini-time">12:20</span>
           <div class="front-screening-copy">
             <strong><a href="/cinema-watch-snapshot/movies/proyecto-fin-del-mundo/" data-live-nav="true">Proyecto fin del mundo</a></strong>
-            <p><a href="/cinema-watch-snapshot/venues/cinepolis/recoleta/">Recoleta</a> <span data-i18n-meta-line>| Classic • 2D • Subtitulado | Room 8</span></p>
+            <p><a href="/cinema-watch-snapshot/venues/cinepolis/recoleta/" data-live-nav="true">Recoleta</a> <span data-i18n-meta-line>| Classic • 2D • Subtitulado | Room 8</span></p>
           </div>
         </div>
         
@@ -4444,7 +4934,7 @@
           <span class="mini-time">12:30</span>
           <div class="front-screening-copy">
             <strong><a href="/cinema-watch-snapshot/movies/super-mario-galaxy-la-pelicula/" data-live-nav="true">Super Mario Galaxy: La película</a></strong>
-            <p><a href="/cinema-watch-snapshot/venues/cinepolis/recoleta/">Recoleta</a> <span data-i18n-meta-line>| Classic • 2D • Español | Room 1</span></p>
+            <p><a href="/cinema-watch-snapshot/venues/cinepolis/recoleta/" data-live-nav="true">Recoleta</a> <span data-i18n-meta-line>| Classic • 2D • Español | Room 1</span></p>
           </div>
         </div>
         
@@ -4452,7 +4942,7 @@
           <span class="mini-time">12:45</span>
           <div class="front-screening-copy">
             <strong><a href="/cinema-watch-snapshot/movies/super-mario-galaxy-la-pelicula/" data-live-nav="true">Super Mario Galaxy: La película</a></strong>
-            <p><a href="/cinema-watch-snapshot/venues/cinepolis/houssay/">Plaza Houssay</a> <span data-i18n-meta-line>| Classic • 2D • Español | Room 1</span></p>
+            <p><a href="/cinema-watch-snapshot/venues/cinepolis/houssay/" data-live-nav="true">Plaza Houssay</a> <span data-i18n-meta-line>| Classic • 2D • Español | Room 1</span></p>
           </div>
         </div>
         
@@ -4460,7 +4950,7 @@
           <span class="mini-time">13:00</span>
           <div class="front-screening-copy">
             <strong><a href="/cinema-watch-snapshot/movies/super-mario-galaxy-la-pelicula/" data-live-nav="true">Super Mario Galaxy: La película</a></strong>
-            <p><a href="/cinema-watch-snapshot/venues/cinepolis/houssay/">Plaza Houssay</a> <span data-i18n-meta-line>| Classic • 2D • Español | Room 3</span></p>
+            <p><a href="/cinema-watch-snapshot/venues/cinepolis/houssay/" data-live-nav="true">Plaza Houssay</a> <span data-i18n-meta-line>| Classic • 2D • Español | Room 3</span></p>
           </div>
         </div>
         
@@ -4468,7 +4958,7 @@
           <span class="mini-time">13:00</span>
           <div class="front-screening-copy">
             <strong><a href="/cinema-watch-snapshot/movies/super-mario-galaxy-la-pelicula/" data-live-nav="true">Super Mario Galaxy: La película</a></strong>
-            <p><a href="/cinema-watch-snapshot/venues/cinepolis/recoleta/">Recoleta</a> <span data-i18n-meta-line>| Classic • 2D • Español | Room 5 | 8% sold</span></p>
+            <p><a href="/cinema-watch-snapshot/venues/cinepolis/recoleta/" data-live-nav="true">Recoleta</a> <span data-i18n-meta-line>| Classic • 2D • Español | Room 5 | 8% sold</span></p>
           </div>
         </div>
         
@@ -4493,6 +4983,7 @@
             <span class="chip" data-i18n-count="screening" data-i18n-count-value="0">0 screenings</span>
           </div>
           
+          
   <div class="empty" data-i18n-source>No hay funciones IMAX en este corte.</div>
   
         </article>
@@ -4511,6 +5002,47 @@
             <span class="chip" data-i18n-count="screening" data-i18n-count-value="24">24 screenings</span>
           </div>
           
+  <div class="front-board-signals">
+    <div class="front-board-summary">
+      
+      <span><span data-i18n-source>Cache range</span>: 2026-04-08 to 2026-04-14</span>
+      
+      
+      <span><span data-i18n-source>Rooms identified</span>: 1</span>
+      
+      
+      <span><span data-i18n-source>Sold data</span>: 22</span>
+      
+      
+      <span><span data-i18n-source>Top venue</span>: <a href="/cinema-watch-snapshot/venues/cinepolis/recoleta/" data-live-nav="true">Recoleta</a></span>
+      
+    </div>
+    
+    <div class="front-board-peak">
+      <div class="front-board-peak-copy">
+        <span class="front-board-peak-label" data-i18n-source>Peak crowd</span>
+        <strong><a href="/cinema-watch-snapshot/movies/los-colores-del-tiempo/" data-live-nav="true">Los colores del tiempo</a></strong>
+        <p>
+          <a href="/cinema-watch-snapshot/venues/cinepolis/recoleta/" data-live-nav="true">Recoleta</a>
+          <span>2026-04-09 19:00</span>
+        </p>
+      </div>
+      <div class="chips">
+        <span class="chip" data-i18n-meta-line>91% sold | Room 6</span>
+        
+        <span
+          class="chip chip-neutral"
+          data-i18n-seat-note
+          data-seats-total="223"
+          data-seats-available="20"
+        >20 available of 223</span>
+        
+      </div>
+    </div>
+    
+  </div>
+  
+          
   <div class="front-screening-groups">
     
     <section class="front-date-group">
@@ -4524,7 +5056,7 @@
           <span class="mini-time">13:00</span>
           <div class="front-screening-copy">
             <strong><a href="/cinema-watch-snapshot/movies/super-mario-galaxy-la-pelicula/" data-live-nav="true">Super Mario Galaxy: La película</a></strong>
-            <p><a href="/cinema-watch-snapshot/venues/cinepolis/recoleta/">Recoleta</a> <span data-i18n-meta-line>| Classic • 2D • Español | Room 6</span></p>
+            <p><a href="/cinema-watch-snapshot/venues/cinepolis/recoleta/" data-live-nav="true">Recoleta</a> <span data-i18n-meta-line>| Classic • 2D • Español | Room 6</span></p>
           </div>
         </div>
         
@@ -4532,7 +5064,7 @@
           <span class="mini-time">15:30</span>
           <div class="front-screening-copy">
             <strong><a href="/cinema-watch-snapshot/movies/super-mario-galaxy-la-pelicula/" data-live-nav="true">Super Mario Galaxy: La película</a></strong>
-            <p><a href="/cinema-watch-snapshot/venues/cinepolis/recoleta/">Recoleta</a> <span data-i18n-meta-line>| Classic • 2D • Español | Room 6</span></p>
+            <p><a href="/cinema-watch-snapshot/venues/cinepolis/recoleta/" data-live-nav="true">Recoleta</a> <span data-i18n-meta-line>| Classic • 2D • Español | Room 6</span></p>
           </div>
         </div>
         
@@ -4540,7 +5072,7 @@
           <span class="mini-time">18:00</span>
           <div class="front-screening-copy">
             <strong><a href="/cinema-watch-snapshot/movies/super-mario-galaxy-la-pelicula/" data-live-nav="true">Super Mario Galaxy: La película</a></strong>
-            <p><a href="/cinema-watch-snapshot/venues/cinepolis/recoleta/">Recoleta</a> <span data-i18n-meta-line>| Classic • 2D • Español | Room 6 | 1% sold</span></p>
+            <p><a href="/cinema-watch-snapshot/venues/cinepolis/recoleta/" data-live-nav="true">Recoleta</a> <span data-i18n-meta-line>| Classic • 2D • Español | Room 6 | 1% sold</span></p>
           </div>
         </div>
         
@@ -4548,7 +5080,7 @@
           <span class="mini-time">20:30</span>
           <div class="front-screening-copy">
             <strong><a href="/cinema-watch-snapshot/movies/super-mario-galaxy-la-pelicula/" data-live-nav="true">Super Mario Galaxy: La película</a></strong>
-            <p><a href="/cinema-watch-snapshot/venues/cinepolis/recoleta/">Recoleta</a> <span data-i18n-meta-line>| Classic • 2D • Español | Room 6 | 3% sold</span></p>
+            <p><a href="/cinema-watch-snapshot/venues/cinepolis/recoleta/" data-live-nav="true">Recoleta</a> <span data-i18n-meta-line>| Classic • 2D • Español | Room 6 | 3% sold</span></p>
           </div>
         </div>
         
@@ -4556,7 +5088,7 @@
           <span class="mini-time">23:00</span>
           <div class="front-screening-copy">
             <strong><a href="/cinema-watch-snapshot/movies/super-mario-galaxy-la-pelicula/" data-live-nav="true">Super Mario Galaxy: La película</a></strong>
-            <p><a href="/cinema-watch-snapshot/venues/cinepolis/recoleta/">Recoleta</a> <span data-i18n-meta-line>| Classic • 2D • Subtitulado | Room 6 | 5% sold</span></p>
+            <p><a href="/cinema-watch-snapshot/venues/cinepolis/recoleta/" data-live-nav="true">Recoleta</a> <span data-i18n-meta-line>| Classic • 2D • Subtitulado | Room 6 | 5% sold</span></p>
           </div>
         </div>
         
@@ -4574,7 +5106,7 @@
           <span class="mini-time">19:00</span>
           <div class="front-screening-copy">
             <strong><a href="/cinema-watch-snapshot/movies/los-colores-del-tiempo/" data-live-nav="true">Los colores del tiempo</a></strong>
-            <p><a href="/cinema-watch-snapshot/venues/cinepolis/recoleta/">Recoleta</a> <span data-i18n-meta-line>| Classic • 2D • Subtitulado | Room 6 | 91% sold</span></p>
+            <p><a href="/cinema-watch-snapshot/venues/cinepolis/recoleta/" data-live-nav="true">Recoleta</a> <span data-i18n-meta-line>| Classic • 2D • Subtitulado | Room 6 | 91% sold</span></p>
           </div>
         </div>
         
@@ -4582,7 +5114,7 @@
           <span class="mini-time">23:00</span>
           <div class="front-screening-copy">
             <strong><a href="/cinema-watch-snapshot/movies/super-mario-galaxy-la-pelicula/" data-live-nav="true">Super Mario Galaxy: La película</a></strong>
-            <p><a href="/cinema-watch-snapshot/venues/cinepolis/recoleta/">Recoleta</a> <span data-i18n-meta-line>| Classic • 2D • Subtitulado | Room 6 | 1% sold</span></p>
+            <p><a href="/cinema-watch-snapshot/venues/cinepolis/recoleta/" data-live-nav="true">Recoleta</a> <span data-i18n-meta-line>| Classic • 2D • Subtitulado | Room 6 | 1% sold</span></p>
           </div>
         </div>
         
@@ -4607,6 +5139,47 @@
             <span class="chip" data-i18n-count="screening" data-i18n-count-value="220">220 screenings</span>
           </div>
           
+  <div class="front-board-signals">
+    <div class="front-board-summary">
+      
+      <span><span data-i18n-source>Cache range</span>: 2026-04-08 to 2026-04-12</span>
+      
+      
+      <span><span data-i18n-source>Rooms identified</span>: 10</span>
+      
+      
+      <span><span data-i18n-source>Sold data</span>: 89</span>
+      
+      
+      <span><span data-i18n-source>Top venue</span>: <a href="/cinema-watch-snapshot/venues/cinepolis/recoleta/" data-live-nav="true">Recoleta</a></span>
+      
+    </div>
+    
+    <div class="front-board-peak">
+      <div class="front-board-peak-copy">
+        <span class="front-board-peak-label" data-i18n-source>Peak crowd</span>
+        <strong><a href="/cinema-watch-snapshot/movies/bts-world-tour-arirang-in-goyang-live-viewing/" data-live-nav="true">BTS WORLD TOUR ‘ARIRANG’ IN GOYANG: LIVE VIEWING</a></strong>
+        <p>
+          <a href="/cinema-watch-snapshot/venues/cinepolis/recoleta/" data-live-nav="true">Recoleta</a>
+          <span>2026-04-11 16:00</span>
+        </p>
+      </div>
+      <div class="chips">
+        <span class="chip" data-i18n-meta-line>95% sold | Room 8</span>
+        
+        <span
+          class="chip chip-neutral"
+          data-i18n-seat-note
+          data-seats-total="221"
+          data-seats-available="10"
+        >10 available of 221</span>
+        
+      </div>
+    </div>
+    
+  </div>
+  
+          
   <div class="front-screening-groups">
     
     <section class="front-date-group">
@@ -4620,7 +5193,7 @@
           <span class="mini-time">12:30</span>
           <div class="front-screening-copy">
             <strong><a href="/cinema-watch-snapshot/movies/nuremberg-el-juicio-del-siglo/" data-live-nav="true">Nuremberg: El juicio del siglo</a></strong>
-            <p><a href="/cinema-watch-snapshot/venues/cinepolis/recoleta/">Recoleta</a> <span data-i18n-meta-line>| Classic • 2D • Subtitulado | Room 9 | 1% sold</span></p>
+            <p><a href="/cinema-watch-snapshot/venues/cinepolis/recoleta/" data-live-nav="true">Recoleta</a> <span data-i18n-meta-line>| Classic • 2D • Subtitulado | Room 9 | 1% sold</span></p>
           </div>
         </div>
         
@@ -4628,7 +5201,7 @@
           <span class="mini-time">13:00</span>
           <div class="front-screening-copy">
             <strong><a href="/cinema-watch-snapshot/movies/proyecto-fin-del-mundo/" data-live-nav="true">Proyecto fin del mundo</a></strong>
-            <p><a href="/cinema-watch-snapshot/venues/cinepolis/recoleta/">Recoleta</a> <span data-i18n-meta-line>| Classic • 2D • Subtitulado | Room 8</span></p>
+            <p><a href="/cinema-watch-snapshot/venues/cinepolis/recoleta/" data-live-nav="true">Recoleta</a> <span data-i18n-meta-line>| Classic • 2D • Subtitulado | Room 8</span></p>
           </div>
         </div>
         
@@ -4636,7 +5209,7 @@
           <span class="mini-time">13:20</span>
           <div class="front-screening-copy">
             <strong><a href="/cinema-watch-snapshot/movies/la-grazia-la-belleza-de-la-duda/" data-live-nav="true">La grazia: La belleza de la duda</a></strong>
-            <p><a href="/cinema-watch-snapshot/venues/cinepolis/recoleta/">Recoleta</a> <span data-i18n-meta-line>| Classic • 2D • Subtitulado | Room 1</span></p>
+            <p><a href="/cinema-watch-snapshot/venues/cinepolis/recoleta/" data-live-nav="true">Recoleta</a> <span data-i18n-meta-line>| Classic • 2D • Subtitulado | Room 1</span></p>
           </div>
         </div>
         
@@ -4644,7 +5217,7 @@
           <span class="mini-time">13:45</span>
           <div class="front-screening-copy">
             <strong><a href="/cinema-watch-snapshot/movies/gioia-mia-un-verano-en-sicilia/" data-live-nav="true">Gioia mia: Un verano en Sicilia</a></strong>
-            <p><a href="/cinema-watch-snapshot/venues/cinepolis/recoleta/">Recoleta</a> <span data-i18n-meta-line>| Classic • 2D • Subtitulado | Room 3</span></p>
+            <p><a href="/cinema-watch-snapshot/venues/cinepolis/recoleta/" data-live-nav="true">Recoleta</a> <span data-i18n-meta-line>| Classic • 2D • Subtitulado | Room 3</span></p>
           </div>
         </div>
         
@@ -4652,7 +5225,7 @@
           <span class="mini-time">14:00</span>
           <div class="front-screening-copy">
             <strong><a href="/cinema-watch-snapshot/movies/gioia-mia-un-verano-en-sicilia/" data-live-nav="true">Gioia mia: un verano en Sicilia</a></strong>
-            <p><a href="/cinema-watch-snapshot/venues/showcase/showcase_belgrano/">Belgrano</a></p>
+            <p><a href="/cinema-watch-snapshot/venues/showcase/showcase_belgrano/" data-live-nav="true">Belgrano</a></p>
           </div>
         </div>
         
@@ -4660,7 +5233,7 @@
           <span class="mini-time">14:45</span>
           <div class="front-screening-copy">
             <strong><a href="/cinema-watch-snapshot/movies/jugada-maestra/" data-live-nav="true">Jugada maestra</a></strong>
-            <p><a href="/cinema-watch-snapshot/venues/showcase/showcase_belgrano/">Belgrano</a></p>
+            <p><a href="/cinema-watch-snapshot/venues/showcase/showcase_belgrano/" data-live-nav="true">Belgrano</a></p>
           </div>
         </div>
         
@@ -4678,7 +5251,7 @@
           <span class="mini-time">12:15</span>
           <div class="front-screening-copy">
             <strong><a href="/cinema-watch-snapshot/movies/el-drama/" data-live-nav="true">El Drama</a></strong>
-            <p><a href="/cinema-watch-snapshot/venues/cinepolis/recoleta/">Recoleta</a> <span data-i18n-meta-line>| Classic • 2D • Subtitulado | Room 3 | 1% sold</span></p>
+            <p><a href="/cinema-watch-snapshot/venues/cinepolis/recoleta/" data-live-nav="true">Recoleta</a> <span data-i18n-meta-line>| Classic • 2D • Subtitulado | Room 3 | 1% sold</span></p>
           </div>
         </div>
         
@@ -4686,7 +5259,7 @@
           <span class="mini-time">12:40</span>
           <div class="front-screening-copy">
             <strong><a href="/cinema-watch-snapshot/movies/proyecto-fin-del-mundo/" data-live-nav="true">Proyecto fin del mundo</a></strong>
-            <p><a href="/cinema-watch-snapshot/venues/cinepolis/recoleta/">Recoleta</a> <span data-i18n-meta-line>| Classic • 2D • Subtitulado | Room 8</span></p>
+            <p><a href="/cinema-watch-snapshot/venues/cinepolis/recoleta/" data-live-nav="true">Recoleta</a> <span data-i18n-meta-line>| Classic • 2D • Subtitulado | Room 8</span></p>
           </div>
         </div>
         
@@ -4694,7 +5267,7 @@
           <span class="mini-time">14:25</span>
           <div class="front-screening-copy">
             <strong><a href="/cinema-watch-snapshot/movies/no-te-olvidare/" data-live-nav="true">No te olvidaré</a></strong>
-            <p><a href="/cinema-watch-snapshot/venues/showcase/showcase_belgrano/">Belgrano</a></p>
+            <p><a href="/cinema-watch-snapshot/venues/showcase/showcase_belgrano/" data-live-nav="true">Belgrano</a></p>
           </div>
         </div>
         
@@ -4702,7 +5275,7 @@
           <span class="mini-time">14:30</span>
           <div class="front-screening-copy">
             <strong><a href="/cinema-watch-snapshot/movies/padre-madre-hermana-hermano/" data-live-nav="true">Padre madre hermana hermano</a></strong>
-            <p><a href="/cinema-watch-snapshot/venues/showcase/showcase_belgrano/">Belgrano</a></p>
+            <p><a href="/cinema-watch-snapshot/venues/showcase/showcase_belgrano/" data-live-nav="true">Belgrano</a></p>
           </div>
         </div>
         
@@ -4710,7 +5283,7 @@
           <span class="mini-time">14:50</span>
           <div class="front-screening-copy">
             <strong><a href="/cinema-watch-snapshot/movies/el-drama/" data-live-nav="true">El Drama</a></strong>
-            <p><a href="/cinema-watch-snapshot/venues/cinepolis/recoleta/">Recoleta</a> <span data-i18n-meta-line>| Classic • 2D • Subtitulado | Room 3</span></p>
+            <p><a href="/cinema-watch-snapshot/venues/cinepolis/recoleta/" data-live-nav="true">Recoleta</a> <span data-i18n-meta-line>| Classic • 2D • Subtitulado | Room 3</span></p>
           </div>
         </div>
         
@@ -4718,7 +5291,7 @@
           <span class="mini-time">14:55</span>
           <div class="front-screening-copy">
             <strong><a href="/cinema-watch-snapshot/movies/el-drama/" data-live-nav="true">El drama</a></strong>
-            <p><a href="/cinema-watch-snapshot/venues/showcase/showcase_belgrano/">Belgrano</a></p>
+            <p><a href="/cinema-watch-snapshot/venues/showcase/showcase_belgrano/" data-live-nav="true">Belgrano</a></p>
           </div>
         </div>
         
@@ -4742,6 +5315,7 @@
             </div>
             <span class="chip" data-front-advanced-count data-i18n-count="screening" data-i18n-count-value="0">0 screenings</span>
           </div>
+          <div class="front-board-signals" data-front-advanced-signals hidden></div>
           <div class="front-screening-groups" data-front-advanced-results></div>
         </article>
       </div>
@@ -4767,7 +5341,7 @@
           
   <div class="empty" data-i18n-source>No IMAX screenings in the current snapshot.</div>
   
-          <a class="text-link" href="/cinema-watch-snapshot/screenings/?category=imax" data-i18n-source>See all</a>
+          <a class="text-link" href="?focus=imax#salas-especiales" data-i18n-source>See all</a>
         </article>
         
         <article class="front-mini-board">
@@ -4792,7 +5366,7 @@
           <span class="mini-time">13:00</span>
           <div class="front-screening-copy">
             <strong><a href="/cinema-watch-snapshot/movies/super-mario-galaxy-la-pelicula/" data-live-nav="true">Super Mario Galaxy: La película</a></strong>
-            <p><a href="/cinema-watch-snapshot/venues/cinepolis/recoleta/">Recoleta</a> <span data-i18n-meta-line>| Classic • 2D • Español | Room 6</span></p>
+            <p><a href="/cinema-watch-snapshot/venues/cinepolis/recoleta/" data-live-nav="true">Recoleta</a> <span data-i18n-meta-line>| Classic • 2D • Español | Room 6</span></p>
           </div>
         </div>
         
@@ -4800,7 +5374,7 @@
           <span class="mini-time">15:30</span>
           <div class="front-screening-copy">
             <strong><a href="/cinema-watch-snapshot/movies/super-mario-galaxy-la-pelicula/" data-live-nav="true">Super Mario Galaxy: La película</a></strong>
-            <p><a href="/cinema-watch-snapshot/venues/cinepolis/recoleta/">Recoleta</a> <span data-i18n-meta-line>| Classic • 2D • Español | Room 6</span></p>
+            <p><a href="/cinema-watch-snapshot/venues/cinepolis/recoleta/" data-live-nav="true">Recoleta</a> <span data-i18n-meta-line>| Classic • 2D • Español | Room 6</span></p>
           </div>
         </div>
         
@@ -4808,7 +5382,7 @@
           <span class="mini-time">18:00</span>
           <div class="front-screening-copy">
             <strong><a href="/cinema-watch-snapshot/movies/super-mario-galaxy-la-pelicula/" data-live-nav="true">Super Mario Galaxy: La película</a></strong>
-            <p><a href="/cinema-watch-snapshot/venues/cinepolis/recoleta/">Recoleta</a> <span data-i18n-meta-line>| Classic • 2D • Español | Room 6 | 1% sold</span></p>
+            <p><a href="/cinema-watch-snapshot/venues/cinepolis/recoleta/" data-live-nav="true">Recoleta</a> <span data-i18n-meta-line>| Classic • 2D • Español | Room 6 | 1% sold</span></p>
           </div>
         </div>
         
@@ -4826,7 +5400,7 @@
           <span class="mini-time">19:00</span>
           <div class="front-screening-copy">
             <strong><a href="/cinema-watch-snapshot/movies/los-colores-del-tiempo/" data-live-nav="true">Los colores del tiempo</a></strong>
-            <p><a href="/cinema-watch-snapshot/venues/cinepolis/recoleta/">Recoleta</a> <span data-i18n-meta-line>| Classic • 2D • Subtitulado | Room 6 | 91% sold</span></p>
+            <p><a href="/cinema-watch-snapshot/venues/cinepolis/recoleta/" data-live-nav="true">Recoleta</a> <span data-i18n-meta-line>| Classic • 2D • Subtitulado | Room 6 | 91% sold</span></p>
           </div>
         </div>
         
@@ -4834,7 +5408,7 @@
           <span class="mini-time">23:00</span>
           <div class="front-screening-copy">
             <strong><a href="/cinema-watch-snapshot/movies/super-mario-galaxy-la-pelicula/" data-live-nav="true">Super Mario Galaxy: La película</a></strong>
-            <p><a href="/cinema-watch-snapshot/venues/cinepolis/recoleta/">Recoleta</a> <span data-i18n-meta-line>| Classic • 2D • Subtitulado | Room 6 | 1% sold</span></p>
+            <p><a href="/cinema-watch-snapshot/venues/cinepolis/recoleta/" data-live-nav="true">Recoleta</a> <span data-i18n-meta-line>| Classic • 2D • Subtitulado | Room 6 | 1% sold</span></p>
           </div>
         </div>
         
@@ -4852,7 +5426,7 @@
           <span class="mini-time">16:30</span>
           <div class="front-screening-copy">
             <strong><a href="/cinema-watch-snapshot/movies/la-divina-sarah-bernhardt/" data-live-nav="true">La divina Sarah Bernhardt</a></strong>
-            <p><a href="/cinema-watch-snapshot/venues/cinepolis/recoleta/">Recoleta</a> <span data-i18n-meta-line>| Classic • 2D • Subtitulado | Room 6 | 39% sold</span></p>
+            <p><a href="/cinema-watch-snapshot/venues/cinepolis/recoleta/" data-live-nav="true">Recoleta</a> <span data-i18n-meta-line>| Classic • 2D • Subtitulado | Room 6 | 39% sold</span></p>
           </div>
         </div>
         
@@ -4860,7 +5434,7 @@
           <span class="mini-time">19:00</span>
           <div class="front-screening-copy">
             <strong><a href="/cinema-watch-snapshot/movies/caso-137/" data-live-nav="true">Caso 137</a></strong>
-            <p><a href="/cinema-watch-snapshot/venues/cinepolis/recoleta/">Recoleta</a> <span data-i18n-meta-line>| Classic • 2D • Subtitulado | Room 6 | 67% sold</span></p>
+            <p><a href="/cinema-watch-snapshot/venues/cinepolis/recoleta/" data-live-nav="true">Recoleta</a> <span data-i18n-meta-line>| Classic • 2D • Subtitulado | Room 6 | 67% sold</span></p>
           </div>
         </div>
         
@@ -4868,7 +5442,7 @@
           <span class="mini-time">21:40</span>
           <div class="front-screening-copy">
             <strong><a href="/cinema-watch-snapshot/movies/alphaville/" data-live-nav="true">Alphaville</a></strong>
-            <p><a href="/cinema-watch-snapshot/venues/cinepolis/recoleta/">Recoleta</a> <span data-i18n-meta-line>| Classic • 2D • Subtitulado | Room 6 | 42% sold</span></p>
+            <p><a href="/cinema-watch-snapshot/venues/cinepolis/recoleta/" data-live-nav="true">Recoleta</a> <span data-i18n-meta-line>| Classic • 2D • Subtitulado | Room 6 | 42% sold</span></p>
           </div>
         </div>
         
@@ -4877,7 +5451,7 @@
     
   </div>
   
-          <a class="text-link" href="/cinema-watch-snapshot/screenings/?category=dolby_atmos" data-i18n-source>See all</a>
+          <a class="text-link" href="?focus=dolby_atmos#salas-especiales" data-i18n-source>See all</a>
         </article>
         
       </div>
@@ -5469,6 +6043,47 @@
             <span class="chip" data-i18n-count="screening" data-i18n-count-value="85">85 screenings</span>
           </div>
           
+  <div class="front-board-signals">
+    <div class="front-board-summary">
+      
+      <span><span data-i18n-source>Cache range</span>: 2026-04-08</span>
+      
+      
+      <span><span data-i18n-source>Rooms identified</span>: 11</span>
+      
+      
+      <span><span data-i18n-source>Sold data</span>: 49</span>
+      
+      
+      <span><span data-i18n-source>Top venue</span>: <a href="/cinema-watch-snapshot/venues/cinepolis/avellaneda/" data-live-nav="true">Avellaneda</a></span>
+      
+    </div>
+    
+    <div class="front-board-peak">
+      <div class="front-board-peak-copy">
+        <span class="front-board-peak-label" data-i18n-source>Peak crowd</span>
+        <strong><a href="/cinema-watch-snapshot/movies/super-mario-galaxy-la-pelicula/" data-live-nav="true">Super Mario Galaxy: La película</a></strong>
+        <p>
+          <a href="/cinema-watch-snapshot/venues/cinepolis/avellaneda/" data-live-nav="true">Avellaneda</a>
+          <span>2026-04-08 19:30</span>
+        </p>
+      </div>
+      <div class="chips">
+        <span class="chip" data-i18n-meta-line>31% sold | Room 8</span>
+        
+        <span
+          class="chip chip-neutral"
+          data-i18n-seat-note
+          data-seats-total="96"
+          data-seats-available="66"
+        >66 available of 96</span>
+        
+      </div>
+    </div>
+    
+  </div>
+  
+          
   <div class="front-screening-groups">
     
     <section class="front-date-group">
@@ -5482,7 +6097,7 @@
           <span class="mini-time">12:45</span>
           <div class="front-screening-copy">
             <strong><a href="/cinema-watch-snapshot/movies/hoppers/" data-live-nav="true">Hoppers</a></strong>
-            <p><a href="/cinema-watch-snapshot/venues/cinepolis/avellaneda/">Avellaneda</a> <span data-i18n-meta-line>| Classic • 2D • Español | Room 10</span></p>
+            <p><a href="/cinema-watch-snapshot/venues/cinepolis/avellaneda/" data-live-nav="true">Avellaneda</a> <span data-i18n-meta-line>| Classic • 2D • Español | Room 10</span></p>
           </div>
         </div>
         
@@ -5490,7 +6105,7 @@
           <span class="mini-time">13:00</span>
           <div class="front-screening-copy">
             <strong><a href="/cinema-watch-snapshot/movies/super-mario-galaxy-la-pelicula/" data-live-nav="true">Super Mario Galaxy: La película</a></strong>
-            <p><a href="/cinema-watch-snapshot/venues/cinepolis/avellaneda/">Avellaneda</a> <span data-i18n-meta-line>| Classic • 2D • Español | Room 11</span></p>
+            <p><a href="/cinema-watch-snapshot/venues/cinepolis/avellaneda/" data-live-nav="true">Avellaneda</a> <span data-i18n-meta-line>| Classic • 2D • Español | Room 11</span></p>
           </div>
         </div>
         
@@ -5498,7 +6113,7 @@
           <span class="mini-time">13:30</span>
           <div class="front-screening-copy">
             <strong><a href="/cinema-watch-snapshot/movies/super-mario-galaxy-la-pelicula/" data-live-nav="true">Super Mario Galaxy: La película</a></strong>
-            <p><a href="/cinema-watch-snapshot/venues/cinepolis/avellaneda/">Avellaneda</a> <span data-i18n-meta-line>| Classic • 2D • Español | Room 9 | 1% sold</span></p>
+            <p><a href="/cinema-watch-snapshot/venues/cinepolis/avellaneda/" data-live-nav="true">Avellaneda</a> <span data-i18n-meta-line>| Classic • 2D • Español | Room 9 | 1% sold</span></p>
           </div>
         </div>
         
@@ -5506,7 +6121,7 @@
           <span class="mini-time">13:40</span>
           <div class="front-screening-copy">
             <strong><a href="/cinema-watch-snapshot/movies/hoppers/" data-live-nav="true">Hoppers</a></strong>
-            <p><a href="/cinema-watch-snapshot/venues/cinepolis/avellaneda/">Avellaneda</a> <span data-i18n-meta-line>| Classic • 3D • Español | Room 2 | 2% sold</span></p>
+            <p><a href="/cinema-watch-snapshot/venues/cinepolis/avellaneda/" data-live-nav="true">Avellaneda</a> <span data-i18n-meta-line>| Classic • 3D • Español | Room 2 | 2% sold</span></p>
           </div>
         </div>
         
@@ -5514,7 +6129,7 @@
           <span class="mini-time">13:40</span>
           <div class="front-screening-copy">
             <strong><a href="/cinema-watch-snapshot/movies/super-mario-galaxy-la-pelicula/" data-live-nav="true">Super Mario Galaxy: La película</a></strong>
-            <p><a href="/cinema-watch-snapshot/venues/cinepolis/avellaneda/">Avellaneda</a> <span data-i18n-meta-line>| Classic • 2D • Español | Room 4 | 1% sold</span></p>
+            <p><a href="/cinema-watch-snapshot/venues/cinepolis/avellaneda/" data-live-nav="true">Avellaneda</a> <span data-i18n-meta-line>| Classic • 2D • Español | Room 4 | 1% sold</span></p>
           </div>
         </div>
         
@@ -5522,7 +6137,7 @@
           <span class="mini-time">14:00</span>
           <div class="front-screening-copy">
             <strong><a href="/cinema-watch-snapshot/movies/super-mario-galaxy-la-pelicula/" data-live-nav="true">Super Mario Galaxy: La película</a></strong>
-            <p><a href="/cinema-watch-snapshot/venues/cinepolis/avellaneda/">Avellaneda</a> <span data-i18n-meta-line>| Classic • 2D • Español | Room 5 | 1% sold</span></p>
+            <p><a href="/cinema-watch-snapshot/venues/cinepolis/avellaneda/" data-live-nav="true">Avellaneda</a> <span data-i18n-meta-line>| Classic • 2D • Español | Room 5 | 1% sold</span></p>
           </div>
         </div>
         
@@ -5530,7 +6145,7 @@
           <span class="mini-time">14:15</span>
           <div class="front-screening-copy">
             <strong><a href="/cinema-watch-snapshot/movies/hoppers/" data-live-nav="true">Hoppers</a></strong>
-            <p><a href="/cinema-watch-snapshot/venues/cinepolis/avellaneda/">Avellaneda</a> <span data-i18n-meta-line>| Classic • 2D • Español | Room 10 | 3% sold</span></p>
+            <p><a href="/cinema-watch-snapshot/venues/cinepolis/avellaneda/" data-live-nav="true">Avellaneda</a> <span data-i18n-meta-line>| Classic • 2D • Español | Room 10 | 3% sold</span></p>
           </div>
         </div>
         
@@ -5538,7 +6153,7 @@
           <span class="mini-time">14:20</span>
           <div class="front-screening-copy">
             <strong><a href="/cinema-watch-snapshot/movies/super-mario-galaxy-la-pelicula/" data-live-nav="true">Súper Mario Galaxy: la película</a></strong>
-            <p><a href="/cinema-watch-snapshot/venues/showcase/showcase_quilmes/">Quilmes</a></p>
+            <p><a href="/cinema-watch-snapshot/venues/showcase/showcase_quilmes/" data-live-nav="true">Quilmes</a></p>
           </div>
         </div>
         
@@ -5546,7 +6161,7 @@
           <span class="mini-time">14:30</span>
           <div class="front-screening-copy">
             <strong><a href="/cinema-watch-snapshot/movies/super-mario-galaxy-la-pelicula/" data-live-nav="true">Super Mario Galaxy: La película</a></strong>
-            <p><a href="/cinema-watch-snapshot/venues/cinepolis/avellaneda/">Avellaneda</a> <span data-i18n-meta-line>| 4D • 3D • Español | Room 8 | 3% sold</span></p>
+            <p><a href="/cinema-watch-snapshot/venues/cinepolis/avellaneda/" data-live-nav="true">Avellaneda</a> <span data-i18n-meta-line>| 4D • 3D • Español | Room 8 | 3% sold</span></p>
           </div>
         </div>
         
@@ -5554,7 +6169,7 @@
           <span class="mini-time">14:40</span>
           <div class="front-screening-copy">
             <strong><a href="/cinema-watch-snapshot/movies/super-mario-galaxy-la-pelicula/" data-live-nav="true">Super Mario Galaxy: La película</a></strong>
-            <p><a href="/cinema-watch-snapshot/venues/cinepolis/avellaneda/">Avellaneda</a> <span data-i18n-meta-line>| Classic • 2D • Español | Room 3 | 1% sold</span></p>
+            <p><a href="/cinema-watch-snapshot/venues/cinepolis/avellaneda/" data-live-nav="true">Avellaneda</a> <span data-i18n-meta-line>| Classic • 2D • Español | Room 3 | 1% sold</span></p>
           </div>
         </div>
         
@@ -5579,6 +6194,47 @@
             <span class="chip" data-i18n-count="screening" data-i18n-count-value="89">89 screenings</span>
           </div>
           
+  <div class="front-board-signals">
+    <div class="front-board-summary">
+      
+      <span><span data-i18n-source>Cache range</span>: 2026-04-09</span>
+      
+      
+      <span><span data-i18n-source>Rooms identified</span>: 11</span>
+      
+      
+      <span><span data-i18n-source>Sold data</span>: 49</span>
+      
+      
+      <span><span data-i18n-source>Top venue</span>: <a href="/cinema-watch-snapshot/venues/cinepolis/avellaneda/" data-live-nav="true">Avellaneda</a></span>
+      
+    </div>
+    
+    <div class="front-board-peak">
+      <div class="front-board-peak-copy">
+        <span class="front-board-peak-label" data-i18n-source>Peak crowd</span>
+        <strong><a href="/cinema-watch-snapshot/movies/el-drama/" data-live-nav="true">El Drama</a></strong>
+        <p>
+          <a href="/cinema-watch-snapshot/venues/cinepolis/avellaneda/" data-live-nav="true">Avellaneda</a>
+          <span>2026-04-09 20:30</span>
+        </p>
+      </div>
+      <div class="chips">
+        <span class="chip" data-i18n-meta-line>5% sold | Room 12</span>
+        
+        <span
+          class="chip chip-neutral"
+          data-i18n-seat-note
+          data-seats-total="182"
+          data-seats-available="172"
+        >172 available of 182</span>
+        
+      </div>
+    </div>
+    
+  </div>
+  
+          
   <div class="front-screening-groups">
     
     <section class="front-date-group">
@@ -5592,7 +6248,7 @@
           <span class="mini-time">12:45</span>
           <div class="front-screening-copy">
             <strong><a href="/cinema-watch-snapshot/movies/super-mario-galaxy-la-pelicula/" data-live-nav="true">Super Mario Galaxy: La película</a></strong>
-            <p><a href="/cinema-watch-snapshot/venues/cinepolis/avellaneda/">Avellaneda</a> <span data-i18n-meta-line>| Classic • 2D • Español | Room 4 | 1% sold</span></p>
+            <p><a href="/cinema-watch-snapshot/venues/cinepolis/avellaneda/" data-live-nav="true">Avellaneda</a> <span data-i18n-meta-line>| Classic • 2D • Español | Room 4 | 1% sold</span></p>
           </div>
         </div>
         
@@ -5600,7 +6256,7 @@
           <span class="mini-time">13:00</span>
           <div class="front-screening-copy">
             <strong><a href="/cinema-watch-snapshot/movies/el-drama/" data-live-nav="true">El Drama</a></strong>
-            <p><a href="/cinema-watch-snapshot/venues/cinepolis/avellaneda/">Avellaneda</a> <span data-i18n-meta-line>| Classic • 2D • Español | Room 12 | 2% sold</span></p>
+            <p><a href="/cinema-watch-snapshot/venues/cinepolis/avellaneda/" data-live-nav="true">Avellaneda</a> <span data-i18n-meta-line>| Classic • 2D • Español | Room 12 | 2% sold</span></p>
           </div>
         </div>
         
@@ -5608,7 +6264,7 @@
           <span class="mini-time">13:00</span>
           <div class="front-screening-copy">
             <strong><a href="/cinema-watch-snapshot/movies/super-mario-galaxy-la-pelicula/" data-live-nav="true">Super Mario Galaxy: La película</a></strong>
-            <p><a href="/cinema-watch-snapshot/venues/cinepolis/avellaneda/">Avellaneda</a> <span data-i18n-meta-line>| Classic • 3D • Español | Room 13 | 1% sold</span></p>
+            <p><a href="/cinema-watch-snapshot/venues/cinepolis/avellaneda/" data-live-nav="true">Avellaneda</a> <span data-i18n-meta-line>| Classic • 3D • Español | Room 13 | 1% sold</span></p>
           </div>
         </div>
         
@@ -5616,7 +6272,7 @@
           <span class="mini-time">13:15</span>
           <div class="front-screening-copy">
             <strong><a href="/cinema-watch-snapshot/movies/super-mario-galaxy-la-pelicula/" data-live-nav="true">Super Mario Galaxy: La película</a></strong>
-            <p><a href="/cinema-watch-snapshot/venues/cinepolis/avellaneda/">Avellaneda</a> <span data-i18n-meta-line>| Classic • 2D • Español | Room 11</span></p>
+            <p><a href="/cinema-watch-snapshot/venues/cinepolis/avellaneda/" data-live-nav="true">Avellaneda</a> <span data-i18n-meta-line>| Classic • 2D • Español | Room 11</span></p>
           </div>
         </div>
         
@@ -5624,7 +6280,7 @@
           <span class="mini-time">13:20</span>
           <div class="front-screening-copy">
             <strong><a href="/cinema-watch-snapshot/movies/el-mono-la-maldicion-regresa/" data-live-nav="true">El Mono: La maldición regresa</a></strong>
-            <p><a href="/cinema-watch-snapshot/venues/cinepolis/avellaneda/">Avellaneda</a> <span data-i18n-meta-line>| Classic • 2D • Español | Room 9 | 1% sold</span></p>
+            <p><a href="/cinema-watch-snapshot/venues/cinepolis/avellaneda/" data-live-nav="true">Avellaneda</a> <span data-i18n-meta-line>| Classic • 2D • Español | Room 9 | 1% sold</span></p>
           </div>
         </div>
         
@@ -5632,7 +6288,7 @@
           <span class="mini-time">13:30</span>
           <div class="front-screening-copy">
             <strong><a href="/cinema-watch-snapshot/movies/hoppers/" data-live-nav="true">Hoppers</a></strong>
-            <p><a href="/cinema-watch-snapshot/venues/cinepolis/avellaneda/">Avellaneda</a> <span data-i18n-meta-line>| Classic • 2D • Español | Room 10 | 3% sold</span></p>
+            <p><a href="/cinema-watch-snapshot/venues/cinepolis/avellaneda/" data-live-nav="true">Avellaneda</a> <span data-i18n-meta-line>| Classic • 2D • Español | Room 10 | 3% sold</span></p>
           </div>
         </div>
         
@@ -5640,7 +6296,7 @@
           <span class="mini-time">13:30</span>
           <div class="front-screening-copy">
             <strong><a href="/cinema-watch-snapshot/movies/super-mario-galaxy-la-pelicula/" data-live-nav="true">Super Mario Galaxy: La película</a></strong>
-            <p><a href="/cinema-watch-snapshot/venues/cinepolis/avellaneda/">Avellaneda</a> <span data-i18n-meta-line>| Classic • 3D • Español | Room 2 | 2% sold</span></p>
+            <p><a href="/cinema-watch-snapshot/venues/cinepolis/avellaneda/" data-live-nav="true">Avellaneda</a> <span data-i18n-meta-line>| Classic • 3D • Español | Room 2 | 2% sold</span></p>
           </div>
         </div>
         
@@ -5648,7 +6304,7 @@
           <span class="mini-time">13:45</span>
           <div class="front-screening-copy">
             <strong><a href="/cinema-watch-snapshot/movies/super-mario-galaxy-la-pelicula/" data-live-nav="true">Super Mario Galaxy: La película</a></strong>
-            <p><a href="/cinema-watch-snapshot/venues/cinepolis/avellaneda/">Avellaneda</a> <span data-i18n-meta-line>| Classic • 2D • Español | Room 10</span></p>
+            <p><a href="/cinema-watch-snapshot/venues/cinepolis/avellaneda/" data-live-nav="true">Avellaneda</a> <span data-i18n-meta-line>| Classic • 2D • Español | Room 10</span></p>
           </div>
         </div>
         
@@ -5656,7 +6312,7 @@
           <span class="mini-time">14:15</span>
           <div class="front-screening-copy">
             <strong><a href="/cinema-watch-snapshot/movies/super-mario-galaxy-la-pelicula/" data-live-nav="true">Super Mario Galaxy: La película</a></strong>
-            <p><a href="/cinema-watch-snapshot/venues/cinepolis/avellaneda/">Avellaneda</a> <span data-i18n-meta-line>| Classic • 2D • Español | Room 5 | 1% sold</span></p>
+            <p><a href="/cinema-watch-snapshot/venues/cinepolis/avellaneda/" data-live-nav="true">Avellaneda</a> <span data-i18n-meta-line>| Classic • 2D • Español | Room 5 | 1% sold</span></p>
           </div>
         </div>
         
@@ -5664,7 +6320,7 @@
           <span class="mini-time">14:20</span>
           <div class="front-screening-copy">
             <strong><a href="/cinema-watch-snapshot/movies/buena-suerte-diviertete-no-mueras/" data-live-nav="true">Buena suerte, diviértete, no mueras</a></strong>
-            <p><a href="/cinema-watch-snapshot/venues/cinepolis/avellaneda/">Avellaneda</a> <span data-i18n-meta-line>| Classic • 2D • Español | Room 2 | 2% sold</span></p>
+            <p><a href="/cinema-watch-snapshot/venues/cinepolis/avellaneda/" data-live-nav="true">Avellaneda</a> <span data-i18n-meta-line>| Classic • 2D • Español | Room 2 | 2% sold</span></p>
           </div>
         </div>
         
@@ -5689,6 +6345,47 @@
             <span class="chip" data-i18n-count="screening" data-i18n-count-value="85">85 screenings</span>
           </div>
           
+  <div class="front-board-signals">
+    <div class="front-board-summary">
+      
+      <span><span data-i18n-source>Cache range</span>: 2026-04-08</span>
+      
+      
+      <span><span data-i18n-source>Rooms identified</span>: 11</span>
+      
+      
+      <span><span data-i18n-source>Sold data</span>: 49</span>
+      
+      
+      <span><span data-i18n-source>Top venue</span>: <a href="/cinema-watch-snapshot/venues/cinepolis/avellaneda/" data-live-nav="true">Avellaneda</a></span>
+      
+    </div>
+    
+    <div class="front-board-peak">
+      <div class="front-board-peak-copy">
+        <span class="front-board-peak-label" data-i18n-source>Peak crowd</span>
+        <strong><a href="/cinema-watch-snapshot/movies/super-mario-galaxy-la-pelicula/" data-live-nav="true">Super Mario Galaxy: La película</a></strong>
+        <p>
+          <a href="/cinema-watch-snapshot/venues/cinepolis/avellaneda/" data-live-nav="true">Avellaneda</a>
+          <span>2026-04-08 19:30</span>
+        </p>
+      </div>
+      <div class="chips">
+        <span class="chip" data-i18n-meta-line>31% sold | Room 8</span>
+        
+        <span
+          class="chip chip-neutral"
+          data-i18n-seat-note
+          data-seats-total="96"
+          data-seats-available="66"
+        >66 available of 96</span>
+        
+      </div>
+    </div>
+    
+  </div>
+  
+          
   <div class="front-screening-groups">
     
     <section class="front-date-group">
@@ -5702,7 +6399,7 @@
           <span class="mini-time">12:45</span>
           <div class="front-screening-copy">
             <strong><a href="/cinema-watch-snapshot/movies/hoppers/" data-live-nav="true">Hoppers</a></strong>
-            <p><a href="/cinema-watch-snapshot/venues/cinepolis/avellaneda/">Avellaneda</a> <span data-i18n-meta-line>| Classic • 2D • Español | Room 10</span></p>
+            <p><a href="/cinema-watch-snapshot/venues/cinepolis/avellaneda/" data-live-nav="true">Avellaneda</a> <span data-i18n-meta-line>| Classic • 2D • Español | Room 10</span></p>
           </div>
         </div>
         
@@ -5710,7 +6407,7 @@
           <span class="mini-time">13:00</span>
           <div class="front-screening-copy">
             <strong><a href="/cinema-watch-snapshot/movies/super-mario-galaxy-la-pelicula/" data-live-nav="true">Super Mario Galaxy: La película</a></strong>
-            <p><a href="/cinema-watch-snapshot/venues/cinepolis/avellaneda/">Avellaneda</a> <span data-i18n-meta-line>| Classic • 2D • Español | Room 11</span></p>
+            <p><a href="/cinema-watch-snapshot/venues/cinepolis/avellaneda/" data-live-nav="true">Avellaneda</a> <span data-i18n-meta-line>| Classic • 2D • Español | Room 11</span></p>
           </div>
         </div>
         
@@ -5718,7 +6415,7 @@
           <span class="mini-time">13:30</span>
           <div class="front-screening-copy">
             <strong><a href="/cinema-watch-snapshot/movies/super-mario-galaxy-la-pelicula/" data-live-nav="true">Super Mario Galaxy: La película</a></strong>
-            <p><a href="/cinema-watch-snapshot/venues/cinepolis/avellaneda/">Avellaneda</a> <span data-i18n-meta-line>| Classic • 2D • Español | Room 9 | 1% sold</span></p>
+            <p><a href="/cinema-watch-snapshot/venues/cinepolis/avellaneda/" data-live-nav="true">Avellaneda</a> <span data-i18n-meta-line>| Classic • 2D • Español | Room 9 | 1% sold</span></p>
           </div>
         </div>
         
@@ -5726,7 +6423,7 @@
           <span class="mini-time">13:40</span>
           <div class="front-screening-copy">
             <strong><a href="/cinema-watch-snapshot/movies/hoppers/" data-live-nav="true">Hoppers</a></strong>
-            <p><a href="/cinema-watch-snapshot/venues/cinepolis/avellaneda/">Avellaneda</a> <span data-i18n-meta-line>| Classic • 3D • Español | Room 2 | 2% sold</span></p>
+            <p><a href="/cinema-watch-snapshot/venues/cinepolis/avellaneda/" data-live-nav="true">Avellaneda</a> <span data-i18n-meta-line>| Classic • 3D • Español | Room 2 | 2% sold</span></p>
           </div>
         </div>
         
@@ -5734,7 +6431,7 @@
           <span class="mini-time">13:40</span>
           <div class="front-screening-copy">
             <strong><a href="/cinema-watch-snapshot/movies/super-mario-galaxy-la-pelicula/" data-live-nav="true">Super Mario Galaxy: La película</a></strong>
-            <p><a href="/cinema-watch-snapshot/venues/cinepolis/avellaneda/">Avellaneda</a> <span data-i18n-meta-line>| Classic • 2D • Español | Room 4 | 1% sold</span></p>
+            <p><a href="/cinema-watch-snapshot/venues/cinepolis/avellaneda/" data-live-nav="true">Avellaneda</a> <span data-i18n-meta-line>| Classic • 2D • Español | Room 4 | 1% sold</span></p>
           </div>
         </div>
         
@@ -5742,7 +6439,7 @@
           <span class="mini-time">14:00</span>
           <div class="front-screening-copy">
             <strong><a href="/cinema-watch-snapshot/movies/super-mario-galaxy-la-pelicula/" data-live-nav="true">Super Mario Galaxy: La película</a></strong>
-            <p><a href="/cinema-watch-snapshot/venues/cinepolis/avellaneda/">Avellaneda</a> <span data-i18n-meta-line>| Classic • 2D • Español | Room 5 | 1% sold</span></p>
+            <p><a href="/cinema-watch-snapshot/venues/cinepolis/avellaneda/" data-live-nav="true">Avellaneda</a> <span data-i18n-meta-line>| Classic • 2D • Español | Room 5 | 1% sold</span></p>
           </div>
         </div>
         
@@ -5750,7 +6447,7 @@
           <span class="mini-time">14:15</span>
           <div class="front-screening-copy">
             <strong><a href="/cinema-watch-snapshot/movies/hoppers/" data-live-nav="true">Hoppers</a></strong>
-            <p><a href="/cinema-watch-snapshot/venues/cinepolis/avellaneda/">Avellaneda</a> <span data-i18n-meta-line>| Classic • 2D • Español | Room 10 | 3% sold</span></p>
+            <p><a href="/cinema-watch-snapshot/venues/cinepolis/avellaneda/" data-live-nav="true">Avellaneda</a> <span data-i18n-meta-line>| Classic • 2D • Español | Room 10 | 3% sold</span></p>
           </div>
         </div>
         
@@ -5775,6 +6472,47 @@
             <span class="chip" data-i18n-count="screening" data-i18n-count-value="220">220 screenings</span>
           </div>
           
+  <div class="front-board-signals">
+    <div class="front-board-summary">
+      
+      <span><span data-i18n-source>Cache range</span>: 2026-04-09 to 2026-04-11</span>
+      
+      
+      <span><span data-i18n-source>Rooms identified</span>: 11</span>
+      
+      
+      <span><span data-i18n-source>Sold data</span>: 120</span>
+      
+      
+      <span><span data-i18n-source>Top venue</span>: <a href="/cinema-watch-snapshot/venues/cinepolis/avellaneda/" data-live-nav="true">Avellaneda</a></span>
+      
+    </div>
+    
+    <div class="front-board-peak">
+      <div class="front-board-peak-copy">
+        <span class="front-board-peak-label" data-i18n-source>Peak crowd</span>
+        <strong><a href="/cinema-watch-snapshot/movies/bts-world-tour-arirang-in-goyang-live-viewing/" data-live-nav="true">BTS WORLD TOUR ‘ARIRANG’ IN GOYANG: LIVE VIEWING</a></strong>
+        <p>
+          <a href="/cinema-watch-snapshot/venues/cinepolis/avellaneda/" data-live-nav="true">Avellaneda</a>
+          <span>2026-04-11 16:00</span>
+        </p>
+      </div>
+      <div class="chips">
+        <span class="chip" data-i18n-meta-line>39% sold | Room 6</span>
+        
+        <span
+          class="chip chip-neutral"
+          data-i18n-seat-note
+          data-seats-total="176"
+          data-seats-available="107"
+        >107 available of 176</span>
+        
+      </div>
+    </div>
+    
+  </div>
+  
+          
   <div class="front-screening-groups">
     
     <section class="front-date-group">
@@ -5788,7 +6526,7 @@
           <span class="mini-time">12:45</span>
           <div class="front-screening-copy">
             <strong><a href="/cinema-watch-snapshot/movies/super-mario-galaxy-la-pelicula/" data-live-nav="true">Super Mario Galaxy: La película</a></strong>
-            <p><a href="/cinema-watch-snapshot/venues/cinepolis/avellaneda/">Avellaneda</a> <span data-i18n-meta-line>| Classic • 2D • Español | Room 4 | 1% sold</span></p>
+            <p><a href="/cinema-watch-snapshot/venues/cinepolis/avellaneda/" data-live-nav="true">Avellaneda</a> <span data-i18n-meta-line>| Classic • 2D • Español | Room 4 | 1% sold</span></p>
           </div>
         </div>
         
@@ -5796,7 +6534,7 @@
           <span class="mini-time">13:00</span>
           <div class="front-screening-copy">
             <strong><a href="/cinema-watch-snapshot/movies/el-drama/" data-live-nav="true">El Drama</a></strong>
-            <p><a href="/cinema-watch-snapshot/venues/cinepolis/avellaneda/">Avellaneda</a> <span data-i18n-meta-line>| Classic • 2D • Español | Room 12 | 2% sold</span></p>
+            <p><a href="/cinema-watch-snapshot/venues/cinepolis/avellaneda/" data-live-nav="true">Avellaneda</a> <span data-i18n-meta-line>| Classic • 2D • Español | Room 12 | 2% sold</span></p>
           </div>
         </div>
         
@@ -5804,7 +6542,7 @@
           <span class="mini-time">13:00</span>
           <div class="front-screening-copy">
             <strong><a href="/cinema-watch-snapshot/movies/super-mario-galaxy-la-pelicula/" data-live-nav="true">Super Mario Galaxy: La película</a></strong>
-            <p><a href="/cinema-watch-snapshot/venues/cinepolis/avellaneda/">Avellaneda</a> <span data-i18n-meta-line>| Classic • 3D • Español | Room 13 | 1% sold</span></p>
+            <p><a href="/cinema-watch-snapshot/venues/cinepolis/avellaneda/" data-live-nav="true">Avellaneda</a> <span data-i18n-meta-line>| Classic • 3D • Español | Room 13 | 1% sold</span></p>
           </div>
         </div>
         
@@ -5812,7 +6550,7 @@
           <span class="mini-time">13:15</span>
           <div class="front-screening-copy">
             <strong><a href="/cinema-watch-snapshot/movies/super-mario-galaxy-la-pelicula/" data-live-nav="true">Super Mario Galaxy: La película</a></strong>
-            <p><a href="/cinema-watch-snapshot/venues/cinepolis/avellaneda/">Avellaneda</a> <span data-i18n-meta-line>| Classic • 2D • Español | Room 11</span></p>
+            <p><a href="/cinema-watch-snapshot/venues/cinepolis/avellaneda/" data-live-nav="true">Avellaneda</a> <span data-i18n-meta-line>| Classic • 2D • Español | Room 11</span></p>
           </div>
         </div>
         
@@ -5820,7 +6558,7 @@
           <span class="mini-time">13:20</span>
           <div class="front-screening-copy">
             <strong><a href="/cinema-watch-snapshot/movies/el-mono-la-maldicion-regresa/" data-live-nav="true">El Mono: La maldición regresa</a></strong>
-            <p><a href="/cinema-watch-snapshot/venues/cinepolis/avellaneda/">Avellaneda</a> <span data-i18n-meta-line>| Classic • 2D • Español | Room 9 | 1% sold</span></p>
+            <p><a href="/cinema-watch-snapshot/venues/cinepolis/avellaneda/" data-live-nav="true">Avellaneda</a> <span data-i18n-meta-line>| Classic • 2D • Español | Room 9 | 1% sold</span></p>
           </div>
         </div>
         
@@ -5828,7 +6566,7 @@
           <span class="mini-time">13:30</span>
           <div class="front-screening-copy">
             <strong><a href="/cinema-watch-snapshot/movies/hoppers/" data-live-nav="true">Hoppers</a></strong>
-            <p><a href="/cinema-watch-snapshot/venues/cinepolis/avellaneda/">Avellaneda</a> <span data-i18n-meta-line>| Classic • 2D • Español | Room 10 | 3% sold</span></p>
+            <p><a href="/cinema-watch-snapshot/venues/cinepolis/avellaneda/" data-live-nav="true">Avellaneda</a> <span data-i18n-meta-line>| Classic • 2D • Español | Room 10 | 3% sold</span></p>
           </div>
         </div>
         
@@ -5836,7 +6574,7 @@
           <span class="mini-time">13:30</span>
           <div class="front-screening-copy">
             <strong><a href="/cinema-watch-snapshot/movies/super-mario-galaxy-la-pelicula/" data-live-nav="true">Super Mario Galaxy: La película</a></strong>
-            <p><a href="/cinema-watch-snapshot/venues/cinepolis/avellaneda/">Avellaneda</a> <span data-i18n-meta-line>| Classic • 3D • Español | Room 2 | 2% sold</span></p>
+            <p><a href="/cinema-watch-snapshot/venues/cinepolis/avellaneda/" data-live-nav="true">Avellaneda</a> <span data-i18n-meta-line>| Classic • 3D • Español | Room 2 | 2% sold</span></p>
           </div>
         </div>
         
@@ -5854,7 +6592,7 @@
           <span class="mini-time">12:45</span>
           <div class="front-screening-copy">
             <strong><a href="/cinema-watch-snapshot/movies/super-mario-galaxy-la-pelicula/" data-live-nav="true">Super Mario Galaxy: La película</a></strong>
-            <p><a href="/cinema-watch-snapshot/venues/cinepolis/avellaneda/">Avellaneda</a> <span data-i18n-meta-line>| Classic • 2D • Español | Room 4 | 1% sold</span></p>
+            <p><a href="/cinema-watch-snapshot/venues/cinepolis/avellaneda/" data-live-nav="true">Avellaneda</a> <span data-i18n-meta-line>| Classic • 2D • Español | Room 4 | 1% sold</span></p>
           </div>
         </div>
         
@@ -5862,7 +6600,7 @@
           <span class="mini-time">13:00</span>
           <div class="front-screening-copy">
             <strong><a href="/cinema-watch-snapshot/movies/el-drama/" data-live-nav="true">El Drama</a></strong>
-            <p><a href="/cinema-watch-snapshot/venues/cinepolis/avellaneda/">Avellaneda</a> <span data-i18n-meta-line>| Classic • 2D • Español | Room 12 | 2% sold</span></p>
+            <p><a href="/cinema-watch-snapshot/venues/cinepolis/avellaneda/" data-live-nav="true">Avellaneda</a> <span data-i18n-meta-line>| Classic • 2D • Español | Room 12 | 2% sold</span></p>
           </div>
         </div>
         
@@ -5870,7 +6608,7 @@
           <span class="mini-time">13:00</span>
           <div class="front-screening-copy">
             <strong><a href="/cinema-watch-snapshot/movies/super-mario-galaxy-la-pelicula/" data-live-nav="true">Super Mario Galaxy: La película</a></strong>
-            <p><a href="/cinema-watch-snapshot/venues/cinepolis/avellaneda/">Avellaneda</a> <span data-i18n-meta-line>| Classic • 3D • Español | Room 13 | 1% sold</span></p>
+            <p><a href="/cinema-watch-snapshot/venues/cinepolis/avellaneda/" data-live-nav="true">Avellaneda</a> <span data-i18n-meta-line>| Classic • 3D • Español | Room 13 | 1% sold</span></p>
           </div>
         </div>
         
@@ -5878,7 +6616,7 @@
           <span class="mini-time">13:15</span>
           <div class="front-screening-copy">
             <strong><a href="/cinema-watch-snapshot/movies/super-mario-galaxy-la-pelicula/" data-live-nav="true">Super Mario Galaxy: La película</a></strong>
-            <p><a href="/cinema-watch-snapshot/venues/cinepolis/avellaneda/">Avellaneda</a> <span data-i18n-meta-line>| Classic • 2D • Español | Room 11</span></p>
+            <p><a href="/cinema-watch-snapshot/venues/cinepolis/avellaneda/" data-live-nav="true">Avellaneda</a> <span data-i18n-meta-line>| Classic • 2D • Español | Room 11</span></p>
           </div>
         </div>
         
@@ -5886,7 +6624,7 @@
           <span class="mini-time">13:20</span>
           <div class="front-screening-copy">
             <strong><a href="/cinema-watch-snapshot/movies/el-mono-la-maldicion-regresa/" data-live-nav="true">El Mono: La maldición regresa</a></strong>
-            <p><a href="/cinema-watch-snapshot/venues/cinepolis/avellaneda/">Avellaneda</a> <span data-i18n-meta-line>| Classic • 2D • Español | Room 9 | 1% sold</span></p>
+            <p><a href="/cinema-watch-snapshot/venues/cinepolis/avellaneda/" data-live-nav="true">Avellaneda</a> <span data-i18n-meta-line>| Classic • 2D • Español | Room 9 | 1% sold</span></p>
           </div>
         </div>
         
@@ -5894,7 +6632,7 @@
           <span class="mini-time">13:30</span>
           <div class="front-screening-copy">
             <strong><a href="/cinema-watch-snapshot/movies/hoppers/" data-live-nav="true">Hoppers</a></strong>
-            <p><a href="/cinema-watch-snapshot/venues/cinepolis/avellaneda/">Avellaneda</a> <span data-i18n-meta-line>| Classic • 2D • Español | Room 10 | 3% sold</span></p>
+            <p><a href="/cinema-watch-snapshot/venues/cinepolis/avellaneda/" data-live-nav="true">Avellaneda</a> <span data-i18n-meta-line>| Classic • 2D • Español | Room 10 | 3% sold</span></p>
           </div>
         </div>
         
@@ -5902,7 +6640,7 @@
           <span class="mini-time">13:30</span>
           <div class="front-screening-copy">
             <strong><a href="/cinema-watch-snapshot/movies/super-mario-galaxy-la-pelicula/" data-live-nav="true">Super Mario Galaxy: La película</a></strong>
-            <p><a href="/cinema-watch-snapshot/venues/cinepolis/avellaneda/">Avellaneda</a> <span data-i18n-meta-line>| Classic • 3D • Español | Room 2 | 2% sold</span></p>
+            <p><a href="/cinema-watch-snapshot/venues/cinepolis/avellaneda/" data-live-nav="true">Avellaneda</a> <span data-i18n-meta-line>| Classic • 3D • Español | Room 2 | 2% sold</span></p>
           </div>
         </div>
         
@@ -5920,7 +6658,7 @@
           <span class="mini-time">13:00</span>
           <div class="front-screening-copy">
             <strong><a href="/cinema-watch-snapshot/movies/super-mario-galaxy-la-pelicula/" data-live-nav="true">Super Mario Galaxy: La película</a></strong>
-            <p><a href="/cinema-watch-snapshot/venues/cinepolis/avellaneda/">Avellaneda</a> <span data-i18n-meta-line>| Classic • 3D • Español | Room 13 | 1% sold</span></p>
+            <p><a href="/cinema-watch-snapshot/venues/cinepolis/avellaneda/" data-live-nav="true">Avellaneda</a> <span data-i18n-meta-line>| Classic • 3D • Español | Room 13 | 1% sold</span></p>
           </div>
         </div>
         
@@ -5928,7 +6666,7 @@
           <span class="mini-time">13:15</span>
           <div class="front-screening-copy">
             <strong><a href="/cinema-watch-snapshot/movies/super-mario-galaxy-la-pelicula/" data-live-nav="true">Super Mario Galaxy: La película</a></strong>
-            <p><a href="/cinema-watch-snapshot/venues/cinepolis/avellaneda/">Avellaneda</a> <span data-i18n-meta-line>| Classic • 2D • Español | Room 11</span></p>
+            <p><a href="/cinema-watch-snapshot/venues/cinepolis/avellaneda/" data-live-nav="true">Avellaneda</a> <span data-i18n-meta-line>| Classic • 2D • Español | Room 11</span></p>
           </div>
         </div>
         
@@ -5936,7 +6674,7 @@
           <span class="mini-time">13:30</span>
           <div class="front-screening-copy">
             <strong><a href="/cinema-watch-snapshot/movies/hoppers/" data-live-nav="true">Hoppers</a></strong>
-            <p><a href="/cinema-watch-snapshot/venues/cinepolis/avellaneda/">Avellaneda</a> <span data-i18n-meta-line>| Classic • 2D • Español | Room 10 | 3% sold</span></p>
+            <p><a href="/cinema-watch-snapshot/venues/cinepolis/avellaneda/" data-live-nav="true">Avellaneda</a> <span data-i18n-meta-line>| Classic • 2D • Español | Room 10 | 3% sold</span></p>
           </div>
         </div>
         
@@ -5944,7 +6682,7 @@
           <span class="mini-time">13:30</span>
           <div class="front-screening-copy">
             <strong><a href="/cinema-watch-snapshot/movies/super-mario-galaxy-la-pelicula/" data-live-nav="true">Super Mario Galaxy: La película</a></strong>
-            <p><a href="/cinema-watch-snapshot/venues/cinepolis/avellaneda/">Avellaneda</a> <span data-i18n-meta-line>| Classic • 3D • Español | Room 2 | 2% sold</span></p>
+            <p><a href="/cinema-watch-snapshot/venues/cinepolis/avellaneda/" data-live-nav="true">Avellaneda</a> <span data-i18n-meta-line>| Classic • 3D • Español | Room 2 | 2% sold</span></p>
           </div>
         </div>
         
@@ -5952,7 +6690,7 @@
           <span class="mini-time">14:20</span>
           <div class="front-screening-copy">
             <strong><a href="/cinema-watch-snapshot/movies/buena-suerte-diviertete-no-mueras/" data-live-nav="true">Buena suerte, diviértete, no mueras</a></strong>
-            <p><a href="/cinema-watch-snapshot/venues/cinepolis/avellaneda/">Avellaneda</a> <span data-i18n-meta-line>| Classic • 2D • Español | Room 2 | 2% sold</span></p>
+            <p><a href="/cinema-watch-snapshot/venues/cinepolis/avellaneda/" data-live-nav="true">Avellaneda</a> <span data-i18n-meta-line>| Classic • 2D • Español | Room 2 | 2% sold</span></p>
           </div>
         </div>
         
@@ -5960,7 +6698,7 @@
           <span class="mini-time">14:20</span>
           <div class="front-screening-copy">
             <strong><a href="/cinema-watch-snapshot/movies/super-mario-galaxy-la-pelicula/" data-live-nav="true">Súper Mario Galaxy: la película</a></strong>
-            <p><a href="/cinema-watch-snapshot/venues/showcase/showcase_quilmes/">Quilmes</a></p>
+            <p><a href="/cinema-watch-snapshot/venues/showcase/showcase_quilmes/" data-live-nav="true">Quilmes</a></p>
           </div>
         </div>
         
@@ -5968,7 +6706,7 @@
           <span class="mini-time">14:30</span>
           <div class="front-screening-copy">
             <strong><a href="/cinema-watch-snapshot/movies/super-mario-galaxy-la-pelicula/" data-live-nav="true">Super Mario Galaxy: La película</a></strong>
-            <p><a href="/cinema-watch-snapshot/venues/cinepolis/avellaneda/">Avellaneda</a> <span data-i18n-meta-line>| 4D • 3D • Español | Room 8 | 3% sold</span></p>
+            <p><a href="/cinema-watch-snapshot/venues/cinepolis/avellaneda/" data-live-nav="true">Avellaneda</a> <span data-i18n-meta-line>| 4D • 3D • Español | Room 8 | 3% sold</span></p>
           </div>
         </div>
         
@@ -5993,6 +6731,7 @@
             <span class="chip" data-i18n-count="screening" data-i18n-count-value="0">0 screenings</span>
           </div>
           
+          
   <div class="empty" data-i18n-source>No hay funciones IMAX en este corte.</div>
   
         </article>
@@ -6010,6 +6749,7 @@
             </div>
             <span class="chip" data-i18n-count="screening" data-i18n-count-value="0">0 screenings</span>
           </div>
+          
           
   <div class="empty" data-i18n-source>No hay funciones Dolby Atmos en este corte.</div>
   
@@ -6029,6 +6769,47 @@
             <span class="chip" data-i18n-count="screening" data-i18n-count-value="73">73 screenings</span>
           </div>
           
+  <div class="front-board-signals">
+    <div class="front-board-summary">
+      
+      <span><span data-i18n-source>Cache range</span>: 2026-04-08 to 2026-04-14</span>
+      
+      
+      <span><span data-i18n-source>Rooms identified</span>: 7</span>
+      
+      
+      <span><span data-i18n-source>Sold data</span>: 33</span>
+      
+      
+      <span><span data-i18n-source>Top venue</span>: <a href="/cinema-watch-snapshot/venues/showcase/showcase_quilmes/" data-live-nav="true">Quilmes</a></span>
+      
+    </div>
+    
+    <div class="front-board-peak">
+      <div class="front-board-peak-copy">
+        <span class="front-board-peak-label" data-i18n-source>Peak crowd</span>
+        <strong><a href="/cinema-watch-snapshot/movies/bts-world-tour-arirang-in-goyang-live-viewing/" data-live-nav="true">BTS WORLD TOUR ‘ARIRANG’ IN GOYANG: LIVE VIEWING</a></strong>
+        <p>
+          <a href="/cinema-watch-snapshot/venues/cinepolis/avellaneda/" data-live-nav="true">Avellaneda</a>
+          <span>2026-04-11 16:00</span>
+        </p>
+      </div>
+      <div class="chips">
+        <span class="chip" data-i18n-meta-line>39% sold | Room 6</span>
+        
+        <span
+          class="chip chip-neutral"
+          data-i18n-seat-note
+          data-seats-total="176"
+          data-seats-available="107"
+        >107 available of 176</span>
+        
+      </div>
+    </div>
+    
+  </div>
+  
+          
   <div class="front-screening-groups">
     
     <section class="front-date-group">
@@ -6042,7 +6823,7 @@
           <span class="mini-time">15:20</span>
           <div class="front-screening-copy">
             <strong><a href="/cinema-watch-snapshot/movies/super-mario-galaxy-la-pelicula/" data-live-nav="true">Super Mario Galaxy: La película</a></strong>
-            <p><a href="/cinema-watch-snapshot/venues/cinepolis/avellaneda/">Avellaneda</a> <span data-i18n-meta-line>| Classic • 2D • Subtitulado | Room 2 | 3% sold</span></p>
+            <p><a href="/cinema-watch-snapshot/venues/cinepolis/avellaneda/" data-live-nav="true">Avellaneda</a> <span data-i18n-meta-line>| Classic • 2D • Subtitulado | Room 2 | 3% sold</span></p>
           </div>
         </div>
         
@@ -6050,7 +6831,7 @@
           <span class="mini-time">17:50</span>
           <div class="front-screening-copy">
             <strong><a href="/cinema-watch-snapshot/movies/super-mario-galaxy-la-pelicula/" data-live-nav="true">Super Mario Galaxy: La película</a></strong>
-            <p><a href="/cinema-watch-snapshot/venues/cinepolis/avellaneda/">Avellaneda</a> <span data-i18n-meta-line>| Classic • 2D • Subtitulado | Room 2 | 2% sold</span></p>
+            <p><a href="/cinema-watch-snapshot/venues/cinepolis/avellaneda/" data-live-nav="true">Avellaneda</a> <span data-i18n-meta-line>| Classic • 2D • Subtitulado | Room 2 | 2% sold</span></p>
           </div>
         </div>
         
@@ -6058,7 +6839,7 @@
           <span class="mini-time">20:00</span>
           <div class="front-screening-copy">
             <strong><a href="/cinema-watch-snapshot/movies/super-mario-galaxy-la-pelicula/" data-live-nav="true">Super Mario Galaxy: La película</a></strong>
-            <p><a href="/cinema-watch-snapshot/venues/cinepolis/avellaneda/">Avellaneda</a> <span data-i18n-meta-line>| Classic • 2D • Subtitulado | Room 6 | 2% sold</span></p>
+            <p><a href="/cinema-watch-snapshot/venues/cinepolis/avellaneda/" data-live-nav="true">Avellaneda</a> <span data-i18n-meta-line>| Classic • 2D • Subtitulado | Room 6 | 2% sold</span></p>
           </div>
         </div>
         
@@ -6066,7 +6847,7 @@
           <span class="mini-time">22:15</span>
           <div class="front-screening-copy">
             <strong><a href="/cinema-watch-snapshot/movies/nuremberg-el-juicio-del-siglo/" data-live-nav="true">Nuremberg: el juicio del siglo</a></strong>
-            <p><a href="/cinema-watch-snapshot/venues/showcase/showcase_quilmes/">Quilmes</a></p>
+            <p><a href="/cinema-watch-snapshot/venues/showcase/showcase_quilmes/" data-live-nav="true">Quilmes</a></p>
           </div>
         </div>
         
@@ -6074,7 +6855,7 @@
           <span class="mini-time">22:25</span>
           <div class="front-screening-copy">
             <strong><a href="/cinema-watch-snapshot/movies/proyecto-fin-del-mundo/" data-live-nav="true">Proyecto fin del mundo</a></strong>
-            <p><a href="/cinema-watch-snapshot/venues/showcase/showcase_quilmes/">Quilmes</a></p>
+            <p><a href="/cinema-watch-snapshot/venues/showcase/showcase_quilmes/" data-live-nav="true">Quilmes</a></p>
           </div>
         </div>
         
@@ -6082,7 +6863,7 @@
           <span class="mini-time">22:30</span>
           <div class="front-screening-copy">
             <strong><a href="/cinema-watch-snapshot/movies/super-mario-galaxy-la-pelicula/" data-live-nav="true">Super Mario Galaxy: La película</a></strong>
-            <p><a href="/cinema-watch-snapshot/venues/cinepolis/avellaneda/">Avellaneda</a> <span data-i18n-meta-line>| Classic • 2D • Subtitulado | Room 6 | 2% sold</span></p>
+            <p><a href="/cinema-watch-snapshot/venues/cinepolis/avellaneda/" data-live-nav="true">Avellaneda</a> <span data-i18n-meta-line>| Classic • 2D • Subtitulado | Room 6 | 2% sold</span></p>
           </div>
         </div>
         
@@ -6100,7 +6881,7 @@
           <span class="mini-time">15:15</span>
           <div class="front-screening-copy">
             <strong><a href="/cinema-watch-snapshot/movies/el-drama/" data-live-nav="true">El drama</a></strong>
-            <p><a href="/cinema-watch-snapshot/venues/showcase/showcase_quilmes/">Quilmes</a></p>
+            <p><a href="/cinema-watch-snapshot/venues/showcase/showcase_quilmes/" data-live-nav="true">Quilmes</a></p>
           </div>
         </div>
         
@@ -6108,7 +6889,7 @@
           <span class="mini-time">17:45</span>
           <div class="front-screening-copy">
             <strong><a href="/cinema-watch-snapshot/movies/el-drama/" data-live-nav="true">El drama</a></strong>
-            <p><a href="/cinema-watch-snapshot/venues/showcase/showcase_quilmes/">Quilmes</a></p>
+            <p><a href="/cinema-watch-snapshot/venues/showcase/showcase_quilmes/" data-live-nav="true">Quilmes</a></p>
           </div>
         </div>
         
@@ -6116,7 +6897,7 @@
           <span class="mini-time">19:00</span>
           <div class="front-screening-copy">
             <strong><a href="/cinema-watch-snapshot/movies/proyecto-fin-del-mundo/" data-live-nav="true">Proyecto fin del mundo</a></strong>
-            <p><a href="/cinema-watch-snapshot/venues/cinepolis/avellaneda/">Avellaneda</a> <span data-i18n-meta-line>| Classic • 2D • Subtitulado | Room 9 | 2% sold</span></p>
+            <p><a href="/cinema-watch-snapshot/venues/cinepolis/avellaneda/" data-live-nav="true">Avellaneda</a> <span data-i18n-meta-line>| Classic • 2D • Subtitulado | Room 9 | 2% sold</span></p>
           </div>
         </div>
         
@@ -6124,7 +6905,7 @@
           <span class="mini-time">19:05</span>
           <div class="front-screening-copy">
             <strong><a href="/cinema-watch-snapshot/movies/nuremberg-el-juicio-del-siglo/" data-live-nav="true">Nuremberg: el juicio del siglo</a></strong>
-            <p><a href="/cinema-watch-snapshot/venues/showcase/showcase_quilmes/">Quilmes</a></p>
+            <p><a href="/cinema-watch-snapshot/venues/showcase/showcase_quilmes/" data-live-nav="true">Quilmes</a></p>
           </div>
         </div>
         
@@ -6132,7 +6913,7 @@
           <span class="mini-time">20:05</span>
           <div class="front-screening-copy">
             <strong><a href="/cinema-watch-snapshot/movies/el-drama/" data-live-nav="true">El drama</a></strong>
-            <p><a href="/cinema-watch-snapshot/venues/showcase/showcase_quilmes/">Quilmes</a></p>
+            <p><a href="/cinema-watch-snapshot/venues/showcase/showcase_quilmes/" data-live-nav="true">Quilmes</a></p>
           </div>
         </div>
         
@@ -6140,7 +6921,7 @@
           <span class="mini-time">20:30</span>
           <div class="front-screening-copy">
             <strong><a href="/cinema-watch-snapshot/movies/el-drama/" data-live-nav="true">El Drama</a></strong>
-            <p><a href="/cinema-watch-snapshot/venues/cinepolis/avellaneda/">Avellaneda</a> <span data-i18n-meta-line>| Classic • 2D • Subtitulado | Room 12 | 5% sold</span></p>
+            <p><a href="/cinema-watch-snapshot/venues/cinepolis/avellaneda/" data-live-nav="true">Avellaneda</a> <span data-i18n-meta-line>| Classic • 2D • Subtitulado | Room 12 | 5% sold</span></p>
           </div>
         </div>
         
@@ -6164,6 +6945,7 @@
             </div>
             <span class="chip" data-front-advanced-count data-i18n-count="screening" data-i18n-count-value="0">0 screenings</span>
           </div>
+          <div class="front-board-signals" data-front-advanced-signals hidden></div>
           <div class="front-screening-groups" data-front-advanced-results></div>
         </article>
       </div>
@@ -6189,7 +6971,7 @@
           
   <div class="empty" data-i18n-source>No IMAX screenings in the current snapshot.</div>
   
-          <a class="text-link" href="/cinema-watch-snapshot/screenings/?category=imax" data-i18n-source>See all</a>
+          <a class="text-link" href="?focus=imax#salas-especiales" data-i18n-source>See all</a>
         </article>
         
         <article class="front-mini-board">
@@ -6203,7 +6985,7 @@
           
   <div class="empty" data-i18n-source>No Dolby Atmos screenings in the current snapshot.</div>
   
-          <a class="text-link" href="/cinema-watch-snapshot/screenings/?category=dolby_atmos" data-i18n-source>See all</a>
+          <a class="text-link" href="?focus=dolby_atmos#salas-especiales" data-i18n-source>See all</a>
         </article>
         
       </div>
@@ -7492,6 +8274,18 @@
         return window.CinemaWatchI18n?.formatSold(percent) || `${percent}% sold`;
       }
 
+      function seatNoteLabel(available, total) {
+        return window.CinemaWatchI18n?.formatSeatNote?.(available, total) || '';
+      }
+
+      function toInt(value) {
+        if (value === null || value === undefined || value === '') {
+          return null;
+        }
+        const numericValue = Number(value);
+        return Number.isFinite(numericValue) ? Math.trunc(numericValue) : null;
+      }
+
       function readFilters(form) {
         const data = new FormData(form);
         const filters = {
@@ -7515,10 +8309,6 @@
         return filters;
       }
 
-      function hasAnyFilter(filters) {
-        return FILTER_KEYS.some((key) => String(filters[key] || '').trim().length > 0);
-      }
-
       function mapStaticRows(rows) {
         return (Array.isArray(rows) ? rows : []).map((row) => ({
           provider: String(row.provider || ''),
@@ -7533,6 +8323,8 @@
           listing_label: String(row.listing_label || ''),
           room_number: row.room_number,
           sold_percent: row.sold_percent,
+          seats_total: row.seats_total,
+          seats_available: row.seats_available,
           language: String(row.language || ''),
           format_label: String(row.format_label || ''),
           experience: String(row.experience || ''),
@@ -7549,11 +8341,13 @@
           date_iso: String(row.date_iso || ''),
           time_label: String(row.time_label || ''),
           movie_title: String(row.movie_title || ''),
-          movie_href: '',
-          venue_href: '',
+          movie_href: String(row.movie_href || ''),
+          venue_href: String(row.venue_href || (row.provider && row.venue_key ? `/venues/${row.provider}/${row.venue_key}` : '')),
           listing_label: String(row.listing_label || ''),
           room_number: row.room_number,
           sold_percent: row.sold_percent,
+          seats_total: row.seats_total,
+          seats_available: row.seats_available,
           language: String(row.language || ''),
           format_label: String(row.format_label || ''),
           experience: String(row.experience || ''),
@@ -7683,6 +8477,168 @@
         return matched;
       }
 
+      function buildFrontInsights(rows) {
+        const dates = Array.from(
+          new Set(
+            rows
+              .map((row) => String(row.date_iso || '').trim())
+              .filter(Boolean)
+          )
+        ).sort((left, right) => left.localeCompare(right));
+        const dateRange = !dates.length
+          ? ''
+          : dates[0] === dates[dates.length - 1]
+            ? dates[0]
+            : `${dates[0]} to ${dates[dates.length - 1]}`;
+
+        const roomCount = new Set(
+          rows
+            .map((row) => toInt(row.room_number))
+            .filter((value) => value !== null)
+        ).size;
+
+        const soldRows = rows
+          .map((row) => ({
+            ...row,
+            sold_percent: toInt(row.sold_percent),
+            room_number: toInt(row.room_number),
+            seats_total: toInt(row.seats_total),
+            seats_available: toInt(row.seats_available),
+          }))
+          .filter((row) => row.sold_percent !== null);
+
+        let topVenue = null;
+        const venueBuckets = new Map();
+        for (const row of rows) {
+          const provider = String(row.provider || '').trim();
+          const venueKey = String(row.venue_key || '').trim();
+          const venueName = String(row.venue_name || '').trim();
+          if (!provider || !venueKey || !venueName) {
+            continue;
+          }
+          const venueHref = String(row.venue_href || '').trim();
+          const key = `${provider}||${venueKey}||${venueName}||${venueHref}`;
+          venueBuckets.set(key, (venueBuckets.get(key) || 0) + 1);
+        }
+        if (venueBuckets.size) {
+          const [bucketKey] = Array.from(venueBuckets.keys()).sort((left, right) => {
+            const leftCount = venueBuckets.get(left) || 0;
+            const rightCount = venueBuckets.get(right) || 0;
+            if (leftCount !== rightCount) {
+              return rightCount - leftCount;
+            }
+            return left.localeCompare(right);
+          });
+          const [provider, venueKey, venueName, venueHref] = bucketKey.split('||');
+          topVenue = {
+            label: venueName,
+            href: venueHref || `/venues/${provider}/${venueKey}`,
+          };
+        }
+
+        let peakRow = null;
+        if (soldRows.length) {
+          peakRow = [...soldRows].sort((left, right) => {
+            if ((right.sold_percent || 0) !== (left.sold_percent || 0)) {
+              return (right.sold_percent || 0) - (left.sold_percent || 0);
+            }
+            const leftKey = `${left.date_iso}|${left.time_label}|${left.movie_title}`;
+            const rightKey = `${right.date_iso}|${right.time_label}|${right.movie_title}`;
+            return leftKey.localeCompare(rightKey);
+          })[0];
+        }
+
+        return {
+          dateRange,
+          roomCount,
+          soldCount: soldRows.length,
+          topVenue,
+          peakRow,
+        };
+      }
+
+      function renderFrontSignals(panel, rows) {
+        const signalBox = panel.querySelector('[data-front-advanced-signals]');
+        if (!(signalBox instanceof HTMLElement)) {
+          return;
+        }
+        if (!rows.length) {
+          signalBox.hidden = true;
+          signalBox.innerHTML = '';
+          return;
+        }
+
+        const insights = buildFrontInsights(rows);
+        const summary = [];
+        if (insights.dateRange) {
+          summary.push(`<span><span data-i18n-source>Cache range</span>: ${escapeHtml(insights.dateRange)}</span>`);
+        }
+        if (insights.roomCount) {
+          summary.push(`<span><span data-i18n-source>Rooms identified</span>: ${insights.roomCount}</span>`);
+        }
+        if (insights.soldCount) {
+          summary.push(`<span><span data-i18n-source>Sold data</span>: ${insights.soldCount}</span>`);
+        }
+        if (insights.topVenue) {
+          const venueLabel = escapeHtml(insights.topVenue.label);
+          const venueHtml = insights.topVenue.href
+            ? `<a href="${escapeHtml(insights.topVenue.href)}" data-live-nav="true">${venueLabel}</a>`
+            : venueLabel;
+          summary.push(`<span><span data-i18n-source>Top venue</span>: ${venueHtml}</span>`);
+        }
+
+        let peakMarkup = '';
+        if (insights.peakRow) {
+          const peak = insights.peakRow;
+          const movieTitle = escapeHtml(String(peak.movie_title || ''));
+          const movieHref = String(peak.movie_href || '').trim();
+          const movieHtml = movieHref
+            ? `<a href="${escapeHtml(movieHref)}" data-live-nav="true">${movieTitle}</a>`
+            : movieTitle;
+          const venueLabel = escapeHtml(String(peak.venue_name || peak.provider_name || ''));
+          const venueHref = String(peak.venue_href || '').trim();
+          const venueHtml = venueHref
+            ? `<a href="${escapeHtml(venueHref)}" data-live-nav="true">${venueLabel}</a>`
+            : venueLabel;
+          const peakMeta = `${peak.sold_percent}% sold${peak.room_number !== null ? ` | Room ${peak.room_number}` : ''}`;
+          const seatChip = peak.seats_total !== null
+            ? `
+              <span
+                class="chip chip-neutral"
+                data-i18n-seat-note
+                data-seats-total="${peak.seats_total}"
+                data-seats-available="${peak.seats_available === null ? '' : peak.seats_available}"
+              >${escapeHtml(seatNoteLabel(peak.seats_available, peak.seats_total))}</span>
+            `
+            : '';
+          peakMarkup = `
+            <div class="front-board-peak">
+              <div class="front-board-peak-copy">
+                <span class="front-board-peak-label" data-i18n-source>Peak crowd</span>
+                <strong>${movieHtml}</strong>
+                <p>${venueHtml}<span>${escapeHtml(String(peak.date_iso || ''))} ${escapeHtml(String(peak.time_label || ''))}</span></p>
+              </div>
+              <div class="chips">
+                <span class="chip" data-i18n-meta-line>${escapeHtml(peakMeta)}</span>
+                ${seatChip}
+              </div>
+            </div>
+          `;
+        }
+
+        if (!summary.length && !peakMarkup) {
+          signalBox.hidden = true;
+          signalBox.innerHTML = '';
+          return;
+        }
+
+        signalBox.hidden = false;
+        signalBox.innerHTML = `
+          ${summary.length ? `<div class="front-board-summary">${summary.join('')}</div>` : ''}
+          ${peakMarkup}
+        `;
+      }
+
       function renderAdvancedRows(panel, rows) {
         const countChip = panel.querySelector('[data-front-advanced-count]');
         const container = panel.querySelector('[data-front-advanced-results]');
@@ -7698,6 +8654,7 @@
 
         countChip.dataset.i18nCountValue = String(sorted.length);
         countChip.textContent = `${sorted.length} screenings`;
+        renderFrontSignals(panel, sorted);
 
         if (!sorted.length) {
           container.innerHTML = `<div class="empty" data-i18n-source>No screenings matched the published board with these filters.</div>`;

@@ -1131,6 +1131,62 @@
       max-width: 54ch;
     }
 
+    .front-board-signals {
+      display: grid;
+      gap: 0.58rem;
+      padding-bottom: 0.08rem;
+      border-bottom: 1px solid rgba(255, 255, 255, 0.08);
+    }
+
+    .front-board-summary {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 0.45rem 0.9rem;
+      color: var(--muted);
+      font-size: 0.84rem;
+      line-height: 1.45;
+    }
+
+    .front-board-summary span {
+      min-width: 0;
+    }
+
+    .front-board-peak {
+      display: flex;
+      gap: 0.75rem;
+      align-items: start;
+      justify-content: space-between;
+    }
+
+    .front-board-peak-copy {
+      display: grid;
+      gap: 0.18rem;
+      min-width: 0;
+    }
+
+    .front-board-peak-label {
+      color: var(--muted);
+      font-size: 0.78rem;
+      font-weight: 700;
+      letter-spacing: 0.06em;
+      text-transform: uppercase;
+    }
+
+    .front-board-peak-copy strong {
+      line-height: 1.16;
+    }
+
+    .front-board-peak-copy p {
+      color: var(--muted);
+      font-size: 0.86rem;
+      line-height: 1.38;
+    }
+
+    .front-board-peak-copy p span {
+      display: inline-block;
+      margin-left: 0.4rem;
+    }
+
     .front-special-grid {
       display: grid;
       grid-template-columns: repeat(2, minmax(0, 1fr));
@@ -1782,6 +1838,14 @@
         grid-template-columns: 1fr;
       }
 
+      .front-board-peak {
+        display: grid;
+      }
+
+      .front-board-peak-copy p span {
+        margin-left: 0;
+      }
+
       .time-badge {
         justify-self: start;
       }
@@ -1876,7 +1940,7 @@
   </div>
   <div class="hero-side">
     <strong data-i18n-source>Venue signals</strong>
-    <p data-i18n-freshness>Updated 3 h ago</p>
+    <p data-i18n-freshness>Updated 4 h ago</p>
     <div class="stats">
       <span class="stat">7 active rooms</span>
       
@@ -3907,6 +3971,18 @@
         return window.CinemaWatchI18n?.formatSold(percent) || `${percent}% sold`;
       }
 
+      function seatNoteLabel(available, total) {
+        return window.CinemaWatchI18n?.formatSeatNote?.(available, total) || '';
+      }
+
+      function toInt(value) {
+        if (value === null || value === undefined || value === '') {
+          return null;
+        }
+        const numericValue = Number(value);
+        return Number.isFinite(numericValue) ? Math.trunc(numericValue) : null;
+      }
+
       function readFilters(form) {
         const data = new FormData(form);
         const filters = {
@@ -3930,10 +4006,6 @@
         return filters;
       }
 
-      function hasAnyFilter(filters) {
-        return FILTER_KEYS.some((key) => String(filters[key] || '').trim().length > 0);
-      }
-
       function mapStaticRows(rows) {
         return (Array.isArray(rows) ? rows : []).map((row) => ({
           provider: String(row.provider || ''),
@@ -3948,6 +4020,8 @@
           listing_label: String(row.listing_label || ''),
           room_number: row.room_number,
           sold_percent: row.sold_percent,
+          seats_total: row.seats_total,
+          seats_available: row.seats_available,
           language: String(row.language || ''),
           format_label: String(row.format_label || ''),
           experience: String(row.experience || ''),
@@ -3964,11 +4038,13 @@
           date_iso: String(row.date_iso || ''),
           time_label: String(row.time_label || ''),
           movie_title: String(row.movie_title || ''),
-          movie_href: '',
-          venue_href: '',
+          movie_href: String(row.movie_href || ''),
+          venue_href: String(row.venue_href || (row.provider && row.venue_key ? `/venues/${row.provider}/${row.venue_key}` : '')),
           listing_label: String(row.listing_label || ''),
           room_number: row.room_number,
           sold_percent: row.sold_percent,
+          seats_total: row.seats_total,
+          seats_available: row.seats_available,
           language: String(row.language || ''),
           format_label: String(row.format_label || ''),
           experience: String(row.experience || ''),
@@ -4098,6 +4174,168 @@
         return matched;
       }
 
+      function buildFrontInsights(rows) {
+        const dates = Array.from(
+          new Set(
+            rows
+              .map((row) => String(row.date_iso || '').trim())
+              .filter(Boolean)
+          )
+        ).sort((left, right) => left.localeCompare(right));
+        const dateRange = !dates.length
+          ? ''
+          : dates[0] === dates[dates.length - 1]
+            ? dates[0]
+            : `${dates[0]} to ${dates[dates.length - 1]}`;
+
+        const roomCount = new Set(
+          rows
+            .map((row) => toInt(row.room_number))
+            .filter((value) => value !== null)
+        ).size;
+
+        const soldRows = rows
+          .map((row) => ({
+            ...row,
+            sold_percent: toInt(row.sold_percent),
+            room_number: toInt(row.room_number),
+            seats_total: toInt(row.seats_total),
+            seats_available: toInt(row.seats_available),
+          }))
+          .filter((row) => row.sold_percent !== null);
+
+        let topVenue = null;
+        const venueBuckets = new Map();
+        for (const row of rows) {
+          const provider = String(row.provider || '').trim();
+          const venueKey = String(row.venue_key || '').trim();
+          const venueName = String(row.venue_name || '').trim();
+          if (!provider || !venueKey || !venueName) {
+            continue;
+          }
+          const venueHref = String(row.venue_href || '').trim();
+          const key = `${provider}||${venueKey}||${venueName}||${venueHref}`;
+          venueBuckets.set(key, (venueBuckets.get(key) || 0) + 1);
+        }
+        if (venueBuckets.size) {
+          const [bucketKey] = Array.from(venueBuckets.keys()).sort((left, right) => {
+            const leftCount = venueBuckets.get(left) || 0;
+            const rightCount = venueBuckets.get(right) || 0;
+            if (leftCount !== rightCount) {
+              return rightCount - leftCount;
+            }
+            return left.localeCompare(right);
+          });
+          const [provider, venueKey, venueName, venueHref] = bucketKey.split('||');
+          topVenue = {
+            label: venueName,
+            href: venueHref || `/venues/${provider}/${venueKey}`,
+          };
+        }
+
+        let peakRow = null;
+        if (soldRows.length) {
+          peakRow = [...soldRows].sort((left, right) => {
+            if ((right.sold_percent || 0) !== (left.sold_percent || 0)) {
+              return (right.sold_percent || 0) - (left.sold_percent || 0);
+            }
+            const leftKey = `${left.date_iso}|${left.time_label}|${left.movie_title}`;
+            const rightKey = `${right.date_iso}|${right.time_label}|${right.movie_title}`;
+            return leftKey.localeCompare(rightKey);
+          })[0];
+        }
+
+        return {
+          dateRange,
+          roomCount,
+          soldCount: soldRows.length,
+          topVenue,
+          peakRow,
+        };
+      }
+
+      function renderFrontSignals(panel, rows) {
+        const signalBox = panel.querySelector('[data-front-advanced-signals]');
+        if (!(signalBox instanceof HTMLElement)) {
+          return;
+        }
+        if (!rows.length) {
+          signalBox.hidden = true;
+          signalBox.innerHTML = '';
+          return;
+        }
+
+        const insights = buildFrontInsights(rows);
+        const summary = [];
+        if (insights.dateRange) {
+          summary.push(`<span><span data-i18n-source>Cache range</span>: ${escapeHtml(insights.dateRange)}</span>`);
+        }
+        if (insights.roomCount) {
+          summary.push(`<span><span data-i18n-source>Rooms identified</span>: ${insights.roomCount}</span>`);
+        }
+        if (insights.soldCount) {
+          summary.push(`<span><span data-i18n-source>Sold data</span>: ${insights.soldCount}</span>`);
+        }
+        if (insights.topVenue) {
+          const venueLabel = escapeHtml(insights.topVenue.label);
+          const venueHtml = insights.topVenue.href
+            ? `<a href="${escapeHtml(insights.topVenue.href)}" data-live-nav="true">${venueLabel}</a>`
+            : venueLabel;
+          summary.push(`<span><span data-i18n-source>Top venue</span>: ${venueHtml}</span>`);
+        }
+
+        let peakMarkup = '';
+        if (insights.peakRow) {
+          const peak = insights.peakRow;
+          const movieTitle = escapeHtml(String(peak.movie_title || ''));
+          const movieHref = String(peak.movie_href || '').trim();
+          const movieHtml = movieHref
+            ? `<a href="${escapeHtml(movieHref)}" data-live-nav="true">${movieTitle}</a>`
+            : movieTitle;
+          const venueLabel = escapeHtml(String(peak.venue_name || peak.provider_name || ''));
+          const venueHref = String(peak.venue_href || '').trim();
+          const venueHtml = venueHref
+            ? `<a href="${escapeHtml(venueHref)}" data-live-nav="true">${venueLabel}</a>`
+            : venueLabel;
+          const peakMeta = `${peak.sold_percent}% sold${peak.room_number !== null ? ` | Room ${peak.room_number}` : ''}`;
+          const seatChip = peak.seats_total !== null
+            ? `
+              <span
+                class="chip chip-neutral"
+                data-i18n-seat-note
+                data-seats-total="${peak.seats_total}"
+                data-seats-available="${peak.seats_available === null ? '' : peak.seats_available}"
+              >${escapeHtml(seatNoteLabel(peak.seats_available, peak.seats_total))}</span>
+            `
+            : '';
+          peakMarkup = `
+            <div class="front-board-peak">
+              <div class="front-board-peak-copy">
+                <span class="front-board-peak-label" data-i18n-source>Peak crowd</span>
+                <strong>${movieHtml}</strong>
+                <p>${venueHtml}<span>${escapeHtml(String(peak.date_iso || ''))} ${escapeHtml(String(peak.time_label || ''))}</span></p>
+              </div>
+              <div class="chips">
+                <span class="chip" data-i18n-meta-line>${escapeHtml(peakMeta)}</span>
+                ${seatChip}
+              </div>
+            </div>
+          `;
+        }
+
+        if (!summary.length && !peakMarkup) {
+          signalBox.hidden = true;
+          signalBox.innerHTML = '';
+          return;
+        }
+
+        signalBox.hidden = false;
+        signalBox.innerHTML = `
+          ${summary.length ? `<div class="front-board-summary">${summary.join('')}</div>` : ''}
+          ${peakMarkup}
+        `;
+      }
+
       function renderAdvancedRows(panel, rows) {
         const countChip = panel.querySelector('[data-front-advanced-count]');
         const container = panel.querySelector('[data-front-advanced-results]');
@@ -4113,6 +4351,7 @@
 
         countChip.dataset.i18nCountValue = String(sorted.length);
         countChip.textContent = `${sorted.length} screenings`;
+        renderFrontSignals(panel, sorted);
 
         if (!sorted.length) {
           container.innerHTML = `<div class="empty" data-i18n-source>No screenings matched the published board with these filters.</div>`;
