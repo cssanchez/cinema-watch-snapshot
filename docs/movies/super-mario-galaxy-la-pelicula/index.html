@@ -1883,9 +1883,8 @@
       <nav class="nav" aria-label="Primary">
         <div class="nav-links">
           <a href="/cinema-watch-snapshot/#cartelera" data-nav-link="screenings" class="" data-i18n-source>Showtimes</a>
+          <a href="/cinema-watch-snapshot/#salas-especiales" data-nav-link="special_rooms" class="" data-i18n-source>Special rooms</a>
           <a href="/cinema-watch-snapshot/#peliculas" data-nav-link="movies" class="" data-i18n-source>Movies</a>
-          <a href="/cinema-watch-snapshot/?focus=imax#salas-especiales" data-nav-link="imax" class="">IMAX</a>
-          <a href="/cinema-watch-snapshot/?focus=dolby_atmos#salas-especiales" data-nav-link="dolby" class="">Dolby Atmos</a>
         </div>
         
         <div class="nav-tools">
@@ -7775,14 +7774,8 @@
         },
       };
 
-      // ⚡ Bolt Optimization: Memoize normalizeSource to avoid redundant regex evaluations in loops
-      const _normalizeSourceCache = new Map();
       function normalizeSource(value) {
-        const key = String(value ?? '');
-        if (_normalizeSourceCache.has(key)) return _normalizeSourceCache.get(key);
-        const result = key.replace(/\s+/g, ' ').trim();
-        _normalizeSourceCache.set(key, result);
-        return result;
+        return String(value ?? '').replace(/\s+/g, ' ').trim();
       }
 
       function initialLanguage() {
@@ -8198,13 +8191,9 @@
         return true;
       }
 
-      function setHomeFocusAndScrollSpecialRooms(focusValue) {
+      function setHomeAndScrollSpecialRooms() {
         const params = new URLSearchParams(window.location.search || '');
-        if (focusValue) {
-          params.set('focus', focusValue);
-        } else {
-          params.delete('focus');
-        }
+        params.delete('focus');
         const query = params.toString();
         const nextUrl = query
           ? `${window.location.pathname}?${query}#salas-especiales`
@@ -8237,23 +8226,15 @@
         const relativePath = relativePathFromHome(path, homePath);
         const onHome = relativePath === '/';
         const moviesHashActive = hash === '#peliculas';
+        const specialRoomsHashActive = hash === '#salas-especiales';
+        const specialRoomsFocusActive = ['imax', 'dolby_atmos'].includes(focusParam);
         const focus = {
-          screenings: (onHome && !['imax', 'dolby_atmos'].includes(focusParam) && !moviesHashActive)
+          screenings: (onHome && !moviesHashActive && !specialRoomsHashActive && !specialRoomsFocusActive)
             || (relativePath.startsWith('/screenings') && !['imax', 'dolby_atmos'].includes(category)),
           movies: relativePath.startsWith('/movies') || (onHome && moviesHashActive),
-          imax: (onHome && focusParam === 'imax')
-            || (relativePath.startsWith('/screenings') && category === 'imax'),
-          dolby: (onHome && focusParam === 'dolby_atmos')
-            || (relativePath.startsWith('/screenings') && category === 'dolby_atmos'),
+          special_rooms: (onHome && (specialRoomsHashActive || specialRoomsFocusActive))
+            || (relativePath.startsWith('/screenings') && ['imax', 'dolby_atmos'].includes(category)),
         };
-        if (onHome && hash === '#salas-especiales' && focusParam === 'imax') {
-          focus.imax = true;
-          focus.screenings = false;
-        }
-        if (onHome && hash === '#salas-especiales' && focusParam === 'dolby_atmos') {
-          focus.dolby = true;
-          focus.screenings = false;
-        }
         document.querySelectorAll('[data-nav-link]').forEach((link) => {
           if (!(link instanceof HTMLElement)) {
             return;
@@ -8293,7 +8274,7 @@
           }
           return;
         }
-        const navLink = event.target.closest('a[data-nav-link="imax"], a[data-nav-link="dolby"]');
+        const navLink = event.target.closest('a[data-nav-link="special_rooms"]');
         if (!(navLink instanceof HTMLAnchorElement)) {
           return;
         }
@@ -8310,8 +8291,7 @@
           return;
         }
         event.preventDefault();
-        const focusValue = navLink.getAttribute('data-nav-link') === 'imax' ? 'imax' : 'dolby_atmos';
-        setHomeFocusAndScrollSpecialRooms(focusValue);
+        setHomeAndScrollSpecialRooms();
       });
 
       if ((window.location.hash || '').toLowerCase() === '#salas-especiales') {
@@ -8419,42 +8399,24 @@
           .replaceAll("'", '&#39;');
       }
 
-      // ⚡ Bolt Optimization: Memoize foldText to avoid repeated unicode normalization
-      const _foldTextCache = new Map();
       function foldText(value) {
-        const key = String(value ?? '');
-        if (_foldTextCache.has(key)) return _foldTextCache.get(key);
-        const result = key
+        return String(value ?? '')
           .normalize('NFD')
           .replace(/[\u0300-\u036f]/g, '')
           .toLowerCase()
           .trim();
-        _foldTextCache.set(key, result);
-        return result;
       }
 
-      // ⚡ Bolt Optimization: Memoize canonicalLanguage to speed up language filtering
-      const _canonicalLangCache = new Map();
       function canonicalLanguage(value) {
-        const key = String(value ?? '');
-        if (_canonicalLangCache.has(key)) return _canonicalLangCache.get(key);
-        const text = foldText(key);
-        let result = text;
-        if (!text) result = '';
-        else if (text.includes('subti')) result = 'subtitulado';
-        else if (['espanol', 'español', 'castellano', 'doblada'].includes(text)) result = 'espanol';
-        _canonicalLangCache.set(key, result);
-        return result;
+        const text = foldText(value);
+        if (!text) return '';
+        if (text.includes('subti')) return 'subtitulado';
+        if (['espanol', 'español', 'castellano', 'doblada'].includes(text)) return 'espanol';
+        return text;
       }
 
-      // ⚡ Bolt Optimization: Memoize canonicalFormat to speed up format filtering
-      const _canonicalFormatCache = new Map();
       function canonicalFormat(value) {
-        const key = String(value ?? '');
-        if (_canonicalFormatCache.has(key)) return _canonicalFormatCache.get(key);
-        const result = foldText(key).replace(/\s+/g, '');
-        _canonicalFormatCache.set(key, result);
-        return result;
+        return foldText(value).replace(/\s+/g, '');
       }
 
       function roomLabel(roomNumber) {
