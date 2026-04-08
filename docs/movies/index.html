@@ -2057,16 +2057,24 @@
       .trim();
   }
 
+  const _canonicalLanguageCache = new Map();
   function canonicalLanguage(value) {
+    if (_canonicalLanguageCache.has(value)) return _canonicalLanguageCache.get(value);
     const text = foldText(value);
-    if (!text) return '';
-    if (text.includes('subti')) return 'subtitulado';
-    if (['espanol', 'español', 'castellano', 'doblada'].includes(text)) return 'espanol';
-    return text;
+    let result = text;
+    if (!text) result = '';
+    else if (text.includes('subti')) result = 'subtitulado';
+    else if (['espanol', 'español', 'castellano', 'doblada'].includes(text)) result = 'espanol';
+    _canonicalLanguageCache.set(value, result);
+    return result;
   }
 
+  const _canonicalFormatCache = new Map();
   function canonicalFormat(value) {
-    return foldText(value).replace(/\s+/g, '');
+    if (_canonicalFormatCache.has(value)) return _canonicalFormatCache.get(value);
+    const result = foldText(value).replace(/\s+/g, '');
+    _canonicalFormatCache.set(value, result);
+    return result;
   }
 
   function syncVenueSelect() {
