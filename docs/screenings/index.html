@@ -2739,8 +2739,13 @@
         },
       };
 
+      const _normalizeCache = new Map();
       function normalizeSource(value) {
-        return String(value ?? '').replace(/\s+/g, ' ').trim();
+        const key = String(value ?? '');
+        if (_normalizeCache.has(key)) return _normalizeCache.get(key);
+        const result = key.replace(/\s+/g, ' ').trim();
+        _normalizeCache.set(key, result);
+        return result;
       }
 
       function initialLanguage() {
