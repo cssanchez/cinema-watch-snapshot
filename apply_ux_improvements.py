@@ -11,7 +11,6 @@ from typing import List, Tuple
 
 # Configuration
 DOCS_ROOT = str(Path(__file__).parent / "docs")
-DOCS_ROOT = "docs"
 ENCODING = "utf-8"
 
 
