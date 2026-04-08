@@ -127,7 +127,9 @@
       padding: 0.54rem 0.62rem 0.54rem 1rem;
       border: 1px solid rgba(165, 178, 198, 0.18);
       border-radius: 24px;
-      background: #090c11;
+      background:
+        linear-gradient(90deg, rgba(15, 18, 27, 0.92), rgba(8, 11, 17, 0.78)),
+        rgba(9, 12, 18, 0.86);
       box-shadow: 0 14px 34px rgba(0, 0, 0, 0.28);
       position: sticky;
       top: 0.8rem;
@@ -186,12 +188,22 @@
       cursor: pointer;
     }
 
+    .nav a {
+      white-space: nowrap;
+    }
+
     .nav a:hover,
     .nav button:hover {
       border-color: var(--line);
       background: rgba(255, 255, 255, 0.06);
       color: var(--ink);
       transform: translateY(-1px);
+    }
+
+    .nav a.is-active {
+      border-color: rgba(88, 199, 179, 0.45);
+      background: rgba(88, 199, 179, 0.17);
+      color: #dcfff8;
     }
 
     .nav form {
@@ -619,6 +631,14 @@
 
     .panel {
       padding: 1.08rem;
+    }
+
+    .panel.panel-muted {
+      border-color: rgba(165, 178, 198, 0.1);
+      background:
+        linear-gradient(180deg, rgba(255, 255, 255, 0.025), transparent 44%),
+        rgba(12, 16, 23, 0.84);
+      box-shadow: 0 12px 30px rgba(0, 0, 0, 0.2);
     }
 
     .section-head {
@@ -1490,6 +1510,7 @@
       .nav {
         grid-column: 1 / -1;
         justify-content: space-between;
+        gap: 0.38rem;
       }
 
       .nav-links {
@@ -1548,86 +1569,57 @@
       }
 
       .nav {
-        justify-content: start;
-        gap: 0.42rem;
+        justify-content: flex-start;
+        gap: 0.45rem;
         width: 100%;
-        align-items: stretch;
+        align-items: center;
+        flex-wrap: wrap;
       }
 
       .nav-links {
-        justify-content: start;
-        flex: 1 1 auto;
+        order: 1;
+        justify-content: flex-start;
+        flex: 1 1 100%;
+        width: 100%;
         min-width: 0;
+        padding: 0.22rem;
+        overflow-x: auto;
+        scrollbar-width: none;
+      }
+      .nav-links::-webkit-scrollbar {
+        display: none;
+      }
+      .nav-links a {
+        flex: 0 0 auto;
+        min-height: 2rem;
+        padding: 0.34rem 0.62rem;
+        font-size: 0.81rem;
       }
 
-    .nav-location-dropdown {
-      position: relative;
-      display: inline-flex;
-    }
-    .nav-location-toggle {
-      display: inline-flex;
-      align-items: center;
-      gap: 0.35rem;
-      min-height: 1.74rem;
-      padding: 0.27rem 0.65rem;
-      border-radius: 999px;
-      border: 1px solid var(--line);
-      background: rgba(255, 255, 255, 0.04);
-      color: var(--muted);
-      font-size: 0.78rem;
-      font-weight: 800;
-      letter-spacing: 0.04em;
-      cursor: pointer;
-    }
-    .nav-location-toggle:hover {
-      background: rgba(255, 255, 255, 0.06);
-      border-color: var(--line-strong);
-      color: var(--ink);
-    }
-    .nav-location-toggle[aria-expanded="true"] {
-      background: var(--surface-strong);
-      border-color: var(--line-strong);
-      color: var(--ink);
-    }
-    .nav-location-toggle svg {
-      opacity: 0.7;
-    }
-    .nav-location-menu {
-      position: absolute;
-      top: calc(100% + 0.4rem);
-      right: 0;
-      min-width: 140px;
-      background: var(--surface-strong);
-      border: 1px solid var(--line);
-      border-radius: var(--radius-sm);
-      box-shadow: var(--shadow-soft);
-      padding: 0.4rem;
-      display: flex;
-      flex-direction: column;
-      gap: 0.2rem;
-      z-index: 50;
-    }
-    .nav-location-menu[hidden] {
-      display: none;
-    }
-    .nav-location-menu .location-option {
-      width: 100%;
-      justify-content: flex-start;
-      border: 0;
-      background: transparent;
-      padding: 0.4rem 0.6rem;
-      min-height: auto;
-    }
-    .nav-location-menu .location-option:hover {
-      background: rgba(255, 255, 255, 0.06);
-    }
-    .nav-location-menu .location-option[aria-pressed="true"] {
-      background: rgba(88, 199, 179, 0.18);
-      color: var(--accent);
-    }
+      .nav-location-dropdown {
+        order: 2;
+        flex: 0 0 auto;
+      }
+      .nav-location-toggle {
+        min-height: 2rem;
+        padding: 0.3rem 0.62rem;
+        font-size: 0.76rem;
+      }
 
       .nav-tools {
+        order: 3;
         flex: 0 0 auto;
+        margin-left: auto;
+        gap: 0.22rem;
+      }
+
+      .language-switch {
+        padding: 0.14rem;
+      }
+
+      .language-switch button {
+        min-height: 2rem;
+        padding: 0.3rem 0.5rem;
       }
 
       .hero,
@@ -1667,6 +1659,26 @@
 
       .time-badge {
         justify-self: start;
+      }
+    }
+
+    @media (max-width: 620px) {
+      .nav {
+        gap: 0.38rem;
+      }
+
+      .nav-location-dropdown,
+      .nav-tools {
+        flex: 1 1 auto;
+      }
+
+      .nav-location-toggle {
+        width: 100%;
+        justify-content: center;
+      }
+
+      .nav-tools {
+        justify-content: flex-end;
       }
     }
   </style>
@@ -1709,68 +1721,14 @@
       <a href="/cinema-watch-snapshot/" class="brand">
         <strong>Cine Vicio</strong>
       </a>
+      
+      
       <nav class="nav" aria-label="Primary">
         <div class="nav-links">
-          <a href="/cinema-watch-snapshot/screenings/" data-i18n-source>Showtimes</a>
-          <a href="/cinema-watch-snapshot/movies/" data-i18n-source>Movies</a>
-          <a href="/cinema-watch-snapshot/screenings/?category=imax">IMAX</a>
-          <a href="/cinema-watch-snapshot/screenings/?category=dolby_atmos">Dolby Atmos</a>
-        </div>
-        
-        <div class="nav-location-dropdown" data-location-dropdown>
-          <button type="button" class="nav-location-toggle" aria-haspopup="true" aria-expanded="false" data-location-dropdown-toggle>
-            <span class="nav-location-active">Zone</span>
-            <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="m6 9 6 6 6-6"/cinema-watch-snapshot/></svg>
-          </button>
-          <div class="nav-location-menu" hidden>
-            
-            <button
-              type="button"
-              class="location-option"
-              data-location-target="amba"
-              aria-pressed="true"
-              data-coming-soon="false"
-            >
-              <span>AMBA</span>
-              
-            </button>
-            
-            <button
-              type="button"
-              class="location-option"
-              data-location-target="caba"
-              aria-pressed="false"
-              data-coming-soon="false"
-            >
-              <span>CABA</span>
-              
-            </button>
-            
-            <button
-              type="button"
-              class="location-option"
-              data-location-target="gba_sur"
-              aria-pressed="false"
-              data-coming-soon="false"
-            >
-              <span>GBA Sur</span>
-              
-            </button>
-            
-            <button
-              type="button"
-              class="location-option"
-              data-location-target="mar_del_plata"
-              aria-pressed="false"
-              data-coming-soon="true"
-            >
-              <span>Mar del Plata</span>
-              
-              <small data-i18n-source>Coming soon</small>
-              
-            </button>
-            
-          </div>
+          <a href="/cinema-watch-snapshot/screenings/" data-nav-link="screenings" class="" data-i18n-source>Showtimes</a>
+          <a href="/cinema-watch-snapshot/movies/" data-nav-link="movies" class="" data-i18n-source>Movies</a>
+          <a href="/cinema-watch-snapshot/screenings/?category=imax" data-nav-link="imax" class="">IMAX</a>
+          <a href="/cinema-watch-snapshot/screenings/?category=dolby_atmos" data-nav-link="dolby" class="">Dolby Atmos</a>
         </div>
         
         <div class="nav-tools">
@@ -1817,7 +1775,7 @@
     </div>
     <div class="metric">
       <span class="muted">Published at</span>
-      <strong style="font-size:1rem;">2026-04-07 17:22 UTC</strong>
+      <strong style="font-size:1rem;">2026-04-08 04:13 UTC</strong>
     </div>
   </div>
 </section>
@@ -1866,16 +1824,16 @@
             <div class="chips">
               <span class="chip chip-ok">success</span>
               
-              <span class="chip">hybrid</span>
+              <span class="chip">ar-only</span>
               
             </div>
           </div>
           <div class="stats">
-            <span class="stat">2122 cached screenings</span>
-            <span class="stat">37 cached titles</span>
+            <span class="stat">1582 cached screenings</span>
+            <span class="stat">35 cached titles</span>
           </div>
-          <p>Updated 1 h ago</p>
-          <p>Last run: 2026-04-07 16:12 UTC - 8s</p>
+          <p>Updated 1 d ago</p>
+          <p>Last run: 2026-04-06 23:29 UTC - 0s</p>
           
         </a>
         
@@ -1891,11 +1849,11 @@
             </div>
           </div>
           <div class="stats">
-            <span class="stat">297 cached screenings</span>
-            <span class="stat">16 cached titles</span>
+            <span class="stat">1129 cached screenings</span>
+            <span class="stat">20 cached titles</span>
           </div>
-          <p>Updated 15 min ago</p>
-          <p>Last run: 2026-04-07 17:06 UTC - 6s</p>
+          <p>Updated 1 d ago</p>
+          <p>Last run: 2026-04-06 23:30 UTC - 3s</p>
           
         </a>
         
@@ -1922,17 +1880,17 @@
             <div class="chips">
               <span class="chip chip-ok">success</span>
               
-              <span class="chip">hybrid</span>
+              <span class="chip">ar-only</span>
               
             </div>
           </div>
           <div class="stats">
-            <span class="stat">385 cached screenings</span>
-            <span class="stat">18 cached titles</span>
+            <span class="stat">374 cached screenings</span>
+            <span class="stat">16 cached titles</span>
           </div>
-          <p>Updated 1 h ago</p>
+          <p>Updated 1 d ago</p>
           
-          <p>Cached dates: 2026-04-07 to 2026-04-13</p>
+          <p>Cached dates: 2026-04-04 to 2026-04-12</p>
           
         </a>
         
@@ -1945,17 +1903,17 @@
             <div class="chips">
               <span class="chip chip-ok">success</span>
               
-              <span class="chip">hybrid</span>
+              <span class="chip">ar-only</span>
               
             </div>
           </div>
           <div class="stats">
-            <span class="stat">187 cached screenings</span>
-            <span class="stat">10 cached titles</span>
+            <span class="stat">163 cached screenings</span>
+            <span class="stat">8 cached titles</span>
           </div>
-          <p>Updated 1 h ago</p>
+          <p>Updated 1 d ago</p>
           
-          <p>Cached dates: 2026-04-07 to 2026-04-13</p>
+          <p>Cached dates: 2026-04-06 to 2026-04-12</p>
           
         </a>
         
@@ -1968,17 +1926,17 @@
             <div class="chips">
               <span class="chip chip-ok">success</span>
               
-              <span class="chip">hybrid</span>
+              <span class="chip">ar-only</span>
               
             </div>
           </div>
           <div class="stats">
-            <span class="stat">180 cached screenings</span>
+            <span class="stat">84 cached screenings</span>
             <span class="stat">7 cached titles</span>
           </div>
-          <p>Updated 1 h ago</p>
+          <p>Updated 1 d ago</p>
           
-          <p>Cached dates: 2026-04-07 to 2026-04-13</p>
+          <p>Cached dates: 2026-04-06 to 2026-04-12</p>
           
         </a>
         
@@ -1991,17 +1949,17 @@
             <div class="chips">
               <span class="chip chip-ok">success</span>
               
-              <span class="chip">hybrid</span>
+              <span class="chip">ar-only</span>
               
             </div>
           </div>
           <div class="stats">
-            <span class="stat">84 cached screenings</span>
+            <span class="stat">100 cached screenings</span>
             <span class="stat">6 cached titles</span>
           </div>
-          <p>Updated 1 h ago</p>
+          <p>Updated 1 d ago</p>
           
-          <p>Cached dates: 2026-04-07 to 2026-04-11</p>
+          <p>Cached dates: 2026-04-06 to 2026-04-11</p>
           
         </a>
         
@@ -2014,17 +1972,17 @@
             <div class="chips">
               <span class="chip chip-ok">success</span>
               
-              <span class="chip">hybrid</span>
+              <span class="chip">ar-only</span>
               
             </div>
           </div>
           <div class="stats">
-            <span class="stat">128 cached screenings</span>
-            <span class="stat">8 cached titles</span>
+            <span class="stat">38 cached screenings</span>
+            <span class="stat">4 cached titles</span>
           </div>
-          <p>Updated 1 h ago</p>
+          <p>Updated 1 d ago</p>
           
-          <p>Cached dates: 2026-04-07 to 2026-04-13</p>
+          <p>Cached dates: 2026-04-06 to 2026-04-08</p>
           
         </a>
         
@@ -2037,17 +1995,17 @@
             <div class="chips">
               <span class="chip chip-ok">success</span>
               
-              <span class="chip">hybrid</span>
+              <span class="chip">ar-only</span>
               
             </div>
           </div>
           <div class="stats">
-            <span class="stat">306 cached screenings</span>
-            <span class="stat">27 cached titles</span>
+            <span class="stat">290 cached screenings</span>
+            <span class="stat">26 cached titles</span>
           </div>
-          <p>Updated 1 h ago</p>
+          <p>Updated 1 d ago</p>
           
-          <p>Cached dates: 2026-04-07 to 2026-04-13</p>
+          <p>Cached dates: 2026-04-04 to 2026-04-12</p>
           
         </a>
         
@@ -2060,17 +2018,17 @@
             <div class="chips">
               <span class="chip chip-ok">success</span>
               
-              <span class="chip">hybrid</span>
+              <span class="chip">ar-only</span>
               
             </div>
           </div>
           <div class="stats">
-            <span class="stat">113 cached screenings</span>
-            <span class="stat">7 cached titles</span>
+            <span class="stat">101 cached screenings</span>
+            <span class="stat">6 cached titles</span>
           </div>
-          <p>Updated 1 h ago</p>
+          <p>Updated 1 d ago</p>
           
-          <p>Cached dates: 2026-04-07 to 2026-04-13</p>
+          <p>Cached dates: 2026-04-06 to 2026-04-12</p>
           
         </a>
         
@@ -2083,17 +2041,17 @@
             <div class="chips">
               <span class="chip chip-ok">success</span>
               
-              <span class="chip">hybrid</span>
+              <span class="chip">ar-only</span>
               
             </div>
           </div>
           <div class="stats">
-            <span class="stat">330 cached screenings</span>
-            <span class="stat">15 cached titles</span>
+            <span class="stat">297 cached screenings</span>
+            <span class="stat">14 cached titles</span>
           </div>
-          <p>Updated 1 h ago</p>
+          <p>Updated 1 d ago</p>
           
-          <p>Cached dates: 2026-04-07 to 2026-04-13</p>
+          <p>Cached dates: 2026-04-06 to 2026-04-12</p>
           
         </a>
         
@@ -2106,17 +2064,17 @@
             <div class="chips">
               <span class="chip chip-ok">success</span>
               
-              <span class="chip">hybrid</span>
+              <span class="chip">ar-only</span>
               
             </div>
           </div>
           <div class="stats">
-            <span class="stat">223 cached screenings</span>
-            <span class="stat">10 cached titles</span>
+            <span class="stat">76 cached screenings</span>
+            <span class="stat">6 cached titles</span>
           </div>
-          <p>Updated 1 h ago</p>
+          <p>Updated 1 d ago</p>
           
-          <p>Cached dates: 2026-04-07 to 2026-04-13</p>
+          <p>Cached dates: 2026-04-06 to 2026-04-11</p>
           
         </a>
         
@@ -2129,17 +2087,17 @@
             <div class="chips">
               <span class="chip chip-ok">success</span>
               
-              <span class="chip">hybrid</span>
+              <span class="chip">ar-only</span>
               
             </div>
           </div>
           <div class="stats">
-            <span class="stat">186 cached screenings</span>
-            <span class="stat">10 cached titles</span>
+            <span class="stat">59 cached screenings</span>
+            <span class="stat">5 cached titles</span>
           </div>
-          <p>Updated 1 h ago</p>
+          <p>Updated 1 d ago</p>
           
-          <p>Cached dates: 2026-04-07 to 2026-04-13</p>
+          <p>Cached dates: 2026-04-06 to 2026-04-11</p>
           
         </a>
         
@@ -2155,12 +2113,12 @@
             </div>
           </div>
           <div class="stats">
-            <span class="stat">77 cached screenings</span>
-            <span class="stat">10 cached titles</span>
+            <span class="stat">113 cached screenings</span>
+            <span class="stat">13 cached titles</span>
           </div>
-          <p>Updated 15 min ago</p>
+          <p>Updated 1 d ago</p>
           
-          <p>Cached dates: 2026-04-07 to 2026-04-08</p>
+          <p>Cached dates: 2026-04-06 to 2026-05-08</p>
           
         </a>
         
@@ -2176,12 +2134,12 @@
             </div>
           </div>
           <div class="stats">
-            <span class="stat">90 cached screenings</span>
-            <span class="stat">10 cached titles</span>
+            <span class="stat">143 cached screenings</span>
+            <span class="stat">13 cached titles</span>
           </div>
-          <p>Updated 16 min ago</p>
+          <p>Updated 1 d ago</p>
           
-          <p>Cached dates: 2026-04-07 to 2026-04-08</p>
+          <p>Cached dates: 2026-04-06 to 2026-05-08</p>
           
         </a>
         
@@ -2192,15 +2150,17 @@
               <div class="kicker">Showcase / IMAX / Haedo</div>
             </div>
             <div class="chips">
-              <span class="chip chip-neutral">unknown</span>
+              <span class="chip chip-ok">success</span>
               
             </div>
           </div>
           <div class="stats">
-            <span class="stat">0 cached screenings</span>
-            <span class="stat">0 cached titles</span>
+            <span class="stat">169 cached screenings</span>
+            <span class="stat">14 cached titles</span>
           </div>
-          <p>Catalog seeded, no cached screenings yet</p>
+          <p>Updated 1 d ago</p>
+          
+          <p>Cached dates: 2026-04-06 to 2026-04-22</p>
           
         </a>
         
@@ -2211,15 +2171,17 @@
               <div class="kicker">Showcase / IMAX / Quilmes</div>
             </div>
             <div class="chips">
-              <span class="chip chip-neutral">unknown</span>
+              <span class="chip chip-ok">success</span>
               
             </div>
           </div>
           <div class="stats">
-            <span class="stat">0 cached screenings</span>
-            <span class="stat">0 cached titles</span>
+            <span class="stat">107 cached screenings</span>
+            <span class="stat">8 cached titles</span>
           </div>
-          <p>Catalog seeded, no cached screenings yet</p>
+          <p>Updated 1 d ago</p>
+          
+          <p>Cached dates: 2026-04-06 to 2026-05-08</p>
           
         </a>
         
@@ -2230,15 +2192,17 @@
               <div class="kicker">Showcase / IMAX / Rosario</div>
             </div>
             <div class="chips">
-              <span class="chip chip-neutral">unknown</span>
+              <span class="chip chip-ok">success</span>
               
             </div>
           </div>
           <div class="stats">
-            <span class="stat">0 cached screenings</span>
-            <span class="stat">0 cached titles</span>
+            <span class="stat">158 cached screenings</span>
+            <span class="stat">15 cached titles</span>
           </div>
-          <p>Catalog seeded, no cached screenings yet</p>
+          <p>Updated 1 d ago</p>
+          
+          <p>Cached dates: 2026-04-06 to 2026-05-08</p>
           
         </a>
         
@@ -2249,15 +2213,17 @@
               <div class="kicker">Showcase / IMAX / San Juan</div>
             </div>
             <div class="chips">
-              <span class="chip chip-neutral">unknown</span>
+              <span class="chip chip-ok">success</span>
               
             </div>
           </div>
           <div class="stats">
-            <span class="stat">0 cached screenings</span>
-            <span class="stat">0 cached titles</span>
+            <span class="stat">177 cached screenings</span>
+            <span class="stat">6 cached titles</span>
           </div>
-          <p>Catalog seeded, no cached screenings yet</p>
+          <p>Updated 1 d ago</p>
+          
+          <p>Cached dates: 2026-04-06 to 2026-04-16</p>
           
         </a>
         
@@ -2273,12 +2239,12 @@
             </div>
           </div>
           <div class="stats">
-            <span class="stat">12 cached screenings</span>
-            <span class="stat">2 cached titles</span>
+            <span class="stat">53 cached screenings</span>
+            <span class="stat">3 cached titles</span>
           </div>
-          <p>Updated 16 min ago</p>
+          <p>Updated 1 d ago</p>
           
-          <p>Cached dates: 2026-04-07 to 2026-04-09</p>
+          <p>Cached dates: 2026-04-04 to 2026-04-22</p>
           
         </a>
         
@@ -2294,12 +2260,12 @@
             </div>
           </div>
           <div class="stats">
-            <span class="stat">118 cached screenings</span>
-            <span class="stat">15 cached titles</span>
+            <span class="stat">182 cached screenings</span>
+            <span class="stat">18 cached titles</span>
           </div>
-          <p>Updated 15 min ago</p>
+          <p>Updated 1 d ago</p>
           
-          <p>Cached dates: 2026-04-07 to 2026-04-08</p>
+          <p>Cached dates: 2026-04-06 to 2026-05-08</p>
           
         </a>
         
@@ -2325,7 +2291,7 @@
               <strong>Showcase / IMAX</strong>
               <div class="kicker">
                 
-                <a href="/cinema-watch-snapshot/venues/showcase/showcase_belgrano/">Showcase Belgrano</a>
+                <a href="/cinema-watch-snapshot/venues/showcase/showcase_villa_allende/">Showcase Villa Allende</a>
                 
               </div>
             </div>
@@ -2335,12 +2301,62 @@
             </div>
           </div>
           <div class="stats">
-            <span class="stat">77 screenings</span>
+            <span class="stat">27 screenings</span>
             
             <span class="stat">3 selected dates</span>
             
           </div>
-          <p>Finished: 2026-04-07 17:06 UTC - 6s</p>
+          <p>Finished: 2026-04-06 23:30 UTC - 3s</p>
+          
+        </div>
+        
+        <div class="row-card">
+          <div class="row-head">
+            <div>
+              <strong>Showcase / IMAX</strong>
+              <div class="kicker">
+                
+                <a href="/cinema-watch-snapshot/venues/showcase/showcase_rosario/">Showcase Rosario</a>
+                
+              </div>
+            </div>
+            <div class="chips">
+              <span class="chip chip-ok">success</span>
+              
+            </div>
+          </div>
+          <div class="stats">
+            <span class="stat">158 screenings</span>
+            
+            <span class="stat">14 selected dates</span>
+            
+          </div>
+          <p>Finished: 2026-04-06 23:30 UTC - 6s</p>
+          
+        </div>
+        
+        <div class="row-card">
+          <div class="row-head">
+            <div>
+              <strong>Showcase / IMAX</strong>
+              <div class="kicker">
+                
+                <a href="/cinema-watch-snapshot/venues/showcase/showcase_quilmes/">Showcase Quilmes</a>
+                
+              </div>
+            </div>
+            <div class="chips">
+              <span class="chip chip-ok">success</span>
+              
+            </div>
+          </div>
+          <div class="stats">
+            <span class="stat">107 screenings</span>
+            
+            <span class="stat">12 selected dates</span>
+            
+          </div>
+          <p>Finished: 2026-04-06 23:30 UTC - 4s</p>
           
         </div>
         
@@ -2360,12 +2376,12 @@
             </div>
           </div>
           <div class="stats">
-            <span class="stat">118 screenings</span>
+            <span class="stat">182 screenings</span>
             
-            <span class="stat">3 selected dates</span>
+            <span class="stat">14 selected dates</span>
             
           </div>
-          <p>Finished: 2026-04-07 17:06 UTC - 7s</p>
+          <p>Finished: 2026-04-06 23:30 UTC - 7s</p>
           
         </div>
         
@@ -2375,7 +2391,7 @@
               <strong>Showcase / IMAX</strong>
               <div class="kicker">
                 
-                <a href="/cinema-watch-snapshot/venues/showcase/imax_norcenter/">IMAX Theatre (Norcenter)</a>
+                <a href="/cinema-watch-snapshot/venues/showcase/showcase_haedo/">Showcase Haedo</a>
                 
               </div>
             </div>
@@ -2385,12 +2401,12 @@
             </div>
           </div>
           <div class="stats">
-            <span class="stat">12 screenings</span>
+            <span class="stat">169 screenings</span>
             
-            <span class="stat">3 selected dates</span>
+            <span class="stat">10 selected dates</span>
             
           </div>
-          <p>Finished: 2026-04-07 17:05 UTC - 3s</p>
+          <p>Finished: 2026-04-06 23:29 UTC - 6s</p>
           
         </div>
         
@@ -2410,12 +2426,12 @@
             </div>
           </div>
           <div class="stats">
-            <span class="stat">90 screenings</span>
+            <span class="stat">143 screenings</span>
             
-            <span class="stat">7 selected dates</span>
+            <span class="stat">14 selected dates</span>
             
           </div>
-          <p>Finished: 2026-04-07 17:05 UTC - 5s</p>
+          <p>Finished: 2026-04-06 23:29 UTC - 8s</p>
           
         </div>
         
@@ -2435,12 +2451,37 @@
             </div>
           </div>
           <div class="stats">
-            <span class="stat">77 screenings</span>
+            <span class="stat">113 screenings</span>
             
-            <span class="stat">7 selected dates</span>
+            <span class="stat">14 selected dates</span>
             
           </div>
-          <p>Finished: 2026-04-07 17:05 UTC - 5s</p>
+          <p>Finished: 2026-04-06 23:29 UTC - 9s</p>
+          
+        </div>
+        
+        <div class="row-card">
+          <div class="row-head">
+            <div>
+              <strong>Showcase / IMAX</strong>
+              <div class="kicker">
+                
+                <a href="/cinema-watch-snapshot/venues/showcase/play_cinema_san_juan/">Play Cinema San Juan</a>
+                
+              </div>
+            </div>
+            <div class="chips">
+              <span class="chip chip-ok">success</span>
+              
+            </div>
+          </div>
+          <div class="stats">
+            <span class="stat">177 screenings</span>
+            
+            <span class="stat">11 selected dates</span>
+            
+          </div>
+          <p>Finished: 2026-04-06 23:29 UTC - 9s</p>
           
         </div>
         
@@ -2460,62 +2501,12 @@
             </div>
           </div>
           <div class="stats">
-            <span class="stat">12 screenings</span>
+            <span class="stat">48 screenings</span>
             
-            <span class="stat">3 selected dates</span>
-            
-          </div>
-          <p>Finished: 2026-04-07 16:52 UTC - 22s</p>
-          
-        </div>
-        
-        <div class="row-card">
-          <div class="row-head">
-            <div>
-              <strong>Showcase / IMAX</strong>
-              <div class="kicker">
-                
-                <a href="/cinema-watch-snapshot/venues/showcase/imax_norcenter/">IMAX Theatre (Norcenter)</a>
-                
-              </div>
-            </div>
-            <div class="chips">
-              <span class="chip chip-fail">failed</span>
-              
-            </div>
-          </div>
-          <div class="stats">
-            <span class="stat">0 screenings</span>
+            <span class="stat">17 selected dates</span>
             
           </div>
-          <p>Finished: 2026-04-07 16:35 UTC - 0s</p>
-          
-          <p>ModuleNotFoundError: No module named &#39;showcase_scraper&#39;</p>
-          
-        </div>
-        
-        <div class="row-card">
-          <div class="row-head">
-            <div>
-              <strong>Showcase / IMAX</strong>
-              <div class="kicker">
-                
-                <a href="/cinema-watch-snapshot/venues/showcase/imax_norcenter/">IMAX Theatre (Norcenter)</a>
-                
-              </div>
-            </div>
-            <div class="chips">
-              <span class="chip chip-fail">failed</span>
-              
-            </div>
-          </div>
-          <div class="stats">
-            <span class="stat">0 screenings</span>
-            
-          </div>
-          <p>Finished: 2026-04-07 16:12 UTC - 0s</p>
-          
-          <p>RuntimeError: Showcase scraper repo not found at C:\Users\vic1o\.cline\showcase_imax_scraper. Clone or restore the sibling showcase_imax_scraper repo to enable this provider.</p>
+          <p>Finished: 2026-04-06 23:29 UTC - 4s</p>
           
         </div>
         
@@ -2532,17 +2523,17 @@
             <div class="chips">
               <span class="chip chip-ok">success</span>
               
-              <span class="chip">hybrid</span>
+              <span class="chip">ar-only</span>
               
             </div>
           </div>
           <div class="stats">
-            <span class="stat">186 screenings</span>
+            <span class="stat">59 screenings</span>
             
-            <span class="stat">7 selected dates</span>
+            <span class="stat">4 selected dates</span>
             
           </div>
-          <p>Finished: 2026-04-07 16:12 UTC - 8s</p>
+          <p>Finished: 2026-04-06 23:29 UTC - 0s</p>
           
         </div>
         
@@ -2559,17 +2550,17 @@
             <div class="chips">
               <span class="chip chip-ok">success</span>
               
-              <span class="chip">hybrid</span>
+              <span class="chip">ar-only</span>
               
             </div>
           </div>
           <div class="stats">
-            <span class="stat">306 screenings</span>
+            <span class="stat">280 screenings</span>
             
             <span class="stat">7 selected dates</span>
             
           </div>
-          <p>Finished: 2026-04-07 16:11 UTC - 8s</p>
+          <p>Finished: 2026-04-06 23:29 UTC - 2s</p>
           
         </div>
         
@@ -2586,44 +2577,17 @@
             <div class="chips">
               <span class="chip chip-ok">success</span>
               
-              <span class="chip">hybrid</span>
+              <span class="chip">ar-only</span>
               
             </div>
           </div>
           <div class="stats">
-            <span class="stat">84 screenings</span>
+            <span class="stat">100 screenings</span>
             
-            <span class="stat">3 selected dates</span>
-            
-          </div>
-          <p>Finished: 2026-04-07 16:11 UTC - 8s</p>
-          
-        </div>
-        
-        <div class="row-card">
-          <div class="row-head">
-            <div>
-              <strong>Cinepolis Argentina</strong>
-              <div class="kicker">
-                
-                <a href="/cinema-watch-snapshot/venues/cinepolis/neuquen/">Cinépolis Neuquén</a>
-                
-              </div>
-            </div>
-            <div class="chips">
-              <span class="chip chip-ok">success</span>
-              
-              <span class="chip">hybrid</span>
-              
-            </div>
-          </div>
-          <div class="stats">
-            <span class="stat">223 screenings</span>
-            
-            <span class="stat">7 selected dates</span>
+            <span class="stat">4 selected dates</span>
             
           </div>
-          <p>Finished: 2026-04-07 16:11 UTC - 8s</p>
+          <p>Finished: 2026-04-06 23:29 UTC - 0s</p>
           
         </div>
         
@@ -2728,6 +2692,17 @@
           'No IMAX screenings in the current snapshot.': 'No hay funciones IMAX en la cartelera actual.',
           'No Dolby Atmos screenings in the current snapshot.': 'No hay funciones Dolby Atmos en la cartelera actual.',
           'No cached screenings for tomorrow yet.': 'Todavía no hay funciones cacheadas para mañana.',
+          'IMAX board': 'Cartelera IMAX',
+          'Dolby Atmos board': 'Cartelera Dolby Atmos',
+          'Find an IMAX showtime.': 'Encontra una funcion IMAX.',
+          'Find a Dolby Atmos showtime.': 'Encontra una funcion Dolby Atmos.',
+          'Focused on large-format screenings first, then compare by cinema and time.': 'Primero funciones de gran formato, despues compara por cine y horario.',
+          'Focused on Atmos-capable screenings first, then compare by cinema and time.': 'Primero funciones con Atmos, despues compara por cine y horario.',
+          'Reset to all screenings': 'Volver a toda la cartelera',
+          'IMAX focus': 'Foco IMAX',
+          'Dolby Atmos focus': 'Foco Dolby Atmos',
+          'You are viewing the IMAX cut of the board.': 'Estas viendo el recorte IMAX de la cartelera.',
+          'You are viewing the Dolby Atmos cut of the board.': 'Estas viendo el recorte Dolby Atmos de la cartelera.',
 
           'Now showing': 'Cartelera',
           'What should we watch?': '¿Qué vemos hoy?',
@@ -3255,6 +3230,37 @@
       window.CinemaWatchLocations = { init: initHomepageLocation };
     })();
   </script>
+  <script>
+    (() => {
+      function syncTopNavState() {
+        const path = window.location.pathname || '/';
+        const params = new URLSearchParams(window.location.search || '');
+        const category = (params.get('category') || '').toLowerCase();
+        const focus = {
+          screenings: path.startsWith('/screenings') && !['imax', 'dolby_atmos'].includes(category),
+          movies: path.startsWith('/movies'),
+          imax: path.startsWith('/screenings') && category === 'imax',
+          dolby: path.startsWith('/screenings') && category === 'dolby_atmos',
+        };
+        document.querySelectorAll('[data-nav-link]').forEach((link) => {
+          if (!(link instanceof HTMLElement)) {
+            return;
+          }
+          const key = link.getAttribute('data-nav-link') || '';
+          const active = Boolean(focus[key]);
+          link.classList.toggle('is-active', active);
+          if (active) {
+            link.setAttribute('aria-current', 'page');
+          } else {
+            link.removeAttribute('aria-current');
+          }
+        });
+      }
+
+      syncTopNavState();
+      window.addEventListener('popstate', syncTopNavState);
+      window.CineVicioNav = { sync: syncTopNavState };
+    })();
   </script>
   
 </body>

@@ -127,7 +127,9 @@
       padding: 0.54rem 0.62rem 0.54rem 1rem;
       border: 1px solid rgba(165, 178, 198, 0.18);
       border-radius: 24px;
-      background: #090c11;
+      background:
+        linear-gradient(90deg, rgba(15, 18, 27, 0.92), rgba(8, 11, 17, 0.78)),
+        rgba(9, 12, 18, 0.86);
       box-shadow: 0 14px 34px rgba(0, 0, 0, 0.28);
       position: sticky;
       top: 0.8rem;
@@ -186,12 +188,22 @@
       cursor: pointer;
     }
 
+    .nav a {
+      white-space: nowrap;
+    }
+
     .nav a:hover,
     .nav button:hover {
       border-color: var(--line);
       background: rgba(255, 255, 255, 0.06);
       color: var(--ink);
       transform: translateY(-1px);
+    }
+
+    .nav a.is-active {
+      border-color: rgba(88, 199, 179, 0.45);
+      background: rgba(88, 199, 179, 0.17);
+      color: #dcfff8;
     }
 
     .nav form {
@@ -619,6 +631,14 @@
 
     .panel {
       padding: 1.08rem;
+    }
+
+    .panel.panel-muted {
+      border-color: rgba(165, 178, 198, 0.1);
+      background:
+        linear-gradient(180deg, rgba(255, 255, 255, 0.025), transparent 44%),
+        rgba(12, 16, 23, 0.84);
+      box-shadow: 0 12px 30px rgba(0, 0, 0, 0.2);
     }
 
     .section-head {
@@ -1490,6 +1510,7 @@
       .nav {
         grid-column: 1 / -1;
         justify-content: space-between;
+        gap: 0.38rem;
       }
 
       .nav-links {
@@ -1548,86 +1569,57 @@
       }
 
       .nav {
-        justify-content: start;
-        gap: 0.42rem;
+        justify-content: flex-start;
+        gap: 0.45rem;
         width: 100%;
-        align-items: stretch;
+        align-items: center;
+        flex-wrap: wrap;
       }
 
       .nav-links {
-        justify-content: start;
-        flex: 1 1 auto;
+        order: 1;
+        justify-content: flex-start;
+        flex: 1 1 100%;
+        width: 100%;
         min-width: 0;
+        padding: 0.22rem;
+        overflow-x: auto;
+        scrollbar-width: none;
+      }
+      .nav-links::-webkit-scrollbar {
+        display: none;
+      }
+      .nav-links a {
+        flex: 0 0 auto;
+        min-height: 2rem;
+        padding: 0.34rem 0.62rem;
+        font-size: 0.81rem;
       }
 
-    .nav-location-dropdown {
-      position: relative;
-      display: inline-flex;
-    }
-    .nav-location-toggle {
-      display: inline-flex;
-      align-items: center;
-      gap: 0.35rem;
-      min-height: 1.74rem;
-      padding: 0.27rem 0.65rem;
-      border-radius: 999px;
-      border: 1px solid var(--line);
-      background: rgba(255, 255, 255, 0.04);
-      color: var(--muted);
-      font-size: 0.78rem;
-      font-weight: 800;
-      letter-spacing: 0.04em;
-      cursor: pointer;
-    }
-    .nav-location-toggle:hover {
-      background: rgba(255, 255, 255, 0.06);
-      border-color: var(--line-strong);
-      color: var(--ink);
-    }
-    .nav-location-toggle[aria-expanded="true"] {
-      background: var(--surface-strong);
-      border-color: var(--line-strong);
-      color: var(--ink);
-    }
-    .nav-location-toggle svg {
-      opacity: 0.7;
-    }
-    .nav-location-menu {
-      position: absolute;
-      top: calc(100% + 0.4rem);
-      right: 0;
-      min-width: 140px;
-      background: var(--surface-strong);
-      border: 1px solid var(--line);
-      border-radius: var(--radius-sm);
-      box-shadow: var(--shadow-soft);
-      padding: 0.4rem;
-      display: flex;
-      flex-direction: column;
-      gap: 0.2rem;
-      z-index: 50;
-    }
-    .nav-location-menu[hidden] {
-      display: none;
-    }
-    .nav-location-menu .location-option {
-      width: 100%;
-      justify-content: flex-start;
-      border: 0;
-      background: transparent;
-      padding: 0.4rem 0.6rem;
-      min-height: auto;
-    }
-    .nav-location-menu .location-option:hover {
-      background: rgba(255, 255, 255, 0.06);
-    }
-    .nav-location-menu .location-option[aria-pressed="true"] {
-      background: rgba(88, 199, 179, 0.18);
-      color: var(--accent);
-    }
+      .nav-location-dropdown {
+        order: 2;
+        flex: 0 0 auto;
+      }
+      .nav-location-toggle {
+        min-height: 2rem;
+        padding: 0.3rem 0.62rem;
+        font-size: 0.76rem;
+      }
 
       .nav-tools {
+        order: 3;
         flex: 0 0 auto;
+        margin-left: auto;
+        gap: 0.22rem;
+      }
+
+      .language-switch {
+        padding: 0.14rem;
+      }
+
+      .language-switch button {
+        min-height: 2rem;
+        padding: 0.3rem 0.5rem;
       }
 
       .hero,
@@ -1667,6 +1659,26 @@
 
       .time-badge {
         justify-self: start;
+      }
+    }
+
+    @media (max-width: 620px) {
+      .nav {
+        gap: 0.38rem;
+      }
+
+      .nav-location-dropdown,
+      .nav-tools {
+        flex: 1 1 auto;
+      }
+
+      .nav-location-toggle {
+        width: 100%;
+        justify-content: center;
+      }
+
+      .nav-tools {
+        justify-content: flex-end;
       }
     }
   </style>
@@ -1709,68 +1721,14 @@
       <a href="/cinema-watch-snapshot/" class="brand">
         <strong>Cine Vicio</strong>
       </a>
+      
+      
       <nav class="nav" aria-label="Primary">
         <div class="nav-links">
-          <a href="/cinema-watch-snapshot/screenings/" data-i18n-source>Showtimes</a>
-          <a href="/cinema-watch-snapshot/movies/" data-i18n-source>Movies</a>
-          <a href="/cinema-watch-snapshot/screenings/?category=imax">IMAX</a>
-          <a href="/cinema-watch-snapshot/screenings/?category=dolby_atmos">Dolby Atmos</a>
-        </div>
-        
-        <div class="nav-location-dropdown" data-location-dropdown>
-          <button type="button" class="nav-location-toggle" aria-haspopup="true" aria-expanded="false" data-location-dropdown-toggle>
-            <span class="nav-location-active">Zone</span>
-            <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="m6 9 6 6 6-6"/cinema-watch-snapshot/></svg>
-          </button>
-          <div class="nav-location-menu" hidden>
-            
-            <button
-              type="button"
-              class="location-option"
-              data-location-target="amba"
-              aria-pressed="true"
-              data-coming-soon="false"
-            >
-              <span>AMBA</span>
-              
-            </button>
-            
-            <button
-              type="button"
-              class="location-option"
-              data-location-target="caba"
-              aria-pressed="false"
-              data-coming-soon="false"
-            >
-              <span>CABA</span>
-              
-            </button>
-            
-            <button
-              type="button"
-              class="location-option"
-              data-location-target="gba_sur"
-              aria-pressed="false"
-              data-coming-soon="false"
-            >
-              <span>GBA Sur</span>
-              
-            </button>
-            
-            <button
-              type="button"
-              class="location-option"
-              data-location-target="mar_del_plata"
-              aria-pressed="false"
-              data-coming-soon="true"
-            >
-              <span>Mar del Plata</span>
-              
-              <small data-i18n-source>Coming soon</small>
-              
-            </button>
-            
-          </div>
+          <a href="/cinema-watch-snapshot/screenings/" data-nav-link="screenings" class="" data-i18n-source>Showtimes</a>
+          <a href="/cinema-watch-snapshot/movies/" data-nav-link="movies" class="" data-i18n-source>Movies</a>
+          <a href="/cinema-watch-snapshot/screenings/?category=imax" data-nav-link="imax" class="">IMAX</a>
+          <a href="/cinema-watch-snapshot/screenings/?category=dolby_atmos" data-nav-link="dolby" class="">Dolby Atmos</a>
         </div>
         
         <div class="nav-tools">
@@ -1795,6 +1753,8 @@
       </p>
       <div class="hero-tags">
         
+        <span class="chip">Doblada</span>
+        
         <span class="chip">Español</span>
         
         <span class="chip">Subtitulado</span>
@@ -1811,7 +1771,7 @@
       <p>Use the quick actions to flip this page from broad discovery into a much narrower answer.</p>
       <div class="stats">
         <span class="stat">12 screenings</span>
-        <span class="stat">4 venues</span>
+        <span class="stat">7 venues</span>
         <span class="stat">2 providers</span>
       </div>
     </div>
@@ -1822,7 +1782,7 @@
       </div>
       <div class="metric">
         <span class="muted">Venues</span>
-        <strong>4</strong>
+        <strong>7</strong>
       </div>
       <div class="metric">
         <span class="muted">Providers</span>
@@ -1847,28 +1807,28 @@
         
       </a>
       
-      <a class="button-card" href="/cinema-watch-snapshot/movies/cumbres-borrascosas/?venue=recoleta&amp;from_date=2026-04-07&amp;to_date=2026-04-07" data-tone="accent" data-live-nav="true">
+      <a class="button-card" href="/cinema-watch-snapshot/movies/cumbres-borrascosas/?venue=play_cinema_san_juan&amp;from_date=2026-04-08&amp;to_date=2026-04-08" data-tone="accent" data-live-nav="true">
         <strong>Today</strong>
         
         <p>Where it plays today</p>
         
       </a>
       
-      <a class="button-card" href="/cinema-watch-snapshot/movies/cumbres-borrascosas/?venue=recoleta&amp;from_date=2026-04-08&amp;to_date=2026-04-08" data-tone="soft" data-live-nav="true">
+      <a class="button-card" href="/cinema-watch-snapshot/movies/cumbres-borrascosas/?venue=play_cinema_san_juan&amp;from_date=2026-04-09&amp;to_date=2026-04-09" data-tone="soft" data-live-nav="true">
         <strong>Tomorrow</strong>
         
         <p>Tomorrow only</p>
         
       </a>
       
-      <a class="button-card" href="/cinema-watch-snapshot/movies/cumbres-borrascosas/?venue=recoleta&amp;language=subtitulado" data-tone="soft" data-live-nav="true">
+      <a class="button-card" href="/cinema-watch-snapshot/movies/cumbres-borrascosas/?venue=play_cinema_san_juan&amp;language=subtitulado" data-tone="soft" data-live-nav="true">
         <strong>Subtitulado</strong>
         
         <p>Original-language focus</p>
         
       </a>
       
-      <a class="button-card" href="/cinema-watch-snapshot/screenings/?venue=recoleta&amp;movie=Cumbres+borrascosas&amp;from_date=2026-04-07&amp;to_date=2026-04-13" data-tone="warm" data-live-nav="true">
+      <a class="button-card" href="/cinema-watch-snapshot/screenings/?venue=play_cinema_san_juan&amp;movie=Cumbres+borrascosas&amp;from_date=2026-04-08&amp;to_date=2026-04-14" data-tone="warm" data-live-nav="true">
         <strong>Search This Title</strong>
         
         <p>Chronological search view</p>
@@ -1892,76 +1852,8 @@
           
           <div class="result-day">
             <div class="row-head">
-              <strong>2026-04-07</strong>
-              <span class="chip">6 screenings</span>
-            </div>
-            <div class="result-list">
-              
-              <div class="result-item">
-                <span class="time-badge">14:15</span>
-                <div class="result-copy">
-                  <strong><a href="/cinema-watch-snapshot/venues/showcase/showcase_norcenter/">showcase / Showcase Norcenter</a></strong>
-                  
-                  
-                </div>
-              </div>
-              
-              <div class="result-item">
-                <span class="time-badge">19:10</span>
-                <div class="result-copy">
-                  <strong><a href="/cinema-watch-snapshot/venues/showcase/showcase_cordoba_villa_cabrera/">showcase / Showcase Cordoba (Villa Cabrera)</a></strong>
-                  
-                  
-                </div>
-              </div>
-              
-              <div class="result-item">
-                <span class="time-badge">19:30</span>
-                <div class="result-copy">
-                  <strong><a href="/cinema-watch-snapshot/venues/showcase/showcase_norcenter/">showcase / Showcase Norcenter</a></strong>
-                  
-                  
-                </div>
-              </div>
-              
-              <div class="result-item">
-                <span class="time-badge">20:15</span>
-                <div class="result-copy">
-                  <strong><a href="/cinema-watch-snapshot/venues/cinepolis/avellaneda/">cinepolis / Avellaneda</a></strong>
-                  
-                  <p data-i18n-meta-line>Classic • 2D • Subtitulado | Room 2 | 2% sold</p>
-                  
-                  
-                </div>
-              </div>
-              
-              <div class="result-item">
-                <span class="time-badge">22:05</span>
-                <div class="result-copy">
-                  <strong><a href="/cinema-watch-snapshot/venues/showcase/showcase_cordoba_villa_cabrera/">showcase / Showcase Cordoba (Villa Cabrera)</a></strong>
-                  
-                  
-                </div>
-              </div>
-              
-              <div class="result-item">
-                <span class="time-badge">22:30</span>
-                <div class="result-copy">
-                  <strong><a href="/cinema-watch-snapshot/venues/cinepolis/recoleta/">cinepolis / Recoleta</a></strong>
-                  
-                  <p data-i18n-meta-line>Classic • 2D • Subtitulado | Room 2 | 6% sold</p>
-                  
-                  
-                </div>
-              </div>
-              
-            </div>
-          </div>
-          
-          <div class="result-day">
-            <div class="row-head">
               <strong>2026-04-08</strong>
-              <span class="chip">6 screenings</span>
+              <span class="chip">12 screenings</span>
             </div>
             <div class="result-list">
               
@@ -1969,6 +1861,15 @@
                 <span class="time-badge">14:15</span>
                 <div class="result-copy">
                   <strong><a href="/cinema-watch-snapshot/venues/showcase/showcase_norcenter/">showcase / Showcase Norcenter</a></strong>
+                  
+                  
+                </div>
+              </div>
+              
+              <div class="result-item">
+                <span class="time-badge">16:45</span>
+                <div class="result-copy">
+                  <strong><a href="/cinema-watch-snapshot/venues/showcase/showcase_haedo/">showcase / Showcase Haedo</a></strong>
                   
                   
                 </div>
@@ -1993,11 +1894,29 @@
               </div>
               
               <div class="result-item">
+                <span class="time-badge">19:30</span>
+                <div class="result-copy">
+                  <strong><a href="/cinema-watch-snapshot/venues/showcase/showcase_rosario/">showcase / Showcase Rosario</a></strong>
+                  
+                  
+                </div>
+              </div>
+              
+              <div class="result-item">
+                <span class="time-badge">19:35</span>
+                <div class="result-copy">
+                  <strong><a href="/cinema-watch-snapshot/venues/showcase/showcase_haedo/">showcase / Showcase Haedo</a></strong>
+                  
+                  
+                </div>
+              </div>
+              
+              <div class="result-item">
                 <span class="time-badge">20:15</span>
                 <div class="result-copy">
                   <strong><a href="/cinema-watch-snapshot/venues/cinepolis/avellaneda/">cinepolis / Avellaneda</a></strong>
                   
-                  <p data-i18n-meta-line>Classic • 2D • Español | Room 2 | 5% sold</p>
+                  <p data-i18n-meta-line>Classic • 2D • Español | Room 1</p>
                   
                   
                 </div>
@@ -2007,6 +1926,24 @@
                 <span class="time-badge">22:05</span>
                 <div class="result-copy">
                   <strong><a href="/cinema-watch-snapshot/venues/showcase/showcase_cordoba_villa_cabrera/">showcase / Showcase Cordoba (Villa Cabrera)</a></strong>
+                  
+                  
+                </div>
+              </div>
+              
+              <div class="result-item">
+                <span class="time-badge">22:10</span>
+                <div class="result-copy">
+                  <strong><a href="/cinema-watch-snapshot/venues/showcase/showcase_rosario/">showcase / Showcase Rosario</a></strong>
+                  
+                  
+                </div>
+              </div>
+              
+              <div class="result-item">
+                <span class="time-badge">22:25</span>
+                <div class="result-copy">
+                  <strong><a href="/cinema-watch-snapshot/venues/showcase/showcase_haedo/">showcase / Showcase Haedo</a></strong>
                   
                   
                 </div>
@@ -2018,6 +1955,15 @@
                   <strong><a href="/cinema-watch-snapshot/venues/cinepolis/recoleta/">cinepolis / Recoleta</a></strong>
                   
                   <p data-i18n-meta-line>Classic • 2D • Subtitulado | Room 2</p>
+                  
+                  
+                </div>
+              </div>
+              
+              <div class="result-item">
+                <span class="time-badge">23:10</span>
+                <div class="result-copy">
+                  <strong><a href="/cinema-watch-snapshot/venues/showcase/play_cinema_san_juan/">showcase / Play Cinema San Juan</a></strong>
                   
                   
                 </div>
@@ -2151,6 +2097,17 @@
           'No IMAX screenings in the current snapshot.': 'No hay funciones IMAX en la cartelera actual.',
           'No Dolby Atmos screenings in the current snapshot.': 'No hay funciones Dolby Atmos en la cartelera actual.',
           'No cached screenings for tomorrow yet.': 'Todavía no hay funciones cacheadas para mañana.',
+          'IMAX board': 'Cartelera IMAX',
+          'Dolby Atmos board': 'Cartelera Dolby Atmos',
+          'Find an IMAX showtime.': 'Encontra una funcion IMAX.',
+          'Find a Dolby Atmos showtime.': 'Encontra una funcion Dolby Atmos.',
+          'Focused on large-format screenings first, then compare by cinema and time.': 'Primero funciones de gran formato, despues compara por cine y horario.',
+          'Focused on Atmos-capable screenings first, then compare by cinema and time.': 'Primero funciones con Atmos, despues compara por cine y horario.',
+          'Reset to all screenings': 'Volver a toda la cartelera',
+          'IMAX focus': 'Foco IMAX',
+          'Dolby Atmos focus': 'Foco Dolby Atmos',
+          'You are viewing the IMAX cut of the board.': 'Estas viendo el recorte IMAX de la cartelera.',
+          'You are viewing the Dolby Atmos cut of the board.': 'Estas viendo el recorte Dolby Atmos de la cartelera.',
 
           'Now showing': 'Cartelera',
           'What should we watch?': '¿Qué vemos hoy?',
@@ -2678,6 +2635,37 @@
       window.CinemaWatchLocations = { init: initHomepageLocation };
     })();
   </script>
+  <script>
+    (() => {
+      function syncTopNavState() {
+        const path = window.location.pathname || '/';
+        const params = new URLSearchParams(window.location.search || '');
+        const category = (params.get('category') || '').toLowerCase();
+        const focus = {
+          screenings: path.startsWith('/screenings') && !['imax', 'dolby_atmos'].includes(category),
+          movies: path.startsWith('/movies'),
+          imax: path.startsWith('/screenings') && category === 'imax',
+          dolby: path.startsWith('/screenings') && category === 'dolby_atmos',
+        };
+        document.querySelectorAll('[data-nav-link]').forEach((link) => {
+          if (!(link instanceof HTMLElement)) {
+            return;
+          }
+          const key = link.getAttribute('data-nav-link') || '';
+          const active = Boolean(focus[key]);
+          link.classList.toggle('is-active', active);
+          if (active) {
+            link.setAttribute('aria-current', 'page');
+          } else {
+            link.removeAttribute('aria-current');
+          }
+        });
+      }
+
+      syncTopNavState();
+      window.addEventListener('popstate', syncTopNavState);
+      window.CineVicioNav = { sync: syncTopNavState };
+    })();
   </script>
   
 </body>
