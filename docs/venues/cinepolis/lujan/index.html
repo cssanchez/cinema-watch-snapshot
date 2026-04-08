@@ -1740,7 +1740,7 @@
       
       <nav class="nav" aria-label="Primary">
         <div class="nav-links">
-          <a href="/cinema-watch-snapshot/screenings/" data-nav-link="screenings" class="" data-i18n-source>Showtimes</a>
+          <a href="" data-nav-link="screenings" class="" data-i18n-source>Showtimes</a>
           <a href="/cinema-watch-snapshot/movies/" data-nav-link="movies" class="" data-i18n-source>Movies</a>
           <a href="/cinema-watch-snapshot/screenings/?category=imax" data-nav-link="imax" class="">IMAX</a>
           <a href="/cinema-watch-snapshot/screenings/?category=dolby_atmos" data-nav-link="dolby" class="">Dolby Atmos</a>
@@ -3345,15 +3345,43 @@
   </script>
   <script>
     (() => {
+      function normalizePath(path) {
+        return (path || '/').replace(/\/+$/, '') || '/';
+      }
+
+      function relativePathFromHome(currentPath, homePath) {
+        const normalizedCurrent = normalizePath(currentPath);
+        const normalizedHome = normalizePath(homePath);
+        if (normalizedCurrent === normalizedHome) {
+          return '/';
+        }
+        const homePrefix = normalizedHome.endsWith('/') ? normalizedHome : `${normalizedHome}/`;
+        if (normalizedCurrent.startsWith(homePrefix)) {
+          const relative = normalizedCurrent.slice(normalizedHome.length);
+          return relative.startsWith('/') ? relative : `/${relative}`;
+        }
+        return normalizedCurrent;
+      }
+
       function syncTopNavState() {
         const path = window.location.pathname || '/';
         const params = new URLSearchParams(window.location.search || '');
         const category = (params.get('category') || '').toLowerCase();
+        const screeningsLink = document.querySelector('[data-nav-link="screenings"]');
+        let homePath = '/';
+        if (screeningsLink instanceof HTMLAnchorElement) {
+          try {
+            homePath = new URL(screeningsLink.getAttribute('href') || '/', window.location.origin).pathname || '/';
+          } catch (_) {
+            homePath = '/';
+          }
+        }
+        const relativePath = relativePathFromHome(path, homePath);
         const focus = {
-          screenings: path.startsWith('/screenings') && !['imax', 'dolby_atmos'].includes(category),
-          movies: path.startsWith('/movies'),
-          imax: path.startsWith('/screenings') && category === 'imax',
-          dolby: path.startsWith('/screenings') && category === 'dolby_atmos',
+          screenings: relativePath === '/' || (relativePath.startsWith('/screenings') && !['imax', 'dolby_atmos'].includes(category)),
+          movies: relativePath.startsWith('/movies'),
+          imax: relativePath.startsWith('/screenings') && category === 'imax',
+          dolby: relativePath.startsWith('/screenings') && category === 'dolby_atmos',
         };
         document.querySelectorAll('[data-nav-link]').forEach((link) => {
           if (!(link instanceof HTMLElement)) {
