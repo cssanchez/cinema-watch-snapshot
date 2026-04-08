@@ -1,0 +1,28 @@
+{
+  "dependencies": {
+    "jsdom": "^29.0.2",
+    "playwright": "^1.59.1"
+  },
+  "name": "app",
+  "version": "1.0.0",
+  "description": "This repository is the public static snapshot for Cinema Watch.",
+  "main": "test_playwright.js",
+  "directories": {
+    "doc": "docs"
+  },
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/cssanchez/cinema-watch-snapshot.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "type": "commonjs",
+  "bugs": {
+    "url": "https://github.com/cssanchez/cinema-watch-snapshot/issues"
+  },
+  "homepage": "https://github.com/cssanchez/cinema-watch-snapshot#readme"
+}

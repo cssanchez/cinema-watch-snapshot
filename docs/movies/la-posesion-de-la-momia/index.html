@@ -4790,66 +4790,53 @@
   <script>
     (() => {
       const storageKey = 'cinema-watch-location';
+      const locationSearchParam = 'location';
 
-      function setFrontBoard(root, locationKey, boardKey) {
-        if (!locationKey) {
-          return;
-        }
-        const buttons = Array.from(
-          root.querySelectorAll(`[data-front-board-location="${locationKey}"][data-front-board-target]`)
-        );
-        const panels = Array.from(
-          root.querySelectorAll(`[data-front-board-location="${locationKey}"][data-front-board-panel]`)
-        );
-        if (!buttons.length || !panels.length) {
-          return;
-        }
-
-        const availableKeys = new Set(panels.map((panel) => panel.dataset.frontBoardPanel || ''));
-        let nextKey = boardKey && availableKeys.has(boardKey) ? boardKey : '';
-        if (!nextKey) {
-          const activeButton = buttons.find((button) => button.getAttribute('aria-pressed') === 'true');
-          nextKey = activeButton?.dataset.frontBoardTarget || buttons[0]?.dataset.frontBoardTarget || '';
-        }
-        if (!nextKey) {
-          return;
-        }
-
-        for (const button of buttons) {
-          const pressed = button.dataset.frontBoardTarget === nextKey;
-          button.setAttribute('aria-pressed', pressed ? 'true' : 'false');
-          button.classList.toggle('is-active', pressed);
-        }
-        for (const panel of panels) {
-          panel.hidden = panel.dataset.frontBoardPanel !== nextKey;
-        }
+      function getUrlLocation() {
+        const params = new URLSearchParams(window.location.search || '');
+        return params.get(locationSearchParam) || '';
       }
 
-      function initFrontBoards(root = document) {
-        const locationKeys = new Set(
-          Array.from(root.querySelectorAll('[data-front-board-location]'))
-            .map((element) => element.getAttribute('data-front-board-location') || '')
-            .filter(Boolean)
-        );
-        for (const locationKey of locationKeys) {
-          setFrontBoard(root, locationKey, '');
+      function updateUrlLocation(key) {
+        const url = new URL(window.location.href);
+        const params = url.searchParams;
+        if (key) {
+          params.set(locationSearchParam, key);
+        } else {
+          params.delete(locationSearchParam);
         }
+        url.search = params.toString();
+        history.replaceState(null, '', url.toString());
       }
 
-      function setHomepageLocation(root, key, { persist = true } = {}) {
-        const buttons = Array.from(root.querySelectorAll('[data-location-target]'));
-        const panels = Array.from(root.querySelectorAll('[data-location-panel]'));
-        const availableKeys = new Set([
-          ...panels.map((panel) => panel.dataset.locationPanel || ''),
-          ...buttons.map((button) => button.dataset.locationTarget || ''),
-        ]);
+      let cachedButtons = null;
+      let cachedPanels = null;
+      let cachedKeys = null;
+
+      function setHomepageLocation(root, key, { persist = true, updateUrl = true } = {}) {
+        if (!cachedButtons) {
+          cachedButtons = Array.from(root.querySelectorAll('[data-location-target]'));
+          cachedPanels = Array.from(root.querySelectorAll('[data-location-panel]'));
+          cachedKeys = new Set([
+            ...cachedPanels.map((panel) => panel.dataset.locationPanel || ''),
+            ...cachedButtons.map((button) => button.dataset.locationTarget || ''),
+          ]);
+        }
+
+        const buttons = cachedButtons;
+        const panels = cachedPanels;
+        const availableKeys = cachedKeys;
+
         let nextKey = key && availableKeys.has(key) ? key : '';
         if (!nextKey) {
           const activeButton = buttons.find((button) => button.getAttribute('aria-pressed') === 'true');
-          nextKey = activeButton?.dataset.locationTarget || buttons[0]?.dataset.locationTarget || '';
+          nextKey = activeButton?.dataset.locationTarget || '';
+        }
+        if (!nextKey && buttons.length > 0) {
+          nextKey = buttons[0].dataset.locationTarget || '';
         }
         if (!nextKey) {
-          return;
+          return '';
         }
 
         for (const button of buttons) {
@@ -4859,9 +4846,9 @@
         for (const panel of panels) {
           panel.hidden = panel.dataset.locationPanel !== nextKey;
         }
-        
+
         const activeLabel = root.querySelector('.nav-location-active');
-        if (activeLabel && buttons.length > 0) {
+        if (activeLabel) {
           const activeBtn = buttons.find((b) => b.dataset.locationTarget === nextKey);
           if (activeBtn) {
             const span = activeBtn.querySelector('span');
@@ -4869,17 +4856,30 @@
           }
         }
 
-        setFrontBoard(root, nextKey, '');
-        
         if (persist) {
-          window.localStorage.setItem(storageKey, nextKey);
+          if (nextKey) {
+            window.localStorage.setItem(storageKey, nextKey);
+          } else {
+            window.localStorage.removeItem(storageKey);
+          }
         }
+
+        if (updateUrl) {
+          updateUrlLocation(nextKey);
+        }
+
+        return nextKey;
       }
 
       function initHomepageLocation(root = document) {
-        const saved = window.localStorage.getItem(storageKey) || '';
-        setHomepageLocation(root, saved, { persist: false });
-        initFrontBoards(root);
+        const urlKey = getUrlLocation();
+        const savedKey = window.localStorage.getItem(storageKey) || '';
+        const initialKey = urlKey || savedKey;
+        const resolvedKey = setHomepageLocation(root, initialKey, { persist: false, updateUrl: false });
+
+        if (resolvedKey && !urlKey) {
+          updateUrlLocation(resolvedKey);
+        }
       }
 
       document.addEventListener('click', (event) => {
@@ -4902,17 +4902,6 @@
             toggleBtn.setAttribute('aria-expanded', 'false');
             menuBox.hidden = true;
           }
-        }
-
-        const boardButton = event.target.closest('[data-front-board-target]');
-        if (boardButton instanceof HTMLButtonElement) {
-          event.preventDefault();
-          setFrontBoard(
-            document,
-            boardButton.dataset.frontBoardLocation || '',
-            boardButton.dataset.frontBoardTarget || ''
-          );
-          return;
         }
 
         const button = event.target.closest('[data-location-target]');

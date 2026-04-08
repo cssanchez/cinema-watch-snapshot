@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Benchmark</title>
+</head>
+<body>
+  <div id="root">
+    <!-- generate a lot of buttons and panels -->
+    <script>
+      const root = document.getElementById('root');
+      for (let i = 0; i < 1000; i++) {
+        const btn = document.createElement('button');
+        btn.dataset.locationTarget = 'loc' + i;
+        btn.textContent = 'Btn ' + i;
+        root.appendChild(btn);
+
+        const panel = document.createElement('div');
+        panel.dataset.locationPanel = 'loc' + i;
+        panel.hidden = true;
+        root.appendChild(panel);
+      }
+    </script>
+  </div>
+  <script>
+      const storageKey = 'cinema-watch-location';
+      const locationSearchParam = 'location';
+
+      function getUrlLocation() {
+        return '';
+      }
+
+      function updateUrlLocation(key) {
+      }
+
+      let cachedButtons = null;
+      let cachedPanels = null;
+      let cachedKeys = null;
+
+      function setHomepageLocation(root, key, { persist = true, updateUrl = true } = {}) {
+        if (!cachedButtons) {
+          cachedButtons = Array.from(root.querySelectorAll('[data-location-target]'));
+          cachedPanels = Array.from(root.querySelectorAll('[data-location-panel]'));
+          cachedKeys = new Set([
+            ...cachedPanels.map((panel) => panel.dataset.locationPanel || ''),
+            ...cachedButtons.map((button) => button.dataset.locationTarget || ''),
+          ]);
+        }
+
+        const buttons = cachedButtons;
+        const panels = cachedPanels;
+        const availableKeys = cachedKeys;
+
+        let nextKey = key && availableKeys.has(key) ? key : '';
+        if (!nextKey) {
+          const activeButton = buttons.find((button) => button.getAttribute('aria-pressed') === 'true');
+          nextKey = activeButton?.dataset.locationTarget || '';
+        }
+        if (!nextKey && buttons.length > 0) {
+          nextKey = buttons[0].dataset.locationTarget || '';
+        }
+        if (!nextKey) {
+          return '';
+        }
+
+        for (const button of buttons) {
+          const pressed = button.dataset.locationTarget === nextKey;
+          button.setAttribute('aria-pressed', pressed ? 'true' : 'false');
+        }
+        for (const panel of panels) {
+          panel.hidden = panel.dataset.locationPanel !== nextKey;
+        }
+
+        return nextKey;
+      }
+
+      const t0 = performance.now();
+      for (let i = 0; i < 1000; i++) {
+        setHomepageLocation(document, 'loc' + i, { persist: false, updateUrl: false });
+      }
+      const t1 = performance.now();
+      console.log('Optimized 6 took ' + (t1 - t0) + ' ms');
+  </script>
+</body>
+</html>
