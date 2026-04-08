@@ -955,7 +955,7 @@
 
     .front-layout {
       display: grid;
-      grid-template-columns: minmax(0, 1.12fr) minmax(340px, 0.88fr);
+      grid-template-columns: 1fr;
       gap: 1rem;
       align-items: start;
     }
@@ -1019,10 +1019,12 @@
 
     .front-cartelera-board {
       gap: 0.68rem;
+      padding: 1.05rem;
     }
 
-    .front-stack {
+    .front-secondary-grid {
       display: grid;
+      grid-template-columns: repeat(2, minmax(0, 1fr));
       gap: 1rem;
     }
 
@@ -1584,6 +1586,10 @@
       }
 
       .quick-link-grid {
+        grid-template-columns: 1fr;
+      }
+
+      .front-secondary-grid {
         grid-template-columns: 1fr;
       }
 
