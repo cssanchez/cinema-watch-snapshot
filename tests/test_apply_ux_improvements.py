@@ -1,5 +1,13 @@
 import pytest
-from apply_ux_improvements import transform_5_count_format
+from apply_ux_improvements import (
+    extract_sold_percentage,
+    transform_1_demote_freshness,
+    transform_2_add_time_context,
+    transform_3_truncation_signal,
+    transform_4_occupancy_highlight,
+    transform_5_count_format,
+    transform_6_add_csp
+)
 
 def test_transform_5_basic():
     """Test basic transformation with a single section and correct count."""
@@ -90,7 +98,6 @@ def test_transform_5_multiple_labels_in_section():
     assert "2 of 2 shown" in result
     assert "Actually >2 of 2 shown< here too" in result
 
-from apply_ux_improvements import extract_sold_percentage
 
 def test_extract_sold_percentage():
     """Test extract_sold_percentage with various edge cases."""
@@ -104,3 +111,105 @@ def test_extract_sold_percentage():
     assert extract_sold_percentage("Only 5% sold so far") == 5.0
     assert extract_sold_percentage("123% sold") == 123.0
     assert extract_sold_percentage("45 % sold") == 0.0 # current regex doesn't handle space before %
+
+def test_transform_1_demote_freshness():
+    content = """
+    .front-freshness {
+      background: rgba(255, 255, 255, 0.035);
+      padding: 0.9rem 1rem;
+      border-radius: var(--radius-md);
+    }
+    .front-freshness strong {
+      font-family: var(--heading-font);
+      font-size: 1.1rem;
+      font-weight: 600;
+    }
+    """
+    result = transform_1_demote_freshness(content)
+    assert "background: rgba(255, 255, 255, 0.02)" in result
+    assert "padding: 0.6rem 0.8rem" in result
+    assert "font-family: var(--ui-font)" in result
+    assert "font-size: 0.9rem" in result
+    # Check that original values are gone
+    assert "rgba(255, 255, 255, 0.035)" not in result
+    assert "padding: 0.9rem 1rem" not in result
+    assert "var(--heading-font)" not in result
+    assert "1.1rem" not in result
+
+def test_transform_2_add_time_context():
+    content = """
+    <section class="front-date-group">
+        <div class="front-date-head">...</div>
+    </section>
+    <section class="front-date-group">
+        <div class="front-date-head">...</div>
+    </section>
+    """
+    result = transform_2_add_time_context(content)
+    assert result.count('<div class="screening-time-context"') == 2
+    assert "Coming up</span></div>\n    <section class=\"front-date-group\">" in result
+
+def test_transform_3_truncation_signal():
+    content = """
+    <style>
+      .some-class { color: red; }
+    </style>
+    <a class="text-link" href="/link" data-i18n-source>See all</a>
+    """
+    result = transform_3_truncation_signal(content)
+    assert ".button-see-all {" in result
+    assert '<a class="button-see-all" href="/link" data-i18n-source>See all</a>' in result
+    assert '<a class="text-link"' not in result
+
+def test_transform_4_occupancy_highlight():
+    content = """
+    <style>
+      .some-class { color: red; }
+    </style>
+    <div class="front-screening-row">
+        <div class="front-screening-copy">45% sold</div>
+    </div>
+    <div class="front-screening-row">
+        <div class="front-screening-copy">50% sold</div>
+    </div>
+    <div class="front-screening-row">
+        <div class="front-screening-copy">99% sold</div>
+    </div>
+    """
+    result = transform_4_occupancy_highlight(content)
+    assert ".screening-high-occupancy {" in result
+    # Only 50% and 99% should have the class
+    assert result.count("screening-high-occupancy") == 3 # 1 for CSS class definition, 2 for the matching elements
+    assert '<div class="front-screening-row screening-high-occupancy">\n        <div class="front-screening-copy">50% sold</div>' in result
+    assert '<div class="front-screening-row screening-high-occupancy">\n        <div class="front-screening-copy">99% sold</div>' in result
+    assert '<div class="front-screening-row">\n        <div class="front-screening-copy">45% sold</div>' in result
+
+def test_transform_6_add_csp():
+    content_with_charset = """<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<title>Test</title>
+</head>
+<body></body>
+</html>"""
+
+    result = transform_6_add_csp(content_with_charset)
+    assert '<meta http-equiv="Content-Security-Policy"' in result
+    assert '<meta charset="utf-8">\n  <meta http-equiv="Content-Security-Policy"' in result
+
+    content_with_head = """<!DOCTYPE html>
+<html>
+<head>
+<title>Test</title>
+</head>
+<body></body>
+</html>"""
+
+    result2 = transform_6_add_csp(content_with_head)
+    assert '<meta http-equiv="Content-Security-Policy"' in result2
+    assert '<head>\n  <meta http-equiv="Content-Security-Policy"' in result2
+
+    # Check idempotent behavior
+    result3 = transform_6_add_csp(result)
+    assert result3.count('<meta http-equiv="Content-Security-Policy"') == 1
