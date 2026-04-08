@@ -1043,7 +1043,7 @@
       position: relative;
       width: auto;
       min-height: 1.95rem;
-      padding: 0.28rem 0.74rem 0.28rem 0.96rem;
+      padding: 0.28rem 0.78rem 0.28rem 1.14rem;
       font-size: 0.78rem;
       border-color: rgba(165, 178, 198, 0.16);
       background: rgba(13, 18, 25, 0.48);
@@ -1054,10 +1054,10 @@
     .front-cartelera-shortcut::before {
       content: "";
       position: absolute;
-      left: 0.56rem;
+      left: 0.46rem;
       top: 50%;
-      width: 0.34rem;
-      height: 0.34rem;
+      width: 0.22rem;
+      height: 0.22rem;
       border-radius: 999px;
       transform: translateY(-50%);
       background: rgba(165, 178, 198, 0.42);
@@ -3947,7 +3947,7 @@
         if (!(details instanceof HTMLDetailsElement) || !preset || typeof preset !== 'object') {
           return;
         }
-        const hasHiddenFilters = ['category', 'room'].some((key) => String(preset[key] || '').trim());
+        const hasHiddenFilters = ['category'].some((key) => String(preset[key] || '').trim());
         if (hasHiddenFilters) {
           details.open = true;
         }

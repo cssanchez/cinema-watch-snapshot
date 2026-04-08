@@ -1043,7 +1043,7 @@
       position: relative;
       width: auto;
       min-height: 1.95rem;
-      padding: 0.28rem 0.74rem 0.28rem 0.96rem;
+      padding: 0.28rem 0.78rem 0.28rem 1.14rem;
       font-size: 0.78rem;
       border-color: rgba(165, 178, 198, 0.16);
       background: rgba(13, 18, 25, 0.48);
@@ -1054,10 +1054,10 @@
     .front-cartelera-shortcut::before {
       content: "";
       position: absolute;
-      left: 0.56rem;
+      left: 0.46rem;
       top: 50%;
-      width: 0.34rem;
-      height: 0.34rem;
+      width: 0.22rem;
+      height: 0.22rem;
       border-radius: 999px;
       transform: translateY(-50%);
       background: rgba(165, 178, 198, 0.42);
@@ -2378,41 +2378,9 @@
                   <option value="dolby_atmos">Dolby Atmos</option>
                 </select>
               </label>
-              <label class="field">
-                <span data-i18n-source>Room</span>
-                <select name="room">
-                  <option value="" data-i18n-source>Any room</option>
-                  
-                  <option value="1">Room 1</option>
-                  
-                  <option value="2">Room 2</option>
-                  
-                  <option value="3">Room 3</option>
-                  
-                  <option value="4">Room 4</option>
-                  
-                  <option value="5">Room 5</option>
-                  
-                  <option value="6">Room 6</option>
-                  
-                  <option value="7">Room 7</option>
-                  
-                  <option value="8">Room 8</option>
-                  
-                  <option value="9">Room 9</option>
-                  
-                  <option value="10">Room 10</option>
-                  
-                  <option value="11">Room 11</option>
-                  
-                  <option value="12">Room 12</option>
-                  
-                  <option value="13">Room 13</option>
-                  
-                </select>
-              </label>
             </div>
           </details>
+          <input type="hidden" name="room" value="">
           <div class="form-actions front-advanced-actions">
             <button type="submit" class="button-pill" data-tone="accent" data-i18n-source>Filter</button>
           </div>
@@ -4244,41 +4212,9 @@
                   <option value="dolby_atmos">Dolby Atmos</option>
                 </select>
               </label>
-              <label class="field">
-                <span data-i18n-source>Room</span>
-                <select name="room">
-                  <option value="" data-i18n-source>Any room</option>
-                  
-                  <option value="1">Room 1</option>
-                  
-                  <option value="2">Room 2</option>
-                  
-                  <option value="3">Room 3</option>
-                  
-                  <option value="4">Room 4</option>
-                  
-                  <option value="5">Room 5</option>
-                  
-                  <option value="6">Room 6</option>
-                  
-                  <option value="7">Room 7</option>
-                  
-                  <option value="8">Room 8</option>
-                  
-                  <option value="9">Room 9</option>
-                  
-                  <option value="10">Room 10</option>
-                  
-                  <option value="11">Room 11</option>
-                  
-                  <option value="12">Room 12</option>
-                  
-                  <option value="13">Room 13</option>
-                  
-                </select>
-              </label>
             </div>
           </details>
+          <input type="hidden" name="room" value="">
           <div class="form-actions front-advanced-actions">
             <button type="submit" class="button-pill" data-tone="accent" data-i18n-source>Filter</button>
           </div>
@@ -6104,41 +6040,9 @@
                   <option value="dolby_atmos">Dolby Atmos</option>
                 </select>
               </label>
-              <label class="field">
-                <span data-i18n-source>Room</span>
-                <select name="room">
-                  <option value="" data-i18n-source>Any room</option>
-                  
-                  <option value="1">Room 1</option>
-                  
-                  <option value="2">Room 2</option>
-                  
-                  <option value="3">Room 3</option>
-                  
-                  <option value="4">Room 4</option>
-                  
-                  <option value="5">Room 5</option>
-                  
-                  <option value="6">Room 6</option>
-                  
-                  <option value="7">Room 7</option>
-                  
-                  <option value="8">Room 8</option>
-                  
-                  <option value="9">Room 9</option>
-                  
-                  <option value="10">Room 10</option>
-                  
-                  <option value="11">Room 11</option>
-                  
-                  <option value="12">Room 12</option>
-                  
-                  <option value="13">Room 13</option>
-                  
-                </select>
-              </label>
             </div>
           </details>
+          <input type="hidden" name="room" value="">
           <div class="form-actions front-advanced-actions">
             <button type="submit" class="button-pill" data-tone="accent" data-i18n-source>Filter</button>
           </div>
@@ -8964,7 +8868,7 @@
         if (!(details instanceof HTMLDetailsElement) || !preset || typeof preset !== 'object') {
           return;
         }
-        const hasHiddenFilters = ['category', 'room'].some((key) => String(preset[key] || '').trim());
+        const hasHiddenFilters = ['category'].some((key) => String(preset[key] || '').trim());
         if (hasHiddenFilters) {
           details.open = true;
         }
