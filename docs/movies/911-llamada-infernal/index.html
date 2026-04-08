@@ -3035,8 +3035,13 @@
         },
       };
 
+      const _normalizeSourceCache = new Map();
       function normalizeSource(value) {
-        return String(value ?? '').replace(/\s+/g, ' ').trim();
+        const strValue = String(value ?? '');
+        if (_normalizeSourceCache.has(strValue)) return _normalizeSourceCache.get(strValue);
+        const result = strValue.replace(/\s+/g, ' ').trim();
+        _normalizeSourceCache.set(strValue, result);
+        return result;
       }
 
       function initialLanguage() {
