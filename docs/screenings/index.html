@@ -1924,7 +1924,7 @@
 <section class="hero hero-grid">
   <div class="hero-copy">
     <h1 id="screenings-title" data-i18n-source>Find a showtime.</h1>
-    <p id="screenings-intro">
+    <p id="screenings-intro" data-i18n-source>
       Filter by cinema, language, special room, format, date or room number. Upcoming functions stay first.
     </p>
     <div class="hero-tags" id="screenings-focus-chip" hidden>
@@ -1939,8 +1939,10 @@
     </div>
   </div>
   <div class="hero-side">
-    <strong id="screenings-side-title" data-i18n-source>Useful shortcuts</strong>
-    <p id="screenings-side-copy" data-i18n-source>Start with the common cuts: today, subtitled, IMAX, Dolby Atmos, Avellaneda or Sala 6.</p>
+    <strong id="screenings-side-title" data-i18n-source>Signal readout</strong>
+    <p id="screenings-side-copy"><span data-i18n-source>This board currently covers</span> <span id="screenings-date-range">-</span>.</p>
+    <div id="screenings-signal-list" class="meta-list"></div>
+    <div id="screenings-peak-card" class="row-card" hidden></div>
   </div>
 </section>
 
@@ -1949,8 +1951,8 @@
     <section class="panel panel-muted">
       <div class="section-head">
         <div>
-          <h2>Quick Filters</h2>
-          <p>Use these shortcuts for the common questions, then refine with the filters.</p>
+          <h2 data-i18n-source>Quick Pivots</h2>
+          <p data-i18n-source>Use the common pivots first, then drop into the full filter rail when you need precision.</p>
         </div>
       </div>
       <div class="button-strip">
@@ -1973,7 +1975,7 @@
     <section class="panel" style="margin-top: 1rem;">
       <div class="section-head">
         <div>
-          <h2>Results</h2>
+          <h2 data-i18n-source>Results</h2>
           <p id="search-results-summary">Loading listings...</p>
         </div>
       </div>
@@ -2129,6 +2131,11 @@
   const form = document.getElementById('static-search-form');
   const summary = document.getElementById('search-results-summary');
   const results = document.getElementById('search-results');
+  const sideTitle = document.getElementById('screenings-side-title');
+  const sideCopy = document.getElementById('screenings-side-copy');
+  const dateRange = document.getElementById('screenings-date-range');
+  const signalList = document.getElementById('screenings-signal-list');
+  const peakCard = document.getElementById('screenings-peak-card');
 
   function escapeHtml(value) {
     return String(value ?? '')
@@ -2153,6 +2160,10 @@
 
   function soldLabel(percent) {
     return window.CinemaWatchI18n?.formatSold(percent) || `${percent}% sold`;
+  }
+
+  function seatNoteLabel(available, total) {
+    return window.CinemaWatchI18n?.formatSeatNote?.(available, total) || '';
   }
 
   function foldText(value) {
@@ -2325,9 +2336,125 @@
 
     title.textContent = t('Find a showtime.');
     intro.textContent = t('Filter by cinema, language, special room, format, date or room number. Upcoming functions stay first.');
-    sideTitle.textContent = t('Useful shortcuts');
-    sideCopy.textContent = t('Start with the common cuts: today, subtitled, IMAX, Dolby Atmos, Avellaneda or Sala 6.');
+    sideTitle.textContent = t('Signal readout');
     focusChip.hidden = true;
+  }
+
+  function buildInsights(rows) {
+    const titles = new Set();
+    const venues = new Set();
+    const rooms = new Set();
+    const soldRows = [];
+    const dates = new Set();
+    const venueCounts = new Map();
+
+    for (const row of rows) {
+      titles.add(String(row.movie_title || ''));
+      venues.add(`${row.provider || ''}:${row.venue_key || ''}`);
+      if (Number.isInteger(row.room_number)) rooms.add(row.room_number);
+      if (Number.isInteger(row.sold_percent)) soldRows.push(row);
+      if (row.date_iso) dates.add(String(row.date_iso));
+      const venueKey = `${row.provider || ''}:${row.venue_key || ''}:${row.venue_name || ''}`;
+      venueCounts.set(venueKey, (venueCounts.get(venueKey) || 0) + 1);
+    }
+
+    const sortedDates = Array.from(dates).sort();
+    const dateRangeLabel = !sortedDates.length
+      ? ''
+      : sortedDates[0] === sortedDates[sortedDates.length - 1]
+        ? sortedDates[0]
+        : `${sortedDates[0]} to ${sortedDates[sortedDates.length - 1]}`;
+
+    let topVenue = null;
+    for (const [key, count] of venueCounts.entries()) {
+      if (!topVenue || count > topVenue.count) {
+        const [provider, venueKey, venueName] = key.split(':');
+        topVenue = {
+          provider,
+          venueKey,
+          venueName,
+          count,
+          href: `/cinema-watch-snapshot/`.replace(/\/$/, '') + `/venues/${provider}/${venueKey}/`,
+        };
+      }
+    }
+
+    const peak = soldRows.slice().sort((left, right) => {
+      const soldDiff = (right.sold_percent || 0) - (left.sold_percent || 0);
+      if (soldDiff !== 0) return soldDiff;
+      const dateDiff = String(left.date_iso || '').localeCompare(String(right.date_iso || ''));
+      if (dateDiff !== 0) return dateDiff;
+      const timeDiff = String(left.time_label || '').localeCompare(String(right.time_label || ''));
+      if (timeDiff !== 0) return timeDiff;
+      return String(left.movie_title || '').localeCompare(String(right.movie_title || ''));
+    })[0] || null;
+
+    return {
+      screeningCount: rows.length,
+      titleCount: titles.size,
+      venueCount: venues.size,
+      roomCount: rooms.size,
+      soldCount: soldRows.length,
+      dateRangeLabel,
+      topVenue,
+      peak,
+    };
+  }
+
+  function renderSignalReadout(rows) {
+    const insights = buildInsights(rows);
+
+    if (dateRange) {
+      dateRange.textContent = insights.dateRangeLabel || '-';
+    }
+
+    if (sideCopy) {
+      sideCopy.innerHTML = insights.dateRangeLabel
+        ? `${escapeHtml(t('This board currently covers'))} ${escapeHtml(insights.dateRangeLabel)}.`
+        : `${escapeHtml(t('No date range has been recorded for this search yet.'))}`;
+    }
+
+    if (signalList) {
+      const rowsHtml = [
+        `<div class="meta-row"><span>${escapeHtml(t('Screenings'))}</span><strong>${escapeHtml(String(insights.screeningCount))}</strong></div>`,
+        `<div class="meta-row"><span>${escapeHtml(t('Titles'))}</span><strong>${escapeHtml(String(insights.titleCount))}</strong></div>`,
+        `<div class="meta-row"><span>${escapeHtml(t('Venues'))}</span><strong>${escapeHtml(String(insights.venueCount))}</strong></div>`,
+        `<div class="meta-row"><span>${escapeHtml(t('Rooms identified'))}</span><strong>${escapeHtml(String(insights.roomCount))}</strong></div>`,
+        insights.soldCount ? `<div class="meta-row"><span>${escapeHtml(t('Sold data'))}</span><strong>${escapeHtml(String(insights.soldCount))}</strong></div>` : '',
+        insights.topVenue ? `<div class="meta-row"><span>${escapeHtml(t('Top venue'))}</span><strong><a href="${escapeHtml(insights.topVenue.href)}">${escapeHtml(insights.topVenue.venueName)}</a> · ${escapeHtml(String(insights.topVenue.count))}</strong></div>` : '',
+      ].filter(Boolean).join('');
+      signalList.innerHTML = rowsHtml;
+    }
+
+    if (!peakCard) return;
+    if (!insights.peak) {
+      peakCard.hidden = true;
+      peakCard.innerHTML = '';
+      return;
+    }
+
+    const peak = insights.peak;
+    const metaLine = [
+      peak.venueName,
+      Number.isInteger(peak.room_number) ? roomLabel(peak.room_number) : '',
+      peak.listing_label || '',
+    ].filter(Boolean).join(' | ');
+    const seatNote = Number.isInteger(peak.seats_total) ? seatNoteLabel(peak.seats_available, peak.seats_total) : '';
+    peakCard.hidden = false;
+    peakCard.innerHTML = `
+      <div class="row-head">
+        <div>
+          <span class="muted">${escapeHtml(t('Peak crowd'))}</span>
+          <strong><a href="${escapeHtml(peak.movie_href)}">${escapeHtml(peak.movie_title)}</a></strong>
+          <p><a href="${escapeHtml(peak.venue_href)}">${escapeHtml(peak.venueName)}</a> · ${escapeHtml(peak.date_iso)} ${escapeHtml(peak.time_label)}</p>
+        </div>
+        <div class="chips">
+          <span class="chip">${escapeHtml(soldLabel(peak.sold_percent))}</span>
+          ${seatNote ? `<span class="stat">${escapeHtml(seatNote)}</span>` : ''}
+        </div>
+      </div>
+      ${metaLine ? `<p>${escapeHtml(metaLine)}</p>` : ''}
+    `;
   }
 
   function updateUrl(filters) {
@@ -2364,6 +2491,8 @@
   }
 
   function renderRows(rows) {
+    renderSignalReadout(rows);
+
     if (!rows.length) {
       summary.textContent = t('No screenings matched the published board with these filters.');
       results.innerHTML = `<div class="empty"><strong>${escapeHtml(t('No screenings matched.'))}</strong><p style="margin-top:0.45rem;">${escapeHtml(t('Try widening the date range, clearing a filter, or waiting for the next local publish.'))}</p></div>`;
