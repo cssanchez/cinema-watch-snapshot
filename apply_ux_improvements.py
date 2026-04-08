@@ -135,7 +135,9 @@ def transform_4_occupancy_highlight(content: str) -> str:
         return row_html
     
     # Match front-screening-row divs
-    pattern = r'<div class="front-screening-row">[^<]*(?:<[^/][^>]*>(?:[^<]|<[^d][^>]*>)*)*(?:</[^>]*>)*?</div>'
+    # Secure fix for ReDoS: replaced nested quantifiers with a non-greedy match.
+    # The structure is <div class="front-screening-row">...<div class="front-screening-copy">...</div></div>
+    pattern = r'<div class="front-screening-row">.*?</div>\s*</div>'
     content = re.sub(pattern, replace_row, content, flags=re.DOTALL)
     
     return content
