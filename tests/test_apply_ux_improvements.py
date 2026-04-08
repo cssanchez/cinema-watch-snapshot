@@ -89,3 +89,18 @@ def test_transform_5_multiple_labels_in_section():
     result = transform_5_count_format(content)
     assert "2 of 2 shown" in result
     assert "Actually >2 of 2 shown< here too" in result
+
+from apply_ux_improvements import extract_sold_percentage
+
+def test_extract_sold_percentage():
+    """Test extract_sold_percentage with various edge cases."""
+    assert extract_sold_percentage("45% sold") == 45.0
+    assert extract_sold_percentage("100% sold") == 100.0
+    assert extract_sold_percentage("0% sold") == 0.0
+    assert extract_sold_percentage("none sold") == 0.0
+    assert extract_sold_percentage("50%sold") == 50.0 # handles missing space
+    assert extract_sold_percentage("") == 0.0
+    assert extract_sold_percentage("Sold out") == 0.0
+    assert extract_sold_percentage("Only 5% sold so far") == 5.0
+    assert extract_sold_percentage("123% sold") == 123.0
+    assert extract_sold_percentage("45 % sold") == 0.0 # current regex doesn't handle space before %

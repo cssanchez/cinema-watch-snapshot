@@ -118,6 +118,13 @@ def transform_3_truncation_signal(content: str) -> str:
     return content
 
 
+def extract_sold_percentage(screening_text: str) -> float:
+    """Extract sold percentage from screening metadata text."""
+    match = re.search(r'(\d+)%\s*sold', screening_text)
+    if match:
+        return float(match.group(1))
+    return 0.0
+
 def transform_4_occupancy_highlight(content: str) -> str:
     """
     Add screening-high-occupancy class to rows with >= 50% sold.
@@ -137,15 +144,13 @@ def transform_4_occupancy_highlight(content: str) -> str:
     def replace_row(match):
         row_html = match.group(0)
         # Check if this row contains sold percentage >= 50%
-        sold_match = RE_SOLD_PERCENT.search(row_html)
-        if sold_match:
-            sold_percent = int(sold_match.group(1))
-            if sold_percent >= 50:
-                # Add class to the div
-                row_html = row_html.replace(
-                    '<div class="front-screening-row">',
-                    '<div class="front-screening-row screening-high-occupancy">'
-                )
+        sold_percent = extract_sold_percentage(row_html)
+        if sold_percent >= 50:
+            # Add class to the div
+            row_html = row_html.replace(
+                '<div class="front-screening-row">',
+                '<div class="front-screening-row screening-high-occupancy">'
+            )
         return row_html
 
     # Match front-screening-row divs
