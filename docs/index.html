@@ -1878,7 +1878,7 @@
         
         <div class="nav-location-dropdown" data-location-dropdown>
           <button type="button" class="nav-location-toggle" aria-haspopup="true" aria-expanded="false" data-location-dropdown-toggle>
-            <span class="nav-location-active">Zone</span>
+            <span class="nav-location-active" data-i18n-skip>AMBA</span>
             <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="m6 9 6 6 6-6"/></svg>
           </button>
           <div class="nav-location-menu" hidden>
@@ -7093,12 +7093,16 @@
           panel.hidden = panel.dataset.locationPanel !== nextKey;
         }
         
-        const activeLabel = root.querySelector('.nav-location-active');
+        const scopeDocument = root instanceof Document ? root : (root.ownerDocument || document);
+        const activeLabel = scopeDocument.querySelector('.nav-location-active');
         if (activeLabel && buttons.length > 0) {
           const activeBtn = buttons.find((b) => b.dataset.locationTarget === nextKey);
           if (activeBtn) {
             const span = activeBtn.querySelector('span');
-            if (span) activeLabel.textContent = span.textContent;
+            if (span) {
+              activeLabel.setAttribute('data-i18n-skip', '');
+              activeLabel.textContent = span.textContent;
+            }
           }
         }
 

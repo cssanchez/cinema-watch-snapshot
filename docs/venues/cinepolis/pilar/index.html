@@ -3156,12 +3156,16 @@
           panel.hidden = panel.dataset.locationPanel !== nextKey;
         }
         
-        const activeLabel = root.querySelector('.nav-location-active');
+        const scopeDocument = root instanceof Document ? root : (root.ownerDocument || document);
+        const activeLabel = scopeDocument.querySelector('.nav-location-active');
         if (activeLabel && buttons.length > 0) {
           const activeBtn = buttons.find((b) => b.dataset.locationTarget === nextKey);
           if (activeBtn) {
             const span = activeBtn.querySelector('span');
-            if (span) activeLabel.textContent = span.textContent;
+            if (span) {
+              activeLabel.setAttribute('data-i18n-skip', '');
+              activeLabel.textContent = span.textContent;
+            }
           }
         }
 
