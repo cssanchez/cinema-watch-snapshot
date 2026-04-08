@@ -1,6 +1,6 @@
-import pytest
-from apply_ux_improvements import transform_5_count_format
+from apply_ux_improvements import (extract_sold_percentage, transform_2_add_time_context, transform_5_count_format)
 
+import pytest
 def test_transform_5_basic():
     """Test basic transformation with a single section and correct count."""
     content = """
@@ -90,8 +90,6 @@ def test_transform_5_multiple_labels_in_section():
     assert "2 of 2 shown" in result
     assert "Actually >2 of 2 shown< here too" in result
 
-from apply_ux_improvements import extract_sold_percentage
-
 def test_extract_sold_percentage():
     """Test extract_sold_percentage with various edge cases."""
     assert extract_sold_percentage("45% sold") == 45.0
@@ -104,3 +102,50 @@ def test_extract_sold_percentage():
     assert extract_sold_percentage("Only 5% sold so far") == 5.0
     assert extract_sold_percentage("123% sold") == 123.0
     assert extract_sold_percentage("45 % sold") == 0.0 # current regex doesn't handle space before %
+
+def test_transform_2_basic():
+    """Test basic transformation to add time context."""
+    content = """
+    <section class="front-date-group">
+        <div>Some content</div>
+    </section>
+    """
+    expected = """
+    <div class="screening-time-context" style="display:flex; align-items:center; gap:0.5rem; padding:1rem; color:var(--accent); font-size:0.95rem;"><span style="color:var(--muted);">Coming up</span></div>
+    <section class="front-date-group">
+        <div>Some content</div>
+    </section>
+    """
+    assert transform_2_add_time_context(content) == expected
+
+def test_transform_2_multiple():
+    """Test adding time context to multiple sections."""
+    content = """
+    <section class="front-date-group">
+        <div>Section 1</div>
+    </section>
+    <section class="front-date-group">
+        <div>Section 2</div>
+    </section>
+    """
+    expected = """
+    <div class="screening-time-context" style="display:flex; align-items:center; gap:0.5rem; padding:1rem; color:var(--accent); font-size:0.95rem;"><span style="color:var(--muted);">Coming up</span></div>
+    <section class="front-date-group">
+        <div>Section 1</div>
+    </section>
+    <div class="screening-time-context" style="display:flex; align-items:center; gap:0.5rem; padding:1rem; color:var(--accent); font-size:0.95rem;"><span style="color:var(--muted);">Coming up</span></div>
+    <section class="front-date-group">
+        <div>Section 2</div>
+    </section>
+    """
+    assert transform_2_add_time_context(content) == expected
+
+def test_transform_2_no_match():
+    """Test when there is no matching section or spacing."""
+    content = """<section class="front-date-group">
+        <div>No leading newline + 4 spaces</div>
+    </section>
+    <section class="other-group">
+        <div>Not a date group</div>
+    </section>"""
+    assert transform_2_add_time_context(content) == content
