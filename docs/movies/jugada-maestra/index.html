@@ -2760,14 +2760,10 @@
         
         const activeLabel = root.querySelector('.nav-location-active');
         if (activeLabel) {
-          if (nextKey) {
-            const activeBtn = buttons.find((b) => b.dataset.locationTarget === nextKey);
-            if (activeBtn) {
-              const span = activeBtn.querySelector('span');
-              if (span) activeLabel.textContent = span.textContent;
-            }
-          } else {
-            activeLabel.textContent = 'Zone';
+          const activeBtn = buttons.find((b) => b.dataset.locationTarget === nextKey);
+          if (activeBtn) {
+            const span = activeBtn.querySelector('span');
+            if (span) activeLabel.textContent = span.textContent;
           }
         }
         

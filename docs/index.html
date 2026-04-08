@@ -3793,54 +3793,43 @@
       function setHomepageLocation(root, key, { persist = true } = {}) {
         const buttons = Array.from(root.querySelectorAll('[data-location-target]'));
         const panels = Array.from(root.querySelectorAll('[data-location-panel]'));
-        const availableKeys = new Set([
-          ...panels.map((panel) => panel.dataset.locationPanel || ''),
-          ...buttons.map((button) => button.dataset.locationTarget || ''),
-        ]);
-        // Only use the key if it's valid and available; don't force a default
-        let nextKey = key && availableKeys.has(key) ? key : '';
-        if (!nextKey) {
-          const activeButton = buttons.find((button) => button.getAttribute('aria-pressed') === 'true');
-          if (activeButton) {
-            nextKey = activeButton.dataset.locationTarget || '';
-          }
+        let nextKey = key || '';
+        
+        // If no key provided, try to get previously selected one
+        if (!nextKey && buttons.length > 0) {
+          const activeButton = buttons.find((btn) => btn.getAttribute('aria-pressed') === 'true');
+          nextKey = activeButton?.dataset.locationTarget || '';
         }
+        
+        // If still no key, default to first button
+        if (!nextKey && buttons.length > 0) {
+          nextKey = buttons[0].dataset.locationTarget || '';
+        }
+        
+        if (!nextKey) return;
 
-        // Update button states: selected gets aria-pressed="true", others get "false"
+        // Update button states
         for (const button of buttons) {
-          const pressed = button.dataset.locationTarget === nextKey;
-          button.setAttribute('aria-pressed', pressed ? 'true' : 'false');
+          button.setAttribute('aria-pressed', button.dataset.locationTarget === nextKey ? 'true' : 'false');
         }
         
-        // Show panels only if a zone is selected, hide all if nothing selected
+        // Show/hide panels
         for (const panel of panels) {
-          panel.hidden = nextKey ? panel.dataset.locationPanel !== nextKey : true;
+          panel.hidden = panel.dataset.locationPanel !== nextKey;
         }
         
-        // Update the label: zone name when selected, generic "Zone" when unselected
+        // Update label text
         const activeLabel = root.querySelector('.nav-location-active');
         if (activeLabel) {
-          if (nextKey) {
-            // A zone is selected: show its name
-            const activeBtn = buttons.find((b) => b.dataset.locationTarget === nextKey);
-            if (activeBtn) {
-              const span = activeBtn.querySelector('span');
-              if (span) activeLabel.textContent = span.textContent;
-            }
-          } else {
-            // Nothing selected: show generic "Zone" placeholder
-            activeLabel.textContent = 'Zone';
-            activeLabel.dataset.defaultLabel = 'true';
+          const activeBtn = buttons.find((b) => b.dataset.locationTarget === nextKey);
+          if (activeBtn) {
+            const span = activeBtn.querySelector('span');
+            if (span) activeLabel.textContent = span.textContent;
           }
         }
         
-        // Persist to localStorage: only store if a zone is selected, clear otherwise
         if (persist) {
-          if (nextKey) {
-            window.localStorage.setItem(storageKey, nextKey);
-          } else {
-            window.localStorage.removeItem(storageKey);
-          }
+          window.localStorage.setItem(storageKey, nextKey);
         }
       }
 
