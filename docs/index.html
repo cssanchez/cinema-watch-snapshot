@@ -1014,6 +1014,60 @@
       line-height: 1.38;
     }
 
+    .front-advanced-filter {
+      margin-top: 0.72rem;
+      border: 1px solid rgba(165, 178, 198, 0.16);
+      border-radius: var(--radius-md);
+      background: rgba(255, 255, 255, 0.02);
+      padding: 0.18rem 0.72rem 0.62rem;
+    }
+
+    .front-advanced-filter > summary {
+      cursor: pointer;
+      list-style: none;
+      display: block;
+      padding: 0.5rem 0;
+    }
+
+    .front-advanced-filter > summary::-webkit-details-marker {
+      display: none;
+    }
+
+    .front-advanced-summary {
+      display: flex;
+      flex-wrap: wrap;
+      align-items: center;
+      justify-content: space-between;
+      gap: 0.5rem 0.9rem;
+    }
+
+    .front-advanced-summary strong {
+      font-family: var(--heading-font);
+      font-size: 1.04rem;
+      line-height: 1;
+    }
+
+    .front-advanced-summary small {
+      color: var(--muted);
+      font-size: 0.84rem;
+      line-height: 1.32;
+    }
+
+    .front-advanced-filter[open] {
+      border-color: rgba(88, 199, 179, 0.3);
+      background: rgba(88, 199, 179, 0.06);
+    }
+
+    .front-advanced-form {
+      display: grid;
+      gap: 0.75rem;
+      margin-top: 0.5rem;
+    }
+
+    .front-advanced-actions {
+      margin-top: 0.1rem;
+    }
+
     .front-cartelera-boards {
       display: grid;
       margin-top: 0.25rem;
@@ -1948,6 +2002,264 @@
         
       </div>
       <p class="front-cartelera-cycle-note">En Argentina los estrenos suelen abrir los jueves y los horarios suelen aparecer desde el miercoles.</p>
+      <details class="front-advanced-filter">
+        <summary class="front-advanced-summary">
+          <strong>Filtros avanzados</strong>
+          <small>Abrí los filtros completos cuando necesites precisión.</small>
+        </summary>
+        <form
+          class="front-advanced-form"
+          method="get"
+          action="/cinema-watch-snapshot/screenings/"
+          data-live-form="true"
+          data-provider-venue-form="true"
+        >
+          <div class="form-grid">
+            <label class="field">
+              <span data-i18n-source>Provider</span>
+              <select name="provider" data-provider-select="true">
+                <option value="" data-i18n-source>All providers</option>
+                
+                <option value="cinepolis">Cinepolis Argentina</option>
+                
+                <option value="showcase">Showcase / IMAX</option>
+                
+              </select>
+            </label>
+            <label class="field">
+              <span data-i18n-source>Venue</span>
+              <select name="venue" data-venue-select="true">
+                <option value="" data-i18n-source>All venues</option>
+                
+                <optgroup label="Cinepolis Argentina" data-provider="cinepolis">
+                  
+                  <option
+                    value="avellaneda"
+                    data-provider="cinepolis"
+                    data-full-label="Cinepolis Argentina / Avellaneda"
+                    data-short-label="Avellaneda"
+                  >
+                    Avellaneda
+                  </option>
+                  
+                  <option
+                    value="maipu"
+                    data-provider="cinepolis"
+                    data-full-label="Cinepolis Argentina / Cinépolis Arena Maipú"
+                    data-short-label="Arena Maipú"
+                  >
+                    Arena Maipú
+                  </option>
+                  
+                  <option
+                    value="lujan"
+                    data-provider="cinepolis"
+                    data-full-label="Cinepolis Argentina / Cinépolis Luján"
+                    data-short-label="Luján"
+                  >
+                    Luján
+                  </option>
+                  
+                  <option
+                    value="mendoza"
+                    data-provider="cinepolis"
+                    data-full-label="Cinepolis Argentina / Cinépolis Mendoza Plaza"
+                    data-short-label="Mendoza Plaza"
+                  >
+                    Mendoza Plaza
+                  </option>
+                  
+                  <option
+                    value="merlo"
+                    data-provider="cinepolis"
+                    data-full-label="Cinepolis Argentina / Cinépolis Merlo"
+                    data-short-label="Merlo"
+                  >
+                    Merlo
+                  </option>
+                  
+                  <option
+                    value="neuquen"
+                    data-provider="cinepolis"
+                    data-full-label="Cinepolis Argentina / Cinépolis Neuquén"
+                    data-short-label="Neuquén"
+                  >
+                    Neuquén
+                  </option>
+                  
+                  <option
+                    value="pilar"
+                    data-provider="cinepolis"
+                    data-full-label="Cinepolis Argentina / Cinépolis Pilar"
+                    data-short-label="Pilar"
+                  >
+                    Pilar
+                  </option>
+                  
+                  <option
+                    value="houssay"
+                    data-provider="cinepolis"
+                    data-full-label="Cinepolis Argentina / Cinépolis Plaza Houssay"
+                    data-short-label="Plaza Houssay"
+                  >
+                    Plaza Houssay
+                  </option>
+                  
+                  <option
+                    value="rosario"
+                    data-provider="cinepolis"
+                    data-full-label="Cinepolis Argentina / Cinépolis Rosario"
+                    data-short-label="Rosario"
+                  >
+                    Rosario
+                  </option>
+                  
+                  <option
+                    value="recoleta"
+                    data-provider="cinepolis"
+                    data-full-label="Cinepolis Argentina / Recoleta"
+                    data-short-label="Recoleta"
+                  >
+                    Recoleta
+                  </option>
+                  
+                </optgroup>
+                
+                <optgroup label="Showcase / IMAX" data-provider="showcase">
+                  
+                  <option
+                    value="imax_norcenter"
+                    data-provider="showcase"
+                    data-full-label="Showcase / IMAX / IMAX Theatre (Norcenter)"
+                    data-short-label="IMAX Theatre (Norcenter)"
+                  >
+                    IMAX Theatre (Norcenter)
+                  </option>
+                  
+                  <option
+                    value="play_cinema_san_juan"
+                    data-provider="showcase"
+                    data-full-label="Showcase / IMAX / Play Cinema San Juan"
+                    data-short-label="Play Cinema San Juan"
+                  >
+                    Play Cinema San Juan
+                  </option>
+                  
+                  <option
+                    value="showcase_belgrano"
+                    data-provider="showcase"
+                    data-full-label="Showcase / IMAX / Showcase Belgrano"
+                    data-short-label="Belgrano"
+                  >
+                    Belgrano
+                  </option>
+                  
+                  <option
+                    value="showcase_cordoba_villa_cabrera"
+                    data-provider="showcase"
+                    data-full-label="Showcase / IMAX / Showcase Cordoba (Villa Cabrera)"
+                    data-short-label="Cordoba (Villa Cabrera)"
+                  >
+                    Cordoba (Villa Cabrera)
+                  </option>
+                  
+                  <option
+                    value="showcase_haedo"
+                    data-provider="showcase"
+                    data-full-label="Showcase / IMAX / Showcase Haedo"
+                    data-short-label="Haedo"
+                  >
+                    Haedo
+                  </option>
+                  
+                  <option
+                    value="showcase_norcenter"
+                    data-provider="showcase"
+                    data-full-label="Showcase / IMAX / Showcase Norcenter"
+                    data-short-label="Norcenter"
+                  >
+                    Norcenter
+                  </option>
+                  
+                  <option
+                    value="showcase_quilmes"
+                    data-provider="showcase"
+                    data-full-label="Showcase / IMAX / Showcase Quilmes"
+                    data-short-label="Quilmes"
+                  >
+                    Quilmes
+                  </option>
+                  
+                  <option
+                    value="showcase_rosario"
+                    data-provider="showcase"
+                    data-full-label="Showcase / IMAX / Showcase Rosario"
+                    data-short-label="Rosario"
+                  >
+                    Rosario
+                  </option>
+                  
+                  <option
+                    value="showcase_villa_allende"
+                    data-provider="showcase"
+                    data-full-label="Showcase / IMAX / Showcase Villa Allende"
+                    data-short-label="Villa Allende"
+                  >
+                    Villa Allende
+                  </option>
+                  
+                </optgroup>
+                
+              </select>
+            </label>
+            <label class="field field-wide">
+              <span data-i18n-source>Movie contains</span>
+              <input type="text" name="movie" placeholder="Mario, Hamnet, Proyecto..." data-i18n-placeholder-source>
+            </label>
+            <label class="field">
+              <span data-i18n-source>Language</span>
+              <select name="language">
+                <option value="" data-i18n-source>Any</option>
+                <option value="espanol" data-i18n-source>Espanol</option>
+                <option value="subtitulado" data-i18n-source>Subtitulado</option>
+              </select>
+            </label>
+            <label class="field">
+              <span data-i18n-source>Special room</span>
+              <select name="category">
+                <option value="" data-i18n-source>Any</option>
+                <option value="imax">IMAX</option>
+                <option value="dolby_atmos">Dolby Atmos</option>
+              </select>
+            </label>
+            <label class="field">
+              <span data-i18n-source>Format</span>
+              <select name="format">
+                <option value="" data-i18n-source>Any</option>
+                <option value="2D">2D</option>
+                <option value="3D">3D</option>
+                <option value="4D">4D</option>
+              </select>
+            </label>
+            <label class="field">
+              <span data-i18n-source>From date</span>
+              <input type="date" name="from_date" value="2026-04-08">
+            </label>
+            <label class="field">
+              <span data-i18n-source>To date</span>
+              <input type="date" name="to_date" value="2026-04-14">
+            </label>
+            <label class="field">
+              <span data-i18n-source>Room</span>
+              <input type="number" min="1" step="1" name="room" placeholder="6" data-i18n-placeholder-source>
+            </label>
+          </div>
+          <div class="form-actions front-advanced-actions">
+            <button type="submit" class="button-pill" data-tone="accent" data-i18n-source>Filter listings</button>
+            <a class="button-pill" href="/cinema-watch-snapshot/screenings/" data-tone="soft" data-live-nav="true" data-i18n-source>Reset to all screenings</a>
+          </div>
+        </form>
+      </details>
 
       <div class="front-cartelera-boards">
         
@@ -3381,6 +3693,264 @@
         
       </div>
       <p class="front-cartelera-cycle-note">En Argentina los estrenos suelen abrir los jueves y los horarios suelen aparecer desde el miercoles.</p>
+      <details class="front-advanced-filter">
+        <summary class="front-advanced-summary">
+          <strong>Filtros avanzados</strong>
+          <small>Abrí los filtros completos cuando necesites precisión.</small>
+        </summary>
+        <form
+          class="front-advanced-form"
+          method="get"
+          action="/cinema-watch-snapshot/screenings/"
+          data-live-form="true"
+          data-provider-venue-form="true"
+        >
+          <div class="form-grid">
+            <label class="field">
+              <span data-i18n-source>Provider</span>
+              <select name="provider" data-provider-select="true">
+                <option value="" data-i18n-source>All providers</option>
+                
+                <option value="cinepolis">Cinepolis Argentina</option>
+                
+                <option value="showcase">Showcase / IMAX</option>
+                
+              </select>
+            </label>
+            <label class="field">
+              <span data-i18n-source>Venue</span>
+              <select name="venue" data-venue-select="true">
+                <option value="" data-i18n-source>All venues</option>
+                
+                <optgroup label="Cinepolis Argentina" data-provider="cinepolis">
+                  
+                  <option
+                    value="avellaneda"
+                    data-provider="cinepolis"
+                    data-full-label="Cinepolis Argentina / Avellaneda"
+                    data-short-label="Avellaneda"
+                  >
+                    Avellaneda
+                  </option>
+                  
+                  <option
+                    value="maipu"
+                    data-provider="cinepolis"
+                    data-full-label="Cinepolis Argentina / Cinépolis Arena Maipú"
+                    data-short-label="Arena Maipú"
+                  >
+                    Arena Maipú
+                  </option>
+                  
+                  <option
+                    value="lujan"
+                    data-provider="cinepolis"
+                    data-full-label="Cinepolis Argentina / Cinépolis Luján"
+                    data-short-label="Luján"
+                  >
+                    Luján
+                  </option>
+                  
+                  <option
+                    value="mendoza"
+                    data-provider="cinepolis"
+                    data-full-label="Cinepolis Argentina / Cinépolis Mendoza Plaza"
+                    data-short-label="Mendoza Plaza"
+                  >
+                    Mendoza Plaza
+                  </option>
+                  
+                  <option
+                    value="merlo"
+                    data-provider="cinepolis"
+                    data-full-label="Cinepolis Argentina / Cinépolis Merlo"
+                    data-short-label="Merlo"
+                  >
+                    Merlo
+                  </option>
+                  
+                  <option
+                    value="neuquen"
+                    data-provider="cinepolis"
+                    data-full-label="Cinepolis Argentina / Cinépolis Neuquén"
+                    data-short-label="Neuquén"
+                  >
+                    Neuquén
+                  </option>
+                  
+                  <option
+                    value="pilar"
+                    data-provider="cinepolis"
+                    data-full-label="Cinepolis Argentina / Cinépolis Pilar"
+                    data-short-label="Pilar"
+                  >
+                    Pilar
+                  </option>
+                  
+                  <option
+                    value="houssay"
+                    data-provider="cinepolis"
+                    data-full-label="Cinepolis Argentina / Cinépolis Plaza Houssay"
+                    data-short-label="Plaza Houssay"
+                  >
+                    Plaza Houssay
+                  </option>
+                  
+                  <option
+                    value="rosario"
+                    data-provider="cinepolis"
+                    data-full-label="Cinepolis Argentina / Cinépolis Rosario"
+                    data-short-label="Rosario"
+                  >
+                    Rosario
+                  </option>
+                  
+                  <option
+                    value="recoleta"
+                    data-provider="cinepolis"
+                    data-full-label="Cinepolis Argentina / Recoleta"
+                    data-short-label="Recoleta"
+                  >
+                    Recoleta
+                  </option>
+                  
+                </optgroup>
+                
+                <optgroup label="Showcase / IMAX" data-provider="showcase">
+                  
+                  <option
+                    value="imax_norcenter"
+                    data-provider="showcase"
+                    data-full-label="Showcase / IMAX / IMAX Theatre (Norcenter)"
+                    data-short-label="IMAX Theatre (Norcenter)"
+                  >
+                    IMAX Theatre (Norcenter)
+                  </option>
+                  
+                  <option
+                    value="play_cinema_san_juan"
+                    data-provider="showcase"
+                    data-full-label="Showcase / IMAX / Play Cinema San Juan"
+                    data-short-label="Play Cinema San Juan"
+                  >
+                    Play Cinema San Juan
+                  </option>
+                  
+                  <option
+                    value="showcase_belgrano"
+                    data-provider="showcase"
+                    data-full-label="Showcase / IMAX / Showcase Belgrano"
+                    data-short-label="Belgrano"
+                  >
+                    Belgrano
+                  </option>
+                  
+                  <option
+                    value="showcase_cordoba_villa_cabrera"
+                    data-provider="showcase"
+                    data-full-label="Showcase / IMAX / Showcase Cordoba (Villa Cabrera)"
+                    data-short-label="Cordoba (Villa Cabrera)"
+                  >
+                    Cordoba (Villa Cabrera)
+                  </option>
+                  
+                  <option
+                    value="showcase_haedo"
+                    data-provider="showcase"
+                    data-full-label="Showcase / IMAX / Showcase Haedo"
+                    data-short-label="Haedo"
+                  >
+                    Haedo
+                  </option>
+                  
+                  <option
+                    value="showcase_norcenter"
+                    data-provider="showcase"
+                    data-full-label="Showcase / IMAX / Showcase Norcenter"
+                    data-short-label="Norcenter"
+                  >
+                    Norcenter
+                  </option>
+                  
+                  <option
+                    value="showcase_quilmes"
+                    data-provider="showcase"
+                    data-full-label="Showcase / IMAX / Showcase Quilmes"
+                    data-short-label="Quilmes"
+                  >
+                    Quilmes
+                  </option>
+                  
+                  <option
+                    value="showcase_rosario"
+                    data-provider="showcase"
+                    data-full-label="Showcase / IMAX / Showcase Rosario"
+                    data-short-label="Rosario"
+                  >
+                    Rosario
+                  </option>
+                  
+                  <option
+                    value="showcase_villa_allende"
+                    data-provider="showcase"
+                    data-full-label="Showcase / IMAX / Showcase Villa Allende"
+                    data-short-label="Villa Allende"
+                  >
+                    Villa Allende
+                  </option>
+                  
+                </optgroup>
+                
+              </select>
+            </label>
+            <label class="field field-wide">
+              <span data-i18n-source>Movie contains</span>
+              <input type="text" name="movie" placeholder="Mario, Hamnet, Proyecto..." data-i18n-placeholder-source>
+            </label>
+            <label class="field">
+              <span data-i18n-source>Language</span>
+              <select name="language">
+                <option value="" data-i18n-source>Any</option>
+                <option value="espanol" data-i18n-source>Espanol</option>
+                <option value="subtitulado" data-i18n-source>Subtitulado</option>
+              </select>
+            </label>
+            <label class="field">
+              <span data-i18n-source>Special room</span>
+              <select name="category">
+                <option value="" data-i18n-source>Any</option>
+                <option value="imax">IMAX</option>
+                <option value="dolby_atmos">Dolby Atmos</option>
+              </select>
+            </label>
+            <label class="field">
+              <span data-i18n-source>Format</span>
+              <select name="format">
+                <option value="" data-i18n-source>Any</option>
+                <option value="2D">2D</option>
+                <option value="3D">3D</option>
+                <option value="4D">4D</option>
+              </select>
+            </label>
+            <label class="field">
+              <span data-i18n-source>From date</span>
+              <input type="date" name="from_date" value="2026-04-08">
+            </label>
+            <label class="field">
+              <span data-i18n-source>To date</span>
+              <input type="date" name="to_date" value="2026-04-14">
+            </label>
+            <label class="field">
+              <span data-i18n-source>Room</span>
+              <input type="number" min="1" step="1" name="room" placeholder="6" data-i18n-placeholder-source>
+            </label>
+          </div>
+          <div class="form-actions front-advanced-actions">
+            <button type="submit" class="button-pill" data-tone="accent" data-i18n-source>Filter listings</button>
+            <a class="button-pill" href="/cinema-watch-snapshot/screenings/" data-tone="soft" data-live-nav="true" data-i18n-source>Reset to all screenings</a>
+          </div>
+        </form>
+      </details>
 
       <div class="front-cartelera-boards">
         
@@ -4558,6 +5128,264 @@
         
       </div>
       <p class="front-cartelera-cycle-note">En Argentina los estrenos suelen abrir los jueves y los horarios suelen aparecer desde el miercoles.</p>
+      <details class="front-advanced-filter">
+        <summary class="front-advanced-summary">
+          <strong>Filtros avanzados</strong>
+          <small>Abrí los filtros completos cuando necesites precisión.</small>
+        </summary>
+        <form
+          class="front-advanced-form"
+          method="get"
+          action="/cinema-watch-snapshot/screenings/"
+          data-live-form="true"
+          data-provider-venue-form="true"
+        >
+          <div class="form-grid">
+            <label class="field">
+              <span data-i18n-source>Provider</span>
+              <select name="provider" data-provider-select="true">
+                <option value="" data-i18n-source>All providers</option>
+                
+                <option value="cinepolis">Cinepolis Argentina</option>
+                
+                <option value="showcase">Showcase / IMAX</option>
+                
+              </select>
+            </label>
+            <label class="field">
+              <span data-i18n-source>Venue</span>
+              <select name="venue" data-venue-select="true">
+                <option value="" data-i18n-source>All venues</option>
+                
+                <optgroup label="Cinepolis Argentina" data-provider="cinepolis">
+                  
+                  <option
+                    value="avellaneda"
+                    data-provider="cinepolis"
+                    data-full-label="Cinepolis Argentina / Avellaneda"
+                    data-short-label="Avellaneda"
+                  >
+                    Avellaneda
+                  </option>
+                  
+                  <option
+                    value="maipu"
+                    data-provider="cinepolis"
+                    data-full-label="Cinepolis Argentina / Cinépolis Arena Maipú"
+                    data-short-label="Arena Maipú"
+                  >
+                    Arena Maipú
+                  </option>
+                  
+                  <option
+                    value="lujan"
+                    data-provider="cinepolis"
+                    data-full-label="Cinepolis Argentina / Cinépolis Luján"
+                    data-short-label="Luján"
+                  >
+                    Luján
+                  </option>
+                  
+                  <option
+                    value="mendoza"
+                    data-provider="cinepolis"
+                    data-full-label="Cinepolis Argentina / Cinépolis Mendoza Plaza"
+                    data-short-label="Mendoza Plaza"
+                  >
+                    Mendoza Plaza
+                  </option>
+                  
+                  <option
+                    value="merlo"
+                    data-provider="cinepolis"
+                    data-full-label="Cinepolis Argentina / Cinépolis Merlo"
+                    data-short-label="Merlo"
+                  >
+                    Merlo
+                  </option>
+                  
+                  <option
+                    value="neuquen"
+                    data-provider="cinepolis"
+                    data-full-label="Cinepolis Argentina / Cinépolis Neuquén"
+                    data-short-label="Neuquén"
+                  >
+                    Neuquén
+                  </option>
+                  
+                  <option
+                    value="pilar"
+                    data-provider="cinepolis"
+                    data-full-label="Cinepolis Argentina / Cinépolis Pilar"
+                    data-short-label="Pilar"
+                  >
+                    Pilar
+                  </option>
+                  
+                  <option
+                    value="houssay"
+                    data-provider="cinepolis"
+                    data-full-label="Cinepolis Argentina / Cinépolis Plaza Houssay"
+                    data-short-label="Plaza Houssay"
+                  >
+                    Plaza Houssay
+                  </option>
+                  
+                  <option
+                    value="rosario"
+                    data-provider="cinepolis"
+                    data-full-label="Cinepolis Argentina / Cinépolis Rosario"
+                    data-short-label="Rosario"
+                  >
+                    Rosario
+                  </option>
+                  
+                  <option
+                    value="recoleta"
+                    data-provider="cinepolis"
+                    data-full-label="Cinepolis Argentina / Recoleta"
+                    data-short-label="Recoleta"
+                  >
+                    Recoleta
+                  </option>
+                  
+                </optgroup>
+                
+                <optgroup label="Showcase / IMAX" data-provider="showcase">
+                  
+                  <option
+                    value="imax_norcenter"
+                    data-provider="showcase"
+                    data-full-label="Showcase / IMAX / IMAX Theatre (Norcenter)"
+                    data-short-label="IMAX Theatre (Norcenter)"
+                  >
+                    IMAX Theatre (Norcenter)
+                  </option>
+                  
+                  <option
+                    value="play_cinema_san_juan"
+                    data-provider="showcase"
+                    data-full-label="Showcase / IMAX / Play Cinema San Juan"
+                    data-short-label="Play Cinema San Juan"
+                  >
+                    Play Cinema San Juan
+                  </option>
+                  
+                  <option
+                    value="showcase_belgrano"
+                    data-provider="showcase"
+                    data-full-label="Showcase / IMAX / Showcase Belgrano"
+                    data-short-label="Belgrano"
+                  >
+                    Belgrano
+                  </option>
+                  
+                  <option
+                    value="showcase_cordoba_villa_cabrera"
+                    data-provider="showcase"
+                    data-full-label="Showcase / IMAX / Showcase Cordoba (Villa Cabrera)"
+                    data-short-label="Cordoba (Villa Cabrera)"
+                  >
+                    Cordoba (Villa Cabrera)
+                  </option>
+                  
+                  <option
+                    value="showcase_haedo"
+                    data-provider="showcase"
+                    data-full-label="Showcase / IMAX / Showcase Haedo"
+                    data-short-label="Haedo"
+                  >
+                    Haedo
+                  </option>
+                  
+                  <option
+                    value="showcase_norcenter"
+                    data-provider="showcase"
+                    data-full-label="Showcase / IMAX / Showcase Norcenter"
+                    data-short-label="Norcenter"
+                  >
+                    Norcenter
+                  </option>
+                  
+                  <option
+                    value="showcase_quilmes"
+                    data-provider="showcase"
+                    data-full-label="Showcase / IMAX / Showcase Quilmes"
+                    data-short-label="Quilmes"
+                  >
+                    Quilmes
+                  </option>
+                  
+                  <option
+                    value="showcase_rosario"
+                    data-provider="showcase"
+                    data-full-label="Showcase / IMAX / Showcase Rosario"
+                    data-short-label="Rosario"
+                  >
+                    Rosario
+                  </option>
+                  
+                  <option
+                    value="showcase_villa_allende"
+                    data-provider="showcase"
+                    data-full-label="Showcase / IMAX / Showcase Villa Allende"
+                    data-short-label="Villa Allende"
+                  >
+                    Villa Allende
+                  </option>
+                  
+                </optgroup>
+                
+              </select>
+            </label>
+            <label class="field field-wide">
+              <span data-i18n-source>Movie contains</span>
+              <input type="text" name="movie" placeholder="Mario, Hamnet, Proyecto..." data-i18n-placeholder-source>
+            </label>
+            <label class="field">
+              <span data-i18n-source>Language</span>
+              <select name="language">
+                <option value="" data-i18n-source>Any</option>
+                <option value="espanol" data-i18n-source>Espanol</option>
+                <option value="subtitulado" data-i18n-source>Subtitulado</option>
+              </select>
+            </label>
+            <label class="field">
+              <span data-i18n-source>Special room</span>
+              <select name="category">
+                <option value="" data-i18n-source>Any</option>
+                <option value="imax">IMAX</option>
+                <option value="dolby_atmos">Dolby Atmos</option>
+              </select>
+            </label>
+            <label class="field">
+              <span data-i18n-source>Format</span>
+              <select name="format">
+                <option value="" data-i18n-source>Any</option>
+                <option value="2D">2D</option>
+                <option value="3D">3D</option>
+                <option value="4D">4D</option>
+              </select>
+            </label>
+            <label class="field">
+              <span data-i18n-source>From date</span>
+              <input type="date" name="from_date" value="2026-04-08">
+            </label>
+            <label class="field">
+              <span data-i18n-source>To date</span>
+              <input type="date" name="to_date" value="2026-04-14">
+            </label>
+            <label class="field">
+              <span data-i18n-source>Room</span>
+              <input type="number" min="1" step="1" name="room" placeholder="6" data-i18n-placeholder-source>
+            </label>
+          </div>
+          <div class="form-actions front-advanced-actions">
+            <button type="submit" class="button-pill" data-tone="accent" data-i18n-source>Filter listings</button>
+            <a class="button-pill" href="/cinema-watch-snapshot/screenings/" data-tone="soft" data-live-nav="true" data-i18n-source>Reset to all screenings</a>
+          </div>
+        </form>
+      </details>
 
       <div class="front-cartelera-boards">
         
