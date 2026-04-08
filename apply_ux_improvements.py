@@ -14,6 +14,21 @@ DOCS_ROOT = str(Path(__file__).parent / "docs")
 DOCS_ROOT = "docs"
 ENCODING = "utf-8"
 
+# Pre-compiled Regex Patterns
+RE_FRESHNESS_FONT = re.compile(r'(\.front-freshness strong\s*\{[^}]*?)font-family:\s*var\(--heading-font\)(.*?)font-size:\s*1\.1rem', flags=re.DOTALL)
+RE_FRESHNESS_PADDING = re.compile(r'(\.front-freshness\s*\{[^}]*?)padding:\s*0\.9rem\s*1rem', flags=re.DOTALL)
+RE_FRESHNESS_BG = re.compile(r'(\.front-freshness\s*\{[^}]*?)background:\s*rgba\(255,\s*255,\s*255,\s*0\.035\)', flags=re.DOTALL)
+
+RE_DATE_GROUP = re.compile(r'(\n    )(<section class="front-date-group">)')
+RE_STYLE_CLOSING = re.compile(r'(\s*)</style>')
+RE_SEE_ALL_LINK = re.compile(r'<a class="text-link" ([^>]*)>See all</a>', flags=re.IGNORECASE)
+
+RE_SOLD_PERCENT = re.compile(r'(\d+)%\s*sold')
+RE_SCREENING_ROW_FULL = re.compile(r'<div class="front-screening-row">.*?</div>\s*</div>', flags=re.DOTALL)
+
+RE_DATE_GROUP_FULL = re.compile(r'<section class="front-date-group">(?:[^<]|<(?!/section))*</section>', flags=re.DOTALL)
+RE_SCREENING_ROW_OPEN = re.compile(r'<div class="front-screening-row"')
+RE_SHOWN_COUNT = re.compile(r'(>)(\d+)(\s+shown<)')
 
 def find_all_html_files(root_path: str) -> List[str]:
     """Find all HTML files in the docs directory."""
@@ -34,19 +49,16 @@ def transform_1_demote_freshness(content: str) -> str:
     - Reduce padding
     """
     # Find and replace the .front-freshness CSS rule
-    pattern = r'(\.front-freshness strong\s*\{[^}]*?)font-family:\s*var\(--heading-font\)(.*?)font-size:\s*1\.1rem'
     replacement = r'\1font-family: var(--ui-font)\2font-size: 0.9rem'
-    content = re.sub(pattern, replacement, content, flags=re.DOTALL)
+    content = RE_FRESHNESS_FONT.sub(replacement, content)
 
     # Also reduce padding in .front-freshness from 0.9rem 1rem to 0.6rem 0.8rem
-    pattern = r'(\.front-freshness\s*\{[^}]*?)padding:\s*0\.9rem\s*1rem'
-    replacement = r'\1padding: 0.6rem 0.8rem'
-    content = re.sub(pattern, replacement, content, flags=re.DOTALL)
+    replacement_padding = r'\1padding: 0.6rem 0.8rem'
+    content = RE_FRESHNESS_PADDING.sub(replacement_padding, content)
 
     # Remove or reduce background opacity
-    pattern = r'(\.front-freshness\s*\{[^}]*?)background:\s*rgba\(255,\s*255,\s*255,\s*0\.035\)'
-    replacement = r'\1background: rgba(255, 255, 255, 0.02)'
-    content = re.sub(pattern, replacement, content, flags=re.DOTALL)
+    replacement_bg = r'\1background: rgba(255, 255, 255, 0.02)'
+    content = RE_FRESHNESS_BG.sub(replacement_bg, content)
 
     return content
 
@@ -64,9 +76,8 @@ def transform_2_add_time_context(content: str) -> str:
     )
 
     # Replace all occurrences of <section class="front-date-group"> with the context label + section
-    pattern = r'(\n    )(<section class="front-date-group">)'
     replacement = r'\1' + time_context_html.rstrip('\n    ') + r'\n    \2'
-    content = re.sub(pattern, replacement, content)
+    content = RE_DATE_GROUP.sub(replacement, content)
 
     return content
 
@@ -98,13 +109,12 @@ def transform_3_truncation_signal(content: str) -> str:
         )
 
         # Insert CSS before the closing </style> tag
-        content = re.sub(r'(\s*)</style>', css_rule + r'\n  </style>', content)
+        content = RE_STYLE_CLOSING.sub(css_rule + r'\n  </style>', content)
 
     # Convert <a class="text-link" href="..." data-i18n-source>See all</a>
     # to <a class="button-see-all" href="..." data-i18n-source>See all</a>
-    pattern = r'<a class="text-link" ([^>]*)>See all</a>'
     replacement = r'<a class="button-see-all" \1>See all</a>'
-    content = re.sub(pattern, replacement, content, flags=re.IGNORECASE)
+    content = RE_SEE_ALL_LINK.sub(replacement, content)
 
     return content
 
@@ -122,13 +132,13 @@ def transform_4_occupancy_highlight(content: str) -> str:
             '      border-left: 3px solid var(--warm);\n'
             '    }'
         )
-        content = re.sub(r'(\s*)</style>', css_rule + r'\n  </style>', content)
+        content = RE_STYLE_CLOSING.sub(css_rule + r'\n  </style>', content)
 
     # Find all front-screening-row elements and check if they have >= 50% sold
     def replace_row(match):
         row_html = match.group(0)
         # Check if this row contains sold percentage >= 50%
-        sold_match = re.search(r'(\d+)%\s*sold', row_html)
+        sold_match = RE_SOLD_PERCENT.search(row_html)
         if sold_match:
             sold_percent = int(sold_match.group(1))
             if sold_percent >= 50:
@@ -142,8 +152,7 @@ def transform_4_occupancy_highlight(content: str) -> str:
     # Match front-screening-row divs
     # Secure fix for ReDoS: replaced nested quantifiers with a non-greedy match.
     # The structure is <div class="front-screening-row">...<div class="front-screening-copy">...</div></div>
-    pattern = r'<div class="front-screening-row">.*?</div>\s*</div>'
-    content = re.sub(pattern, replace_row, content, flags=re.DOTALL)
+    content = RE_SCREENING_ROW_FULL.sub(replace_row, content)
 
     return content
 
@@ -158,26 +167,11 @@ def transform_5_count_format(content: str) -> str:
         section = match.group(0)
 
         # Count the front-screening-row elements in this section
-        row_count = len(re.findall(
-            r'<div class="front-screening-row"', section))
+        row_count = len(RE_SCREENING_ROW_OPEN.findall(section))
 
         # Replace "X shown" with "X of Y shown" where Y is the row count
-        def replace_chip(chip_match):
-            chip_html = chip_match.group(0)
-            # Extract the X value
-            x_match = re.search(r'>(\d+)\s*shown<', chip_html)
-            if x_match:
-                x = x_match.group(1)
-                y = str(row_count)
-                chip_html = chip_html.replace(
-                    f'>{x} shown<',
-                    f'>{x} of {y} shown<'
-                )
-            return chip_html
-
         # More targeted approach: find and replace within the section
-        section = re.sub(
-            r'(>)(\d+)(\s+shown<)',
+        section = RE_SHOWN_COUNT.sub(
             lambda m: m.group(1) + m.group(2) +
             f' of {row_count}' + m.group(3),
             section
@@ -186,8 +180,7 @@ def transform_5_count_format(content: str) -> str:
         return section
 
     # Match each front-date-group section
-    pattern = r'<section class="front-date-group">(?:[^<]|<(?!/section))*</section>'
-    content = re.sub(pattern, replace_shown_count, content, flags=re.DOTALL)
+    content = RE_DATE_GROUP_FULL.sub(replace_shown_count, content)
 
     return content
 
