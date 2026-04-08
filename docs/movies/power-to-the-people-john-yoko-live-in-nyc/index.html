@@ -946,6 +946,10 @@
       scroll-margin-top: 7.2rem;
     }
 
+    [data-front-movies="true"] {
+      scroll-margin-top: 7.2rem;
+    }
+
     .front-coming-soon {
       display: grid;
       gap: 0.55rem;
@@ -1828,6 +1832,10 @@
       [data-front-specials="true"] {
         scroll-margin-top: 9.8rem;
       }
+
+      [data-front-movies="true"] {
+        scroll-margin-top: 9.8rem;
+      }
     }
 
     @media (max-width: 620px) {
@@ -1854,6 +1862,10 @@
       }
 
       [data-front-specials="true"] {
+        scroll-margin-top: 10.8rem;
+      }
+
+      [data-front-movies="true"] {
         scroll-margin-top: 10.8rem;
       }
     }
@@ -1894,7 +1906,7 @@
       <nav class="nav" aria-label="Primary">
         <div class="nav-links">
           <a href="/cinema-watch-snapshot/#cartelera" data-nav-link="screenings" class="" data-i18n-source>Showtimes</a>
-          <a href="/cinema-watch-snapshot/movies/" data-nav-link="movies" class="" data-i18n-source>Movies</a>
+          <a href="/cinema-watch-snapshot/#peliculas" data-nav-link="movies" class="" data-i18n-source>Movies</a>
           <a href="/cinema-watch-snapshot/?focus=imax#salas-especiales" data-nav-link="imax" class="">IMAX</a>
           <a href="/cinema-watch-snapshot/?focus=dolby_atmos#salas-especiales" data-nav-link="dolby" class="">Dolby Atmos</a>
         </div>
@@ -2892,6 +2904,27 @@
         return true;
       }
 
+      function scrollToMoviesSection({ behavior = 'smooth' } = {}) {
+        const visiblePanel = Array.from(document.querySelectorAll('[data-location-panel]'))
+          .find((panel) => panel instanceof HTMLElement && !panel.hidden);
+        let target = visiblePanel?.querySelector('[data-front-movies="true"]');
+        if (!(target instanceof HTMLElement)) {
+          target = Array.from(document.querySelectorAll('[data-front-movies="true"]'))
+            .find((section) => {
+              if (!(section instanceof HTMLElement)) {
+                return false;
+              }
+              const panel = section.closest('[data-location-panel]');
+              return !(panel instanceof HTMLElement) || !panel.hidden;
+            });
+        }
+        if (!(target instanceof HTMLElement)) {
+          return false;
+        }
+        target.scrollIntoView({ behavior, block: 'start' });
+        return true;
+      }
+
       function setHomeFocusAndScrollSpecialRooms(focusValue) {
         const params = new URLSearchParams(window.location.search || '');
         if (focusValue) {
@@ -2908,6 +2941,18 @@
         scrollToSpecialRooms({ behavior: 'smooth' });
       }
 
+      function setHomeAndScrollMovies() {
+        const params = new URLSearchParams(window.location.search || '');
+        params.delete('focus');
+        const query = params.toString();
+        const nextUrl = query
+          ? `${window.location.pathname}?${query}#peliculas`
+          : `${window.location.pathname}#peliculas`;
+        window.history.pushState({}, '', nextUrl);
+        syncTopNavState();
+        scrollToMoviesSection({ behavior: 'smooth' });
+      }
+
       function syncTopNavState() {
         const path = window.location.pathname || '/';
         const params = new URLSearchParams(window.location.search || '');
@@ -2918,10 +2963,11 @@
         const homePath = ensureCarteleraNavHref(screeningsLink);
         const relativePath = relativePathFromHome(path, homePath);
         const onHome = relativePath === '/';
+        const moviesHashActive = hash === '#peliculas';
         const focus = {
-          screenings: (onHome && !['imax', 'dolby_atmos'].includes(focusParam))
+          screenings: (onHome && !['imax', 'dolby_atmos'].includes(focusParam) && !moviesHashActive)
             || (relativePath.startsWith('/screenings') && !['imax', 'dolby_atmos'].includes(category)),
-          movies: relativePath.startsWith('/movies'),
+          movies: relativePath.startsWith('/movies') || (onHome && moviesHashActive),
           imax: (onHome && focusParam === 'imax')
             || (relativePath.startsWith('/screenings') && category === 'imax'),
           dolby: (onHome && focusParam === 'dolby_atmos')
@@ -2957,6 +3003,23 @@
         if (!(event.target instanceof Element)) {
           return;
         }
+        const moviesLink = event.target.closest('a[data-nav-link="movies"]');
+        if (moviesLink instanceof HTMLAnchorElement) {
+          if (event.defaultPrevented || event.button !== 0 || event.metaKey || event.ctrlKey || event.shiftKey || event.altKey) {
+            return;
+          }
+          if (moviesLink.target && moviesLink.target !== '_self') {
+            return;
+          }
+          const currentScreeningsLink = document.querySelector('[data-nav-link="screenings"]');
+          const homePath = ensureCarteleraNavHref(currentScreeningsLink);
+          const relativePath = relativePathFromHome(window.location.pathname || '/', homePath);
+          if (relativePath === '/') {
+            event.preventDefault();
+            setHomeAndScrollMovies();
+          }
+          return;
+        }
         const navLink = event.target.closest('a[data-nav-link="imax"], a[data-nav-link="dolby"]');
         if (!(navLink instanceof HTMLAnchorElement)) {
           return;
@@ -2983,6 +3046,11 @@
           scrollToSpecialRooms({ behavior: 'auto' });
         });
       }
+      if ((window.location.hash || '').toLowerCase() === '#peliculas') {
+        window.requestAnimationFrame(() => {
+          scrollToMoviesSection({ behavior: 'auto' });
+        });
+      }
 
       syncTopNavState();
       window.addEventListener('popstate', syncTopNavState);
@@ -2991,8 +3059,11 @@
         if ((window.location.hash || '').toLowerCase() === '#salas-especiales') {
           scrollToSpecialRooms({ behavior: 'auto' });
         }
+        if ((window.location.hash || '').toLowerCase() === '#peliculas') {
+          scrollToMoviesSection({ behavior: 'auto' });
+        }
       });
-      window.CineVicioNav = { sync: syncTopNavState, scrollToSpecialRooms };
+      window.CineVicioNav = { sync: syncTopNavState, scrollToSpecialRooms, scrollToMoviesSection };
     })();
   </script>
   <script>

@@ -946,6 +946,10 @@
       scroll-margin-top: 7.2rem;
     }
 
+    [data-front-movies="true"] {
+      scroll-margin-top: 7.2rem;
+    }
+
     .front-coming-soon {
       display: grid;
       gap: 0.55rem;
@@ -1828,6 +1832,10 @@
       [data-front-specials="true"] {
         scroll-margin-top: 9.8rem;
       }
+
+      [data-front-movies="true"] {
+        scroll-margin-top: 9.8rem;
+      }
     }
 
     @media (max-width: 620px) {
@@ -1854,6 +1862,10 @@
       }
 
       [data-front-specials="true"] {
+        scroll-margin-top: 10.8rem;
+      }
+
+      [data-front-movies="true"] {
         scroll-margin-top: 10.8rem;
       }
     }
@@ -1894,7 +1906,7 @@
       <nav class="nav" aria-label="Primary">
         <div class="nav-links">
           <a href="/cinema-watch-snapshot/#cartelera" data-nav-link="screenings" class="" data-i18n-source>Showtimes</a>
-          <a href="/cinema-watch-snapshot/movies/" data-nav-link="movies" class="" data-i18n-source>Movies</a>
+          <a href="/cinema-watch-snapshot/#peliculas" data-nav-link="movies" class="" data-i18n-source>Movies</a>
           <a href="/cinema-watch-snapshot/?focus=imax#salas-especiales" data-nav-link="imax" class="">IMAX</a>
           <a href="/cinema-watch-snapshot/?focus=dolby_atmos#salas-especiales" data-nav-link="dolby" class="">Dolby Atmos</a>
         </div>
@@ -1966,1317 +1978,21 @@
     </header>
     <main id="app-main">
       
-<div data-live-page="movies">
-  <section class="front-hero">
-    <div class="front-hero-copy">
-      <span class="eyebrow">Peliculas</span>
-      <h1>Estrenadas y proximas.</h1>
-      <p>Una cartelera por titulos: de un lado lo que ya estreno y sigue en pantalla, del otro lo que entra en el proximo ciclo.</p>
+<script>
+  const query = window.location.search || '';
+  const target = `/cinema-watch-snapshot/${query}#peliculas`;
+  window.location.replace(target);
+</script>
+<section class="hero">
+  <div class="hero-copy">
+    <span class="eyebrow">Peliculas</span>
+    <h1>Esta seccion se movio al inicio.</h1>
+    <p>Si no redirigio automaticamente, entra a la cartelera principal.</p>
+    <div class="hero-actions">
+      <a class="button-pill" href="/cinema-watch-snapshot/#peliculas">Ir a Peliculas en Home</a>
     </div>
-    <div class="front-freshness">
-      <span>Titulos en foco</span>
-      <strong>20 en cartelera - 31 proximos</strong>
-      <span>1837 funciones cacheadas</span>
-    </div>
-  </section>
-
-  <section class="front-panel">
-    <div class="front-section-head">
-      <div>
-        <span class="kicker">Ciclo de estrenos</span>
-        <h2>Jueves abre, miercoles aparece</h2>
-        <p>En Argentina los estrenos suelen abrir los jueves y los horarios suelen aparecer desde el miercoles.</p>
-      </div>
-    </div>
-  </section>
-
-  <section class="front-panel" style="margin-top: 1rem;">
-    <div class="front-special-grid">
-      
-      <article class="front-mini-board">
-        <div class="front-mini-board-head">
-          <div>
-            <h3>En cartelera</h3>
-            <p>Titulos estrenados que siguen en pantalla en el ciclo actual.</p>
-          </div>
-          <span class="chip" data-i18n-count="movie" data-i18n-count-value="20">20 movies</span>
-        </div>
-        <p class="front-cartelera-cycle-note">2026-04-08 a 2026-04-08</p>
-        
-        <div class="dense-list">
-          
-          <a class="row-card" href="/cinema-watch-snapshot/movies/super-mario-galaxy-la-pelicula/">
-            <div class="row-head">
-              <strong>Super Mario Galaxy: La película</strong>
-              <div class="chips">
-                <span class="chip" data-i18n-count="screening" data-i18n-count-value="363">363 screenings</span>
-                <span class="chip" data-i18n-count="venue" data-i18n-count-value="19">19 venues</span>
-              </div>
-            </div>
-            
-            <p>Fechas cacheadas: 2026-04-08</p>
-            
-            <div class="chips">
-              
-              <span class="chip">Castellano</span>
-              
-              <span class="chip">Doblada</span>
-              
-              <span class="chip">Español</span>
-              
-              <span class="chip">Subtitulado</span>
-              
-              
-              <span class="stat">2D</span>
-              
-              <span class="stat">3D</span>
-              
-              <span class="stat">4D</span>
-              
-              <span class="stat">Classic</span>
-              
-              <span class="stat">Gc</span>
-              
-              <span class="stat">IMAX</span>
-              
-              <span class="stat">Monster Screen</span>
-              
-            </div>
-          </a>
-          
-          <a class="row-card" href="/cinema-watch-snapshot/movies/proyecto-fin-del-mundo/">
-            <div class="row-head">
-              <strong>Proyecto fin del mundo</strong>
-              <div class="chips">
-                <span class="chip" data-i18n-count="screening" data-i18n-count-value="70">70 screenings</span>
-                <span class="chip" data-i18n-count="venue" data-i18n-count-value="18">18 venues</span>
-              </div>
-            </div>
-            
-            <p>Fechas cacheadas: 2026-04-08</p>
-            
-            <div class="chips">
-              
-              <span class="chip">Castellano</span>
-              
-              <span class="chip">Doblada</span>
-              
-              <span class="chip">Español</span>
-              
-              <span class="chip">Subtitulado</span>
-              
-              
-              <span class="stat">2D</span>
-              
-              <span class="stat">4D</span>
-              
-              <span class="stat">Classic</span>
-              
-              <span class="stat">Gc</span>
-              
-            </div>
-          </a>
-          
-          <a class="row-card" href="/cinema-watch-snapshot/movies/hoppers-operacion-castor/">
-            <div class="row-head">
-              <strong>Hoppers: operación castor</strong>
-              <div class="chips">
-                <span class="chip" data-i18n-count="screening" data-i18n-count-value="34">34 screenings</span>
-                <span class="chip" data-i18n-count="venue" data-i18n-count-value="8">8 venues</span>
-              </div>
-            </div>
-            
-            <p>Fechas cacheadas: 2026-04-08</p>
-            
-            <div class="chips">
-              
-              <span class="chip">Castellano</span>
-              
-              <span class="chip">Doblada</span>
-              
-              
-              <span class="stat">2D</span>
-              
-              <span class="stat">3D</span>
-              
-            </div>
-          </a>
-          
-          <a class="row-card" href="/cinema-watch-snapshot/movies/jugada-maestra/">
-            <div class="row-head">
-              <strong>Jugada maestra</strong>
-              <div class="chips">
-                <span class="chip" data-i18n-count="screening" data-i18n-count-value="33">33 screenings</span>
-                <span class="chip" data-i18n-count="venue" data-i18n-count-value="12">12 venues</span>
-              </div>
-            </div>
-            
-            <p>Fechas cacheadas: 2026-04-08</p>
-            
-            <div class="chips">
-              
-              <span class="chip">Doblada</span>
-              
-              <span class="chip">Español</span>
-              
-              <span class="chip">Subtitulado</span>
-              
-              
-              <span class="stat">2D</span>
-              
-              <span class="stat">Classic</span>
-              
-            </div>
-          </a>
-          
-          <a class="row-card" href="/cinema-watch-snapshot/movies/hoppers/">
-            <div class="row-head">
-              <strong>HOPPERS</strong>
-              <div class="chips">
-                <span class="chip" data-i18n-count="screening" data-i18n-count-value="32">32 screenings</span>
-                <span class="chip" data-i18n-count="venue" data-i18n-count-value="10">10 venues</span>
-              </div>
-            </div>
-            
-            <p>Fechas cacheadas: 2026-04-08</p>
-            
-            <div class="chips">
-              
-              <span class="chip">Español</span>
-              
-              
-              <span class="stat">2D</span>
-              
-              <span class="stat">3D</span>
-              
-              <span class="stat">Classic</span>
-              
-              <span class="stat">Gc</span>
-              
-            </div>
-          </a>
-          
-          <a class="row-card" href="/cinema-watch-snapshot/movies/nuremberg-el-juicio-del-siglo/">
-            <div class="row-head">
-              <strong>Núremberg: El juicio del siglo</strong>
-              <div class="chips">
-                <span class="chip" data-i18n-count="screening" data-i18n-count-value="30">30 screenings</span>
-                <span class="chip" data-i18n-count="venue" data-i18n-count-value="13">13 venues</span>
-              </div>
-            </div>
-            
-            <p>Fechas cacheadas: 2026-04-08</p>
-            
-            <div class="chips">
-              
-              <span class="chip">Doblada</span>
-              
-              <span class="chip">Español</span>
-              
-              <span class="chip">Subtitulado</span>
-              
-              
-              <span class="stat">2D</span>
-              
-              <span class="stat">Classic</span>
-              
-            </div>
-          </a>
-          
-          <a class="row-card" href="/cinema-watch-snapshot/movies/scream-7/">
-            <div class="row-head">
-              <strong>Scream 7</strong>
-              <div class="chips">
-                <span class="chip" data-i18n-count="screening" data-i18n-count-value="18">18 screenings</span>
-                <span class="chip" data-i18n-count="venue" data-i18n-count-value="9">9 venues</span>
-              </div>
-            </div>
-            
-            <p>Fechas cacheadas: 2026-04-08</p>
-            
-            <div class="chips">
-              
-              <span class="chip">Doblada</span>
-              
-              <span class="chip">Español</span>
-              
-              
-              <span class="stat">2D</span>
-              
-              <span class="stat">Classic</span>
-              
-            </div>
-          </a>
-          
-          <a class="row-card" href="/cinema-watch-snapshot/movies/cumbres-borrascosas/">
-            <div class="row-head">
-              <strong>Cumbres borrascosas</strong>
-              <div class="chips">
-                <span class="chip" data-i18n-count="screening" data-i18n-count-value="12">12 screenings</span>
-                <span class="chip" data-i18n-count="venue" data-i18n-count-value="7">7 venues</span>
-              </div>
-            </div>
-            
-            <p>Fechas cacheadas: 2026-04-08</p>
-            
-            <div class="chips">
-              
-              <span class="chip">Doblada</span>
-              
-              <span class="chip">Español</span>
-              
-              <span class="chip">Subtitulado</span>
-              
-              
-              <span class="stat">2D</span>
-              
-              <span class="stat">Classic</span>
-              
-            </div>
-          </a>
-          
-          <a class="row-card" href="/cinema-watch-snapshot/movies/hamnet/">
-            <div class="row-head">
-              <strong>Hamnet</strong>
-              <div class="chips">
-                <span class="chip" data-i18n-count="screening" data-i18n-count-value="12">12 screenings</span>
-                <span class="chip" data-i18n-count="venue" data-i18n-count-value="5">5 venues</span>
-              </div>
-            </div>
-            
-            <p>Fechas cacheadas: 2026-04-08</p>
-            
-            <div class="chips">
-              
-              <span class="chip">Subtitulado</span>
-              
-              
-              <span class="stat">2D</span>
-              
-              <span class="stat">Classic</span>
-              
-            </div>
-          </a>
-          
-          <a class="row-card" href="/cinema-watch-snapshot/movies/no-te-olvidare/">
-            <div class="row-head">
-              <strong>No te olvidaré</strong>
-              <div class="chips">
-                <span class="chip" data-i18n-count="screening" data-i18n-count-value="9">9 screenings</span>
-                <span class="chip" data-i18n-count="venue" data-i18n-count-value="5">5 venues</span>
-              </div>
-            </div>
-            
-            <p>Fechas cacheadas: 2026-04-08</p>
-            
-            <div class="chips">
-              
-              <span class="chip">Doblada</span>
-              
-              <span class="chip">Subtitulado</span>
-              
-              
-              <span class="stat">2D</span>
-              
-            </div>
-          </a>
-          
-          <a class="row-card" href="/cinema-watch-snapshot/movies/gioia-mia-un-verano-en-sicilia/">
-            <div class="row-head">
-              <strong>Gioia Mia: Un verano en Sicilia</strong>
-              <div class="chips">
-                <span class="chip" data-i18n-count="screening" data-i18n-count-value="6">6 screenings</span>
-                <span class="chip" data-i18n-count="venue" data-i18n-count-value="3">3 venues</span>
-              </div>
-            </div>
-            
-            <p>Fechas cacheadas: 2026-04-08</p>
-            
-            <div class="chips">
-              
-              <span class="chip">Subtitulado</span>
-              
-              
-              <span class="stat">2D</span>
-              
-              <span class="stat">Classic</span>
-              
-            </div>
-          </a>
-          
-          <a class="row-card" href="/cinema-watch-snapshot/movies/playa-de-lobos/">
-            <div class="row-head">
-              <strong>Playa de lobos</strong>
-              <div class="chips">
-                <span class="chip" data-i18n-count="screening" data-i18n-count-value="6">6 screenings</span>
-                <span class="chip" data-i18n-count="venue" data-i18n-count-value="4">4 venues</span>
-              </div>
-            </div>
-            
-            <p>Fechas cacheadas: 2026-04-08</p>
-            
-            <div class="chips">
-              
-              <span class="chip">Castellano</span>
-              
-              
-              <span class="stat">2D</span>
-              
-            </div>
-          </a>
-          
-          <a class="row-card" href="/cinema-watch-snapshot/movies/la-grazia-la-belleza-de-la-duda/">
-            <div class="row-head">
-              <strong>La Grazia: La belleza de la duda</strong>
-              <div class="chips">
-                <span class="chip" data-i18n-count="screening" data-i18n-count-value="5">5 screenings</span>
-                <span class="chip" data-i18n-count="venue" data-i18n-count-value="3">3 venues</span>
-              </div>
-            </div>
-            
-            <p>Fechas cacheadas: 2026-04-08</p>
-            
-            <div class="chips">
-              
-              <span class="chip">Subtitulado</span>
-              
-              
-              <span class="stat">2D</span>
-              
-              <span class="stat">Classic</span>
-              
-            </div>
-          </a>
-          
-          <a class="row-card" href="/cinema-watch-snapshot/movies/te-van-a-matar/">
-            <div class="row-head">
-              <strong>Te van a matar</strong>
-              <div class="chips">
-                <span class="chip" data-i18n-count="screening" data-i18n-count-value="5">5 screenings</span>
-                <span class="chip" data-i18n-count="venue" data-i18n-count-value="5">5 venues</span>
-              </div>
-            </div>
-            
-            <p>Fechas cacheadas: 2026-04-08</p>
-            
-            <div class="chips">
-              
-              <span class="chip">Doblada</span>
-              
-              <span class="chip">Español</span>
-              
-              
-              <span class="stat">2D</span>
-              
-              <span class="stat">Classic</span>
-              
-            </div>
-          </a>
-          
-          <a class="row-card" href="/cinema-watch-snapshot/movies/boda-sangrienta-2/">
-            <div class="row-head">
-              <strong>Boda sangrienta 2</strong>
-              <div class="chips">
-                <span class="chip" data-i18n-count="screening" data-i18n-count-value="3">3 screenings</span>
-                <span class="chip" data-i18n-count="venue" data-i18n-count-value="3">3 venues</span>
-              </div>
-            </div>
-            
-            <p>Fechas cacheadas: 2026-04-08</p>
-            
-            <div class="chips">
-              
-              <span class="chip">Doblada</span>
-              
-              <span class="chip">Español</span>
-              
-              
-              <span class="stat">2D</span>
-              
-              <span class="stat">Classic</span>
-              
-            </div>
-          </a>
-          
-          <a class="row-card" href="/cinema-watch-snapshot/movies/la-cabra-que-cambio-el-juego-goat/">
-            <div class="row-head">
-              <strong>La cabra que cambió el juego: Goat</strong>
-              <div class="chips">
-                <span class="chip" data-i18n-count="screening" data-i18n-count-value="3">3 screenings</span>
-                <span class="chip" data-i18n-count="venue" data-i18n-count-value="3">3 venues</span>
-              </div>
-            </div>
-            
-            <p>Fechas cacheadas: 2026-04-08</p>
-            
-            <div class="chips">
-              
-              <span class="chip">Doblada</span>
-              
-              
-              <span class="stat">2D</span>
-              
-            </div>
-          </a>
-          
-          <a class="row-card" href="/cinema-watch-snapshot/movies/un-fantasma-a-su-servicio/">
-            <div class="row-head">
-              <strong>Un fantasma a su servicio</strong>
-              <div class="chips">
-                <span class="chip" data-i18n-count="screening" data-i18n-count-value="2">2 screenings</span>
-                <span class="chip" data-i18n-count="venue" data-i18n-count-value="2">2 venues</span>
-              </div>
-            </div>
-            
-            <p>Fechas cacheadas: 2026-04-08</p>
-            
-            <div class="chips">
-              
-              <span class="chip">Subtitulado</span>
-              
-              
-              <span class="stat">2D</span>
-              
-              <span class="stat">Classic</span>
-              
-            </div>
-          </a>
-          
-          <a class="row-card" href="/cinema-watch-snapshot/movies/el-agente-secreto/">
-            <div class="row-head">
-              <strong>El Agente Secreto</strong>
-              <div class="chips">
-                <span class="chip" data-i18n-count="screening" data-i18n-count-value="1">1 screenings</span>
-                <span class="chip" data-i18n-count="venue" data-i18n-count-value="1">1 venues</span>
-              </div>
-            </div>
-            
-            <p>Fechas cacheadas: 2026-04-08</p>
-            
-            <div class="chips">
-              
-              <span class="chip">Subtitulado</span>
-              
-              
-              <span class="stat">2D</span>
-              
-              <span class="stat">Classic</span>
-              
-            </div>
-          </a>
-          
-          <a class="row-card" href="/cinema-watch-snapshot/movies/malvinas-legado-de-sangre/">
-            <div class="row-head">
-              <strong>Malvinas: Legado de sangre</strong>
-              <div class="chips">
-                <span class="chip" data-i18n-count="screening" data-i18n-count-value="1">1 screenings</span>
-                <span class="chip" data-i18n-count="venue" data-i18n-count-value="1">1 venues</span>
-              </div>
-            </div>
-            
-            <p>Fechas cacheadas: 2026-04-08</p>
-            
-            <div class="chips">
-              
-              <span class="chip">Español</span>
-              
-              
-              <span class="stat">2D</span>
-              
-              <span class="stat">Classic</span>
-              
-            </div>
-          </a>
-          
-          <a class="row-card" href="/cinema-watch-snapshot/movies/marty-supremo/">
-            <div class="row-head">
-              <strong>Marty supremo</strong>
-              <div class="chips">
-                <span class="chip" data-i18n-count="screening" data-i18n-count-value="1">1 screenings</span>
-                <span class="chip" data-i18n-count="venue" data-i18n-count-value="1">1 venues</span>
-              </div>
-            </div>
-            
-            <p>Fechas cacheadas: 2026-04-08</p>
-            
-            <div class="chips">
-              
-              <span class="chip">Subtitulado</span>
-              
-              
-              <span class="stat">2D</span>
-              
-            </div>
-          </a>
-          
-        </div>
-        
-      </article>
-      
-      <article class="front-mini-board">
-        <div class="front-mini-board-head">
-          <div>
-            <h3>Proximos estrenos</h3>
-            <p>Titulos que entran en el siguiente ciclo de estrenos.</p>
-          </div>
-          <span class="chip" data-i18n-count="movie" data-i18n-count-value="31">31 movies</span>
-        </div>
-        <p class="front-cartelera-cycle-note">2026-04-09 a 2026-04-15</p>
-        
-        <div class="dense-list">
-          
-          <a class="row-card" href="/cinema-watch-snapshot/movies/super-mario-galaxy-la-pelicula/">
-            <div class="row-head">
-              <strong>Super Mario Galaxy: La película</strong>
-              <div class="chips">
-                <span class="chip" data-i18n-count="screening" data-i18n-count-value="507">507 screenings</span>
-                <span class="chip" data-i18n-count="venue" data-i18n-count-value="8">8 venues</span>
-              </div>
-            </div>
-            
-            <p>Fechas cacheadas: 2026-04-09 to 2026-04-15</p>
-            
-            <div class="chips">
-              
-              <span class="chip">Castellano</span>
-              
-              <span class="chip">Doblada</span>
-              
-              <span class="chip">Español</span>
-              
-              <span class="chip">Subtitulado</span>
-              
-              
-              <span class="stat">2D</span>
-              
-              <span class="stat">3D</span>
-              
-              <span class="stat">4D</span>
-              
-              <span class="stat">Classic</span>
-              
-              <span class="stat">Gc</span>
-              
-              <span class="stat">IMAX</span>
-              
-            </div>
-          </a>
-          
-          <a class="row-card" href="/cinema-watch-snapshot/movies/proyecto-fin-del-mundo/">
-            <div class="row-head">
-              <strong>Proyecto fin del mundo</strong>
-              <div class="chips">
-                <span class="chip" data-i18n-count="screening" data-i18n-count-value="94">94 screenings</span>
-                <span class="chip" data-i18n-count="venue" data-i18n-count-value="8">8 venues</span>
-              </div>
-            </div>
-            
-            <p>Fechas cacheadas: 2026-04-09 to 2026-04-15</p>
-            
-            <div class="chips">
-              
-              <span class="chip">Castellano</span>
-              
-              <span class="chip">Español</span>
-              
-              <span class="chip">Subtitulado</span>
-              
-              
-              <span class="stat">2D</span>
-              
-              <span class="stat">4D</span>
-              
-              <span class="stat">Classic</span>
-              
-              <span class="stat">Gc</span>
-              
-              <span class="stat">IMAX</span>
-              
-            </div>
-          </a>
-          
-          <a class="row-card" href="/cinema-watch-snapshot/movies/el-drama/">
-            <div class="row-head">
-              <strong>El Drama</strong>
-              <div class="chips">
-                <span class="chip" data-i18n-count="screening" data-i18n-count-value="75">75 screenings</span>
-                <span class="chip" data-i18n-count="venue" data-i18n-count-value="6">6 venues</span>
-              </div>
-            </div>
-            
-            <p>Fechas cacheadas: 2026-04-09 to 2026-04-12</p>
-            
-            <div class="chips">
-              
-              <span class="chip">Español</span>
-              
-              <span class="chip">Subtitulado</span>
-              
-              
-              <span class="stat">2D</span>
-              
-              <span class="stat">Classic</span>
-              
-              <span class="stat">Gc</span>
-              
-            </div>
-          </a>
-          
-          <a class="row-card" href="/cinema-watch-snapshot/movies/hoppers/">
-            <div class="row-head">
-              <strong>HOPPERS</strong>
-              <div class="chips">
-                <span class="chip" data-i18n-count="screening" data-i18n-count-value="48">48 screenings</span>
-                <span class="chip" data-i18n-count="venue" data-i18n-count-value="6">6 venues</span>
-              </div>
-            </div>
-            
-            <p>Fechas cacheadas: 2026-04-09 to 2026-04-12</p>
-            
-            <div class="chips">
-              
-              <span class="chip">Español</span>
-              
-              
-              <span class="stat">2D</span>
-              
-              <span class="stat">Classic</span>
-              
-              <span class="stat">Gc</span>
-              
-            </div>
-          </a>
-          
-          <a class="row-card" href="/cinema-watch-snapshot/movies/bts-world-tour-arirang-in-goyang-live-viewing/">
-            <div class="row-head">
-              <strong>BTS World Tour &#39;ARIRANG&#39; in GOYANG: LIVE VIEWING</strong>
-              <div class="chips">
-                <span class="chip" data-i18n-count="screening" data-i18n-count-value="34">34 screenings</span>
-                <span class="chip" data-i18n-count="venue" data-i18n-count-value="8">8 venues</span>
-              </div>
-            </div>
-            
-            <p>Fechas cacheadas: 2026-04-11</p>
-            
-            <div class="chips">
-              
-              <span class="chip">Subtitulado</span>
-              
-              
-              <span class="stat">2D</span>
-              
-              <span class="stat">Classic</span>
-              
-              <span class="stat">Monster Screen</span>
-              
-            </div>
-          </a>
-          
-          <a class="row-card" href="/cinema-watch-snapshot/movies/torrente-presidente/">
-            <div class="row-head">
-              <strong>Torrente presidente</strong>
-              <div class="chips">
-                <span class="chip" data-i18n-count="screening" data-i18n-count-value="33">33 screenings</span>
-                <span class="chip" data-i18n-count="venue" data-i18n-count-value="3">3 venues</span>
-              </div>
-            </div>
-            
-            <p>Fechas cacheadas: 2026-04-09 to 2026-04-12</p>
-            
-            <div class="chips">
-              
-              <span class="chip">Español</span>
-              
-              
-              <span class="stat">2D</span>
-              
-              <span class="stat">Classic</span>
-              
-            </div>
-          </a>
-          
-          <a class="row-card" href="/cinema-watch-snapshot/movies/hoppers-operacion-castor/">
-            <div class="row-head">
-              <strong>Hoppers: operación castor</strong>
-              <div class="chips">
-                <span class="chip" data-i18n-count="screening" data-i18n-count-value="21">21 screenings</span>
-                <span class="chip" data-i18n-count="venue" data-i18n-count-value="1">1 venues</span>
-              </div>
-            </div>
-            
-            <p>Fechas cacheadas: 2026-04-09 to 2026-04-15</p>
-            
-            <div class="chips">
-              
-              <span class="chip">Castellano</span>
-              
-              
-              <span class="stat">2D</span>
-              
-            </div>
-          </a>
-          
-          <a class="row-card" href="/cinema-watch-snapshot/movies/911-llamada-infernal/">
-            <div class="row-head">
-              <strong>911 Llamada Infernal</strong>
-              <div class="chips">
-                <span class="chip" data-i18n-count="screening" data-i18n-count-value="18">18 screenings</span>
-                <span class="chip" data-i18n-count="venue" data-i18n-count-value="2">2 venues</span>
-              </div>
-            </div>
-            
-            <p>Fechas cacheadas: 2026-04-09 to 2026-04-12</p>
-            
-            <div class="chips">
-              
-              <span class="chip">Español</span>
-              
-              
-              <span class="stat">2D</span>
-              
-              <span class="stat">Classic</span>
-              
-            </div>
-          </a>
-          
-          <a class="row-card" href="/cinema-watch-snapshot/movies/beezel-la-devoradora-de-almas/">
-            <div class="row-head">
-              <strong>Beezel, La devoradora de almas</strong>
-              <div class="chips">
-                <span class="chip" data-i18n-count="screening" data-i18n-count-value="16">16 screenings</span>
-                <span class="chip" data-i18n-count="venue" data-i18n-count-value="4">4 venues</span>
-              </div>
-            </div>
-            
-            <p>Fechas cacheadas: 2026-04-09 to 2026-04-12</p>
-            
-            <div class="chips">
-              
-              <span class="chip">Español</span>
-              
-              
-              <span class="stat">2D</span>
-              
-              <span class="stat">Classic</span>
-              
-            </div>
-          </a>
-          
-          <a class="row-card" href="/cinema-watch-snapshot/movies/buena-suerte-diviertete-no-mueras/">
-            <div class="row-head">
-              <strong>Buena suerte, diviértete, no mueras</strong>
-              <div class="chips">
-                <span class="chip" data-i18n-count="screening" data-i18n-count-value="16">16 screenings</span>
-                <span class="chip" data-i18n-count="venue" data-i18n-count-value="2">2 venues</span>
-              </div>
-            </div>
-            
-            <p>Fechas cacheadas: 2026-04-09 to 2026-04-12</p>
-            
-            <div class="chips">
-              
-              <span class="chip">Español</span>
-              
-              <span class="chip">Subtitulado</span>
-              
-              
-              <span class="stat">2D</span>
-              
-              <span class="stat">Classic</span>
-              
-            </div>
-          </a>
-          
-          <a class="row-card" href="/cinema-watch-snapshot/movies/nuremberg-el-juicio-del-siglo/">
-            <div class="row-head">
-              <strong>Núremberg: El juicio del siglo</strong>
-              <div class="chips">
-                <span class="chip" data-i18n-count="screening" data-i18n-count-value="15">15 screenings</span>
-                <span class="chip" data-i18n-count="venue" data-i18n-count-value="2">2 venues</span>
-              </div>
-            </div>
-            
-            <p>Fechas cacheadas: 2026-04-09 to 2026-04-15</p>
-            
-            <div class="chips">
-              
-              <span class="chip">Subtitulado</span>
-              
-              
-              <span class="stat">2D</span>
-              
-              <span class="stat">Classic</span>
-              
-            </div>
-          </a>
-          
-          <a class="row-card" href="/cinema-watch-snapshot/movies/la-casaca-de-dios/">
-            <div class="row-head">
-              <strong>La casaca de Dios</strong>
-              <div class="chips">
-                <span class="chip" data-i18n-count="screening" data-i18n-count-value="12">12 screenings</span>
-                <span class="chip" data-i18n-count="venue" data-i18n-count-value="3">3 venues</span>
-              </div>
-            </div>
-            
-            <p>Fechas cacheadas: 2026-04-09 to 2026-04-12</p>
-            
-            <div class="chips">
-              
-              <span class="chip">Español</span>
-              
-              
-              <span class="stat">2D</span>
-              
-              <span class="stat">Classic</span>
-              
-            </div>
-          </a>
-          
-          <a class="row-card" href="/cinema-watch-snapshot/movies/hamnet/">
-            <div class="row-head">
-              <strong>Hamnet</strong>
-              <div class="chips">
-                <span class="chip" data-i18n-count="screening" data-i18n-count-value="11">11 screenings</span>
-                <span class="chip" data-i18n-count="venue" data-i18n-count-value="1">1 venues</span>
-              </div>
-            </div>
-            
-            <p>Fechas cacheadas: 2026-04-09 to 2026-04-12</p>
-            
-            <div class="chips">
-              
-              <span class="chip">Subtitulado</span>
-              
-              
-              <span class="stat">2D</span>
-              
-              <span class="stat">Classic</span>
-              
-            </div>
-          </a>
-          
-          <a class="row-card" href="/cinema-watch-snapshot/movies/la-mujer-del-rio/">
-            <div class="row-head">
-              <strong>La Mujer del Rio</strong>
-              <div class="chips">
-                <span class="chip" data-i18n-count="screening" data-i18n-count-value="8">8 screenings</span>
-                <span class="chip" data-i18n-count="venue" data-i18n-count-value="2">2 venues</span>
-              </div>
-            </div>
-            
-            <p>Fechas cacheadas: 2026-04-09 to 2026-04-12</p>
-            
-            <div class="chips">
-              
-              <span class="chip">Español</span>
-              
-              
-              <span class="stat">2D</span>
-              
-              <span class="stat">Classic</span>
-              
-            </div>
-          </a>
-          
-          <a class="row-card" href="/cinema-watch-snapshot/movies/el-agente-secreto/">
-            <div class="row-head">
-              <strong>El Agente Secreto</strong>
-              <div class="chips">
-                <span class="chip" data-i18n-count="screening" data-i18n-count-value="4">4 screenings</span>
-                <span class="chip" data-i18n-count="venue" data-i18n-count-value="1">1 venues</span>
-              </div>
-            </div>
-            
-            <p>Fechas cacheadas: 2026-04-09 to 2026-04-12</p>
-            
-            <div class="chips">
-              
-              <span class="chip">Subtitulado</span>
-              
-              
-              <span class="stat">2D</span>
-              
-              <span class="stat">Classic</span>
-              
-            </div>
-          </a>
-          
-          <a class="row-card" href="/cinema-watch-snapshot/movies/gioia-mia-un-verano-en-sicilia/">
-            <div class="row-head">
-              <strong>Gioia Mia: Un verano en Sicilia</strong>
-              <div class="chips">
-                <span class="chip" data-i18n-count="screening" data-i18n-count-value="4">4 screenings</span>
-                <span class="chip" data-i18n-count="venue" data-i18n-count-value="1">1 venues</span>
-              </div>
-            </div>
-            
-            <p>Fechas cacheadas: 2026-04-09 to 2026-04-12</p>
-            
-            <div class="chips">
-              
-              <span class="chip">Subtitulado</span>
-              
-              
-              <span class="stat">2D</span>
-              
-              <span class="stat">Classic</span>
-              
-            </div>
-          </a>
-          
-          <a class="row-card" href="/cinema-watch-snapshot/movies/la-grazia-la-belleza-de-la-duda/">
-            <div class="row-head">
-              <strong>La Grazia: La belleza de la duda</strong>
-              <div class="chips">
-                <span class="chip" data-i18n-count="screening" data-i18n-count-value="4">4 screenings</span>
-                <span class="chip" data-i18n-count="venue" data-i18n-count-value="1">1 venues</span>
-              </div>
-            </div>
-            
-            <p>Fechas cacheadas: 2026-04-09 to 2026-04-12</p>
-            
-            <div class="chips">
-              
-              <span class="chip">Subtitulado</span>
-              
-              
-              <span class="stat">2D</span>
-              
-              <span class="stat">Classic</span>
-              
-            </div>
-          </a>
-          
-          <a class="row-card" href="/cinema-watch-snapshot/movies/padre-madre-hermana-hermano/">
-            <div class="row-head">
-              <strong>Padre Madre Hermana Hermano</strong>
-              <div class="chips">
-                <span class="chip" data-i18n-count="screening" data-i18n-count-value="4">4 screenings</span>
-                <span class="chip" data-i18n-count="venue" data-i18n-count-value="1">1 venues</span>
-              </div>
-            </div>
-            
-            <p>Fechas cacheadas: 2026-04-09 to 2026-04-12</p>
-            
-            <div class="chips">
-              
-              <span class="chip">Subtitulado</span>
-              
-              
-              <span class="stat">2D</span>
-              
-              <span class="stat">Classic</span>
-              
-            </div>
-          </a>
-          
-          <a class="row-card" href="/cinema-watch-snapshot/movies/scream-7/">
-            <div class="row-head">
-              <strong>Scream 7</strong>
-              <div class="chips">
-                <span class="chip" data-i18n-count="screening" data-i18n-count-value="4">4 screenings</span>
-                <span class="chip" data-i18n-count="venue" data-i18n-count-value="1">1 venues</span>
-              </div>
-            </div>
-            
-            <p>Fechas cacheadas: 2026-04-09 to 2026-04-12</p>
-            
-            <div class="chips">
-              
-              <span class="chip">Español</span>
-              
-              
-              <span class="stat">2D</span>
-              
-              <span class="stat">Classic</span>
-              
-            </div>
-          </a>
-          
-          <a class="row-card" href="/cinema-watch-snapshot/movies/la-divina-sarah-bernhardt/">
-            <div class="row-head">
-              <strong>La divina Sarah Bernhardt</strong>
-              <div class="chips">
-                <span class="chip" data-i18n-count="screening" data-i18n-count-value="2">2 screenings</span>
-                <span class="chip" data-i18n-count="venue" data-i18n-count-value="1">1 venues</span>
-              </div>
-            </div>
-            
-            <p>Fechas cacheadas: 2026-04-10 to 2026-04-12</p>
-            
-            <div class="chips">
-              
-              <span class="chip">Subtitulado</span>
-              
-              
-              <span class="stat">2D</span>
-              
-              <span class="stat">Classic</span>
-              
-            </div>
-          </a>
-          
-          <a class="row-card" href="/cinema-watch-snapshot/movies/los-colores-del-tiempo/">
-            <div class="row-head">
-              <strong>Los colores del tiempo</strong>
-              <div class="chips">
-                <span class="chip" data-i18n-count="screening" data-i18n-count-value="2">2 screenings</span>
-                <span class="chip" data-i18n-count="venue" data-i18n-count-value="1">1 venues</span>
-              </div>
-            </div>
-            
-            <p>Fechas cacheadas: 2026-04-09 to 2026-04-12</p>
-            
-            <div class="chips">
-              
-              <span class="chip">Subtitulado</span>
-              
-              
-              <span class="stat">2D</span>
-              
-              <span class="stat">Classic</span>
-              
-            </div>
-          </a>
-          
-          <a class="row-card" href="/cinema-watch-snapshot/movies/alphaville/">
-            <div class="row-head">
-              <strong>Alphaville</strong>
-              <div class="chips">
-                <span class="chip" data-i18n-count="screening" data-i18n-count-value="1">1 screenings</span>
-                <span class="chip" data-i18n-count="venue" data-i18n-count-value="1">1 venues</span>
-              </div>
-            </div>
-            
-            <p>Fechas cacheadas: 2026-04-10</p>
-            
-            <div class="chips">
-              
-              <span class="chip">Subtitulado</span>
-              
-              
-              <span class="stat">2D</span>
-              
-              <span class="stat">Classic</span>
-              
-            </div>
-          </a>
-          
-          <a class="row-card" href="/cinema-watch-snapshot/movies/caso-137/">
-            <div class="row-head">
-              <strong>Caso 137</strong>
-              <div class="chips">
-                <span class="chip" data-i18n-count="screening" data-i18n-count-value="1">1 screenings</span>
-                <span class="chip" data-i18n-count="venue" data-i18n-count-value="1">1 venues</span>
-              </div>
-            </div>
-            
-            <p>Fechas cacheadas: 2026-04-10</p>
-            
-            <div class="chips">
-              
-              <span class="chip">Subtitulado</span>
-              
-              
-              <span class="stat">2D</span>
-              
-              <span class="stat">Classic</span>
-              
-            </div>
-          </a>
-          
-          <a class="row-card" href="/cinema-watch-snapshot/movies/dos-pianos/">
-            <div class="row-head">
-              <strong>Dos pianos</strong>
-              <div class="chips">
-                <span class="chip" data-i18n-count="screening" data-i18n-count-value="1">1 screenings</span>
-                <span class="chip" data-i18n-count="venue" data-i18n-count-value="1">1 venues</span>
-              </div>
-            </div>
-            
-            <p>Fechas cacheadas: 2026-04-11</p>
-            
-            <div class="chips">
-              
-              <span class="chip">Subtitulado</span>
-              
-              
-              <span class="stat">2D</span>
-              
-              <span class="stat">Classic</span>
-              
-            </div>
-          </a>
-          
-          <a class="row-card" href="/cinema-watch-snapshot/movies/el-desprecio/">
-            <div class="row-head">
-              <strong>El desprecio</strong>
-              <div class="chips">
-                <span class="chip" data-i18n-count="screening" data-i18n-count-value="1">1 screenings</span>
-                <span class="chip" data-i18n-count="venue" data-i18n-count-value="1">1 venues</span>
-              </div>
-            </div>
-            
-            <p>Fechas cacheadas: 2026-04-11</p>
-            
-            <div class="chips">
-              
-              <span class="chip">Español</span>
-              
-              
-              <span class="stat">2D</span>
-              
-              <span class="stat">Classic</span>
-              
-            </div>
-          </a>
-          
-          <a class="row-card" href="/cinema-watch-snapshot/movies/el-gran-arco/">
-            <div class="row-head">
-              <strong>El gran Arco</strong>
-              <div class="chips">
-                <span class="chip" data-i18n-count="screening" data-i18n-count-value="1">1 screenings</span>
-                <span class="chip" data-i18n-count="venue" data-i18n-count-value="1">1 venues</span>
-              </div>
-            </div>
-            
-            <p>Fechas cacheadas: 2026-04-11</p>
-            
-            <div class="chips">
-              
-              <span class="chip">Subtitulado</span>
-              
-              
-              <span class="stat">2D</span>
-              
-              <span class="stat">Classic</span>
-              
-            </div>
-          </a>
-          
-          <a class="row-card" href="/cinema-watch-snapshot/movies/l-affaire-bojarski/">
-            <div class="row-head">
-              <strong>L’Affaire Bojarski</strong>
-              <div class="chips">
-                <span class="chip" data-i18n-count="screening" data-i18n-count-value="1">1 screenings</span>
-                <span class="chip" data-i18n-count="venue" data-i18n-count-value="1">1 venues</span>
-              </div>
-            </div>
-            
-            <p>Fechas cacheadas: 2026-04-12</p>
-            
-            <div class="chips">
-              
-              <span class="chip">Subtitulado</span>
-              
-              
-              <span class="stat">2D</span>
-              
-              <span class="stat">Classic</span>
-              
-            </div>
-          </a>
-          
-          <a class="row-card" href="/cinema-watch-snapshot/movies/madres-jovenes/">
-            <div class="row-head">
-              <strong>Madres Jóvenes</strong>
-              <div class="chips">
-                <span class="chip" data-i18n-count="screening" data-i18n-count-value="1">1 screenings</span>
-                <span class="chip" data-i18n-count="venue" data-i18n-count-value="1">1 venues</span>
-              </div>
-            </div>
-            
-            <p>Fechas cacheadas: 2026-04-11</p>
-            
-            <div class="chips">
-              
-              <span class="chip">Subtitulado</span>
-              
-              
-              <span class="stat">2D</span>
-              
-              <span class="stat">Classic</span>
-              
-            </div>
-          </a>
-          
-          <a class="row-card" href="/cinema-watch-snapshot/movies/maya-dame-un-titulo/">
-            <div class="row-head">
-              <strong>Maya, dame un título</strong>
-              <div class="chips">
-                <span class="chip" data-i18n-count="screening" data-i18n-count-value="1">1 screenings</span>
-                <span class="chip" data-i18n-count="venue" data-i18n-count-value="1">1 venues</span>
-              </div>
-            </div>
-            
-            <p>Fechas cacheadas: 2026-04-12</p>
-            
-            <div class="chips">
-              
-              <span class="chip">Subtitulado</span>
-              
-              
-              <span class="stat">2D</span>
-              
-              <span class="stat">Classic</span>
-              
-            </div>
-          </a>
-          
-          <a class="row-card" href="/cinema-watch-snapshot/movies/por-el-bien-de-adam/">
-            <div class="row-head">
-              <strong>Por el bien de Adam</strong>
-              <div class="chips">
-                <span class="chip" data-i18n-count="screening" data-i18n-count-value="1">1 screenings</span>
-                <span class="chip" data-i18n-count="venue" data-i18n-count-value="1">1 venues</span>
-              </div>
-            </div>
-            
-            <p>Fechas cacheadas: 2026-04-09</p>
-            
-            <div class="chips">
-              
-              <span class="chip">Subtitulado</span>
-              
-              
-              <span class="stat">2D</span>
-              
-              <span class="stat">Classic</span>
-              
-            </div>
-          </a>
-          
-          <a class="row-card" href="/cinema-watch-snapshot/movies/un-fantasma-a-su-servicio/">
-            <div class="row-head">
-              <strong>Un fantasma a su servicio</strong>
-              <div class="chips">
-                <span class="chip" data-i18n-count="screening" data-i18n-count-value="1">1 screenings</span>
-                <span class="chip" data-i18n-count="venue" data-i18n-count-value="1">1 venues</span>
-              </div>
-            </div>
-            
-            <p>Fechas cacheadas: 2026-04-12</p>
-            
-            <div class="chips">
-              
-              <span class="chip">Subtitulado</span>
-              
-              
-              <span class="stat">2D</span>
-              
-              <span class="stat">Classic</span>
-              
-            </div>
-          </a>
-          
-        </div>
-        
-      </article>
-      
-    </div>
-  </section>
-</div>
+  </div>
+</section>
 
     </main>
   </div>
@@ -4036,6 +2752,27 @@
         return true;
       }
 
+      function scrollToMoviesSection({ behavior = 'smooth' } = {}) {
+        const visiblePanel = Array.from(document.querySelectorAll('[data-location-panel]'))
+          .find((panel) => panel instanceof HTMLElement && !panel.hidden);
+        let target = visiblePanel?.querySelector('[data-front-movies="true"]');
+        if (!(target instanceof HTMLElement)) {
+          target = Array.from(document.querySelectorAll('[data-front-movies="true"]'))
+            .find((section) => {
+              if (!(section instanceof HTMLElement)) {
+                return false;
+              }
+              const panel = section.closest('[data-location-panel]');
+              return !(panel instanceof HTMLElement) || !panel.hidden;
+            });
+        }
+        if (!(target instanceof HTMLElement)) {
+          return false;
+        }
+        target.scrollIntoView({ behavior, block: 'start' });
+        return true;
+      }
+
       function setHomeFocusAndScrollSpecialRooms(focusValue) {
         const params = new URLSearchParams(window.location.search || '');
         if (focusValue) {
@@ -4052,6 +2789,18 @@
         scrollToSpecialRooms({ behavior: 'smooth' });
       }
 
+      function setHomeAndScrollMovies() {
+        const params = new URLSearchParams(window.location.search || '');
+        params.delete('focus');
+        const query = params.toString();
+        const nextUrl = query
+          ? `${window.location.pathname}?${query}#peliculas`
+          : `${window.location.pathname}#peliculas`;
+        window.history.pushState({}, '', nextUrl);
+        syncTopNavState();
+        scrollToMoviesSection({ behavior: 'smooth' });
+      }
+
       function syncTopNavState() {
         const path = window.location.pathname || '/';
         const params = new URLSearchParams(window.location.search || '');
@@ -4062,10 +2811,11 @@
         const homePath = ensureCarteleraNavHref(screeningsLink);
         const relativePath = relativePathFromHome(path, homePath);
         const onHome = relativePath === '/';
+        const moviesHashActive = hash === '#peliculas';
         const focus = {
-          screenings: (onHome && !['imax', 'dolby_atmos'].includes(focusParam))
+          screenings: (onHome && !['imax', 'dolby_atmos'].includes(focusParam) && !moviesHashActive)
             || (relativePath.startsWith('/screenings') && !['imax', 'dolby_atmos'].includes(category)),
-          movies: relativePath.startsWith('/movies'),
+          movies: relativePath.startsWith('/movies') || (onHome && moviesHashActive),
           imax: (onHome && focusParam === 'imax')
             || (relativePath.startsWith('/screenings') && category === 'imax'),
           dolby: (onHome && focusParam === 'dolby_atmos')
@@ -4101,6 +2851,23 @@
         if (!(event.target instanceof Element)) {
           return;
         }
+        const moviesLink = event.target.closest('a[data-nav-link="movies"]');
+        if (moviesLink instanceof HTMLAnchorElement) {
+          if (event.defaultPrevented || event.button !== 0 || event.metaKey || event.ctrlKey || event.shiftKey || event.altKey) {
+            return;
+          }
+          if (moviesLink.target && moviesLink.target !== '_self') {
+            return;
+          }
+          const currentScreeningsLink = document.querySelector('[data-nav-link="screenings"]');
+          const homePath = ensureCarteleraNavHref(currentScreeningsLink);
+          const relativePath = relativePathFromHome(window.location.pathname || '/', homePath);
+          if (relativePath === '/') {
+            event.preventDefault();
+            setHomeAndScrollMovies();
+          }
+          return;
+        }
         const navLink = event.target.closest('a[data-nav-link="imax"], a[data-nav-link="dolby"]');
         if (!(navLink instanceof HTMLAnchorElement)) {
           return;
@@ -4127,6 +2894,11 @@
           scrollToSpecialRooms({ behavior: 'auto' });
         });
       }
+      if ((window.location.hash || '').toLowerCase() === '#peliculas') {
+        window.requestAnimationFrame(() => {
+          scrollToMoviesSection({ behavior: 'auto' });
+        });
+      }
 
       syncTopNavState();
       window.addEventListener('popstate', syncTopNavState);
@@ -4135,8 +2907,11 @@
         if ((window.location.hash || '').toLowerCase() === '#salas-especiales') {
           scrollToSpecialRooms({ behavior: 'auto' });
         }
+        if ((window.location.hash || '').toLowerCase() === '#peliculas') {
+          scrollToMoviesSection({ behavior: 'auto' });
+        }
       });
-      window.CineVicioNav = { sync: syncTopNavState, scrollToSpecialRooms };
+      window.CineVicioNav = { sync: syncTopNavState, scrollToSpecialRooms, scrollToMoviesSection };
     })();
   </script>
   <script>
