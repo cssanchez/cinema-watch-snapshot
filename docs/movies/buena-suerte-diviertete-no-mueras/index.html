@@ -1731,14 +1731,6 @@
         grid-template-columns: 1fr;
       }
 
-      .front-advanced-primary {
-        grid-template-columns: repeat(4, minmax(0, 1fr));
-      }
-
-      .front-advanced-primary .field.is-date {
-        grid-column: span 2;
-      }
-
       .front-advanced-extra-grid {
         grid-template-columns: repeat(2, minmax(0, 1fr));
       }
@@ -1838,6 +1830,14 @@
 
       .front-panel {
         padding: 0.98rem;
+      }
+
+      .front-advanced-primary {
+        grid-template-columns: repeat(4, minmax(0, 1fr));
+      }
+
+      .front-advanced-primary .field.is-date {
+        grid-column: span 2;
       }
 
       .location-selector {
