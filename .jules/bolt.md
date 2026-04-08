@@ -1,3 +1,3 @@
-## 2026-04-07 - [Hoist Loop-Invariant Normalization]
-**Learning:** Found a performance bottleneck where string normalization (using `.normalize('NFD')` and regex replacement) was being performed on the same static filter string (`filters.movie`) inside a loop executing over 2700+ times.
-**Action:** Computed `foldText(filters.movie)` once before iterating, drastically reducing redundant operations.
+## 2025-04-08 - [String Normalization Memoization]
+**Learning:** In the frontend static site (`cinema-watch-snapshot`), string normalization and regex functions (e.g., `foldText`, `canonicalLanguage`, `normalizeSource`, `canonicalFormat`) are called extensively during client-side filtering and translation mapping, leading to O(N) redundant calculations on large datasets.
+**Action:** Memoize these functions using `Map` to avoid redundant overhead during rendering/filtering. Since the site is statically generated and uses Vanilla JS without a build step in this repository, the optimization is applied via a python patch script.
