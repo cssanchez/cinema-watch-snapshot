@@ -241,71 +241,9 @@
       border-color: var(--accent);
     }
 
-    .nav-links,
-    .nav-location-dropdown {
+    .nav-links {
       position: relative;
       display: inline-flex;
-    }
-    .nav-location-toggle {
-      display: inline-flex;
-      align-items: center;
-      gap: 0.35rem;
-      min-height: 1.74rem;
-      padding: 0.27rem 0.65rem;
-      border-radius: 999px;
-      border: 1px solid var(--line);
-      background: rgba(255, 255, 255, 0.04);
-      color: var(--muted);
-      font-size: 0.78rem;
-      font-weight: 800;
-      letter-spacing: 0.04em;
-      cursor: pointer;
-    }
-    .nav-location-toggle:hover {
-      background: rgba(255, 255, 255, 0.06);
-      border-color: var(--line-strong);
-      color: var(--ink);
-    }
-    .nav-location-toggle[aria-expanded="true"] {
-      background: var(--surface-strong);
-      border-color: var(--line-strong);
-      color: var(--ink);
-    }
-    .nav-location-toggle svg {
-      opacity: 0.7;
-    }
-    .nav-location-menu {
-      position: absolute;
-      top: calc(100% + 0.4rem);
-      right: 0;
-      min-width: 140px;
-      background: var(--surface-strong);
-      border: 1px solid var(--line);
-      border-radius: var(--radius-sm);
-      box-shadow: var(--shadow-soft);
-      padding: 0.4rem;
-      display: flex;
-      flex-direction: column;
-      gap: 0.2rem;
-      z-index: 50;
-    }
-    .nav-location-menu[hidden] {
-      display: none;
-    }
-    .nav-location-menu .location-option {
-      width: 100%;
-      justify-content: flex-start;
-      border: 0;
-      background: transparent;
-      padding: 0.4rem 0.6rem;
-      min-height: auto;
-    }
-    .nav-location-menu .location-option:hover {
-      background: rgba(255, 255, 255, 0.06);
-    }
-    .nav-location-menu .location-option[aria-pressed="true"] {
-      background: rgba(88, 199, 179, 0.18);
-      color: var(--accent);
     }
 
     .nav-tools {
@@ -322,72 +260,6 @@
       border-radius: 999px;
       background: rgba(255, 255, 255, 0.025);
       overflow: hidden;
-    }
-
-    .nav-location-dropdown {
-      position: relative;
-      display: inline-flex;
-    }
-    .nav-location-toggle {
-      display: inline-flex;
-      align-items: center;
-      gap: 0.35rem;
-      min-height: 1.74rem;
-      padding: 0.27rem 0.65rem;
-      border-radius: 999px;
-      border: 1px solid var(--line);
-      background: rgba(255, 255, 255, 0.04);
-      color: var(--muted);
-      font-size: 0.78rem;
-      font-weight: 800;
-      letter-spacing: 0.04em;
-      cursor: pointer;
-    }
-    .nav-location-toggle:hover {
-      background: rgba(255, 255, 255, 0.06);
-      border-color: var(--line-strong);
-      color: var(--ink);
-    }
-    .nav-location-toggle[aria-expanded="true"] {
-      background: var(--surface-strong);
-      border-color: var(--line-strong);
-      color: var(--ink);
-    }
-    .nav-location-toggle svg {
-      opacity: 0.7;
-    }
-    .nav-location-menu {
-      position: absolute;
-      top: calc(100% + 0.4rem);
-      right: 0;
-      min-width: 140px;
-      background: var(--surface-strong);
-      border: 1px solid var(--line);
-      border-radius: var(--radius-sm);
-      box-shadow: var(--shadow-soft);
-      padding: 0.4rem;
-      display: flex;
-      flex-direction: column;
-      gap: 0.2rem;
-      z-index: 50;
-    }
-    .nav-location-menu[hidden] {
-      display: none;
-    }
-    .nav-location-menu .location-option {
-      width: 100%;
-      justify-content: flex-start;
-      border: 0;
-      background: transparent;
-      padding: 0.4rem 0.6rem;
-      min-height: auto;
-    }
-    .nav-location-menu .location-option:hover {
-      background: rgba(255, 255, 255, 0.06);
-    }
-    .nav-location-menu .location-option[aria-pressed="true"] {
-      background: rgba(88, 199, 179, 0.18);
-      color: var(--accent);
     }
 
     .nav-tools {
@@ -881,7 +753,7 @@
       justify-content: space-between;
       gap: 0.9rem 1.25rem;
       align-items: center;
-      margin: 0 0 1rem;
+      margin: 0.95rem 0 1rem;
       padding: 0.9rem 1rem;
       border: 1px solid var(--line);
       border-radius: var(--radius-lg);
@@ -890,11 +762,18 @@
         rgba(255, 255, 255, 0.018);
     }
 
+    .location-selector > div:first-child {
+      display: grid;
+      gap: 0.24rem;
+      min-width: 0;
+    }
+
     .location-selector p {
       color: var(--muted);
       font-size: 0.94rem;
       line-height: 1.42;
-      margin-top: 0.22rem;
+      margin-top: 0;
+      max-width: 40ch;
     }
 
     .location-selector-options {
@@ -1787,18 +1666,8 @@
         font-size: 0.81rem;
       }
 
-      .nav-location-dropdown {
-        order: 2;
-        flex: 0 0 auto;
-      }
-      .nav-location-toggle {
-        min-height: 2rem;
-        padding: 0.3rem 0.62rem;
-        font-size: 0.76rem;
-      }
-
       .nav-tools {
-        order: 3;
+        order: 2;
         flex: 0 0 auto;
         margin-left: auto;
         gap: 0.22rem;
@@ -1902,14 +1771,8 @@
         gap: 0.38rem;
       }
 
-      .nav-location-dropdown,
       .nav-tools {
         flex: 1 1 auto;
-      }
-
-      .nav-location-toggle {
-        width: 100%;
-        justify-content: center;
       }
 
       .nav-tools {
@@ -1946,7 +1809,6 @@
           <a href="/cinema-watch-snapshot/#salas-especiales" data-nav-link="special_rooms" class="" data-i18n-source>Special rooms</a>
           <a href="/cinema-watch-snapshot/#peliculas" data-nav-link="movies" class="" data-i18n-source>Movies</a>
         </div>
-        
         <div class="nav-tools">
         <div class="language-switch" aria-label="Language">
           <button type="button" data-language-option="en" aria-pressed="false">EN</button>
@@ -1974,7 +1836,7 @@
   </div>
   <div class="hero-side">
     <strong data-i18n-source>Venue signals</strong>
-    <p data-i18n-freshness>Updated 4 h ago</p>
+    <p data-i18n-freshness>Updated 5 h ago</p>
     <div class="stats">
       <span class="stat">7 active rooms</span>
       
@@ -3604,22 +3466,9 @@
         for (const panel of panels) {
           panel.hidden = panel.dataset.locationPanel !== nextKey;
         }
-        
-        const scopeDocument = root instanceof Document ? root : (root.ownerDocument || document);
-        const activeLabel = scopeDocument.querySelector('.nav-location-active');
-        if (activeLabel && buttons.length > 0) {
-          const activeBtn = buttons.find((b) => b.dataset.locationTarget === nextKey);
-          if (activeBtn) {
-            const span = activeBtn.querySelector('span');
-            if (span) {
-              activeLabel.setAttribute('data-i18n-skip', '');
-              activeLabel.textContent = span.textContent;
-            }
-          }
-        }
 
         setFrontBoard(root, nextKey, '');
-        
+
         if (persist) {
           window.localStorage.setItem(storageKey, nextKey);
         }
@@ -3632,27 +3481,6 @@
       }
 
       document.addEventListener('click', (event) => {
-        const toggle = event.target.closest('[data-location-dropdown-toggle]');
-        if (toggle) {
-          event.preventDefault();
-          const menu = document.querySelector('.nav-location-menu');
-          if (menu) {
-            const expanded = toggle.getAttribute('aria-expanded') === 'true';
-            toggle.setAttribute('aria-expanded', !expanded);
-            menu.hidden = expanded;
-          }
-          return;
-        }
-
-        if (!event.target.closest('[data-location-dropdown]')) {
-          const toggleBtn = document.querySelector('[data-location-dropdown-toggle]');
-          const menuBox = document.querySelector('.nav-location-menu');
-          if (toggleBtn && menuBox) {
-            toggleBtn.setAttribute('aria-expanded', 'false');
-            menuBox.hidden = true;
-          }
-        }
-
         const boardButton = event.target.closest('[data-front-board-target]');
         if (boardButton instanceof HTMLButtonElement) {
           event.preventDefault();
@@ -3670,13 +3498,6 @@
         }
         event.preventDefault();
         setHomepageLocation(document, button.dataset.locationTarget || '');
-        
-        const menuToClose = document.querySelector('.nav-location-menu');
-        const toggleToClose = document.querySelector('[data-location-dropdown-toggle]');
-        if (menuToClose && toggleToClose) {
-          menuToClose.hidden = true;
-          toggleToClose.setAttribute('aria-expanded', 'false');
-        }
       });
 
       initHomepageLocation(document);

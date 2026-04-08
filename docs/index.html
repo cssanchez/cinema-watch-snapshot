@@ -241,67 +241,9 @@
       border-color: var(--accent);
     }
 
-    .nav-links,
-    .nav-location-toggle {
+    .nav-links {
+      position: relative;
       display: inline-flex;
-      align-items: center;
-      gap: 0.35rem;
-      min-height: 1.74rem;
-      padding: 0.27rem 0.65rem;
-      border-radius: 999px;
-      border: 1px solid var(--line);
-      background: rgba(255, 255, 255, 0.04);
-      color: var(--muted);
-      font-size: 0.78rem;
-      font-weight: 800;
-      letter-spacing: 0.04em;
-      cursor: pointer;
-    }
-    .nav-location-toggle:hover {
-      background: rgba(255, 255, 255, 0.06);
-      border-color: var(--line-strong);
-      color: var(--ink);
-    }
-    .nav-location-toggle[aria-expanded="true"] {
-      background: var(--surface-strong);
-      border-color: var(--line-strong);
-      color: var(--ink);
-    }
-    .nav-location-toggle svg {
-      opacity: 0.7;
-    }
-    .nav-location-menu {
-      position: absolute;
-      top: calc(100% + 0.4rem);
-      right: 0;
-      min-width: 140px;
-      background: var(--surface-strong);
-      border: 1px solid var(--line);
-      border-radius: var(--radius-sm);
-      box-shadow: var(--shadow-soft);
-      padding: 0.4rem;
-      display: flex;
-      flex-direction: column;
-      gap: 0.2rem;
-      z-index: 50;
-    }
-    .nav-location-menu[hidden] {
-      display: none;
-    }
-    .nav-location-menu .location-option {
-      width: 100%;
-      justify-content: flex-start;
-      border: 0;
-      background: transparent;
-      padding: 0.4rem 0.6rem;
-      min-height: auto;
-    }
-    .nav-location-menu .location-option:hover {
-      background: rgba(255, 255, 255, 0.06);
-    }
-    .nav-location-menu .location-option[aria-pressed="true"] {
-      background: rgba(88, 199, 179, 0.18);
-      color: var(--accent);
     }
 
     .nav-tools {
@@ -318,67 +260,6 @@
       border-radius: 999px;
       background: rgba(255, 255, 255, 0.025);
       overflow: hidden;
-    }
-    .nav-location-toggle {
-      display: inline-flex;
-      align-items: center;
-      gap: 0.35rem;
-      min-height: 1.74rem;
-      padding: 0.27rem 0.65rem;
-      border-radius: 999px;
-      border: 1px solid var(--line);
-      background: rgba(255, 255, 255, 0.04);
-      color: var(--muted);
-      font-size: 0.78rem;
-      font-weight: 800;
-      letter-spacing: 0.04em;
-      cursor: pointer;
-    }
-    .nav-location-toggle:hover {
-      background: rgba(255, 255, 255, 0.06);
-      border-color: var(--line-strong);
-      color: var(--ink);
-    }
-    .nav-location-toggle[aria-expanded="true"] {
-      background: var(--surface-strong);
-      border-color: var(--line-strong);
-      color: var(--ink);
-    }
-    .nav-location-toggle svg {
-      opacity: 0.7;
-    }
-    .nav-location-menu {
-      position: absolute;
-      top: calc(100% + 0.4rem);
-      right: 0;
-      min-width: 140px;
-      background: var(--surface-strong);
-      border: 1px solid var(--line);
-      border-radius: var(--radius-sm);
-      box-shadow: var(--shadow-soft);
-      padding: 0.4rem;
-      display: flex;
-      flex-direction: column;
-      gap: 0.2rem;
-      z-index: 50;
-    }
-    .nav-location-menu[hidden] {
-      display: none;
-    }
-    .nav-location-menu .location-option {
-      width: 100%;
-      justify-content: flex-start;
-      border: 0;
-      background: transparent;
-      padding: 0.4rem 0.6rem;
-      min-height: auto;
-    }
-    .nav-location-menu .location-option:hover {
-      background: rgba(255, 255, 255, 0.06);
-    }
-    .nav-location-menu .location-option[aria-pressed="true"] {
-      background: rgba(88, 199, 179, 0.18);
-      color: var(--accent);
     }
 
     .nav-tools {
@@ -872,7 +753,7 @@
       justify-content: space-between;
       gap: 0.9rem 1.25rem;
       align-items: center;
-      margin: 0 0 1rem;
+      margin: 0.95rem 0 1rem;
       padding: 0.9rem 1rem;
       border: 1px solid var(--line);
       border-radius: var(--radius-lg);
@@ -881,11 +762,18 @@
         rgba(255, 255, 255, 0.018);
     }
 
+    .location-selector > div:first-child {
+      display: grid;
+      gap: 0.24rem;
+      min-width: 0;
+    }
+
     .location-selector p {
       color: var(--muted);
       font-size: 0.94rem;
       line-height: 1.42;
-      margin-top: 0.22rem;
+      margin-top: 0;
+      max-width: 40ch;
     }
 
     .location-selector-options {
@@ -1777,14 +1665,9 @@
         padding: 0.34rem 0.62rem;
         font-size: 0.81rem;
       }
-      .nav-location-toggle {
-        min-height: 2rem;
-        padding: 0.3rem 0.62rem;
-        font-size: 0.76rem;
-      }
 
       .nav-tools {
-        order: 3;
+        order: 2;
         flex: 0 0 auto;
         margin-left: auto;
         gap: 0.22rem;
@@ -1888,14 +1771,8 @@
         gap: 0.38rem;
       }
 
-      .nav-location-dropdown,
       .nav-tools {
         flex: 1 1 auto;
-      }
-
-      .nav-location-toggle {
-        width: 100%;
-        justify-content: center;
       }
 
       .nav-tools {
@@ -1932,18 +1809,17 @@
           <a href="/cinema-watch-snapshot/#salas-especiales" data-nav-link="special_rooms" class="" data-i18n-source>Special rooms</a>
           <a href="/cinema-watch-snapshot/#peliculas" data-nav-link="movies" class="" data-i18n-source>Movies</a>
         </div>
-        
         <div class="nav-tools">
         <div class="language-switch" aria-label="Language">
           <button type="button" data-language-option="en" aria-pressed="false">EN</button>
           <button type="button" data-language-option="es" aria-pressed="false">ES</button>
         </div>
-
+        
         </div>
       </nav>
     </header>
     <main id="app-main">
-
+      
 <section class="front-hero">
   <div class="front-hero-copy">
     <h1 data-i18n-source>Where should we go?</h1>
@@ -1951,68 +1827,68 @@
   </div>
   <div class="front-freshness">
     <span data-i18n-source>Listings</span>
-    <strong data-i18n-freshness>Updated 3 h ago</strong>
+    <strong data-i18n-freshness>Updated 5 h ago</strong>
     <span data-i18n-count="screening" data-i18n-count-value="5732">5732 screenings</span>
   </div>
 </section>
 
 
-<div class="location-selector" style="margin-top: 1rem;">
-  <p data-i18n-source>Zone</p>
+<section class="location-selector" aria-label="Zone selector">
+  <div>
+    <span class="kicker" data-i18n-source>Zone</span>
+    <p data-i18n-source>Change the area and the boards below follow that choice.</p>
+  </div>
   <div class="location-selector-options">
+    
     <button
-              type="button"
-              class="location-option"
-              data-location-target="amba"
-              aria-pressed="true"
-              data-coming-soon="false"
-            >
-              <span>AMBA</span>
-              
-            </button>
-            
-            <button
-              type="button"
-              class="location-option"
-              data-location-target="caba"
-              aria-pressed="false"
-              data-coming-soon="false"
-            >
-              <span>CABA</span>
-              
-            </button>
-            
-            <button
-              type="button"
-              class="location-option"
-              data-location-target="gba_sur"
-              aria-pressed="false"
-              data-coming-soon="false"
-            >
-              <span>GBA Sur</span>
-              
-            </button>
-            
-            <button
-              type="button"
-              class="location-option"
-              data-location-target="mar_del_plata"
-              aria-pressed="false"
-              data-coming-soon="true"
-            >
-              <span>Mar del Plata</span>
-              
-              <small data-i18n-source>Coming soon</small>
-              
-            </button>
-  </div>
-</div>
-  <div class="front-freshness">
-    <span data-i18n-source>Listings</span>
-    <strong data-i18n-freshness>Updated 4 h ago</strong>
-    <span data-i18n-count="screening" data-i18n-count-value="5732">5732 screenings</span>
+      type="button"
+      class="location-option"
+      data-location-target="amba"
+      aria-pressed="true"
+      data-coming-soon="false"
+    >
+      <span>AMBA</span>
+      
+    </button>
+    
+    <button
+      type="button"
+      class="location-option"
+      data-location-target="caba"
+      aria-pressed="false"
+      data-coming-soon="false"
+    >
+      <span>CABA</span>
+      
+    </button>
+    
+    <button
+      type="button"
+      class="location-option"
+      data-location-target="gba_sur"
+      aria-pressed="false"
+      data-coming-soon="false"
+    >
+      <span>GBA Sur</span>
+      
+    </button>
+    
+    <button
+      type="button"
+      class="location-option"
+      data-location-target="mar_del_plata"
+      aria-pressed="false"
+      data-coming-soon="true"
+    >
+      <span>Mar del Plata</span>
+      
+      <small data-i18n-source>Coming soon</small>
+      
+    </button>
+    
   </div>
 </section>
+
 
 <div id="cartelera" aria-hidden="true"></div>
 
@@ -8119,22 +7995,9 @@
         for (const panel of panels) {
           panel.hidden = panel.dataset.locationPanel !== nextKey;
         }
-        
-        const scopeDocument = root instanceof Document ? root : (root.ownerDocument || document);
-        const activeLabel = scopeDocument.querySelector('.nav-location-active');
-        if (activeLabel && buttons.length > 0) {
-          const activeBtn = buttons.find((b) => b.dataset.locationTarget === nextKey);
-          if (activeBtn) {
-            const span = activeBtn.querySelector('span');
-            if (span) {
-              activeLabel.setAttribute('data-i18n-skip', '');
-              activeLabel.textContent = span.textContent;
-            }
-          }
-        }
 
         setFrontBoard(root, nextKey, '');
-        
+
         if (persist) {
           window.localStorage.setItem(storageKey, nextKey);
         }
@@ -8147,8 +8010,6 @@
       }
 
       document.addEventListener('click', (event) => {
-                }
-
         const boardButton = event.target.closest('[data-front-board-target]');
         if (boardButton instanceof HTMLButtonElement) {
           event.preventDefault();
@@ -8166,8 +8027,6 @@
         }
         event.preventDefault();
         setHomepageLocation(document, button.dataset.locationTarget || '');
-        
-
       });
 
       initHomepageLocation(document);
