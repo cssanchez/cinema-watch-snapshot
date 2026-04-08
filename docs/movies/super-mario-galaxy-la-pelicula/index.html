@@ -697,12 +697,12 @@
 
     .front-hero {
       display: grid;
-      grid-template-columns: minmax(0, 1fr) auto;
-      gap: clamp(1.1rem, 3.4vw, 2.4rem);
-      align-items: end;
-      padding: clamp(1.2rem, 3.1vw, 2.3rem) 0 clamp(1.1rem, 2.4vw, 1.7rem);
+      grid-template-columns: minmax(0, 1fr);
+      gap: 0.9rem;
+      align-items: start;
+      padding: clamp(1.2rem, 3.1vw, 2.3rem) 0 clamp(0.9rem, 2.1vw, 1.35rem);
       border-bottom: 1px solid var(--line);
-      margin-bottom: var(--front-gap-section);
+      margin-bottom: 0.72rem;
     }
 
     .front-hero-copy {
@@ -748,74 +748,71 @@
     }
 
     .location-selector {
-      position: relative;
       display: grid;
-      grid-template-columns: minmax(12rem, 15rem) minmax(0, 1fr);
-      gap: clamp(0.9rem, 2vw, 1.6rem);
-      align-items: start;
-      margin: 0.6rem 0 1.15rem;
-      padding: 1rem 1.05rem 1.05rem;
+      grid-template-columns: minmax(10rem, 12rem) minmax(0, 1fr) auto;
+      gap: clamp(0.75rem, 1.7vw, 1.2rem);
+      align-items: center;
+      margin: 0 0 1.05rem;
+      padding: 0.86rem 0.98rem;
       border: 1px solid rgba(165, 178, 198, 0.17);
-      border-radius: 24px;
+      border-radius: var(--radius-md);
       background:
-        radial-gradient(circle at 100% 0%, rgba(88, 199, 179, 0.1), transparent 13rem),
-        linear-gradient(180deg, rgba(255, 255, 255, 0.038), rgba(11, 14, 21, 0.88)),
+        linear-gradient(180deg, rgba(255, 255, 255, 0.032), rgba(11, 14, 21, 0.9)),
+        linear-gradient(90deg, rgba(88, 199, 179, 0.07), transparent 26%),
         rgba(255, 255, 255, 0.018);
       box-shadow:
         inset 0 1px 0 rgba(255, 255, 255, 0.035),
         0 12px 28px rgba(0, 0, 0, 0.18);
-      overflow: hidden;
-    }
-
-    .location-selector::before {
-      content: "";
-      position: absolute;
-      inset: 0 auto 0 0;
-      width: 1px;
-      background: linear-gradient(180deg, rgba(88, 199, 179, 0.32), transparent 76%);
-      opacity: 0.85;
     }
 
     .location-selector-copy {
       display: grid;
-      gap: 0.32rem;
+      gap: 0.16rem;
       min-width: 0;
-      padding-left: 0.25rem;
       align-content: start;
     }
 
     .location-selector-copy .kicker {
       letter-spacing: 0.12em;
       text-transform: uppercase;
-      font-size: 0.72rem;
-      color: color-mix(in srgb, var(--accent) 58%, var(--muted));
+      font-size: 0.67rem;
+      color: color-mix(in srgb, var(--accent) 44%, var(--muted));
+    }
+
+    .location-selector-current {
+      font-family: var(--heading-font);
+      font-size: clamp(1.02rem, 1.2vw, 1.18rem);
+      line-height: 1;
+      letter-spacing: -0.02em;
     }
 
     .location-selector p {
       color: var(--muted);
-      font-size: 0.92rem;
-      line-height: 1.4;
+      font-size: 0.82rem;
+      line-height: 1.34;
       margin: 0;
-      max-width: 27ch;
+      max-width: 24ch;
     }
 
     .location-selector-options {
-      display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(9.8rem, 1fr));
+      display: flex;
+      flex-wrap: wrap;
+      align-items: center;
       gap: 0.5rem;
       width: 100%;
     }
 
     .location-option {
       position: relative;
-      width: 100%;
-      min-height: 3.15rem;
+      width: auto;
+      min-width: 8.2rem;
+      min-height: 2.72rem;
       display: flex;
       align-items: center;
       justify-content: space-between;
-      gap: 0.7rem;
-      padding: 0.72rem 0.9rem;
-      border-radius: 18px;
+      gap: 0.62rem;
+      padding: 0.58rem 0.82rem;
+      border-radius: 999px;
       border: 1px solid rgba(165, 178, 198, 0.19);
       background:
         linear-gradient(180deg, rgba(255, 255, 255, 0.045), rgba(17, 21, 29, 0.92)),
@@ -845,7 +842,7 @@
     .location-option span {
       min-width: 0;
       flex: 1 1 auto;
-      font-size: 0.88rem;
+      font-size: 0.84rem;
       line-height: 1.15;
     }
 
@@ -916,10 +913,28 @@
 
     .location-option small {
       color: var(--warm);
-      font-size: 0.67rem;
+      font-size: 0.63rem;
       font-weight: 800;
       letter-spacing: 0.08em;
       text-transform: uppercase;
+    }
+
+    .front-freshness.is-rail {
+      min-width: 12.5rem;
+      padding: 0.7rem 0.82rem 0.72rem;
+      border-radius: 1rem;
+      background:
+        linear-gradient(180deg, rgba(255, 255, 255, 0.04), rgba(12, 15, 22, 0.86)),
+        rgba(255, 255, 255, 0.018);
+      box-shadow: none;
+    }
+
+    .front-freshness.is-rail span {
+      font-size: 0.76rem;
+    }
+
+    .front-freshness.is-rail strong {
+      font-size: 1rem;
     }
 
     .front-location-panel {
@@ -1790,14 +1805,15 @@
 
       .location-selector {
         grid-template-columns: 1fr;
-      }
-
-      .location-selector-copy {
-        padding-left: 0;
+        align-items: start;
       }
 
       .location-selector p {
         max-width: 44ch;
+      }
+
+      .front-freshness.is-rail {
+        width: min(100%, 18rem);
       }
     }
 
@@ -1895,10 +1911,11 @@
       }
 
       .location-selector-options {
-        grid-template-columns: repeat(2, minmax(0, 1fr));
+        width: 100%;
       }
 
       .location-option {
+        flex: 1 1 calc(50% - 0.25rem);
         min-height: 3rem;
         padding: 0.7rem 0.82rem;
       }
@@ -1978,7 +1995,11 @@
       }
 
       .location-selector-options {
-        grid-template-columns: 1fr;
+        width: 100%;
+      }
+
+      .location-option {
+        flex-basis: 100%;
       }
 
       #cartelera {
@@ -7606,6 +7627,8 @@
           'Where should we go?': '¿A dónde vamos?',
           "A quick guide to today's screenings, special rooms, and favorite cinemas.": 'Una guía rápida de las funciones de hoy, salas especiales y cines favoritos.',
           'Now showing and upcoming premieres in this area.': 'En cartelera y próximos estrenos en esta zona.',
+          'Edition': 'Edición',
+          'The whole homepage follows this zone.': 'Toda la portada sigue esta zona.',
           'Zone': 'Zona',
           'Change the area and the boards below follow that choice.': 'Cambiá la zona y las carteleras de abajo siguen esa elección.',
           'Coming soon': 'Próximamente',
@@ -7916,13 +7939,8 @@
         },
       };
 
-      const _normalizeSourceCache = new Map();
       function normalizeSource(value) {
-        const strValue = String(value ?? '');
-        if (_normalizeSourceCache.has(strValue)) return _normalizeSourceCache.get(strValue);
-        const result = strValue.replace(/\s+/g, ' ').trim();
-        _normalizeSourceCache.set(strValue, result);
-        return result;
+        return String(value ?? '').replace(/\s+/g, ' ').trim();
       }
 
       function initialLanguage() {
@@ -8204,6 +8222,12 @@
         for (const panel of panels) {
           panel.hidden = panel.dataset.locationPanel !== nextKey;
         }
+
+        const activeButton = buttons.find((button) => button.dataset.locationTarget === nextKey);
+        const activeLabel = activeButton?.querySelector('span')?.textContent?.trim() || nextKey.toUpperCase();
+        root.querySelectorAll('[data-location-edition-label]').forEach((element) => {
+          element.textContent = activeLabel;
+        });
 
         setFrontBoard(root, nextKey, '');
 
