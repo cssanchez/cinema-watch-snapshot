@@ -3219,6 +3219,31 @@
         return (path || '/').replace(/\/+$/, '') || '/';
       }
 
+      function extractHomePathFromScreeningsLink(link) {
+        if (!(link instanceof HTMLAnchorElement)) {
+          return '/';
+        }
+        try {
+          return new URL(link.getAttribute('href') || '/', window.location.origin).pathname || '/';
+        } catch (_) {
+          return '/';
+        }
+      }
+
+      function ensureCarteleraNavHref(link) {
+        if (!(link instanceof HTMLAnchorElement)) {
+          return '/';
+        }
+        const homePath = extractHomePathFromScreeningsLink(link);
+        const normalizedHome = normalizePath(homePath);
+        const target = normalizedHome === '/' ? '/#cartelera' : `${normalizedHome}/#cartelera`;
+        const currentHref = link.getAttribute('href') || '';
+        if (!currentHref.includes('#cartelera')) {
+          link.setAttribute('href', target);
+        }
+        return extractHomePathFromScreeningsLink(link);
+      }
+
       function relativePathFromHome(currentPath, homePath) {
         const normalizedCurrent = normalizePath(currentPath);
         const normalizedHome = normalizePath(homePath);
@@ -3238,14 +3263,7 @@
         const params = new URLSearchParams(window.location.search || '');
         const category = (params.get('category') || '').toLowerCase();
         const screeningsLink = document.querySelector('[data-nav-link="screenings"]');
-        let homePath = '/';
-        if (screeningsLink instanceof HTMLAnchorElement) {
-          try {
-            homePath = new URL(screeningsLink.getAttribute('href') || '/', window.location.origin).pathname || '/';
-          } catch (_) {
-            homePath = '/';
-          }
-        }
+        const homePath = ensureCarteleraNavHref(screeningsLink);
         const relativePath = relativePathFromHome(path, homePath);
         const focus = {
           screenings: relativePath === '/' || (relativePath.startsWith('/screenings') && !['imax', 'dolby_atmos'].includes(category)),
@@ -3267,6 +3285,9 @@
           }
         });
       }
+
+      const screeningsLink = document.querySelector('[data-nav-link="screenings"]');
+      ensureCarteleraNavHref(screeningsLink);
 
       syncTopNavState();
       window.addEventListener('popstate', syncTopNavState);
