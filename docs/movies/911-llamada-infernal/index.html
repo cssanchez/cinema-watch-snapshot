@@ -2633,8 +2633,14 @@
         },
       };
 
+      // ⚡ Bolt Optimization: Memoize normalizeSource to avoid redundant regex evaluations in loops
+      const _normalizeSourceCache = new Map();
       function normalizeSource(value) {
-        return String(value ?? '').replace(/\s+/g, ' ').trim();
+        const key = String(value ?? '');
+        if (_normalizeSourceCache.has(key)) return _normalizeSourceCache.get(key);
+        const result = key.replace(/\s+/g, ' ').trim();
+        _normalizeSourceCache.set(key, result);
+        return result;
       }
 
       function initialLanguage() {
@@ -3271,24 +3277,42 @@
           .replaceAll("'", '&#39;');
       }
 
+      // ⚡ Bolt Optimization: Memoize foldText to avoid repeated unicode normalization
+      const _foldTextCache = new Map();
       function foldText(value) {
-        return String(value ?? '')
+        const key = String(value ?? '');
+        if (_foldTextCache.has(key)) return _foldTextCache.get(key);
+        const result = key
           .normalize('NFD')
           .replace(/[\u0300-\u036f]/g, '')
           .toLowerCase()
           .trim();
+        _foldTextCache.set(key, result);
+        return result;
       }
 
+      // ⚡ Bolt Optimization: Memoize canonicalLanguage to speed up language filtering
+      const _canonicalLangCache = new Map();
       function canonicalLanguage(value) {
-        const text = foldText(value);
-        if (!text) return '';
-        if (text.includes('subti')) return 'subtitulado';
-        if (['espanol', 'español', 'castellano', 'doblada'].includes(text)) return 'espanol';
-        return text;
+        const key = String(value ?? '');
+        if (_canonicalLangCache.has(key)) return _canonicalLangCache.get(key);
+        const text = foldText(key);
+        let result = text;
+        if (!text) result = '';
+        else if (text.includes('subti')) result = 'subtitulado';
+        else if (['espanol', 'español', 'castellano', 'doblada'].includes(text)) result = 'espanol';
+        _canonicalLangCache.set(key, result);
+        return result;
       }
 
+      // ⚡ Bolt Optimization: Memoize canonicalFormat to speed up format filtering
+      const _canonicalFormatCache = new Map();
       function canonicalFormat(value) {
-        return foldText(value).replace(/\s+/g, '');
+        const key = String(value ?? '');
+        if (_canonicalFormatCache.has(key)) return _canonicalFormatCache.get(key);
+        const result = foldText(key).replace(/\s+/g, '');
+        _canonicalFormatCache.set(key, result);
+        return result;
       }
 
       function roomLabel(roomNumber) {
