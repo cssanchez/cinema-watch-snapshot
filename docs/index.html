@@ -1923,7 +1923,7 @@
   </div>
   <div class="front-freshness">
     <span data-i18n-source>Listings</span>
-    <strong data-i18n-freshness>Updated 51 min ago</strong>
+    <strong data-i18n-freshness>Updated 3 h ago</strong>
     <span data-i18n-count="screening" data-i18n-count-value="5732">5732 screenings</span>
   </div>
 </section>
@@ -6663,6 +6663,7 @@
           'Open status': 'Abrir estado',
           'Admin tools are disabled in share mode.': 'Las herramientas admin están desactivadas en modo compartido.',
           'Cache coverage': 'Cobertura del caché',
+          'Signal readout': 'Lectura de señales',
           'Filter Rail': 'Filtros',
           'Query the SQLite cache directly from the UI.': 'Consultá el caché SQLite directo desde la interfaz.',
           'Provider': 'Proveedor',
@@ -6724,6 +6725,20 @@
           'Provider Notes': 'Notas del proveedor',
           'Keep the product promises explicit.': 'Mantener explícitas las promesas del producto.',
           'Sold data': 'Datos de venta',
+          'Venue signals': 'Señales del cine',
+          'Title signals': 'Señales del título',
+          'Room knowledge': 'Conocimiento de salas',
+          'Top venue': 'Cine principal',
+          'Peak crowd': 'Pico de ocupación',
+          'Active rooms': 'Salas activas',
+          'Mapped rooms': 'Salas mapeadas',
+          'Largest known room': 'Sala conocida más grande',
+          'Rooms identified': 'Salas identificadas',
+          'Highest sold signal currently cached for this venue.': 'La señal de venta más alta cacheada ahora mismo para este cine.',
+          'Current room and seat signals for this title.': 'Señales actuales de sala y butacas para este título.',
+          'Seat-count mappings let the cache speak about actual salas, not just provider labels.': 'Los mapeos por cantidad de butacas dejan que el caché hable de salas reales, no solo de etiquetas del proveedor.',
+          'Cached title page across providers and venues, with room and seat signals when the cache has them.': 'Página cacheada del título entre proveedores y cines, con señales de sala y butacas cuando el caché las tiene.',
+          'A venue-first board with room knowledge and seat pressure when the cache has it.': 'Pantalla centrada en el cine, con conocimiento de salas y presión de butacas cuando el caché lo tiene.',
           'Available': 'Disponible',
           'Not yet': 'Todavía no',
           'Browser path': 'Camino con navegador',
@@ -6833,6 +6848,20 @@
         return language === 'es' ? `${percent}% vendida` : `${percent}% sold`;
       }
 
+      function formatSeatNote(available, total, language = currentLanguage) {
+        const totalNumber = Number(total);
+        if (!Number.isFinite(totalNumber)) {
+          return '';
+        }
+        const availableNumber = Number(available);
+        if (Number.isFinite(availableNumber)) {
+          return language === 'es'
+            ? `${availableNumber} disponibles de ${totalNumber}`
+            : `${availableNumber} available of ${totalNumber}`;
+        }
+        return language === 'es' ? `${totalNumber} butacas` : `${totalNumber} seats`;
+      }
+
       function translateMetaLines(scope) {
         scope.querySelectorAll('[data-i18n-meta-line]').forEach((element) => {
           if (!element.dataset.i18nMetaOriginal) {
@@ -6845,7 +6874,22 @@
           }
           element.textContent = original
             .replace(/\bRoom\s+([A-Za-z0-9-]+)/gi, (_match, roomNumber) => formatRoom(roomNumber))
-            .replace(/\b(\d+)%\s+sold\b/gi, (_match, percent) => formatSold(percent));
+            .replace(/\b(\d+)%\s+sold\b/gi, (_match, percent) => formatSold(percent))
+            .replace(/\b(\d+)\s+seats\b/gi, (_match, seats) => currentLanguage === 'es' ? `${seats} butacas` : `${seats} seats`);
+        });
+      }
+
+      function translateSeatNotes(scope) {
+        scope.querySelectorAll('[data-i18n-seat-note]').forEach((element) => {
+          if (!element.dataset.i18nSeatOriginal) {
+            element.dataset.i18nSeatOriginal = normalizeSource(element.textContent);
+          }
+          const total = element.dataset.seatsTotal;
+          if (!total) {
+            element.textContent = element.dataset.i18nSeatOriginal || '';
+            return;
+          }
+          element.textContent = formatSeatNote(element.dataset.seatsAvailable, total);
         });
       }
 
@@ -6926,6 +6970,7 @@
         autoTranslateLeafElements(scope);
         translateCountElements(scope);
         translateMetaLines(scope);
+        translateSeatNotes(scope);
         translateFreshnessLabels(scope);
         scope.querySelectorAll('[data-i18n-placeholder-source]').forEach((element) => {
           if (!(element instanceof HTMLInputElement || element instanceof HTMLTextAreaElement)) {
@@ -6966,6 +7011,7 @@
         formatCount,
         formatRoom,
         formatSold,
+        formatSeatNote,
       };
 
       applyTranslations(document);

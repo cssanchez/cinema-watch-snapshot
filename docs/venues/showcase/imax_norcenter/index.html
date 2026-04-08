@@ -1864,10 +1864,7 @@
   <div class="hero-copy">
     <span class="eyebrow">Showcase / IMAX</span>
     <h1>IMAX Theatre (Norcenter)</h1>
-    <p>
-      Venue-first board for Showcase / IMAX. This page is supposed to answer the venue question quickly:
-      what is playing here, how fresh is the cache, and what should I open next?
-    </p>
+    <p data-i18n-source>A venue-first board with room knowledge and seat pressure when the cache has it.</p>
     <div class="hero-tags">
       
       <span class="chip">Vicente Lopez</span>
@@ -1878,26 +1875,30 @@
     </div>
   </div>
   <div class="hero-side">
-    <strong>Venue snapshot</strong>
-    <p data-i18n-freshness>Updated 52 min ago</p>
+    <strong data-i18n-source>Venue signals</strong>
+    <p data-i18n-freshness>Updated 3 h ago</p>
     <div class="stats">
-      <span class="stat">53 cached screenings</span>
-      <span class="stat">3 cached titles</span>
+      <span class="stat">0 active rooms</span>
+      
       
     </div>
   </div>
   <div class="metrics">
     <div class="metric">
-      <span class="muted">Cached screenings</span>
+      <span class="muted" data-i18n-source>Cached screenings</span>
       <strong>53</strong>
     </div>
     <div class="metric">
-      <span class="muted">Cached titles</span>
+      <span class="muted" data-i18n-source>Cached titles</span>
       <strong>3</strong>
     </div>
     <div class="metric">
-      <span class="muted">Freshness</span>
-      <strong style="font-size:1rem;" data-i18n-freshness>Updated 52 min ago</strong>
+      <span class="muted" data-i18n-source>Mapped rooms</span>
+      <strong>0</strong>
+    </div>
+    <div class="metric">
+      <span class="muted" data-i18n-source>Peak crowd</span>
+      <strong>--</strong>
     </div>
   </div>
 </section>
@@ -1947,6 +1948,8 @@
 
 <div class="layout">
   <div class="stack">
+    
+
     
 
     <section class="panel">
@@ -2462,6 +2465,27 @@
     <section class="panel">
       <div class="section-head">
         <div>
+          <h2 data-i18n-source>Room knowledge</h2>
+          <p data-i18n-source>Seat-count mappings let the cache speak about actual salas, not just provider labels.</p>
+        </div>
+      </div>
+      <div class="meta-list">
+        <div class="meta-row">
+          <span data-i18n-source>Active rooms</span>
+          <strong>0</strong>
+        </div>
+        <div class="meta-row">
+          <span data-i18n-source>Mapped rooms</span>
+          <strong>0</strong>
+        </div>
+        
+        
+      </div>
+    </section>
+
+    <section class="panel">
+      <div class="section-head">
+        <div>
           <h2>Venue Metadata</h2>
           <p>Provider-specific ids and defaults still matter behind the scenes.</p>
         </div>
@@ -2752,6 +2776,7 @@
           'Open status': 'Abrir estado',
           'Admin tools are disabled in share mode.': 'Las herramientas admin están desactivadas en modo compartido.',
           'Cache coverage': 'Cobertura del caché',
+          'Signal readout': 'Lectura de señales',
           'Filter Rail': 'Filtros',
           'Query the SQLite cache directly from the UI.': 'Consultá el caché SQLite directo desde la interfaz.',
           'Provider': 'Proveedor',
@@ -2813,6 +2838,20 @@
           'Provider Notes': 'Notas del proveedor',
           'Keep the product promises explicit.': 'Mantener explícitas las promesas del producto.',
           'Sold data': 'Datos de venta',
+          'Venue signals': 'Señales del cine',
+          'Title signals': 'Señales del título',
+          'Room knowledge': 'Conocimiento de salas',
+          'Top venue': 'Cine principal',
+          'Peak crowd': 'Pico de ocupación',
+          'Active rooms': 'Salas activas',
+          'Mapped rooms': 'Salas mapeadas',
+          'Largest known room': 'Sala conocida más grande',
+          'Rooms identified': 'Salas identificadas',
+          'Highest sold signal currently cached for this venue.': 'La señal de venta más alta cacheada ahora mismo para este cine.',
+          'Current room and seat signals for this title.': 'Señales actuales de sala y butacas para este título.',
+          'Seat-count mappings let the cache speak about actual salas, not just provider labels.': 'Los mapeos por cantidad de butacas dejan que el caché hable de salas reales, no solo de etiquetas del proveedor.',
+          'Cached title page across providers and venues, with room and seat signals when the cache has them.': 'Página cacheada del título entre proveedores y cines, con señales de sala y butacas cuando el caché las tiene.',
+          'A venue-first board with room knowledge and seat pressure when the cache has it.': 'Pantalla centrada en el cine, con conocimiento de salas y presión de butacas cuando el caché lo tiene.',
           'Available': 'Disponible',
           'Not yet': 'Todavía no',
           'Browser path': 'Camino con navegador',
@@ -2922,6 +2961,20 @@
         return language === 'es' ? `${percent}% vendida` : `${percent}% sold`;
       }
 
+      function formatSeatNote(available, total, language = currentLanguage) {
+        const totalNumber = Number(total);
+        if (!Number.isFinite(totalNumber)) {
+          return '';
+        }
+        const availableNumber = Number(available);
+        if (Number.isFinite(availableNumber)) {
+          return language === 'es'
+            ? `${availableNumber} disponibles de ${totalNumber}`
+            : `${availableNumber} available of ${totalNumber}`;
+        }
+        return language === 'es' ? `${totalNumber} butacas` : `${totalNumber} seats`;
+      }
+
       function translateMetaLines(scope) {
         scope.querySelectorAll('[data-i18n-meta-line]').forEach((element) => {
           if (!element.dataset.i18nMetaOriginal) {
@@ -2934,7 +2987,22 @@
           }
           element.textContent = original
             .replace(/\bRoom\s+([A-Za-z0-9-]+)/gi, (_match, roomNumber) => formatRoom(roomNumber))
-            .replace(/\b(\d+)%\s+sold\b/gi, (_match, percent) => formatSold(percent));
+            .replace(/\b(\d+)%\s+sold\b/gi, (_match, percent) => formatSold(percent))
+            .replace(/\b(\d+)\s+seats\b/gi, (_match, seats) => currentLanguage === 'es' ? `${seats} butacas` : `${seats} seats`);
+        });
+      }
+
+      function translateSeatNotes(scope) {
+        scope.querySelectorAll('[data-i18n-seat-note]').forEach((element) => {
+          if (!element.dataset.i18nSeatOriginal) {
+            element.dataset.i18nSeatOriginal = normalizeSource(element.textContent);
+          }
+          const total = element.dataset.seatsTotal;
+          if (!total) {
+            element.textContent = element.dataset.i18nSeatOriginal || '';
+            return;
+          }
+          element.textContent = formatSeatNote(element.dataset.seatsAvailable, total);
         });
       }
 
@@ -3015,6 +3083,7 @@
         autoTranslateLeafElements(scope);
         translateCountElements(scope);
         translateMetaLines(scope);
+        translateSeatNotes(scope);
         translateFreshnessLabels(scope);
         scope.querySelectorAll('[data-i18n-placeholder-source]').forEach((element) => {
           if (!(element instanceof HTMLInputElement || element instanceof HTMLTextAreaElement)) {
@@ -3055,6 +3124,7 @@
         formatCount,
         formatRoom,
         formatSold,
+        formatSeatNote,
       };
 
       applyTranslations(document);
