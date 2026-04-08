@@ -2007,7 +2007,7 @@
     </div>
     <div class="metric">
       <span class="muted">Published at</span>
-      <strong style="font-size:1rem;">2026-04-08 16:30 UTC</strong>
+      <strong style="font-size:1rem;">2026-04-08 16:44 UTC</strong>
     </div>
   </div>
 </section>
@@ -3456,6 +3456,7 @@
         for (const panel of panels) {
           panel.hidden = panel.dataset.frontBoardPanel !== nextKey;
         }
+        window.CineVicioFrontAdvanced?.syncBoardPreset?.(root, locationKey, nextKey, { force: true });
       }
 
       function initFrontBoards(root = document) {
@@ -3515,6 +3516,7 @@
             boardButton.dataset.frontBoardLocation || '',
             boardButton.dataset.frontBoardTarget || ''
           );
+          window.CineVicioFrontAdvanced?.clearUrlFilters?.();
           return;
         }
 
@@ -3524,6 +3526,7 @@
         }
         event.preventDefault();
         setHomepageLocation(document, button.dataset.locationTarget || '');
+        window.CineVicioFrontAdvanced?.clearUrlFilters?.();
       });
 
       initHomepageLocation(document);
@@ -4049,6 +4052,7 @@
           || '';
         if (!nextKey) return;
         setBoardPanel(locationKey, nextKey);
+        syncBoardPreset(document, locationKey, nextKey, { force: true });
       }
 
       function writeFiltersToUrl(filters) {
@@ -4083,6 +4087,115 @@
           matched = true;
         }
         return matched;
+      }
+
+      function parseFilterPreset(button) {
+        if (!(button instanceof HTMLButtonElement)) {
+          return null;
+        }
+        const raw = String(button.dataset.frontFilterPreset || '').trim();
+        if (!raw) {
+          return null;
+        }
+        try {
+          const parsed = JSON.parse(raw);
+          return parsed && typeof parsed === 'object' ? parsed : null;
+        } catch (_error) {
+          return null;
+        }
+      }
+
+      function setFormFieldValue(form, key, value) {
+        const field = form.elements.namedItem(key);
+        if (!(field instanceof HTMLInputElement || field instanceof HTMLSelectElement)) {
+          return;
+        }
+        const nextValue = String(value || '').trim();
+        if (field instanceof HTMLSelectElement && key === 'room' && nextValue && !Array.from(field.options).some((opt) => opt.value === nextValue)) {
+          field.add(new Option(roomLabel(nextValue), nextValue));
+        }
+        field.value = nextValue;
+      }
+
+      function syncPresetDisclosure(form, preset) {
+        const details = form.querySelector('.front-advanced-extra');
+        if (!(details instanceof HTMLDetailsElement) || !preset || typeof preset !== 'object') {
+          return;
+        }
+        const hasHiddenFilters = ['category', 'room'].some((key) => String(preset[key] || '').trim());
+        if (hasHiddenFilters) {
+          details.open = true;
+        }
+      }
+
+      function applyFilterPresetToForm(form, preset) {
+        if (!(form instanceof HTMLFormElement) || !preset || typeof preset !== 'object') {
+          return;
+        }
+        for (const key of FILTER_KEYS) {
+          if (key === 'venue') {
+            continue;
+          }
+          setFormFieldValue(form, key, preset[key]);
+        }
+        window.CineVicioProviderVenue?.sync(form);
+        setFormFieldValue(form, 'venue', preset.venue);
+        syncPresetDisclosure(form, preset);
+      }
+
+      function syncBoardPreset(root = document, locationKey, boardKey = '', { force = false } = {}) {
+        const location = String(locationKey || '').trim();
+        if (!location) {
+          return;
+        }
+        const form = root.querySelector(`form[data-front-advanced-form="true"][data-front-location-key="${location}"]`);
+        if (!(form instanceof HTMLFormElement)) {
+          return;
+        }
+        if (!force && form.dataset.frontQueryFiltersActive === 'true') {
+          return;
+        }
+        const selector = boardKey
+          ? `[data-front-board-location="${location}"][data-front-board-target="${boardKey}"]`
+          : `[data-front-board-location="${location}"][data-front-board-target][aria-pressed="true"]`;
+        const button = root.querySelector(selector);
+        if (!(button instanceof HTMLButtonElement)) {
+          return;
+        }
+        const preset = parseFilterPreset(button);
+        if (!preset) {
+          return;
+        }
+        applyFilterPresetToForm(form, preset);
+      }
+
+      function syncActiveQuickBoardPresets(root = document) {
+        const locationKeys = new Set(
+          Array.from(root.querySelectorAll('form[data-front-advanced-form="true"]'))
+            .map((form) => form instanceof HTMLFormElement ? String(form.dataset.frontLocationKey || '').trim() : '')
+            .filter(Boolean)
+        );
+        for (const locationKey of locationKeys) {
+          syncBoardPreset(root, locationKey, '', { force: false });
+        }
+      }
+
+      function clearUrlFilters() {
+        const params = new URLSearchParams(window.location.search || '');
+        for (const key of FILTER_KEYS) {
+          params.delete(key);
+        }
+        params.delete('focus');
+        const query = params.toString();
+        const next = query
+          ? `${window.location.pathname}?${query}#cartelera`
+          : `${window.location.pathname}#cartelera`;
+        window.history.replaceState({}, '', next);
+        document.querySelectorAll('form[data-front-advanced-form="true"]').forEach((form) => {
+          if (form instanceof HTMLFormElement) {
+            form.dataset.frontQueryFiltersActive = 'false';
+          }
+        });
       }
 
       function buildFrontInsights(rows) {
@@ -4355,6 +4468,7 @@
           setBoardPanel(locationKey, 'advanced');
           if (updateUrl) {
             writeFiltersToUrl(filters);
+            form.dataset.frontQueryFiltersActive = 'true';
           }
         } catch (_error) {
           renderAdvancedRows(panel, []);
@@ -4381,6 +4495,7 @@
           if (resetButton instanceof HTMLButtonElement) {
             resetButton.addEventListener('click', () => {
               form.reset();
+              form.dataset.frontQueryFiltersActive = 'false';
               window.CineVicioProviderVenue?.sync(form);
               const locationKey = String(form.dataset.frontLocationKey || '').trim();
               writeFiltersToUrl({});
@@ -4390,6 +4505,7 @@
 
           const locationPanel = form.closest('[data-location-panel]');
           const hasQueryFilters = applyUrlToForm(form);
+          form.dataset.frontQueryFiltersActive = hasQueryFilters ? 'true' : 'false';
           window.CineVicioProviderVenue?.sync(form);
           if (hasQueryFilters && (!(locationPanel instanceof HTMLElement) || !locationPanel.hidden)) {
             runAdvancedFilter(form, { updateUrl: false });
@@ -4398,7 +4514,8 @@
       }
 
       initFrontAdvanced(document);
-      window.CineVicioFrontAdvanced = { init: initFrontAdvanced };
+      syncActiveQuickBoardPresets(document);
+      window.CineVicioFrontAdvanced = { init: initFrontAdvanced, syncBoardPreset, clearUrlFilters };
     })();
   </script>
   
