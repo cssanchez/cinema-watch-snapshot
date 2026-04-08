@@ -1,6 +1,6 @@
 #!/usr/bin/env python3
 """
-Implement 5 UX improvements to cinema listing website.
+Implement 6 UX/Security improvements to cinema listing website.
 This script processes all HTML files in docs/ and applies transformations.
 """
 
@@ -10,7 +10,7 @@ from pathlib import Path
 from typing import List, Tuple
 
 # Configuration
-DOCS_ROOT = r"c:\Users\vic1o\.cline\cinema-watch-snapshot\docs"
+DOCS_ROOT = "docs"
 ENCODING = "utf-8"
 
 def find_all_html_files(root_path: str) -> List[str]:
@@ -180,9 +180,22 @@ def transform_5_count_format(content: str) -> str:
     
     return content
 
+
+def transform_6_add_csp(content: str) -> str:
+    """
+    Add Content-Security-Policy meta tag to prevent XSS attacks.
+    """
+    csp_tag = '  <meta http-equiv="Content-Security-Policy" content="default-src \'self\'; script-src \'self\' \'unsafe-inline\'; style-src \'self\' \'unsafe-inline\'; img-src \'self\' data:; connect-src \'self\'; font-src \'self\'; object-src \'none\'; base-uri \'self\'; form-action \'self\';">\n'
+    if 'http-equiv="Content-Security-Policy"' not in content:
+        if '<meta charset="utf-8">\n' in content:
+            content = content.replace('<meta charset="utf-8">\n', '<meta charset="utf-8">\n' + csp_tag)
+        elif '<head>\n' in content:
+            content = content.replace('<head>\n', '<head>\n' + csp_tag)
+    return content
+
 def process_file(file_path: str) -> Tuple[bool, int]:
     """
-    Process a single HTML file applying all 5 transformations.
+    Process a single HTML file applying all 6 transformations.
     Returns (success, changes_made)
     """
     try:
@@ -198,6 +211,7 @@ def process_file(file_path: str) -> Tuple[bool, int]:
         content = transform_3_truncation_signal(content)
         content = transform_4_occupancy_highlight(content)
         content = transform_5_count_format(content)
+        content = transform_6_add_csp(content)
         
         # Check if changes were made
         changes_made = 1 if content != original_content else 0
@@ -251,6 +265,7 @@ def main():
     print("  3. Converted See all links to pill buttons")
     print("  4. Added occupancy highlights for 50%+ sold")
     print("  5. Updated count display format to 'X of Y'")
+    print("  6. Added Content-Security-Policy meta tag")
 
 if __name__ == "__main__":
     main()
