@@ -12,12 +12,12 @@
   <meta property="og:description" content="Provider Showcase / IMAX on Cine Vicio: cached venue showtimes and freshness, shared as a static snapshot.">
   
   
-  <meta property="og:url" content="/cinema-watch-snapshot/providers/showcase/">
-  <meta property="og:image" content="/cinema-watch-snapshot/og-image.svg">
+  <meta property="og:url" content="/providers/showcase/">
+  <meta property="og:image" content="/og-image.svg">
   <meta name="twitter:card" content="summary_large_image">
   <meta name="twitter:title" content="Showcase / IMAX | Cine Vicio">
   <meta name="twitter:description" content="Provider Showcase / IMAX on Cine Vicio: cached venue showtimes and freshness, shared as a static snapshot.">
-  <meta name="twitter:image" content="/cinema-watch-snapshot/og-image.svg">
+  <meta name="twitter:image" content="/og-image.svg">
   <title>Showcase / IMAX | Cine Vicio</title>
   <style>
     :root {
@@ -127,9 +127,7 @@
       padding: 0.54rem 0.62rem 0.54rem 1rem;
       border: 1px solid rgba(165, 178, 198, 0.18);
       border-radius: 24px;
-      background:
-        linear-gradient(90deg, rgba(15, 18, 27, 0.92), rgba(8, 11, 17, 0.78)),
-        rgba(9, 12, 18, 0.86);
+      background: #090c11;
       box-shadow: 0 14px 34px rgba(0, 0, 0, 0.28);
       position: sticky;
       top: 0.8rem;
@@ -1677,15 +1675,71 @@
   <a class="skip-link" href="#app-main">Skip to content</a>
   <div class="shell">
     <header class="topbar">
-      <a href="/cinema-watch-snapshot/" class="brand">
+      <a href="/" class="brand">
         <strong>Cine Vicio</strong>
       </a>
       <nav class="nav" aria-label="Primary">
         <div class="nav-links">
-          <a href="/cinema-watch-snapshot/screenings/" data-i18n-source>Showtimes</a>
-          <a href="/cinema-watch-snapshot/movies/" data-i18n-source>Movies</a>
-          <a href="/cinema-watch-snapshot/screenings/?category=imax">IMAX</a>
-          <a href="/cinema-watch-snapshot/screenings/?category=dolby_atmos">Dolby Atmos</a>
+          <a href="/screenings/" data-i18n-source>Showtimes</a>
+          <a href="/movies/" data-i18n-source>Movies</a>
+          <a href="/screenings/?category=imax">IMAX</a>
+          <a href="/screenings/?category=dolby_atmos">Dolby Atmos</a>
+        </div>
+        
+        <div class="nav-location-dropdown" data-location-dropdown>
+          <button type="button" class="nav-location-toggle" aria-haspopup="true" aria-expanded="false" data-location-dropdown-toggle>
+            <span class="nav-location-active">Zone</span>
+            <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="m6 9 6 6 6-6"/></svg>
+          </button>
+          <div class="nav-location-menu" hidden>
+            
+            <button
+              type="button"
+              class="location-option"
+              data-location-target="amba"
+              aria-pressed="true"
+              data-coming-soon="false"
+            >
+              <span>AMBA</span>
+              
+            </button>
+            
+            <button
+              type="button"
+              class="location-option"
+              data-location-target="caba"
+              aria-pressed="false"
+              data-coming-soon="false"
+            >
+              <span>CABA</span>
+              
+            </button>
+            
+            <button
+              type="button"
+              class="location-option"
+              data-location-target="gba_sur"
+              aria-pressed="false"
+              data-coming-soon="false"
+            >
+              <span>GBA Sur</span>
+              
+            </button>
+            
+            <button
+              type="button"
+              class="location-option"
+              data-location-target="mar_del_plata"
+              aria-pressed="false"
+              data-coming-soon="true"
+            >
+              <span>Mar del Plata</span>
+              
+              <small data-i18n-source>Coming soon</small>
+              
+            </button>
+            
+          </div>
         </div>
         
         <div class="nav-tools">
@@ -1710,7 +1764,7 @@
   </div>
   <div class="hero-side">
     <strong>Provider snapshot</strong>
-    <p data-i18n-freshness>Updated 4 min ago</p>
+    <p data-i18n-freshness>Updated 15 min ago</p>
     <div class="stats">
       <span class="stat">297 cached screenings</span>
       <span class="stat">16 cached titles</span>
@@ -1727,7 +1781,7 @@
     </div>
     <div class="metric">
       <span class="muted">Freshness</span>
-      <strong style="font-size:1rem;" data-i18n-freshness>Updated 4 min ago</strong>
+      <strong style="font-size:1rem;" data-i18n-freshness>Updated 15 min ago</strong>
     </div>
   </div>
 </section>
@@ -1741,28 +1795,28 @@
   </div>
   <div class="button-grid">
     
-    <a class="button-card" href="/cinema-watch-snapshot/screenings/?provider=showcase&amp;from_date=2026-04-07&amp;to_date=2026-04-07" data-tone="accent">
+    <a class="button-card" href="/screenings/?provider=showcase&amp;from_date=2026-04-07&amp;to_date=2026-04-07" data-tone="accent">
       <strong>Today</strong>
       
       <p>Current cached board</p>
       
     </a>
     
-    <a class="button-card" href="/cinema-watch-snapshot/movies/?provider=showcase&amp;from_date=2026-04-07&amp;to_date=2026-04-13" data-tone="soft">
+    <a class="button-card" href="/movies/?provider=showcase&amp;from_date=2026-04-07&amp;to_date=2026-04-13" data-tone="soft">
       <strong>Movies This Week</strong>
       
       <p>Movie-first view</p>
       
     </a>
     
-    <a class="button-card" href="/cinema-watch-snapshot/status/" data-tone="soft">
+    <a class="button-card" href="/status/" data-tone="soft">
       <strong>Refresh Status</strong>
       
       <p>Latest cache runs</p>
       
     </a>
     
-    <a class="button-card" href="/cinema-watch-snapshot/venues/showcase/showcase_belgrano/" data-tone="soft">
+    <a class="button-card" href="/venues/showcase/showcase_belgrano/" data-tone="soft">
       <strong>Showcase Belgrano</strong>
       
       <p>Jump straight to a venue board</p>
@@ -1783,7 +1837,7 @@
       </div>
       <div class="dense-list">
         
-        <a class="row-card" href="/cinema-watch-snapshot/venues/showcase/showcase_belgrano/">
+        <a class="row-card" href="/venues/showcase/showcase_belgrano/">
           <div class="row-head">
             <div>
               <strong>Showcase Belgrano</strong>
@@ -1797,13 +1851,13 @@
             <span class="stat">77 cached screenings</span>
             <span class="stat">10 cached titles</span>
           </div>
-          <p data-i18n-freshness>Updated 4 min ago</p>
+          <p data-i18n-freshness>Updated 15 min ago</p>
           
           <p>Date range: 2026-04-07 to 2026-04-08</p>
           
         </a>
         
-        <a class="row-card" href="/cinema-watch-snapshot/venues/showcase/showcase_cordoba_villa_cabrera/">
+        <a class="row-card" href="/venues/showcase/showcase_cordoba_villa_cabrera/">
           <div class="row-head">
             <div>
               <strong>Showcase Cordoba (Villa Cabrera)</strong>
@@ -1817,13 +1871,13 @@
             <span class="stat">90 cached screenings</span>
             <span class="stat">10 cached titles</span>
           </div>
-          <p data-i18n-freshness>Updated 5 min ago</p>
+          <p data-i18n-freshness>Updated 17 min ago</p>
           
           <p>Date range: 2026-04-07 to 2026-04-08</p>
           
         </a>
         
-        <a class="row-card" href="/cinema-watch-snapshot/venues/showcase/showcase_haedo/">
+        <a class="row-card" href="/venues/showcase/showcase_haedo/">
           <div class="row-head">
             <div>
               <strong>Showcase Haedo</strong>
@@ -1841,7 +1895,7 @@
           
         </a>
         
-        <a class="row-card" href="/cinema-watch-snapshot/venues/showcase/showcase_quilmes/">
+        <a class="row-card" href="/venues/showcase/showcase_quilmes/">
           <div class="row-head">
             <div>
               <strong>Showcase Quilmes</strong>
@@ -1859,7 +1913,7 @@
           
         </a>
         
-        <a class="row-card" href="/cinema-watch-snapshot/venues/showcase/showcase_rosario/">
+        <a class="row-card" href="/venues/showcase/showcase_rosario/">
           <div class="row-head">
             <div>
               <strong>Showcase Rosario</strong>
@@ -1877,7 +1931,7 @@
           
         </a>
         
-        <a class="row-card" href="/cinema-watch-snapshot/venues/showcase/play_cinema_san_juan/">
+        <a class="row-card" href="/venues/showcase/play_cinema_san_juan/">
           <div class="row-head">
             <div>
               <strong>Play Cinema San Juan</strong>
@@ -1895,7 +1949,7 @@
           
         </a>
         
-        <a class="row-card" href="/cinema-watch-snapshot/venues/showcase/imax_norcenter/">
+        <a class="row-card" href="/venues/showcase/imax_norcenter/">
           <div class="row-head">
             <div>
               <strong>IMAX Theatre (Norcenter)</strong>
@@ -1909,13 +1963,13 @@
             <span class="stat">12 cached screenings</span>
             <span class="stat">2 cached titles</span>
           </div>
-          <p data-i18n-freshness>Updated 5 min ago</p>
+          <p data-i18n-freshness>Updated 16 min ago</p>
           
           <p>Date range: 2026-04-07 to 2026-04-09</p>
           
         </a>
         
-        <a class="row-card" href="/cinema-watch-snapshot/venues/showcase/showcase_norcenter/">
+        <a class="row-card" href="/venues/showcase/showcase_norcenter/">
           <div class="row-head">
             <div>
               <strong>Showcase Norcenter</strong>
@@ -1929,13 +1983,13 @@
             <span class="stat">118 cached screenings</span>
             <span class="stat">15 cached titles</span>
           </div>
-          <p data-i18n-freshness>Updated 4 min ago</p>
+          <p data-i18n-freshness>Updated 15 min ago</p>
           
           <p>Date range: 2026-04-07 to 2026-04-08</p>
           
         </a>
         
-        <a class="row-card" href="/cinema-watch-snapshot/venues/showcase/showcase_villa_allende/">
+        <a class="row-card" href="/venues/showcase/showcase_villa_allende/">
           <div class="row-head">
             <div>
               <strong>Showcase Villa Allende</strong>

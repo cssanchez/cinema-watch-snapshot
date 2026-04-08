@@ -12,12 +12,12 @@
   <meta property="og:description" content="Read the latest exported cache status for providers and venues in Cine Vicio (share-friendly static snapshot).">
   
   
-  <meta property="og:url" content="/cinema-watch-snapshot/status/">
-  <meta property="og:image" content="/cinema-watch-snapshot/og-image.svg">
+  <meta property="og:url" content="/status/">
+  <meta property="og:image" content="/og-image.svg">
   <meta name="twitter:card" content="summary_large_image">
   <meta name="twitter:title" content="Snapshot Status | Cine Vicio">
   <meta name="twitter:description" content="Read the latest exported cache status for providers and venues in Cine Vicio (share-friendly static snapshot).">
-  <meta name="twitter:image" content="/cinema-watch-snapshot/og-image.svg">
+  <meta name="twitter:image" content="/og-image.svg">
   <title>Snapshot Status | Cine Vicio</title>
   <style>
     :root {
@@ -127,9 +127,7 @@
       padding: 0.54rem 0.62rem 0.54rem 1rem;
       border: 1px solid rgba(165, 178, 198, 0.18);
       border-radius: 24px;
-      background:
-        linear-gradient(90deg, rgba(15, 18, 27, 0.92), rgba(8, 11, 17, 0.78)),
-        rgba(9, 12, 18, 0.86);
+      background: #090c11;
       box-shadow: 0 14px 34px rgba(0, 0, 0, 0.28);
       position: sticky;
       top: 0.8rem;
@@ -1677,15 +1675,71 @@
   <a class="skip-link" href="#app-main">Skip to content</a>
   <div class="shell">
     <header class="topbar">
-      <a href="/cinema-watch-snapshot/" class="brand">
+      <a href="/" class="brand">
         <strong>Cine Vicio</strong>
       </a>
       <nav class="nav" aria-label="Primary">
         <div class="nav-links">
-          <a href="/cinema-watch-snapshot/screenings/" data-i18n-source>Showtimes</a>
-          <a href="/cinema-watch-snapshot/movies/" data-i18n-source>Movies</a>
-          <a href="/cinema-watch-snapshot/screenings/?category=imax">IMAX</a>
-          <a href="/cinema-watch-snapshot/screenings/?category=dolby_atmos">Dolby Atmos</a>
+          <a href="/screenings/" data-i18n-source>Showtimes</a>
+          <a href="/movies/" data-i18n-source>Movies</a>
+          <a href="/screenings/?category=imax">IMAX</a>
+          <a href="/screenings/?category=dolby_atmos">Dolby Atmos</a>
+        </div>
+        
+        <div class="nav-location-dropdown" data-location-dropdown>
+          <button type="button" class="nav-location-toggle" aria-haspopup="true" aria-expanded="false" data-location-dropdown-toggle>
+            <span class="nav-location-active">Zone</span>
+            <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="m6 9 6 6 6-6"/></svg>
+          </button>
+          <div class="nav-location-menu" hidden>
+            
+            <button
+              type="button"
+              class="location-option"
+              data-location-target="amba"
+              aria-pressed="true"
+              data-coming-soon="false"
+            >
+              <span>AMBA</span>
+              
+            </button>
+            
+            <button
+              type="button"
+              class="location-option"
+              data-location-target="caba"
+              aria-pressed="false"
+              data-coming-soon="false"
+            >
+              <span>CABA</span>
+              
+            </button>
+            
+            <button
+              type="button"
+              class="location-option"
+              data-location-target="gba_sur"
+              aria-pressed="false"
+              data-coming-soon="false"
+            >
+              <span>GBA Sur</span>
+              
+            </button>
+            
+            <button
+              type="button"
+              class="location-option"
+              data-location-target="mar_del_plata"
+              aria-pressed="false"
+              data-coming-soon="true"
+            >
+              <span>Mar del Plata</span>
+              
+              <small data-i18n-source>Coming soon</small>
+              
+            </button>
+            
+          </div>
         </div>
         
         <div class="nav-tools">
@@ -1732,7 +1786,7 @@
     </div>
     <div class="metric">
       <span class="muted">Published at</span>
-      <strong style="font-size:1rem;">2026-04-07 17:11 UTC</strong>
+      <strong style="font-size:1rem;">2026-04-07 17:22 UTC</strong>
     </div>
   </div>
 </section>
@@ -1745,15 +1799,15 @@
     </div>
   </div>
   <div class="button-grid">
-    <a class="button-card" href="/cinema-watch-snapshot/screenings/" data-tone="accent">
+    <a class="button-card" href="/screenings/" data-tone="accent">
       <strong>Open screening search</strong>
       <p>Query the static snapshot in the browser.</p>
     </a>
-    <a class="button-card" href="/cinema-watch-snapshot/movies/">
+    <a class="button-card" href="/movies/">
       <strong>Browse movies</strong>
       <p>See the same snapshot grouped by title.</p>
     </a>
-    <a class="button-card" href="/cinema-watch-snapshot/venues/cinepolis/recoleta/" data-tone="warm">
+    <a class="button-card" href="/venues/cinepolis/recoleta/" data-tone="warm">
       <strong>Recoleta room 6</strong>
       <p>Jump straight to the favorite room view.</p>
     </a>
@@ -1772,7 +1826,7 @@
       
       <div class="dense-list">
         
-        <a class="row-card" href="/cinema-watch-snapshot/providers/cinepolis/">
+        <a class="row-card" href="/providers/cinepolis/">
           <div class="row-head">
             <div>
               <strong>Cinepolis Argentina</strong>
@@ -1789,12 +1843,12 @@
             <span class="stat">2122 cached screenings</span>
             <span class="stat">37 cached titles</span>
           </div>
-          <p>Updated 59 min ago</p>
+          <p>Updated 1 h ago</p>
           <p>Last run: 2026-04-07 16:12 UTC - 8s</p>
           
         </a>
         
-        <a class="row-card" href="/cinema-watch-snapshot/providers/showcase/">
+        <a class="row-card" href="/providers/showcase/">
           <div class="row-head">
             <div>
               <strong>Showcase / IMAX</strong>
@@ -1809,7 +1863,7 @@
             <span class="stat">297 cached screenings</span>
             <span class="stat">16 cached titles</span>
           </div>
-          <p>Updated 4 min ago</p>
+          <p>Updated 15 min ago</p>
           <p>Last run: 2026-04-07 17:06 UTC - 6s</p>
           
         </a>
@@ -1828,7 +1882,7 @@
       
       <div class="dense-list">
         
-        <a class="row-card" href="/cinema-watch-snapshot/venues/cinepolis/avellaneda/">
+        <a class="row-card" href="/venues/cinepolis/avellaneda/">
           <div class="row-head">
             <div>
               <strong>Avellaneda</strong>
@@ -1851,7 +1905,7 @@
           
         </a>
         
-        <a class="row-card" href="/cinema-watch-snapshot/venues/cinepolis/lujan/">
+        <a class="row-card" href="/venues/cinepolis/lujan/">
           <div class="row-head">
             <div>
               <strong>Cinépolis Luján</strong>
@@ -1874,7 +1928,7 @@
           
         </a>
         
-        <a class="row-card" href="/cinema-watch-snapshot/venues/cinepolis/merlo/">
+        <a class="row-card" href="/venues/cinepolis/merlo/">
           <div class="row-head">
             <div>
               <strong>Cinépolis Merlo</strong>
@@ -1897,7 +1951,7 @@
           
         </a>
         
-        <a class="row-card" href="/cinema-watch-snapshot/venues/cinepolis/pilar/">
+        <a class="row-card" href="/venues/cinepolis/pilar/">
           <div class="row-head">
             <div>
               <strong>Cinépolis Pilar</strong>
@@ -1914,13 +1968,13 @@
             <span class="stat">84 cached screenings</span>
             <span class="stat">6 cached titles</span>
           </div>
-          <p>Updated 59 min ago</p>
+          <p>Updated 1 h ago</p>
           
           <p>Cached dates: 2026-04-07 to 2026-04-11</p>
           
         </a>
         
-        <a class="row-card" href="/cinema-watch-snapshot/venues/cinepolis/houssay/">
+        <a class="row-card" href="/venues/cinepolis/houssay/">
           <div class="row-head">
             <div>
               <strong>Cinépolis Plaza Houssay</strong>
@@ -1943,7 +1997,7 @@
           
         </a>
         
-        <a class="row-card" href="/cinema-watch-snapshot/venues/cinepolis/recoleta/">
+        <a class="row-card" href="/venues/cinepolis/recoleta/">
           <div class="row-head">
             <div>
               <strong>Recoleta</strong>
@@ -1960,13 +2014,13 @@
             <span class="stat">306 cached screenings</span>
             <span class="stat">27 cached titles</span>
           </div>
-          <p>Updated 59 min ago</p>
+          <p>Updated 1 h ago</p>
           
           <p>Cached dates: 2026-04-07 to 2026-04-13</p>
           
         </a>
         
-        <a class="row-card" href="/cinema-watch-snapshot/venues/cinepolis/maipu/">
+        <a class="row-card" href="/venues/cinepolis/maipu/">
           <div class="row-head">
             <div>
               <strong>Cinépolis Arena Maipú</strong>
@@ -1989,7 +2043,7 @@
           
         </a>
         
-        <a class="row-card" href="/cinema-watch-snapshot/venues/cinepolis/mendoza/">
+        <a class="row-card" href="/venues/cinepolis/mendoza/">
           <div class="row-head">
             <div>
               <strong>Cinépolis Mendoza Plaza</strong>
@@ -2012,7 +2066,7 @@
           
         </a>
         
-        <a class="row-card" href="/cinema-watch-snapshot/venues/cinepolis/neuquen/">
+        <a class="row-card" href="/venues/cinepolis/neuquen/">
           <div class="row-head">
             <div>
               <strong>Cinépolis Neuquén</strong>
@@ -2029,13 +2083,13 @@
             <span class="stat">223 cached screenings</span>
             <span class="stat">10 cached titles</span>
           </div>
-          <p>Updated 59 min ago</p>
+          <p>Updated 1 h ago</p>
           
           <p>Cached dates: 2026-04-07 to 2026-04-13</p>
           
         </a>
         
-        <a class="row-card" href="/cinema-watch-snapshot/venues/cinepolis/rosario/">
+        <a class="row-card" href="/venues/cinepolis/rosario/">
           <div class="row-head">
             <div>
               <strong>Cinépolis Rosario</strong>
@@ -2052,13 +2106,13 @@
             <span class="stat">186 cached screenings</span>
             <span class="stat">10 cached titles</span>
           </div>
-          <p>Updated 59 min ago</p>
+          <p>Updated 1 h ago</p>
           
           <p>Cached dates: 2026-04-07 to 2026-04-13</p>
           
         </a>
         
-        <a class="row-card" href="/cinema-watch-snapshot/venues/showcase/showcase_belgrano/">
+        <a class="row-card" href="/venues/showcase/showcase_belgrano/">
           <div class="row-head">
             <div>
               <strong>Showcase Belgrano</strong>
@@ -2073,13 +2127,13 @@
             <span class="stat">77 cached screenings</span>
             <span class="stat">10 cached titles</span>
           </div>
-          <p>Updated 4 min ago</p>
+          <p>Updated 15 min ago</p>
           
           <p>Cached dates: 2026-04-07 to 2026-04-08</p>
           
         </a>
         
-        <a class="row-card" href="/cinema-watch-snapshot/venues/showcase/showcase_cordoba_villa_cabrera/">
+        <a class="row-card" href="/venues/showcase/showcase_cordoba_villa_cabrera/">
           <div class="row-head">
             <div>
               <strong>Showcase Cordoba (Villa Cabrera)</strong>
@@ -2094,13 +2148,13 @@
             <span class="stat">90 cached screenings</span>
             <span class="stat">10 cached titles</span>
           </div>
-          <p>Updated 5 min ago</p>
+          <p>Updated 16 min ago</p>
           
           <p>Cached dates: 2026-04-07 to 2026-04-08</p>
           
         </a>
         
-        <a class="row-card" href="/cinema-watch-snapshot/venues/showcase/showcase_haedo/">
+        <a class="row-card" href="/venues/showcase/showcase_haedo/">
           <div class="row-head">
             <div>
               <strong>Showcase Haedo</strong>
@@ -2119,7 +2173,7 @@
           
         </a>
         
-        <a class="row-card" href="/cinema-watch-snapshot/venues/showcase/showcase_quilmes/">
+        <a class="row-card" href="/venues/showcase/showcase_quilmes/">
           <div class="row-head">
             <div>
               <strong>Showcase Quilmes</strong>
@@ -2138,7 +2192,7 @@
           
         </a>
         
-        <a class="row-card" href="/cinema-watch-snapshot/venues/showcase/showcase_rosario/">
+        <a class="row-card" href="/venues/showcase/showcase_rosario/">
           <div class="row-head">
             <div>
               <strong>Showcase Rosario</strong>
@@ -2157,7 +2211,7 @@
           
         </a>
         
-        <a class="row-card" href="/cinema-watch-snapshot/venues/showcase/play_cinema_san_juan/">
+        <a class="row-card" href="/venues/showcase/play_cinema_san_juan/">
           <div class="row-head">
             <div>
               <strong>Play Cinema San Juan</strong>
@@ -2176,7 +2230,7 @@
           
         </a>
         
-        <a class="row-card" href="/cinema-watch-snapshot/venues/showcase/imax_norcenter/">
+        <a class="row-card" href="/venues/showcase/imax_norcenter/">
           <div class="row-head">
             <div>
               <strong>IMAX Theatre (Norcenter)</strong>
@@ -2191,13 +2245,13 @@
             <span class="stat">12 cached screenings</span>
             <span class="stat">2 cached titles</span>
           </div>
-          <p>Updated 5 min ago</p>
+          <p>Updated 16 min ago</p>
           
           <p>Cached dates: 2026-04-07 to 2026-04-09</p>
           
         </a>
         
-        <a class="row-card" href="/cinema-watch-snapshot/venues/showcase/showcase_norcenter/">
+        <a class="row-card" href="/venues/showcase/showcase_norcenter/">
           <div class="row-head">
             <div>
               <strong>Showcase Norcenter</strong>
@@ -2212,7 +2266,7 @@
             <span class="stat">118 cached screenings</span>
             <span class="stat">15 cached titles</span>
           </div>
-          <p>Updated 4 min ago</p>
+          <p>Updated 15 min ago</p>
           
           <p>Cached dates: 2026-04-07 to 2026-04-08</p>
           
@@ -2240,7 +2294,7 @@
               <strong>Showcase / IMAX</strong>
               <div class="kicker">
                 
-                <a href="/cinema-watch-snapshot/venues/showcase/showcase_belgrano/">Showcase Belgrano</a>
+                <a href="/venues/showcase/showcase_belgrano/">Showcase Belgrano</a>
                 
               </div>
             </div>
@@ -2265,7 +2319,7 @@
               <strong>Showcase / IMAX</strong>
               <div class="kicker">
                 
-                <a href="/cinema-watch-snapshot/venues/showcase/showcase_norcenter/">Showcase Norcenter</a>
+                <a href="/venues/showcase/showcase_norcenter/">Showcase Norcenter</a>
                 
               </div>
             </div>
@@ -2290,7 +2344,7 @@
               <strong>Showcase / IMAX</strong>
               <div class="kicker">
                 
-                <a href="/cinema-watch-snapshot/venues/showcase/imax_norcenter/">IMAX Theatre (Norcenter)</a>
+                <a href="/venues/showcase/imax_norcenter/">IMAX Theatre (Norcenter)</a>
                 
               </div>
             </div>
@@ -2315,7 +2369,7 @@
               <strong>Showcase / IMAX</strong>
               <div class="kicker">
                 
-                <a href="/cinema-watch-snapshot/venues/showcase/showcase_cordoba_villa_cabrera/">Showcase Cordoba (Villa Cabrera)</a>
+                <a href="/venues/showcase/showcase_cordoba_villa_cabrera/">Showcase Cordoba (Villa Cabrera)</a>
                 
               </div>
             </div>
@@ -2340,7 +2394,7 @@
               <strong>Showcase / IMAX</strong>
               <div class="kicker">
                 
-                <a href="/cinema-watch-snapshot/venues/showcase/showcase_belgrano/">Showcase Belgrano</a>
+                <a href="/venues/showcase/showcase_belgrano/">Showcase Belgrano</a>
                 
               </div>
             </div>
@@ -2365,7 +2419,7 @@
               <strong>Showcase / IMAX</strong>
               <div class="kicker">
                 
-                <a href="/cinema-watch-snapshot/venues/showcase/imax_norcenter/">IMAX Theatre (Norcenter)</a>
+                <a href="/venues/showcase/imax_norcenter/">IMAX Theatre (Norcenter)</a>
                 
               </div>
             </div>
@@ -2390,7 +2444,7 @@
               <strong>Showcase / IMAX</strong>
               <div class="kicker">
                 
-                <a href="/cinema-watch-snapshot/venues/showcase/imax_norcenter/">IMAX Theatre (Norcenter)</a>
+                <a href="/venues/showcase/imax_norcenter/">IMAX Theatre (Norcenter)</a>
                 
               </div>
             </div>
@@ -2415,7 +2469,7 @@
               <strong>Showcase / IMAX</strong>
               <div class="kicker">
                 
-                <a href="/cinema-watch-snapshot/venues/showcase/imax_norcenter/">IMAX Theatre (Norcenter)</a>
+                <a href="/venues/showcase/imax_norcenter/">IMAX Theatre (Norcenter)</a>
                 
               </div>
             </div>
@@ -2440,7 +2494,7 @@
               <strong>Cinepolis Argentina</strong>
               <div class="kicker">
                 
-                <a href="/cinema-watch-snapshot/venues/cinepolis/rosario/">Cinépolis Rosario</a>
+                <a href="/venues/cinepolis/rosario/">Cinépolis Rosario</a>
                 
               </div>
             </div>
@@ -2467,7 +2521,7 @@
               <strong>Cinepolis Argentina</strong>
               <div class="kicker">
                 
-                <a href="/cinema-watch-snapshot/venues/cinepolis/recoleta/">Recoleta</a>
+                <a href="/venues/cinepolis/recoleta/">Recoleta</a>
                 
               </div>
             </div>
@@ -2494,7 +2548,7 @@
               <strong>Cinepolis Argentina</strong>
               <div class="kicker">
                 
-                <a href="/cinema-watch-snapshot/venues/cinepolis/pilar/">Cinépolis Pilar</a>
+                <a href="/venues/cinepolis/pilar/">Cinépolis Pilar</a>
                 
               </div>
             </div>
@@ -2521,7 +2575,7 @@
               <strong>Cinepolis Argentina</strong>
               <div class="kicker">
                 
-                <a href="/cinema-watch-snapshot/venues/cinepolis/neuquen/">Cinépolis Neuquén</a>
+                <a href="/venues/cinepolis/neuquen/">Cinépolis Neuquén</a>
                 
               </div>
             </div>
