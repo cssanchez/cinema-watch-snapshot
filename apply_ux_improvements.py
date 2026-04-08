@@ -7,10 +7,10 @@ This script processes all HTML files in docs/ and applies transformations.
 import os
 import re
 from pathlib import Path
-from typing import List, Tuple
+from typing import List, Tuple, Union
 
 # Configuration
-DOCS_ROOT = str(Path(__file__).parent / "docs")
+DOCS_ROOT = Path(__file__).parent / "docs"
 ENCODING = "utf-8"
 
 # Pre-compiled Regex Patterns
@@ -29,7 +29,7 @@ RE_DATE_GROUP_FULL = re.compile(r'<section class="front-date-group">(?:[^<]|<(?!
 RE_SCREENING_ROW_OPEN = re.compile(r'<div class="front-screening-row"')
 RE_SHOWN_COUNT = re.compile(r'(>)(\d+)(\s+shown<)')
 
-def find_all_html_files(root_path: str) -> List[str]:
+def find_all_html_files(root_path: Union[str, Path]) -> List[str]:
     """Find all HTML files in the docs directory."""
     html_files = []
     for root, dirs, files in os.walk(root_path):
