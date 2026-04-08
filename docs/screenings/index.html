@@ -1958,7 +1958,6 @@
 </script>
 <section class="hero hero-grid">
   <div class="hero-copy">
-    <span class="eyebrow" id="screenings-eyebrow" data-i18n-source>Showtime board</span>
     <h1 id="screenings-title" data-i18n-source>Find a showtime.</h1>
     <p id="screenings-intro">
       Filter by cinema, language, special room, format, date or room number. Upcoming functions stay first.
@@ -2329,19 +2328,17 @@
   function applyCategoryHero() {
     const params = new URLSearchParams(window.location.search);
     const category = canonicalFormat(params.get('category') || '').replaceAll('-', '_');
-    const eyebrow = document.getElementById('screenings-eyebrow');
     const title = document.getElementById('screenings-title');
     const intro = document.getElementById('screenings-intro');
     const sideTitle = document.getElementById('screenings-side-title');
     const sideCopy = document.getElementById('screenings-side-copy');
     const focusChip = document.getElementById('screenings-focus-chip');
     const focusChipLabel = document.getElementById('screenings-focus-chip-label');
-    if (!eyebrow || !title || !intro || !sideTitle || !sideCopy || !focusChip || !focusChipLabel) {
+    if (!title || !intro || !sideTitle || !sideCopy || !focusChip || !focusChipLabel) {
       return;
     }
 
     if (category === 'imax') {
-      eyebrow.textContent = t('IMAX board');
       title.textContent = t('Find an IMAX showtime.');
       intro.textContent = t('Focused on large-format screenings first, then compare by cinema and time.');
       sideTitle.textContent = t('IMAX focus');
@@ -2352,7 +2349,6 @@
     }
 
     if (category === 'dolby_atmos') {
-      eyebrow.textContent = t('Dolby Atmos board');
       title.textContent = t('Find a Dolby Atmos showtime.');
       intro.textContent = t('Focused on Atmos-capable screenings first, then compare by cinema and time.');
       sideTitle.textContent = t('Dolby Atmos focus');
@@ -2362,7 +2358,6 @@
       return;
     }
 
-    eyebrow.textContent = t('Showtime board');
     title.textContent = t('Find a showtime.');
     intro.textContent = t('Filter by cinema, language, special room, format, date or room number. Upcoming functions stay first.');
     sideTitle.textContent = t('Useful shortcuts');
