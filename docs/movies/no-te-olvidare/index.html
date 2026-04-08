@@ -1033,8 +1033,24 @@
     }
 
     .front-advanced-primary {
-      grid-template-columns: repeat(3, minmax(0, 1fr));
+      grid-template-columns:
+        minmax(0, 1.18fr)
+        minmax(0, 1.18fr)
+        minmax(0, 0.94fr)
+        minmax(0, 0.94fr)
+        minmax(8.5rem, 0.72fr)
+        minmax(8.5rem, 0.72fr);
       gap: 0.7rem;
+      align-items: end;
+    }
+
+    .front-advanced-primary .field {
+      min-width: 0;
+    }
+
+    .front-advanced-primary .field.is-date input[type="date"] {
+      min-width: 0;
+      padding-inline: 0.72rem;
     }
 
     .front-advanced-extra {
@@ -1716,7 +1732,11 @@
       }
 
       .front-advanced-primary {
-        grid-template-columns: repeat(2, minmax(0, 1fr));
+        grid-template-columns: repeat(4, minmax(0, 1fr));
+      }
+
+      .front-advanced-primary .field.is-date {
+        grid-column: span 2;
       }
 
       .front-advanced-extra-grid {
