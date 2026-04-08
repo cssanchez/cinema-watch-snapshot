@@ -30,13 +30,22 @@ NEW_SCRIPT = """const storageKey = 'cinema-watch-location';
         history.replaceState(null, '', url.toString());
       }
 
+      let cachedButtons = null;
+      let cachedPanels = null;
+      let availableKeys = null;
+
       function setHomepageLocation(root, key, { persist = true, updateUrl = true } = {}) {
-        const buttons = Array.from(root.querySelectorAll('[data-location-target]'));
-        const panels = Array.from(root.querySelectorAll('[data-location-panel]'));
-        const availableKeys = new Set([
-          ...panels.map((panel) => panel.dataset.locationPanel || ''),
-          ...buttons.map((button) => button.dataset.locationTarget || ''),
-        ]);
+        if (!cachedButtons) {
+          cachedButtons = Array.from(root.querySelectorAll('[data-location-target]'));
+          cachedPanels = Array.from(root.querySelectorAll('[data-location-panel]'));
+          availableKeys = new Set([
+            ...cachedPanels.map((panel) => panel.dataset.locationPanel || ''),
+            ...cachedButtons.map((button) => button.dataset.locationTarget || ''),
+          ]);
+        }
+
+        const buttons = cachedButtons;
+        const panels = cachedPanels;
 
         let nextKey = key && availableKeys.has(key) ? key : '';
         if (!nextKey) {
