@@ -3149,6 +3149,72 @@
       window.CineVicioNav = { sync: syncTopNavState };
     })();
   </script>
+  <script>
+    (() => {
+      function syncVenueSelect(form) {
+        if (!(form instanceof HTMLFormElement) || form.dataset.providerVenueForm !== 'true') {
+          return;
+        }
+        const providerSelect = form.querySelector('[data-provider-select="true"]');
+        const venueSelect = form.querySelector('[data-venue-select="true"]');
+        if (!(providerSelect instanceof HTMLSelectElement) || !(venueSelect instanceof HTMLSelectElement)) {
+          return;
+        }
+
+        const providerValue = providerSelect.value.trim();
+        const currentValue = venueSelect.value;
+        let currentStillValid = !currentValue;
+
+        for (const option of venueSelect.options) {
+          if (!option.value) {
+            option.hidden = false;
+            option.disabled = false;
+            continue;
+          }
+          const optionProvider = option.dataset.provider || '';
+          const visible = !providerValue || optionProvider === providerValue;
+          option.hidden = !visible;
+          option.disabled = !visible;
+          option.textContent = option.dataset.shortLabel || option.textContent;
+          if (visible && option.value === currentValue) {
+            currentStillValid = true;
+          }
+        }
+
+        for (const group of venueSelect.querySelectorAll('optgroup[data-provider]')) {
+          const groupProvider = group.dataset.provider || '';
+          const visible = !providerValue || groupProvider === providerValue;
+          group.hidden = !visible;
+          group.disabled = !visible;
+        }
+
+        if (!currentStillValid) {
+          venueSelect.value = '';
+        }
+      }
+
+      function syncProviderVenueForms(root = document) {
+        const forms = root.querySelectorAll('form[data-provider-venue-form="true"]');
+        for (const form of forms) {
+          syncVenueSelect(form);
+        }
+      }
+
+      document.addEventListener('change', (event) => {
+        const target = event.target;
+        if (!(target instanceof Element)) {
+          return;
+        }
+        if (!target.matches('[data-provider-select="true"]')) {
+          return;
+        }
+        syncVenueSelect(target.form);
+      });
+
+      syncProviderVenueForms(document);
+      window.CineVicioProviderVenue = { sync: syncProviderVenueForms };
+    })();
+  </script>
   
 </body>
 </html>
