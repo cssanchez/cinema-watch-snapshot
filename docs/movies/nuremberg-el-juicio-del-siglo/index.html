@@ -748,70 +748,151 @@
     }
 
     .location-selector {
-      display: flex;
-      flex-wrap: wrap;
-      justify-content: space-between;
-      gap: 0.9rem 1.25rem;
-      align-items: center;
-      margin: 0.95rem 0 1rem;
-      padding: 0.9rem 1rem;
-      border: 1px solid var(--line);
-      border-radius: var(--radius-lg);
+      position: relative;
+      display: grid;
+      grid-template-columns: minmax(12rem, 15rem) minmax(0, 1fr);
+      gap: clamp(0.9rem, 2vw, 1.6rem);
+      align-items: start;
+      margin: 0.6rem 0 1.15rem;
+      padding: 1rem 1.05rem 1.05rem;
+      border: 1px solid rgba(165, 178, 198, 0.17);
+      border-radius: 24px;
       background:
-        linear-gradient(180deg, rgba(255, 255, 255, 0.035), rgba(12, 15, 22, 0.74)),
+        radial-gradient(circle at 100% 0%, rgba(88, 199, 179, 0.1), transparent 13rem),
+        linear-gradient(180deg, rgba(255, 255, 255, 0.038), rgba(11, 14, 21, 0.88)),
         rgba(255, 255, 255, 0.018);
+      box-shadow:
+        inset 0 1px 0 rgba(255, 255, 255, 0.035),
+        0 12px 28px rgba(0, 0, 0, 0.18);
+      overflow: hidden;
     }
 
-    .location-selector > div:first-child {
+    .location-selector::before {
+      content: "";
+      position: absolute;
+      inset: 0 auto 0 0;
+      width: 1px;
+      background: linear-gradient(180deg, rgba(88, 199, 179, 0.32), transparent 76%);
+      opacity: 0.85;
+    }
+
+    .location-selector-copy {
       display: grid;
-      gap: 0.24rem;
+      gap: 0.32rem;
       min-width: 0;
+      padding-left: 0.25rem;
+      align-content: start;
+    }
+
+    .location-selector-copy .kicker {
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+      font-size: 0.72rem;
+      color: color-mix(in srgb, var(--accent) 58%, var(--muted));
     }
 
     .location-selector p {
       color: var(--muted);
-      font-size: 0.94rem;
-      line-height: 1.42;
-      margin-top: 0;
-      max-width: 40ch;
+      font-size: 0.92rem;
+      line-height: 1.4;
+      margin: 0;
+      max-width: 27ch;
     }
 
     .location-selector-options {
-      display: flex;
-      flex-wrap: wrap;
-      gap: 0.45rem;
-      justify-content: flex-end;
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(9.8rem, 1fr));
+      gap: 0.5rem;
+      width: 100%;
     }
 
     .location-option {
-      width: auto;
-      min-height: 2.38rem;
-      display: inline-flex;
+      position: relative;
+      width: 100%;
+      min-height: 3.15rem;
+      display: flex;
       align-items: center;
-      gap: 0.5rem;
-      padding: 0.52rem 0.8rem;
-      border-radius: 999px;
-      border-color: var(--line-strong);
-      background: rgba(255, 255, 255, 0.045);
+      justify-content: space-between;
+      gap: 0.7rem;
+      padding: 0.72rem 0.9rem;
+      border-radius: 18px;
+      border: 1px solid rgba(165, 178, 198, 0.19);
+      background:
+        linear-gradient(180deg, rgba(255, 255, 255, 0.045), rgba(17, 21, 29, 0.92)),
+        rgba(255, 255, 255, 0.02);
       color: var(--ink);
-      box-shadow: none;
+      box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.025);
       font-weight: 800;
+      transition:
+        transform 160ms ease,
+        border-color 160ms ease,
+        background 160ms ease,
+        color 160ms ease,
+        box-shadow 160ms ease;
+    }
+
+    .location-option::before {
+      content: "";
+      width: 0.46rem;
+      height: 0.46rem;
+      flex: 0 0 auto;
+      border-radius: 999px;
+      background: rgba(167, 175, 188, 0.36);
+      box-shadow: 0 0 0 1px rgba(255, 255, 255, 0.04);
+      order: 2;
+    }
+
+    .location-option span {
+      min-width: 0;
+      flex: 1 1 auto;
+      font-size: 0.88rem;
+      line-height: 1.15;
+    }
+
+    .location-option:hover {
+      transform: translateY(-1px);
+      border-color: rgba(165, 178, 198, 0.3);
+      background:
+        linear-gradient(180deg, rgba(255, 255, 255, 0.06), rgba(18, 22, 31, 0.95)),
+        rgba(255, 255, 255, 0.025);
+    }
+
+    .location-option:focus-visible {
+      outline: 2px solid rgba(88, 199, 179, 0.4);
+      outline-offset: 2px;
     }
 
     .location-option[aria-pressed="true"] {
-      background: rgba(88, 199, 179, 0.18);
-      border-color: rgba(88, 199, 179, 0.44);
-      color: var(--accent);
+      border-color: rgba(88, 199, 179, 0.4);
+      background:
+        linear-gradient(180deg, rgba(88, 199, 179, 0.16), rgba(9, 25, 24, 0.9)),
+        rgba(88, 199, 179, 0.08);
+      color: #dcfff8;
+      box-shadow:
+        inset 0 1px 0 rgba(255, 255, 255, 0.04),
+        0 0 0 1px rgba(88, 199, 179, 0.08);
+    }
+
+    .location-option[aria-pressed="true"]::before {
+      background: var(--accent);
+      box-shadow: 0 0 0 4px rgba(88, 199, 179, 0.14);
     }
 
     .location-option[data-coming-soon="true"] {
-      color: var(--muted);
+      color: color-mix(in srgb, var(--ink) 76%, var(--muted));
+    }
+
+    .location-option[data-coming-soon="true"]::before {
+      background: rgba(240, 139, 101, 0.66);
+      box-shadow: 0 0 0 4px rgba(240, 139, 101, 0.08);
     }
 
     .location-option small {
       color: var(--warm);
-      font-size: 0.72rem;
+      font-size: 0.67rem;
       font-weight: 800;
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
     }
 
     .front-location-panel {
@@ -1619,9 +1700,16 @@
         width: min(100%, 22rem);
       }
 
-      .location-selector,
-      .location-selector-options {
-        justify-content: flex-start;
+      .location-selector {
+        grid-template-columns: 1fr;
+      }
+
+      .location-selector-copy {
+        padding-left: 0;
+      }
+
+      .location-selector p {
+        max-width: 44ch;
       }
     }
 
@@ -1705,6 +1793,20 @@
         padding: 0.98rem;
       }
 
+      .location-selector {
+        margin-top: 0.45rem;
+        padding: 0.92rem;
+      }
+
+      .location-selector-options {
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+      }
+
+      .location-option {
+        min-height: 3rem;
+        padding: 0.7rem 0.82rem;
+      }
+
       .front-advanced-primary {
         grid-template-columns: 1fr;
       }
@@ -1779,6 +1881,10 @@
         justify-content: flex-end;
       }
 
+      .location-selector-options {
+        grid-template-columns: 1fr;
+      }
+
       #cartelera {
         scroll-margin-top: 10.8rem;
       }
@@ -1806,7 +1912,7 @@
       <nav class="nav" aria-label="Primary">
         <div class="nav-links">
           <a href="/cinema-watch-snapshot/#cartelera" data-nav-link="screenings" class="" data-i18n-source>Showtimes</a>
-          <a href="/cinema-watch-snapshot/#salas-especiales" data-nav-link="special_rooms" class="" data-i18n-source>Special rooms</a>
+          <a href="/cinema-watch-snapshot/#salas-especiales" data-nav-link="special_rooms" class="" data-i18n-source>IMAX / Dolby Atmos</a>
           <a href="/cinema-watch-snapshot/#peliculas" data-nav-link="movies" class="" data-i18n-source>Movies</a>
         </div>
         <div class="nav-tools">
@@ -2742,6 +2848,7 @@
           'Default': 'Por defecto',
           'Upcoming': 'Próximas',
           'Special rooms': 'Salas especiales',
+          'IMAX / Dolby Atmos': 'IMAX / Dolby Atmos',
           'Language split': 'Idioma',
           'Dubbed / subtitled': 'Doblada / subtitulada',
           'What this search covers': 'Qué cubre esta búsqueda',
