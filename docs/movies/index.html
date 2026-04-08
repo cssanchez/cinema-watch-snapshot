@@ -242,10 +242,6 @@
     }
 
     .nav-links,
-    .nav-location-dropdown {
-      position: relative;
-      display: inline-flex;
-    }
     .nav-location-toggle {
       display: inline-flex;
       align-items: center;
@@ -322,11 +318,6 @@
       border-radius: 999px;
       background: rgba(255, 255, 255, 0.025);
       overflow: hidden;
-    }
-
-    .nav-location-dropdown {
-      position: relative;
-      display: inline-flex;
     }
     .nav-location-toggle {
       display: inline-flex;
@@ -1700,11 +1691,6 @@
         padding: 0.34rem 0.62rem;
         font-size: 0.81rem;
       }
-
-      .nav-location-dropdown {
-        order: 2;
-        flex: 0 0 auto;
-      }
       .nav-location-toggle {
         min-height: 2rem;
         padding: 0.3rem 0.62rem;
@@ -1847,62 +1833,6 @@
           <a href="/cinema-watch-snapshot/#cartelera" data-nav-link="screenings" class="" data-i18n-source>Showtimes</a>
           <a href="/cinema-watch-snapshot/#salas-especiales" data-nav-link="special_rooms" class="" data-i18n-source>Special rooms</a>
           <a href="/cinema-watch-snapshot/#peliculas" data-nav-link="movies" class="" data-i18n-source>Movies</a>
-        </div>
-        
-        <div class="nav-location-dropdown" data-location-dropdown>
-          <button type="button" class="nav-location-toggle" aria-haspopup="true" aria-expanded="false" data-location-dropdown-toggle>
-            <span class="nav-location-active" data-i18n-skip>AMBA</span>
-            <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="m6 9 6 6 6-6"/></svg>
-          </button>
-          <div class="nav-location-menu" hidden>
-            
-            <button
-              type="button"
-              class="location-option"
-              data-location-target="amba"
-              aria-pressed="true"
-              data-coming-soon="false"
-            >
-              <span>AMBA</span>
-              
-            </button>
-            
-            <button
-              type="button"
-              class="location-option"
-              data-location-target="caba"
-              aria-pressed="false"
-              data-coming-soon="false"
-            >
-              <span>CABA</span>
-              
-            </button>
-            
-            <button
-              type="button"
-              class="location-option"
-              data-location-target="gba_sur"
-              aria-pressed="false"
-              data-coming-soon="false"
-            >
-              <span>GBA Sur</span>
-              
-            </button>
-            
-            <button
-              type="button"
-              class="location-option"
-              data-location-target="mar_del_plata"
-              aria-pressed="false"
-              data-coming-soon="true"
-            >
-              <span>Mar del Plata</span>
-              
-              <small data-i18n-source>Coming soon</small>
-              
-            </button>
-            
-          </div>
         </div>
         
         <div class="nav-tools">
@@ -2620,26 +2550,7 @@
       }
 
       document.addEventListener('click', (event) => {
-        const toggle = event.target.closest('[data-location-dropdown-toggle]');
-        if (toggle) {
-          event.preventDefault();
-          const menu = document.querySelector('.nav-location-menu');
-          if (menu) {
-            const expanded = toggle.getAttribute('aria-expanded') === 'true';
-            toggle.setAttribute('aria-expanded', !expanded);
-            menu.hidden = expanded;
-          }
-          return;
-        }
-
-        if (!event.target.closest('[data-location-dropdown]')) {
-          const toggleBtn = document.querySelector('[data-location-dropdown-toggle]');
-          const menuBox = document.querySelector('.nav-location-menu');
-          if (toggleBtn && menuBox) {
-            toggleBtn.setAttribute('aria-expanded', 'false');
-            menuBox.hidden = true;
-          }
-        }
+                }
 
         const boardButton = event.target.closest('[data-front-board-target]');
         if (boardButton instanceof HTMLButtonElement) {
@@ -2659,12 +2570,7 @@
         event.preventDefault();
         setHomepageLocation(document, button.dataset.locationTarget || '');
         
-        const menuToClose = document.querySelector('.nav-location-menu');
-        const toggleToClose = document.querySelector('[data-location-dropdown-toggle]');
-        if (menuToClose && toggleToClose) {
-          menuToClose.hidden = true;
-          toggleToClose.setAttribute('aria-expanded', 'false');
-        }
+
       });
 
       initHomepageLocation(document);
