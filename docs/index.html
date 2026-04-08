@@ -3789,36 +3789,53 @@
   <script>
     (() => {
       const storageKey = 'cinema-watch-location';
+      const locationSearchParam = 'location';
 
-      function setHomepageLocation(root, key, { persist = true } = {}) {
+      function getUrlLocation() {
+        const params = new URLSearchParams(window.location.search || '');
+        return params.get(locationSearchParam) || '';
+      }
+
+      function updateUrlLocation(key) {
+        const url = new URL(window.location.href);
+        const params = url.searchParams;
+        if (key) {
+          params.set(locationSearchParam, key);
+        } else {
+          params.delete(locationSearchParam);
+        }
+        url.search = params.toString();
+        history.replaceState(null, '', url.toString());
+      }
+
+      function setHomepageLocation(root, key, { persist = true, updateUrl = true } = {}) {
         const buttons = Array.from(root.querySelectorAll('[data-location-target]'));
         const panels = Array.from(root.querySelectorAll('[data-location-panel]'));
-        let nextKey = key || '';
-        
-        // If no key provided, try to get previously selected one
-        if (!nextKey && buttons.length > 0) {
-          const activeButton = buttons.find((btn) => btn.getAttribute('aria-pressed') === 'true');
+        const availableKeys = new Set([
+          ...panels.map((panel) => panel.dataset.locationPanel || ''),
+          ...buttons.map((button) => button.dataset.locationTarget || ''),
+        ]);
+
+        let nextKey = key && availableKeys.has(key) ? key : '';
+        if (!nextKey) {
+          const activeButton = buttons.find((button) => button.getAttribute('aria-pressed') === 'true');
           nextKey = activeButton?.dataset.locationTarget || '';
         }
-        
-        // If still no key, default to first button
         if (!nextKey && buttons.length > 0) {
           nextKey = buttons[0].dataset.locationTarget || '';
         }
-        
-        if (!nextKey) return;
-
-        // Update button states
-        for (const button of buttons) {
-          button.setAttribute('aria-pressed', button.dataset.locationTarget === nextKey ? 'true' : 'false');
+        if (!nextKey) {
+          return '';
         }
-        
-        // Show/hide panels
+
+        for (const button of buttons) {
+          const pressed = button.dataset.locationTarget === nextKey;
+          button.setAttribute('aria-pressed', pressed ? 'true' : 'false');
+        }
         for (const panel of panels) {
           panel.hidden = panel.dataset.locationPanel !== nextKey;
         }
-        
-        // Update label text
+
         const activeLabel = root.querySelector('.nav-location-active');
         if (activeLabel) {
           const activeBtn = buttons.find((b) => b.dataset.locationTarget === nextKey);
@@ -3827,15 +3844,31 @@
             if (span) activeLabel.textContent = span.textContent;
           }
         }
-        
+
         if (persist) {
-          window.localStorage.setItem(storageKey, nextKey);
+          if (nextKey) {
+            window.localStorage.setItem(storageKey, nextKey);
+          } else {
+            window.localStorage.removeItem(storageKey);
+          }
         }
+
+        if (updateUrl) {
+          updateUrlLocation(nextKey);
+        }
+
+        return nextKey;
       }
 
       function initHomepageLocation(root = document) {
-        const saved = window.localStorage.getItem(storageKey) || '';
-        setHomepageLocation(root, saved, { persist: false });
+        const urlKey = getUrlLocation();
+        const savedKey = window.localStorage.getItem(storageKey) || '';
+        const initialKey = urlKey || savedKey;
+        const resolvedKey = setHomepageLocation(root, initialKey, { persist: false, updateUrl: false });
+
+        if (resolvedKey && !urlKey) {
+          updateUrlLocation(resolvedKey);
+        }
       }
 
       document.addEventListener('click', (event) => {
