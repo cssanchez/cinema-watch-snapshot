@@ -975,6 +975,51 @@
       min-height: 100%;
     }
 
+    .front-cartelera {
+      min-height: 100%;
+      display: grid;
+      gap: 0.85rem;
+    }
+
+    .front-cartelera-chips {
+      margin-top: -0.2rem;
+      margin-bottom: 0.05rem;
+    }
+
+    .front-cartelera-chip {
+      width: auto;
+      min-height: 2rem;
+      padding: 0.36rem 0.72rem;
+      font-size: 0.84rem;
+      letter-spacing: 0.02em;
+    }
+
+    .front-cartelera-chip.is-active,
+    .front-cartelera-chip[aria-pressed="true"] {
+      background: rgba(88, 199, 179, 0.22);
+      border-color: rgba(88, 199, 179, 0.48);
+      color: var(--accent);
+    }
+
+    .front-cartelera-cycle-note {
+      margin: 0;
+      color: var(--muted);
+      font-size: 0.86rem;
+      line-height: 1.38;
+    }
+
+    .front-cartelera-boards {
+      display: grid;
+    }
+
+    .front-cartelera-board[hidden] {
+      display: none;
+    }
+
+    .front-cartelera-board {
+      gap: 0.75rem;
+    }
+
     .front-stack {
       display: grid;
       gap: 1rem;
@@ -3311,6 +3356,17 @@
             toggleBtn.setAttribute('aria-expanded', 'false');
             menuBox.hidden = true;
           }
+        }
+
+        const boardButton = event.target.closest('[data-front-board-target]');
+        if (boardButton instanceof HTMLButtonElement) {
+          event.preventDefault();
+          setFrontBoard(
+            document,
+            boardButton.dataset.frontBoardLocation || '',
+            boardButton.dataset.frontBoardTarget || ''
+          );
+          return;
         }
 
         const button = event.target.closest('[data-location-target]');
