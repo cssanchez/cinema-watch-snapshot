@@ -10,7 +10,7 @@ from pathlib import Path
 from typing import List, Tuple
 
 # Configuration
-DOCS_ROOT = r"c:\Users\vic1o\.cline\cinema-watch-snapshot\docs"
+DOCS_ROOT = str(Path(__file__).parent / "docs")
 ENCODING = "utf-8"
 
 def find_all_html_files(root_path: str) -> List[str]:
