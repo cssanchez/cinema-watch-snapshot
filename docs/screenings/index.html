@@ -1887,6 +1887,11 @@
     </header>
     <main id="app-main">
       
+<script>
+  if (!window.location.search || window.location.search === '?') {
+    window.location.replace('/cinema-watch-snapshot/#cartelera');
+  }
+</script>
 <section class="hero hero-grid">
   <div class="hero-copy">
     <span class="eyebrow" id="screenings-eyebrow" data-i18n-source>Showtime board</span>
