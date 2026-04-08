@@ -1670,6 +1670,37 @@
       }
     }
   </style>
+  <script>
+    window.CINEMA_WATCH_GENERATED_AT = '2026-04-07T17:22:12.315507+00:00';
+    
+    function calculateFreshness(generatedAtIso) {
+      try {
+        const generatedAt = new Date(generatedAtIso);
+        const now = new Date();
+        const diffMs = now - generatedAt;
+        const diffSeconds = Math.floor(diffMs / 1000);
+        const diffMinutes = Math.floor(diffSeconds / 60);
+        const diffHours = Math.floor(diffMinutes / 60);
+        const diffDays = Math.floor(diffHours / 24);
+        
+        if (diffSeconds < 60) {
+          return 'just now';
+        }
+        if (diffMinutes < 60) {
+          return `${diffMinutes} min ago`;
+        }
+        if (diffHours < 24) {
+          return `${diffHours} h ago`;
+        }
+        return `${diffDays} d ago`;
+      } catch (e) {
+        return null;
+      }
+    }
+    
+    window.CINEMA_WATCH_FRESHNESS = calculateFreshness(window.CINEMA_WATCH_GENERATED_AT);
+  </script>
+
 </head>
 <body>
   <a class="skip-link" href="#app-main">Skip to content</a>
@@ -2894,7 +2925,17 @@
           if (!element.dataset.i18nFreshnessOriginal) {
             element.dataset.i18nFreshnessOriginal = normalizeSource(element.textContent);
           }
-          const original = element.dataset.i18nFreshnessOriginal || '';
+          let original = element.dataset.i18nFreshnessOriginal || '';
+          
+          // Use dynamic freshness if available
+          if (window.CINEMA_WATCH_FRESHNESS) {
+            if (window.CINEMA_WATCH_FRESHNESS === 'just now') {
+              original = 'Updated just now';
+            } else {
+              original = `Updated ${window.CINEMA_WATCH_FRESHNESS}`;
+            }
+          }
+          
           if (currentLanguage === 'en') {
             element.textContent = original;
             return;
