@@ -4615,7 +4615,10 @@
       function setHomepageLocation(root, key, { persist = true } = {}) {
         const buttons = Array.from(root.querySelectorAll('[data-location-target]'));
         const panels = Array.from(root.querySelectorAll('[data-location-panel]'));
-        const availableKeys = new Set(panels.map((panel) => panel.dataset.locationPanel || ''));
+        const availableKeys = new Set([
+          ...panels.map((panel) => panel.dataset.locationPanel || ''),
+          ...buttons.map((button) => button.dataset.locationTarget || ''),
+        ]);
         let nextKey = key && availableKeys.has(key) ? key : '';
         if (!nextKey) {
           const activeButton = buttons.find((button) => button.getAttribute('aria-pressed') === 'true');
