@@ -3288,31 +3288,37 @@
         let nextKey = key && availableKeys.has(key) ? key : '';
         if (!nextKey) {
           const activeButton = buttons.find((button) => button.getAttribute('aria-pressed') === 'true');
-          nextKey = activeButton?.dataset.locationTarget || buttons[0]?.dataset.locationTarget || '';
+          if (activeButton) {
+            nextKey = activeButton.dataset.locationTarget || '';
+          }
         }
-        if (!nextKey) {
-          return;
-        }
-
         for (const button of buttons) {
           const pressed = button.dataset.locationTarget === nextKey;
           button.setAttribute('aria-pressed', pressed ? 'true' : 'false');
         }
         for (const panel of panels) {
-          panel.hidden = panel.dataset.locationPanel !== nextKey;
+          panel.hidden = nextKey ? panel.dataset.locationPanel !== nextKey : true;
         }
         
         const activeLabel = root.querySelector('.nav-location-active');
-        if (activeLabel && buttons.length > 0) {
-          const activeBtn = buttons.find((b) => b.dataset.locationTarget === nextKey);
-          if (activeBtn) {
-            const span = activeBtn.querySelector('span');
-            if (span) activeLabel.textContent = span.textContent;
+        if (activeLabel) {
+          if (nextKey) {
+            const activeBtn = buttons.find((b) => b.dataset.locationTarget === nextKey);
+            if (activeBtn) {
+              const span = activeBtn.querySelector('span');
+              if (span) activeLabel.textContent = span.textContent;
+            }
+          } else {
+            activeLabel.textContent = 'Zone';
           }
         }
         
         if (persist) {
-          window.localStorage.setItem(storageKey, nextKey);
+          if (nextKey) {
+            window.localStorage.setItem(storageKey, nextKey);
+          } else {
+            window.localStorage.removeItem(storageKey);
+          }
         }
       }
 

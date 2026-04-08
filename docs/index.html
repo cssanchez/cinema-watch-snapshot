@@ -3797,34 +3797,50 @@
           ...panels.map((panel) => panel.dataset.locationPanel || ''),
           ...buttons.map((button) => button.dataset.locationTarget || ''),
         ]);
+        // Only use the key if it's valid and available; don't force a default
         let nextKey = key && availableKeys.has(key) ? key : '';
         if (!nextKey) {
           const activeButton = buttons.find((button) => button.getAttribute('aria-pressed') === 'true');
-          nextKey = activeButton?.dataset.locationTarget || buttons[0]?.dataset.locationTarget || '';
-        }
-        if (!nextKey) {
-          return;
+          if (activeButton) {
+            nextKey = activeButton.dataset.locationTarget || '';
+          }
         }
 
+        // Update button states: selected gets aria-pressed="true", others get "false"
         for (const button of buttons) {
           const pressed = button.dataset.locationTarget === nextKey;
           button.setAttribute('aria-pressed', pressed ? 'true' : 'false');
         }
+        
+        // Show panels only if a zone is selected, hide all if nothing selected
         for (const panel of panels) {
-          panel.hidden = panel.dataset.locationPanel !== nextKey;
+          panel.hidden = nextKey ? panel.dataset.locationPanel !== nextKey : true;
         }
         
+        // Update the label: zone name when selected, generic "Zone" when unselected
         const activeLabel = root.querySelector('.nav-location-active');
-        if (activeLabel && buttons.length > 0) {
-          const activeBtn = buttons.find((b) => b.dataset.locationTarget === nextKey);
-          if (activeBtn) {
-            const span = activeBtn.querySelector('span');
-            if (span) activeLabel.textContent = span.textContent;
+        if (activeLabel) {
+          if (nextKey) {
+            // A zone is selected: show its name
+            const activeBtn = buttons.find((b) => b.dataset.locationTarget === nextKey);
+            if (activeBtn) {
+              const span = activeBtn.querySelector('span');
+              if (span) activeLabel.textContent = span.textContent;
+            }
+          } else {
+            // Nothing selected: show generic "Zone" placeholder
+            activeLabel.textContent = 'Zone';
+            activeLabel.dataset.defaultLabel = 'true';
           }
         }
         
+        // Persist to localStorage: only store if a zone is selected, clear otherwise
         if (persist) {
-          window.localStorage.setItem(storageKey, nextKey);
+          if (nextKey) {
+            window.localStorage.setItem(storageKey, nextKey);
+          } else {
+            window.localStorage.removeItem(storageKey);
+          }
         }
       }
 
