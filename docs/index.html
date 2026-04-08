@@ -995,7 +995,7 @@
     }
 
     .front-cartelera-chips {
-      margin-top: 0.3rem;
+      margin-top: 0.65rem;
       margin-bottom: 0.45rem;
       align-items: center;
     }
@@ -1027,49 +1027,46 @@
       border: 1px solid rgba(165, 178, 198, 0.16);
       border-radius: var(--radius-md);
       background: rgba(255, 255, 255, 0.02);
-      padding: 0.18rem 0.72rem 0.62rem;
-    }
-
-    .front-advanced-filter > summary {
-      cursor: pointer;
-      list-style: none;
-      display: block;
-      padding: 0.5rem 0;
-    }
-
-    .front-advanced-filter > summary::-webkit-details-marker {
-      display: none;
-    }
-
-    .front-advanced-summary {
-      display: flex;
-      flex-wrap: wrap;
-      align-items: center;
-      justify-content: space-between;
-      gap: 0.5rem 0.9rem;
-    }
-
-    .front-advanced-summary strong {
-      font-family: var(--heading-font);
-      font-size: 1.04rem;
-      line-height: 1;
-    }
-
-    .front-advanced-summary small {
-      color: var(--muted);
-      font-size: 0.84rem;
-      line-height: 1.32;
-    }
-
-    .front-advanced-filter[open] {
       border-color: rgba(88, 199, 179, 0.3);
       background: rgba(88, 199, 179, 0.06);
+      padding: 0.72rem;
     }
 
     .front-advanced-form {
       display: grid;
       gap: 0.75rem;
-      margin-top: 0.5rem;
+    }
+
+    .front-advanced-primary {
+      grid-template-columns: repeat(3, minmax(0, 1fr));
+      gap: 0.65rem;
+    }
+
+    .front-advanced-extra {
+      border: 1px solid rgba(165, 178, 198, 0.16);
+      border-radius: var(--radius-sm);
+      background: rgba(9, 12, 18, 0.4);
+      padding: 0.36rem 0.62rem 0.62rem;
+    }
+
+    .front-advanced-extra > summary {
+      cursor: pointer;
+      list-style: none;
+      color: var(--muted);
+      font-size: 0.79rem;
+      font-weight: 700;
+      letter-spacing: 0.07em;
+      text-transform: uppercase;
+      padding: 0.2rem 0;
+    }
+
+    .front-advanced-extra > summary::-webkit-details-marker {
+      display: none;
+    }
+
+    .front-advanced-extra-grid {
+      margin-top: 0.55rem;
+      grid-template-columns: repeat(2, minmax(0, 1fr));
     }
 
     .front-advanced-actions {
@@ -2008,98 +2005,7 @@
           <h2>Cartelera</h2>
         </div>
       </div>
-      <div class="button-strip front-cartelera-chips">
-        
-        <button
-          type="button"
-          class="button-pill front-cartelera-chip"
-          data-tone="accent"
-          data-front-board-location="amba"
-          data-front-board-target="today"
-          data-front-default="false"
-          aria-pressed="false"
-        >
-          Hoy
-        </button>
-        
-        <button
-          type="button"
-          class="button-pill front-cartelera-chip"
-          data-tone="accent"
-          data-front-board-location="amba"
-          data-front-board-target="tomorrow"
-          data-front-default="false"
-          aria-pressed="false"
-        >
-          Mañana
-        </button>
-        
-        <button
-          type="button"
-          class="button-pill front-cartelera-chip is-active"
-          data-tone="soft"
-          data-front-board-location="amba"
-          data-front-board-target="in_theaters"
-          data-front-default="true"
-          aria-pressed="true"
-        >
-          En Cartelera
-        </button>
-        
-        <button
-          type="button"
-          class="button-pill front-cartelera-chip"
-          data-tone="warm"
-          data-front-board-location="amba"
-          data-front-board-target="upcoming_premieres"
-          data-front-default="false"
-          aria-pressed="false"
-        >
-          Proximos estrenos
-        </button>
-        
-        <button
-          type="button"
-          class="button-pill front-cartelera-chip"
-          data-tone="accent"
-          data-front-board-location="amba"
-          data-front-board-target="imax"
-          data-front-default="false"
-          aria-pressed="false"
-        >
-          IMAX
-        </button>
-        
-        <button
-          type="button"
-          class="button-pill front-cartelera-chip"
-          data-tone="warm"
-          data-front-board-location="amba"
-          data-front-board-target="dolby_atmos"
-          data-front-default="false"
-          aria-pressed="false"
-        >
-          Dolby Atmos
-        </button>
-        
-        <button
-          type="button"
-          class="button-pill front-cartelera-chip"
-          data-tone="soft"
-          data-front-board-location="amba"
-          data-front-board-target="subtitled"
-          data-front-default="false"
-          aria-pressed="false"
-        >
-          Subtituladas
-        </button>
-        
-      </div>
-      <p class="front-cartelera-cycle-note">En Argentina los estrenos suelen abrir los jueves y los horarios suelen aparecer desde el miercoles.</p>
-      <details class="front-advanced-filter">
-        <summary class="front-advanced-summary">
-          <strong>Filtros avanzados</strong>
-        </summary>
+      <section class="front-advanced-filter">
         <form
           class="front-advanced-form"
           method="get"
@@ -2109,7 +2015,7 @@
           data-front-location-key="amba"
           data-data-href="/cinema-watch-snapshot/data/site-data.json"
         >
-          <div class="form-grid">
+          <div class="form-grid front-advanced-primary">
             <label class="field">
               <span data-i18n-source>Provider</span>
               <select name="provider" data-provider-select="true">
@@ -2316,14 +2222,6 @@
               </select>
             </label>
             <label class="field">
-              <span data-i18n-source>Special room</span>
-              <select name="category">
-                <option value="" data-i18n-source>Any</option>
-                <option value="imax">IMAX</option>
-                <option value="dolby_atmos">Dolby Atmos</option>
-              </select>
-            </label>
-            <label class="field">
               <span data-i18n-source>Format</span>
               <select name="format">
                 <option value="" data-i18n-source>Any</option>
@@ -2340,46 +2238,147 @@
               <span data-i18n-source>To date</span>
               <input type="date" name="to_date" value="2026-04-14">
             </label>
-            <label class="field">
-              <span data-i18n-source>Room</span>
-              <select name="room">
-                <option value="" data-i18n-source>Any room</option>
-                
-                <option value="1">Room 1</option>
-                
-                <option value="2">Room 2</option>
-                
-                <option value="3">Room 3</option>
-                
-                <option value="4">Room 4</option>
-                
-                <option value="5">Room 5</option>
-                
-                <option value="6">Room 6</option>
-                
-                <option value="7">Room 7</option>
-                
-                <option value="8">Room 8</option>
-                
-                <option value="9">Room 9</option>
-                
-                <option value="10">Room 10</option>
-                
-                <option value="11">Room 11</option>
-                
-                <option value="12">Room 12</option>
-                
-                <option value="13">Room 13</option>
-                
-              </select>
-            </label>
           </div>
+          <details class="front-advanced-extra">
+            <summary data-i18n-source>More filters</summary>
+            <div class="form-grid front-advanced-extra-grid">
+              <label class="field">
+                <span data-i18n-source>Special room</span>
+                <select name="category">
+                  <option value="" data-i18n-source>Any</option>
+                  <option value="imax">IMAX</option>
+                  <option value="dolby_atmos">Dolby Atmos</option>
+                </select>
+              </label>
+              <label class="field">
+                <span data-i18n-source>Room</span>
+                <select name="room">
+                  <option value="" data-i18n-source>Any room</option>
+                  
+                  <option value="1">Room 1</option>
+                  
+                  <option value="2">Room 2</option>
+                  
+                  <option value="3">Room 3</option>
+                  
+                  <option value="4">Room 4</option>
+                  
+                  <option value="5">Room 5</option>
+                  
+                  <option value="6">Room 6</option>
+                  
+                  <option value="7">Room 7</option>
+                  
+                  <option value="8">Room 8</option>
+                  
+                  <option value="9">Room 9</option>
+                  
+                  <option value="10">Room 10</option>
+                  
+                  <option value="11">Room 11</option>
+                  
+                  <option value="12">Room 12</option>
+                  
+                  <option value="13">Room 13</option>
+                  
+                </select>
+              </label>
+            </div>
+          </details>
           <div class="form-actions front-advanced-actions">
             <button type="submit" class="button-pill" data-tone="accent" data-i18n-source>Filter listings</button>
             <button type="button" class="button-pill" data-tone="soft" data-front-advanced-reset="true" data-i18n-source>Reset to default board</button>
           </div>
         </form>
-      </details>
+      </section>
+      <div class="button-strip front-cartelera-chips">
+        
+        <button
+          type="button"
+          class="button-pill front-cartelera-chip"
+          data-tone="accent"
+          data-front-board-location="amba"
+          data-front-board-target="today"
+          data-front-default="false"
+          aria-pressed="false"
+        >
+          Hoy
+        </button>
+        
+        <button
+          type="button"
+          class="button-pill front-cartelera-chip"
+          data-tone="accent"
+          data-front-board-location="amba"
+          data-front-board-target="tomorrow"
+          data-front-default="false"
+          aria-pressed="false"
+        >
+          Mañana
+        </button>
+        
+        <button
+          type="button"
+          class="button-pill front-cartelera-chip is-active"
+          data-tone="soft"
+          data-front-board-location="amba"
+          data-front-board-target="in_theaters"
+          data-front-default="true"
+          aria-pressed="true"
+        >
+          En Cartelera
+        </button>
+        
+        <button
+          type="button"
+          class="button-pill front-cartelera-chip"
+          data-tone="warm"
+          data-front-board-location="amba"
+          data-front-board-target="upcoming_premieres"
+          data-front-default="false"
+          aria-pressed="false"
+        >
+          Proximos estrenos
+        </button>
+        
+        <button
+          type="button"
+          class="button-pill front-cartelera-chip"
+          data-tone="accent"
+          data-front-board-location="amba"
+          data-front-board-target="imax"
+          data-front-default="false"
+          aria-pressed="false"
+        >
+          IMAX
+        </button>
+        
+        <button
+          type="button"
+          class="button-pill front-cartelera-chip"
+          data-tone="warm"
+          data-front-board-location="amba"
+          data-front-board-target="dolby_atmos"
+          data-front-default="false"
+          aria-pressed="false"
+        >
+          Dolby Atmos
+        </button>
+        
+        <button
+          type="button"
+          class="button-pill front-cartelera-chip"
+          data-tone="soft"
+          data-front-board-location="amba"
+          data-front-board-target="subtitled"
+          data-front-default="false"
+          aria-pressed="false"
+        >
+          Subtituladas
+        </button>
+        
+      </div>
+      <p class="front-cartelera-cycle-note">En Argentina los estrenos suelen abrir los jueves y los horarios suelen aparecer desde el miercoles.</p>
 
       <div class="front-cartelera-boards">
         
@@ -3862,98 +3861,7 @@
           <h2>Cartelera</h2>
         </div>
       </div>
-      <div class="button-strip front-cartelera-chips">
-        
-        <button
-          type="button"
-          class="button-pill front-cartelera-chip"
-          data-tone="accent"
-          data-front-board-location="caba"
-          data-front-board-target="today"
-          data-front-default="false"
-          aria-pressed="false"
-        >
-          Hoy
-        </button>
-        
-        <button
-          type="button"
-          class="button-pill front-cartelera-chip"
-          data-tone="accent"
-          data-front-board-location="caba"
-          data-front-board-target="tomorrow"
-          data-front-default="false"
-          aria-pressed="false"
-        >
-          Mañana
-        </button>
-        
-        <button
-          type="button"
-          class="button-pill front-cartelera-chip is-active"
-          data-tone="soft"
-          data-front-board-location="caba"
-          data-front-board-target="in_theaters"
-          data-front-default="true"
-          aria-pressed="true"
-        >
-          En Cartelera
-        </button>
-        
-        <button
-          type="button"
-          class="button-pill front-cartelera-chip"
-          data-tone="warm"
-          data-front-board-location="caba"
-          data-front-board-target="upcoming_premieres"
-          data-front-default="false"
-          aria-pressed="false"
-        >
-          Proximos estrenos
-        </button>
-        
-        <button
-          type="button"
-          class="button-pill front-cartelera-chip"
-          data-tone="accent"
-          data-front-board-location="caba"
-          data-front-board-target="imax"
-          data-front-default="false"
-          aria-pressed="false"
-        >
-          IMAX
-        </button>
-        
-        <button
-          type="button"
-          class="button-pill front-cartelera-chip"
-          data-tone="warm"
-          data-front-board-location="caba"
-          data-front-board-target="dolby_atmos"
-          data-front-default="false"
-          aria-pressed="false"
-        >
-          Dolby Atmos
-        </button>
-        
-        <button
-          type="button"
-          class="button-pill front-cartelera-chip"
-          data-tone="soft"
-          data-front-board-location="caba"
-          data-front-board-target="subtitled"
-          data-front-default="false"
-          aria-pressed="false"
-        >
-          Subtituladas
-        </button>
-        
-      </div>
-      <p class="front-cartelera-cycle-note">En Argentina los estrenos suelen abrir los jueves y los horarios suelen aparecer desde el miercoles.</p>
-      <details class="front-advanced-filter">
-        <summary class="front-advanced-summary">
-          <strong>Filtros avanzados</strong>
-        </summary>
+      <section class="front-advanced-filter">
         <form
           class="front-advanced-form"
           method="get"
@@ -3963,7 +3871,7 @@
           data-front-location-key="caba"
           data-data-href="/cinema-watch-snapshot/data/site-data.json"
         >
-          <div class="form-grid">
+          <div class="form-grid front-advanced-primary">
             <label class="field">
               <span data-i18n-source>Provider</span>
               <select name="provider" data-provider-select="true">
@@ -4170,14 +4078,6 @@
               </select>
             </label>
             <label class="field">
-              <span data-i18n-source>Special room</span>
-              <select name="category">
-                <option value="" data-i18n-source>Any</option>
-                <option value="imax">IMAX</option>
-                <option value="dolby_atmos">Dolby Atmos</option>
-              </select>
-            </label>
-            <label class="field">
               <span data-i18n-source>Format</span>
               <select name="format">
                 <option value="" data-i18n-source>Any</option>
@@ -4194,46 +4094,147 @@
               <span data-i18n-source>To date</span>
               <input type="date" name="to_date" value="2026-04-14">
             </label>
-            <label class="field">
-              <span data-i18n-source>Room</span>
-              <select name="room">
-                <option value="" data-i18n-source>Any room</option>
-                
-                <option value="1">Room 1</option>
-                
-                <option value="2">Room 2</option>
-                
-                <option value="3">Room 3</option>
-                
-                <option value="4">Room 4</option>
-                
-                <option value="5">Room 5</option>
-                
-                <option value="6">Room 6</option>
-                
-                <option value="7">Room 7</option>
-                
-                <option value="8">Room 8</option>
-                
-                <option value="9">Room 9</option>
-                
-                <option value="10">Room 10</option>
-                
-                <option value="11">Room 11</option>
-                
-                <option value="12">Room 12</option>
-                
-                <option value="13">Room 13</option>
-                
-              </select>
-            </label>
           </div>
+          <details class="front-advanced-extra">
+            <summary data-i18n-source>More filters</summary>
+            <div class="form-grid front-advanced-extra-grid">
+              <label class="field">
+                <span data-i18n-source>Special room</span>
+                <select name="category">
+                  <option value="" data-i18n-source>Any</option>
+                  <option value="imax">IMAX</option>
+                  <option value="dolby_atmos">Dolby Atmos</option>
+                </select>
+              </label>
+              <label class="field">
+                <span data-i18n-source>Room</span>
+                <select name="room">
+                  <option value="" data-i18n-source>Any room</option>
+                  
+                  <option value="1">Room 1</option>
+                  
+                  <option value="2">Room 2</option>
+                  
+                  <option value="3">Room 3</option>
+                  
+                  <option value="4">Room 4</option>
+                  
+                  <option value="5">Room 5</option>
+                  
+                  <option value="6">Room 6</option>
+                  
+                  <option value="7">Room 7</option>
+                  
+                  <option value="8">Room 8</option>
+                  
+                  <option value="9">Room 9</option>
+                  
+                  <option value="10">Room 10</option>
+                  
+                  <option value="11">Room 11</option>
+                  
+                  <option value="12">Room 12</option>
+                  
+                  <option value="13">Room 13</option>
+                  
+                </select>
+              </label>
+            </div>
+          </details>
           <div class="form-actions front-advanced-actions">
             <button type="submit" class="button-pill" data-tone="accent" data-i18n-source>Filter listings</button>
             <button type="button" class="button-pill" data-tone="soft" data-front-advanced-reset="true" data-i18n-source>Reset to default board</button>
           </div>
         </form>
-      </details>
+      </section>
+      <div class="button-strip front-cartelera-chips">
+        
+        <button
+          type="button"
+          class="button-pill front-cartelera-chip"
+          data-tone="accent"
+          data-front-board-location="caba"
+          data-front-board-target="today"
+          data-front-default="false"
+          aria-pressed="false"
+        >
+          Hoy
+        </button>
+        
+        <button
+          type="button"
+          class="button-pill front-cartelera-chip"
+          data-tone="accent"
+          data-front-board-location="caba"
+          data-front-board-target="tomorrow"
+          data-front-default="false"
+          aria-pressed="false"
+        >
+          Mañana
+        </button>
+        
+        <button
+          type="button"
+          class="button-pill front-cartelera-chip is-active"
+          data-tone="soft"
+          data-front-board-location="caba"
+          data-front-board-target="in_theaters"
+          data-front-default="true"
+          aria-pressed="true"
+        >
+          En Cartelera
+        </button>
+        
+        <button
+          type="button"
+          class="button-pill front-cartelera-chip"
+          data-tone="warm"
+          data-front-board-location="caba"
+          data-front-board-target="upcoming_premieres"
+          data-front-default="false"
+          aria-pressed="false"
+        >
+          Proximos estrenos
+        </button>
+        
+        <button
+          type="button"
+          class="button-pill front-cartelera-chip"
+          data-tone="accent"
+          data-front-board-location="caba"
+          data-front-board-target="imax"
+          data-front-default="false"
+          aria-pressed="false"
+        >
+          IMAX
+        </button>
+        
+        <button
+          type="button"
+          class="button-pill front-cartelera-chip"
+          data-tone="warm"
+          data-front-board-location="caba"
+          data-front-board-target="dolby_atmos"
+          data-front-default="false"
+          aria-pressed="false"
+        >
+          Dolby Atmos
+        </button>
+        
+        <button
+          type="button"
+          class="button-pill front-cartelera-chip"
+          data-tone="soft"
+          data-front-board-location="caba"
+          data-front-board-target="subtitled"
+          data-front-default="false"
+          aria-pressed="false"
+        >
+          Subtituladas
+        </button>
+        
+      </div>
+      <p class="front-cartelera-cycle-note">En Argentina los estrenos suelen abrir los jueves y los horarios suelen aparecer desde el miercoles.</p>
 
       <div class="front-cartelera-boards">
         
@@ -5452,98 +5453,7 @@
           <h2>Cartelera</h2>
         </div>
       </div>
-      <div class="button-strip front-cartelera-chips">
-        
-        <button
-          type="button"
-          class="button-pill front-cartelera-chip"
-          data-tone="accent"
-          data-front-board-location="gba_sur"
-          data-front-board-target="today"
-          data-front-default="false"
-          aria-pressed="false"
-        >
-          Hoy
-        </button>
-        
-        <button
-          type="button"
-          class="button-pill front-cartelera-chip"
-          data-tone="accent"
-          data-front-board-location="gba_sur"
-          data-front-board-target="tomorrow"
-          data-front-default="false"
-          aria-pressed="false"
-        >
-          Mañana
-        </button>
-        
-        <button
-          type="button"
-          class="button-pill front-cartelera-chip is-active"
-          data-tone="soft"
-          data-front-board-location="gba_sur"
-          data-front-board-target="in_theaters"
-          data-front-default="true"
-          aria-pressed="true"
-        >
-          En Cartelera
-        </button>
-        
-        <button
-          type="button"
-          class="button-pill front-cartelera-chip"
-          data-tone="warm"
-          data-front-board-location="gba_sur"
-          data-front-board-target="upcoming_premieres"
-          data-front-default="false"
-          aria-pressed="false"
-        >
-          Proximos estrenos
-        </button>
-        
-        <button
-          type="button"
-          class="button-pill front-cartelera-chip"
-          data-tone="accent"
-          data-front-board-location="gba_sur"
-          data-front-board-target="imax"
-          data-front-default="false"
-          aria-pressed="false"
-        >
-          IMAX
-        </button>
-        
-        <button
-          type="button"
-          class="button-pill front-cartelera-chip"
-          data-tone="warm"
-          data-front-board-location="gba_sur"
-          data-front-board-target="dolby_atmos"
-          data-front-default="false"
-          aria-pressed="false"
-        >
-          Dolby Atmos
-        </button>
-        
-        <button
-          type="button"
-          class="button-pill front-cartelera-chip"
-          data-tone="soft"
-          data-front-board-location="gba_sur"
-          data-front-board-target="subtitled"
-          data-front-default="false"
-          aria-pressed="false"
-        >
-          Subtituladas
-        </button>
-        
-      </div>
-      <p class="front-cartelera-cycle-note">En Argentina los estrenos suelen abrir los jueves y los horarios suelen aparecer desde el miercoles.</p>
-      <details class="front-advanced-filter">
-        <summary class="front-advanced-summary">
-          <strong>Filtros avanzados</strong>
-        </summary>
+      <section class="front-advanced-filter">
         <form
           class="front-advanced-form"
           method="get"
@@ -5553,7 +5463,7 @@
           data-front-location-key="gba_sur"
           data-data-href="/cinema-watch-snapshot/data/site-data.json"
         >
-          <div class="form-grid">
+          <div class="form-grid front-advanced-primary">
             <label class="field">
               <span data-i18n-source>Provider</span>
               <select name="provider" data-provider-select="true">
@@ -5760,14 +5670,6 @@
               </select>
             </label>
             <label class="field">
-              <span data-i18n-source>Special room</span>
-              <select name="category">
-                <option value="" data-i18n-source>Any</option>
-                <option value="imax">IMAX</option>
-                <option value="dolby_atmos">Dolby Atmos</option>
-              </select>
-            </label>
-            <label class="field">
               <span data-i18n-source>Format</span>
               <select name="format">
                 <option value="" data-i18n-source>Any</option>
@@ -5784,46 +5686,147 @@
               <span data-i18n-source>To date</span>
               <input type="date" name="to_date" value="2026-04-14">
             </label>
-            <label class="field">
-              <span data-i18n-source>Room</span>
-              <select name="room">
-                <option value="" data-i18n-source>Any room</option>
-                
-                <option value="1">Room 1</option>
-                
-                <option value="2">Room 2</option>
-                
-                <option value="3">Room 3</option>
-                
-                <option value="4">Room 4</option>
-                
-                <option value="5">Room 5</option>
-                
-                <option value="6">Room 6</option>
-                
-                <option value="7">Room 7</option>
-                
-                <option value="8">Room 8</option>
-                
-                <option value="9">Room 9</option>
-                
-                <option value="10">Room 10</option>
-                
-                <option value="11">Room 11</option>
-                
-                <option value="12">Room 12</option>
-                
-                <option value="13">Room 13</option>
-                
-              </select>
-            </label>
           </div>
+          <details class="front-advanced-extra">
+            <summary data-i18n-source>More filters</summary>
+            <div class="form-grid front-advanced-extra-grid">
+              <label class="field">
+                <span data-i18n-source>Special room</span>
+                <select name="category">
+                  <option value="" data-i18n-source>Any</option>
+                  <option value="imax">IMAX</option>
+                  <option value="dolby_atmos">Dolby Atmos</option>
+                </select>
+              </label>
+              <label class="field">
+                <span data-i18n-source>Room</span>
+                <select name="room">
+                  <option value="" data-i18n-source>Any room</option>
+                  
+                  <option value="1">Room 1</option>
+                  
+                  <option value="2">Room 2</option>
+                  
+                  <option value="3">Room 3</option>
+                  
+                  <option value="4">Room 4</option>
+                  
+                  <option value="5">Room 5</option>
+                  
+                  <option value="6">Room 6</option>
+                  
+                  <option value="7">Room 7</option>
+                  
+                  <option value="8">Room 8</option>
+                  
+                  <option value="9">Room 9</option>
+                  
+                  <option value="10">Room 10</option>
+                  
+                  <option value="11">Room 11</option>
+                  
+                  <option value="12">Room 12</option>
+                  
+                  <option value="13">Room 13</option>
+                  
+                </select>
+              </label>
+            </div>
+          </details>
           <div class="form-actions front-advanced-actions">
             <button type="submit" class="button-pill" data-tone="accent" data-i18n-source>Filter listings</button>
             <button type="button" class="button-pill" data-tone="soft" data-front-advanced-reset="true" data-i18n-source>Reset to default board</button>
           </div>
         </form>
-      </details>
+      </section>
+      <div class="button-strip front-cartelera-chips">
+        
+        <button
+          type="button"
+          class="button-pill front-cartelera-chip"
+          data-tone="accent"
+          data-front-board-location="gba_sur"
+          data-front-board-target="today"
+          data-front-default="false"
+          aria-pressed="false"
+        >
+          Hoy
+        </button>
+        
+        <button
+          type="button"
+          class="button-pill front-cartelera-chip"
+          data-tone="accent"
+          data-front-board-location="gba_sur"
+          data-front-board-target="tomorrow"
+          data-front-default="false"
+          aria-pressed="false"
+        >
+          Mañana
+        </button>
+        
+        <button
+          type="button"
+          class="button-pill front-cartelera-chip is-active"
+          data-tone="soft"
+          data-front-board-location="gba_sur"
+          data-front-board-target="in_theaters"
+          data-front-default="true"
+          aria-pressed="true"
+        >
+          En Cartelera
+        </button>
+        
+        <button
+          type="button"
+          class="button-pill front-cartelera-chip"
+          data-tone="warm"
+          data-front-board-location="gba_sur"
+          data-front-board-target="upcoming_premieres"
+          data-front-default="false"
+          aria-pressed="false"
+        >
+          Proximos estrenos
+        </button>
+        
+        <button
+          type="button"
+          class="button-pill front-cartelera-chip"
+          data-tone="accent"
+          data-front-board-location="gba_sur"
+          data-front-board-target="imax"
+          data-front-default="false"
+          aria-pressed="false"
+        >
+          IMAX
+        </button>
+        
+        <button
+          type="button"
+          class="button-pill front-cartelera-chip"
+          data-tone="warm"
+          data-front-board-location="gba_sur"
+          data-front-board-target="dolby_atmos"
+          data-front-default="false"
+          aria-pressed="false"
+        >
+          Dolby Atmos
+        </button>
+        
+        <button
+          type="button"
+          class="button-pill front-cartelera-chip"
+          data-tone="soft"
+          data-front-board-location="gba_sur"
+          data-front-board-target="subtitled"
+          data-front-default="false"
+          aria-pressed="false"
+        >
+          Subtituladas
+        </button>
+        
+      </div>
+      <p class="front-cartelera-cycle-note">En Argentina los estrenos suelen abrir los jueves y los horarios suelen aparecer desde el miercoles.</p>
 
       <div class="front-cartelera-boards">
         
@@ -7073,6 +7076,7 @@
           'Movie contains': 'Película contiene',
           'From date': 'Desde',
           'To date': 'Hasta',
+          'More filters': 'Mas filtros',
           'Room': 'Sala',
           'Any room': 'Todas las salas',
           'Limit': 'Límite',

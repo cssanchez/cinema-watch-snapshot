@@ -995,7 +995,7 @@
     }
 
     .front-cartelera-chips {
-      margin-top: 0.3rem;
+      margin-top: 0.65rem;
       margin-bottom: 0.45rem;
       align-items: center;
     }
@@ -1027,49 +1027,46 @@
       border: 1px solid rgba(165, 178, 198, 0.16);
       border-radius: var(--radius-md);
       background: rgba(255, 255, 255, 0.02);
-      padding: 0.18rem 0.72rem 0.62rem;
-    }
-
-    .front-advanced-filter > summary {
-      cursor: pointer;
-      list-style: none;
-      display: block;
-      padding: 0.5rem 0;
-    }
-
-    .front-advanced-filter > summary::-webkit-details-marker {
-      display: none;
-    }
-
-    .front-advanced-summary {
-      display: flex;
-      flex-wrap: wrap;
-      align-items: center;
-      justify-content: space-between;
-      gap: 0.5rem 0.9rem;
-    }
-
-    .front-advanced-summary strong {
-      font-family: var(--heading-font);
-      font-size: 1.04rem;
-      line-height: 1;
-    }
-
-    .front-advanced-summary small {
-      color: var(--muted);
-      font-size: 0.84rem;
-      line-height: 1.32;
-    }
-
-    .front-advanced-filter[open] {
       border-color: rgba(88, 199, 179, 0.3);
       background: rgba(88, 199, 179, 0.06);
+      padding: 0.72rem;
     }
 
     .front-advanced-form {
       display: grid;
       gap: 0.75rem;
-      margin-top: 0.5rem;
+    }
+
+    .front-advanced-primary {
+      grid-template-columns: repeat(3, minmax(0, 1fr));
+      gap: 0.65rem;
+    }
+
+    .front-advanced-extra {
+      border: 1px solid rgba(165, 178, 198, 0.16);
+      border-radius: var(--radius-sm);
+      background: rgba(9, 12, 18, 0.4);
+      padding: 0.36rem 0.62rem 0.62rem;
+    }
+
+    .front-advanced-extra > summary {
+      cursor: pointer;
+      list-style: none;
+      color: var(--muted);
+      font-size: 0.79rem;
+      font-weight: 700;
+      letter-spacing: 0.07em;
+      text-transform: uppercase;
+      padding: 0.2rem 0;
+    }
+
+    .front-advanced-extra > summary::-webkit-details-marker {
+      display: none;
+    }
+
+    .front-advanced-extra-grid {
+      margin-top: 0.55rem;
+      grid-template-columns: repeat(2, minmax(0, 1fr));
     }
 
     .front-advanced-actions {
@@ -3231,6 +3228,7 @@
           'Movie contains': 'Película contiene',
           'From date': 'Desde',
           'To date': 'Hasta',
+          'More filters': 'Mas filtros',
           'Room': 'Sala',
           'Any room': 'Todas las salas',
           'Limit': 'Límite',
