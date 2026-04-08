@@ -942,6 +942,10 @@
       scroll-margin-top: 7.2rem;
     }
 
+    [data-front-specials="true"] {
+      scroll-margin-top: 7.2rem;
+    }
+
     .front-coming-soon {
       display: grid;
       gap: 0.55rem;
@@ -1015,6 +1019,60 @@
       line-height: 1.38;
     }
 
+    .front-advanced-filter {
+      margin-top: 0.72rem;
+      border: 1px solid rgba(165, 178, 198, 0.16);
+      border-radius: var(--radius-md);
+      background: rgba(255, 255, 255, 0.02);
+      padding: 0.18rem 0.72rem 0.62rem;
+    }
+
+    .front-advanced-filter > summary {
+      cursor: pointer;
+      list-style: none;
+      display: block;
+      padding: 0.5rem 0;
+    }
+
+    .front-advanced-filter > summary::-webkit-details-marker {
+      display: none;
+    }
+
+    .front-advanced-summary {
+      display: flex;
+      flex-wrap: wrap;
+      align-items: center;
+      justify-content: space-between;
+      gap: 0.5rem 0.9rem;
+    }
+
+    .front-advanced-summary strong {
+      font-family: var(--heading-font);
+      font-size: 1.04rem;
+      line-height: 1;
+    }
+
+    .front-advanced-summary small {
+      color: var(--muted);
+      font-size: 0.84rem;
+      line-height: 1.32;
+    }
+
+    .front-advanced-filter[open] {
+      border-color: rgba(88, 199, 179, 0.3);
+      background: rgba(88, 199, 179, 0.06);
+    }
+
+    .front-advanced-form {
+      display: grid;
+      gap: 0.75rem;
+      margin-top: 0.5rem;
+    }
+
+    .front-advanced-actions {
+      margin-top: 0.1rem;
+    }
+
     .front-cartelera-boards {
       display: grid;
       margin-top: 0.25rem;
@@ -1027,12 +1085,6 @@
     .front-cartelera-board {
       gap: 0.68rem;
       padding: 1.05rem;
-    }
-
-    .front-secondary-grid {
-      display: grid;
-      grid-template-columns: repeat(2, minmax(0, 1fr));
-      gap: 1rem;
     }
 
     .front-section-head,
@@ -1069,6 +1121,55 @@
     .front-local-grid {
       display: grid;
       gap: 0.85rem;
+    }
+
+    .front-special-grid {
+      grid-template-columns: repeat(2, minmax(0, 1fr));
+      align-items: start;
+    }
+
+    .front-collapsible-section {
+      margin-top: 1rem;
+      border: 1px solid var(--line);
+      border-radius: var(--radius-xl);
+      background:
+        linear-gradient(180deg, rgba(255, 255, 255, 0.028), transparent 46%),
+        rgba(12, 15, 22, 0.72);
+      box-shadow: var(--shadow-soft);
+      overflow: hidden;
+    }
+
+    .front-collapsible-section > summary {
+      list-style: none;
+      cursor: pointer;
+      padding: 0.95rem 1.05rem;
+      display: flex;
+      align-items: baseline;
+      justify-content: space-between;
+      gap: 0.8rem;
+    }
+
+    .front-collapsible-section > summary::-webkit-details-marker {
+      display: none;
+    }
+
+    .front-collapsible-summary strong {
+      font-family: var(--heading-font);
+      font-size: 1.2rem;
+      line-height: 1;
+    }
+
+    .front-collapsible-section[open] > summary {
+      border-bottom: 1px solid var(--line);
+      background: rgba(88, 199, 179, 0.08);
+    }
+
+    .front-collapsible-section .front-panel {
+      border: 0;
+      border-radius: 0;
+      box-shadow: none;
+      background: transparent;
+      margin: 0;
     }
 
     .front-mini-board {
@@ -1596,7 +1697,7 @@
         grid-template-columns: 1fr;
       }
 
-      .front-secondary-grid {
+      .front-special-grid {
         grid-template-columns: 1fr;
       }
 
@@ -1723,6 +1824,10 @@
       #cartelera {
         scroll-margin-top: 9.8rem;
       }
+
+      [data-front-specials="true"] {
+        scroll-margin-top: 9.8rem;
+      }
     }
 
     @media (max-width: 620px) {
@@ -1745,6 +1850,10 @@
       }
 
       #cartelera {
+        scroll-margin-top: 10.8rem;
+      }
+
+      [data-front-specials="true"] {
         scroll-margin-top: 10.8rem;
       }
     }
@@ -1781,12 +1890,13 @@
       </a>
       
       
+      
       <nav class="nav" aria-label="Primary">
         <div class="nav-links">
           <a href="/cinema-watch-snapshot/#cartelera" data-nav-link="screenings" class="" data-i18n-source>Showtimes</a>
           <a href="/cinema-watch-snapshot/movies/" data-nav-link="movies" class="" data-i18n-source>Movies</a>
-          <a href="/cinema-watch-snapshot/screenings/?category=imax" data-nav-link="imax" class="">IMAX</a>
-          <a href="/cinema-watch-snapshot/screenings/?category=dolby_atmos" data-nav-link="dolby" class="">Dolby Atmos</a>
+          <a href="/cinema-watch-snapshot/?focus=imax#salas-especiales" data-nav-link="imax" class="">IMAX</a>
+          <a href="/cinema-watch-snapshot/?focus=dolby_atmos#salas-especiales" data-nav-link="dolby" class="">Dolby Atmos</a>
         </div>
         
         <div class="nav-tools">
@@ -2163,6 +2273,9 @@
           'Focused on large-format screenings first, then compare by cinema and time.': 'Primero funciones de gran formato, despues compara por cine y horario.',
           'Focused on Atmos-capable screenings first, then compare by cinema and time.': 'Primero funciones con Atmos, despues compara por cine y horario.',
           'Reset to all screenings': 'Volver a toda la cartelera',
+          'Reset to default board': 'Volver a la cartelera inicial',
+          'Filtered results': 'Resultados filtrados',
+          'Results from advanced filters without leaving the homepage.': 'Resultados de filtros avanzados sin salir de la portada.',
           'IMAX focus': 'Foco IMAX',
           'Dolby Atmos focus': 'Foco Dolby Atmos',
           'You are viewing the IMAX cut of the board.': 'Estas viendo el recorte IMAX de la cartelera.',
@@ -2672,12 +2785,16 @@
           panel.hidden = panel.dataset.locationPanel !== nextKey;
         }
         
-        const activeLabel = root.querySelector('.nav-location-active');
+        const scopeDocument = root instanceof Document ? root : (root.ownerDocument || document);
+        const activeLabel = scopeDocument.querySelector('.nav-location-active');
         if (activeLabel && buttons.length > 0) {
           const activeBtn = buttons.find((b) => b.dataset.locationTarget === nextKey);
           if (activeBtn) {
             const span = activeBtn.querySelector('span');
-            if (span) activeLabel.textContent = span.textContent;
+            if (span) {
+              activeLabel.setAttribute('data-i18n-skip', '');
+              activeLabel.textContent = span.textContent;
+            }
           }
         }
 
@@ -2791,19 +2908,70 @@
         return normalizedCurrent;
       }
 
+      function scrollToSpecialRooms({ behavior = 'smooth' } = {}) {
+        const visiblePanel = Array.from(document.querySelectorAll('[data-location-panel]'))
+          .find((panel) => panel instanceof HTMLElement && !panel.hidden);
+        let target = visiblePanel?.querySelector('[data-front-specials="true"]');
+        if (!(target instanceof HTMLElement)) {
+          target = Array.from(document.querySelectorAll('[data-front-specials="true"]'))
+            .find((section) => {
+              if (!(section instanceof HTMLElement)) {
+                return false;
+              }
+              const panel = section.closest('[data-location-panel]');
+              return !(panel instanceof HTMLElement) || !panel.hidden;
+            });
+        }
+        if (!(target instanceof HTMLElement)) {
+          return false;
+        }
+        target.scrollIntoView({ behavior, block: 'start' });
+        return true;
+      }
+
+      function setHomeFocusAndScrollSpecialRooms(focusValue) {
+        const params = new URLSearchParams(window.location.search || '');
+        if (focusValue) {
+          params.set('focus', focusValue);
+        } else {
+          params.delete('focus');
+        }
+        const query = params.toString();
+        const nextUrl = query
+          ? `${window.location.pathname}?${query}#salas-especiales`
+          : `${window.location.pathname}#salas-especiales`;
+        window.history.pushState({}, '', nextUrl);
+        syncTopNavState();
+        scrollToSpecialRooms({ behavior: 'smooth' });
+      }
+
       function syncTopNavState() {
         const path = window.location.pathname || '/';
         const params = new URLSearchParams(window.location.search || '');
         const category = (params.get('category') || '').toLowerCase();
+        const focusParam = (params.get('focus') || '').toLowerCase();
+        const hash = (window.location.hash || '').toLowerCase();
         const screeningsLink = document.querySelector('[data-nav-link="screenings"]');
         const homePath = ensureCarteleraNavHref(screeningsLink);
         const relativePath = relativePathFromHome(path, homePath);
+        const onHome = relativePath === '/';
         const focus = {
-          screenings: relativePath === '/' || (relativePath.startsWith('/screenings') && !['imax', 'dolby_atmos'].includes(category)),
+          screenings: (onHome && !['imax', 'dolby_atmos'].includes(focusParam))
+            || (relativePath.startsWith('/screenings') && !['imax', 'dolby_atmos'].includes(category)),
           movies: relativePath.startsWith('/movies'),
-          imax: relativePath.startsWith('/screenings') && category === 'imax',
-          dolby: relativePath.startsWith('/screenings') && category === 'dolby_atmos',
+          imax: (onHome && focusParam === 'imax')
+            || (relativePath.startsWith('/screenings') && category === 'imax'),
+          dolby: (onHome && focusParam === 'dolby_atmos')
+            || (relativePath.startsWith('/screenings') && category === 'dolby_atmos'),
         };
+        if (onHome && hash === '#salas-especiales' && focusParam === 'imax') {
+          focus.imax = true;
+          focus.screenings = false;
+        }
+        if (onHome && hash === '#salas-especiales' && focusParam === 'dolby_atmos') {
+          focus.dolby = true;
+          focus.screenings = false;
+        }
         document.querySelectorAll('[data-nav-link]').forEach((link) => {
           if (!(link instanceof HTMLElement)) {
             return;
@@ -2822,9 +2990,478 @@
       const screeningsLink = document.querySelector('[data-nav-link="screenings"]');
       ensureCarteleraNavHref(screeningsLink);
 
+      document.addEventListener('click', (event) => {
+        if (!(event.target instanceof Element)) {
+          return;
+        }
+        const navLink = event.target.closest('a[data-nav-link="imax"], a[data-nav-link="dolby"]');
+        if (!(navLink instanceof HTMLAnchorElement)) {
+          return;
+        }
+        if (event.defaultPrevented || event.button !== 0 || event.metaKey || event.ctrlKey || event.shiftKey || event.altKey) {
+          return;
+        }
+        if (navLink.target && navLink.target !== '_self') {
+          return;
+        }
+        const currentScreeningsLink = document.querySelector('[data-nav-link="screenings"]');
+        const homePath = ensureCarteleraNavHref(currentScreeningsLink);
+        const relativePath = relativePathFromHome(window.location.pathname || '/', homePath);
+        if (relativePath !== '/') {
+          return;
+        }
+        event.preventDefault();
+        const focusValue = navLink.getAttribute('data-nav-link') === 'imax' ? 'imax' : 'dolby_atmos';
+        setHomeFocusAndScrollSpecialRooms(focusValue);
+      });
+
+      if ((window.location.hash || '').toLowerCase() === '#salas-especiales') {
+        window.requestAnimationFrame(() => {
+          scrollToSpecialRooms({ behavior: 'auto' });
+        });
+      }
+
       syncTopNavState();
       window.addEventListener('popstate', syncTopNavState);
-      window.CineVicioNav = { sync: syncTopNavState };
+      window.addEventListener('hashchange', () => {
+        syncTopNavState();
+        if ((window.location.hash || '').toLowerCase() === '#salas-especiales') {
+          scrollToSpecialRooms({ behavior: 'auto' });
+        }
+      });
+      window.CineVicioNav = { sync: syncTopNavState, scrollToSpecialRooms };
+    })();
+  </script>
+  <script>
+    (() => {
+      function syncVenueSelect(form) {
+        if (!(form instanceof HTMLFormElement) || form.dataset.providerVenueForm !== 'true') {
+          return;
+        }
+        const providerSelect = form.querySelector('[data-provider-select="true"]');
+        const venueSelect = form.querySelector('[data-venue-select="true"]');
+        if (!(providerSelect instanceof HTMLSelectElement) || !(venueSelect instanceof HTMLSelectElement)) {
+          return;
+        }
+
+        const providerValue = providerSelect.value.trim();
+        const currentValue = venueSelect.value;
+        let currentStillValid = !currentValue;
+
+        for (const option of venueSelect.options) {
+          if (!option.value) {
+            option.hidden = false;
+            option.disabled = false;
+            continue;
+          }
+          const optionProvider = option.dataset.provider || '';
+          const visible = !providerValue || optionProvider === providerValue;
+          option.hidden = !visible;
+          option.disabled = !visible;
+          option.textContent = option.dataset.shortLabel || option.textContent;
+          if (visible && option.value === currentValue) {
+            currentStillValid = true;
+          }
+        }
+
+        for (const group of venueSelect.querySelectorAll('optgroup[data-provider]')) {
+          const groupProvider = group.dataset.provider || '';
+          const visible = !providerValue || groupProvider === providerValue;
+          group.hidden = !visible;
+          group.disabled = !visible;
+        }
+
+        if (!currentStillValid) {
+          venueSelect.value = '';
+        }
+      }
+
+      function syncProviderVenueForms(root = document) {
+        const forms = root.querySelectorAll('form[data-provider-venue-form="true"]');
+        for (const form of forms) {
+          syncVenueSelect(form);
+        }
+      }
+
+      document.addEventListener('change', (event) => {
+        const target = event.target;
+        if (!(target instanceof Element)) {
+          return;
+        }
+        if (!target.matches('[data-provider-select="true"]')) {
+          return;
+        }
+        syncVenueSelect(target.form);
+      });
+
+      syncProviderVenueForms(document);
+      window.CineVicioProviderVenue = { sync: syncProviderVenueForms };
+    })();
+  </script>
+  <script>
+    (() => {
+      const FILTER_KEYS = ['provider', 'venue', 'language', 'category', 'format', 'from_date', 'to_date', 'room'];
+      const staticPayloadCache = new Map();
+
+      function escapeHtml(value) {
+        return String(value ?? '')
+          .replaceAll('&', '&amp;')
+          .replaceAll('<', '&lt;')
+          .replaceAll('>', '&gt;')
+          .replaceAll('"', '&quot;')
+          .replaceAll("'", '&#39;');
+      }
+
+      function foldText(value) {
+        return String(value ?? '')
+          .normalize('NFD')
+          .replace(/[\u0300-\u036f]/g, '')
+          .toLowerCase()
+          .trim();
+      }
+
+      function canonicalLanguage(value) {
+        const text = foldText(value);
+        if (!text) return '';
+        if (text.includes('subti')) return 'subtitulado';
+        if (['espanol', 'español', 'castellano', 'doblada'].includes(text)) return 'espanol';
+        return text;
+      }
+
+      function canonicalFormat(value) {
+        return foldText(value).replace(/\s+/g, '');
+      }
+
+      function roomLabel(roomNumber) {
+        return window.CinemaWatchI18n?.formatRoom(roomNumber) || `Room ${roomNumber}`;
+      }
+
+      function soldLabel(percent) {
+        return window.CinemaWatchI18n?.formatSold(percent) || `${percent}% sold`;
+      }
+
+      function readFilters(form) {
+        const data = new FormData(form);
+        const filters = {
+          provider: String(data.get('provider') || '').trim(),
+          venue: String(data.get('venue') || '').trim(),
+          language: canonicalLanguage(data.get('language') || ''),
+          category: canonicalFormat(data.get('category') || '').replaceAll('-', '_'),
+          format: canonicalFormat(data.get('format') || ''),
+          from_date: String(data.get('from_date') || '').trim(),
+          to_date: String(data.get('to_date') || '').trim(),
+          room: String(data.get('room') || '').trim(),
+        };
+        if (filters.format === 'imax') {
+          filters.category = filters.category || 'imax';
+          filters.format = '';
+        }
+        if (['atmos', 'dolby', 'dolby_atmos', 'dolby atmos'].includes(filters.format)) {
+          filters.category = filters.category || 'dolby_atmos';
+          filters.format = '';
+        }
+        return filters;
+      }
+
+      function hasAnyFilter(filters) {
+        return FILTER_KEYS.some((key) => String(filters[key] || '').trim().length > 0);
+      }
+
+      function mapStaticRows(rows) {
+        return (Array.isArray(rows) ? rows : []).map((row) => ({
+          provider: String(row.provider || ''),
+          venue_key: String(row.venue_key || ''),
+          provider_name: String(row.provider_name || row.provider || ''),
+          venue_name: String(row.venue_name || ''),
+          date_iso: String(row.date_iso || ''),
+          time_label: String(row.time_label || ''),
+          movie_title: String(row.movie_title || ''),
+          movie_href: String(row.movie_href || ''),
+          venue_href: String(row.venue_href || ''),
+          listing_label: String(row.listing_label || ''),
+          room_number: row.room_number,
+          sold_percent: row.sold_percent,
+          language: String(row.language || ''),
+          format_label: String(row.format_label || ''),
+          experience: String(row.experience || ''),
+          special_categories: Array.isArray(row.special_categories) ? row.special_categories : [],
+        }));
+      }
+
+      function mapApiRows(rows) {
+        return (Array.isArray(rows) ? rows : []).map((row) => ({
+          provider: String(row.provider || ''),
+          venue_key: String(row.venue_key || ''),
+          provider_name: String(row.provider || ''),
+          venue_name: String(row.venue_name || ''),
+          date_iso: String(row.date_iso || ''),
+          time_label: String(row.time_label || ''),
+          movie_title: String(row.movie_title || ''),
+          movie_href: '',
+          venue_href: '',
+          listing_label: String(row.listing_label || ''),
+          room_number: row.room_number,
+          sold_percent: row.sold_percent,
+          language: String(row.language || ''),
+          format_label: String(row.format_label || ''),
+          experience: String(row.experience || ''),
+          special_categories: Array.isArray(row.special_categories) ? row.special_categories : [],
+        }));
+      }
+
+      function filterStaticRows(rows, filters, todayIso) {
+        return rows.filter((row) => {
+          if (filters.provider && row.provider !== filters.provider) return false;
+          if (filters.venue && row.venue_key !== filters.venue) return false;
+          if (!filters.from_date && todayIso && row.date_iso < todayIso) return false;
+          if (filters.from_date && row.date_iso < filters.from_date) return false;
+          if (filters.to_date && row.date_iso > filters.to_date) return false;
+          if (filters.room && String(row.room_number || '') !== filters.room) return false;
+          if (filters.language && canonicalLanguage(row.language) !== filters.language) return false;
+          if (filters.category && !(row.special_categories || []).includes(filters.category)) return false;
+          if (filters.format) {
+            const match = [canonicalFormat(row.format_label), canonicalFormat(row.experience)].includes(filters.format);
+            if (!match) return false;
+          }
+          return true;
+        });
+      }
+
+      async function loadRowsForForm(form, filters) {
+        const dataHref = String(form.dataset.dataHref || '').trim();
+        if (dataHref) {
+          if (!staticPayloadCache.has(dataHref)) {
+            staticPayloadCache.set(
+              dataHref,
+              fetch(dataHref).then(async (response) => {
+                if (!response.ok) {
+                  throw new Error('Could not load the static data file.');
+                }
+                return response.json();
+              })
+            );
+          }
+          const payload = await staticPayloadCache.get(dataHref);
+          const rows = mapStaticRows(payload?.screenings || []);
+          const todayIso = String(payload?.today || '');
+          return filterStaticRows(rows, filters, todayIso);
+        }
+
+        const params = new URLSearchParams();
+        for (const [key, value] of Object.entries(filters)) {
+          const text = String(value || '').trim();
+          if (!text) continue;
+          params.set(key, text);
+        }
+        if (!params.get('from_date')) {
+          params.set('from_date', new Date().toISOString().slice(0, 10));
+        }
+        params.set('limit', '2400');
+        const response = await fetch(`/api/screenings?${params.toString()}`);
+        if (!response.ok) {
+          throw new Error('Could not load screening results.');
+        }
+        const payload = await response.json();
+        return mapApiRows(payload?.screenings || []);
+      }
+
+      function setBoardPanel(locationKey, panelKey) {
+        if (!locationKey || !panelKey) return;
+        const buttons = Array.from(
+          document.querySelectorAll(`[data-front-board-location="${locationKey}"][data-front-board-target]`)
+        );
+        const panels = Array.from(
+          document.querySelectorAll(`[data-front-board-location="${locationKey}"][data-front-board-panel]`)
+        );
+        for (const button of buttons) {
+          const pressed = button.dataset.frontBoardTarget === panelKey;
+          button.setAttribute('aria-pressed', pressed ? 'true' : 'false');
+          button.classList.toggle('is-active', pressed);
+        }
+        for (const panel of panels) {
+          panel.hidden = panel.dataset.frontBoardPanel !== panelKey;
+        }
+      }
+
+      function restoreDefaultBoard(locationKey) {
+        const defaultButton = document.querySelector(
+          `[data-front-board-location="${locationKey}"][data-front-board-target][data-front-default="true"]`
+        );
+        const fallbackButton = document.querySelector(
+          `[data-front-board-location="${locationKey}"][data-front-board-target]`
+        );
+        const nextKey = defaultButton?.getAttribute('data-front-board-target')
+          || fallbackButton?.getAttribute('data-front-board-target')
+          || '';
+        if (!nextKey) return;
+        setBoardPanel(locationKey, nextKey);
+      }
+
+      function writeFiltersToUrl(filters) {
+        const params = new URLSearchParams(window.location.search || '');
+        for (const key of FILTER_KEYS) {
+          params.delete(key);
+        }
+        for (const [key, value] of Object.entries(filters)) {
+          const text = String(value || '').trim();
+          if (!text) continue;
+          params.set(key, text);
+        }
+        const query = params.toString();
+        const next = query
+          ? `${window.location.pathname}?${query}#cartelera`
+          : `${window.location.pathname}#cartelera`;
+        window.history.replaceState({}, '', next);
+      }
+
+      function applyUrlToForm(form) {
+        const params = new URLSearchParams(window.location.search || '');
+        let matched = false;
+        for (const key of FILTER_KEYS) {
+          const value = String(params.get(key) || '').trim();
+          if (!value) continue;
+          const field = form.elements.namedItem(key);
+          if (!(field instanceof HTMLInputElement || field instanceof HTMLSelectElement)) continue;
+          if (field instanceof HTMLSelectElement && key === 'room' && !Array.from(field.options).some((opt) => opt.value === value)) {
+            field.add(new Option(roomLabel(value), value));
+          }
+          field.value = value;
+          matched = true;
+        }
+        return matched;
+      }
+
+      function renderAdvancedRows(panel, rows) {
+        const countChip = panel.querySelector('[data-front-advanced-count]');
+        const container = panel.querySelector('[data-front-advanced-results]');
+        if (!(countChip instanceof HTMLElement) || !(container instanceof HTMLElement)) {
+          return;
+        }
+
+        const sorted = [...rows].sort((left, right) => {
+          const leftKey = `${left.date_iso}|${left.time_label}`;
+          const rightKey = `${right.date_iso}|${right.time_label}`;
+          return leftKey.localeCompare(rightKey);
+        });
+
+        countChip.dataset.i18nCountValue = String(sorted.length);
+        countChip.textContent = `${sorted.length} screenings`;
+
+        if (!sorted.length) {
+          container.innerHTML = `<div class="empty" data-i18n-source>No screenings matched the published board with these filters.</div>`;
+          window.CinemaWatchI18n?.apply(panel);
+          return;
+        }
+
+        const grouped = new Map();
+        for (const row of sorted) {
+          if (!grouped.has(row.date_iso)) grouped.set(row.date_iso, []);
+          grouped.get(row.date_iso).push(row);
+        }
+
+        const sections = Array.from(grouped.entries()).slice(0, 8).map(([dateIso, items]) => {
+          const renderedItems = items.slice(0, 12).map((item) => {
+            const movieTitle = escapeHtml(item.movie_title);
+            const movieLine = item.movie_href
+              ? `<a href="${escapeHtml(item.movie_href)}" data-live-nav="true">${movieTitle}</a>`
+              : movieTitle;
+            const venueLabel = [item.provider_name, item.venue_name].filter(Boolean).join(' / ');
+            const venueLine = item.venue_href
+              ? `<a href="${escapeHtml(item.venue_href)}" data-live-nav="true">${escapeHtml(venueLabel)}</a>`
+              : escapeHtml(venueLabel);
+            const metaParts = [];
+            if (item.listing_label) metaParts.push(item.listing_label);
+            if (item.room_number) metaParts.push(roomLabel(item.room_number));
+            if (Number.isInteger(item.sold_percent)) metaParts.push(soldLabel(item.sold_percent));
+            const metaLine = metaParts.join(' | ');
+            return `
+              <div class="front-screening-row">
+                <span class="mini-time">${escapeHtml(item.time_label)}</span>
+                <div class="front-screening-copy">
+                  <strong>${movieLine}</strong>
+                  <p>${venueLine}${metaLine ? ` <span data-i18n-meta-line>| ${escapeHtml(metaLine)}</span>` : ''}</p>
+                </div>
+              </div>
+            `;
+          }).join('');
+
+          return `
+            <section class="front-date-group">
+              <div class="front-date-head">
+                <strong>${escapeHtml(dateIso)}</strong>
+                <span class="chip" data-i18n-count="shown" data-i18n-count-value="${items.length}">${items.length} shown</span>
+              </div>
+              <div class="front-screening-list">${renderedItems}</div>
+            </section>
+          `;
+        }).join('');
+
+        container.innerHTML = sections;
+        window.CinemaWatchI18n?.apply(panel);
+      }
+
+      async function runAdvancedFilter(form, { updateUrl = true } = {}) {
+        const locationKey = String(form.dataset.frontLocationKey || '').trim();
+        if (!locationKey) return;
+        const filters = readFilters(form);
+        const panel = document.querySelector(
+          `[data-front-board-location="${locationKey}"][data-front-board-panel="advanced"]`
+        );
+        if (!(panel instanceof HTMLElement)) return;
+        const submitButton = form.querySelector('button[type="submit"]');
+        if (submitButton instanceof HTMLButtonElement) {
+          submitButton.disabled = true;
+        }
+        try {
+          const rows = await loadRowsForForm(form, filters);
+          renderAdvancedRows(panel, rows);
+          setBoardPanel(locationKey, 'advanced');
+          if (updateUrl) {
+            writeFiltersToUrl(filters);
+          }
+        } catch (_error) {
+          renderAdvancedRows(panel, []);
+        } finally {
+          if (submitButton instanceof HTMLButtonElement) {
+            submitButton.disabled = false;
+          }
+        }
+      }
+
+      function initFrontAdvanced(root = document) {
+        const forms = root.querySelectorAll('form[data-front-advanced-form="true"]');
+        for (const form of forms) {
+          if (!(form instanceof HTMLFormElement) || form.dataset.frontAdvancedBound === 'true') {
+            continue;
+          }
+          form.dataset.frontAdvancedBound = 'true';
+          form.addEventListener('submit', (event) => {
+            event.preventDefault();
+            runAdvancedFilter(form, { updateUrl: true });
+          });
+
+          const resetButton = form.querySelector('[data-front-advanced-reset="true"]');
+          if (resetButton instanceof HTMLButtonElement) {
+            resetButton.addEventListener('click', () => {
+              form.reset();
+              window.CineVicioProviderVenue?.sync(form);
+              const locationKey = String(form.dataset.frontLocationKey || '').trim();
+              writeFiltersToUrl({});
+              restoreDefaultBoard(locationKey);
+            });
+          }
+
+          const locationPanel = form.closest('[data-location-panel]');
+          const hasQueryFilters = applyUrlToForm(form);
+          window.CineVicioProviderVenue?.sync(form);
+          if (hasQueryFilters && (!(locationPanel instanceof HTMLElement) || !locationPanel.hidden)) {
+            runAdvancedFilter(form, { updateUrl: false });
+          }
+        }
+      }
+
+      initFrontAdvanced(document);
+      window.CineVicioFrontAdvanced = { init: initFrontAdvanced };
     })();
   </script>
   

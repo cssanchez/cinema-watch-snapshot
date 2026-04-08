@@ -103,13 +103,6 @@ def transform_3_truncation_signal(content: str) -> str:
     
     return content
 
-def extract_sold_percentage(screening_text: str) -> float:
-    """Extract sold percentage from screening metadata text."""
-    match = re.search(r'(\d+)%\s*sold', screening_text)
-    if match:
-        return float(match.group(1))
-    return 0.0
-
 def transform_4_occupancy_highlight(content: str) -> str:
     """
     Add screening-high-occupancy class to rows with >= 50% sold.
