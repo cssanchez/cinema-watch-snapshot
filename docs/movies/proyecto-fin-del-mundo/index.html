@@ -1023,6 +1023,10 @@
       display: grid;
       gap: var(--front-gap-stack);
       align-content: start;
+      background:
+        radial-gradient(circle at 100% 0%, rgba(88, 199, 179, 0.08), transparent 34%),
+        linear-gradient(180deg, rgba(255, 255, 255, 0.035), transparent 38%),
+        rgba(12, 15, 22, 0.88);
     }
 
     .front-cartelera-chips {
@@ -1181,6 +1185,26 @@
     .front-cartelera-board {
       gap: 0.72rem;
       padding: 1.04rem;
+      border-color: rgba(88, 199, 179, 0.16);
+      background:
+        linear-gradient(180deg, rgba(88, 199, 179, 0.05), rgba(12, 15, 22, 0.72)),
+        rgba(255, 255, 255, 0.02);
+    }
+
+    .front-cartelera-board-head {
+      align-items: end;
+      gap: 1rem;
+    }
+
+    .front-cartelera-board-title {
+      display: grid;
+      gap: 0.2rem;
+      min-width: 0;
+    }
+
+    .front-cartelera-board-title h3 {
+      font-size: clamp(1.42rem, 2.35vw, 1.9rem);
+      line-height: 0.96;
     }
 
     .front-section-head,
@@ -1312,6 +1336,10 @@
       gap: 0.95rem;
     }
 
+    .front-special-grid-premium {
+      gap: 1rem;
+    }
+
     .front-mini-board {
       display: grid;
       gap: 0.7rem;
@@ -1327,6 +1355,181 @@
     .front-mini-board h3 {
       font-size: 1.18rem;
       line-height: 1;
+    }
+
+    .front-specials {
+      background:
+        radial-gradient(circle at 0% 0%, rgba(88, 199, 179, 0.08), transparent 34%),
+        radial-gradient(circle at 100% 0%, rgba(240, 139, 101, 0.08), transparent 38%),
+        linear-gradient(180deg, rgba(255, 255, 255, 0.035), transparent 38%),
+        rgba(12, 15, 22, 0.88);
+    }
+
+    .front-special-card {
+      gap: 0.88rem;
+      min-height: 100%;
+      padding: 1.08rem;
+    }
+
+    .front-special-card--imax {
+      border-color: rgba(88, 199, 179, 0.24);
+      background:
+        linear-gradient(180deg, rgba(88, 199, 179, 0.12), rgba(12, 16, 22, 0.7)),
+        rgba(10, 13, 19, 0.88);
+    }
+
+    .front-special-card--dolby_atmos {
+      border-color: rgba(240, 139, 101, 0.24);
+      background:
+        linear-gradient(180deg, rgba(240, 139, 101, 0.12), rgba(12, 16, 22, 0.7)),
+        rgba(10, 13, 19, 0.88);
+    }
+
+    .front-special-card-head {
+      display: flex;
+      gap: 0.9rem;
+      align-items: start;
+      justify-content: space-between;
+    }
+
+    .front-special-card-title {
+      display: grid;
+      gap: 0.2rem;
+      min-width: 0;
+    }
+
+    .front-special-card-title h3 {
+      font-size: clamp(1.3rem, 2vw, 1.7rem);
+      line-height: 0.98;
+    }
+
+    .front-special-facts {
+      gap: 0.42rem;
+    }
+
+    .front-special-facts a {
+      text-decoration: none;
+    }
+
+    .front-special-card .front-date-group {
+      gap: 0.52rem;
+      padding: 0.76rem 0.82rem;
+      border-radius: var(--radius-md);
+      border: 1px solid rgba(165, 178, 198, 0.12);
+      background: rgba(9, 13, 19, 0.44);
+    }
+
+    .front-special-card .front-date-head {
+      padding-bottom: 0.3rem;
+    }
+
+    .front-special-card .front-screening-row {
+      padding-top: 0.42rem;
+    }
+
+    .front-movies {
+      background:
+        radial-gradient(circle at 0% 0%, rgba(233, 225, 209, 0.05), transparent 32%),
+        linear-gradient(180deg, rgba(255, 255, 255, 0.03), transparent 36%),
+        rgba(12, 15, 22, 0.9);
+    }
+
+    .front-movie-grid {
+      gap: 1rem;
+    }
+
+    .front-movie-section {
+      gap: 0.88rem;
+      padding: 1.08rem;
+    }
+
+    .front-movie-section--in_theaters {
+      border-color: rgba(165, 178, 198, 0.18);
+      background:
+        linear-gradient(180deg, rgba(255, 255, 255, 0.045), rgba(11, 15, 22, 0.7)),
+        rgba(12, 15, 22, 0.86);
+    }
+
+    .front-movie-section--upcoming_premieres {
+      border-color: rgba(240, 139, 101, 0.18);
+      background:
+        linear-gradient(180deg, rgba(240, 139, 101, 0.08), rgba(12, 15, 22, 0.72)),
+        rgba(12, 15, 22, 0.86);
+    }
+
+    .front-movie-section-body {
+      display: grid;
+      grid-template-columns: minmax(0, 1fr) minmax(0, 1.08fr);
+      gap: 0.92rem;
+      align-items: start;
+    }
+
+    .front-movie-section-body.is-single {
+      grid-template-columns: 1fr;
+    }
+
+    .front-movie-lead {
+      gap: 0.72rem;
+      min-height: 100%;
+      padding: 1.12rem;
+      border-color: rgba(165, 178, 198, 0.16);
+      background:
+        linear-gradient(180deg, rgba(255, 255, 255, 0.055), rgba(15, 20, 28, 0.88)),
+        rgba(255, 255, 255, 0.02);
+    }
+
+    .front-movie-lead-title {
+      font-family: var(--heading-font);
+      font-size: clamp(1.42rem, 2.35vw, 2rem);
+      line-height: 0.98;
+      letter-spacing: -0.02em;
+    }
+
+    .front-movie-summary {
+      align-items: center;
+    }
+
+    .front-movie-list {
+      display: grid;
+      gap: 0.62rem;
+      align-content: start;
+    }
+
+    .front-movie-row {
+      display: grid;
+      gap: 0.52rem;
+      padding: 0.88rem 0.92rem;
+      border-radius: var(--radius-md);
+      border: 1px solid rgba(165, 178, 198, 0.12);
+      background: rgba(13, 18, 25, 0.54);
+      text-decoration: none;
+    }
+
+    .front-movie-row-head {
+      display: flex;
+      justify-content: space-between;
+      gap: 0.8rem;
+      align-items: start;
+    }
+
+    .front-movie-row-copy {
+      display: grid;
+      gap: 0.24rem;
+      min-width: 0;
+    }
+
+    .front-movie-row-copy strong {
+      font-size: 1rem;
+      line-height: 1.14;
+    }
+
+    .front-movie-meta {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 0.22rem 0.56rem;
+      color: var(--muted);
+      font-size: 0.84rem;
+      line-height: 1.34;
     }
 
     .front-screening-groups,
@@ -1913,6 +2116,10 @@
         grid-template-columns: 1fr;
       }
 
+      .front-movie-section-body {
+        grid-template-columns: 1fr;
+      }
+
       .front-location-panel,
       .front-layout {
         gap: 0.88rem;
@@ -1953,6 +2160,12 @@
       .front-section-head,
       .front-mini-board-head,
       .front-date-head {
+        display: grid;
+        justify-content: stretch;
+      }
+
+      .front-special-card-head,
+      .front-movie-row-head {
         display: grid;
         justify-content: stretch;
       }
@@ -2099,14 +2312,14 @@
         <span class="stat">11 rooms identified</span>
         
         
-        <span class="stat">50 sold readings</span>
+        <span class="stat">51 sold readings</span>
         
       </div>
     </div>
     <div class="metrics">
       <div class="metric">
         <span class="muted" data-i18n-source>Screenings</span>
-        <strong>203</strong>
+        <strong>196</strong>
       </div>
       <div class="metric">
         <span class="muted" data-i18n-source>Venues</span>
@@ -2118,7 +2331,7 @@
       </div>
       <div class="metric">
         <span class="muted" data-i18n-source>Peak crowd</span>
-        <strong>33%</strong>
+        <strong>47%</strong>
       </div>
     </div>
   </section>
@@ -2185,211 +2398,9 @@
           <div class="result-day">
             <div class="row-head">
               <strong>2026-04-08</strong>
-              <span class="chip">70 screenings</span>
+              <span class="chip">50 screenings</span>
             </div>
             <div class="result-list">
-              
-              <div class="result-item">
-                <span class="time-badge">12:15</span>
-                <div class="result-copy">
-                  <strong><a href="/cinema-watch-snapshot/venues/cinepolis/mendoza/">cinepolis / Cinépolis Mendoza Plaza</a></strong>
-                  
-                  <p data-i18n-meta-line>Classic • 2D • Español | Room 7</p>
-                  
-                  
-                </div>
-              </div>
-              
-              <div class="result-item">
-                <span class="time-badge">12:50</span>
-                <div class="result-copy">
-                  <strong><a href="/cinema-watch-snapshot/venues/cinepolis/pilar/">cinepolis / Cinépolis Pilar</a></strong>
-                  
-                  <p data-i18n-meta-line>Classic • 2D • Español | Room 8</p>
-                  
-                  
-                </div>
-              </div>
-              
-              <div class="result-item">
-                <span class="time-badge">13:00</span>
-                <div class="result-copy">
-                  <strong><a href="/cinema-watch-snapshot/venues/cinepolis/recoleta/">cinepolis / Recoleta</a></strong>
-                  
-                  <p data-i18n-meta-line>Classic • 2D • Subtitulado | Room 8</p>
-                  
-                  
-                </div>
-              </div>
-              
-              <div class="result-item">
-                <span class="time-badge">13:30</span>
-                <div class="result-copy">
-                  <strong><a href="/cinema-watch-snapshot/venues/cinepolis/neuquen/">cinepolis / Cinépolis Neuquén</a></strong>
-                  
-                  <p data-i18n-meta-line>Classic • 2D • Español | Room 3 | 2% sold</p>
-                  
-                  
-                </div>
-              </div>
-              
-              <div class="result-item">
-                <span class="time-badge">15:30</span>
-                <div class="result-copy">
-                  <strong><a href="/cinema-watch-snapshot/venues/cinepolis/mendoza/">cinepolis / Cinépolis Mendoza Plaza</a></strong>
-                  
-                  <p data-i18n-meta-line>Classic • 2D • Español | Room 7</p>
-                  
-                  
-                </div>
-              </div>
-              
-              <div class="result-item">
-                <span class="time-badge">15:30</span>
-                <div class="result-copy">
-                  <strong><a href="/cinema-watch-snapshot/venues/showcase/showcase_norcenter/">showcase / Showcase Norcenter</a></strong>
-                  
-                  
-                </div>
-              </div>
-              
-              <div class="result-item">
-                <span class="time-badge">15:30</span>
-                <div class="result-copy">
-                  <strong><a href="/cinema-watch-snapshot/venues/showcase/showcase_rosario/">showcase / Showcase Rosario</a></strong>
-                  
-                  
-                </div>
-              </div>
-              
-              <div class="result-item">
-                <span class="time-badge">15:40</span>
-                <div class="result-copy">
-                  <strong><a href="/cinema-watch-snapshot/venues/cinepolis/avellaneda/">cinepolis / Avellaneda</a></strong>
-                  
-                  <p data-i18n-meta-line>Classic • 2D • Español | Room 12 | 3% sold</p>
-                  
-                  
-                </div>
-              </div>
-              
-              <div class="result-item">
-                <span class="time-badge">15:45</span>
-                <div class="result-copy">
-                  <strong><a href="/cinema-watch-snapshot/venues/showcase/showcase_quilmes/">showcase / Showcase Quilmes</a></strong>
-                  
-                  
-                </div>
-              </div>
-              
-              <div class="result-item">
-                <span class="time-badge">15:50</span>
-                <div class="result-copy">
-                  <strong><a href="/cinema-watch-snapshot/venues/showcase/showcase_belgrano/">showcase / Showcase Belgrano</a></strong>
-                  
-                  
-                </div>
-              </div>
-              
-              <div class="result-item">
-                <span class="time-badge">16:00</span>
-                <div class="result-copy">
-                  <strong><a href="/cinema-watch-snapshot/venues/cinepolis/pilar/">cinepolis / Cinépolis Pilar</a></strong>
-                  
-                  <p data-i18n-meta-line>Classic • 2D • Español | Room 8</p>
-                  
-                  
-                </div>
-              </div>
-              
-              <div class="result-item">
-                <span class="time-badge">16:00</span>
-                <div class="result-copy">
-                  <strong><a href="/cinema-watch-snapshot/venues/cinepolis/houssay/">cinepolis / Cinépolis Plaza Houssay</a></strong>
-                  
-                  <p data-i18n-meta-line>Classic • 2D • Español | Room 3 | 1% sold</p>
-                  
-                  
-                </div>
-              </div>
-              
-              <div class="result-item">
-                <span class="time-badge">16:00</span>
-                <div class="result-copy">
-                  <strong><a href="/cinema-watch-snapshot/venues/cinepolis/rosario/">cinepolis / Cinépolis Rosario</a></strong>
-                  
-                  <p data-i18n-meta-line>Classic • 2D • Español | Room 5</p>
-                  
-                  
-                </div>
-              </div>
-              
-              <div class="result-item">
-                <span class="time-badge">16:00</span>
-                <div class="result-copy">
-                  <strong><a href="/cinema-watch-snapshot/venues/showcase/showcase_cordoba_villa_cabrera/">showcase / Showcase Cordoba (Villa Cabrera)</a></strong>
-                  
-                  
-                </div>
-              </div>
-              
-              <div class="result-item">
-                <span class="time-badge">16:00</span>
-                <div class="result-copy">
-                  <strong><a href="/cinema-watch-snapshot/venues/showcase/showcase_haedo/">showcase / Showcase Haedo</a></strong>
-                  
-                  
-                </div>
-              </div>
-              
-              <div class="result-item">
-                <span class="time-badge">16:05</span>
-                <div class="result-copy">
-                  <strong><a href="/cinema-watch-snapshot/venues/showcase/showcase_norcenter/">showcase / Showcase Norcenter</a></strong>
-                  
-                  
-                </div>
-              </div>
-              
-              <div class="result-item">
-                <span class="time-badge">16:05</span>
-                <div class="result-copy">
-                  <strong><a href="/cinema-watch-snapshot/venues/showcase/showcase_rosario/">showcase / Showcase Rosario</a></strong>
-                  
-                  
-                </div>
-              </div>
-              
-              <div class="result-item">
-                <span class="time-badge">16:15</span>
-                <div class="result-copy">
-                  <strong><a href="/cinema-watch-snapshot/venues/cinepolis/recoleta/">cinepolis / Recoleta</a></strong>
-                  
-                  <p data-i18n-meta-line>Classic • 2D • Subtitulado | Room 8 | 3% sold</p>
-                  
-                  
-                </div>
-              </div>
-              
-              <div class="result-item">
-                <span class="time-badge">16:20</span>
-                <div class="result-copy">
-                  <strong><a href="/cinema-watch-snapshot/venues/showcase/showcase_haedo/">showcase / Showcase Haedo</a></strong>
-                  
-                  
-                </div>
-              </div>
-              
-              <div class="result-item">
-                <span class="time-badge">16:45</span>
-                <div class="result-copy">
-                  <strong><a href="/cinema-watch-snapshot/venues/cinepolis/neuquen/">cinepolis / Cinépolis Neuquén</a></strong>
-                  
-                  <p data-i18n-meta-line>Classic • 2D • Español | Room 3 | 3% sold</p>
-                  
-                  
-                </div>
-              </div>
               
               <div class="result-item">
                 <span class="time-badge">18:30</span>
@@ -2405,7 +2416,7 @@
                 <div class="result-copy">
                   <strong><a href="/cinema-watch-snapshot/venues/cinepolis/avellaneda/">cinepolis / Avellaneda</a></strong>
                   
-                  <p data-i18n-meta-line>Classic • 2D • Español | Room 12 | 7% sold</p>
+                  <p data-i18n-meta-line>Classic • 2D • Español | Room 12 | 10% sold</p>
                   
                   
                 </div>
@@ -2427,7 +2438,7 @@
                 <div class="result-copy">
                   <strong><a href="/cinema-watch-snapshot/venues/cinepolis/mendoza/">cinepolis / Cinépolis Mendoza Plaza</a></strong>
                   
-                  <p data-i18n-meta-line>Classic • 2D • Español | Room 7 | 1% sold</p>
+                  <p data-i18n-meta-line>Classic • 2D • Español | Room 7 | 4% sold</p>
                   
                   
                 </div>
@@ -2465,7 +2476,7 @@
                 <div class="result-copy">
                   <strong><a href="/cinema-watch-snapshot/venues/cinepolis/pilar/">cinepolis / Cinépolis Pilar</a></strong>
                   
-                  <p data-i18n-meta-line>Classic • 2D • Español | Room 8 | 2% sold</p>
+                  <p data-i18n-meta-line>Classic • 2D • Español | Room 8 | 6% sold</p>
                   
                   
                 </div>
@@ -2476,7 +2487,7 @@
                 <div class="result-copy">
                   <strong><a href="/cinema-watch-snapshot/venues/cinepolis/houssay/">cinepolis / Cinépolis Plaza Houssay</a></strong>
                   
-                  <p data-i18n-meta-line>Classic • 2D • Español | Room 3 | 1% sold</p>
+                  <p data-i18n-meta-line>Classic • 2D • Español | Room 3 | 4% sold</p>
                   
                   
                 </div>
@@ -2543,7 +2554,7 @@
                 <div class="result-copy">
                   <strong><a href="/cinema-watch-snapshot/venues/cinepolis/lujan/">cinepolis / Cinépolis Luján</a></strong>
                   
-                  <p data-i18n-meta-line>Classic • 2D • Español | Room 6 | 15% sold</p>
+                  <p data-i18n-meta-line>Classic • 2D • Español | Room 6 | 18% sold</p>
                   
                   
                 </div>
@@ -2581,7 +2592,7 @@
                 <div class="result-copy">
                   <strong><a href="/cinema-watch-snapshot/venues/cinepolis/merlo/">cinepolis / Cinépolis Merlo</a></strong>
                   
-                  <p data-i18n-meta-line>Classic • 2D • Español | Room 5 | 20% sold</p>
+                  <p data-i18n-meta-line>Classic • 2D • Español | Room 5 | 28% sold</p>
                   
                   
                 </div>
@@ -2592,7 +2603,7 @@
                 <div class="result-copy">
                   <strong><a href="/cinema-watch-snapshot/venues/cinepolis/recoleta/">cinepolis / Recoleta</a></strong>
                   
-                  <p data-i18n-meta-line>Classic • 2D • Subtitulado | Room 8 | 19% sold</p>
+                  <p data-i18n-meta-line>Classic • 2D • Subtitulado | Room 8 | 47% sold</p>
                   
                   
                 </div>
@@ -2603,7 +2614,7 @@
                 <div class="result-copy">
                   <strong><a href="/cinema-watch-snapshot/venues/cinepolis/neuquen/">cinepolis / Cinépolis Neuquén</a></strong>
                   
-                  <p data-i18n-meta-line>Classic • 2D • Español | Room 3 | 11% sold</p>
+                  <p data-i18n-meta-line>Classic • 2D • Español | Room 3 | 16% sold</p>
                   
                   
                 </div>
@@ -2641,7 +2652,7 @@
                 <div class="result-copy">
                   <strong><a href="/cinema-watch-snapshot/venues/cinepolis/recoleta/">cinepolis / Recoleta</a></strong>
                   
-                  <p data-i18n-meta-line>Classic • 2D • Subtitulado | Room 7 | 16% sold</p>
+                  <p data-i18n-meta-line>Classic • 2D • Subtitulado | Room 7 | 23% sold</p>
                   
                   
                 </div>
@@ -2670,7 +2681,7 @@
                 <div class="result-copy">
                   <strong><a href="/cinema-watch-snapshot/venues/cinepolis/maipu/">cinepolis / Cinépolis Arena Maipú</a></strong>
                   
-                  <p data-i18n-meta-line>GOLD-CLASS • 2D • Español | Room 2 | 4% sold</p>
+                  <p data-i18n-meta-line>GOLD-CLASS • 2D • Español | Room 2 | 12% sold</p>
                   
                   
                 </div>
@@ -2681,7 +2692,7 @@
                 <div class="result-copy">
                   <strong><a href="/cinema-watch-snapshot/venues/cinepolis/neuquen/">cinepolis / Cinépolis Neuquén</a></strong>
                   
-                  <p data-i18n-meta-line>Classic • 2D • Español | Room 1 | 7% sold</p>
+                  <p data-i18n-meta-line>Classic • 2D • Español | Room 1 | 13% sold</p>
                   
                   
                 </div>
@@ -2692,7 +2703,7 @@
                 <div class="result-copy">
                   <strong><a href="/cinema-watch-snapshot/venues/cinepolis/recoleta/">cinepolis / Recoleta</a></strong>
                   
-                  <p data-i18n-meta-line>4D • 2D • Subtitulado | Room 10 | 14% sold</p>
+                  <p data-i18n-meta-line>4D • 2D • Subtitulado | Room 10 | 23% sold</p>
                   
                   
                 </div>
@@ -2712,7 +2723,7 @@
                 <div class="result-copy">
                   <strong><a href="/cinema-watch-snapshot/venues/cinepolis/avellaneda/">cinepolis / Avellaneda</a></strong>
                   
-                  <p data-i18n-meta-line>Classic • 2D • Español | Room 12 | 4% sold</p>
+                  <p data-i18n-meta-line>Classic • 2D • Español | Room 12 | 7% sold</p>
                   
                   
                 </div>
@@ -2768,7 +2779,7 @@
                 <div class="result-copy">
                   <strong><a href="/cinema-watch-snapshot/venues/cinepolis/mendoza/">cinepolis / Cinépolis Mendoza Plaza</a></strong>
                   
-                  <p data-i18n-meta-line>Classic • 2D • Español | Room 7</p>
+                  <p data-i18n-meta-line>Classic • 2D • Español | Room 7 | 1% sold</p>
                   
                   
                 </div>
@@ -2790,7 +2801,7 @@
                 <div class="result-copy">
                   <strong><a href="/cinema-watch-snapshot/venues/cinepolis/houssay/">cinepolis / Cinépolis Plaza Houssay</a></strong>
                   
-                  <p data-i18n-meta-line>Classic • 2D • Subtitulado | Room 2 | 6% sold</p>
+                  <p data-i18n-meta-line>Classic • 2D • Subtitulado | Room 2 | 12% sold</p>
                   
                   
                 </div>
@@ -2812,7 +2823,7 @@
                 <div class="result-copy">
                   <strong><a href="/cinema-watch-snapshot/venues/cinepolis/recoleta/">cinepolis / Recoleta</a></strong>
                   
-                  <p data-i18n-meta-line>Classic • 2D • Subtitulado | Room 5 | 1% sold</p>
+                  <p data-i18n-meta-line>Classic • 2D • Subtitulado | Room 5 | 7% sold</p>
                   
                   
                 </div>
@@ -2850,7 +2861,7 @@
                 <div class="result-copy">
                   <strong><a href="/cinema-watch-snapshot/venues/cinepolis/lujan/">cinepolis / Cinépolis Luján</a></strong>
                   
-                  <p data-i18n-meta-line>Classic • 2D • Español | Room 6 | 13% sold</p>
+                  <p data-i18n-meta-line>Classic • 2D • Español | Room 6 | 14% sold</p>
                   
                   
                 </div>
@@ -2861,7 +2872,7 @@
                 <div class="result-copy">
                   <strong><a href="/cinema-watch-snapshot/venues/cinepolis/recoleta/">cinepolis / Recoleta</a></strong>
                   
-                  <p data-i18n-meta-line>Classic • 2D • Subtitulado | Room 8 | 2% sold</p>
+                  <p data-i18n-meta-line>Classic • 2D • Subtitulado | Room 8 | 3% sold</p>
                   
                   
                 </div>
@@ -3154,7 +3165,7 @@
                 <div class="result-copy">
                   <strong><a href="/cinema-watch-snapshot/venues/cinepolis/recoleta/">cinepolis / Recoleta</a></strong>
                   
-                  <p data-i18n-meta-line>Classic • 2D • Subtitulado | Room 8 | 11% sold</p>
+                  <p data-i18n-meta-line>Classic • 2D • Subtitulado | Room 8 | 12% sold</p>
                   
                   
                 </div>
@@ -3205,7 +3216,7 @@
                 <div class="result-copy">
                   <strong><a href="/cinema-watch-snapshot/venues/cinepolis/neuquen/">cinepolis / Cinépolis Neuquén</a></strong>
                   
-                  <p data-i18n-meta-line>Classic • 2D • Español | Room 4</p>
+                  <p data-i18n-meta-line>Classic • 2D • Español | Room 4 | 1% sold</p>
                   
                   
                 </div>
@@ -3346,7 +3357,7 @@
                 <div class="result-copy">
                   <strong><a href="/cinema-watch-snapshot/venues/cinepolis/recoleta/">cinepolis / Recoleta</a></strong>
                   
-                  <p data-i18n-meta-line>Classic • 2D • Subtitulado | Room 7 | 3% sold</p>
+                  <p data-i18n-meta-line>Classic • 2D • Subtitulado | Room 7 | 4% sold</p>
                   
                   
                 </div>
@@ -3720,7 +3731,7 @@
                 <div class="result-copy">
                   <strong><a href="/cinema-watch-snapshot/venues/cinepolis/avellaneda/">cinepolis / Avellaneda</a></strong>
                   
-                  <p data-i18n-meta-line>Classic • 2D • Subtitulado | Room 9 | 1% sold</p>
+                  <p data-i18n-meta-line>Classic • 2D • Subtitulado | Room 9 | 3% sold</p>
                   
                   
                 </div>
@@ -3814,7 +3825,7 @@
                 <div class="result-copy">
                   <strong><a href="/cinema-watch-snapshot/venues/cinepolis/recoleta/">cinepolis / Recoleta</a></strong>
                   
-                  <p data-i18n-meta-line>Classic • 2D • Subtitulado | Room 8 | 6% sold</p>
+                  <p data-i18n-meta-line>Classic • 2D • Subtitulado | Room 8 | 9% sold</p>
                   
                   
                 </div>
@@ -3876,7 +3887,7 @@
                 <div class="result-copy">
                   <strong><a href="/cinema-watch-snapshot/venues/cinepolis/houssay/">cinepolis / Cinépolis Plaza Houssay</a></strong>
                   
-                  <p data-i18n-meta-line>Classic • 2D • Español | Room 3</p>
+                  <p data-i18n-meta-line>Classic • 2D • Español | Room 3 | 3% sold</p>
                   
                   
                 </div>
@@ -3907,7 +3918,7 @@
                 <div class="result-copy">
                   <strong><a href="/cinema-watch-snapshot/venues/cinepolis/neuquen/">cinepolis / Cinépolis Neuquén</a></strong>
                   
-                  <p data-i18n-meta-line>Monster Screen • 2D • Español | Room 7 | 2% sold</p>
+                  <p data-i18n-meta-line>Monster Screen • 2D • Español | Room 7 | 3% sold</p>
                   
                   
                   <div class="chips">
@@ -3995,7 +4006,7 @@
                 <div class="result-copy">
                   <strong><a href="/cinema-watch-snapshot/venues/cinepolis/pilar/">cinepolis / Cinépolis Pilar</a></strong>
                   
-                  <p data-i18n-meta-line>Monster Screen • 2D • Subtitulado | Room 9 | 2% sold</p>
+                  <p data-i18n-meta-line>Monster Screen • 2D • Subtitulado | Room 9 | 3% sold</p>
                   
                   
                   <div class="chips">
@@ -4025,7 +4036,7 @@
                 <div class="result-copy">
                   <strong><a href="/cinema-watch-snapshot/venues/cinepolis/recoleta/">cinepolis / Recoleta</a></strong>
                   
-                  <p data-i18n-meta-line>Classic • 2D • Subtitulado | Room 7 | 6% sold</p>
+                  <p data-i18n-meta-line>Classic • 2D • Subtitulado | Room 7 | 8% sold</p>
                   
                   
                 </div>
@@ -4082,7 +4093,7 @@
                 <div class="result-copy">
                   <strong><a href="/cinema-watch-snapshot/venues/cinepolis/recoleta/">cinepolis / Recoleta</a></strong>
                   
-                  <p data-i18n-meta-line>4D • 2D • Subtitulado | Room 10 | 7% sold</p>
+                  <p data-i18n-meta-line>4D • 2D • Subtitulado | Room 10 | 10% sold</p>
                   
                   
                 </div>
@@ -4211,7 +4222,7 @@
                 <div class="result-copy">
                   <strong><a href="/cinema-watch-snapshot/venues/cinepolis/pilar/">cinepolis / Cinépolis Pilar</a></strong>
                   
-                  <p data-i18n-meta-line>Classic • 2D • Subtitulado | Room 8</p>
+                  <p data-i18n-meta-line>Classic • 2D • Subtitulado | Room 8 | 1% sold</p>
                   
                   
                 </div>
@@ -4232,7 +4243,7 @@
           <div class="result-day">
             <div class="row-head">
               <strong>2026-04-11</strong>
-              <span class="chip">4 screenings</span>
+              <span class="chip">17 screenings</span>
             </div>
             <div class="result-list">
               
@@ -4250,7 +4261,7 @@
                 <div class="result-copy">
                   <strong><a href="/cinema-watch-snapshot/venues/cinepolis/recoleta/">cinepolis / Recoleta</a></strong>
                   
-                  <p data-i18n-meta-line>Classic • 2D • Subtitulado | Room 8</p>
+                  <p data-i18n-meta-line>Classic • 2D • Subtitulado | Room 8 | 1% sold</p>
                   
                   
                 </div>
@@ -4271,6 +4282,131 @@
                 <span class="time-badge">12:50</span>
                 <div class="result-copy">
                   <strong><a href="/cinema-watch-snapshot/venues/showcase/showcase_rosario/">showcase / Showcase Rosario</a></strong>
+                  
+                  
+                </div>
+              </div>
+              
+              <div class="result-item">
+                <span class="time-badge">14:15</span>
+                <div class="result-copy">
+                  <strong><a href="/cinema-watch-snapshot/venues/cinepolis/houssay/">cinepolis / Cinépolis Plaza Houssay</a></strong>
+                  
+                  <p data-i18n-meta-line>Classic • 2D • Español | Room 4</p>
+                  
+                  
+                </div>
+              </div>
+              
+              <div class="result-item">
+                <span class="time-badge">15:30</span>
+                <div class="result-copy">
+                  <strong><a href="/cinema-watch-snapshot/venues/showcase/showcase_norcenter/">showcase / Showcase Norcenter</a></strong>
+                  
+                  
+                </div>
+              </div>
+              
+              <div class="result-item">
+                <span class="time-badge">15:40</span>
+                <div class="result-copy">
+                  <strong><a href="/cinema-watch-snapshot/venues/cinepolis/avellaneda/">cinepolis / Avellaneda</a></strong>
+                  
+                  <p data-i18n-meta-line>Classic • 2D • Español | Room 9 | 1% sold</p>
+                  
+                  
+                </div>
+              </div>
+              
+              <div class="result-item">
+                <span class="time-badge">15:45</span>
+                <div class="result-copy">
+                  <strong><a href="/cinema-watch-snapshot/venues/showcase/showcase_haedo/">showcase / Showcase Haedo</a></strong>
+                  
+                  
+                </div>
+              </div>
+              
+              <div class="result-item">
+                <span class="time-badge">15:45</span>
+                <div class="result-copy">
+                  <strong><a href="/cinema-watch-snapshot/venues/showcase/showcase_rosario/">showcase / Showcase Rosario</a></strong>
+                  
+                  
+                </div>
+              </div>
+              
+              <div class="result-item">
+                <span class="time-badge">15:50</span>
+                <div class="result-copy">
+                  <strong><a href="/cinema-watch-snapshot/venues/showcase/showcase_belgrano/">showcase / Showcase Belgrano</a></strong>
+                  
+                  
+                </div>
+              </div>
+              
+              <div class="result-item">
+                <span class="time-badge">15:50</span>
+                <div class="result-copy">
+                  <strong><a href="/cinema-watch-snapshot/venues/showcase/showcase_cordoba_villa_cabrera/">showcase / Showcase Cordoba (Villa Cabrera)</a></strong>
+                  
+                  
+                </div>
+              </div>
+              
+              <div class="result-item">
+                <span class="time-badge">16:00</span>
+                <div class="result-copy">
+                  <strong><a href="/cinema-watch-snapshot/venues/showcase/showcase_haedo/">showcase / Showcase Haedo</a></strong>
+                  
+                  
+                </div>
+              </div>
+              
+              <div class="result-item">
+                <span class="time-badge">16:00</span>
+                <div class="result-copy">
+                  <strong><a href="/cinema-watch-snapshot/venues/showcase/showcase_norcenter/">showcase / Showcase Norcenter</a></strong>
+                  
+                  
+                </div>
+              </div>
+              
+              <div class="result-item">
+                <span class="time-badge">16:05</span>
+                <div class="result-copy">
+                  <strong><a href="/cinema-watch-snapshot/venues/showcase/showcase_rosario/">showcase / Showcase Rosario</a></strong>
+                  
+                  
+                </div>
+              </div>
+              
+              <div class="result-item">
+                <span class="time-badge">16:10</span>
+                <div class="result-copy">
+                  <strong><a href="/cinema-watch-snapshot/venues/cinepolis/pilar/">cinepolis / Cinépolis Pilar</a></strong>
+                  
+                  <p data-i18n-meta-line>Classic • 2D • Español | Room 8</p>
+                  
+                  
+                </div>
+              </div>
+              
+              <div class="result-item">
+                <span class="time-badge">18:15</span>
+                <div class="result-copy">
+                  <strong><a href="/cinema-watch-snapshot/venues/cinepolis/mendoza/">cinepolis / Cinépolis Mendoza Plaza</a></strong>
+                  
+                  <p data-i18n-meta-line>Classic • 2D • Español | Room 7</p>
+                  
+                  
+                </div>
+              </div>
+              
+              <div class="result-item">
+                <span class="time-badge">18:30</span>
+                <div class="result-copy">
+                  <strong><a href="/cinema-watch-snapshot/venues/showcase/showcase_norcenter/">showcase / Showcase Norcenter</a></strong>
                   
                   
                 </div>
@@ -4302,7 +4438,7 @@
           
           <div class="meta-row">
             <span data-i18n-source>Top venue</span>
-            <strong><a href="/cinema-watch-snapshot/venues/showcase/showcase_norcenter/" data-live-nav="true">Norcenter</a> · 24</strong>
+            <strong><a href="/cinema-watch-snapshot/venues/showcase/showcase_norcenter/" data-live-nav="true">Norcenter</a> · 25</strong>
           </div>
           
           <div class="meta-row">
@@ -4311,30 +4447,30 @@
           </div>
           <div class="meta-row">
             <span data-i18n-source>Sold data</span>
-            <strong>50</strong>
+            <strong>51</strong>
           </div>
         </div>
         
         <div class="row-card" style="margin-top: 0.9rem;">
           <div class="row-head">
             <div>
-              <strong><a href="/cinema-watch-snapshot/venues/cinepolis/merlo/" data-live-nav="true">Merlo</a></strong>
-              <p>2026-04-09 19:40</p>
+              <strong><a href="/cinema-watch-snapshot/venues/cinepolis/recoleta/" data-live-nav="true">Recoleta</a></strong>
+              <p>2026-04-08 19:45</p>
             </div>
             <div class="chips">
-              <span class="chip" data-i18n-meta-line>33% sold</span>
+              <span class="chip" data-i18n-meta-line>47% sold</span>
               
               <span
                 class="stat"
                 data-i18n-seat-note
-                data-seats-total="286"
-                data-seats-available="193"
-              >193 available of 286</span>
+                data-seats-total="221"
+                data-seats-available="117"
+              >117 available of 221</span>
               
             </div>
           </div>
           
-          <p data-i18n-meta-line>Merlo | Room 3 | Classic • 2D • Español</p>
+          <p data-i18n-meta-line>Recoleta | Room 8 | Classic • 2D • Subtitulado</p>
           
         </div>
         
