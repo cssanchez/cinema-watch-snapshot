@@ -2033,6 +2033,60 @@
       line-height: 1.36;
     }
 
+    .front-special-days {
+      display: grid;
+      gap: 0.56rem;
+    }
+
+    .front-special-day {
+      display: grid;
+      gap: 0.44rem;
+      padding-top: 0.02rem;
+    }
+
+    .front-special-day-head {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 0.6rem;
+      padding-bottom: 0.32rem;
+      border-bottom: 1px solid rgba(255, 255, 255, 0.08);
+    }
+
+    .front-special-day-list {
+      display: grid;
+      gap: 0.18rem;
+    }
+
+    .front-special-day-row {
+      display: grid;
+      grid-template-columns: auto minmax(0, 1fr);
+      gap: 0.62rem;
+      align-items: start;
+      padding: 0.38rem 0;
+    }
+
+    .front-special-day-row + .front-special-day-row {
+      border-top: 1px solid rgba(255, 255, 255, 0.05);
+    }
+
+    .front-special-day-copy {
+      display: grid;
+      gap: 0.1rem;
+      min-width: 0;
+    }
+
+    .front-special-day-copy strong {
+      font-size: 0.96rem;
+      line-height: 1.12;
+    }
+
+    .front-special-day-copy p {
+      color: var(--muted);
+      font-size: 0.82rem;
+      line-height: 1.34;
+    }
+
     .front-special-cta {
       justify-self: start;
       min-height: 2rem;
@@ -2075,8 +2129,19 @@
       border: 1px solid rgba(165, 178, 198, 0.14);
       background:
         linear-gradient(180deg, rgba(255, 255, 255, 0.055), rgba(15, 20, 28, 0.88)),
-        rgba(255, 255, 255, 0.02);
+      rgba(255, 255, 255, 0.02);
       text-decoration: none;
+    }
+
+    .front-movie-editorial {
+      display: grid;
+      grid-template-columns: minmax(14rem, 0.92fr) minmax(0, 1.08fr);
+      gap: 0.74rem;
+      align-items: start;
+    }
+
+    .front-movie-feature--lead {
+      align-content: start;
     }
 
     .front-movie-feature-copy {
@@ -2102,23 +2167,27 @@
       line-height: 1.3;
     }
 
+    .front-movie-row-facts {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 0.24rem 0.48rem;
+      color: rgba(198, 205, 214, 0.84);
+      font-size: 0.77rem;
+      line-height: 1.28;
+    }
+
     .front-movie-feature-facts span,
-    .front-movie-tile-facts span {
+    .front-movie-tile-facts span,
+    .front-movie-row-facts span {
       position: relative;
     }
 
     .front-movie-feature-facts span + span::before,
-    .front-movie-tile-facts span + span::before {
+    .front-movie-tile-facts span + span::before,
+    .front-movie-row-facts span + span::before {
       content: "•";
       margin-right: 0.52rem;
       color: rgba(120, 135, 154, 0.78);
-    }
-
-    .front-movie-support-grid {
-      display: grid;
-      grid-template-columns: repeat(2, minmax(0, 1fr));
-      gap: 0.58rem;
-      align-items: start;
     }
 
     .front-movie-tile {
@@ -2140,6 +2209,26 @@
     .front-movie-tile-copy strong {
       font-size: 0.98rem;
       line-height: 1.12;
+    }
+
+    .front-movie-support-list {
+      gap: 0.5rem;
+    }
+
+    .front-movie-support-list .front-movie-row {
+      gap: 0.38rem;
+      padding: 0.74rem 0.82rem;
+      background:
+        linear-gradient(180deg, rgba(255, 255, 255, 0.028), rgba(13, 18, 25, 0.46)),
+        rgba(13, 18, 25, 0.38);
+    }
+
+    .front-movie-support-list .front-movie-row-copy {
+      gap: 0.18rem;
+    }
+
+    .front-movie-support-list .front-movie-row-copy strong {
+      font-size: 0.95rem;
     }
 
     .button-card,
@@ -2575,6 +2664,10 @@
         width: 100%;
         justify-self: stretch;
       }
+
+      .front-movie-editorial {
+        grid-template-columns: 1fr;
+      }
     }
 
     @media (max-width: 860px) {
@@ -2747,6 +2840,11 @@
         grid-template-columns: 1fr;
       }
 
+      .front-special-day-row {
+        grid-template-columns: 1fr;
+        gap: 0.36rem;
+      }
+
       .front-screening-row,
       .front-screening-groups.is-compact .front-screening-row {
         grid-template-columns: 1fr;
@@ -2890,7 +2988,7 @@
     </div>
     <div class="metric">
       <span class="muted">Published at</span>
-      <strong style="font-size:1rem;">2026-04-09 13:23 UTC</strong>
+      <strong style="font-size:1rem;">2026-04-09 13:39 UTC</strong>
     </div>
   </div>
 </section>
@@ -2947,7 +3045,7 @@
             <span class="stat">2949 cached screenings</span>
             <span class="stat">44 cached titles</span>
           </div>
-          <p>Updated 11 min ago</p>
+          <p>Updated 27 min ago</p>
           <p>Last run: 2026-04-09 13:11 UTC - 8s</p>
           
         </a>
@@ -2967,7 +3065,7 @@
             <span class="stat">3121 cached screenings</span>
             <span class="stat">28 cached titles</span>
           </div>
-          <p>Updated 10 min ago</p>
+          <p>Updated 26 min ago</p>
           <p>Last run: 2026-04-09 13:13 UTC - 4s</p>
           
         </a>
@@ -3003,7 +3101,7 @@
             <span class="stat">530 cached screenings</span>
             <span class="stat">21 cached titles</span>
           </div>
-          <p>Updated 13 min ago</p>
+          <p>Updated 29 min ago</p>
           
           <p>Cached dates: 2026-04-04 to 2026-04-15</p>
           
@@ -3026,7 +3124,7 @@
             <span class="stat">238 cached screenings</span>
             <span class="stat">12 cached titles</span>
           </div>
-          <p>Updated 12 min ago</p>
+          <p>Updated 28 min ago</p>
           
           <p>Cached dates: 2026-04-06 to 2026-04-15</p>
           
@@ -3049,7 +3147,7 @@
             <span class="stat">241 cached screenings</span>
             <span class="stat">11 cached titles</span>
           </div>
-          <p>Updated 12 min ago</p>
+          <p>Updated 28 min ago</p>
           
           <p>Cached dates: 2026-04-06 to 2026-04-15</p>
           
@@ -3072,7 +3170,7 @@
             <span class="stat">355 cached screenings</span>
             <span class="stat">14 cached titles</span>
           </div>
-          <p>Updated 12 min ago</p>
+          <p>Updated 28 min ago</p>
           
           <p>Cached dates: 2026-04-06 to 2026-04-15</p>
           
@@ -3095,7 +3193,7 @@
             <span class="stat">124 cached screenings</span>
             <span class="stat">10 cached titles</span>
           </div>
-          <p>Updated 12 min ago</p>
+          <p>Updated 29 min ago</p>
           
           <p>Cached dates: 2026-04-06 to 2026-04-13</p>
           
@@ -3118,7 +3216,7 @@
             <span class="stat">379 cached screenings</span>
             <span class="stat">32 cached titles</span>
           </div>
-          <p>Updated 11 min ago</p>
+          <p>Updated 27 min ago</p>
           
           <p>Cached dates: 2026-04-04 to 2026-04-15</p>
           
@@ -3141,7 +3239,7 @@
             <span class="stat">143 cached screenings</span>
             <span class="stat">8 cached titles</span>
           </div>
-          <p>Updated 12 min ago</p>
+          <p>Updated 28 min ago</p>
           
           <p>Cached dates: 2026-04-06 to 2026-04-15</p>
           
@@ -3164,7 +3262,7 @@
             <span class="stat">417 cached screenings</span>
             <span class="stat">16 cached titles</span>
           </div>
-          <p>Updated 12 min ago</p>
+          <p>Updated 28 min ago</p>
           
           <p>Cached dates: 2026-04-06 to 2026-04-15</p>
           
@@ -3187,7 +3285,7 @@
             <span class="stat">286 cached screenings</span>
             <span class="stat">12 cached titles</span>
           </div>
-          <p>Updated 12 min ago</p>
+          <p>Updated 28 min ago</p>
           
           <p>Cached dates: 2026-04-06 to 2026-04-15</p>
           
@@ -3210,7 +3308,7 @@
             <span class="stat">236 cached screenings</span>
             <span class="stat">11 cached titles</span>
           </div>
-          <p>Updated 11 min ago</p>
+          <p>Updated 27 min ago</p>
           
           <p>Cached dates: 2026-04-06 to 2026-04-15</p>
           
@@ -3231,7 +3329,7 @@
             <span class="stat">366 cached screenings</span>
             <span class="stat">18 cached titles</span>
           </div>
-          <p>Updated 10 min ago</p>
+          <p>Updated 26 min ago</p>
           
           <p>Cached dates: 2026-04-06 to 2026-05-08</p>
           
@@ -3252,7 +3350,7 @@
             <span class="stat">443 cached screenings</span>
             <span class="stat">18 cached titles</span>
           </div>
-          <p>Updated 10 min ago</p>
+          <p>Updated 26 min ago</p>
           
           <p>Cached dates: 2026-04-06 to 2026-05-08</p>
           
@@ -3273,7 +3371,7 @@
             <span class="stat">522 cached screenings</span>
             <span class="stat">21 cached titles</span>
           </div>
-          <p>Updated 10 min ago</p>
+          <p>Updated 26 min ago</p>
           
           <p>Cached dates: 2026-04-06 to 2026-04-22</p>
           
@@ -3294,7 +3392,7 @@
             <span class="stat">316 cached screenings</span>
             <span class="stat">12 cached titles</span>
           </div>
-          <p>Updated 10 min ago</p>
+          <p>Updated 26 min ago</p>
           
           <p>Cached dates: 2026-04-06 to 2026-05-08</p>
           
@@ -3315,7 +3413,7 @@
             <span class="stat">524 cached screenings</span>
             <span class="stat">20 cached titles</span>
           </div>
-          <p>Updated 10 min ago</p>
+          <p>Updated 26 min ago</p>
           
           <p>Cached dates: 2026-04-06 to 2026-05-08</p>
           
@@ -3336,7 +3434,7 @@
             <span class="stat">206 cached screenings</span>
             <span class="stat">9 cached titles</span>
           </div>
-          <p>Updated 10 min ago</p>
+          <p>Updated 27 min ago</p>
           
           <p>Cached dates: 2026-04-06 to 2026-04-16</p>
           
@@ -3357,7 +3455,7 @@
             <span class="stat">51 cached screenings</span>
             <span class="stat">3 cached titles</span>
           </div>
-          <p>Updated 11 min ago</p>
+          <p>Updated 27 min ago</p>
           
           <p>Cached dates: 2026-04-04 to 2026-04-22</p>
           
@@ -3378,7 +3476,7 @@
             <span class="stat">588 cached screenings</span>
             <span class="stat">26 cached titles</span>
           </div>
-          <p>Updated 10 min ago</p>
+          <p>Updated 26 min ago</p>
           
           <p>Cached dates: 2026-04-06 to 2026-05-08</p>
           

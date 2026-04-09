@@ -2033,6 +2033,60 @@
       line-height: 1.36;
     }
 
+    .front-special-days {
+      display: grid;
+      gap: 0.56rem;
+    }
+
+    .front-special-day {
+      display: grid;
+      gap: 0.44rem;
+      padding-top: 0.02rem;
+    }
+
+    .front-special-day-head {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 0.6rem;
+      padding-bottom: 0.32rem;
+      border-bottom: 1px solid rgba(255, 255, 255, 0.08);
+    }
+
+    .front-special-day-list {
+      display: grid;
+      gap: 0.18rem;
+    }
+
+    .front-special-day-row {
+      display: grid;
+      grid-template-columns: auto minmax(0, 1fr);
+      gap: 0.62rem;
+      align-items: start;
+      padding: 0.38rem 0;
+    }
+
+    .front-special-day-row + .front-special-day-row {
+      border-top: 1px solid rgba(255, 255, 255, 0.05);
+    }
+
+    .front-special-day-copy {
+      display: grid;
+      gap: 0.1rem;
+      min-width: 0;
+    }
+
+    .front-special-day-copy strong {
+      font-size: 0.96rem;
+      line-height: 1.12;
+    }
+
+    .front-special-day-copy p {
+      color: var(--muted);
+      font-size: 0.82rem;
+      line-height: 1.34;
+    }
+
     .front-special-cta {
       justify-self: start;
       min-height: 2rem;
@@ -2075,8 +2129,19 @@
       border: 1px solid rgba(165, 178, 198, 0.14);
       background:
         linear-gradient(180deg, rgba(255, 255, 255, 0.055), rgba(15, 20, 28, 0.88)),
-        rgba(255, 255, 255, 0.02);
+      rgba(255, 255, 255, 0.02);
       text-decoration: none;
+    }
+
+    .front-movie-editorial {
+      display: grid;
+      grid-template-columns: minmax(14rem, 0.92fr) minmax(0, 1.08fr);
+      gap: 0.74rem;
+      align-items: start;
+    }
+
+    .front-movie-feature--lead {
+      align-content: start;
     }
 
     .front-movie-feature-copy {
@@ -2102,23 +2167,27 @@
       line-height: 1.3;
     }
 
+    .front-movie-row-facts {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 0.24rem 0.48rem;
+      color: rgba(198, 205, 214, 0.84);
+      font-size: 0.77rem;
+      line-height: 1.28;
+    }
+
     .front-movie-feature-facts span,
-    .front-movie-tile-facts span {
+    .front-movie-tile-facts span,
+    .front-movie-row-facts span {
       position: relative;
     }
 
     .front-movie-feature-facts span + span::before,
-    .front-movie-tile-facts span + span::before {
+    .front-movie-tile-facts span + span::before,
+    .front-movie-row-facts span + span::before {
       content: "•";
       margin-right: 0.52rem;
       color: rgba(120, 135, 154, 0.78);
-    }
-
-    .front-movie-support-grid {
-      display: grid;
-      grid-template-columns: repeat(2, minmax(0, 1fr));
-      gap: 0.58rem;
-      align-items: start;
     }
 
     .front-movie-tile {
@@ -2140,6 +2209,26 @@
     .front-movie-tile-copy strong {
       font-size: 0.98rem;
       line-height: 1.12;
+    }
+
+    .front-movie-support-list {
+      gap: 0.5rem;
+    }
+
+    .front-movie-support-list .front-movie-row {
+      gap: 0.38rem;
+      padding: 0.74rem 0.82rem;
+      background:
+        linear-gradient(180deg, rgba(255, 255, 255, 0.028), rgba(13, 18, 25, 0.46)),
+        rgba(13, 18, 25, 0.38);
+    }
+
+    .front-movie-support-list .front-movie-row-copy {
+      gap: 0.18rem;
+    }
+
+    .front-movie-support-list .front-movie-row-copy strong {
+      font-size: 0.95rem;
     }
 
     .button-card,
@@ -2575,6 +2664,10 @@
         width: 100%;
         justify-self: stretch;
       }
+
+      .front-movie-editorial {
+        grid-template-columns: 1fr;
+      }
     }
 
     @media (max-width: 860px) {
@@ -2745,6 +2838,11 @@
 
       .front-special-hero {
         grid-template-columns: 1fr;
+      }
+
+      .front-special-day-row {
+        grid-template-columns: 1fr;
+        gap: 0.36rem;
       }
 
       .front-screening-row,
@@ -2930,7 +3028,7 @@
     
     <div class="front-hero-meta">
       <div class="front-freshness is-hero">
-        <strong data-i18n-freshness>Updated 10 min ago</strong>
+        <strong data-i18n-freshness>Updated 26 min ago</strong>
         <span class="front-freshness-divider" aria-hidden="true"></span>
         <span data-i18n-count="screening" data-i18n-count-value="6070">6070 screenings</span>
       </div>
@@ -4577,31 +4675,29 @@
           
 
           
-  <div class="front-screening-groups is-compact">
+  <div class="front-special-days">
     
     
     
     
-    <section class="front-date-group">
-      <div class="front-date-head">
+    <section class="front-special-day">
+      <div class="front-special-day-head">
         <strong>2026-04-09</strong>
-        
         <span class="chip">2</span>
-        
       </div>
-      <div class="front-screening-list">
+      <div class="front-special-day-list">
         
-        <div class="front-screening-row">
+        <div class="front-special-day-row">
           <span class="mini-time">17:25</span>
-          <div class="front-screening-copy">
+          <div class="front-special-day-copy">
             <strong><a href="/cinema-watch-snapshot/movies/super-mario-galaxy-la-pelicula/" data-live-nav="true">Súper Mario Galaxy: la película</a></strong>
             <p><a href="/cinema-watch-snapshot/venues/showcase/imax_norcenter/" data-live-nav="true">IMAX Theatre (Norcenter)</a></p>
           </div>
         </div>
         
-        <div class="front-screening-row">
+        <div class="front-special-day-row">
           <span class="mini-time">19:45</span>
-          <div class="front-screening-copy">
+          <div class="front-special-day-copy">
             <strong><a href="/cinema-watch-snapshot/movies/super-mario-galaxy-la-pelicula/" data-live-nav="true">Súper Mario Galaxy: la película</a></strong>
             <p><a href="/cinema-watch-snapshot/venues/showcase/imax_norcenter/" data-live-nav="true">IMAX Theatre (Norcenter)</a></p>
           </div>
@@ -4614,34 +4710,32 @@
     
     
     
-    <section class="front-date-group">
-      <div class="front-date-head">
+    <section class="front-special-day">
+      <div class="front-special-day-head">
         <strong>2026-04-10</strong>
-        
         <span class="chip">3</span>
-        
       </div>
-      <div class="front-screening-list">
+      <div class="front-special-day-list">
         
-        <div class="front-screening-row">
+        <div class="front-special-day-row">
           <span class="mini-time">15:00</span>
-          <div class="front-screening-copy">
+          <div class="front-special-day-copy">
             <strong><a href="/cinema-watch-snapshot/movies/super-mario-galaxy-la-pelicula/" data-live-nav="true">Súper Mario Galaxy: la película</a></strong>
             <p><a href="/cinema-watch-snapshot/venues/showcase/imax_norcenter/" data-live-nav="true">IMAX Theatre (Norcenter)</a></p>
           </div>
         </div>
         
-        <div class="front-screening-row">
+        <div class="front-special-day-row">
           <span class="mini-time">17:25</span>
-          <div class="front-screening-copy">
+          <div class="front-special-day-copy">
             <strong><a href="/cinema-watch-snapshot/movies/super-mario-galaxy-la-pelicula/" data-live-nav="true">Súper Mario Galaxy: la película</a></strong>
             <p><a href="/cinema-watch-snapshot/venues/showcase/imax_norcenter/" data-live-nav="true">IMAX Theatre (Norcenter)</a></p>
           </div>
         </div>
         
-        <div class="front-screening-row">
+        <div class="front-special-day-row">
           <span class="mini-time">19:45</span>
-          <div class="front-screening-copy">
+          <div class="front-special-day-copy">
             <strong><a href="/cinema-watch-snapshot/movies/super-mario-galaxy-la-pelicula/" data-live-nav="true">Súper Mario Galaxy: la película</a></strong>
             <p><a href="/cinema-watch-snapshot/venues/showcase/imax_norcenter/" data-live-nav="true">IMAX Theatre (Norcenter)</a></p>
           </div>
@@ -4654,34 +4748,32 @@
     
     
     
-    <section class="front-date-group">
-      <div class="front-date-head">
+    <section class="front-special-day">
+      <div class="front-special-day-head">
         <strong>2026-04-11</strong>
-        
         <span class="chip">3</span>
-        
       </div>
-      <div class="front-screening-list">
+      <div class="front-special-day-list">
         
-        <div class="front-screening-row">
+        <div class="front-special-day-row">
           <span class="mini-time">15:00</span>
-          <div class="front-screening-copy">
+          <div class="front-special-day-copy">
             <strong><a href="/cinema-watch-snapshot/movies/super-mario-galaxy-la-pelicula/" data-live-nav="true">Súper Mario Galaxy: la película</a></strong>
             <p><a href="/cinema-watch-snapshot/venues/showcase/imax_norcenter/" data-live-nav="true">IMAX Theatre (Norcenter)</a></p>
           </div>
         </div>
         
-        <div class="front-screening-row">
+        <div class="front-special-day-row">
           <span class="mini-time">17:25</span>
-          <div class="front-screening-copy">
+          <div class="front-special-day-copy">
             <strong><a href="/cinema-watch-snapshot/movies/super-mario-galaxy-la-pelicula/" data-live-nav="true">Súper Mario Galaxy: la película</a></strong>
             <p><a href="/cinema-watch-snapshot/venues/showcase/imax_norcenter/" data-live-nav="true">IMAX Theatre (Norcenter)</a></p>
           </div>
         </div>
         
-        <div class="front-screening-row">
+        <div class="front-special-day-row">
           <span class="mini-time">19:45</span>
-          <div class="front-screening-copy">
+          <div class="front-special-day-copy">
             <strong><a href="/cinema-watch-snapshot/movies/super-mario-galaxy-la-pelicula/" data-live-nav="true">Súper Mario Galaxy: la película</a></strong>
             <p><a href="/cinema-watch-snapshot/venues/showcase/imax_norcenter/" data-live-nav="true">IMAX Theatre (Norcenter)</a></p>
           </div>
@@ -4745,31 +4837,29 @@
           
 
           
-  <div class="front-screening-groups is-compact">
+  <div class="front-special-days">
     
     
     
     
-    <section class="front-date-group">
-      <div class="front-date-head">
+    <section class="front-special-day">
+      <div class="front-special-day-head">
         <strong>2026-04-09</strong>
-        
         <span class="chip">2</span>
-        
       </div>
-      <div class="front-screening-list">
+      <div class="front-special-day-list">
         
-        <div class="front-screening-row">
+        <div class="front-special-day-row">
           <span class="mini-time">15:00</span>
-          <div class="front-screening-copy">
+          <div class="front-special-day-copy">
             <strong><a href="/cinema-watch-snapshot/movies/super-mario-galaxy-la-pelicula/" data-live-nav="true">Super Mario Galaxy: La película</a></strong>
             <p><a href="/cinema-watch-snapshot/venues/cinepolis/pilar/" data-live-nav="true">Pilar</a> <span data-i18n-meta-line>| Monster Screen • 2D • Español | Room 9 | 1% sold</span></p>
           </div>
         </div>
         
-        <div class="front-screening-row">
+        <div class="front-special-day-row">
           <span class="mini-time">17:20</span>
-          <div class="front-screening-copy">
+          <div class="front-special-day-copy">
             <strong><a href="/cinema-watch-snapshot/movies/super-mario-galaxy-la-pelicula/" data-live-nav="true">Super Mario Galaxy: La película</a></strong>
             <p><a href="/cinema-watch-snapshot/venues/cinepolis/pilar/" data-live-nav="true">Pilar</a> <span data-i18n-meta-line>| Monster Screen • 3D • Español | Room 9 | 1% sold</span></p>
           </div>
@@ -4782,34 +4872,32 @@
     
     
     
-    <section class="front-date-group">
-      <div class="front-date-head">
+    <section class="front-special-day">
+      <div class="front-special-day-head">
         <strong>2026-04-10</strong>
-        
         <span class="chip">3</span>
-        
       </div>
-      <div class="front-screening-list">
+      <div class="front-special-day-list">
         
-        <div class="front-screening-row">
+        <div class="front-special-day-row">
           <span class="mini-time">12:40</span>
-          <div class="front-screening-copy">
+          <div class="front-special-day-copy">
             <strong><a href="/cinema-watch-snapshot/movies/super-mario-galaxy-la-pelicula/" data-live-nav="true">Super Mario Galaxy: La película</a></strong>
             <p><a href="/cinema-watch-snapshot/venues/cinepolis/pilar/" data-live-nav="true">Pilar</a> <span data-i18n-meta-line>| Monster Screen • 2D • Español | Room 9 | 1% sold</span></p>
           </div>
         </div>
         
-        <div class="front-screening-row">
+        <div class="front-special-day-row">
           <span class="mini-time">15:00</span>
-          <div class="front-screening-copy">
+          <div class="front-special-day-copy">
             <strong><a href="/cinema-watch-snapshot/movies/super-mario-galaxy-la-pelicula/" data-live-nav="true">Super Mario Galaxy: La película</a></strong>
             <p><a href="/cinema-watch-snapshot/venues/cinepolis/pilar/" data-live-nav="true">Pilar</a> <span data-i18n-meta-line>| Monster Screen • 2D • Español | Room 9 | 1% sold</span></p>
           </div>
         </div>
         
-        <div class="front-screening-row">
+        <div class="front-special-day-row">
           <span class="mini-time">16:30</span>
-          <div class="front-screening-copy">
+          <div class="front-special-day-copy">
             <strong><a href="/cinema-watch-snapshot/movies/la-divina-sarah-bernhardt/" data-live-nav="true">La divina Sarah Bernhardt</a></strong>
             <p><a href="/cinema-watch-snapshot/venues/cinepolis/recoleta/" data-live-nav="true">Recoleta</a> <span data-i18n-meta-line>| Classic • 2D • Subtitulado | Room 6 | 46% sold</span></p>
           </div>
@@ -4822,34 +4910,32 @@
     
     
     
-    <section class="front-date-group">
-      <div class="front-date-head">
+    <section class="front-special-day">
+      <div class="front-special-day-head">
         <strong>2026-04-11</strong>
-        
         <span class="chip">3</span>
-        
       </div>
-      <div class="front-screening-list">
+      <div class="front-special-day-list">
         
-        <div class="front-screening-row">
+        <div class="front-special-day-row">
           <span class="mini-time">13:40</span>
-          <div class="front-screening-copy">
+          <div class="front-special-day-copy">
             <strong><a href="/cinema-watch-snapshot/movies/super-mario-galaxy-la-pelicula/" data-live-nav="true">Super Mario Galaxy: La película</a></strong>
             <p><a href="/cinema-watch-snapshot/venues/cinepolis/pilar/" data-live-nav="true">Pilar</a> <span data-i18n-meta-line>| Monster Screen • 2D • Español | Room 9 | 4% sold</span></p>
           </div>
         </div>
         
-        <div class="front-screening-row">
+        <div class="front-special-day-row">
           <span class="mini-time">14:20</span>
-          <div class="front-screening-copy">
+          <div class="front-special-day-copy">
             <strong><a href="/cinema-watch-snapshot/movies/el-desprecio/" data-live-nav="true">El desprecio</a></strong>
             <p><a href="/cinema-watch-snapshot/venues/cinepolis/recoleta/" data-live-nav="true">Recoleta</a> <span data-i18n-meta-line>| Classic • 2D • Subtitulado | Room 6 | 63% sold</span></p>
           </div>
         </div>
         
-        <div class="front-screening-row">
+        <div class="front-special-day-row">
           <span class="mini-time">16:00</span>
-          <div class="front-screening-copy">
+          <div class="front-special-day-copy">
             <strong><a href="/cinema-watch-snapshot/movies/bts-world-tour-arirang-in-goyang-live-viewing/" data-live-nav="true">BTS WORLD TOUR ‘ARIRANG’ IN GOYANG: LIVE VIEWING</a></strong>
             <p><a href="/cinema-watch-snapshot/venues/cinepolis/pilar/" data-live-nav="true">Pilar</a> <span data-i18n-meta-line>| Monster Screen • 2D • Subtitulado | Room 9 | 26% sold</span></p>
           </div>
@@ -4905,21 +4991,22 @@
         
         
         
-        <a class="row-card front-movie-feature" href="/cinema-watch-snapshot/movies/super-mario-galaxy-la-pelicula/" data-live-nav="true">
-          <div class="front-movie-feature-copy">
-            <strong class="front-movie-feature-title">Super Mario Galaxy: La película</strong>
-            
-            <div class="front-movie-meta">
+        <div class="front-movie-editorial">
+          <a class="row-card front-movie-feature front-movie-feature--lead" href="/cinema-watch-snapshot/movies/super-mario-galaxy-la-pelicula/" data-live-nav="true">
+            <div class="front-movie-feature-copy">
+              <strong class="front-movie-feature-title">Super Mario Galaxy: La película</strong>
               
-              <span>Avellaneda</span>
-              
-              
-              <span>2026-04-09 to 2026-04-10</span>
+              <div class="front-movie-meta">
+                
+                <span>Avellaneda</span>
+                
+                
+                <span>2026-04-09 to 2026-04-10</span>
+                
+              </div>
               
             </div>
-            
-          </div>
-          <div class="front-movie-feature-facts">
+            <div class="front-movie-feature-facts">
     <span data-i18n-count="screening" data-i18n-count-value="222">222 screenings</span>
     <span data-i18n-count="venue" data-i18n-count-value="10">10 venues</span>
     
@@ -4929,7 +5016,7 @@
     <span>2026-04-09 to 2026-04-10</span>
     
   </div>
-          
+            
   <div class="chips front-movie-signal-chips">
     
     <span class="chip chip-neutral">Dolby Atmos</span>
@@ -4940,32 +5027,32 @@
     
   </div>
   
-        </a>
+          </a>
 
-        
-        <div class="front-movie-support-grid">
           
-          <a class="front-movie-tile" href="/cinema-watch-snapshot/movies/el-drama/" data-live-nav="true">
-            <div class="front-movie-tile-copy">
-              <strong>El Drama</strong>
-              
-              <div class="front-movie-meta">
-                
-                <span>Avellaneda</span>
-                
-                
-                <span>2026-04-09 to 2026-04-10</span>
-                
-              </div>
-              
-            </div>
-            <div class="front-movie-tile-facts">
+          <div class="front-movie-list front-movie-support-list">
+            
+            <a class="front-movie-row" href="/cinema-watch-snapshot/movies/el-drama/" data-live-nav="true">
+    <div class="front-movie-row-copy">
+      <strong>El Drama</strong>
+      
+      <div class="front-movie-meta">
+        
+        <span>Avellaneda</span>
+        
+        
+        <span>2026-04-09 to 2026-04-10</span>
+        
+      </div>
+      
+    </div>
+    <div class="front-movie-row-facts">
     <span data-i18n-count="screening" data-i18n-count-value="45">45 screenings</span>
     <span data-i18n-count="venue" data-i18n-count-value="9">9 venues</span>
     
     
   </div>
-            
+    
   <div class="chips front-movie-signal-chips">
     
     <span class="chip chip-neutral">2D</span>
@@ -4976,29 +5063,29 @@
     
   </div>
   
-          </a>
-          
-          <a class="front-movie-tile" href="/cinema-watch-snapshot/movies/proyecto-fin-del-mundo/" data-live-nav="true">
-            <div class="front-movie-tile-copy">
-              <strong>Proyecto fin del mundo</strong>
-              
-              <div class="front-movie-meta">
-                
-                <span>Norcenter</span>
-                
-                
-                <span>2026-04-09 to 2026-04-10</span>
-                
-              </div>
-              
-            </div>
-            <div class="front-movie-tile-facts">
+  </a>
+            
+            <a class="front-movie-row" href="/cinema-watch-snapshot/movies/proyecto-fin-del-mundo/" data-live-nav="true">
+    <div class="front-movie-row-copy">
+      <strong>Proyecto fin del mundo</strong>
+      
+      <div class="front-movie-meta">
+        
+        <span>Norcenter</span>
+        
+        
+        <span>2026-04-09 to 2026-04-10</span>
+        
+      </div>
+      
+    </div>
+    <div class="front-movie-row-facts">
     <span data-i18n-count="screening" data-i18n-count-value="44">44 screenings</span>
     <span data-i18n-count="venue" data-i18n-count-value="10">10 venues</span>
     
     
   </div>
-            
+    
   <div class="chips front-movie-signal-chips">
     
     <span class="chip chip-neutral">Dolby Atmos</span>
@@ -5009,29 +5096,29 @@
     
   </div>
   
-          </a>
-          
-          <a class="front-movie-tile" href="/cinema-watch-snapshot/movies/hoppers/" data-live-nav="true">
-            <div class="front-movie-tile-copy">
-              <strong>Hoppers</strong>
-              
-              <div class="front-movie-meta">
-                
-                <span>Merlo</span>
-                
-                
-                <span>2026-04-09 to 2026-04-10</span>
-                
-              </div>
-              
-            </div>
-            <div class="front-movie-tile-facts">
+  </a>
+            
+            <a class="front-movie-row" href="/cinema-watch-snapshot/movies/hoppers/" data-live-nav="true">
+    <div class="front-movie-row-copy">
+      <strong>Hoppers</strong>
+      
+      <div class="front-movie-meta">
+        
+        <span>Merlo</span>
+        
+        
+        <span>2026-04-09 to 2026-04-10</span>
+        
+      </div>
+      
+    </div>
+    <div class="front-movie-row-facts">
     <span data-i18n-count="screening" data-i18n-count-value="20">20 screenings</span>
     <span data-i18n-count="venue" data-i18n-count-value="5">5 venues</span>
     
     
   </div>
-            
+    
   <div class="chips front-movie-signal-chips">
     
     <span class="chip chip-neutral">2D</span>
@@ -5042,29 +5129,29 @@
     
   </div>
   
-          </a>
-          
-          <a class="front-movie-tile" href="/cinema-watch-snapshot/movies/911-llamada-infernal/" data-live-nav="true">
-            <div class="front-movie-tile-copy">
-              <strong>911: llamada infernal</strong>
-              
-              <div class="front-movie-meta">
-                
-                <span>Haedo</span>
-                
-                
-                <span>2026-04-09 to 2026-04-10</span>
-                
-              </div>
-              
-            </div>
-            <div class="front-movie-tile-facts">
+  </a>
+            
+            <a class="front-movie-row" href="/cinema-watch-snapshot/movies/911-llamada-infernal/" data-live-nav="true">
+    <div class="front-movie-row-copy">
+      <strong>911: llamada infernal</strong>
+      
+      <div class="front-movie-meta">
+        
+        <span>Haedo</span>
+        
+        
+        <span>2026-04-09 to 2026-04-10</span>
+        
+      </div>
+      
+    </div>
+    <div class="front-movie-row-facts">
     <span data-i18n-count="screening" data-i18n-count-value="17">17 screenings</span>
     <span data-i18n-count="venue" data-i18n-count-value="5">5 venues</span>
     
     
   </div>
-            
+    
   <div class="chips front-movie-signal-chips">
     
     <span class="chip chip-neutral">2D</span>
@@ -5075,29 +5162,29 @@
     
   </div>
   
-          </a>
-          
-          <a class="front-movie-tile" href="/cinema-watch-snapshot/movies/buena-suerte-diviertete-no-mueras/" data-live-nav="true">
-            <div class="front-movie-tile-copy">
-              <strong>Buena suerte, diviértete, no mueras</strong>
-              
-              <div class="front-movie-meta">
-                
-                <span>Norcenter</span>
-                
-                
-                <span>2026-04-09 to 2026-04-10</span>
-                
-              </div>
-              
-            </div>
-            <div class="front-movie-tile-facts">
+  </a>
+            
+            <a class="front-movie-row" href="/cinema-watch-snapshot/movies/buena-suerte-diviertete-no-mueras/" data-live-nav="true">
+    <div class="front-movie-row-copy">
+      <strong>Buena suerte, diviértete, no mueras</strong>
+      
+      <div class="front-movie-meta">
+        
+        <span>Norcenter</span>
+        
+        
+        <span>2026-04-09 to 2026-04-10</span>
+        
+      </div>
+      
+    </div>
+    <div class="front-movie-row-facts">
     <span data-i18n-count="screening" data-i18n-count-value="17">17 screenings</span>
     <span data-i18n-count="venue" data-i18n-count-value="6">6 venues</span>
     
     
   </div>
-            
+    
   <div class="chips front-movie-signal-chips">
     
     <span class="chip chip-neutral">2D</span>
@@ -5108,58 +5195,58 @@
     
   </div>
   
-          </a>
-          
-          <a class="front-movie-tile" href="/cinema-watch-snapshot/movies/hoppers-operacion-castor/" data-live-nav="true">
-            <div class="front-movie-tile-copy">
-              <strong>Hoppers: operación castor</strong>
-              
-              <div class="front-movie-meta">
-                
-                <span>Norcenter</span>
-                
-                
-                <span>2026-04-09 to 2026-04-10</span>
-                
-              </div>
-              
-            </div>
-            <div class="front-movie-tile-facts">
+  </a>
+            
+            <a class="front-movie-row" href="/cinema-watch-snapshot/movies/hoppers-operacion-castor/" data-live-nav="true">
+    <div class="front-movie-row-copy">
+      <strong>Hoppers: operación castor</strong>
+      
+      <div class="front-movie-meta">
+        
+        <span>Norcenter</span>
+        
+        
+        <span>2026-04-09 to 2026-04-10</span>
+        
+      </div>
+      
+    </div>
+    <div class="front-movie-row-facts">
     <span data-i18n-count="screening" data-i18n-count-value="17">17 screenings</span>
     <span data-i18n-count="venue" data-i18n-count-value="4">4 venues</span>
     
     
   </div>
-            
+    
   <div class="chips front-movie-signal-chips">
     
     <span class="chip chip-neutral">2D</span>
     
   </div>
   
-          </a>
-          
-          <a class="front-movie-tile" href="/cinema-watch-snapshot/movies/torrente-presidente/" data-live-nav="true">
-            <div class="front-movie-tile-copy">
-              <strong>Torrente Presidente</strong>
-              
-              <div class="front-movie-meta">
-                
-                <span>Avellaneda</span>
-                
-                
-                <span>2026-04-09 to 2026-04-10</span>
-                
-              </div>
-              
-            </div>
-            <div class="front-movie-tile-facts">
+  </a>
+            
+            <a class="front-movie-row" href="/cinema-watch-snapshot/movies/torrente-presidente/" data-live-nav="true">
+    <div class="front-movie-row-copy">
+      <strong>Torrente Presidente</strong>
+      
+      <div class="front-movie-meta">
+        
+        <span>Avellaneda</span>
+        
+        
+        <span>2026-04-09 to 2026-04-10</span>
+        
+      </div>
+      
+    </div>
+    <div class="front-movie-row-facts">
     <span data-i18n-count="screening" data-i18n-count-value="16">16 screenings</span>
     <span data-i18n-count="venue" data-i18n-count-value="7">7 venues</span>
     
     
   </div>
-            
+    
   <div class="chips front-movie-signal-chips">
     
     <span class="chip chip-neutral">2D</span>
@@ -5170,10 +5257,11 @@
     
   </div>
   
-          </a>
+  </a>
+            
+          </div>
           
         </div>
-        
         
         
       </article>
@@ -6952,23 +7040,21 @@
           
 
           
-  <div class="front-screening-groups is-compact">
+  <div class="front-special-days">
     
     
     
     
-    <section class="front-date-group">
-      <div class="front-date-head">
+    <section class="front-special-day">
+      <div class="front-special-day-head">
         <strong>2026-04-09</strong>
-        
         <span class="chip">1</span>
-        
       </div>
-      <div class="front-screening-list">
+      <div class="front-special-day-list">
         
-        <div class="front-screening-row">
+        <div class="front-special-day-row">
           <span class="mini-time">23:00</span>
-          <div class="front-screening-copy">
+          <div class="front-special-day-copy">
             <strong><a href="/cinema-watch-snapshot/movies/super-mario-galaxy-la-pelicula/" data-live-nav="true">Super Mario Galaxy: La película</a></strong>
             <p><a href="/cinema-watch-snapshot/venues/cinepolis/recoleta/" data-live-nav="true">Recoleta</a> <span data-i18n-meta-line>| Classic • 2D • Subtitulado | Room 6 | 1% sold</span></p>
           </div>
@@ -6981,34 +7067,32 @@
     
     
     
-    <section class="front-date-group">
-      <div class="front-date-head">
+    <section class="front-special-day">
+      <div class="front-special-day-head">
         <strong>2026-04-10</strong>
-        
         <span class="chip">3</span>
-        
       </div>
-      <div class="front-screening-list">
+      <div class="front-special-day-list">
         
-        <div class="front-screening-row">
+        <div class="front-special-day-row">
           <span class="mini-time">16:30</span>
-          <div class="front-screening-copy">
+          <div class="front-special-day-copy">
             <strong><a href="/cinema-watch-snapshot/movies/la-divina-sarah-bernhardt/" data-live-nav="true">La divina Sarah Bernhardt</a></strong>
             <p><a href="/cinema-watch-snapshot/venues/cinepolis/recoleta/" data-live-nav="true">Recoleta</a> <span data-i18n-meta-line>| Classic • 2D • Subtitulado | Room 6 | 46% sold</span></p>
           </div>
         </div>
         
-        <div class="front-screening-row">
+        <div class="front-special-day-row">
           <span class="mini-time">19:00</span>
-          <div class="front-screening-copy">
+          <div class="front-special-day-copy">
             <strong><a href="/cinema-watch-snapshot/movies/caso-137/" data-live-nav="true">Caso 137</a></strong>
             <p><a href="/cinema-watch-snapshot/venues/cinepolis/recoleta/" data-live-nav="true">Recoleta</a> <span data-i18n-meta-line>| Classic • 2D • Subtitulado | Room 6 | 71% sold</span></p>
           </div>
         </div>
         
-        <div class="front-screening-row">
+        <div class="front-special-day-row">
           <span class="mini-time">21:40</span>
-          <div class="front-screening-copy">
+          <div class="front-special-day-copy">
             <strong><a href="/cinema-watch-snapshot/movies/alphaville/" data-live-nav="true">Alphaville</a></strong>
             <p><a href="/cinema-watch-snapshot/venues/cinepolis/recoleta/" data-live-nav="true">Recoleta</a> <span data-i18n-meta-line>| Classic • 2D • Subtitulado | Room 6 | 48% sold</span></p>
           </div>
@@ -7021,34 +7105,32 @@
     
     
     
-    <section class="front-date-group">
-      <div class="front-date-head">
+    <section class="front-special-day">
+      <div class="front-special-day-head">
         <strong>2026-04-11</strong>
-        
         <span class="chip">3</span>
-        
       </div>
-      <div class="front-screening-list">
+      <div class="front-special-day-list">
         
-        <div class="front-screening-row">
+        <div class="front-special-day-row">
           <span class="mini-time">14:20</span>
-          <div class="front-screening-copy">
+          <div class="front-special-day-copy">
             <strong><a href="/cinema-watch-snapshot/movies/el-desprecio/" data-live-nav="true">El desprecio</a></strong>
             <p><a href="/cinema-watch-snapshot/venues/cinepolis/recoleta/" data-live-nav="true">Recoleta</a> <span data-i18n-meta-line>| Classic • 2D • Subtitulado | Room 6 | 63% sold</span></p>
           </div>
         </div>
         
-        <div class="front-screening-row">
+        <div class="front-special-day-row">
           <span class="mini-time">16:30</span>
-          <div class="front-screening-copy">
+          <div class="front-special-day-copy">
             <strong><a href="/cinema-watch-snapshot/movies/madres-jovenes/" data-live-nav="true">Madres Jóvenes</a></strong>
             <p><a href="/cinema-watch-snapshot/venues/cinepolis/recoleta/" data-live-nav="true">Recoleta</a> <span data-i18n-meta-line>| Classic • 2D • Subtitulado | Room 6 | 52% sold</span></p>
           </div>
         </div>
         
-        <div class="front-screening-row">
+        <div class="front-special-day-row">
           <span class="mini-time">19:30</span>
-          <div class="front-screening-copy">
+          <div class="front-special-day-copy">
             <strong><a href="/cinema-watch-snapshot/movies/dos-pianos/" data-live-nav="true">Dos Pianos</a></strong>
             <p><a href="/cinema-watch-snapshot/venues/cinepolis/recoleta/" data-live-nav="true">Recoleta</a> <span data-i18n-meta-line>| Classic • 2D • Subtitulado | Room 6 | 78% sold</span></p>
           </div>
@@ -7104,21 +7186,22 @@
         
         
         
-        <a class="row-card front-movie-feature" href="/cinema-watch-snapshot/movies/super-mario-galaxy-la-pelicula/" data-live-nav="true">
-          <div class="front-movie-feature-copy">
-            <strong class="front-movie-feature-title">Super Mario Galaxy: La película</strong>
-            
-            <div class="front-movie-meta">
+        <div class="front-movie-editorial">
+          <a class="row-card front-movie-feature front-movie-feature--lead" href="/cinema-watch-snapshot/movies/super-mario-galaxy-la-pelicula/" data-live-nav="true">
+            <div class="front-movie-feature-copy">
+              <strong class="front-movie-feature-title">Super Mario Galaxy: La película</strong>
               
-              <span>Recoleta</span>
-              
-              
-              <span>2026-04-09 to 2026-04-13</span>
+              <div class="front-movie-meta">
+                
+                <span>Recoleta</span>
+                
+                
+                <span>2026-04-09 to 2026-04-13</span>
+                
+              </div>
               
             </div>
-            
-          </div>
-          <div class="front-movie-feature-facts">
+            <div class="front-movie-feature-facts">
     <span data-i18n-count="screening" data-i18n-count-value="199">199 screenings</span>
     <span data-i18n-count="venue" data-i18n-count-value="3">3 venues</span>
     
@@ -7128,7 +7211,7 @@
     <span>2026-04-09 to 2026-04-13</span>
     
   </div>
-          
+            
   <div class="chips front-movie-signal-chips">
     
     <span class="chip chip-neutral">Dolby Atmos</span>
@@ -7139,32 +7222,32 @@
     
   </div>
   
-        </a>
+          </a>
 
-        
-        <div class="front-movie-support-grid">
           
-          <a class="front-movie-tile" href="/cinema-watch-snapshot/movies/proyecto-fin-del-mundo/" data-live-nav="true">
-            <div class="front-movie-tile-copy">
-              <strong>Proyecto fin del mundo</strong>
-              
-              <div class="front-movie-meta">
-                
-                <span>Recoleta</span>
-                
-                
-                <span>2026-04-09 to 2026-04-13</span>
-                
-              </div>
-              
-            </div>
-            <div class="front-movie-tile-facts">
+          <div class="front-movie-list front-movie-support-list">
+            
+            <a class="front-movie-row" href="/cinema-watch-snapshot/movies/proyecto-fin-del-mundo/" data-live-nav="true">
+    <div class="front-movie-row-copy">
+      <strong>Proyecto fin del mundo</strong>
+      
+      <div class="front-movie-meta">
+        
+        <span>Recoleta</span>
+        
+        
+        <span>2026-04-09 to 2026-04-13</span>
+        
+      </div>
+      
+    </div>
+    <div class="front-movie-row-facts">
     <span data-i18n-count="screening" data-i18n-count-value="54">54 screenings</span>
     <span data-i18n-count="venue" data-i18n-count-value="3">3 venues</span>
     
     
   </div>
-            
+    
   <div class="chips front-movie-signal-chips">
     
     <span class="chip chip-neutral">2D</span>
@@ -7175,29 +7258,29 @@
     
   </div>
   
-          </a>
-          
-          <a class="front-movie-tile" href="/cinema-watch-snapshot/movies/el-drama/" data-live-nav="true">
-            <div class="front-movie-tile-copy">
-              <strong>El Drama</strong>
-              
-              <div class="front-movie-meta">
-                
-                <span>Recoleta</span>
-                
-                
-                <span>2026-04-09 to 2026-04-13</span>
-                
-              </div>
-              
-            </div>
-            <div class="front-movie-tile-facts">
+  </a>
+            
+            <a class="front-movie-row" href="/cinema-watch-snapshot/movies/el-drama/" data-live-nav="true">
+    <div class="front-movie-row-copy">
+      <strong>El Drama</strong>
+      
+      <div class="front-movie-meta">
+        
+        <span>Recoleta</span>
+        
+        
+        <span>2026-04-09 to 2026-04-13</span>
+        
+      </div>
+      
+    </div>
+    <div class="front-movie-row-facts">
     <span data-i18n-count="screening" data-i18n-count-value="52">52 screenings</span>
     <span data-i18n-count="venue" data-i18n-count-value="3">3 venues</span>
     
     
   </div>
-            
+    
   <div class="chips front-movie-signal-chips">
     
     <span class="chip chip-neutral">2D</span>
@@ -7208,29 +7291,29 @@
     
   </div>
   
-          </a>
-          
-          <a class="front-movie-tile" href="/cinema-watch-snapshot/movies/hamnet/" data-live-nav="true">
-            <div class="front-movie-tile-copy">
-              <strong>Hamnet</strong>
-              
-              <div class="front-movie-meta">
-                
-                <span>Recoleta</span>
-                
-                
-                <span>2026-04-09 to 2026-04-13</span>
-                
-              </div>
-              
-            </div>
-            <div class="front-movie-tile-facts">
+  </a>
+            
+            <a class="front-movie-row" href="/cinema-watch-snapshot/movies/hamnet/" data-live-nav="true">
+    <div class="front-movie-row-copy">
+      <strong>Hamnet</strong>
+      
+      <div class="front-movie-meta">
+        
+        <span>Recoleta</span>
+        
+        
+        <span>2026-04-09 to 2026-04-13</span>
+        
+      </div>
+      
+    </div>
+    <div class="front-movie-row-facts">
     <span data-i18n-count="screening" data-i18n-count-value="18">18 screenings</span>
     <span data-i18n-count="venue" data-i18n-count-value="2">2 venues</span>
     
     
   </div>
-            
+    
   <div class="chips front-movie-signal-chips">
     
     <span class="chip chip-neutral">2D</span>
@@ -7241,29 +7324,29 @@
     
   </div>
   
-          </a>
-          
-          <a class="front-movie-tile" href="/cinema-watch-snapshot/movies/nuremberg-el-juicio-del-siglo/" data-live-nav="true">
-            <div class="front-movie-tile-copy">
-              <strong>Nuremberg: El juicio del siglo</strong>
-              
-              <div class="front-movie-meta">
-                
-                <span>Belgrano</span>
-                
-                
-                <span>2026-04-09 to 2026-04-13</span>
-                
-              </div>
-              
-            </div>
-            <div class="front-movie-tile-facts">
+  </a>
+            
+            <a class="front-movie-row" href="/cinema-watch-snapshot/movies/nuremberg-el-juicio-del-siglo/" data-live-nav="true">
+    <div class="front-movie-row-copy">
+      <strong>Nuremberg: El juicio del siglo</strong>
+      
+      <div class="front-movie-meta">
+        
+        <span>Belgrano</span>
+        
+        
+        <span>2026-04-09 to 2026-04-13</span>
+        
+      </div>
+      
+    </div>
+    <div class="front-movie-row-facts">
     <span data-i18n-count="screening" data-i18n-count-value="18">18 screenings</span>
     <span data-i18n-count="venue" data-i18n-count-value="2">2 venues</span>
     
     
   </div>
-            
+    
   <div class="chips front-movie-signal-chips">
     
     <span class="chip chip-neutral">2D</span>
@@ -7274,29 +7357,29 @@
     
   </div>
   
-          </a>
-          
-          <a class="front-movie-tile" href="/cinema-watch-snapshot/movies/hoppers/" data-live-nav="true">
-            <div class="front-movie-tile-copy">
-              <strong>Hoppers</strong>
-              
-              <div class="front-movie-meta">
-                
-                <span>Recoleta</span>
-                
-                
-                <span>2026-04-09 to 2026-04-13</span>
-                
-              </div>
-              
-            </div>
-            <div class="front-movie-tile-facts">
+  </a>
+            
+            <a class="front-movie-row" href="/cinema-watch-snapshot/movies/hoppers/" data-live-nav="true">
+    <div class="front-movie-row-copy">
+      <strong>Hoppers</strong>
+      
+      <div class="front-movie-meta">
+        
+        <span>Recoleta</span>
+        
+        
+        <span>2026-04-09 to 2026-04-13</span>
+        
+      </div>
+      
+    </div>
+    <div class="front-movie-row-facts">
     <span data-i18n-count="screening" data-i18n-count-value="15">15 screenings</span>
     <span data-i18n-count="venue" data-i18n-count-value="2">2 venues</span>
     
     
   </div>
-            
+    
   <div class="chips front-movie-signal-chips">
     
     <span class="chip chip-neutral">2D</span>
@@ -7307,58 +7390,58 @@
     
   </div>
   
-          </a>
-          
-          <a class="front-movie-tile" href="/cinema-watch-snapshot/movies/hoppers-operacion-castor/" data-live-nav="true">
-            <div class="front-movie-tile-copy">
-              <strong>Hoppers: operación castor</strong>
-              
-              <div class="front-movie-meta">
-                
-                <span>Belgrano</span>
-                
-                
-                <span>2026-04-09 to 2026-04-13</span>
-                
-              </div>
-              
-            </div>
-            <div class="front-movie-tile-facts">
+  </a>
+            
+            <a class="front-movie-row" href="/cinema-watch-snapshot/movies/hoppers-operacion-castor/" data-live-nav="true">
+    <div class="front-movie-row-copy">
+      <strong>Hoppers: operación castor</strong>
+      
+      <div class="front-movie-meta">
+        
+        <span>Belgrano</span>
+        
+        
+        <span>2026-04-09 to 2026-04-13</span>
+        
+      </div>
+      
+    </div>
+    <div class="front-movie-row-facts">
     <span data-i18n-count="screening" data-i18n-count-value="15">15 screenings</span>
     <span data-i18n-count="venue" data-i18n-count-value="1">1 venues</span>
     
     
   </div>
-            
+    
   <div class="chips front-movie-signal-chips">
     
     <span class="chip chip-neutral">2D</span>
     
   </div>
   
-          </a>
-          
-          <a class="front-movie-tile" href="/cinema-watch-snapshot/movies/buena-suerte-diviertete-no-mueras/" data-live-nav="true">
-            <div class="front-movie-tile-copy">
-              <strong>Buena suerte, diviértete, no mueras</strong>
-              
-              <div class="front-movie-meta">
-                
-                <span>Belgrano</span>
-                
-                
-                <span>2026-04-09 to 2026-04-13</span>
-                
-              </div>
-              
-            </div>
-            <div class="front-movie-tile-facts">
+  </a>
+            
+            <a class="front-movie-row" href="/cinema-watch-snapshot/movies/buena-suerte-diviertete-no-mueras/" data-live-nav="true">
+    <div class="front-movie-row-copy">
+      <strong>Buena suerte, diviértete, no mueras</strong>
+      
+      <div class="front-movie-meta">
+        
+        <span>Belgrano</span>
+        
+        
+        <span>2026-04-09 to 2026-04-13</span>
+        
+      </div>
+      
+    </div>
+    <div class="front-movie-row-facts">
     <span data-i18n-count="screening" data-i18n-count-value="13">13 screenings</span>
     <span data-i18n-count="venue" data-i18n-count-value="2">2 venues</span>
     
     
   </div>
-            
+    
   <div class="chips front-movie-signal-chips">
     
     <span class="chip chip-neutral">2D</span>
@@ -7369,10 +7452,11 @@
     
   </div>
   
-          </a>
+  </a>
+            
+          </div>
           
         </div>
-        
         
         
       </article>
@@ -9218,21 +9302,22 @@
         
         
         
-        <a class="row-card front-movie-feature" href="/cinema-watch-snapshot/movies/super-mario-galaxy-la-pelicula/" data-live-nav="true">
-          <div class="front-movie-feature-copy">
-            <strong class="front-movie-feature-title">Super Mario Galaxy: La película</strong>
-            
-            <div class="front-movie-meta">
+        <div class="front-movie-editorial">
+          <a class="row-card front-movie-feature front-movie-feature--lead" href="/cinema-watch-snapshot/movies/super-mario-galaxy-la-pelicula/" data-live-nav="true">
+            <div class="front-movie-feature-copy">
+              <strong class="front-movie-feature-title">Super Mario Galaxy: La película</strong>
               
-              <span>Avellaneda</span>
-              
-              
-              <span>2026-04-09 to 2026-04-15</span>
+              <div class="front-movie-meta">
+                
+                <span>Avellaneda</span>
+                
+                
+                <span>2026-04-09 to 2026-04-15</span>
+                
+              </div>
               
             </div>
-            
-          </div>
-          <div class="front-movie-feature-facts">
+            <div class="front-movie-feature-facts">
     <span data-i18n-count="screening" data-i18n-count-value="231">231 screenings</span>
     <span data-i18n-count="venue" data-i18n-count-value="2">2 venues</span>
     
@@ -9242,7 +9327,7 @@
     <span>2026-04-09 to 2026-04-15</span>
     
   </div>
-          
+            
   <div class="chips front-movie-signal-chips">
     
     <span class="chip chip-neutral">2D</span>
@@ -9253,32 +9338,32 @@
     
   </div>
   
-        </a>
+          </a>
 
-        
-        <div class="front-movie-support-grid">
           
-          <a class="front-movie-tile" href="/cinema-watch-snapshot/movies/el-drama/" data-live-nav="true">
-            <div class="front-movie-tile-copy">
-              <strong>El Drama</strong>
-              
-              <div class="front-movie-meta">
-                
-                <span>Quilmes</span>
-                
-                
-                <span>2026-04-09 to 2026-04-15</span>
-                
-              </div>
-              
-            </div>
-            <div class="front-movie-tile-facts">
+          <div class="front-movie-list front-movie-support-list">
+            
+            <a class="front-movie-row" href="/cinema-watch-snapshot/movies/el-drama/" data-live-nav="true">
+    <div class="front-movie-row-copy">
+      <strong>El Drama</strong>
+      
+      <div class="front-movie-meta">
+        
+        <span>Quilmes</span>
+        
+        
+        <span>2026-04-09 to 2026-04-15</span>
+        
+      </div>
+      
+    </div>
+    <div class="front-movie-row-facts">
     <span data-i18n-count="screening" data-i18n-count-value="49">49 screenings</span>
     <span data-i18n-count="venue" data-i18n-count-value="2">2 venues</span>
     
     
   </div>
-            
+    
   <div class="chips front-movie-signal-chips">
     
     <span class="chip chip-neutral">2D</span>
@@ -9289,29 +9374,29 @@
     
   </div>
   
-          </a>
-          
-          <a class="front-movie-tile" href="/cinema-watch-snapshot/movies/911-llamada-infernal/" data-live-nav="true">
-            <div class="front-movie-tile-copy">
-              <strong>911: llamada infernal</strong>
-              
-              <div class="front-movie-meta">
-                
-                <span>Quilmes</span>
-                
-                
-                <span>2026-04-09 to 2026-04-15</span>
-                
-              </div>
-              
-            </div>
-            <div class="front-movie-tile-facts">
+  </a>
+            
+            <a class="front-movie-row" href="/cinema-watch-snapshot/movies/911-llamada-infernal/" data-live-nav="true">
+    <div class="front-movie-row-copy">
+      <strong>911: llamada infernal</strong>
+      
+      <div class="front-movie-meta">
+        
+        <span>Quilmes</span>
+        
+        
+        <span>2026-04-09 to 2026-04-15</span>
+        
+      </div>
+      
+    </div>
+    <div class="front-movie-row-facts">
     <span data-i18n-count="screening" data-i18n-count-value="30">30 screenings</span>
     <span data-i18n-count="venue" data-i18n-count-value="2">2 venues</span>
     
     
   </div>
-            
+    
   <div class="chips front-movie-signal-chips">
     
     <span class="chip chip-neutral">2D</span>
@@ -9322,29 +9407,29 @@
     
   </div>
   
-          </a>
-          
-          <a class="front-movie-tile" href="/cinema-watch-snapshot/movies/proyecto-fin-del-mundo/" data-live-nav="true">
-            <div class="front-movie-tile-copy">
-              <strong>Proyecto fin del mundo</strong>
-              
-              <div class="front-movie-meta">
-                
-                <span>Avellaneda</span>
-                
-                
-                <span>2026-04-09 to 2026-04-15</span>
-                
-              </div>
-              
-            </div>
-            <div class="front-movie-tile-facts">
+  </a>
+            
+            <a class="front-movie-row" href="/cinema-watch-snapshot/movies/proyecto-fin-del-mundo/" data-live-nav="true">
+    <div class="front-movie-row-copy">
+      <strong>Proyecto fin del mundo</strong>
+      
+      <div class="front-movie-meta">
+        
+        <span>Avellaneda</span>
+        
+        
+        <span>2026-04-09 to 2026-04-15</span>
+        
+      </div>
+      
+    </div>
+    <div class="front-movie-row-facts">
     <span data-i18n-count="screening" data-i18n-count-value="28">28 screenings</span>
     <span data-i18n-count="venue" data-i18n-count-value="2">2 venues</span>
     
     
   </div>
-            
+    
   <div class="chips front-movie-signal-chips">
     
     <span class="chip chip-neutral">2D</span>
@@ -9355,29 +9440,29 @@
     
   </div>
   
-          </a>
-          
-          <a class="front-movie-tile" href="/cinema-watch-snapshot/movies/torrente-presidente/" data-live-nav="true">
-            <div class="front-movie-tile-copy">
-              <strong>Torrente Presidente</strong>
-              
-              <div class="front-movie-meta">
-                
-                <span>Quilmes</span>
-                
-                
-                <span>2026-04-09 to 2026-04-15</span>
-                
-              </div>
-              
-            </div>
-            <div class="front-movie-tile-facts">
+  </a>
+            
+            <a class="front-movie-row" href="/cinema-watch-snapshot/movies/torrente-presidente/" data-live-nav="true">
+    <div class="front-movie-row-copy">
+      <strong>Torrente Presidente</strong>
+      
+      <div class="front-movie-meta">
+        
+        <span>Quilmes</span>
+        
+        
+        <span>2026-04-09 to 2026-04-15</span>
+        
+      </div>
+      
+    </div>
+    <div class="front-movie-row-facts">
     <span data-i18n-count="screening" data-i18n-count-value="26">26 screenings</span>
     <span data-i18n-count="venue" data-i18n-count-value="2">2 venues</span>
     
     
   </div>
-            
+    
   <div class="chips front-movie-signal-chips">
     
     <span class="chip chip-neutral">2D</span>
@@ -9388,58 +9473,58 @@
     
   </div>
   
-          </a>
-          
-          <a class="front-movie-tile" href="/cinema-watch-snapshot/movies/hoppers-operacion-castor/" data-live-nav="true">
-            <div class="front-movie-tile-copy">
-              <strong>Hoppers: operación castor</strong>
-              
-              <div class="front-movie-meta">
-                
-                <span>Quilmes</span>
-                
-                
-                <span>2026-04-09 to 2026-04-15</span>
-                
-              </div>
-              
-            </div>
-            <div class="front-movie-tile-facts">
+  </a>
+            
+            <a class="front-movie-row" href="/cinema-watch-snapshot/movies/hoppers-operacion-castor/" data-live-nav="true">
+    <div class="front-movie-row-copy">
+      <strong>Hoppers: operación castor</strong>
+      
+      <div class="front-movie-meta">
+        
+        <span>Quilmes</span>
+        
+        
+        <span>2026-04-09 to 2026-04-15</span>
+        
+      </div>
+      
+    </div>
+    <div class="front-movie-row-facts">
     <span data-i18n-count="screening" data-i18n-count-value="21">21 screenings</span>
     <span data-i18n-count="venue" data-i18n-count-value="1">1 venues</span>
     
     
   </div>
-            
+    
   <div class="chips front-movie-signal-chips">
     
     <span class="chip chip-neutral">2D</span>
     
   </div>
   
-          </a>
-          
-          <a class="front-movie-tile" href="/cinema-watch-snapshot/movies/la-casaca-de-dios/" data-live-nav="true">
-            <div class="front-movie-tile-copy">
-              <strong>La casaca de Dios</strong>
-              
-              <div class="front-movie-meta">
-                
-                <span>Quilmes</span>
-                
-                
-                <span>2026-04-09 to 2026-04-15</span>
-                
-              </div>
-              
-            </div>
-            <div class="front-movie-tile-facts">
+  </a>
+            
+            <a class="front-movie-row" href="/cinema-watch-snapshot/movies/la-casaca-de-dios/" data-live-nav="true">
+    <div class="front-movie-row-copy">
+      <strong>La casaca de Dios</strong>
+      
+      <div class="front-movie-meta">
+        
+        <span>Quilmes</span>
+        
+        
+        <span>2026-04-09 to 2026-04-15</span>
+        
+      </div>
+      
+    </div>
+    <div class="front-movie-row-facts">
     <span data-i18n-count="screening" data-i18n-count-value="19">19 screenings</span>
     <span data-i18n-count="venue" data-i18n-count-value="2">2 venues</span>
     
     
   </div>
-            
+    
   <div class="chips front-movie-signal-chips">
     
     <span class="chip chip-neutral">2D</span>
@@ -9450,29 +9535,29 @@
     
   </div>
   
-          </a>
-          
-          <a class="front-movie-tile" href="/cinema-watch-snapshot/movies/hoppers/" data-live-nav="true">
-            <div class="front-movie-tile-copy">
-              <strong>Hoppers</strong>
-              
-              <div class="front-movie-meta">
-                
-                <span>Avellaneda</span>
-                
-                
-                <span>2026-04-09 to 2026-04-13</span>
-                
-              </div>
-              
-            </div>
-            <div class="front-movie-tile-facts">
+  </a>
+            
+            <a class="front-movie-row" href="/cinema-watch-snapshot/movies/hoppers/" data-live-nav="true">
+    <div class="front-movie-row-copy">
+      <strong>Hoppers</strong>
+      
+      <div class="front-movie-meta">
+        
+        <span>Avellaneda</span>
+        
+        
+        <span>2026-04-09 to 2026-04-13</span>
+        
+      </div>
+      
+    </div>
+    <div class="front-movie-row-facts">
     <span data-i18n-count="screening" data-i18n-count-value="13">13 screenings</span>
     <span data-i18n-count="venue" data-i18n-count-value="1">1 venues</span>
     
     
   </div>
-            
+    
   <div class="chips front-movie-signal-chips">
     
     <span class="chip chip-neutral">2D</span>
@@ -9483,10 +9568,11 @@
     
   </div>
   
-          </a>
+  </a>
+            
+          </div>
           
         </div>
-        
         
         
       </article>
