@@ -1423,12 +1423,19 @@
     }
 
     .front-movie-grid {
+      grid-template-columns: minmax(0, 1.18fr) minmax(22rem, 0.82fr);
       gap: 1rem;
     }
 
     .front-movie-section {
       gap: 0.88rem;
       padding: 1.08rem;
+    }
+
+    .front-movie-section--single-title {
+      width: min(100%, 40rem);
+      justify-self: start;
+      align-self: start;
     }
 
     .front-movie-section--in_theaters {
@@ -1485,6 +1492,7 @@
     .front-movie-single {
       gap: 0.7rem;
       padding: 1rem 1.04rem;
+      align-content: start;
     }
 
     .front-movie-single-head {
@@ -2325,7 +2333,7 @@
     </div>
     <div class="metric">
       <span class="muted">Published at</span>
-      <strong style="font-size:1rem;">2026-04-09 03:41 UTC</strong>
+      <strong style="font-size:1rem;">2026-04-09 03:47 UTC</strong>
     </div>
   </div>
 </section>

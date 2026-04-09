@@ -1423,12 +1423,19 @@
     }
 
     .front-movie-grid {
+      grid-template-columns: minmax(0, 1.18fr) minmax(22rem, 0.82fr);
       gap: 1rem;
     }
 
     .front-movie-section {
       gap: 0.88rem;
       padding: 1.08rem;
+    }
+
+    .front-movie-section--single-title {
+      width: min(100%, 40rem);
+      justify-self: start;
+      align-self: start;
     }
 
     .front-movie-section--in_theaters {
@@ -1485,6 +1492,7 @@
     .front-movie-single {
       gap: 0.7rem;
       padding: 1rem 1.04rem;
+      align-content: start;
     }
 
     .front-movie-single-head {
@@ -4496,7 +4504,7 @@
         
       </article>
       
-      <article class="front-mini-board front-movie-section front-movie-section--upcoming_premieres">
+      <article class="front-mini-board front-movie-section front-movie-section--upcoming_premieres front-movie-section--single-title">
         <div class="front-mini-board-head front-movie-section-head">
           <div>
             <span class="front-board-kicker">2026-04-16 a 2026-04-22</span>
@@ -6586,7 +6594,7 @@
         
       </article>
       
-      <article class="front-mini-board front-movie-section front-movie-section--upcoming_premieres">
+      <article class="front-mini-board front-movie-section front-movie-section--upcoming_premieres front-movie-section--single-title">
         <div class="front-mini-board-head front-movie-section-head">
           <div>
             <span class="front-board-kicker">2026-04-16 a 2026-04-22</span>
@@ -8608,7 +8616,7 @@
         
       </article>
       
-      <article class="front-mini-board front-movie-section front-movie-section--upcoming_premieres">
+      <article class="front-mini-board front-movie-section front-movie-section--upcoming_premieres front-movie-section--single-title">
         <div class="front-mini-board-head front-movie-section-head">
           <div>
             <span class="front-board-kicker">2026-04-16 a 2026-04-22</span>
