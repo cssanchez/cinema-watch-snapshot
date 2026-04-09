@@ -1943,19 +1943,81 @@
         rgba(255, 255, 255, 0.02);
     }
 
-    .front-cartelera-board-head {
-      align-items: start;
-    }
-
-    .front-cartelera-board-title h3 {
-      font-size: clamp(1.52rem, 2.5vw, 2.08rem);
-      line-height: 0.94;
-    }
-
     .front-board-counts {
       flex-wrap: wrap;
       justify-content: flex-end;
       gap: 0.42rem;
+    }
+
+    .front-cartelera-summary {
+      display: grid;
+      gap: 0.44rem;
+      padding-bottom: 0.64rem;
+      border-bottom: 1px solid rgba(255, 255, 255, 0.08);
+    }
+
+    .front-cartelera-summary-line,
+    .front-cartelera-peak-line,
+    .front-cartelera-peak-meta {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 0.22rem 0.54rem;
+      align-items: center;
+      min-width: 0;
+    }
+
+    .front-cartelera-summary-line {
+      color: rgba(198, 205, 214, 0.84);
+      font-size: 0.82rem;
+      line-height: 1.34;
+    }
+
+    .front-cartelera-summary-line > *,
+    .front-cartelera-peak-line > *,
+    .front-cartelera-peak-meta > * {
+      position: relative;
+    }
+
+    .front-cartelera-summary-line > * + *::before,
+    .front-cartelera-peak-line > * + *::before,
+    .front-cartelera-peak-meta > * + *::before {
+      content: "•";
+      margin-right: 0.54rem;
+      color: rgba(120, 135, 154, 0.7);
+    }
+
+    .front-cartelera-summary-date {
+      color: rgba(235, 229, 223, 0.94);
+      font-weight: 600;
+    }
+
+    .front-cartelera-summary-link {
+      color: rgba(235, 229, 223, 0.92);
+      font-weight: 600;
+    }
+
+    .front-cartelera-peak-line {
+      color: rgba(205, 212, 221, 0.86);
+      font-size: 0.82rem;
+      line-height: 1.34;
+    }
+
+    .front-cartelera-peak-label {
+      color: var(--muted);
+      font-size: 0.74rem;
+      font-weight: 700;
+      letter-spacing: 0.14em;
+      text-transform: uppercase;
+    }
+
+    .front-cartelera-peak-title {
+      color: rgba(235, 229, 223, 0.96);
+      font-weight: 700;
+    }
+
+    .front-cartelera-peak-meta {
+      color: rgba(175, 186, 198, 0.82);
+      font-size: 0.8rem;
     }
 
     .front-board-signals {
@@ -3028,7 +3090,7 @@
     
     <div class="front-hero-meta">
       <div class="front-freshness is-hero">
-        <strong data-i18n-freshness>Updated 26 min ago</strong>
+        <strong data-i18n-freshness>Updated 1 h ago</strong>
         <span class="front-freshness-divider" aria-hidden="true"></span>
         <span data-i18n-count="screening" data-i18n-count-value="6070">6070 screenings</span>
       </div>
@@ -3459,70 +3521,33 @@
             data-front-board-panel="in_theaters"
             
           >
-            <div class="front-mini-board-head front-cartelera-board-head">
-              <div class="front-cartelera-board-title">
-                
-                <span class="front-board-kicker">2026-04-09</span>
-                
-                <h3>En Cartelera</h3>
-              </div>
-              <div class="chips front-board-counts">
-                <span class="chip" data-i18n-count="screening" data-i18n-count-value="220">220 screenings</span>
-                
-                <span class="chip chip-neutral">13 salas</span>
-                
-              </div>
-            </div>
             
-  <div class="front-board-signals">
-    <div class="front-board-summary">
+  
+  <div class="front-cartelera-summary">
+    <div class="front-cartelera-summary-line">
       
-      <div class="front-board-stat">
-        <span class="front-board-stat-label" data-i18n-source>Cache range</span>
-        <strong>2026-04-09</strong>
-      </div>
+      <span class="front-cartelera-summary-date">2026-04-09</span>
       
+      <span data-i18n-count="screening" data-i18n-count-value="220">220 screenings</span>
       
-      <div class="front-board-stat">
-        <span class="front-board-stat-label" data-i18n-source>Rooms identified</span>
-        <strong>13</strong>
-      </div>
+      <span data-i18n-count="room" data-i18n-count-value="13">13 rooms</span>
       
       
-      <div class="front-board-stat">
-        <span class="front-board-stat-label" data-i18n-source>Sold data</span>
-        <strong>76</strong>
-      </div>
-      
-      
-      <div class="front-board-stat">
-        <span class="front-board-stat-label" data-i18n-source>Top venue</span>
-        <strong><a href="/cinema-watch-snapshot/venues/showcase/showcase_norcenter/" data-live-nav="true">Norcenter</a></strong>
-      </div>
+      <a class="front-cartelera-summary-link" href="/cinema-watch-snapshot/venues/showcase/showcase_norcenter/" data-live-nav="true">Norcenter</a>
       
     </div>
     
-    <div class="front-board-peak">
-      <div class="front-board-peak-copy">
-        <span class="front-board-peak-label" data-i18n-source>Peak crowd</span>
-        <strong><a href="/cinema-watch-snapshot/movies/los-colores-del-tiempo/" data-live-nav="true">Los colores del tiempo</a></strong>
-        <p class="front-board-peak-meta">
-          <a href="/cinema-watch-snapshot/venues/cinepolis/recoleta/" data-live-nav="true">Recoleta</a>
-          <span aria-hidden="true">&middot;</span>
-          <span>2026-04-09 19:00</span>
-        </p>
-      </div>
-      <div class="front-board-peak-chips">
-        <span class="chip" data-i18n-meta-line>96% sold | Room 6</span>
-        
-        <span
-          class="chip chip-neutral"
-          data-i18n-seat-note
-          data-seats-total="223"
-          data-seats-available="10"
-        >10 available of 223</span>
-        
-      </div>
+    <div class="front-cartelera-peak-line">
+      <span class="front-cartelera-peak-label" data-i18n-source>Peak crowd</span>
+      <a class="front-cartelera-peak-title" href="/cinema-watch-snapshot/movies/los-colores-del-tiempo/" data-live-nav="true">Los colores del tiempo</a>
+      <span class="front-cartelera-peak-meta">
+        <a href="/cinema-watch-snapshot/venues/cinepolis/recoleta/" data-live-nav="true">Recoleta</a>
+        <span>2026-04-09 19:00</span>
+      </span>
+      <span class="front-cartelera-peak-meta">96% <span data-i18n-source>sold</span></span>
+      
+      <span class="front-cartelera-peak-meta"><span data-i18n-source>Room</span> 6</span>
+      
     </div>
     
   </div>
@@ -3612,70 +3637,33 @@
             data-front-board-panel="today"
             hidden
           >
-            <div class="front-mini-board-head front-cartelera-board-head">
-              <div class="front-cartelera-board-title">
-                
-                <span class="front-board-kicker">2026-04-09</span>
-                
-                <h3>Hoy</h3>
-              </div>
-              <div class="chips front-board-counts">
-                <span class="chip" data-i18n-count="screening" data-i18n-count-value="220">220 screenings</span>
-                
-                <span class="chip chip-neutral">13 salas</span>
-                
-              </div>
-            </div>
             
-  <div class="front-board-signals">
-    <div class="front-board-summary">
+  
+  <div class="front-cartelera-summary">
+    <div class="front-cartelera-summary-line">
       
-      <div class="front-board-stat">
-        <span class="front-board-stat-label" data-i18n-source>Cache range</span>
-        <strong>2026-04-09</strong>
-      </div>
+      <span class="front-cartelera-summary-date">2026-04-09</span>
       
+      <span data-i18n-count="screening" data-i18n-count-value="220">220 screenings</span>
       
-      <div class="front-board-stat">
-        <span class="front-board-stat-label" data-i18n-source>Rooms identified</span>
-        <strong>13</strong>
-      </div>
+      <span data-i18n-count="room" data-i18n-count-value="13">13 rooms</span>
       
       
-      <div class="front-board-stat">
-        <span class="front-board-stat-label" data-i18n-source>Sold data</span>
-        <strong>76</strong>
-      </div>
-      
-      
-      <div class="front-board-stat">
-        <span class="front-board-stat-label" data-i18n-source>Top venue</span>
-        <strong><a href="/cinema-watch-snapshot/venues/showcase/showcase_norcenter/" data-live-nav="true">Norcenter</a></strong>
-      </div>
+      <a class="front-cartelera-summary-link" href="/cinema-watch-snapshot/venues/showcase/showcase_norcenter/" data-live-nav="true">Norcenter</a>
       
     </div>
     
-    <div class="front-board-peak">
-      <div class="front-board-peak-copy">
-        <span class="front-board-peak-label" data-i18n-source>Peak crowd</span>
-        <strong><a href="/cinema-watch-snapshot/movies/los-colores-del-tiempo/" data-live-nav="true">Los colores del tiempo</a></strong>
-        <p class="front-board-peak-meta">
-          <a href="/cinema-watch-snapshot/venues/cinepolis/recoleta/" data-live-nav="true">Recoleta</a>
-          <span aria-hidden="true">&middot;</span>
-          <span>2026-04-09 19:00</span>
-        </p>
-      </div>
-      <div class="front-board-peak-chips">
-        <span class="chip" data-i18n-meta-line>96% sold | Room 6</span>
-        
-        <span
-          class="chip chip-neutral"
-          data-i18n-seat-note
-          data-seats-total="223"
-          data-seats-available="10"
-        >10 available of 223</span>
-        
-      </div>
+    <div class="front-cartelera-peak-line">
+      <span class="front-cartelera-peak-label" data-i18n-source>Peak crowd</span>
+      <a class="front-cartelera-peak-title" href="/cinema-watch-snapshot/movies/los-colores-del-tiempo/" data-live-nav="true">Los colores del tiempo</a>
+      <span class="front-cartelera-peak-meta">
+        <a href="/cinema-watch-snapshot/venues/cinepolis/recoleta/" data-live-nav="true">Recoleta</a>
+        <span>2026-04-09 19:00</span>
+      </span>
+      <span class="front-cartelera-peak-meta">96% <span data-i18n-source>sold</span></span>
+      
+      <span class="front-cartelera-peak-meta"><span data-i18n-source>Room</span> 6</span>
+      
     </div>
     
   </div>
@@ -3789,70 +3777,33 @@
             data-front-board-panel="tomorrow"
             hidden
           >
-            <div class="front-mini-board-head front-cartelera-board-head">
-              <div class="front-cartelera-board-title">
-                
-                <span class="front-board-kicker">2026-04-10</span>
-                
-                <h3>Mañana</h3>
-              </div>
-              <div class="chips front-board-counts">
-                <span class="chip" data-i18n-count="screening" data-i18n-count-value="220">220 screenings</span>
-                
-                <span class="chip chip-neutral">13 salas</span>
-                
-              </div>
-            </div>
             
-  <div class="front-board-signals">
-    <div class="front-board-summary">
+  
+  <div class="front-cartelera-summary">
+    <div class="front-cartelera-summary-line">
       
-      <div class="front-board-stat">
-        <span class="front-board-stat-label" data-i18n-source>Cache range</span>
-        <strong>2026-04-10</strong>
-      </div>
+      <span class="front-cartelera-summary-date">2026-04-10</span>
       
+      <span data-i18n-count="screening" data-i18n-count-value="220">220 screenings</span>
       
-      <div class="front-board-stat">
-        <span class="front-board-stat-label" data-i18n-source>Rooms identified</span>
-        <strong>13</strong>
-      </div>
+      <span data-i18n-count="room" data-i18n-count-value="13">13 rooms</span>
       
       
-      <div class="front-board-stat">
-        <span class="front-board-stat-label" data-i18n-source>Sold data</span>
-        <strong>71</strong>
-      </div>
-      
-      
-      <div class="front-board-stat">
-        <span class="front-board-stat-label" data-i18n-source>Top venue</span>
-        <strong><a href="/cinema-watch-snapshot/venues/showcase/showcase_norcenter/" data-live-nav="true">Norcenter</a></strong>
-      </div>
+      <a class="front-cartelera-summary-link" href="/cinema-watch-snapshot/venues/showcase/showcase_norcenter/" data-live-nav="true">Norcenter</a>
       
     </div>
     
-    <div class="front-board-peak">
-      <div class="front-board-peak-copy">
-        <span class="front-board-peak-label" data-i18n-source>Peak crowd</span>
-        <strong><a href="/cinema-watch-snapshot/movies/caso-137/" data-live-nav="true">Caso 137</a></strong>
-        <p class="front-board-peak-meta">
-          <a href="/cinema-watch-snapshot/venues/cinepolis/recoleta/" data-live-nav="true">Recoleta</a>
-          <span aria-hidden="true">&middot;</span>
-          <span>2026-04-10 19:00</span>
-        </p>
-      </div>
-      <div class="front-board-peak-chips">
-        <span class="chip" data-i18n-meta-line>71% sold | Room 6</span>
-        
-        <span
-          class="chip chip-neutral"
-          data-i18n-seat-note
-          data-seats-total="223"
-          data-seats-available="64"
-        >64 available of 223</span>
-        
-      </div>
+    <div class="front-cartelera-peak-line">
+      <span class="front-cartelera-peak-label" data-i18n-source>Peak crowd</span>
+      <a class="front-cartelera-peak-title" href="/cinema-watch-snapshot/movies/caso-137/" data-live-nav="true">Caso 137</a>
+      <span class="front-cartelera-peak-meta">
+        <a href="/cinema-watch-snapshot/venues/cinepolis/recoleta/" data-live-nav="true">Recoleta</a>
+        <span>2026-04-10 19:00</span>
+      </span>
+      <span class="front-cartelera-peak-meta">71% <span data-i18n-source>sold</span></span>
+      
+      <span class="front-cartelera-peak-meta"><span data-i18n-source>Room</span> 6</span>
+      
     </div>
     
   </div>
@@ -3966,34 +3917,17 @@
             data-front-board-panel="upcoming_premieres"
             hidden
           >
-            <div class="front-mini-board-head front-cartelera-board-head">
-              <div class="front-cartelera-board-title">
-                
-                <span class="front-board-kicker">2026-04-16 to 2026-04-22</span>
-                
-                <h3>Proximos estrenos</h3>
-              </div>
-              <div class="chips front-board-counts">
-                <span class="chip" data-i18n-count="screening" data-i18n-count-value="159">159 screenings</span>
-                
-              </div>
-            </div>
             
-  <div class="front-board-signals">
-    <div class="front-board-summary">
+  
+  <div class="front-cartelera-summary">
+    <div class="front-cartelera-summary-line">
       
-      <div class="front-board-stat">
-        <span class="front-board-stat-label" data-i18n-source>Cache range</span>
-        <strong>2026-04-16 to 2026-04-22</strong>
-      </div>
+      <span class="front-cartelera-summary-date">2026-04-16 to 2026-04-22</span>
       
-      
+      <span data-i18n-count="screening" data-i18n-count-value="159">159 screenings</span>
       
       
-      <div class="front-board-stat">
-        <span class="front-board-stat-label" data-i18n-source>Top venue</span>
-        <strong><a href="/cinema-watch-snapshot/venues/showcase/showcase_haedo/" data-live-nav="true">Haedo</a></strong>
-      </div>
+      <a class="front-cartelera-summary-link" href="/cinema-watch-snapshot/venues/showcase/showcase_haedo/" data-live-nav="true">Haedo</a>
       
     </div>
     
@@ -4228,70 +4162,33 @@
             data-front-board-panel="subtitled"
             hidden
           >
-            <div class="front-mini-board-head front-cartelera-board-head">
-              <div class="front-cartelera-board-title">
-                
-                <span class="front-board-kicker">2026-04-09 to 2026-04-11</span>
-                
-                <h3>Subtituladas</h3>
-              </div>
-              <div class="chips front-board-counts">
-                <span class="chip" data-i18n-count="screening" data-i18n-count-value="220">220 screenings</span>
-                
-                <span class="chip chip-neutral">11 salas</span>
-                
-              </div>
-            </div>
             
-  <div class="front-board-signals">
-    <div class="front-board-summary">
+  
+  <div class="front-cartelera-summary">
+    <div class="front-cartelera-summary-line">
       
-      <div class="front-board-stat">
-        <span class="front-board-stat-label" data-i18n-source>Cache range</span>
-        <strong>2026-04-09 to 2026-04-11</strong>
-      </div>
+      <span class="front-cartelera-summary-date">2026-04-09 to 2026-04-11</span>
       
+      <span data-i18n-count="screening" data-i18n-count-value="220">220 screenings</span>
       
-      <div class="front-board-stat">
-        <span class="front-board-stat-label" data-i18n-source>Rooms identified</span>
-        <strong>11</strong>
-      </div>
+      <span data-i18n-count="room" data-i18n-count-value="11">11 rooms</span>
       
       
-      <div class="front-board-stat">
-        <span class="front-board-stat-label" data-i18n-source>Sold data</span>
-        <strong>71</strong>
-      </div>
-      
-      
-      <div class="front-board-stat">
-        <span class="front-board-stat-label" data-i18n-source>Top venue</span>
-        <strong><a href="/cinema-watch-snapshot/venues/showcase/showcase_norcenter/" data-live-nav="true">Norcenter</a></strong>
-      </div>
+      <a class="front-cartelera-summary-link" href="/cinema-watch-snapshot/venues/showcase/showcase_norcenter/" data-live-nav="true">Norcenter</a>
       
     </div>
     
-    <div class="front-board-peak">
-      <div class="front-board-peak-copy">
-        <span class="front-board-peak-label" data-i18n-source>Peak crowd</span>
-        <strong><a href="/cinema-watch-snapshot/movies/los-colores-del-tiempo/" data-live-nav="true">Los colores del tiempo</a></strong>
-        <p class="front-board-peak-meta">
-          <a href="/cinema-watch-snapshot/venues/cinepolis/recoleta/" data-live-nav="true">Recoleta</a>
-          <span aria-hidden="true">&middot;</span>
-          <span>2026-04-09 19:00</span>
-        </p>
-      </div>
-      <div class="front-board-peak-chips">
-        <span class="chip" data-i18n-meta-line>96% sold | Room 6</span>
-        
-        <span
-          class="chip chip-neutral"
-          data-i18n-seat-note
-          data-seats-total="223"
-          data-seats-available="10"
-        >10 available of 223</span>
-        
-      </div>
+    <div class="front-cartelera-peak-line">
+      <span class="front-cartelera-peak-label" data-i18n-source>Peak crowd</span>
+      <a class="front-cartelera-peak-title" href="/cinema-watch-snapshot/movies/los-colores-del-tiempo/" data-live-nav="true">Los colores del tiempo</a>
+      <span class="front-cartelera-peak-meta">
+        <a href="/cinema-watch-snapshot/venues/cinepolis/recoleta/" data-live-nav="true">Recoleta</a>
+        <span>2026-04-09 19:00</span>
+      </span>
+      <span class="front-cartelera-peak-meta">96% <span data-i18n-source>sold</span></span>
+      
+      <span class="front-cartelera-peak-meta"><span data-i18n-source>Room</span> 6</span>
+      
     </div>
     
   </div>
@@ -4437,70 +4334,33 @@
             data-front-board-panel="top_sold"
             hidden
           >
-            <div class="front-mini-board-head front-cartelera-board-head">
-              <div class="front-cartelera-board-title">
-                
-                <span class="front-board-kicker">2026-04-09</span>
-                
-                <h3>Mas vendidas</h3>
-              </div>
-              <div class="chips front-board-counts">
-                <span class="chip" data-i18n-count="screening" data-i18n-count-value="220">220 screenings</span>
-                
-                <span class="chip chip-neutral">13 salas</span>
-                
-              </div>
-            </div>
             
-  <div class="front-board-signals">
-    <div class="front-board-summary">
+  
+  <div class="front-cartelera-summary">
+    <div class="front-cartelera-summary-line">
       
-      <div class="front-board-stat">
-        <span class="front-board-stat-label" data-i18n-source>Cache range</span>
-        <strong>2026-04-09</strong>
-      </div>
+      <span class="front-cartelera-summary-date">2026-04-09</span>
       
+      <span data-i18n-count="screening" data-i18n-count-value="220">220 screenings</span>
       
-      <div class="front-board-stat">
-        <span class="front-board-stat-label" data-i18n-source>Rooms identified</span>
-        <strong>13</strong>
-      </div>
+      <span data-i18n-count="room" data-i18n-count-value="13">13 rooms</span>
       
       
-      <div class="front-board-stat">
-        <span class="front-board-stat-label" data-i18n-source>Sold data</span>
-        <strong>76</strong>
-      </div>
-      
-      
-      <div class="front-board-stat">
-        <span class="front-board-stat-label" data-i18n-source>Top venue</span>
-        <strong><a href="/cinema-watch-snapshot/venues/showcase/showcase_norcenter/" data-live-nav="true">Norcenter</a></strong>
-      </div>
+      <a class="front-cartelera-summary-link" href="/cinema-watch-snapshot/venues/showcase/showcase_norcenter/" data-live-nav="true">Norcenter</a>
       
     </div>
     
-    <div class="front-board-peak">
-      <div class="front-board-peak-copy">
-        <span class="front-board-peak-label" data-i18n-source>Peak crowd</span>
-        <strong><a href="/cinema-watch-snapshot/movies/los-colores-del-tiempo/" data-live-nav="true">Los colores del tiempo</a></strong>
-        <p class="front-board-peak-meta">
-          <a href="/cinema-watch-snapshot/venues/cinepolis/recoleta/" data-live-nav="true">Recoleta</a>
-          <span aria-hidden="true">&middot;</span>
-          <span>2026-04-09 19:00</span>
-        </p>
-      </div>
-      <div class="front-board-peak-chips">
-        <span class="chip" data-i18n-meta-line>96% sold | Room 6</span>
-        
-        <span
-          class="chip chip-neutral"
-          data-i18n-seat-note
-          data-seats-total="223"
-          data-seats-available="10"
-        >10 available of 223</span>
-        
-      </div>
+    <div class="front-cartelera-peak-line">
+      <span class="front-cartelera-peak-label" data-i18n-source>Peak crowd</span>
+      <a class="front-cartelera-peak-title" href="/cinema-watch-snapshot/movies/los-colores-del-tiempo/" data-live-nav="true">Los colores del tiempo</a>
+      <span class="front-cartelera-peak-meta">
+        <a href="/cinema-watch-snapshot/venues/cinepolis/recoleta/" data-live-nav="true">Recoleta</a>
+        <span>2026-04-09 19:00</span>
+      </span>
+      <span class="front-cartelera-peak-meta">96% <span data-i18n-source>sold</span></span>
+      
+      <span class="front-cartelera-peak-meta"><span data-i18n-source>Room</span> 6</span>
+      
     </div>
     
   </div>
@@ -5741,70 +5601,33 @@
             data-front-board-panel="in_theaters"
             
           >
-            <div class="front-mini-board-head front-cartelera-board-head">
-              <div class="front-cartelera-board-title">
-                
-                <span class="front-board-kicker">2026-04-09 to 2026-04-11</span>
-                
-                <h3>En Cartelera</h3>
-              </div>
-              <div class="chips front-board-counts">
-                <span class="chip" data-i18n-count="screening" data-i18n-count-value="220">220 screenings</span>
-                
-                <span class="chip chip-neutral">10 salas</span>
-                
-              </div>
-            </div>
             
-  <div class="front-board-signals">
-    <div class="front-board-summary">
+  
+  <div class="front-cartelera-summary">
+    <div class="front-cartelera-summary-line">
       
-      <div class="front-board-stat">
-        <span class="front-board-stat-label" data-i18n-source>Cache range</span>
-        <strong>2026-04-09 to 2026-04-11</strong>
-      </div>
+      <span class="front-cartelera-summary-date">2026-04-09 to 2026-04-11</span>
       
+      <span data-i18n-count="screening" data-i18n-count-value="220">220 screenings</span>
       
-      <div class="front-board-stat">
-        <span class="front-board-stat-label" data-i18n-source>Rooms identified</span>
-        <strong>10</strong>
-      </div>
+      <span data-i18n-count="room" data-i18n-count-value="10">10 rooms</span>
       
       
-      <div class="front-board-stat">
-        <span class="front-board-stat-label" data-i18n-source>Sold data</span>
-        <strong>78</strong>
-      </div>
-      
-      
-      <div class="front-board-stat">
-        <span class="front-board-stat-label" data-i18n-source>Top venue</span>
-        <strong><a href="/cinema-watch-snapshot/venues/cinepolis/recoleta/" data-live-nav="true">Recoleta</a></strong>
-      </div>
+      <a class="front-cartelera-summary-link" href="/cinema-watch-snapshot/venues/cinepolis/recoleta/" data-live-nav="true">Recoleta</a>
       
     </div>
     
-    <div class="front-board-peak">
-      <div class="front-board-peak-copy">
-        <span class="front-board-peak-label" data-i18n-source>Peak crowd</span>
-        <strong><a href="/cinema-watch-snapshot/movies/los-colores-del-tiempo/" data-live-nav="true">Los colores del tiempo</a></strong>
-        <p class="front-board-peak-meta">
-          <a href="/cinema-watch-snapshot/venues/cinepolis/recoleta/" data-live-nav="true">Recoleta</a>
-          <span aria-hidden="true">&middot;</span>
-          <span>2026-04-09 19:00</span>
-        </p>
-      </div>
-      <div class="front-board-peak-chips">
-        <span class="chip" data-i18n-meta-line>96% sold | Room 6</span>
-        
-        <span
-          class="chip chip-neutral"
-          data-i18n-seat-note
-          data-seats-total="223"
-          data-seats-available="10"
-        >10 available of 223</span>
-        
-      </div>
+    <div class="front-cartelera-peak-line">
+      <span class="front-cartelera-peak-label" data-i18n-source>Peak crowd</span>
+      <a class="front-cartelera-peak-title" href="/cinema-watch-snapshot/movies/los-colores-del-tiempo/" data-live-nav="true">Los colores del tiempo</a>
+      <span class="front-cartelera-peak-meta">
+        <a href="/cinema-watch-snapshot/venues/cinepolis/recoleta/" data-live-nav="true">Recoleta</a>
+        <span>2026-04-09 19:00</span>
+      </span>
+      <span class="front-cartelera-peak-meta">96% <span data-i18n-source>sold</span></span>
+      
+      <span class="front-cartelera-peak-meta"><span data-i18n-source>Room</span> 6</span>
+      
     </div>
     
   </div>
@@ -6038,70 +5861,33 @@
             data-front-board-panel="today"
             hidden
           >
-            <div class="front-mini-board-head front-cartelera-board-head">
-              <div class="front-cartelera-board-title">
-                
-                <span class="front-board-kicker">2026-04-09</span>
-                
-                <h3>Hoy</h3>
-              </div>
-              <div class="chips front-board-counts">
-                <span class="chip" data-i18n-count="screening" data-i18n-count-value="101">101 screenings</span>
-                
-                <span class="chip chip-neutral">10 salas</span>
-                
-              </div>
-            </div>
             
-  <div class="front-board-signals">
-    <div class="front-board-summary">
+  
+  <div class="front-cartelera-summary">
+    <div class="front-cartelera-summary-line">
       
-      <div class="front-board-stat">
-        <span class="front-board-stat-label" data-i18n-source>Cache range</span>
-        <strong>2026-04-09</strong>
-      </div>
+      <span class="front-cartelera-summary-date">2026-04-09</span>
       
+      <span data-i18n-count="screening" data-i18n-count-value="101">101 screenings</span>
       
-      <div class="front-board-stat">
-        <span class="front-board-stat-label" data-i18n-source>Rooms identified</span>
-        <strong>10</strong>
-      </div>
+      <span data-i18n-count="room" data-i18n-count-value="10">10 rooms</span>
       
       
-      <div class="front-board-stat">
-        <span class="front-board-stat-label" data-i18n-source>Sold data</span>
-        <strong>41</strong>
-      </div>
-      
-      
-      <div class="front-board-stat">
-        <span class="front-board-stat-label" data-i18n-source>Top venue</span>
-        <strong><a href="/cinema-watch-snapshot/venues/cinepolis/recoleta/" data-live-nav="true">Recoleta</a></strong>
-      </div>
+      <a class="front-cartelera-summary-link" href="/cinema-watch-snapshot/venues/cinepolis/recoleta/" data-live-nav="true">Recoleta</a>
       
     </div>
     
-    <div class="front-board-peak">
-      <div class="front-board-peak-copy">
-        <span class="front-board-peak-label" data-i18n-source>Peak crowd</span>
-        <strong><a href="/cinema-watch-snapshot/movies/los-colores-del-tiempo/" data-live-nav="true">Los colores del tiempo</a></strong>
-        <p class="front-board-peak-meta">
-          <a href="/cinema-watch-snapshot/venues/cinepolis/recoleta/" data-live-nav="true">Recoleta</a>
-          <span aria-hidden="true">&middot;</span>
-          <span>2026-04-09 19:00</span>
-        </p>
-      </div>
-      <div class="front-board-peak-chips">
-        <span class="chip" data-i18n-meta-line>96% sold | Room 6</span>
-        
-        <span
-          class="chip chip-neutral"
-          data-i18n-seat-note
-          data-seats-total="223"
-          data-seats-available="10"
-        >10 available of 223</span>
-        
-      </div>
+    <div class="front-cartelera-peak-line">
+      <span class="front-cartelera-peak-label" data-i18n-source>Peak crowd</span>
+      <a class="front-cartelera-peak-title" href="/cinema-watch-snapshot/movies/los-colores-del-tiempo/" data-live-nav="true">Los colores del tiempo</a>
+      <span class="front-cartelera-peak-meta">
+        <a href="/cinema-watch-snapshot/venues/cinepolis/recoleta/" data-live-nav="true">Recoleta</a>
+        <span>2026-04-09 19:00</span>
+      </span>
+      <span class="front-cartelera-peak-meta">96% <span data-i18n-source>sold</span></span>
+      
+      <span class="front-cartelera-peak-meta"><span data-i18n-source>Room</span> 6</span>
+      
     </div>
     
   </div>
@@ -6215,70 +6001,33 @@
             data-front-board-panel="tomorrow"
             hidden
           >
-            <div class="front-mini-board-head front-cartelera-board-head">
-              <div class="front-cartelera-board-title">
-                
-                <span class="front-board-kicker">2026-04-10</span>
-                
-                <h3>Mañana</h3>
-              </div>
-              <div class="chips front-board-counts">
-                <span class="chip" data-i18n-count="screening" data-i18n-count-value="102">102 screenings</span>
-                
-                <span class="chip chip-neutral">10 salas</span>
-                
-              </div>
-            </div>
             
-  <div class="front-board-signals">
-    <div class="front-board-summary">
+  
+  <div class="front-cartelera-summary">
+    <div class="front-cartelera-summary-line">
       
-      <div class="front-board-stat">
-        <span class="front-board-stat-label" data-i18n-source>Cache range</span>
-        <strong>2026-04-10</strong>
-      </div>
+      <span class="front-cartelera-summary-date">2026-04-10</span>
       
+      <span data-i18n-count="screening" data-i18n-count-value="102">102 screenings</span>
       
-      <div class="front-board-stat">
-        <span class="front-board-stat-label" data-i18n-source>Rooms identified</span>
-        <strong>10</strong>
-      </div>
+      <span data-i18n-count="room" data-i18n-count-value="10">10 rooms</span>
       
       
-      <div class="front-board-stat">
-        <span class="front-board-stat-label" data-i18n-source>Sold data</span>
-        <strong>31</strong>
-      </div>
-      
-      
-      <div class="front-board-stat">
-        <span class="front-board-stat-label" data-i18n-source>Top venue</span>
-        <strong><a href="/cinema-watch-snapshot/venues/cinepolis/recoleta/" data-live-nav="true">Recoleta</a></strong>
-      </div>
+      <a class="front-cartelera-summary-link" href="/cinema-watch-snapshot/venues/cinepolis/recoleta/" data-live-nav="true">Recoleta</a>
       
     </div>
     
-    <div class="front-board-peak">
-      <div class="front-board-peak-copy">
-        <span class="front-board-peak-label" data-i18n-source>Peak crowd</span>
-        <strong><a href="/cinema-watch-snapshot/movies/caso-137/" data-live-nav="true">Caso 137</a></strong>
-        <p class="front-board-peak-meta">
-          <a href="/cinema-watch-snapshot/venues/cinepolis/recoleta/" data-live-nav="true">Recoleta</a>
-          <span aria-hidden="true">&middot;</span>
-          <span>2026-04-10 19:00</span>
-        </p>
-      </div>
-      <div class="front-board-peak-chips">
-        <span class="chip" data-i18n-meta-line>71% sold | Room 6</span>
-        
-        <span
-          class="chip chip-neutral"
-          data-i18n-seat-note
-          data-seats-total="223"
-          data-seats-available="64"
-        >64 available of 223</span>
-        
-      </div>
+    <div class="front-cartelera-peak-line">
+      <span class="front-cartelera-peak-label" data-i18n-source>Peak crowd</span>
+      <a class="front-cartelera-peak-title" href="/cinema-watch-snapshot/movies/caso-137/" data-live-nav="true">Caso 137</a>
+      <span class="front-cartelera-peak-meta">
+        <a href="/cinema-watch-snapshot/venues/cinepolis/recoleta/" data-live-nav="true">Recoleta</a>
+        <span>2026-04-10 19:00</span>
+      </span>
+      <span class="front-cartelera-peak-meta">71% <span data-i18n-source>sold</span></span>
+      
+      <span class="front-cartelera-peak-meta"><span data-i18n-source>Room</span> 6</span>
+      
     </div>
     
   </div>
@@ -6392,34 +6141,17 @@
             data-front-board-panel="upcoming_premieres"
             hidden
           >
-            <div class="front-mini-board-head front-cartelera-board-head">
-              <div class="front-cartelera-board-title">
-                
-                <span class="front-board-kicker">2026-04-16 to 2026-04-22</span>
-                
-                <h3>Proximos estrenos</h3>
-              </div>
-              <div class="chips front-board-counts">
-                <span class="chip" data-i18n-count="screening" data-i18n-count-value="21">21 screenings</span>
-                
-              </div>
-            </div>
             
-  <div class="front-board-signals">
-    <div class="front-board-summary">
+  
+  <div class="front-cartelera-summary">
+    <div class="front-cartelera-summary-line">
       
-      <div class="front-board-stat">
-        <span class="front-board-stat-label" data-i18n-source>Cache range</span>
-        <strong>2026-04-16 to 2026-04-22</strong>
-      </div>
+      <span class="front-cartelera-summary-date">2026-04-16 to 2026-04-22</span>
       
-      
+      <span data-i18n-count="screening" data-i18n-count-value="21">21 screenings</span>
       
       
-      <div class="front-board-stat">
-        <span class="front-board-stat-label" data-i18n-source>Top venue</span>
-        <strong><a href="/cinema-watch-snapshot/venues/showcase/showcase_belgrano/" data-live-nav="true">Belgrano</a></strong>
-      </div>
+      <a class="front-cartelera-summary-link" href="/cinema-watch-snapshot/venues/showcase/showcase_belgrano/" data-live-nav="true">Belgrano</a>
       
     </div>
     
@@ -6558,70 +6290,33 @@
             data-front-board-panel="subtitled"
             hidden
           >
-            <div class="front-mini-board-head front-cartelera-board-head">
-              <div class="front-cartelera-board-title">
-                
-                <span class="front-board-kicker">2026-04-09 to 2026-04-13</span>
-                
-                <h3>Subtituladas</h3>
-              </div>
-              <div class="chips front-board-counts">
-                <span class="chip" data-i18n-count="screening" data-i18n-count-value="220">220 screenings</span>
-                
-                <span class="chip chip-neutral">10 salas</span>
-                
-              </div>
-            </div>
             
-  <div class="front-board-signals">
-    <div class="front-board-summary">
+  
+  <div class="front-cartelera-summary">
+    <div class="front-cartelera-summary-line">
       
-      <div class="front-board-stat">
-        <span class="front-board-stat-label" data-i18n-source>Cache range</span>
-        <strong>2026-04-09 to 2026-04-13</strong>
-      </div>
+      <span class="front-cartelera-summary-date">2026-04-09 to 2026-04-13</span>
       
+      <span data-i18n-count="screening" data-i18n-count-value="220">220 screenings</span>
       
-      <div class="front-board-stat">
-        <span class="front-board-stat-label" data-i18n-source>Rooms identified</span>
-        <strong>10</strong>
-      </div>
+      <span data-i18n-count="room" data-i18n-count-value="10">10 rooms</span>
       
       
-      <div class="front-board-stat">
-        <span class="front-board-stat-label" data-i18n-source>Sold data</span>
-        <strong>99</strong>
-      </div>
-      
-      
-      <div class="front-board-stat">
-        <span class="front-board-stat-label" data-i18n-source>Top venue</span>
-        <strong><a href="/cinema-watch-snapshot/venues/cinepolis/recoleta/" data-live-nav="true">Recoleta</a></strong>
-      </div>
+      <a class="front-cartelera-summary-link" href="/cinema-watch-snapshot/venues/cinepolis/recoleta/" data-live-nav="true">Recoleta</a>
       
     </div>
     
-    <div class="front-board-peak">
-      <div class="front-board-peak-copy">
-        <span class="front-board-peak-label" data-i18n-source>Peak crowd</span>
-        <strong><a href="/cinema-watch-snapshot/movies/los-colores-del-tiempo/" data-live-nav="true">Los colores del tiempo</a></strong>
-        <p class="front-board-peak-meta">
-          <a href="/cinema-watch-snapshot/venues/cinepolis/recoleta/" data-live-nav="true">Recoleta</a>
-          <span aria-hidden="true">&middot;</span>
-          <span>2026-04-09 19:00</span>
-        </p>
-      </div>
-      <div class="front-board-peak-chips">
-        <span class="chip" data-i18n-meta-line>96% sold | Room 6</span>
-        
-        <span
-          class="chip chip-neutral"
-          data-i18n-seat-note
-          data-seats-total="223"
-          data-seats-available="10"
-        >10 available of 223</span>
-        
-      </div>
+    <div class="front-cartelera-peak-line">
+      <span class="front-cartelera-peak-label" data-i18n-source>Peak crowd</span>
+      <a class="front-cartelera-peak-title" href="/cinema-watch-snapshot/movies/los-colores-del-tiempo/" data-live-nav="true">Los colores del tiempo</a>
+      <span class="front-cartelera-peak-meta">
+        <a href="/cinema-watch-snapshot/venues/cinepolis/recoleta/" data-live-nav="true">Recoleta</a>
+        <span>2026-04-09 19:00</span>
+      </span>
+      <span class="front-cartelera-peak-meta">96% <span data-i18n-source>sold</span></span>
+      
+      <span class="front-cartelera-peak-meta"><span data-i18n-source>Room</span> 6</span>
+      
     </div>
     
   </div>
@@ -6767,70 +6462,33 @@
             data-front-board-panel="top_sold"
             hidden
           >
-            <div class="front-mini-board-head front-cartelera-board-head">
-              <div class="front-cartelera-board-title">
-                
-                <span class="front-board-kicker">2026-04-09</span>
-                
-                <h3>Mas vendidas</h3>
-              </div>
-              <div class="chips front-board-counts">
-                <span class="chip" data-i18n-count="screening" data-i18n-count-value="101">101 screenings</span>
-                
-                <span class="chip chip-neutral">10 salas</span>
-                
-              </div>
-            </div>
             
-  <div class="front-board-signals">
-    <div class="front-board-summary">
+  
+  <div class="front-cartelera-summary">
+    <div class="front-cartelera-summary-line">
       
-      <div class="front-board-stat">
-        <span class="front-board-stat-label" data-i18n-source>Cache range</span>
-        <strong>2026-04-09</strong>
-      </div>
+      <span class="front-cartelera-summary-date">2026-04-09</span>
       
+      <span data-i18n-count="screening" data-i18n-count-value="101">101 screenings</span>
       
-      <div class="front-board-stat">
-        <span class="front-board-stat-label" data-i18n-source>Rooms identified</span>
-        <strong>10</strong>
-      </div>
+      <span data-i18n-count="room" data-i18n-count-value="10">10 rooms</span>
       
       
-      <div class="front-board-stat">
-        <span class="front-board-stat-label" data-i18n-source>Sold data</span>
-        <strong>41</strong>
-      </div>
-      
-      
-      <div class="front-board-stat">
-        <span class="front-board-stat-label" data-i18n-source>Top venue</span>
-        <strong><a href="/cinema-watch-snapshot/venues/cinepolis/recoleta/" data-live-nav="true">Recoleta</a></strong>
-      </div>
+      <a class="front-cartelera-summary-link" href="/cinema-watch-snapshot/venues/cinepolis/recoleta/" data-live-nav="true">Recoleta</a>
       
     </div>
     
-    <div class="front-board-peak">
-      <div class="front-board-peak-copy">
-        <span class="front-board-peak-label" data-i18n-source>Peak crowd</span>
-        <strong><a href="/cinema-watch-snapshot/movies/los-colores-del-tiempo/" data-live-nav="true">Los colores del tiempo</a></strong>
-        <p class="front-board-peak-meta">
-          <a href="/cinema-watch-snapshot/venues/cinepolis/recoleta/" data-live-nav="true">Recoleta</a>
-          <span aria-hidden="true">&middot;</span>
-          <span>2026-04-09 19:00</span>
-        </p>
-      </div>
-      <div class="front-board-peak-chips">
-        <span class="chip" data-i18n-meta-line>96% sold | Room 6</span>
-        
-        <span
-          class="chip chip-neutral"
-          data-i18n-seat-note
-          data-seats-total="223"
-          data-seats-available="10"
-        >10 available of 223</span>
-        
-      </div>
+    <div class="front-cartelera-peak-line">
+      <span class="front-cartelera-peak-label" data-i18n-source>Peak crowd</span>
+      <a class="front-cartelera-peak-title" href="/cinema-watch-snapshot/movies/los-colores-del-tiempo/" data-live-nav="true">Los colores del tiempo</a>
+      <span class="front-cartelera-peak-meta">
+        <a href="/cinema-watch-snapshot/venues/cinepolis/recoleta/" data-live-nav="true">Recoleta</a>
+        <span>2026-04-09 19:00</span>
+      </span>
+      <span class="front-cartelera-peak-meta">96% <span data-i18n-source>sold</span></span>
+      
+      <span class="front-cartelera-peak-meta"><span data-i18n-source>Room</span> 6</span>
+      
     </div>
     
   </div>
@@ -7934,70 +7592,33 @@
             data-front-board-panel="in_theaters"
             
           >
-            <div class="front-mini-board-head front-cartelera-board-head">
-              <div class="front-cartelera-board-title">
-                
-                <span class="front-board-kicker">2026-04-09 to 2026-04-11</span>
-                
-                <h3>En Cartelera</h3>
-              </div>
-              <div class="chips front-board-counts">
-                <span class="chip" data-i18n-count="screening" data-i18n-count-value="220">220 screenings</span>
-                
-                <span class="chip chip-neutral">11 salas</span>
-                
-              </div>
-            </div>
             
-  <div class="front-board-signals">
-    <div class="front-board-summary">
+  
+  <div class="front-cartelera-summary">
+    <div class="front-cartelera-summary-line">
       
-      <div class="front-board-stat">
-        <span class="front-board-stat-label" data-i18n-source>Cache range</span>
-        <strong>2026-04-09 to 2026-04-11</strong>
-      </div>
+      <span class="front-cartelera-summary-date">2026-04-09 to 2026-04-11</span>
       
+      <span data-i18n-count="screening" data-i18n-count-value="220">220 screenings</span>
       
-      <div class="front-board-stat">
-        <span class="front-board-stat-label" data-i18n-source>Rooms identified</span>
-        <strong>11</strong>
-      </div>
+      <span data-i18n-count="room" data-i18n-count-value="11">11 rooms</span>
       
       
-      <div class="front-board-stat">
-        <span class="front-board-stat-label" data-i18n-source>Sold data</span>
-        <strong>120</strong>
-      </div>
-      
-      
-      <div class="front-board-stat">
-        <span class="front-board-stat-label" data-i18n-source>Top venue</span>
-        <strong><a href="/cinema-watch-snapshot/venues/cinepolis/avellaneda/" data-live-nav="true">Avellaneda</a></strong>
-      </div>
+      <a class="front-cartelera-summary-link" href="/cinema-watch-snapshot/venues/cinepolis/avellaneda/" data-live-nav="true">Avellaneda</a>
       
     </div>
     
-    <div class="front-board-peak">
-      <div class="front-board-peak-copy">
-        <span class="front-board-peak-label" data-i18n-source>Peak crowd</span>
-        <strong><a href="/cinema-watch-snapshot/movies/bts-world-tour-arirang-in-goyang-live-viewing/" data-live-nav="true">BTS WORLD TOUR ‘ARIRANG’ IN GOYANG: LIVE VIEWING</a></strong>
-        <p class="front-board-peak-meta">
-          <a href="/cinema-watch-snapshot/venues/cinepolis/avellaneda/" data-live-nav="true">Avellaneda</a>
-          <span aria-hidden="true">&middot;</span>
-          <span>2026-04-11 16:00</span>
-        </p>
-      </div>
-      <div class="front-board-peak-chips">
-        <span class="chip" data-i18n-meta-line>40% sold | Room 6</span>
-        
-        <span
-          class="chip chip-neutral"
-          data-i18n-seat-note
-          data-seats-total="176"
-          data-seats-available="105"
-        >105 available of 176</span>
-        
-      </div>
+    <div class="front-cartelera-peak-line">
+      <span class="front-cartelera-peak-label" data-i18n-source>Peak crowd</span>
+      <a class="front-cartelera-peak-title" href="/cinema-watch-snapshot/movies/bts-world-tour-arirang-in-goyang-live-viewing/" data-live-nav="true">BTS WORLD TOUR ‘ARIRANG’ IN GOYANG: LIVE VIEWING</a>
+      <span class="front-cartelera-peak-meta">
+        <a href="/cinema-watch-snapshot/venues/cinepolis/avellaneda/" data-live-nav="true">Avellaneda</a>
+        <span>2026-04-11 16:00</span>
+      </span>
+      <span class="front-cartelera-peak-meta">40% <span data-i18n-source>sold</span></span>
+      
+      <span class="front-cartelera-peak-meta"><span data-i18n-source>Room</span> 6</span>
+      
     </div>
     
   </div>
@@ -8231,70 +7852,33 @@
             data-front-board-panel="today"
             hidden
           >
-            <div class="front-mini-board-head front-cartelera-board-head">
-              <div class="front-cartelera-board-title">
-                
-                <span class="front-board-kicker">2026-04-09</span>
-                
-                <h3>Hoy</h3>
-              </div>
-              <div class="chips front-board-counts">
-                <span class="chip" data-i18n-count="screening" data-i18n-count-value="91">91 screenings</span>
-                
-                <span class="chip chip-neutral">11 salas</span>
-                
-              </div>
-            </div>
             
-  <div class="front-board-signals">
-    <div class="front-board-summary">
+  
+  <div class="front-cartelera-summary">
+    <div class="front-cartelera-summary-line">
       
-      <div class="front-board-stat">
-        <span class="front-board-stat-label" data-i18n-source>Cache range</span>
-        <strong>2026-04-09</strong>
-      </div>
+      <span class="front-cartelera-summary-date">2026-04-09</span>
       
+      <span data-i18n-count="screening" data-i18n-count-value="91">91 screenings</span>
       
-      <div class="front-board-stat">
-        <span class="front-board-stat-label" data-i18n-source>Rooms identified</span>
-        <strong>11</strong>
-      </div>
+      <span data-i18n-count="room" data-i18n-count-value="11">11 rooms</span>
       
       
-      <div class="front-board-stat">
-        <span class="front-board-stat-label" data-i18n-source>Sold data</span>
-        <strong>50</strong>
-      </div>
-      
-      
-      <div class="front-board-stat">
-        <span class="front-board-stat-label" data-i18n-source>Top venue</span>
-        <strong><a href="/cinema-watch-snapshot/venues/cinepolis/avellaneda/" data-live-nav="true">Avellaneda</a></strong>
-      </div>
+      <a class="front-cartelera-summary-link" href="/cinema-watch-snapshot/venues/cinepolis/avellaneda/" data-live-nav="true">Avellaneda</a>
       
     </div>
     
-    <div class="front-board-peak">
-      <div class="front-board-peak-copy">
-        <span class="front-board-peak-label" data-i18n-source>Peak crowd</span>
-        <strong><a href="/cinema-watch-snapshot/movies/el-drama/" data-live-nav="true">El Drama</a></strong>
-        <p class="front-board-peak-meta">
-          <a href="/cinema-watch-snapshot/venues/cinepolis/avellaneda/" data-live-nav="true">Avellaneda</a>
-          <span aria-hidden="true">&middot;</span>
-          <span>2026-04-09 20:30</span>
-        </p>
-      </div>
-      <div class="front-board-peak-chips">
-        <span class="chip" data-i18n-meta-line>9% sold | Room 12</span>
-        
-        <span
-          class="chip chip-neutral"
-          data-i18n-seat-note
-          data-seats-total="182"
-          data-seats-available="166"
-        >166 available of 182</span>
-        
-      </div>
+    <div class="front-cartelera-peak-line">
+      <span class="front-cartelera-peak-label" data-i18n-source>Peak crowd</span>
+      <a class="front-cartelera-peak-title" href="/cinema-watch-snapshot/movies/el-drama/" data-live-nav="true">El Drama</a>
+      <span class="front-cartelera-peak-meta">
+        <a href="/cinema-watch-snapshot/venues/cinepolis/avellaneda/" data-live-nav="true">Avellaneda</a>
+        <span>2026-04-09 20:30</span>
+      </span>
+      <span class="front-cartelera-peak-meta">9% <span data-i18n-source>sold</span></span>
+      
+      <span class="front-cartelera-peak-meta"><span data-i18n-source>Room</span> 12</span>
+      
     </div>
     
   </div>
@@ -8408,70 +7992,33 @@
             data-front-board-panel="tomorrow"
             hidden
           >
-            <div class="front-mini-board-head front-cartelera-board-head">
-              <div class="front-cartelera-board-title">
-                
-                <span class="front-board-kicker">2026-04-10</span>
-                
-                <h3>Mañana</h3>
-              </div>
-              <div class="chips front-board-counts">
-                <span class="chip" data-i18n-count="screening" data-i18n-count-value="91">91 screenings</span>
-                
-                <span class="chip chip-neutral">11 salas</span>
-                
-              </div>
-            </div>
             
-  <div class="front-board-signals">
-    <div class="front-board-summary">
+  
+  <div class="front-cartelera-summary">
+    <div class="front-cartelera-summary-line">
       
-      <div class="front-board-stat">
-        <span class="front-board-stat-label" data-i18n-source>Cache range</span>
-        <strong>2026-04-10</strong>
-      </div>
+      <span class="front-cartelera-summary-date">2026-04-10</span>
       
+      <span data-i18n-count="screening" data-i18n-count-value="91">91 screenings</span>
       
-      <div class="front-board-stat">
-        <span class="front-board-stat-label" data-i18n-source>Rooms identified</span>
-        <strong>11</strong>
-      </div>
+      <span data-i18n-count="room" data-i18n-count-value="11">11 rooms</span>
       
       
-      <div class="front-board-stat">
-        <span class="front-board-stat-label" data-i18n-source>Sold data</span>
-        <strong>50</strong>
-      </div>
-      
-      
-      <div class="front-board-stat">
-        <span class="front-board-stat-label" data-i18n-source>Top venue</span>
-        <strong><a href="/cinema-watch-snapshot/venues/cinepolis/avellaneda/" data-live-nav="true">Avellaneda</a></strong>
-      </div>
+      <a class="front-cartelera-summary-link" href="/cinema-watch-snapshot/venues/cinepolis/avellaneda/" data-live-nav="true">Avellaneda</a>
       
     </div>
     
-    <div class="front-board-peak">
-      <div class="front-board-peak-copy">
-        <span class="front-board-peak-label" data-i18n-source>Peak crowd</span>
-        <strong><a href="/cinema-watch-snapshot/movies/el-drama/" data-live-nav="true">El Drama</a></strong>
-        <p class="front-board-peak-meta">
-          <a href="/cinema-watch-snapshot/venues/cinepolis/avellaneda/" data-live-nav="true">Avellaneda</a>
-          <span aria-hidden="true">&middot;</span>
-          <span>2026-04-10 20:30</span>
-        </p>
-      </div>
-      <div class="front-board-peak-chips">
-        <span class="chip" data-i18n-meta-line>12% sold | Room 12</span>
-        
-        <span
-          class="chip chip-neutral"
-          data-i18n-seat-note
-          data-seats-total="182"
-          data-seats-available="160"
-        >160 available of 182</span>
-        
-      </div>
+    <div class="front-cartelera-peak-line">
+      <span class="front-cartelera-peak-label" data-i18n-source>Peak crowd</span>
+      <a class="front-cartelera-peak-title" href="/cinema-watch-snapshot/movies/el-drama/" data-live-nav="true">El Drama</a>
+      <span class="front-cartelera-peak-meta">
+        <a href="/cinema-watch-snapshot/venues/cinepolis/avellaneda/" data-live-nav="true">Avellaneda</a>
+        <span>2026-04-10 20:30</span>
+      </span>
+      <span class="front-cartelera-peak-meta">12% <span data-i18n-source>sold</span></span>
+      
+      <span class="front-cartelera-peak-meta"><span data-i18n-source>Room</span> 12</span>
+      
     </div>
     
   </div>
@@ -8585,34 +8132,17 @@
             data-front-board-panel="upcoming_premieres"
             hidden
           >
-            <div class="front-mini-board-head front-cartelera-board-head">
-              <div class="front-cartelera-board-title">
-                
-                <span class="front-board-kicker">2026-04-16 to 2026-04-22</span>
-                
-                <h3>Proximos estrenos</h3>
-              </div>
-              <div class="chips front-board-counts">
-                <span class="chip" data-i18n-count="screening" data-i18n-count-value="35">35 screenings</span>
-                
-              </div>
-            </div>
             
-  <div class="front-board-signals">
-    <div class="front-board-summary">
+  
+  <div class="front-cartelera-summary">
+    <div class="front-cartelera-summary-line">
       
-      <div class="front-board-stat">
-        <span class="front-board-stat-label" data-i18n-source>Cache range</span>
-        <strong>2026-04-16 to 2026-04-22</strong>
-      </div>
+      <span class="front-cartelera-summary-date">2026-04-16 to 2026-04-22</span>
       
-      
+      <span data-i18n-count="screening" data-i18n-count-value="35">35 screenings</span>
       
       
-      <div class="front-board-stat">
-        <span class="front-board-stat-label" data-i18n-source>Top venue</span>
-        <strong><a href="/cinema-watch-snapshot/venues/showcase/showcase_quilmes/" data-live-nav="true">Quilmes</a></strong>
-      </div>
+      <a class="front-cartelera-summary-link" href="/cinema-watch-snapshot/venues/showcase/showcase_quilmes/" data-live-nav="true">Quilmes</a>
       
     </div>
     
@@ -8799,70 +8329,33 @@
             data-front-board-panel="subtitled"
             hidden
           >
-            <div class="front-mini-board-head front-cartelera-board-head">
-              <div class="front-cartelera-board-title">
-                
-                <span class="front-board-kicker">2026-04-09 to 2026-04-15</span>
-                
-                <h3>Subtituladas</h3>
-              </div>
-              <div class="chips front-board-counts">
-                <span class="chip" data-i18n-count="screening" data-i18n-count-value="74">74 screenings</span>
-                
-                <span class="chip chip-neutral">6 salas</span>
-                
-              </div>
-            </div>
             
-  <div class="front-board-signals">
-    <div class="front-board-summary">
+  
+  <div class="front-cartelera-summary">
+    <div class="front-cartelera-summary-line">
       
-      <div class="front-board-stat">
-        <span class="front-board-stat-label" data-i18n-source>Cache range</span>
-        <strong>2026-04-09 to 2026-04-15</strong>
-      </div>
+      <span class="front-cartelera-summary-date">2026-04-09 to 2026-04-15</span>
       
+      <span data-i18n-count="screening" data-i18n-count-value="74">74 screenings</span>
       
-      <div class="front-board-stat">
-        <span class="front-board-stat-label" data-i18n-source>Rooms identified</span>
-        <strong>6</strong>
-      </div>
+      <span data-i18n-count="room" data-i18n-count-value="6">6 rooms</span>
       
       
-      <div class="front-board-stat">
-        <span class="front-board-stat-label" data-i18n-source>Sold data</span>
-        <strong>32</strong>
-      </div>
-      
-      
-      <div class="front-board-stat">
-        <span class="front-board-stat-label" data-i18n-source>Top venue</span>
-        <strong><a href="/cinema-watch-snapshot/venues/showcase/showcase_quilmes/" data-live-nav="true">Quilmes</a></strong>
-      </div>
+      <a class="front-cartelera-summary-link" href="/cinema-watch-snapshot/venues/showcase/showcase_quilmes/" data-live-nav="true">Quilmes</a>
       
     </div>
     
-    <div class="front-board-peak">
-      <div class="front-board-peak-copy">
-        <span class="front-board-peak-label" data-i18n-source>Peak crowd</span>
-        <strong><a href="/cinema-watch-snapshot/movies/bts-world-tour-arirang-in-goyang-live-viewing/" data-live-nav="true">BTS WORLD TOUR ‘ARIRANG’ IN GOYANG: LIVE VIEWING</a></strong>
-        <p class="front-board-peak-meta">
-          <a href="/cinema-watch-snapshot/venues/cinepolis/avellaneda/" data-live-nav="true">Avellaneda</a>
-          <span aria-hidden="true">&middot;</span>
-          <span>2026-04-11 16:00</span>
-        </p>
-      </div>
-      <div class="front-board-peak-chips">
-        <span class="chip" data-i18n-meta-line>40% sold | Room 6</span>
-        
-        <span
-          class="chip chip-neutral"
-          data-i18n-seat-note
-          data-seats-total="176"
-          data-seats-available="105"
-        >105 available of 176</span>
-        
-      </div>
+    <div class="front-cartelera-peak-line">
+      <span class="front-cartelera-peak-label" data-i18n-source>Peak crowd</span>
+      <a class="front-cartelera-peak-title" href="/cinema-watch-snapshot/movies/bts-world-tour-arirang-in-goyang-live-viewing/" data-live-nav="true">BTS WORLD TOUR ‘ARIRANG’ IN GOYANG: LIVE VIEWING</a>
+      <span class="front-cartelera-peak-meta">
+        <a href="/cinema-watch-snapshot/venues/cinepolis/avellaneda/" data-live-nav="true">Avellaneda</a>
+        <span>2026-04-11 16:00</span>
+      </span>
+      <span class="front-cartelera-peak-meta">40% <span data-i18n-source>sold</span></span>
+      
+      <span class="front-cartelera-peak-meta"><span data-i18n-source>Room</span> 6</span>
+      
     </div>
     
   </div>
@@ -9008,70 +8501,33 @@
             data-front-board-panel="top_sold"
             hidden
           >
-            <div class="front-mini-board-head front-cartelera-board-head">
-              <div class="front-cartelera-board-title">
-                
-                <span class="front-board-kicker">2026-04-09</span>
-                
-                <h3>Mas vendidas</h3>
-              </div>
-              <div class="chips front-board-counts">
-                <span class="chip" data-i18n-count="screening" data-i18n-count-value="91">91 screenings</span>
-                
-                <span class="chip chip-neutral">11 salas</span>
-                
-              </div>
-            </div>
             
-  <div class="front-board-signals">
-    <div class="front-board-summary">
+  
+  <div class="front-cartelera-summary">
+    <div class="front-cartelera-summary-line">
       
-      <div class="front-board-stat">
-        <span class="front-board-stat-label" data-i18n-source>Cache range</span>
-        <strong>2026-04-09</strong>
-      </div>
+      <span class="front-cartelera-summary-date">2026-04-09</span>
       
+      <span data-i18n-count="screening" data-i18n-count-value="91">91 screenings</span>
       
-      <div class="front-board-stat">
-        <span class="front-board-stat-label" data-i18n-source>Rooms identified</span>
-        <strong>11</strong>
-      </div>
+      <span data-i18n-count="room" data-i18n-count-value="11">11 rooms</span>
       
       
-      <div class="front-board-stat">
-        <span class="front-board-stat-label" data-i18n-source>Sold data</span>
-        <strong>50</strong>
-      </div>
-      
-      
-      <div class="front-board-stat">
-        <span class="front-board-stat-label" data-i18n-source>Top venue</span>
-        <strong><a href="/cinema-watch-snapshot/venues/cinepolis/avellaneda/" data-live-nav="true">Avellaneda</a></strong>
-      </div>
+      <a class="front-cartelera-summary-link" href="/cinema-watch-snapshot/venues/cinepolis/avellaneda/" data-live-nav="true">Avellaneda</a>
       
     </div>
     
-    <div class="front-board-peak">
-      <div class="front-board-peak-copy">
-        <span class="front-board-peak-label" data-i18n-source>Peak crowd</span>
-        <strong><a href="/cinema-watch-snapshot/movies/el-drama/" data-live-nav="true">El Drama</a></strong>
-        <p class="front-board-peak-meta">
-          <a href="/cinema-watch-snapshot/venues/cinepolis/avellaneda/" data-live-nav="true">Avellaneda</a>
-          <span aria-hidden="true">&middot;</span>
-          <span>2026-04-09 20:30</span>
-        </p>
-      </div>
-      <div class="front-board-peak-chips">
-        <span class="chip" data-i18n-meta-line>9% sold | Room 12</span>
-        
-        <span
-          class="chip chip-neutral"
-          data-i18n-seat-note
-          data-seats-total="182"
-          data-seats-available="166"
-        >166 available of 182</span>
-        
-      </div>
+    <div class="front-cartelera-peak-line">
+      <span class="front-cartelera-peak-label" data-i18n-source>Peak crowd</span>
+      <a class="front-cartelera-peak-title" href="/cinema-watch-snapshot/movies/el-drama/" data-live-nav="true">El Drama</a>
+      <span class="front-cartelera-peak-meta">
+        <a href="/cinema-watch-snapshot/venues/cinepolis/avellaneda/" data-live-nav="true">Avellaneda</a>
+        <span>2026-04-09 20:30</span>
+      </span>
+      <span class="front-cartelera-peak-meta">9% <span data-i18n-source>sold</span></span>
+      
+      <span class="front-cartelera-peak-meta"><span data-i18n-source>Room</span> 12</span>
+      
     </div>
     
   </div>
@@ -9665,6 +9121,8 @@
           'Unlock admin': 'Desbloquear admin',
           'Recoleta room 6': 'Recoleta sala 6',
           'Room 6': 'Sala 6',
+          'Room': 'Sala',
+          'sold': 'vendida',
           'Special room': 'Sala especial',
           'Sign out': 'Salir',
           'Sign in': 'Entrar',
