@@ -1690,6 +1690,13 @@
       line-height: 1.14;
     }
 
+    .front-screening-title-line {
+      display: flex;
+      flex-wrap: wrap;
+      align-items: center;
+      gap: 0.42rem;
+    }
+
     .front-screening-copy p {
       color: var(--muted);
       font-size: 0.88rem;
@@ -2370,6 +2377,12 @@
       color: var(--muted);
     }
 
+    .chip-peak {
+      background: rgba(88, 199, 179, 0.12);
+      color: var(--accent);
+      border: 1px solid rgba(88, 199, 179, 0.22);
+    }
+
     .mono {
       font-family: var(--mono-font);
       font-size: 0.88rem;
@@ -2929,7 +2942,7 @@
   </div>
   <div class="hero-side">
     <strong>Provider snapshot</strong>
-    <p data-i18n-freshness>Updated 2 h ago</p>
+    <p data-i18n-freshness>Updated 3 h ago</p>
     <div class="stats">
       <span class="stat">2949 cached screenings</span>
       <span class="stat">44 cached titles</span>
@@ -2946,7 +2959,7 @@
     </div>
     <div class="metric">
       <span class="muted">Freshness</span>
-      <strong style="font-size:1rem;" data-i18n-freshness>Updated 2 h ago</strong>
+      <strong style="font-size:1rem;" data-i18n-freshness>Updated 3 h ago</strong>
     </div>
   </div>
 </section>
@@ -3018,7 +3031,7 @@
             <span class="stat">530 cached screenings</span>
             <span class="stat">21 cached titles</span>
           </div>
-          <p data-i18n-freshness>Updated 2 h ago</p>
+          <p data-i18n-freshness>Updated 3 h ago</p>
           
           <p>Date range: 2026-04-04 to 2026-04-15</p>
           
@@ -3038,7 +3051,7 @@
             <span class="stat">238 cached screenings</span>
             <span class="stat">12 cached titles</span>
           </div>
-          <p data-i18n-freshness>Updated 2 h ago</p>
+          <p data-i18n-freshness>Updated 3 h ago</p>
           
           <p>Date range: 2026-04-06 to 2026-04-15</p>
           
@@ -3058,7 +3071,7 @@
             <span class="stat">241 cached screenings</span>
             <span class="stat">11 cached titles</span>
           </div>
-          <p data-i18n-freshness>Updated 2 h ago</p>
+          <p data-i18n-freshness>Updated 3 h ago</p>
           
           <p>Date range: 2026-04-06 to 2026-04-15</p>
           
@@ -3078,7 +3091,7 @@
             <span class="stat">355 cached screenings</span>
             <span class="stat">14 cached titles</span>
           </div>
-          <p data-i18n-freshness>Updated 2 h ago</p>
+          <p data-i18n-freshness>Updated 3 h ago</p>
           
           <p>Date range: 2026-04-06 to 2026-04-15</p>
           
@@ -3098,7 +3111,7 @@
             <span class="stat">124 cached screenings</span>
             <span class="stat">10 cached titles</span>
           </div>
-          <p data-i18n-freshness>Updated 2 h ago</p>
+          <p data-i18n-freshness>Updated 3 h ago</p>
           
           <p>Date range: 2026-04-06 to 2026-04-13</p>
           
@@ -3120,7 +3133,7 @@
             <span class="stat">379 cached screenings</span>
             <span class="stat">32 cached titles</span>
           </div>
-          <p data-i18n-freshness>Updated 2 h ago</p>
+          <p data-i18n-freshness>Updated 3 h ago</p>
           
           <p>Date range: 2026-04-04 to 2026-04-15</p>
           
@@ -3140,7 +3153,7 @@
             <span class="stat">143 cached screenings</span>
             <span class="stat">8 cached titles</span>
           </div>
-          <p data-i18n-freshness>Updated 2 h ago</p>
+          <p data-i18n-freshness>Updated 3 h ago</p>
           
           <p>Date range: 2026-04-06 to 2026-04-15</p>
           
@@ -3160,7 +3173,7 @@
             <span class="stat">417 cached screenings</span>
             <span class="stat">16 cached titles</span>
           </div>
-          <p data-i18n-freshness>Updated 2 h ago</p>
+          <p data-i18n-freshness>Updated 3 h ago</p>
           
           <p>Date range: 2026-04-06 to 2026-04-15</p>
           
@@ -3180,7 +3193,7 @@
             <span class="stat">286 cached screenings</span>
             <span class="stat">12 cached titles</span>
           </div>
-          <p data-i18n-freshness>Updated 2 h ago</p>
+          <p data-i18n-freshness>Updated 3 h ago</p>
           
           <p>Date range: 2026-04-06 to 2026-04-15</p>
           
@@ -3200,7 +3213,7 @@
             <span class="stat">236 cached screenings</span>
             <span class="stat">11 cached titles</span>
           </div>
-          <p data-i18n-freshness>Updated 2 h ago</p>
+          <p data-i18n-freshness>Updated 3 h ago</p>
           
           <p>Date range: 2026-04-06 to 2026-04-15</p>
           
@@ -3318,6 +3331,7 @@
           'Where should we go?': '¿A dónde vamos?',
           "A quick guide to today's screenings, special rooms, and favorite cinemas.": 'Una guía rápida de las funciones de hoy, salas especiales y cines favoritos.',
           'View in Cartelera': 'Ver en Cartelera',
+          'Peak': 'Pico',
           'Now showing and upcoming premieres in this area.': 'En cartelera y próximos estrenos en esta zona.',
           'Zone': 'Zona',
           'Change the area and the boards below follow that choice.': 'Cambiá la zona y las carteleras de abajo siguen esa elección.',
@@ -5163,15 +5177,26 @@
         return nextRows;
       }
 
+      function frontRowIdentity(row) {
+        return [
+          String(row?.date_iso || ''),
+          String(row?.time_label || ''),
+          String(row?.movie_title || ''),
+          String(row?.provider_name || ''),
+          String(row?.venue_name || row?.venue_href || ''),
+          row?.room_number === null || row?.room_number === undefined ? '' : String(row.room_number),
+        ].join('|');
+      }
+
       function renderFrontSignals(panel, rows) {
         const signalBox = panel.querySelector('[data-front-advanced-signals]');
         if (!(signalBox instanceof HTMLElement)) {
-          return;
+          return null;
         }
         if (!rows.length) {
           signalBox.hidden = true;
           signalBox.innerHTML = '';
-          return;
+          return null;
         }
 
         const insights = buildFrontInsights(rows);
@@ -5202,45 +5227,13 @@
           summary.push(`<span class="front-cartelera-summary-link">${venueHtml}</span>`);
         }
 
-        let peakMarkup = '';
-        if (insights.peakRow) {
-          const peak = insights.peakRow;
-          const movieTitle = escapeHtml(String(peak.movie_title || ''));
-          const movieHref = String(peak.movie_href || '').trim();
-          const movieHtml = movieHref
-            ? `<a href="${escapeHtml(movieHref)}" data-live-nav="true">${movieTitle}</a>`
-            : movieTitle;
-          const venueLabel = escapeHtml(String(peak.venue_name || peak.provider_name || ''));
-          const venueHref = String(peak.venue_href || '').trim();
-          const venueHtml = venueHref
-            ? `<a href="${escapeHtml(venueHref)}" data-live-nav="true">${venueLabel}</a>`
-            : venueLabel;
-          const peakMeta = [
-            `<span class="front-cartelera-peak-meta">${venueHtml}</span>`,
-            `<span class="front-cartelera-peak-meta">${escapeHtml(String(peak.date_iso || ''))} ${escapeHtml(String(peak.time_label || ''))}</span>`,
-            `<span class="front-cartelera-peak-meta">${escapeHtml(String(peak.sold_percent))}% <span data-i18n-source>sold</span></span>`,
-          ];
-          if (peak.room_number !== null) {
-            peakMeta.push(
-              `<span class="front-cartelera-peak-meta"><span data-i18n-source>Room</span> ${escapeHtml(String(peak.room_number))}</span>`
-            );
-          }
-          peakMarkup = `
-            <div class="front-cartelera-peak-line">
-              <span class="front-cartelera-peak-label" data-i18n-source>Peak crowd</span>
-              <span class="front-cartelera-peak-title">${movieHtml}</span>
-              ${peakMeta.join('')}
-            </div>
-          `;
-        }
-
         signalBox.hidden = false;
         signalBox.innerHTML = `
           <div class="front-cartelera-summary">
             <div class="front-cartelera-summary-line">${summary.join('')}</div>
-            ${peakMarkup}
           </div>
         `;
+        return insights;
       }
 
       function renderAdvancedRows(panel, rows, resultPreset = null) {
@@ -5250,7 +5243,8 @@
         }
 
         const sorted = sortRowsForFront(rows, resultPreset);
-        renderFrontSignals(panel, sorted);
+        const insights = renderFrontSignals(panel, sorted);
+        const peakRowIdentity = insights?.peakRow ? frontRowIdentity(insights.peakRow) : '';
 
         if (!sorted.length) {
           container.innerHTML = `<div class="empty" data-i18n-source>No screenings matched the published board with these filters.</div>`;
@@ -5279,11 +5273,14 @@
             if (item.room_number) metaParts.push(roomLabel(item.room_number));
             if (Number.isInteger(item.sold_percent)) metaParts.push(soldLabel(item.sold_percent));
             const metaLine = metaParts.join(' | ');
+            const peakFlag = peakRowIdentity && frontRowIdentity(item) === peakRowIdentity
+              ? `<span class="chip chip-peak" data-i18n-source>Peak</span>`
+              : '';
             return `
               <div class="front-screening-row">
                 <span class="mini-time">${escapeHtml(item.time_label)}</span>
                 <div class="front-screening-copy">
-                  <strong>${movieLine}</strong>
+                  <strong class="front-screening-title-line">${movieLine}${peakFlag}</strong>
                   <p>${venueLine}${metaLine ? ` <span data-i18n-meta-line>| ${escapeHtml(metaLine)}</span>` : ''}</p>
                 </div>
               </div>
