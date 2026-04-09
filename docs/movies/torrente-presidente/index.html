@@ -3908,11 +3908,15 @@
 
       let currentLanguage = initialLanguage();
 
+      let _cachedI18nSources = null;
+      let _cachedLanguageOptions = null;
+      let _cachedI18nPlaceholders = null;
       function applyTranslations(root = document) {
         document.documentElement.lang = currentLanguage === 'es' ? 'es-AR' : 'en';
         document.documentElement.dataset.language = currentLanguage;
         const scope = root instanceof Element || root instanceof Document ? root : document;
-        scope.querySelectorAll('[data-i18n-source]').forEach((element) => {
+        const sources = scope === document ? (_cachedI18nSources || (_cachedI18nSources = scope.querySelectorAll('[data-i18n-source]'))) : scope.querySelectorAll('[data-i18n-source]');
+        sources.forEach((element) => {
           if (!element.dataset.i18nSourceOriginal) {
             element.dataset.i18nSourceOriginal = normalizeSource(element.textContent);
           }
@@ -3932,7 +3936,8 @@
           }
           element.setAttribute('placeholder', translateSource(element.dataset.i18nPlaceholderOriginal || ''));
         });
-        document.querySelectorAll('[data-language-option]').forEach((button) => {
+        if (!_cachedLanguageOptions) _cachedLanguageOptions = document.querySelectorAll('[data-language-option]');
+        _cachedLanguageOptions.forEach((button) => {
           const pressed = button.getAttribute('data-language-option') === currentLanguage;
           button.setAttribute('aria-pressed', pressed ? 'true' : 'false');
         });
@@ -4119,8 +4124,10 @@
         return event.defaultPrevented || event.button !== 0 || event.metaKey || event.ctrlKey || event.shiftKey || event.altKey;
       }
 
+      let _cachedScreeningsLink = null;
       function getScreeningsLink() {
-        return document.querySelector('[data-nav-link="screenings"]');
+        if (!_cachedScreeningsLink) _cachedScreeningsLink = document.querySelector('[data-nav-link="screenings"]');
+        return _cachedScreeningsLink;
       }
 
       function extractHomePathFromScreeningsLink(link) {
@@ -4296,8 +4303,11 @@
         window.location.assign(targetUrl);
       }
 
+      let _cachedToolbarZones = null;
       function closeToolbarZones(except = null) {
-        document.querySelectorAll('.toolbar-zone[open]').forEach((element) => {
+        if (!_cachedToolbarZones) _cachedToolbarZones = document.querySelectorAll('.toolbar-zone');
+        _cachedToolbarZones.forEach((element) => {
+          if (!element.hasAttribute('open')) return;
           if (!(element instanceof HTMLDetailsElement) || element === except) {
             return;
           }
@@ -4306,7 +4316,8 @@
       }
 
       function syncToolbarZoneSummaries() {
-        document.querySelectorAll('.toolbar-zone').forEach((element) => {
+        if (!_cachedToolbarZones) _cachedToolbarZones = document.querySelectorAll('.toolbar-zone');
+        _cachedToolbarZones.forEach((element) => {
           if (!(element instanceof HTMLDetailsElement)) {
             return;
           }
@@ -4317,13 +4328,14 @@
         });
       }
 
+      let _cachedNavLinks = null;
       function syncTopNavState() {
         const path = window.location.pathname || '/';
         const params = new URLSearchParams(window.location.search || '');
         const category = (params.get('category') || '').toLowerCase();
         const focusParam = (params.get('focus') || '').toLowerCase();
         const hash = (window.location.hash || '').toLowerCase();
-        const screeningsLink = document.querySelector('[data-nav-link="screenings"]');
+        const screeningsLink = getScreeningsLink();
         const homePath = ensureCarteleraNavHref(screeningsLink);
         const relativePath = relativePathFromHome(path, homePath);
         const onHome = relativePath === '/';
@@ -4337,7 +4349,8 @@
           special_rooms: (onHome && (specialRoomsHashActive || specialRoomsFocusActive))
             || (relativePath.startsWith('/screenings') && ['imax', 'dolby_atmos'].includes(category)),
         };
-        document.querySelectorAll('[data-nav-link]').forEach((link) => {
+        if (!_cachedNavLinks) _cachedNavLinks = document.querySelectorAll('[data-nav-link]');
+        _cachedNavLinks.forEach((link) => {
           if (!(link instanceof HTMLElement)) {
             return;
           }
@@ -4869,9 +4882,10 @@
         applyFilterPresetToForm(form, preset);
       }
 
+      let _cachedAdvancedForms = null;
       function syncActiveQuickBoardPresets(root = document) {
         const locationKeys = new Set(
-          Array.from(root.querySelectorAll('form[data-front-advanced-form="true"]'))
+          Array.from(root === document ? (_cachedAdvancedForms || (_cachedAdvancedForms = root.querySelectorAll('form[data-front-advanced-form="true"]'))) : root.querySelectorAll('form[data-front-advanced-form="true"]'))
             .map((form) => form instanceof HTMLFormElement ? String(form.dataset.frontLocationKey || '').trim() : '')
             .filter(Boolean)
         );
@@ -4891,7 +4905,8 @@
           ? `${window.location.pathname}?${query}#cartelera`
           : `${window.location.pathname}#cartelera`;
         window.history.replaceState({}, '', next);
-        document.querySelectorAll('form[data-front-advanced-form="true"]').forEach((form) => {
+        if (!_cachedAdvancedForms) _cachedAdvancedForms = document.querySelectorAll('form[data-front-advanced-form="true"]');
+        _cachedAdvancedForms.forEach((form) => {
           if (form instanceof HTMLFormElement) {
             form.dataset.frontQueryFiltersActive = 'false';
           }

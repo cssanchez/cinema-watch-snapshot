@@ -5,3 +5,7 @@
 ## 2024-04-08 - [Pre-compiling Regex in processing loops]
 **Learning:** In Python scripts that iteratively process many files (like `apply_ux_improvements.py`), using inline `re.compile()` or inline `re.sub()`/`re.search()` causes the regex engine to re-compile (or check its cache for) the pattern on every call, leading to measurable overhead.
 **Action:** Always pre-compile regex patterns at the module level using `re.compile()` and reuse them as constants within the file processing loops to eliminate redundant compilation overhead.
+
+## 2024-04-08 - [Caching DOM Queries in Event Listeners]
+**Learning:** In static sites, calling `document.querySelector` or `document.querySelectorAll` inside frequently triggered event listeners (like scroll, hashchange, or popstate) or loops causes redundant DOM traversals. Since the static DOM structure does not change after load, these queries are unnecessarily expensive.
+**Action:** When optimizing injected JavaScript, avoid repeated DOM queries inside event listeners by lazily caching DOM elements at the script's global scope (`let _cachedElement = null; ... if (!_cachedElement) _cachedElement = document.querySelector(...)`).
