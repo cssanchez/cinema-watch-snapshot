@@ -1,5 +1,10 @@
 import pytest
-from apply_ux_improvements import transform_5_count_format
+from apply_ux_improvements import (
+    extract_sold_percentage,
+    transform_1_demote_freshness,
+    transform_5_count_format,
+)
+
 
 def test_transform_5_basic():
     """Test basic transformation with a single section and correct count."""
@@ -90,7 +95,6 @@ def test_transform_5_multiple_labels_in_section():
     assert "2 of 2 shown" in result
     assert "Actually >2 of 2 shown< here too" in result
 
-from apply_ux_improvements import extract_sold_percentage
 
 def test_extract_sold_percentage():
     """Test extract_sold_percentage with various edge cases."""
@@ -104,3 +108,73 @@ def test_extract_sold_percentage():
     assert extract_sold_percentage("Only 5% sold so far") == 5.0
     assert extract_sold_percentage("123% sold") == 123.0
     assert extract_sold_percentage("45 % sold") == 0.0 # current regex doesn't handle space before %
+
+
+def test_transform_1_demote_freshness_full():
+    """Test full transformation of .front-freshness and .front-freshness strong."""
+    content = """
+    <style>
+    .front-freshness strong {
+      font-family: var(--heading-font);
+      font-weight: 600;
+      font-size: 1.1rem;
+    }
+    .front-freshness {
+      padding: 0.9rem 1rem;
+      background: rgba(255, 255, 255, 0.035);
+      border-radius: var(--radius-md);
+    }
+    </style>
+    """
+    expected = """
+    <style>
+    .front-freshness strong {
+      font-family: var(--ui-font);
+      font-weight: 600;
+      font-size: 0.9rem;
+    }
+    .front-freshness {
+      padding: 0.6rem 0.8rem;
+      background: rgba(255, 255, 255, 0.02);
+      border-radius: var(--radius-md);
+    }
+    </style>
+    """
+    assert transform_1_demote_freshness(content) == expected
+
+def test_transform_1_demote_freshness_no_match():
+    """Test that content without matching CSS rules remains unchanged."""
+    content = """
+    <style>
+    .front-freshness strong {
+      font-family: var(--ui-font);
+      font-weight: 600;
+      font-size: 0.9rem;
+    }
+    .other-class {
+      padding: 0.9rem 1rem;
+      background: rgba(255, 255, 255, 0.035);
+    }
+    </style>
+    """
+    assert transform_1_demote_freshness(content) == content
+
+def test_transform_1_demote_freshness_partial():
+    """Test partial match scenarios."""
+    content = """
+    <style>
+    .front-freshness {
+      padding: 0.9rem 1rem;
+      border-radius: var(--radius-md);
+    }
+    </style>
+    """
+    expected = """
+    <style>
+    .front-freshness {
+      padding: 0.6rem 0.8rem;
+      border-radius: var(--radius-md);
+    }
+    </style>
+    """
+    assert transform_1_demote_freshness(content) == expected
