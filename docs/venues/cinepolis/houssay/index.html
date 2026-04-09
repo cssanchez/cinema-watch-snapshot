@@ -4080,6 +4080,36 @@
     (() => {
       const storageKey = 'cinema-watch-location';
       window.CineVicioLocationTransition = window.CineVicioLocationTransition || { active: false, sectionKey: '' };
+      let frozenViewportScrollY = null;
+
+      function freezeViewport() {
+        if (frozenViewportScrollY !== null) {
+          return frozenViewportScrollY;
+        }
+        frozenViewportScrollY = window.scrollY;
+        document.body.style.position = 'fixed';
+        document.body.style.top = `-${frozenViewportScrollY}px`;
+        document.body.style.left = '0';
+        document.body.style.right = '0';
+        document.body.style.width = '100%';
+        document.body.style.overflowY = 'scroll';
+        return frozenViewportScrollY;
+      }
+
+      function unfreezeViewport(nextTop = null) {
+        const fallbackTop = frozenViewportScrollY ?? window.scrollY;
+        document.body.style.position = '';
+        document.body.style.top = '';
+        document.body.style.left = '';
+        document.body.style.right = '';
+        document.body.style.width = '';
+        document.body.style.overflowY = '';
+        frozenViewportScrollY = null;
+        window.scrollTo({
+          top: typeof nextTop === 'number' && Number.isFinite(nextTop) ? nextTop : fallbackTop,
+          behavior: 'auto',
+        });
+      }
 
       function currentLocationKey(root = document) {
         const scope = root instanceof Element || root instanceof Document ? root : document;
@@ -4146,6 +4176,9 @@
         const transitionState = window.CineVicioLocationTransition;
         transitionState.active = Boolean(currentSectionState);
         transitionState.sectionKey = currentSectionState?.key || '';
+        if (currentSectionState) {
+          freezeViewport();
+        }
         const availableKeys = new Set([
           ...panels.map((panel) => panel.dataset.locationPanel || ''),
           ...buttons.map((button) => button.dataset.locationTarget || ''),
@@ -4179,21 +4212,31 @@
           window.localStorage.setItem(storageKey, nextKey);
         }
 
-        if (currentSectionState && typeof window.CineVicioNav?.restoreSectionState === 'function') {
-          window.CineVicioNav.restoreSectionState(currentSectionState, { behavior: 'auto' });
+        if (currentSectionState && typeof window.CineVicioNav?.resolveSectionStateTop === 'function') {
           window.CineVicioNav.sync?.();
           window.requestAnimationFrame(() => {
-            window.CineVicioNav.restoreSectionState(currentSectionState, { behavior: 'auto' });
-            window.CineVicioNav.sync?.();
+            const firstTop = window.CineVicioNav.resolveSectionStateTop(currentSectionState);
             window.requestAnimationFrame(() => {
-              transitionState.active = false;
-              transitionState.sectionKey = '';
+              const settledTop = window.CineVicioNav.resolveSectionStateTop(currentSectionState);
+              unfreezeViewport(Number.isFinite(settledTop) ? settledTop : firstTop);
               window.CineVicioNav.sync?.();
+              window.requestAnimationFrame(() => {
+                const finalTop = window.CineVicioNav.resolveSectionStateTop(currentSectionState);
+                if (Number.isFinite(finalTop)) {
+                  window.scrollTo({ top: finalTop, behavior: 'auto' });
+                }
+                transitionState.active = false;
+                transitionState.sectionKey = '';
+                window.CineVicioNav.sync?.();
+              });
             });
           });
         } else {
           transitionState.active = false;
           transitionState.sectionKey = '';
+          if (frozenViewportScrollY !== null) {
+            unfreezeViewport();
+          }
         }
 
         return nextKey;
@@ -4445,9 +4488,9 @@
         };
       }
 
-      function restoreHomeSectionState(state, { behavior = 'auto' } = {}) {
+      function resolveHomeSectionStateTop(state) {
         if (!state) {
-          return false;
+          return null;
         }
         const sections = getActiveHomeSections();
         const visiblePanel = getVisibleLocationPanel();
@@ -4455,7 +4498,7 @@
           || visiblePanel
           || sections.cartelera;
         if (!(target instanceof HTMLElement)) {
-          return false;
+          return null;
         }
         const targetTop = target.getBoundingClientRect().top + window.scrollY;
         const nextTarget = getNextHomeSectionElement(sections, state.key);
@@ -4472,8 +4515,16 @@
         const sectionMaxOffset = nextTop
           ? Math.max(0, nextTop - targetTop - 28)
           : Math.max(0, documentMaxTop - targetTop);
+        return Math.max(0, Math.min(documentMaxTop, targetTop + Math.min(desiredOffset, sectionMaxOffset)));
+      }
+
+      function restoreHomeSectionState(state, { behavior = 'auto' } = {}) {
+        const nextTop = resolveHomeSectionStateTop(state);
+        if (!Number.isFinite(nextTop)) {
+          return false;
+        }
         window.scrollTo({
-          top: Math.max(0, Math.min(documentMaxTop, targetTop + Math.min(desiredOffset, sectionMaxOffset))),
+          top: nextTop,
           behavior,
         });
         return true;
@@ -4728,6 +4779,7 @@
         currentSectionState: currentHomeSectionState,
         getHomePath,
         navigateHomeHash,
+        resolveSectionStateTop: resolveHomeSectionStateTop,
         restoreSectionState: restoreHomeSectionState,
         scrollToCartelera,
         scrollToMoviesSection,
