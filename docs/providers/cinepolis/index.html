@@ -3601,13 +3601,21 @@
         return normalizedCurrent;
       }
 
-      function scrollToCartelera({ behavior = 'smooth' } = {}) {
-        const target = document.getElementById('cartelera');
+      function scrollToElementBelowHeader(target, { behavior = 'smooth', extraOffset = 18 } = {}) {
         if (!(target instanceof HTMLElement)) {
           return false;
         }
-        target.scrollIntoView({ behavior, block: 'start' });
+        const header = document.querySelector('.topbar');
+        const headerHeight = header instanceof HTMLElement ? header.getBoundingClientRect().height : 0;
+        const targetTop = target.getBoundingClientRect().top + window.scrollY;
+        const top = Math.max(0, targetTop - headerHeight - extraOffset);
+        window.scrollTo({ top, behavior });
         return true;
+      }
+
+      function scrollToCartelera({ behavior = 'smooth' } = {}) {
+        const target = document.getElementById('cartelera');
+        return scrollToElementBelowHeader(target, { behavior, extraOffset: 22 });
       }
 
       function scrollToSpecialRooms({ behavior = 'smooth' } = {}) {
@@ -3624,11 +3632,7 @@
               return !(panel instanceof HTMLElement) || !panel.hidden;
             });
         }
-        if (!(target instanceof HTMLElement)) {
-          return false;
-        }
-        target.scrollIntoView({ behavior, block: 'start' });
-        return true;
+        return scrollToElementBelowHeader(target, { behavior, extraOffset: 18 });
       }
 
       function scrollToMoviesSection({ behavior = 'smooth' } = {}) {
@@ -3645,11 +3649,7 @@
               return !(panel instanceof HTMLElement) || !panel.hidden;
             });
         }
-        if (!(target instanceof HTMLElement)) {
-          return false;
-        }
-        target.scrollIntoView({ behavior, block: 'start' });
-        return true;
+        return scrollToElementBelowHeader(target, { behavior, extraOffset: 18 });
       }
 
       function getActiveHomeSections() {
