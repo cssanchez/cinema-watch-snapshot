@@ -4081,11 +4081,10 @@
       function setHomepageLocation(root, key, { persist = true } = {}) {
         const buttons = Array.from(root.querySelectorAll('[data-location-target]'));
         const panels = Array.from(root.querySelectorAll('[data-location-panel]'));
-        const shouldPreserveSection = window.scrollY > 120;
-        const currentSectionHash = shouldPreserveSection
-          && typeof window.CineVicioNav?.currentSectionHash === 'function'
-          ? window.CineVicioNav.currentSectionHash()
-          : '';
+        const currentSectionState = window.scrollY > 120
+          && typeof window.CineVicioNav?.currentSectionState === 'function'
+          ? window.CineVicioNav.currentSectionState()
+          : null;
         const availableKeys = new Set([
           ...panels.map((panel) => panel.dataset.locationPanel || ''),
           ...buttons.map((button) => button.dataset.locationTarget || ''),
@@ -4119,10 +4118,10 @@
           window.localStorage.setItem(storageKey, nextKey);
         }
 
-        // Keep the reader in the same homepage section after the location panel reflows.
-        if (currentSectionHash && typeof window.CineVicioNav?.applyHash === 'function') {
+        // Keep the reader at the same depth within the current homepage section.
+        if (currentSectionState && typeof window.CineVicioNav?.restoreSectionState === 'function') {
           window.requestAnimationFrame(() => {
-            window.CineVicioNav.applyHash(currentSectionHash, { behavior: 'auto' });
+            window.CineVicioNav.restoreSectionState(currentSectionState, { behavior: 'auto' });
           });
         }
 
@@ -4321,6 +4320,45 @@
           return '#cartelera';
         }
         return '';
+      }
+
+      function currentHomeSectionState() {
+        const sections = getActiveHomeSections();
+        const key = currentHomeSectionFocus();
+        const target = key === 'movies'
+          ? sections.movies
+          : key === 'special_rooms'
+            ? sections.specials
+            : sections.cartelera;
+        if (!(target instanceof HTMLElement) || window.scrollY <= 120) {
+          return null;
+        }
+        const targetTop = target.getBoundingClientRect().top + window.scrollY;
+        return {
+          key,
+          offset: Math.max(0, window.scrollY - targetTop),
+        };
+      }
+
+      function restoreHomeSectionState(state, { behavior = 'auto' } = {}) {
+        if (!state) {
+          return false;
+        }
+        const sections = getActiveHomeSections();
+        const target = state.key === 'movies'
+          ? sections.movies
+          : state.key === 'special_rooms'
+            ? sections.specials
+            : sections.cartelera;
+        if (!(target instanceof HTMLElement)) {
+          return false;
+        }
+        const targetTop = target.getBoundingClientRect().top + window.scrollY;
+        window.scrollTo({
+          top: Math.max(0, targetTop + (state.offset || 0)),
+          behavior,
+        });
+        return true;
       }
 
       function setHomeHash(hash, { behavior = 'smooth' } = {}) {
@@ -4569,8 +4607,10 @@
       window.CineVicioNav = {
         applyHash: applyHomeHash,
         currentSectionHash: currentHomeSectionHash,
+        currentSectionState: currentHomeSectionState,
         getHomePath,
         navigateHomeHash,
+        restoreSectionState: restoreHomeSectionState,
         scrollToCartelera,
         scrollToMoviesSection,
         scrollToSpecialRooms,
