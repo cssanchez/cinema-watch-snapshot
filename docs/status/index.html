@@ -77,6 +77,7 @@
 
     html {
       scroll-behavior: smooth;
+      overflow-x: clip;
     }
 
     body {
@@ -89,6 +90,7 @@
         radial-gradient(circle at 88% 8%, rgba(88, 199, 179, 0.12), transparent 26rem),
         linear-gradient(180deg, #10141b 0%, var(--bg) 54%, var(--bg-deep) 100%);
       position: relative;
+      overflow-x: clip;
     }
 
     body::before {
@@ -137,6 +139,13 @@
       backdrop-filter: blur(16px);
       overflow: hidden;
       isolation: isolate;
+    }
+
+    @supports (width: 100dvw) {
+      .topbar {
+        margin-left: calc(50% - 50dvw);
+        margin-right: calc(50% - 50dvw);
+      }
     }
 
     .topbar::before {
@@ -2450,7 +2459,7 @@
     </div>
     <div class="metric">
       <span class="muted">Published at</span>
-      <strong style="font-size:1rem;">2026-04-09 05:15 UTC</strong>
+      <strong style="font-size:1rem;">2026-04-09 05:27 UTC</strong>
     </div>
   </div>
 </section>
