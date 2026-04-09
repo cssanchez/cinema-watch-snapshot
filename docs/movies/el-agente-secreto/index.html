@@ -1427,143 +1427,6 @@
         rgba(12, 15, 22, 0.9);
     }
 
-    .front-movie-grid {
-      grid-template-columns: minmax(0, 1.34fr) fit-content(35rem);
-      justify-content: space-between;
-      gap: 1rem;
-    }
-
-    .front-movie-section {
-      gap: 0.88rem;
-      padding: 1.08rem;
-    }
-
-    .front-movie-section--single-title {
-      width: min(100%, 35rem);
-      justify-self: end;
-      align-self: start;
-    }
-
-    .front-movie-section--in_theaters {
-      border-color: rgba(165, 178, 198, 0.18);
-      background:
-        linear-gradient(180deg, rgba(255, 255, 255, 0.045), rgba(11, 15, 22, 0.7)),
-        rgba(12, 15, 22, 0.86);
-    }
-
-    .front-movie-section--upcoming_premieres {
-      border-color: rgba(240, 139, 101, 0.18);
-      background:
-        linear-gradient(180deg, rgba(240, 139, 101, 0.08), rgba(12, 15, 22, 0.72)),
-        rgba(12, 15, 22, 0.86);
-    }
-
-    .front-movie-section-body {
-      display: grid;
-      grid-template-columns: minmax(17rem, 0.86fr) minmax(0, 1.14fr);
-      gap: 0.92rem;
-      align-items: start;
-    }
-
-    .front-movie-section-body.is-single {
-      grid-template-columns: 1fr;
-    }
-
-    .front-movie-lead {
-      gap: 0.72rem;
-      min-height: 0;
-      align-self: start;
-      align-content: start;
-      justify-items: start;
-      padding: 1.12rem;
-      border-color: rgba(165, 178, 198, 0.16);
-      background:
-        linear-gradient(180deg, rgba(255, 255, 255, 0.055), rgba(15, 20, 28, 0.88)),
-        rgba(255, 255, 255, 0.02);
-    }
-
-    .front-movie-lead-title {
-      font-family: var(--heading-font);
-      font-size: clamp(1.28rem, 2vw, 1.76rem);
-      line-height: 1;
-      letter-spacing: -0.02em;
-      max-width: none;
-    }
-
-    .front-movie-summary {
-      align-items: center;
-      justify-content: flex-start;
-    }
-
-    .front-movie-single {
-      gap: 0.7rem;
-      padding: 1rem 1.04rem;
-      align-content: start;
-    }
-
-    .front-movie-single-head {
-      display: flex;
-      justify-content: space-between;
-      gap: 0.9rem;
-      align-items: start;
-    }
-
-    .front-movie-single-copy {
-      display: grid;
-      gap: 0.26rem;
-      min-width: 0;
-    }
-
-    .front-movie-single-title {
-      font-family: var(--heading-font);
-      font-size: clamp(1.26rem, 1.8vw, 1.62rem);
-      line-height: 1;
-      letter-spacing: -0.02em;
-    }
-
-    .front-movie-list {
-      display: grid;
-      gap: 0.62rem;
-      align-content: start;
-    }
-
-    .front-movie-row {
-      display: grid;
-      gap: 0.52rem;
-      padding: 0.88rem 0.92rem;
-      border-radius: var(--radius-md);
-      border: 1px solid rgba(165, 178, 198, 0.12);
-      background: rgba(13, 18, 25, 0.54);
-      text-decoration: none;
-    }
-
-    .front-movie-row-head {
-      display: flex;
-      justify-content: space-between;
-      gap: 0.8rem;
-      align-items: start;
-    }
-
-    .front-movie-row-copy {
-      display: grid;
-      gap: 0.24rem;
-      min-width: 0;
-    }
-
-    .front-movie-row-copy strong {
-      font-size: 1rem;
-      line-height: 1.14;
-    }
-
-    .front-movie-meta {
-      display: flex;
-      flex-wrap: wrap;
-      gap: 0.22rem 0.56rem;
-      color: var(--muted);
-      font-size: 0.84rem;
-      line-height: 1.34;
-    }
-
     .front-screening-groups,
     .front-screening-list {
       display: grid;
@@ -2222,136 +2085,258 @@
 
     .front-movies {
       background:
-        radial-gradient(circle at 0% 0%, rgba(233, 225, 209, 0.06), transparent 30%),
+        radial-gradient(circle at 0% 0%, rgba(233, 225, 209, 0.08), transparent 28%),
+        radial-gradient(circle at 100% 10%, rgba(240, 139, 101, 0.06), transparent 26%),
         linear-gradient(180deg, rgba(255, 255, 255, 0.035), transparent 34%),
         rgba(12, 15, 22, 0.91);
     }
 
+    .front-movie-overview {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: flex-end;
+      gap: 0.3rem 0.78rem;
+      margin: 0;
+      color: rgba(209, 216, 226, 0.82);
+      font-size: 0.86rem;
+      line-height: 1.35;
+    }
+
+    .front-movie-overview span,
+    .front-movie-section-stats span,
+    .front-movie-metric-line span,
+    .front-movie-lineup-meta span,
+    .front-movie-signal-line span {
+      position: relative;
+    }
+
+    .front-movie-overview span + span::before,
+    .front-movie-section-stats span + span::before,
+    .front-movie-metric-line span + span::before,
+    .front-movie-lineup-meta span + span::before,
+    .front-movie-signal-line span + span::before {
+      content: "•";
+      margin-right: 0.56rem;
+      color: rgba(120, 135, 154, 0.72);
+    }
+
     .front-movie-grid {
-      grid-template-columns: minmax(0, 1.42fr) minmax(18rem, 0.9fr);
+      grid-template-columns: minmax(0, 1.54fr) minmax(18rem, 0.84fr);
       align-items: start;
-      gap: 0.92rem;
+      gap: 1rem;
     }
 
     .front-movie-section {
-      gap: 0.74rem;
-      padding: 1rem;
+      gap: 0.96rem;
+      padding: 1.06rem 1.08rem 1.12rem;
     }
 
     .front-movie-section--single-title {
-      width: min(100%, 31rem);
+      width: min(100%, 34rem);
       justify-self: end;
       align-self: start;
     }
 
-    .front-movie-feature {
-      display: grid;
-      gap: 0.6rem;
-      padding: 0.96rem 1rem;
-      border-radius: var(--radius-lg);
-      border: 1px solid rgba(165, 178, 198, 0.14);
+    .front-movie-section--in_theaters {
+      border-color: rgba(165, 178, 198, 0.18);
       background:
-        linear-gradient(180deg, rgba(255, 255, 255, 0.055), rgba(15, 20, 28, 0.88)),
-      rgba(255, 255, 255, 0.02);
-      text-decoration: none;
+        linear-gradient(180deg, rgba(255, 255, 255, 0.045), rgba(11, 15, 22, 0.7)),
+        rgba(12, 15, 22, 0.86);
+    }
+
+    .front-movie-section--upcoming_premieres {
+      border-color: rgba(240, 139, 101, 0.18);
+      background:
+        linear-gradient(180deg, rgba(240, 139, 101, 0.08), rgba(12, 15, 22, 0.72)),
+        rgba(12, 15, 22, 0.86);
+    }
+
+    .front-movie-section-head {
+      align-items: end;
+      gap: 0.7rem 1rem;
+    }
+
+    .front-movie-section-title {
+      display: grid;
+      gap: 0.1rem;
+    }
+
+    .front-movie-section-stats {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: flex-end;
+      gap: 0.3rem 0.72rem;
+      margin: 0;
+      color: rgba(209, 216, 226, 0.84);
+      font-size: 0.82rem;
+      line-height: 1.3;
     }
 
     .front-movie-editorial {
       display: grid;
-      grid-template-columns: minmax(14rem, 0.92fr) minmax(0, 1.08fr);
-      gap: 0.74rem;
+      grid-template-columns: minmax(17rem, 0.96fr) minmax(0, 1.04fr);
+      gap: 0.9rem;
       align-items: start;
     }
 
-    .front-movie-feature--lead {
-      align-content: start;
-    }
-
-    .front-movie-feature-copy {
+    .front-movie-marquee {
       display: grid;
-      gap: 0.22rem;
+      gap: 0.62rem;
+      padding: 1.02rem 1.04rem;
+      border-radius: calc(var(--radius-lg) + 2px);
+      border: 1px solid rgba(165, 178, 198, 0.14);
+      background:
+        linear-gradient(180deg, rgba(255, 255, 255, 0.055), rgba(15, 20, 28, 0.9)),
+        rgba(255, 255, 255, 0.02);
+      color: inherit;
+      text-decoration: none;
       min-width: 0;
+      align-content: start;
+      transition: transform 140ms ease, border-color 140ms ease, background 140ms ease;
     }
 
-    .front-movie-feature-title {
+    .front-movie-marquee--lead {
+      min-height: 100%;
+    }
+
+    .front-movie-marquee--single {
+      gap: 0.54rem;
+      background:
+        linear-gradient(180deg, rgba(240, 139, 101, 0.08), rgba(15, 20, 28, 0.88)),
+        rgba(255, 255, 255, 0.02);
+    }
+
+    .front-movie-marquee:hover,
+    .front-movie-marquee:focus-visible {
+      transform: translateY(-1px);
+      border-color: rgba(120, 220, 212, 0.2);
+    }
+
+    .front-movie-marquee-head {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 0.72rem;
+    }
+
+    .front-movie-marquee-rank {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      min-width: 2rem;
+      height: 2rem;
+      padding: 0 0.52rem;
+      border-radius: 999px;
+      border: 1px solid rgba(165, 178, 198, 0.16);
+      background: rgba(255, 255, 255, 0.03);
+      color: rgba(209, 216, 226, 0.88);
+      font-size: 0.8rem;
+      font-weight: 700;
+      letter-spacing: 0.08em;
+    }
+
+    .front-movie-marquee-title {
       font-family: var(--heading-font);
-      font-size: clamp(1.28rem, 1.95vw, 1.84rem);
-      line-height: 0.96;
-      letter-spacing: -0.025em;
+      font-size: clamp(1.5rem, 2.28vw, 2.38rem);
+      line-height: 0.93;
+      letter-spacing: -0.03em;
     }
 
-    .front-movie-feature-facts,
-    .front-movie-tile-facts {
+    .front-movie-marquee--single .front-movie-marquee-title {
+      font-size: clamp(1.44rem, 2vw, 1.94rem);
+    }
+
+    .front-movie-marquee-meta,
+    .front-movie-metric-line,
+    .front-movie-signal-line,
+    .front-movie-lineup-meta,
+    .front-movie-lineup-signals {
       display: flex;
       flex-wrap: wrap;
-      gap: 0.28rem 0.52rem;
+      gap: 0.22rem 0.5rem;
       color: rgba(198, 205, 214, 0.84);
       font-size: 0.79rem;
       line-height: 1.3;
+      margin: 0;
     }
 
-    .front-movie-row-facts {
-      display: flex;
-      flex-wrap: wrap;
-      gap: 0.24rem 0.48rem;
-      color: rgba(198, 205, 214, 0.84);
+    .front-movie-marquee-meta {
+      color: rgba(209, 216, 226, 0.88);
+    }
+
+    .front-movie-signal-line,
+    .front-movie-lineup-signals {
+      color: rgba(157, 168, 182, 0.82);
       font-size: 0.77rem;
-      line-height: 1.28;
     }
 
-    .front-movie-feature-facts span,
-    .front-movie-tile-facts span,
-    .front-movie-row-facts span {
-      position: relative;
-    }
-
-    .front-movie-feature-facts span + span::before,
-    .front-movie-tile-facts span + span::before,
-    .front-movie-row-facts span + span::before {
-      content: "•";
-      margin-right: 0.52rem;
-      color: rgba(120, 135, 154, 0.78);
-    }
-
-    .front-movie-tile {
+    .front-movie-lineup {
       display: grid;
-      gap: 0.44rem;
-      padding: 0.8rem 0.88rem;
-      border-radius: var(--radius-md);
-      border: 1px solid rgba(165, 178, 198, 0.12);
-      background: rgba(13, 18, 25, 0.54);
-      text-decoration: none;
+      gap: 0.34rem;
     }
 
-    .front-movie-tile-copy {
+    .front-movie-lineup-row {
+      display: grid;
+      grid-template-columns: auto minmax(0, 1fr) auto;
+      gap: 0.7rem;
+      align-items: start;
+      padding: 0.76rem 0;
+      border-top: 1px solid rgba(255, 255, 255, 0.08);
+      color: inherit;
+      text-decoration: none;
+      min-width: 0;
+      transition: transform 120ms ease, border-color 120ms ease, color 120ms ease;
+    }
+
+    .front-movie-lineup-row:first-child {
+      border-top: 0;
+      padding-top: 0.08rem;
+    }
+
+    .front-movie-lineup-row:hover,
+    .front-movie-lineup-row:focus-visible {
+      transform: translateX(2px);
+      border-color: rgba(120, 220, 212, 0.2);
+    }
+
+    .front-movie-lineup-rank {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      min-width: 2rem;
+      height: 2rem;
+      padding: 0 0.48rem;
+      border-radius: 999px;
+      background: rgba(255, 255, 255, 0.03);
+      border: 1px solid rgba(165, 178, 198, 0.12);
+      color: rgba(178, 189, 201, 0.84);
+      font-size: 0.76rem;
+      font-weight: 700;
+      letter-spacing: 0.08em;
+    }
+
+    .front-movie-lineup-copy {
       display: grid;
       gap: 0.16rem;
       min-width: 0;
     }
 
-    .front-movie-tile-copy strong {
+    .front-movie-lineup-copy strong {
       font-size: 0.98rem;
       line-height: 1.12;
     }
 
-    .front-movie-support-list {
-      gap: 0.5rem;
-    }
-
-    .front-movie-support-list .front-movie-row {
-      gap: 0.38rem;
-      padding: 0.74rem 0.82rem;
-      background:
-        linear-gradient(180deg, rgba(255, 255, 255, 0.028), rgba(13, 18, 25, 0.46)),
-        rgba(13, 18, 25, 0.38);
-    }
-
-    .front-movie-support-list .front-movie-row-copy {
+    .front-movie-lineup-side {
+      display: grid;
       gap: 0.18rem;
+      justify-items: end;
+      align-content: start;
     }
 
-    .front-movie-support-list .front-movie-row-copy strong {
-      font-size: 0.95rem;
+    .front-movie-lineup-venues {
+      color: rgba(157, 168, 182, 0.82);
+      font-size: 0.76rem;
+      line-height: 1.2;
     }
 
     .button-card,
@@ -2785,6 +2770,11 @@
         width: auto;
       }
 
+      .front-movie-overview,
+      .front-movie-section-stats {
+        justify-content: flex-start;
+      }
+
       .front-movie-grid {
         grid-template-columns: 1fr;
       }
@@ -2950,7 +2940,7 @@
       }
 
       .front-special-card-head,
-      .front-movie-feature-head {
+      .front-movie-marquee-head {
         display: grid;
         justify-content: stretch;
       }
@@ -2976,14 +2966,17 @@
         justify-self: start;
       }
 
-      .front-movie-support-grid {
-        grid-template-columns: 1fr;
-      }
-
-      .front-movie-feature-side,
+      .front-movie-overview,
+      .front-movie-section-stats,
+      .front-movie-lineup-side,
       .front-section-counts {
         justify-items: start;
         justify-content: flex-start;
+      }
+
+      .front-movie-lineup-row {
+        grid-template-columns: 1fr;
+        gap: 0.4rem;
       }
 
       .front-special-hero {
