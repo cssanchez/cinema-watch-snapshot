@@ -213,3 +213,166 @@ def test_transform_6_add_csp():
     # Check idempotent behavior
     result3 = transform_6_add_csp(result)
     assert result3.count('<meta http-equiv="Content-Security-Policy"') == 1
+def test_transform_2_basic():
+    """Test basic transformation to add time context."""
+    content = """
+    <section class="front-date-group">
+        <div>Some content</div>
+    </section>
+    """
+    expected = """
+    <div class="screening-time-context" style="display:flex; align-items:center; gap:0.5rem; padding:1rem; color:var(--accent); font-size:0.95rem;"><span style="color:var(--muted);">Coming up</span></div>
+    <section class="front-date-group">
+        <div>Some content</div>
+    </section>
+    """
+    assert transform_2_add_time_context(content) == expected
+
+def test_transform_2_multiple():
+    """Test adding time context to multiple sections."""
+    content = """
+    <section class="front-date-group">
+        <div>Section 1</div>
+    </section>
+    <section class="front-date-group">
+        <div>Section 2</div>
+    </section>
+    """
+    expected = """
+    <div class="screening-time-context" style="display:flex; align-items:center; gap:0.5rem; padding:1rem; color:var(--accent); font-size:0.95rem;"><span style="color:var(--muted);">Coming up</span></div>
+    <section class="front-date-group">
+        <div>Section 1</div>
+    </section>
+    <div class="screening-time-context" style="display:flex; align-items:center; gap:0.5rem; padding:1rem; color:var(--accent); font-size:0.95rem;"><span style="color:var(--muted);">Coming up</span></div>
+    <section class="front-date-group">
+        <div>Section 2</div>
+    </section>
+    """
+    assert transform_2_add_time_context(content) == expected
+
+def test_transform_2_no_match():
+    """Test when there is no matching section or spacing."""
+    content = """<section class="front-date-group">
+        <div>No leading newline + 4 spaces</div>
+    </section>
+    <section class="other-group">
+        <div>Not a date group</div>
+    </section>"""
+    assert transform_2_add_time_context(content) == content
+
+def test_transform_4_css_injection():
+    """Test that CSS is injected correctly if not present."""
+    content = "<style></style>"
+    result = transform_4_occupancy_highlight(content)
+    assert ".screening-high-occupancy" in result
+    assert "background: rgba(240, 139, 101, 0.15);" in result
+
+def test_transform_4_css_no_duplicate():
+    """Test that CSS is not injected if already present."""
+    content = "<style>.screening-high-occupancy {}</style>"
+    result = transform_4_occupancy_highlight(content)
+    # Should only appear once (the one we passed in)
+    assert result.count(".screening-high-occupancy") == 1
+
+def test_transform_4_high_occupancy():
+    """Test that high occupancy class is added for >= 50% sold."""
+    content = """
+    <div class="front-screening-row">
+        <span>50% sold</span>
+        <div class="front-screening-copy">Some text</div>
+    </div>
+    """
+    result = transform_4_occupancy_highlight(content)
+    assert '<div class="front-screening-row screening-high-occupancy">' in result
+
+def test_transform_4_low_occupancy():
+    """Test that high occupancy class is NOT added for < 50% sold."""
+    content = """
+    <div class="front-screening-row">
+        <span>49% sold</span>
+        <div class="front-screening-copy">Some text</div>
+    </div>
+    """
+    result = transform_4_occupancy_highlight(content)
+    assert '<div class="front-screening-row screening-high-occupancy">' not in result
+    assert '<div class="front-screening-row">' in result
+
+def test_transform_4_no_occupancy():
+    """Test that high occupancy class is NOT added when no sold percentage is present."""
+    content = """
+    <div class="front-screening-row">
+        <span>Available</span>
+        <div class="front-screening-copy">Some text</div>
+    </div>
+    """
+    result = transform_4_occupancy_highlight(content)
+    assert '<div class="front-screening-row screening-high-occupancy">' not in result
+    assert '<div class="front-screening-row">' in result
+def test_transform_1_demote_freshness_full():
+    """Test full transformation of .front-freshness and .front-freshness strong."""
+    content = """
+    <style>
+    .front-freshness strong {
+      font-family: var(--heading-font);
+      font-weight: 600;
+      font-size: 1.1rem;
+    }
+    .front-freshness {
+      padding: 0.9rem 1rem;
+      background: rgba(255, 255, 255, 0.035);
+      border-radius: var(--radius-md);
+    }
+    </style>
+    """
+    expected = """
+    <style>
+    .front-freshness strong {
+      font-family: var(--ui-font);
+      font-weight: 600;
+      font-size: 0.9rem;
+    }
+    .front-freshness {
+      padding: 0.6rem 0.8rem;
+      background: rgba(255, 255, 255, 0.02);
+      border-radius: var(--radius-md);
+    }
+    </style>
+    """
+    assert transform_1_demote_freshness(content) == expected
+
+def test_transform_1_demote_freshness_no_match():
+    """Test that content without matching CSS rules remains unchanged."""
+    content = """
+    <style>
+    .front-freshness strong {
+      font-family: var(--ui-font);
+      font-weight: 600;
+      font-size: 0.9rem;
+    }
+    .other-class {
+      padding: 0.9rem 1rem;
+      background: rgba(255, 255, 255, 0.035);
+    }
+    </style>
+    """
+    assert transform_1_demote_freshness(content) == content
+
+def test_transform_1_demote_freshness_partial():
+    """Test partial match scenarios."""
+    content = """
+    <style>
+    .front-freshness {
+      padding: 0.9rem 1rem;
+      border-radius: var(--radius-md);
+    }
+    </style>
+    """
+    expected = """
+    <style>
+    .front-freshness {
+      padding: 0.6rem 0.8rem;
+      border-radius: var(--radius-md);
+    }
+    </style>
+    """
+    assert transform_1_demote_freshness(content) == expected
