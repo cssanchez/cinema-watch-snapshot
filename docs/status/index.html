@@ -1494,6 +1494,31 @@
       justify-content: flex-start;
     }
 
+    .front-movie-single {
+      gap: 0.7rem;
+      padding: 1rem 1.04rem;
+    }
+
+    .front-movie-single-head {
+      display: flex;
+      justify-content: space-between;
+      gap: 0.9rem;
+      align-items: start;
+    }
+
+    .front-movie-single-copy {
+      display: grid;
+      gap: 0.26rem;
+      min-width: 0;
+    }
+
+    .front-movie-single-title {
+      font-family: var(--heading-font);
+      font-size: clamp(1.26rem, 1.8vw, 1.62rem);
+      line-height: 1;
+      letter-spacing: -0.02em;
+    }
+
     .front-movie-list {
       display: grid;
       gap: 0.62rem;
@@ -2170,7 +2195,8 @@
       }
 
       .front-special-card-head,
-      .front-movie-row-head {
+      .front-movie-row-head,
+      .front-movie-single-head {
         display: grid;
         justify-content: stretch;
       }
@@ -2311,7 +2337,7 @@
     </div>
     <div class="metric">
       <span class="muted">Published at</span>
-      <strong style="font-size:1rem;">2026-04-09 03:14 UTC</strong>
+      <strong style="font-size:1rem;">2026-04-09 03:19 UTC</strong>
     </div>
   </div>
 </section>

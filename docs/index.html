@@ -1494,6 +1494,31 @@
       justify-content: flex-start;
     }
 
+    .front-movie-single {
+      gap: 0.7rem;
+      padding: 1rem 1.04rem;
+    }
+
+    .front-movie-single-head {
+      display: flex;
+      justify-content: space-between;
+      gap: 0.9rem;
+      align-items: start;
+    }
+
+    .front-movie-single-copy {
+      display: grid;
+      gap: 0.26rem;
+      min-width: 0;
+    }
+
+    .front-movie-single-title {
+      font-family: var(--heading-font);
+      font-size: clamp(1.26rem, 1.8vw, 1.62rem);
+      line-height: 1;
+      letter-spacing: -0.02em;
+    }
+
     .front-movie-list {
       display: grid;
       gap: 0.62rem;
@@ -2170,7 +2195,8 @@
       }
 
       .front-special-card-head,
-      .front-movie-row-head {
+      .front-movie-row-head,
+      .front-movie-single-head {
         display: grid;
         justify-content: stretch;
       }
@@ -4188,8 +4214,9 @@
           </div>
         </div>
         
-        <div class="front-movie-section-body">
         
+        
+        <div class="front-movie-section-body">
         <a class="row-card front-movie-lead" href="/cinema-watch-snapshot/movies/super-mario-galaxy-la-pelicula/" data-live-nav="true">
           <strong class="front-movie-lead-title">Super Mario Galaxy: La película</strong>
           
@@ -4448,6 +4475,7 @@
         
         </div>
         
+        
       </article>
       
       <article class="front-mini-board front-movie-section front-movie-section--upcoming_premieres">
@@ -4462,10 +4490,28 @@
           </div>
         </div>
         
-        <div class="front-movie-section-body is-single">
         
-        <a class="row-card front-movie-lead" href="/cinema-watch-snapshot/movies/la-posesion-de-la-momia/" data-live-nav="true">
-          <strong class="front-movie-lead-title">La posesión de la momia</strong>
+        
+        <a class="row-card front-movie-single" href="/cinema-watch-snapshot/movies/la-posesion-de-la-momia/" data-live-nav="true">
+          <div class="front-movie-single-head">
+            <div class="front-movie-single-copy">
+              <strong class="front-movie-single-title">La posesión de la momia</strong>
+              
+              <div class="front-movie-meta">
+                
+                <span>Haedo</span>
+                
+                
+                <span>2026-04-16 to 2026-04-22</span>
+                
+              </div>
+              
+            </div>
+            <div class="chips front-movie-summary">
+              <span class="chip" data-i18n-count="screening" data-i18n-count-value="159">159 screenings</span>
+              <span class="chip chip-neutral" data-i18n-count="venue" data-i18n-count-value="5">5 venues</span>
+            </div>
+          </div>
           
   <div class="chips front-movie-signal-chips">
     
@@ -4477,19 +4523,8 @@
     
   </div>
   
-          <div class="chips front-movie-summary">
-            <span class="chip" data-i18n-count="screening" data-i18n-count-value="159">159 screenings</span>
-            <span class="chip chip-neutral" data-i18n-count="venue" data-i18n-count-value="5">5 venues</span>
-            
-            <span class="chip chip-neutral">Haedo</span>
-            
-            
-            <span class="chip chip-neutral">2026-04-16 to 2026-04-22</span>
-            
-          </div>
         </a>
         
-        </div>
         
       </article>
       
@@ -6241,8 +6276,9 @@
           </div>
         </div>
         
-        <div class="front-movie-section-body">
         
+        
+        <div class="front-movie-section-body">
         <a class="row-card front-movie-lead" href="/cinema-watch-snapshot/movies/super-mario-galaxy-la-pelicula/" data-live-nav="true">
           <strong class="front-movie-lead-title">Super Mario Galaxy: La película</strong>
           
@@ -6501,6 +6537,7 @@
         
         </div>
         
+        
       </article>
       
       <article class="front-mini-board front-movie-section front-movie-section--upcoming_premieres">
@@ -6515,10 +6552,28 @@
           </div>
         </div>
         
-        <div class="front-movie-section-body is-single">
         
-        <a class="row-card front-movie-lead" href="/cinema-watch-snapshot/movies/la-posesion-de-la-momia/" data-live-nav="true">
-          <strong class="front-movie-lead-title">La posesión de la momia</strong>
+        
+        <a class="row-card front-movie-single" href="/cinema-watch-snapshot/movies/la-posesion-de-la-momia/" data-live-nav="true">
+          <div class="front-movie-single-head">
+            <div class="front-movie-single-copy">
+              <strong class="front-movie-single-title">La posesión de la momia</strong>
+              
+              <div class="front-movie-meta">
+                
+                <span>Belgrano</span>
+                
+                
+                <span>2026-04-16 to 2026-04-22</span>
+                
+              </div>
+              
+            </div>
+            <div class="chips front-movie-summary">
+              <span class="chip" data-i18n-count="screening" data-i18n-count-value="21">21 screenings</span>
+              <span class="chip chip-neutral" data-i18n-count="venue" data-i18n-count-value="1">1 venues</span>
+            </div>
+          </div>
           
   <div class="chips front-movie-signal-chips">
     
@@ -6528,19 +6583,8 @@
     
   </div>
   
-          <div class="chips front-movie-summary">
-            <span class="chip" data-i18n-count="screening" data-i18n-count-value="21">21 screenings</span>
-            <span class="chip chip-neutral" data-i18n-count="venue" data-i18n-count-value="1">1 venues</span>
-            
-            <span class="chip chip-neutral">Belgrano</span>
-            
-            
-            <span class="chip chip-neutral">2026-04-16 to 2026-04-22</span>
-            
-          </div>
         </a>
         
-        </div>
         
       </article>
       
@@ -8232,8 +8276,9 @@
           </div>
         </div>
         
-        <div class="front-movie-section-body">
         
+        
+        <div class="front-movie-section-body">
         <a class="row-card front-movie-lead" href="/cinema-watch-snapshot/movies/super-mario-galaxy-la-pelicula/" data-live-nav="true">
           <strong class="front-movie-lead-title">Super Mario Galaxy: La película</strong>
           
@@ -8492,6 +8537,7 @@
         
         </div>
         
+        
       </article>
       
       <article class="front-mini-board front-movie-section front-movie-section--upcoming_premieres">
@@ -8506,10 +8552,28 @@
           </div>
         </div>
         
-        <div class="front-movie-section-body is-single">
         
-        <a class="row-card front-movie-lead" href="/cinema-watch-snapshot/movies/la-posesion-de-la-momia/" data-live-nav="true">
-          <strong class="front-movie-lead-title">La posesión de la momia</strong>
+        
+        <a class="row-card front-movie-single" href="/cinema-watch-snapshot/movies/la-posesion-de-la-momia/" data-live-nav="true">
+          <div class="front-movie-single-head">
+            <div class="front-movie-single-copy">
+              <strong class="front-movie-single-title">La posesión de la momia</strong>
+              
+              <div class="front-movie-meta">
+                
+                <span>Quilmes</span>
+                
+                
+                <span>2026-04-16 to 2026-04-22</span>
+                
+              </div>
+              
+            </div>
+            <div class="chips front-movie-summary">
+              <span class="chip" data-i18n-count="screening" data-i18n-count-value="35">35 screenings</span>
+              <span class="chip chip-neutral" data-i18n-count="venue" data-i18n-count-value="1">1 venues</span>
+            </div>
+          </div>
           
   <div class="chips front-movie-signal-chips">
     
@@ -8519,19 +8583,8 @@
     
   </div>
   
-          <div class="chips front-movie-summary">
-            <span class="chip" data-i18n-count="screening" data-i18n-count-value="35">35 screenings</span>
-            <span class="chip chip-neutral" data-i18n-count="venue" data-i18n-count-value="1">1 venues</span>
-            
-            <span class="chip chip-neutral">Quilmes</span>
-            
-            
-            <span class="chip chip-neutral">2026-04-16 to 2026-04-22</span>
-            
-          </div>
         </a>
         
-        </div>
         
       </article>
       
