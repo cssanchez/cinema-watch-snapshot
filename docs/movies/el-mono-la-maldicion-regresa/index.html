@@ -3764,7 +3764,9 @@
       function currentHomeSectionFocus() {
         const sections = getActiveHomeSections();
         const header = document.querySelector('.topbar');
-        const offset = (header instanceof HTMLElement ? header.getBoundingClientRect().height : 0) + 40;
+        const headerHeight = header instanceof HTMLElement ? header.getBoundingClientRect().height : 0;
+        const anticipation = Math.max(88, Math.min(window.innerHeight * 0.2, 168));
+        const offset = headerHeight + anticipation;
         const probe = window.scrollY + offset;
         if (sections.movies && sections.movies.offsetTop <= probe) {
           return 'movies';

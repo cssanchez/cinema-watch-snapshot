@@ -2559,7 +2559,7 @@
     
     <div class="front-hero-meta">
       <div class="front-freshness is-hero">
-        <strong data-i18n-freshness>Updated 10 h ago</strong>
+        <strong data-i18n-freshness>Updated 11 h ago</strong>
         <span class="front-freshness-divider" aria-hidden="true"></span>
         <span data-i18n-count="screening" data-i18n-count-value="5429">5429 screenings</span>
       </div>
@@ -9728,7 +9728,9 @@
       function currentHomeSectionFocus() {
         const sections = getActiveHomeSections();
         const header = document.querySelector('.topbar');
-        const offset = (header instanceof HTMLElement ? header.getBoundingClientRect().height : 0) + 40;
+        const headerHeight = header instanceof HTMLElement ? header.getBoundingClientRect().height : 0;
+        const anticipation = Math.max(88, Math.min(window.innerHeight * 0.2, 168));
+        const offset = headerHeight + anticipation;
         const probe = window.scrollY + offset;
         if (sections.movies && sections.movies.offsetTop <= probe) {
           return 'movies';
