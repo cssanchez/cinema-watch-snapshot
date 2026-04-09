@@ -3503,6 +3503,34 @@
         return true;
       }
 
+      function getActiveHomeSections() {
+        const visiblePanel = Array.from(document.querySelectorAll('[data-location-panel]'))
+          .find((panel) => panel instanceof HTMLElement && !panel.hidden);
+        const specials = visiblePanel?.querySelector('[data-front-specials="true"]')
+          || document.querySelector('[data-front-specials="true"]');
+        const movies = visiblePanel?.querySelector('[data-front-movies="true"]')
+          || document.querySelector('[data-front-movies="true"]');
+        return {
+          cartelera: document.getElementById('cartelera'),
+          specials: specials instanceof HTMLElement ? specials : null,
+          movies: movies instanceof HTMLElement ? movies : null,
+        };
+      }
+
+      function currentHomeSectionFocus() {
+        const sections = getActiveHomeSections();
+        const header = document.querySelector('.topbar');
+        const offset = (header instanceof HTMLElement ? header.getBoundingClientRect().height : 0) + 40;
+        const probe = window.scrollY + offset;
+        if (sections.movies && sections.movies.offsetTop <= probe) {
+          return 'movies';
+        }
+        if (sections.specials && sections.specials.offsetTop <= probe) {
+          return 'special_rooms';
+        }
+        return 'screenings';
+      }
+
       function setHomeHash(hash, { behavior = 'smooth' } = {}) {
         const params = new URLSearchParams(window.location.search || '');
         params.delete('focus');
@@ -3608,19 +3636,17 @@
         const params = new URLSearchParams(window.location.search || '');
         const category = (params.get('category') || '').toLowerCase();
         const focusParam = (params.get('focus') || '').toLowerCase();
-        const hash = (window.location.hash || '').toLowerCase();
         const screeningsLink = document.querySelector('[data-nav-link="screenings"]');
         const homePath = ensureCarteleraNavHref(screeningsLink);
         const relativePath = relativePathFromHome(path, homePath);
         const onHome = relativePath === '/';
-        const moviesHashActive = hash === '#peliculas';
-        const specialRoomsHashActive = hash === '#salas-especiales';
         const specialRoomsFocusActive = ['imax', 'dolby_atmos'].includes(focusParam);
+        const homeScrollFocus = onHome ? currentHomeSectionFocus() : '';
         const focus = {
-          screenings: (onHome && !moviesHashActive && !specialRoomsHashActive && !specialRoomsFocusActive)
+          screenings: (onHome && homeScrollFocus === 'screenings' && !specialRoomsFocusActive)
             || (relativePath.startsWith('/screenings') && !['imax', 'dolby_atmos'].includes(category)),
-          movies: relativePath.startsWith('/movies') || (onHome && moviesHashActive),
-          special_rooms: (onHome && (specialRoomsHashActive || specialRoomsFocusActive))
+          movies: relativePath.startsWith('/movies') || (onHome && homeScrollFocus === 'movies'),
+          special_rooms: (onHome && (homeScrollFocus === 'special_rooms' || specialRoomsFocusActive))
             || (relativePath.startsWith('/screenings') && ['imax', 'dolby_atmos'].includes(category)),
         };
         document.querySelectorAll('[data-nav-link]').forEach((link) => {
@@ -3639,6 +3665,17 @@
       }
 
       ensureCarteleraNavHref(getScreeningsLink());
+
+      let syncFrame = 0;
+      function scheduleTopNavSync() {
+        if (syncFrame) {
+          return;
+        }
+        syncFrame = window.requestAnimationFrame(() => {
+          syncFrame = 0;
+          syncTopNavState();
+        });
+      }
 
       document.addEventListener('toggle', (event) => {
         const target = event.target;
@@ -3731,6 +3768,8 @@
         syncToolbarZoneSummaries();
         applyHomeHash(window.location.hash, { behavior: 'auto' });
       });
+      window.addEventListener('scroll', scheduleTopNavSync, { passive: true });
+      window.addEventListener('resize', scheduleTopNavSync);
       window.addEventListener('hashchange', () => {
         syncTopNavState();
         applyHomeHash(window.location.hash, { behavior: 'auto' });
