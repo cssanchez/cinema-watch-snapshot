@@ -2000,6 +2000,66 @@
       gap: 0.8rem;
     }
 
+    .front-special-week {
+      display: grid;
+      gap: 0.18rem;
+    }
+
+    .front-special-week-row {
+      display: grid;
+      grid-template-columns: auto minmax(0, 1fr) auto;
+      gap: 0.74rem;
+      align-items: start;
+      padding: 0.56rem 0;
+      border-top: 1px solid rgba(255, 255, 255, 0.045);
+    }
+
+    .front-special-week-row:first-child {
+      padding-top: 0;
+      border-top: none;
+    }
+
+    .front-special-week-date {
+      color: rgba(233, 226, 218, 0.88);
+      font-size: 0.8rem;
+      font-weight: 700;
+      line-height: 1.3;
+      white-space: nowrap;
+      min-width: 3.4rem;
+    }
+
+    .front-special-week-copy {
+      display: grid;
+      gap: 0.14rem;
+      min-width: 0;
+    }
+
+    .front-special-week-meta {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 0.22rem 0.56rem;
+      align-items: center;
+      color: rgba(182, 194, 204, 0.8);
+      font-size: 0.8rem;
+      line-height: 1.3;
+      min-width: 0;
+    }
+
+    .front-special-week-meta > * {
+      min-width: 0;
+      position: relative;
+    }
+
+    .front-special-week-meta > * + *::before {
+      content: "•";
+      margin-right: 0.54rem;
+      color: rgba(255, 255, 255, 0.18);
+    }
+
+    .front-special-week-count {
+      align-self: center;
+    }
+
     .front-special-hero {
       display: grid;
       grid-template-columns: auto minmax(0, 1fr);
@@ -2907,6 +2967,15 @@
         justify-content: flex-start;
       }
 
+      .front-special-week-row {
+        grid-template-columns: 1fr;
+        gap: 0.24rem;
+      }
+
+      .front-special-week-count {
+        justify-self: start;
+      }
+
       .front-movie-support-grid {
         grid-template-columns: 1fr;
       }
@@ -3044,7 +3113,7 @@
   </div>
   <div class="hero-side">
     <strong data-i18n-source>Venue signals</strong>
-    <p data-i18n-freshness>Updated 7 h ago</p>
+    <p data-i18n-freshness>Updated 8 h ago</p>
     <div class="stats">
       <span class="stat">4 active rooms</span>
       

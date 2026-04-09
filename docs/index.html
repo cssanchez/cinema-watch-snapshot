@@ -2000,6 +2000,66 @@
       gap: 0.8rem;
     }
 
+    .front-special-week {
+      display: grid;
+      gap: 0.18rem;
+    }
+
+    .front-special-week-row {
+      display: grid;
+      grid-template-columns: auto minmax(0, 1fr) auto;
+      gap: 0.74rem;
+      align-items: start;
+      padding: 0.56rem 0;
+      border-top: 1px solid rgba(255, 255, 255, 0.045);
+    }
+
+    .front-special-week-row:first-child {
+      padding-top: 0;
+      border-top: none;
+    }
+
+    .front-special-week-date {
+      color: rgba(233, 226, 218, 0.88);
+      font-size: 0.8rem;
+      font-weight: 700;
+      line-height: 1.3;
+      white-space: nowrap;
+      min-width: 3.4rem;
+    }
+
+    .front-special-week-copy {
+      display: grid;
+      gap: 0.14rem;
+      min-width: 0;
+    }
+
+    .front-special-week-meta {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 0.22rem 0.56rem;
+      align-items: center;
+      color: rgba(182, 194, 204, 0.8);
+      font-size: 0.8rem;
+      line-height: 1.3;
+      min-width: 0;
+    }
+
+    .front-special-week-meta > * {
+      min-width: 0;
+      position: relative;
+    }
+
+    .front-special-week-meta > * + *::before {
+      content: "•";
+      margin-right: 0.54rem;
+      color: rgba(255, 255, 255, 0.18);
+    }
+
+    .front-special-week-count {
+      align-self: center;
+    }
+
     .front-special-hero {
       display: grid;
       grid-template-columns: auto minmax(0, 1fr);
@@ -2907,6 +2967,15 @@
         justify-content: flex-start;
       }
 
+      .front-special-week-row {
+        grid-template-columns: 1fr;
+        gap: 0.24rem;
+      }
+
+      .front-special-week-count {
+        justify-self: start;
+      }
+
       .front-movie-support-grid {
         grid-template-columns: 1fr;
       }
@@ -3101,7 +3170,7 @@
     
     <div class="front-hero-meta">
       <div class="front-freshness is-hero">
-        <strong data-i18n-freshness>Updated 7 h ago</strong>
+        <strong data-i18n-freshness>Updated 8 h ago</strong>
         <span class="front-freshness-divider" aria-hidden="true"></span>
         <span data-i18n-count="screening" data-i18n-count-value="6070">6070 screenings</span>
       </div>
@@ -4667,6 +4736,7 @@
 
           <div class="front-special-program">
             
+            
   <div class="front-special-days">
     
     
@@ -4857,6 +4927,7 @@
     
   </div>
   
+            
           </div>
         </article>
         
@@ -4917,162 +4988,217 @@
 
           <div class="front-special-program">
             
-  <div class="front-special-days">
+            
+  <div class="front-special-week">
     
-    
-    
-    
-    <section class="front-special-day">
-      <div class="front-special-day-head">
-        <strong class="front-special-day-date">2026-04-09</strong>
-        <span class="chip front-special-day-count">3</span>
+    <section class="front-special-week-row is-peak">
+      <strong class="front-special-week-date">09/04</strong>
+      <div class="front-special-week-copy">
+        <strong class="front-special-day-title-line">
+          <a href="/cinema-watch-snapshot/movies/los-colores-del-tiempo/" data-live-nav="true">Los colores del tiempo</a>
+          
+          <span class="chip chip-peak" data-i18n-source>Peak</span>
+          
+        </strong>
+        <p class="front-special-week-meta">
+          
+          <span class="front-special-ribbon-venues">
+            
+            <a class="front-special-ribbon-venue" href="/cinema-watch-snapshot/venues/cinepolis/pilar/" data-live-nav="true">Pilar</a>
+            
+            <span class="front-special-ribbon-separator" aria-hidden="true">•</span>
+            
+            
+            <a class="front-special-ribbon-venue" href="/cinema-watch-snapshot/venues/cinepolis/recoleta/" data-live-nav="true">Recoleta</a>
+            
+            
+          </span>
+          
+          
+          <span>12:40-23:00</span>
+          
+        </p>
       </div>
-      <div class="front-special-day-list">
-        
-        
-        <div class="row-card front-special-hero front-special-day-row is-featured">
-          <span class="mini-time">12:40</span>
-          <div class="front-special-day-copy">
-            <strong class="front-special-day-title-line">
-              <a class="front-special-hero-title" href="/cinema-watch-snapshot/movies/super-mario-galaxy-la-pelicula/" data-live-nav="true">Super Mario Galaxy: La película</a>
-              
-            </strong>
-            <p><a class="front-special-hero-venue" href="/cinema-watch-snapshot/venues/cinepolis/pilar/" data-live-nav="true">Pilar</a> <span data-i18n-meta-line>| Monster Screen • 2D • Español | Room 9 | 1% sold</span></p>
-          </div>
-        </div>
-        
-        
-        <div class="front-special-day-row">
-          <span class="mini-time">15:00</span>
-          <div class="front-special-day-copy">
-            <strong class="front-special-day-title-line">
-              <a href="/cinema-watch-snapshot/movies/super-mario-galaxy-la-pelicula/" data-live-nav="true">Super Mario Galaxy: La película</a>
-              
-            </strong>
-            <p><a href="/cinema-watch-snapshot/venues/cinepolis/pilar/" data-live-nav="true">Pilar</a> <span data-i18n-meta-line>| Monster Screen • 2D • Español | Room 9 | 1% sold</span></p>
-          </div>
-        </div>
-        
-        
-        <div class="front-special-day-row">
-          <span class="mini-time">19:00</span>
-          <div class="front-special-day-copy">
-            <strong class="front-special-day-title-line">
-              <a href="/cinema-watch-snapshot/movies/los-colores-del-tiempo/" data-live-nav="true">Los colores del tiempo</a>
-              
-              <span class="chip chip-peak" data-i18n-source>Peak</span>
-              
-            </strong>
-            <p><a href="/cinema-watch-snapshot/venues/cinepolis/recoleta/" data-live-nav="true">Recoleta</a> <span data-i18n-meta-line>| Classic • 2D • Subtitulado | Room 6 | 96% sold</span></p>
-          </div>
-        </div>
-        
-      </div>
+      <span class="chip front-special-week-count" data-i18n-count="screening" data-i18n-count-value="7">7 screenings</span>
     </section>
     
-    
-    
-    
-    
-    <section class="front-special-day">
-      <div class="front-special-day-head">
-        <strong class="front-special-day-date">2026-04-10</strong>
-        <span class="chip front-special-day-count">3</span>
+    <section class="front-special-week-row">
+      <strong class="front-special-week-date">10/04</strong>
+      <div class="front-special-week-copy">
+        <strong class="front-special-day-title-line">
+          <a href="/cinema-watch-snapshot/movies/caso-137/" data-live-nav="true">Caso 137</a>
+          
+        </strong>
+        <p class="front-special-week-meta">
+          
+          <span class="front-special-ribbon-venues">
+            
+            <a class="front-special-ribbon-venue" href="/cinema-watch-snapshot/venues/cinepolis/pilar/" data-live-nav="true">Pilar</a>
+            
+            <span class="front-special-ribbon-separator" aria-hidden="true">•</span>
+            
+            
+            <a class="front-special-ribbon-venue" href="/cinema-watch-snapshot/venues/cinepolis/recoleta/" data-live-nav="true">Recoleta</a>
+            
+            
+          </span>
+          
+          
+          <span>12:40-22:00</span>
+          
+        </p>
       </div>
-      <div class="front-special-day-list">
-        
-        
-        <div class="front-special-day-row">
-          <span class="mini-time">12:40</span>
-          <div class="front-special-day-copy">
-            <strong class="front-special-day-title-line">
-              <a href="/cinema-watch-snapshot/movies/super-mario-galaxy-la-pelicula/" data-live-nav="true">Super Mario Galaxy: La película</a>
-              
-            </strong>
-            <p><a href="/cinema-watch-snapshot/venues/cinepolis/pilar/" data-live-nav="true">Pilar</a> <span data-i18n-meta-line>| Monster Screen • 2D • Español | Room 9 | 1% sold</span></p>
-          </div>
-        </div>
-        
-        
-        <div class="front-special-day-row">
-          <span class="mini-time">15:00</span>
-          <div class="front-special-day-copy">
-            <strong class="front-special-day-title-line">
-              <a href="/cinema-watch-snapshot/movies/super-mario-galaxy-la-pelicula/" data-live-nav="true">Super Mario Galaxy: La película</a>
-              
-            </strong>
-            <p><a href="/cinema-watch-snapshot/venues/cinepolis/pilar/" data-live-nav="true">Pilar</a> <span data-i18n-meta-line>| Monster Screen • 2D • Español | Room 9 | 1% sold</span></p>
-          </div>
-        </div>
-        
-        
-        <div class="front-special-day-row">
-          <span class="mini-time">16:30</span>
-          <div class="front-special-day-copy">
-            <strong class="front-special-day-title-line">
-              <a href="/cinema-watch-snapshot/movies/la-divina-sarah-bernhardt/" data-live-nav="true">La divina Sarah Bernhardt</a>
-              
-            </strong>
-            <p><a href="/cinema-watch-snapshot/venues/cinepolis/recoleta/" data-live-nav="true">Recoleta</a> <span data-i18n-meta-line>| Classic • 2D • Subtitulado | Room 6 | 46% sold</span></p>
-          </div>
-        </div>
-        
-      </div>
+      <span class="chip front-special-week-count" data-i18n-count="screening" data-i18n-count-value="8">8 screenings</span>
     </section>
     
-    
-    
-    
-    
-    <section class="front-special-day">
-      <div class="front-special-day-head">
-        <strong class="front-special-day-date">2026-04-11</strong>
-        <span class="chip front-special-day-count">3</span>
+    <section class="front-special-week-row">
+      <strong class="front-special-week-date">11/04</strong>
+      <div class="front-special-week-copy">
+        <strong class="front-special-day-title-line">
+          <a href="/cinema-watch-snapshot/movies/dos-pianos/" data-live-nav="true">Dos Pianos</a>
+          
+        </strong>
+        <p class="front-special-week-meta">
+          
+          <span class="front-special-ribbon-venues">
+            
+            <a class="front-special-ribbon-venue" href="/cinema-watch-snapshot/venues/cinepolis/pilar/" data-live-nav="true">Pilar</a>
+            
+            <span class="front-special-ribbon-separator" aria-hidden="true">•</span>
+            
+            
+            <a class="front-special-ribbon-venue" href="/cinema-watch-snapshot/venues/cinepolis/recoleta/" data-live-nav="true">Recoleta</a>
+            
+            
+          </span>
+          
+          
+          <span>13:40-22:00</span>
+          
+        </p>
       </div>
-      <div class="front-special-day-list">
-        
-        
-        <div class="front-special-day-row">
-          <span class="mini-time">13:40</span>
-          <div class="front-special-day-copy">
-            <strong class="front-special-day-title-line">
-              <a href="/cinema-watch-snapshot/movies/super-mario-galaxy-la-pelicula/" data-live-nav="true">Super Mario Galaxy: La película</a>
-              
-            </strong>
-            <p><a href="/cinema-watch-snapshot/venues/cinepolis/pilar/" data-live-nav="true">Pilar</a> <span data-i18n-meta-line>| Monster Screen • 2D • Español | Room 9 | 4% sold</span></p>
-          </div>
-        </div>
-        
-        
-        <div class="front-special-day-row">
-          <span class="mini-time">14:20</span>
-          <div class="front-special-day-copy">
-            <strong class="front-special-day-title-line">
-              <a href="/cinema-watch-snapshot/movies/el-desprecio/" data-live-nav="true">El desprecio</a>
-              
-            </strong>
-            <p><a href="/cinema-watch-snapshot/venues/cinepolis/recoleta/" data-live-nav="true">Recoleta</a> <span data-i18n-meta-line>| Classic • 2D • Subtitulado | Room 6 | 63% sold</span></p>
-          </div>
-        </div>
-        
-        
-        <div class="front-special-day-row">
-          <span class="mini-time">16:00</span>
-          <div class="front-special-day-copy">
-            <strong class="front-special-day-title-line">
-              <a href="/cinema-watch-snapshot/movies/bts-world-tour-arirang-in-goyang-live-viewing/" data-live-nav="true">BTS WORLD TOUR ‘ARIRANG’ IN GOYANG: LIVE VIEWING</a>
-              
-            </strong>
-            <p><a href="/cinema-watch-snapshot/venues/cinepolis/pilar/" data-live-nav="true">Pilar</a> <span data-i18n-meta-line>| Monster Screen • 2D • Subtitulado | Room 9 | 26% sold</span></p>
-          </div>
-        </div>
-        
-      </div>
+      <span class="chip front-special-week-count" data-i18n-count="screening" data-i18n-count-value="7">7 screenings</span>
     </section>
     
+    <section class="front-special-week-row">
+      <strong class="front-special-week-date">12/04</strong>
+      <div class="front-special-week-copy">
+        <strong class="front-special-day-title-line">
+          <a href="/cinema-watch-snapshot/movies/los-colores-del-tiempo/" data-live-nav="true">Los colores del tiempo</a>
+          
+        </strong>
+        <p class="front-special-week-meta">
+          
+          <span class="front-special-ribbon-venues">
+            
+            <a class="front-special-ribbon-venue" href="/cinema-watch-snapshot/venues/cinepolis/pilar/" data-live-nav="true">Pilar</a>
+            
+            <span class="front-special-ribbon-separator" aria-hidden="true">•</span>
+            
+            
+            <a class="front-special-ribbon-venue" href="/cinema-watch-snapshot/venues/cinepolis/recoleta/" data-live-nav="true">Recoleta</a>
+            
+            
+          </span>
+          
+          
+          <span>12:40-22:00</span>
+          
+        </p>
+      </div>
+      <span class="chip front-special-week-count" data-i18n-count="screening" data-i18n-count-value="9">9 screenings</span>
+    </section>
+    
+    <section class="front-special-week-row">
+      <strong class="front-special-week-date">13/04</strong>
+      <div class="front-special-week-copy">
+        <strong class="front-special-day-title-line">
+          <a href="/cinema-watch-snapshot/movies/madres-jovenes/" data-live-nav="true">Madres Jóvenes</a>
+          
+        </strong>
+        <p class="front-special-week-meta">
+          
+          <span class="front-special-ribbon-venues">
+            
+            <a class="front-special-ribbon-venue" href="/cinema-watch-snapshot/venues/cinepolis/pilar/" data-live-nav="true">Pilar</a>
+            
+            <span class="front-special-ribbon-separator" aria-hidden="true">•</span>
+            
+            
+            <a class="front-special-ribbon-venue" href="/cinema-watch-snapshot/venues/cinepolis/recoleta/" data-live-nav="true">Recoleta</a>
+            
+            
+          </span>
+          
+          
+          <span>12:40-22:00</span>
+          
+        </p>
+      </div>
+      <span class="chip front-special-week-count" data-i18n-count="screening" data-i18n-count-value="8">8 screenings</span>
+    </section>
+    
+    <section class="front-special-week-row">
+      <strong class="front-special-week-date">14/04</strong>
+      <div class="front-special-week-copy">
+        <strong class="front-special-day-title-line">
+          <a href="/cinema-watch-snapshot/movies/l-affaire-bojarski/" data-live-nav="true">L’Affaire Bojarski</a>
+          
+        </strong>
+        <p class="front-special-week-meta">
+          
+          <span class="front-special-ribbon-venues">
+            
+            <a class="front-special-ribbon-venue" href="/cinema-watch-snapshot/venues/cinepolis/pilar/" data-live-nav="true">Pilar</a>
+            
+            <span class="front-special-ribbon-separator" aria-hidden="true">•</span>
+            
+            
+            <a class="front-special-ribbon-venue" href="/cinema-watch-snapshot/venues/cinepolis/recoleta/" data-live-nav="true">Recoleta</a>
+            
+            
+          </span>
+          
+          
+          <span>12:40-22:00</span>
+          
+        </p>
+      </div>
+      <span class="chip front-special-week-count" data-i18n-count="screening" data-i18n-count-value="8">8 screenings</span>
+    </section>
+    
+    <section class="front-special-week-row">
+      <strong class="front-special-week-date">15/04</strong>
+      <div class="front-special-week-copy">
+        <strong class="front-special-day-title-line">
+          <a href="/cinema-watch-snapshot/movies/el-gran-arco/" data-live-nav="true">El Gran Arco</a>
+          
+        </strong>
+        <p class="front-special-week-meta">
+          
+          <span class="front-special-ribbon-venues">
+            
+            <a class="front-special-ribbon-venue" href="/cinema-watch-snapshot/venues/cinepolis/pilar/" data-live-nav="true">Pilar</a>
+            
+            <span class="front-special-ribbon-separator" aria-hidden="true">•</span>
+            
+            
+            <a class="front-special-ribbon-venue" href="/cinema-watch-snapshot/venues/cinepolis/recoleta/" data-live-nav="true">Recoleta</a>
+            
+            
+          </span>
+          
+          
+          <span>12:40-22:00</span>
+          
+        </p>
+      </div>
+      <span class="chip front-special-week-count" data-i18n-count="screening" data-i18n-count-value="8">8 screenings</span>
+    </section>
     
   </div>
   
+            
           </div>
         </article>
         
@@ -7036,8 +7162,10 @@
 
           <div class="front-special-program">
             
+            
   <div class="empty" data-i18n-source>No IMAX screenings in the current snapshot.</div>
   
+            
           </div>
         </article>
         
@@ -7093,150 +7221,182 @@
 
           <div class="front-special-program">
             
-  <div class="front-special-days">
+            
+  <div class="front-special-week">
     
-    
-    
-    
-    <section class="front-special-day">
-      <div class="front-special-day-head">
-        <strong class="front-special-day-date">2026-04-09</strong>
-        <span class="chip front-special-day-count">2</span>
+    <section class="front-special-week-row is-peak">
+      <strong class="front-special-week-date">09/04</strong>
+      <div class="front-special-week-copy">
+        <strong class="front-special-day-title-line">
+          <a href="/cinema-watch-snapshot/movies/los-colores-del-tiempo/" data-live-nav="true">Los colores del tiempo</a>
+          
+          <span class="chip chip-peak" data-i18n-source>Peak</span>
+          
+        </strong>
+        <p class="front-special-week-meta">
+          
+          <span class="front-special-ribbon-venues">
+            
+            <a class="front-special-ribbon-venue" href="/cinema-watch-snapshot/venues/cinepolis/recoleta/" data-live-nav="true">Recoleta</a>
+            
+            
+          </span>
+          
+          
+          <span>19:00-23:00</span>
+          
+        </p>
       </div>
-      <div class="front-special-day-list">
-        
-        
-        <div class="row-card front-special-hero front-special-day-row is-featured">
-          <span class="mini-time">19:00</span>
-          <div class="front-special-day-copy">
-            <strong class="front-special-day-title-line">
-              <a class="front-special-hero-title" href="/cinema-watch-snapshot/movies/los-colores-del-tiempo/" data-live-nav="true">Los colores del tiempo</a>
-              
-              <span class="chip chip-peak" data-i18n-source>Peak</span>
-              
-            </strong>
-            <p><a class="front-special-hero-venue" href="/cinema-watch-snapshot/venues/cinepolis/recoleta/" data-live-nav="true">Recoleta</a> <span data-i18n-meta-line>| Classic • 2D • Subtitulado | Room 6 | 96% sold</span></p>
-          </div>
-        </div>
-        
-        
-        <div class="front-special-day-row">
-          <span class="mini-time">23:00</span>
-          <div class="front-special-day-copy">
-            <strong class="front-special-day-title-line">
-              <a href="/cinema-watch-snapshot/movies/super-mario-galaxy-la-pelicula/" data-live-nav="true">Super Mario Galaxy: La película</a>
-              
-            </strong>
-            <p><a href="/cinema-watch-snapshot/venues/cinepolis/recoleta/" data-live-nav="true">Recoleta</a> <span data-i18n-meta-line>| Classic • 2D • Subtitulado | Room 6 | 1% sold</span></p>
-          </div>
-        </div>
-        
-      </div>
+      <span class="chip front-special-week-count" data-i18n-count="screening" data-i18n-count-value="2">2 screenings</span>
     </section>
     
-    
-    
-    
-    
-    <section class="front-special-day">
-      <div class="front-special-day-head">
-        <strong class="front-special-day-date">2026-04-10</strong>
-        <span class="chip front-special-day-count">3</span>
+    <section class="front-special-week-row">
+      <strong class="front-special-week-date">10/04</strong>
+      <div class="front-special-week-copy">
+        <strong class="front-special-day-title-line">
+          <a href="/cinema-watch-snapshot/movies/caso-137/" data-live-nav="true">Caso 137</a>
+          
+        </strong>
+        <p class="front-special-week-meta">
+          
+          <span class="front-special-ribbon-venues">
+            
+            <a class="front-special-ribbon-venue" href="/cinema-watch-snapshot/venues/cinepolis/recoleta/" data-live-nav="true">Recoleta</a>
+            
+            
+          </span>
+          
+          
+          <span>16:30-21:40</span>
+          
+        </p>
       </div>
-      <div class="front-special-day-list">
-        
-        
-        <div class="front-special-day-row">
-          <span class="mini-time">16:30</span>
-          <div class="front-special-day-copy">
-            <strong class="front-special-day-title-line">
-              <a href="/cinema-watch-snapshot/movies/la-divina-sarah-bernhardt/" data-live-nav="true">La divina Sarah Bernhardt</a>
-              
-            </strong>
-            <p><a href="/cinema-watch-snapshot/venues/cinepolis/recoleta/" data-live-nav="true">Recoleta</a> <span data-i18n-meta-line>| Classic • 2D • Subtitulado | Room 6 | 46% sold</span></p>
-          </div>
-        </div>
-        
-        
-        <div class="front-special-day-row">
-          <span class="mini-time">19:00</span>
-          <div class="front-special-day-copy">
-            <strong class="front-special-day-title-line">
-              <a href="/cinema-watch-snapshot/movies/caso-137/" data-live-nav="true">Caso 137</a>
-              
-            </strong>
-            <p><a href="/cinema-watch-snapshot/venues/cinepolis/recoleta/" data-live-nav="true">Recoleta</a> <span data-i18n-meta-line>| Classic • 2D • Subtitulado | Room 6 | 71% sold</span></p>
-          </div>
-        </div>
-        
-        
-        <div class="front-special-day-row">
-          <span class="mini-time">21:40</span>
-          <div class="front-special-day-copy">
-            <strong class="front-special-day-title-line">
-              <a href="/cinema-watch-snapshot/movies/alphaville/" data-live-nav="true">Alphaville</a>
-              
-            </strong>
-            <p><a href="/cinema-watch-snapshot/venues/cinepolis/recoleta/" data-live-nav="true">Recoleta</a> <span data-i18n-meta-line>| Classic • 2D • Subtitulado | Room 6 | 48% sold</span></p>
-          </div>
-        </div>
-        
-      </div>
+      <span class="chip front-special-week-count" data-i18n-count="screening" data-i18n-count-value="3">3 screenings</span>
     </section>
     
-    
-    
-    
-    
-    <section class="front-special-day">
-      <div class="front-special-day-head">
-        <strong class="front-special-day-date">2026-04-11</strong>
-        <span class="chip front-special-day-count">3</span>
+    <section class="front-special-week-row">
+      <strong class="front-special-week-date">11/04</strong>
+      <div class="front-special-week-copy">
+        <strong class="front-special-day-title-line">
+          <a href="/cinema-watch-snapshot/movies/dos-pianos/" data-live-nav="true">Dos Pianos</a>
+          
+        </strong>
+        <p class="front-special-week-meta">
+          
+          <span class="front-special-ribbon-venues">
+            
+            <a class="front-special-ribbon-venue" href="/cinema-watch-snapshot/venues/cinepolis/recoleta/" data-live-nav="true">Recoleta</a>
+            
+            
+          </span>
+          
+          
+          <span>14:20-22:00</span>
+          
+        </p>
       </div>
-      <div class="front-special-day-list">
-        
-        
-        <div class="front-special-day-row">
-          <span class="mini-time">14:20</span>
-          <div class="front-special-day-copy">
-            <strong class="front-special-day-title-line">
-              <a href="/cinema-watch-snapshot/movies/el-desprecio/" data-live-nav="true">El desprecio</a>
-              
-            </strong>
-            <p><a href="/cinema-watch-snapshot/venues/cinepolis/recoleta/" data-live-nav="true">Recoleta</a> <span data-i18n-meta-line>| Classic • 2D • Subtitulado | Room 6 | 63% sold</span></p>
-          </div>
-        </div>
-        
-        
-        <div class="front-special-day-row">
-          <span class="mini-time">16:30</span>
-          <div class="front-special-day-copy">
-            <strong class="front-special-day-title-line">
-              <a href="/cinema-watch-snapshot/movies/madres-jovenes/" data-live-nav="true">Madres Jóvenes</a>
-              
-            </strong>
-            <p><a href="/cinema-watch-snapshot/venues/cinepolis/recoleta/" data-live-nav="true">Recoleta</a> <span data-i18n-meta-line>| Classic • 2D • Subtitulado | Room 6 | 52% sold</span></p>
-          </div>
-        </div>
-        
-        
-        <div class="front-special-day-row">
-          <span class="mini-time">19:30</span>
-          <div class="front-special-day-copy">
-            <strong class="front-special-day-title-line">
-              <a href="/cinema-watch-snapshot/movies/dos-pianos/" data-live-nav="true">Dos Pianos</a>
-              
-            </strong>
-            <p><a href="/cinema-watch-snapshot/venues/cinepolis/recoleta/" data-live-nav="true">Recoleta</a> <span data-i18n-meta-line>| Classic • 2D • Subtitulado | Room 6 | 78% sold</span></p>
-          </div>
-        </div>
-        
-      </div>
+      <span class="chip front-special-week-count" data-i18n-count="screening" data-i18n-count-value="4">4 screenings</span>
     </section>
     
+    <section class="front-special-week-row">
+      <strong class="front-special-week-date">12/04</strong>
+      <div class="front-special-week-copy">
+        <strong class="front-special-day-title-line">
+          <a href="/cinema-watch-snapshot/movies/los-colores-del-tiempo/" data-live-nav="true">Los colores del tiempo</a>
+          
+        </strong>
+        <p class="front-special-week-meta">
+          
+          <span class="front-special-ribbon-venues">
+            
+            <a class="front-special-ribbon-venue" href="/cinema-watch-snapshot/venues/cinepolis/recoleta/" data-live-nav="true">Recoleta</a>
+            
+            
+          </span>
+          
+          
+          <span>14:20-22:00</span>
+          
+        </p>
+      </div>
+      <span class="chip front-special-week-count" data-i18n-count="screening" data-i18n-count-value="4">4 screenings</span>
+    </section>
+    
+    <section class="front-special-week-row">
+      <strong class="front-special-week-date">13/04</strong>
+      <div class="front-special-week-copy">
+        <strong class="front-special-day-title-line">
+          <a href="/cinema-watch-snapshot/movies/madres-jovenes/" data-live-nav="true">Madres Jóvenes</a>
+          
+        </strong>
+        <p class="front-special-week-meta">
+          
+          <span class="front-special-ribbon-venues">
+            
+            <a class="front-special-ribbon-venue" href="/cinema-watch-snapshot/venues/cinepolis/recoleta/" data-live-nav="true">Recoleta</a>
+            
+            
+          </span>
+          
+          
+          <span>16:30-21:40</span>
+          
+        </p>
+      </div>
+      <span class="chip front-special-week-count" data-i18n-count="screening" data-i18n-count-value="3">3 screenings</span>
+    </section>
+    
+    <section class="front-special-week-row">
+      <strong class="front-special-week-date">14/04</strong>
+      <div class="front-special-week-copy">
+        <strong class="front-special-day-title-line">
+          <a href="/cinema-watch-snapshot/movies/l-affaire-bojarski/" data-live-nav="true">L’Affaire Bojarski</a>
+          
+        </strong>
+        <p class="front-special-week-meta">
+          
+          <span class="front-special-ribbon-venues">
+            
+            <a class="front-special-ribbon-venue" href="/cinema-watch-snapshot/venues/cinepolis/recoleta/" data-live-nav="true">Recoleta</a>
+            
+            
+          </span>
+          
+          
+          <span>16:30-21:40</span>
+          
+        </p>
+      </div>
+      <span class="chip front-special-week-count" data-i18n-count="screening" data-i18n-count-value="3">3 screenings</span>
+    </section>
+    
+    <section class="front-special-week-row">
+      <strong class="front-special-week-date">15/04</strong>
+      <div class="front-special-week-copy">
+        <strong class="front-special-day-title-line">
+          <a href="/cinema-watch-snapshot/movies/el-gran-arco/" data-live-nav="true">El Gran Arco</a>
+          
+        </strong>
+        <p class="front-special-week-meta">
+          
+          <span class="front-special-ribbon-venues">
+            
+            <a class="front-special-ribbon-venue" href="/cinema-watch-snapshot/venues/cinepolis/recoleta/" data-live-nav="true">Recoleta</a>
+            
+            
+          </span>
+          
+          
+          <span>16:30-21:40</span>
+          
+        </p>
+      </div>
+      <span class="chip front-special-week-count" data-i18n-count="screening" data-i18n-count-value="3">3 screenings</span>
+    </section>
     
   </div>
   
+            
           </div>
         </article>
         
@@ -9264,8 +9424,10 @@
 
           <div class="front-special-program">
             
+            
   <div class="empty" data-i18n-source>No IMAX screenings in the current snapshot.</div>
   
+            
           </div>
         </article>
         
@@ -9292,8 +9454,8 @@
 
           <div class="front-special-program">
             
-  <div class="empty" data-i18n-source>No Dolby Atmos screenings in the current snapshot.</div>
-  
+            
+            
           </div>
         </article>
         
