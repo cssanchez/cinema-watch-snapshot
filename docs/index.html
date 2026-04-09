@@ -1987,9 +1987,24 @@
     .front-special-ribbon-venues {
       display: inline-flex;
       flex-wrap: wrap;
-      gap: 0;
+      gap: 0.18rem 0.2rem;
       align-items: center;
       min-width: 0;
+    }
+
+    .front-special-ribbon-venue {
+      display: inline-flex;
+      align-items: center;
+      color: rgba(238, 233, 227, 0.92);
+      font-weight: 600;
+      white-space: nowrap;
+    }
+
+    .front-special-ribbon-venue + .front-special-ribbon-venue::before {
+      content: "•";
+      margin-right: 0.48rem;
+      color: rgba(255, 255, 255, 0.22);
+      font-weight: 500;
     }
 
     .front-special-ribbon a:hover,
@@ -3100,7 +3115,7 @@
     
     <div class="front-hero-meta">
       <div class="front-freshness is-hero">
-        <strong data-i18n-freshness>Updated 5 h ago</strong>
+        <strong data-i18n-freshness>Updated 6 h ago</strong>
         <span class="front-freshness-divider" aria-hidden="true"></span>
         <span data-i18n-count="screening" data-i18n-count-value="6070">6070 screenings</span>
       </div>
@@ -4527,7 +4542,7 @@
             
             <span class="front-special-ribbon-venues">
               
-              <a href="/cinema-watch-snapshot/venues/showcase/imax_norcenter/" data-live-nav="true">IMAX Theatre (Norcenter)</a>
+              <a class="front-special-ribbon-venue" href="/cinema-watch-snapshot/venues/showcase/imax_norcenter/" data-live-nav="true">IMAX Theatre (Norcenter)</a>
               
             </span>
             
@@ -4755,9 +4770,9 @@
             
             <span class="front-special-ribbon-venues">
               
-              <a href="/cinema-watch-snapshot/venues/cinepolis/pilar/" data-live-nav="true">Pilar</a><span aria-hidden="true">, </span>
+              <a class="front-special-ribbon-venue" href="/cinema-watch-snapshot/venues/cinepolis/pilar/" data-live-nav="true">Pilar</a>
               
-              <a href="/cinema-watch-snapshot/venues/cinepolis/recoleta/" data-live-nav="true">Recoleta</a>
+              <a class="front-special-ribbon-venue" href="/cinema-watch-snapshot/venues/cinepolis/recoleta/" data-live-nav="true">Recoleta</a>
               
             </span>
             
@@ -6794,7 +6809,7 @@
             
             <span class="front-special-ribbon-venues">
               
-              <a href="/cinema-watch-snapshot/venues/cinepolis/recoleta/" data-live-nav="true">Recoleta</a>
+              <a class="front-special-ribbon-venue" href="/cinema-watch-snapshot/venues/cinepolis/recoleta/" data-live-nav="true">Recoleta</a>
               
             </span>
             

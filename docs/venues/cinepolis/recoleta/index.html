@@ -1987,9 +1987,24 @@
     .front-special-ribbon-venues {
       display: inline-flex;
       flex-wrap: wrap;
-      gap: 0;
+      gap: 0.18rem 0.2rem;
       align-items: center;
       min-width: 0;
+    }
+
+    .front-special-ribbon-venue {
+      display: inline-flex;
+      align-items: center;
+      color: rgba(238, 233, 227, 0.92);
+      font-weight: 600;
+      white-space: nowrap;
+    }
+
+    .front-special-ribbon-venue + .front-special-ribbon-venue::before {
+      content: "•";
+      margin-right: 0.48rem;
+      color: rgba(255, 255, 255, 0.22);
+      font-weight: 500;
     }
 
     .front-special-ribbon a:hover,
@@ -3045,7 +3060,7 @@
   </div>
   <div class="hero-side">
     <strong data-i18n-source>Venue signals</strong>
-    <p data-i18n-freshness>Updated 5 h ago</p>
+    <p data-i18n-freshness>Updated 6 h ago</p>
     <div class="stats">
       <span class="stat">10 active rooms</span>
       
