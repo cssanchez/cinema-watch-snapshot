@@ -2053,12 +2053,12 @@
     .front-movie-grid {
       grid-template-columns: minmax(0, 1.42fr) minmax(18rem, 0.9fr);
       align-items: start;
-      gap: 1rem;
+      gap: 0.92rem;
     }
 
     .front-movie-section {
-      gap: 0.82rem;
-      padding: 1.1rem;
+      gap: 0.74rem;
+      padding: 1rem;
     }
 
     .front-movie-section--single-title {
@@ -2069,8 +2069,8 @@
 
     .front-movie-feature {
       display: grid;
-      gap: 0.7rem;
-      padding: 1.02rem 1.08rem;
+      gap: 0.6rem;
+      padding: 0.96rem 1rem;
       border-radius: var(--radius-lg);
       border: 1px solid rgba(165, 178, 198, 0.14);
       background:
@@ -2079,70 +2079,67 @@
       text-decoration: none;
     }
 
-    .front-movie-feature-head {
-      display: flex;
-      justify-content: space-between;
-      gap: 0.9rem;
-      align-items: start;
-    }
-
     .front-movie-feature-copy {
       display: grid;
-      gap: 0.28rem;
+      gap: 0.22rem;
       min-width: 0;
     }
 
     .front-movie-feature-title {
       font-family: var(--heading-font);
-      font-size: clamp(1.38rem, 2.1vw, 2rem);
-      line-height: 0.98;
+      font-size: clamp(1.28rem, 1.95vw, 1.84rem);
+      line-height: 0.96;
       letter-spacing: -0.025em;
     }
 
-    .front-movie-feature-side {
-      display: grid;
-      gap: 0.42rem;
-      justify-items: end;
-      align-content: start;
-      flex: 0 0 auto;
+    .front-movie-feature-facts,
+    .front-movie-tile-facts {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 0.28rem 0.52rem;
+      color: rgba(198, 205, 214, 0.84);
+      font-size: 0.79rem;
+      line-height: 1.3;
+    }
+
+    .front-movie-feature-facts span,
+    .front-movie-tile-facts span {
+      position: relative;
+    }
+
+    .front-movie-feature-facts span + span::before,
+    .front-movie-tile-facts span + span::before {
+      content: "•";
+      margin-right: 0.52rem;
+      color: rgba(120, 135, 154, 0.78);
     }
 
     .front-movie-support-grid {
       display: grid;
       grid-template-columns: repeat(2, minmax(0, 1fr));
-      gap: 0.66rem;
+      gap: 0.58rem;
       align-items: start;
     }
 
     .front-movie-tile {
       display: grid;
-      gap: 0.52rem;
-      padding: 0.9rem 0.94rem;
+      gap: 0.44rem;
+      padding: 0.8rem 0.88rem;
       border-radius: var(--radius-md);
       border: 1px solid rgba(165, 178, 198, 0.12);
       background: rgba(13, 18, 25, 0.54);
       text-decoration: none;
     }
 
-    .front-movie-tile-head {
-      display: grid;
-      gap: 0.56rem;
-      min-width: 0;
-    }
-
     .front-movie-tile-copy {
       display: grid;
-      gap: 0.24rem;
+      gap: 0.16rem;
       min-width: 0;
     }
 
     .front-movie-tile-copy strong {
-      font-size: 1rem;
-      line-height: 1.14;
-    }
-
-    .front-movie-tile-counts {
-      gap: 0.42rem;
+      font-size: 0.98rem;
+      line-height: 1.12;
     }
 
     .button-card,
@@ -2933,7 +2930,7 @@
     
     <div class="front-hero-meta">
       <div class="front-freshness is-hero">
-        <strong data-i18n-freshness>Updated 14 h ago</strong>
+        <strong data-i18n-freshness>Updated 15 h ago</strong>
         <span class="front-freshness-divider" aria-hidden="true"></span>
         <span data-i18n-count="screening" data-i18n-count-value="5429">5429 screenings</span>
       </div>
@@ -4922,6 +4919,16 @@
             </div>
             
           </div>
+          <div class="front-movie-feature-facts">
+    <span data-i18n-count="screening" data-i18n-count-value="222">222 screenings</span>
+    <span data-i18n-count="venue" data-i18n-count-value="10">10 venues</span>
+    
+    <span>Avellaneda</span>
+    
+    
+    <span>2026-04-09 to 2026-04-10</span>
+    
+  </div>
           
   <div class="chips front-movie-signal-chips">
     
@@ -4933,41 +4940,31 @@
     
   </div>
   
-          <div class="chips front-movie-summary">
-    <span class="chip" data-i18n-count="screening" data-i18n-count-value="222">222 screenings</span>
-    <span class="chip chip-neutral" data-i18n-count="venue" data-i18n-count-value="10">10 venues</span>
-    
-    <span class="chip chip-neutral">Avellaneda</span>
-    
-    
-    <span class="chip chip-neutral">2026-04-09 to 2026-04-10</span>
-    
-  </div>
         </a>
 
         
         <div class="front-movie-support-grid">
           
           <a class="front-movie-tile" href="/cinema-watch-snapshot/movies/el-drama/" data-live-nav="true">
-            <div class="front-movie-tile-head">
-              <div class="front-movie-tile-copy">
-                <strong>El Drama</strong>
+            <div class="front-movie-tile-copy">
+              <strong>El Drama</strong>
+              
+              <div class="front-movie-meta">
                 
-                <div class="front-movie-meta">
-                  
-                  <span>Avellaneda</span>
-                  
-                  
-                  <span>2026-04-09 to 2026-04-10</span>
-                  
-                </div>
+                <span>Avellaneda</span>
+                
+                
+                <span>2026-04-09 to 2026-04-10</span>
                 
               </div>
-              <div class="chips front-movie-tile-counts">
-                <span class="chip" data-i18n-count="screening" data-i18n-count-value="45">45 screenings</span>
-                <span class="chip chip-neutral" data-i18n-count="venue" data-i18n-count-value="9">9 venues</span>
-              </div>
+              
             </div>
+            <div class="front-movie-tile-facts">
+    <span data-i18n-count="screening" data-i18n-count-value="45">45 screenings</span>
+    <span data-i18n-count="venue" data-i18n-count-value="9">9 venues</span>
+    
+    
+  </div>
             
   <div class="chips front-movie-signal-chips">
     
@@ -4982,25 +4979,25 @@
           </a>
           
           <a class="front-movie-tile" href="/cinema-watch-snapshot/movies/proyecto-fin-del-mundo/" data-live-nav="true">
-            <div class="front-movie-tile-head">
-              <div class="front-movie-tile-copy">
-                <strong>Proyecto fin del mundo</strong>
+            <div class="front-movie-tile-copy">
+              <strong>Proyecto fin del mundo</strong>
+              
+              <div class="front-movie-meta">
                 
-                <div class="front-movie-meta">
-                  
-                  <span>Norcenter</span>
-                  
-                  
-                  <span>2026-04-09 to 2026-04-10</span>
-                  
-                </div>
+                <span>Norcenter</span>
+                
+                
+                <span>2026-04-09 to 2026-04-10</span>
                 
               </div>
-              <div class="chips front-movie-tile-counts">
-                <span class="chip" data-i18n-count="screening" data-i18n-count-value="44">44 screenings</span>
-                <span class="chip chip-neutral" data-i18n-count="venue" data-i18n-count-value="10">10 venues</span>
-              </div>
+              
             </div>
+            <div class="front-movie-tile-facts">
+    <span data-i18n-count="screening" data-i18n-count-value="44">44 screenings</span>
+    <span data-i18n-count="venue" data-i18n-count-value="10">10 venues</span>
+    
+    
+  </div>
             
   <div class="chips front-movie-signal-chips">
     
@@ -5015,25 +5012,25 @@
           </a>
           
           <a class="front-movie-tile" href="/cinema-watch-snapshot/movies/hoppers/" data-live-nav="true">
-            <div class="front-movie-tile-head">
-              <div class="front-movie-tile-copy">
-                <strong>Hoppers</strong>
+            <div class="front-movie-tile-copy">
+              <strong>Hoppers</strong>
+              
+              <div class="front-movie-meta">
                 
-                <div class="front-movie-meta">
-                  
-                  <span>Merlo</span>
-                  
-                  
-                  <span>2026-04-09 to 2026-04-10</span>
-                  
-                </div>
+                <span>Merlo</span>
+                
+                
+                <span>2026-04-09 to 2026-04-10</span>
                 
               </div>
-              <div class="chips front-movie-tile-counts">
-                <span class="chip" data-i18n-count="screening" data-i18n-count-value="20">20 screenings</span>
-                <span class="chip chip-neutral" data-i18n-count="venue" data-i18n-count-value="5">5 venues</span>
-              </div>
+              
             </div>
+            <div class="front-movie-tile-facts">
+    <span data-i18n-count="screening" data-i18n-count-value="20">20 screenings</span>
+    <span data-i18n-count="venue" data-i18n-count-value="5">5 venues</span>
+    
+    
+  </div>
             
   <div class="chips front-movie-signal-chips">
     
@@ -5048,25 +5045,25 @@
           </a>
           
           <a class="front-movie-tile" href="/cinema-watch-snapshot/movies/911-llamada-infernal/" data-live-nav="true">
-            <div class="front-movie-tile-head">
-              <div class="front-movie-tile-copy">
-                <strong>911: llamada infernal</strong>
+            <div class="front-movie-tile-copy">
+              <strong>911: llamada infernal</strong>
+              
+              <div class="front-movie-meta">
                 
-                <div class="front-movie-meta">
-                  
-                  <span>Haedo</span>
-                  
-                  
-                  <span>2026-04-09 to 2026-04-10</span>
-                  
-                </div>
+                <span>Haedo</span>
+                
+                
+                <span>2026-04-09 to 2026-04-10</span>
                 
               </div>
-              <div class="chips front-movie-tile-counts">
-                <span class="chip" data-i18n-count="screening" data-i18n-count-value="17">17 screenings</span>
-                <span class="chip chip-neutral" data-i18n-count="venue" data-i18n-count-value="5">5 venues</span>
-              </div>
+              
             </div>
+            <div class="front-movie-tile-facts">
+    <span data-i18n-count="screening" data-i18n-count-value="17">17 screenings</span>
+    <span data-i18n-count="venue" data-i18n-count-value="5">5 venues</span>
+    
+    
+  </div>
             
   <div class="chips front-movie-signal-chips">
     
@@ -5081,25 +5078,25 @@
           </a>
           
           <a class="front-movie-tile" href="/cinema-watch-snapshot/movies/buena-suerte-diviertete-no-mueras/" data-live-nav="true">
-            <div class="front-movie-tile-head">
-              <div class="front-movie-tile-copy">
-                <strong>Buena suerte, diviértete, no mueras</strong>
+            <div class="front-movie-tile-copy">
+              <strong>Buena suerte, diviértete, no mueras</strong>
+              
+              <div class="front-movie-meta">
                 
-                <div class="front-movie-meta">
-                  
-                  <span>Norcenter</span>
-                  
-                  
-                  <span>2026-04-09 to 2026-04-10</span>
-                  
-                </div>
+                <span>Norcenter</span>
+                
+                
+                <span>2026-04-09 to 2026-04-10</span>
                 
               </div>
-              <div class="chips front-movie-tile-counts">
-                <span class="chip" data-i18n-count="screening" data-i18n-count-value="17">17 screenings</span>
-                <span class="chip chip-neutral" data-i18n-count="venue" data-i18n-count-value="6">6 venues</span>
-              </div>
+              
             </div>
+            <div class="front-movie-tile-facts">
+    <span data-i18n-count="screening" data-i18n-count-value="17">17 screenings</span>
+    <span data-i18n-count="venue" data-i18n-count-value="6">6 venues</span>
+    
+    
+  </div>
             
   <div class="chips front-movie-signal-chips">
     
@@ -5114,25 +5111,25 @@
           </a>
           
           <a class="front-movie-tile" href="/cinema-watch-snapshot/movies/hoppers-operacion-castor/" data-live-nav="true">
-            <div class="front-movie-tile-head">
-              <div class="front-movie-tile-copy">
-                <strong>Hoppers: operación castor</strong>
+            <div class="front-movie-tile-copy">
+              <strong>Hoppers: operación castor</strong>
+              
+              <div class="front-movie-meta">
                 
-                <div class="front-movie-meta">
-                  
-                  <span>Norcenter</span>
-                  
-                  
-                  <span>2026-04-09 to 2026-04-10</span>
-                  
-                </div>
+                <span>Norcenter</span>
+                
+                
+                <span>2026-04-09 to 2026-04-10</span>
                 
               </div>
-              <div class="chips front-movie-tile-counts">
-                <span class="chip" data-i18n-count="screening" data-i18n-count-value="17">17 screenings</span>
-                <span class="chip chip-neutral" data-i18n-count="venue" data-i18n-count-value="4">4 venues</span>
-              </div>
+              
             </div>
+            <div class="front-movie-tile-facts">
+    <span data-i18n-count="screening" data-i18n-count-value="17">17 screenings</span>
+    <span data-i18n-count="venue" data-i18n-count-value="4">4 venues</span>
+    
+    
+  </div>
             
   <div class="chips front-movie-signal-chips">
     
@@ -5143,25 +5140,25 @@
           </a>
           
           <a class="front-movie-tile" href="/cinema-watch-snapshot/movies/torrente-presidente/" data-live-nav="true">
-            <div class="front-movie-tile-head">
-              <div class="front-movie-tile-copy">
-                <strong>Torrente Presidente</strong>
+            <div class="front-movie-tile-copy">
+              <strong>Torrente Presidente</strong>
+              
+              <div class="front-movie-meta">
                 
-                <div class="front-movie-meta">
-                  
-                  <span>Avellaneda</span>
-                  
-                  
-                  <span>2026-04-09 to 2026-04-10</span>
-                  
-                </div>
+                <span>Avellaneda</span>
+                
+                
+                <span>2026-04-09 to 2026-04-10</span>
                 
               </div>
-              <div class="chips front-movie-tile-counts">
-                <span class="chip" data-i18n-count="screening" data-i18n-count-value="16">16 screenings</span>
-                <span class="chip chip-neutral" data-i18n-count="venue" data-i18n-count-value="7">7 venues</span>
-              </div>
+              
             </div>
+            <div class="front-movie-tile-facts">
+    <span data-i18n-count="screening" data-i18n-count-value="16">16 screenings</span>
+    <span data-i18n-count="venue" data-i18n-count-value="7">7 venues</span>
+    
+    
+  </div>
             
   <div class="chips front-movie-signal-chips">
     
@@ -5197,25 +5194,25 @@
         
         
         <a class="row-card front-movie-feature front-movie-feature--single" href="/cinema-watch-snapshot/movies/la-posesion-de-la-momia/" data-live-nav="true">
-          <div class="front-movie-feature-head">
-            <div class="front-movie-feature-copy">
-              <strong class="front-movie-feature-title">La posesión de la momia</strong>
+          <div class="front-movie-feature-copy">
+            <strong class="front-movie-feature-title">La posesión de la momia</strong>
+            
+            <div class="front-movie-meta">
               
-              <div class="front-movie-meta">
-                
-                <span>Haedo</span>
-                
-                
-                <span>2026-04-16 to 2026-04-22</span>
-                
-              </div>
+              <span>Haedo</span>
+              
+              
+              <span>2026-04-16 to 2026-04-22</span>
               
             </div>
-            <div class="front-movie-feature-side">
-              <span class="chip" data-i18n-count="screening" data-i18n-count-value="159">159 screenings</span>
-              <span class="chip chip-neutral" data-i18n-count="venue" data-i18n-count-value="5">5 venues</span>
-            </div>
+            
           </div>
+          <div class="front-movie-feature-facts">
+    <span data-i18n-count="screening" data-i18n-count-value="159">159 screenings</span>
+    <span data-i18n-count="venue" data-i18n-count-value="5">5 venues</span>
+    
+    
+  </div>
           
   <div class="chips front-movie-signal-chips">
     
@@ -7121,6 +7118,16 @@
             </div>
             
           </div>
+          <div class="front-movie-feature-facts">
+    <span data-i18n-count="screening" data-i18n-count-value="199">199 screenings</span>
+    <span data-i18n-count="venue" data-i18n-count-value="3">3 venues</span>
+    
+    <span>Recoleta</span>
+    
+    
+    <span>2026-04-09 to 2026-04-13</span>
+    
+  </div>
           
   <div class="chips front-movie-signal-chips">
     
@@ -7132,41 +7139,31 @@
     
   </div>
   
-          <div class="chips front-movie-summary">
-    <span class="chip" data-i18n-count="screening" data-i18n-count-value="199">199 screenings</span>
-    <span class="chip chip-neutral" data-i18n-count="venue" data-i18n-count-value="3">3 venues</span>
-    
-    <span class="chip chip-neutral">Recoleta</span>
-    
-    
-    <span class="chip chip-neutral">2026-04-09 to 2026-04-13</span>
-    
-  </div>
         </a>
 
         
         <div class="front-movie-support-grid">
           
           <a class="front-movie-tile" href="/cinema-watch-snapshot/movies/proyecto-fin-del-mundo/" data-live-nav="true">
-            <div class="front-movie-tile-head">
-              <div class="front-movie-tile-copy">
-                <strong>Proyecto fin del mundo</strong>
+            <div class="front-movie-tile-copy">
+              <strong>Proyecto fin del mundo</strong>
+              
+              <div class="front-movie-meta">
                 
-                <div class="front-movie-meta">
-                  
-                  <span>Recoleta</span>
-                  
-                  
-                  <span>2026-04-09 to 2026-04-13</span>
-                  
-                </div>
+                <span>Recoleta</span>
+                
+                
+                <span>2026-04-09 to 2026-04-13</span>
                 
               </div>
-              <div class="chips front-movie-tile-counts">
-                <span class="chip" data-i18n-count="screening" data-i18n-count-value="54">54 screenings</span>
-                <span class="chip chip-neutral" data-i18n-count="venue" data-i18n-count-value="3">3 venues</span>
-              </div>
+              
             </div>
+            <div class="front-movie-tile-facts">
+    <span data-i18n-count="screening" data-i18n-count-value="54">54 screenings</span>
+    <span data-i18n-count="venue" data-i18n-count-value="3">3 venues</span>
+    
+    
+  </div>
             
   <div class="chips front-movie-signal-chips">
     
@@ -7181,25 +7178,25 @@
           </a>
           
           <a class="front-movie-tile" href="/cinema-watch-snapshot/movies/el-drama/" data-live-nav="true">
-            <div class="front-movie-tile-head">
-              <div class="front-movie-tile-copy">
-                <strong>El Drama</strong>
+            <div class="front-movie-tile-copy">
+              <strong>El Drama</strong>
+              
+              <div class="front-movie-meta">
                 
-                <div class="front-movie-meta">
-                  
-                  <span>Recoleta</span>
-                  
-                  
-                  <span>2026-04-09 to 2026-04-13</span>
-                  
-                </div>
+                <span>Recoleta</span>
+                
+                
+                <span>2026-04-09 to 2026-04-13</span>
                 
               </div>
-              <div class="chips front-movie-tile-counts">
-                <span class="chip" data-i18n-count="screening" data-i18n-count-value="52">52 screenings</span>
-                <span class="chip chip-neutral" data-i18n-count="venue" data-i18n-count-value="3">3 venues</span>
-              </div>
+              
             </div>
+            <div class="front-movie-tile-facts">
+    <span data-i18n-count="screening" data-i18n-count-value="52">52 screenings</span>
+    <span data-i18n-count="venue" data-i18n-count-value="3">3 venues</span>
+    
+    
+  </div>
             
   <div class="chips front-movie-signal-chips">
     
@@ -7214,25 +7211,25 @@
           </a>
           
           <a class="front-movie-tile" href="/cinema-watch-snapshot/movies/hamnet/" data-live-nav="true">
-            <div class="front-movie-tile-head">
-              <div class="front-movie-tile-copy">
-                <strong>Hamnet</strong>
+            <div class="front-movie-tile-copy">
+              <strong>Hamnet</strong>
+              
+              <div class="front-movie-meta">
                 
-                <div class="front-movie-meta">
-                  
-                  <span>Recoleta</span>
-                  
-                  
-                  <span>2026-04-09 to 2026-04-13</span>
-                  
-                </div>
+                <span>Recoleta</span>
+                
+                
+                <span>2026-04-09 to 2026-04-13</span>
                 
               </div>
-              <div class="chips front-movie-tile-counts">
-                <span class="chip" data-i18n-count="screening" data-i18n-count-value="18">18 screenings</span>
-                <span class="chip chip-neutral" data-i18n-count="venue" data-i18n-count-value="2">2 venues</span>
-              </div>
+              
             </div>
+            <div class="front-movie-tile-facts">
+    <span data-i18n-count="screening" data-i18n-count-value="18">18 screenings</span>
+    <span data-i18n-count="venue" data-i18n-count-value="2">2 venues</span>
+    
+    
+  </div>
             
   <div class="chips front-movie-signal-chips">
     
@@ -7247,25 +7244,25 @@
           </a>
           
           <a class="front-movie-tile" href="/cinema-watch-snapshot/movies/nuremberg-el-juicio-del-siglo/" data-live-nav="true">
-            <div class="front-movie-tile-head">
-              <div class="front-movie-tile-copy">
-                <strong>Nuremberg: El juicio del siglo</strong>
+            <div class="front-movie-tile-copy">
+              <strong>Nuremberg: El juicio del siglo</strong>
+              
+              <div class="front-movie-meta">
                 
-                <div class="front-movie-meta">
-                  
-                  <span>Belgrano</span>
-                  
-                  
-                  <span>2026-04-09 to 2026-04-13</span>
-                  
-                </div>
+                <span>Belgrano</span>
+                
+                
+                <span>2026-04-09 to 2026-04-13</span>
                 
               </div>
-              <div class="chips front-movie-tile-counts">
-                <span class="chip" data-i18n-count="screening" data-i18n-count-value="18">18 screenings</span>
-                <span class="chip chip-neutral" data-i18n-count="venue" data-i18n-count-value="2">2 venues</span>
-              </div>
+              
             </div>
+            <div class="front-movie-tile-facts">
+    <span data-i18n-count="screening" data-i18n-count-value="18">18 screenings</span>
+    <span data-i18n-count="venue" data-i18n-count-value="2">2 venues</span>
+    
+    
+  </div>
             
   <div class="chips front-movie-signal-chips">
     
@@ -7280,25 +7277,25 @@
           </a>
           
           <a class="front-movie-tile" href="/cinema-watch-snapshot/movies/hoppers/" data-live-nav="true">
-            <div class="front-movie-tile-head">
-              <div class="front-movie-tile-copy">
-                <strong>Hoppers</strong>
+            <div class="front-movie-tile-copy">
+              <strong>Hoppers</strong>
+              
+              <div class="front-movie-meta">
                 
-                <div class="front-movie-meta">
-                  
-                  <span>Recoleta</span>
-                  
-                  
-                  <span>2026-04-09 to 2026-04-13</span>
-                  
-                </div>
+                <span>Recoleta</span>
+                
+                
+                <span>2026-04-09 to 2026-04-13</span>
                 
               </div>
-              <div class="chips front-movie-tile-counts">
-                <span class="chip" data-i18n-count="screening" data-i18n-count-value="15">15 screenings</span>
-                <span class="chip chip-neutral" data-i18n-count="venue" data-i18n-count-value="2">2 venues</span>
-              </div>
+              
             </div>
+            <div class="front-movie-tile-facts">
+    <span data-i18n-count="screening" data-i18n-count-value="15">15 screenings</span>
+    <span data-i18n-count="venue" data-i18n-count-value="2">2 venues</span>
+    
+    
+  </div>
             
   <div class="chips front-movie-signal-chips">
     
@@ -7313,25 +7310,25 @@
           </a>
           
           <a class="front-movie-tile" href="/cinema-watch-snapshot/movies/hoppers-operacion-castor/" data-live-nav="true">
-            <div class="front-movie-tile-head">
-              <div class="front-movie-tile-copy">
-                <strong>Hoppers: operación castor</strong>
+            <div class="front-movie-tile-copy">
+              <strong>Hoppers: operación castor</strong>
+              
+              <div class="front-movie-meta">
                 
-                <div class="front-movie-meta">
-                  
-                  <span>Belgrano</span>
-                  
-                  
-                  <span>2026-04-09 to 2026-04-13</span>
-                  
-                </div>
+                <span>Belgrano</span>
+                
+                
+                <span>2026-04-09 to 2026-04-13</span>
                 
               </div>
-              <div class="chips front-movie-tile-counts">
-                <span class="chip" data-i18n-count="screening" data-i18n-count-value="15">15 screenings</span>
-                <span class="chip chip-neutral" data-i18n-count="venue" data-i18n-count-value="1">1 venues</span>
-              </div>
+              
             </div>
+            <div class="front-movie-tile-facts">
+    <span data-i18n-count="screening" data-i18n-count-value="15">15 screenings</span>
+    <span data-i18n-count="venue" data-i18n-count-value="1">1 venues</span>
+    
+    
+  </div>
             
   <div class="chips front-movie-signal-chips">
     
@@ -7342,25 +7339,25 @@
           </a>
           
           <a class="front-movie-tile" href="/cinema-watch-snapshot/movies/buena-suerte-diviertete-no-mueras/" data-live-nav="true">
-            <div class="front-movie-tile-head">
-              <div class="front-movie-tile-copy">
-                <strong>Buena suerte, diviértete, no mueras</strong>
+            <div class="front-movie-tile-copy">
+              <strong>Buena suerte, diviértete, no mueras</strong>
+              
+              <div class="front-movie-meta">
                 
-                <div class="front-movie-meta">
-                  
-                  <span>Belgrano</span>
-                  
-                  
-                  <span>2026-04-09 to 2026-04-13</span>
-                  
-                </div>
+                <span>Belgrano</span>
+                
+                
+                <span>2026-04-09 to 2026-04-13</span>
                 
               </div>
-              <div class="chips front-movie-tile-counts">
-                <span class="chip" data-i18n-count="screening" data-i18n-count-value="13">13 screenings</span>
-                <span class="chip chip-neutral" data-i18n-count="venue" data-i18n-count-value="2">2 venues</span>
-              </div>
+              
             </div>
+            <div class="front-movie-tile-facts">
+    <span data-i18n-count="screening" data-i18n-count-value="13">13 screenings</span>
+    <span data-i18n-count="venue" data-i18n-count-value="2">2 venues</span>
+    
+    
+  </div>
             
   <div class="chips front-movie-signal-chips">
     
@@ -7396,25 +7393,25 @@
         
         
         <a class="row-card front-movie-feature front-movie-feature--single" href="/cinema-watch-snapshot/movies/la-posesion-de-la-momia/" data-live-nav="true">
-          <div class="front-movie-feature-head">
-            <div class="front-movie-feature-copy">
-              <strong class="front-movie-feature-title">La posesión de la momia</strong>
+          <div class="front-movie-feature-copy">
+            <strong class="front-movie-feature-title">La posesión de la momia</strong>
+            
+            <div class="front-movie-meta">
               
-              <div class="front-movie-meta">
-                
-                <span>Belgrano</span>
-                
-                
-                <span>2026-04-16 to 2026-04-22</span>
-                
-              </div>
+              <span>Belgrano</span>
+              
+              
+              <span>2026-04-16 to 2026-04-22</span>
               
             </div>
-            <div class="front-movie-feature-side">
-              <span class="chip" data-i18n-count="screening" data-i18n-count-value="21">21 screenings</span>
-              <span class="chip chip-neutral" data-i18n-count="venue" data-i18n-count-value="1">1 venues</span>
-            </div>
+            
           </div>
+          <div class="front-movie-feature-facts">
+    <span data-i18n-count="screening" data-i18n-count-value="21">21 screenings</span>
+    <span data-i18n-count="venue" data-i18n-count-value="1">1 venues</span>
+    
+    
+  </div>
           
   <div class="chips front-movie-signal-chips">
     
@@ -9235,6 +9232,16 @@
             </div>
             
           </div>
+          <div class="front-movie-feature-facts">
+    <span data-i18n-count="screening" data-i18n-count-value="217">217 screenings</span>
+    <span data-i18n-count="venue" data-i18n-count-value="2">2 venues</span>
+    
+    <span>Avellaneda</span>
+    
+    
+    <span>2026-04-09 to 2026-04-14</span>
+    
+  </div>
           
   <div class="chips front-movie-signal-chips">
     
@@ -9246,41 +9253,31 @@
     
   </div>
   
-          <div class="chips front-movie-summary">
-    <span class="chip" data-i18n-count="screening" data-i18n-count-value="217">217 screenings</span>
-    <span class="chip chip-neutral" data-i18n-count="venue" data-i18n-count-value="2">2 venues</span>
-    
-    <span class="chip chip-neutral">Avellaneda</span>
-    
-    
-    <span class="chip chip-neutral">2026-04-09 to 2026-04-14</span>
-    
-  </div>
         </a>
 
         
         <div class="front-movie-support-grid">
           
           <a class="front-movie-tile" href="/cinema-watch-snapshot/movies/el-drama/" data-live-nav="true">
-            <div class="front-movie-tile-head">
-              <div class="front-movie-tile-copy">
-                <strong>El Drama</strong>
+            <div class="front-movie-tile-copy">
+              <strong>El Drama</strong>
+              
+              <div class="front-movie-meta">
                 
-                <div class="front-movie-meta">
-                  
-                  <span>Quilmes</span>
-                  
-                  
-                  <span>2026-04-09 to 2026-04-14</span>
-                  
-                </div>
+                <span>Quilmes</span>
+                
+                
+                <span>2026-04-09 to 2026-04-14</span>
                 
               </div>
-              <div class="chips front-movie-tile-counts">
-                <span class="chip" data-i18n-count="screening" data-i18n-count-value="45">45 screenings</span>
-                <span class="chip chip-neutral" data-i18n-count="venue" data-i18n-count-value="2">2 venues</span>
-              </div>
+              
             </div>
+            <div class="front-movie-tile-facts">
+    <span data-i18n-count="screening" data-i18n-count-value="45">45 screenings</span>
+    <span data-i18n-count="venue" data-i18n-count-value="2">2 venues</span>
+    
+    
+  </div>
             
   <div class="chips front-movie-signal-chips">
     
@@ -9295,25 +9292,25 @@
           </a>
           
           <a class="front-movie-tile" href="/cinema-watch-snapshot/movies/911-llamada-infernal/" data-live-nav="true">
-            <div class="front-movie-tile-head">
-              <div class="front-movie-tile-copy">
-                <strong>911: llamada infernal</strong>
+            <div class="front-movie-tile-copy">
+              <strong>911: llamada infernal</strong>
+              
+              <div class="front-movie-meta">
                 
-                <div class="front-movie-meta">
-                  
-                  <span>Quilmes</span>
-                  
-                  
-                  <span>2026-04-09 to 2026-04-14</span>
-                  
-                </div>
+                <span>Quilmes</span>
+                
+                
+                <span>2026-04-09 to 2026-04-14</span>
                 
               </div>
-              <div class="chips front-movie-tile-counts">
-                <span class="chip" data-i18n-count="screening" data-i18n-count-value="27">27 screenings</span>
-                <span class="chip chip-neutral" data-i18n-count="venue" data-i18n-count-value="2">2 venues</span>
-              </div>
+              
             </div>
+            <div class="front-movie-tile-facts">
+    <span data-i18n-count="screening" data-i18n-count-value="27">27 screenings</span>
+    <span data-i18n-count="venue" data-i18n-count-value="2">2 venues</span>
+    
+    
+  </div>
             
   <div class="chips front-movie-signal-chips">
     
@@ -9328,25 +9325,25 @@
           </a>
           
           <a class="front-movie-tile" href="/cinema-watch-snapshot/movies/proyecto-fin-del-mundo/" data-live-nav="true">
-            <div class="front-movie-tile-head">
-              <div class="front-movie-tile-copy">
-                <strong>Proyecto fin del mundo</strong>
+            <div class="front-movie-tile-copy">
+              <strong>Proyecto fin del mundo</strong>
+              
+              <div class="front-movie-meta">
                 
-                <div class="front-movie-meta">
-                  
-                  <span>Avellaneda</span>
-                  
-                  
-                  <span>2026-04-09 to 2026-04-14</span>
-                  
-                </div>
+                <span>Avellaneda</span>
+                
+                
+                <span>2026-04-09 to 2026-04-14</span>
                 
               </div>
-              <div class="chips front-movie-tile-counts">
-                <span class="chip" data-i18n-count="screening" data-i18n-count-value="26">26 screenings</span>
-                <span class="chip chip-neutral" data-i18n-count="venue" data-i18n-count-value="2">2 venues</span>
-              </div>
+              
             </div>
+            <div class="front-movie-tile-facts">
+    <span data-i18n-count="screening" data-i18n-count-value="26">26 screenings</span>
+    <span data-i18n-count="venue" data-i18n-count-value="2">2 venues</span>
+    
+    
+  </div>
             
   <div class="chips front-movie-signal-chips">
     
@@ -9361,25 +9358,25 @@
           </a>
           
           <a class="front-movie-tile" href="/cinema-watch-snapshot/movies/torrente-presidente/" data-live-nav="true">
-            <div class="front-movie-tile-head">
-              <div class="front-movie-tile-copy">
-                <strong>Torrente Presidente</strong>
+            <div class="front-movie-tile-copy">
+              <strong>Torrente Presidente</strong>
+              
+              <div class="front-movie-meta">
                 
-                <div class="front-movie-meta">
-                  
-                  <span>Avellaneda</span>
-                  
-                  
-                  <span>2026-04-09 to 2026-04-14</span>
-                  
-                </div>
+                <span>Avellaneda</span>
+                
+                
+                <span>2026-04-09 to 2026-04-14</span>
                 
               </div>
-              <div class="chips front-movie-tile-counts">
-                <span class="chip" data-i18n-count="screening" data-i18n-count-value="24">24 screenings</span>
-                <span class="chip chip-neutral" data-i18n-count="venue" data-i18n-count-value="2">2 venues</span>
-              </div>
+              
             </div>
+            <div class="front-movie-tile-facts">
+    <span data-i18n-count="screening" data-i18n-count-value="24">24 screenings</span>
+    <span data-i18n-count="venue" data-i18n-count-value="2">2 venues</span>
+    
+    
+  </div>
             
   <div class="chips front-movie-signal-chips">
     
@@ -9394,25 +9391,25 @@
           </a>
           
           <a class="front-movie-tile" href="/cinema-watch-snapshot/movies/hoppers-operacion-castor/" data-live-nav="true">
-            <div class="front-movie-tile-head">
-              <div class="front-movie-tile-copy">
-                <strong>Hoppers: operación castor</strong>
+            <div class="front-movie-tile-copy">
+              <strong>Hoppers: operación castor</strong>
+              
+              <div class="front-movie-meta">
                 
-                <div class="front-movie-meta">
-                  
-                  <span>Quilmes</span>
-                  
-                  
-                  <span>2026-04-09 to 2026-04-14</span>
-                  
-                </div>
+                <span>Quilmes</span>
+                
+                
+                <span>2026-04-09 to 2026-04-14</span>
                 
               </div>
-              <div class="chips front-movie-tile-counts">
-                <span class="chip" data-i18n-count="screening" data-i18n-count-value="18">18 screenings</span>
-                <span class="chip chip-neutral" data-i18n-count="venue" data-i18n-count-value="1">1 venues</span>
-              </div>
+              
             </div>
+            <div class="front-movie-tile-facts">
+    <span data-i18n-count="screening" data-i18n-count-value="18">18 screenings</span>
+    <span data-i18n-count="venue" data-i18n-count-value="1">1 venues</span>
+    
+    
+  </div>
             
   <div class="chips front-movie-signal-chips">
     
@@ -9423,25 +9420,25 @@
           </a>
           
           <a class="front-movie-tile" href="/cinema-watch-snapshot/movies/la-casaca-de-dios/" data-live-nav="true">
-            <div class="front-movie-tile-head">
-              <div class="front-movie-tile-copy">
-                <strong>La casaca de Dios</strong>
+            <div class="front-movie-tile-copy">
+              <strong>La casaca de Dios</strong>
+              
+              <div class="front-movie-meta">
                 
-                <div class="front-movie-meta">
-                  
-                  <span>Quilmes</span>
-                  
-                  
-                  <span>2026-04-09 to 2026-04-14</span>
-                  
-                </div>
+                <span>Quilmes</span>
+                
+                
+                <span>2026-04-09 to 2026-04-14</span>
                 
               </div>
-              <div class="chips front-movie-tile-counts">
-                <span class="chip" data-i18n-count="screening" data-i18n-count-value="17">17 screenings</span>
-                <span class="chip chip-neutral" data-i18n-count="venue" data-i18n-count-value="2">2 venues</span>
-              </div>
+              
             </div>
+            <div class="front-movie-tile-facts">
+    <span data-i18n-count="screening" data-i18n-count-value="17">17 screenings</span>
+    <span data-i18n-count="venue" data-i18n-count-value="2">2 venues</span>
+    
+    
+  </div>
             
   <div class="chips front-movie-signal-chips">
     
@@ -9456,25 +9453,25 @@
           </a>
           
           <a class="front-movie-tile" href="/cinema-watch-snapshot/movies/hoppers/" data-live-nav="true">
-            <div class="front-movie-tile-head">
-              <div class="front-movie-tile-copy">
-                <strong>Hoppers</strong>
+            <div class="front-movie-tile-copy">
+              <strong>Hoppers</strong>
+              
+              <div class="front-movie-meta">
                 
-                <div class="front-movie-meta">
-                  
-                  <span>Avellaneda</span>
-                  
-                  
-                  <span>2026-04-09 to 2026-04-13</span>
-                  
-                </div>
+                <span>Avellaneda</span>
+                
+                
+                <span>2026-04-09 to 2026-04-13</span>
                 
               </div>
-              <div class="chips front-movie-tile-counts">
-                <span class="chip" data-i18n-count="screening" data-i18n-count-value="13">13 screenings</span>
-                <span class="chip chip-neutral" data-i18n-count="venue" data-i18n-count-value="1">1 venues</span>
-              </div>
+              
             </div>
+            <div class="front-movie-tile-facts">
+    <span data-i18n-count="screening" data-i18n-count-value="13">13 screenings</span>
+    <span data-i18n-count="venue" data-i18n-count-value="1">1 venues</span>
+    
+    
+  </div>
             
   <div class="chips front-movie-signal-chips">
     
@@ -9510,25 +9507,25 @@
         
         
         <a class="row-card front-movie-feature front-movie-feature--single" href="/cinema-watch-snapshot/movies/la-posesion-de-la-momia/" data-live-nav="true">
-          <div class="front-movie-feature-head">
-            <div class="front-movie-feature-copy">
-              <strong class="front-movie-feature-title">La posesión de la momia</strong>
+          <div class="front-movie-feature-copy">
+            <strong class="front-movie-feature-title">La posesión de la momia</strong>
+            
+            <div class="front-movie-meta">
               
-              <div class="front-movie-meta">
-                
-                <span>Quilmes</span>
-                
-                
-                <span>2026-04-16 to 2026-04-22</span>
-                
-              </div>
+              <span>Quilmes</span>
+              
+              
+              <span>2026-04-16 to 2026-04-22</span>
               
             </div>
-            <div class="front-movie-feature-side">
-              <span class="chip" data-i18n-count="screening" data-i18n-count-value="35">35 screenings</span>
-              <span class="chip chip-neutral" data-i18n-count="venue" data-i18n-count-value="1">1 venues</span>
-            </div>
+            
           </div>
+          <div class="front-movie-feature-facts">
+    <span data-i18n-count="screening" data-i18n-count-value="35">35 screenings</span>
+    <span data-i18n-count="venue" data-i18n-count-value="1">1 venues</span>
+    
+    
+  </div>
           
   <div class="chips front-movie-signal-chips">
     
