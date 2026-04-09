@@ -127,18 +127,18 @@
       margin-left: calc(50% - 50vw);
       margin-right: calc(50% - 50vw);
       padding: 0.82rem 0 0.76rem;
-      border-bottom: 1px solid rgba(165, 178, 198, 0.12);
+      border-bottom: 1px solid rgba(165, 178, 198, 0.16);
       border-radius: 0 0 24px 24px;
       background:
-        linear-gradient(180deg, rgba(19, 24, 34, 0.62), rgba(8, 11, 18, 0.3)),
-        rgba(9, 12, 18, 0.16);
+        linear-gradient(180deg, rgba(20, 26, 36, 0.74), rgba(8, 11, 18, 0.46)),
+        rgba(9, 12, 18, 0.24);
       box-shadow:
-        0 18px 42px rgba(0, 0, 0, 0.18),
-        inset 0 1px 0 rgba(255, 255, 255, 0.06);
+        0 18px 42px rgba(0, 0, 0, 0.22),
+        inset 0 1px 0 rgba(255, 255, 255, 0.08);
       position: sticky;
       top: 0;
       z-index: 20;
-      backdrop-filter: blur(30px) saturate(155%);
+      backdrop-filter: blur(26px) saturate(150%);
       overflow: visible;
       isolation: isolate;
     }
@@ -156,10 +156,10 @@
       inset: 0;
       pointer-events: none;
       background:
-        radial-gradient(circle at 10% -24%, rgba(240, 139, 101, 0.22), transparent 23rem),
-        radial-gradient(circle at 88% -26%, rgba(88, 199, 179, 0.2), transparent 25rem),
-        linear-gradient(180deg, rgba(255, 255, 255, 0.08), transparent 42%);
-      opacity: 1;
+        radial-gradient(circle at 10% -24%, rgba(240, 139, 101, 0.18), transparent 23rem),
+        radial-gradient(circle at 88% -26%, rgba(88, 199, 179, 0.16), transparent 25rem),
+        linear-gradient(180deg, rgba(255, 255, 255, 0.06), transparent 42%);
+      opacity: 0.92;
       z-index: 0;
     }
 
@@ -171,7 +171,7 @@
       bottom: 0;
       height: 1px;
       pointer-events: none;
-      background: linear-gradient(90deg, rgba(240, 139, 101, 0.2), rgba(255, 255, 255, 0.12), rgba(88, 199, 179, 0.24));
+      background: linear-gradient(90deg, rgba(240, 139, 101, 0.22), rgba(255, 255, 255, 0.16), rgba(88, 199, 179, 0.26));
       z-index: 0;
     }
 
@@ -259,7 +259,7 @@
 
     .nav a,
     .muted {
-      color: var(--muted);
+      color: color-mix(in srgb, var(--ink) 72%, var(--muted));
     }
 
     .nav {
@@ -282,6 +282,7 @@
       background: transparent;
       font: inherit;
       letter-spacing: 0.01em;
+      font-weight: 600;
       cursor: pointer;
     }
 
@@ -302,7 +303,10 @@
       background:
         linear-gradient(180deg, rgba(88, 199, 179, 0.18), rgba(10, 18, 21, 0.9));
       color: #dcfff8;
-      box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.08);
+      font-weight: 700;
+      box-shadow:
+        inset 0 1px 0 rgba(255, 255, 255, 0.08),
+        0 0 0 1px rgba(88, 199, 179, 0.08);
     }
 
     .nav form {
@@ -321,14 +325,14 @@
       border: 1px solid rgba(165, 178, 198, 0.16);
       border-radius: 999px;
       background:
-        linear-gradient(180deg, rgba(255, 255, 255, 0.12), rgba(11, 15, 22, 0.34)),
-        rgba(255, 255, 255, 0.012);
+        linear-gradient(180deg, rgba(255, 255, 255, 0.1), rgba(11, 15, 22, 0.48)),
+        rgba(255, 255, 255, 0.02);
       overflow: hidden;
       box-shadow:
-        inset 0 1px 0 rgba(255, 255, 255, 0.12),
-        inset 0 -1px 0 rgba(255, 255, 255, 0.04),
-        0 10px 26px rgba(0, 0, 0, 0.1);
-      backdrop-filter: blur(24px) saturate(145%);
+        inset 0 1px 0 rgba(255, 255, 255, 0.1),
+        inset 0 -1px 0 rgba(255, 255, 255, 0.03),
+        0 10px 26px rgba(0, 0, 0, 0.12);
+      backdrop-filter: blur(22px) saturate(138%);
     }
 
     .nav-tools {
@@ -348,13 +352,13 @@
       border-radius: 999px;
       border: 1px solid rgba(165, 178, 198, 0.16);
       background:
-        linear-gradient(180deg, rgba(255, 255, 255, 0.12), rgba(11, 15, 22, 0.34)),
-        rgba(255, 255, 255, 0.01);
+        linear-gradient(180deg, rgba(255, 255, 255, 0.1), rgba(11, 15, 22, 0.48)),
+        rgba(255, 255, 255, 0.018);
       box-shadow:
-        inset 0 1px 0 rgba(255, 255, 255, 0.12),
-        inset 0 -1px 0 rgba(255, 255, 255, 0.04),
-        0 10px 26px rgba(0, 0, 0, 0.1);
-      backdrop-filter: blur(24px) saturate(145%);
+        inset 0 1px 0 rgba(255, 255, 255, 0.1),
+        inset 0 -1px 0 rgba(255, 255, 255, 0.03),
+        0 10px 26px rgba(0, 0, 0, 0.12);
+      backdrop-filter: blur(22px) saturate(138%);
     }
 
     .toolbar-divider {
@@ -407,10 +411,11 @@
     }
 
     .toolbar-zone-summary strong {
-      font-size: 0.86rem;
+      font-size: 0.84rem;
       line-height: 1;
-      letter-spacing: 0.01em;
+      letter-spacing: 0.03em;
       white-space: nowrap;
+      text-transform: uppercase;
     }
 
     .toolbar-zone-summary::after {
@@ -448,10 +453,10 @@
       border: 1px solid rgba(165, 178, 198, 0.16);
       border-radius: 1rem;
       background:
-        linear-gradient(180deg, rgba(19, 23, 32, 0.72), rgba(10, 13, 19, 0.62)),
-        rgba(255, 255, 255, 0.03);
+        linear-gradient(180deg, rgba(19, 23, 32, 0.84), rgba(10, 13, 19, 0.8)),
+        rgba(255, 255, 255, 0.028);
       box-shadow: 0 20px 42px rgba(0, 0, 0, 0.32);
-      backdrop-filter: blur(28px) saturate(145%);
+      backdrop-filter: blur(22px) saturate(138%);
     }
 
     .toolbar-zone-option {
@@ -2514,7 +2519,7 @@
     </div>
     <div class="metric">
       <span class="muted">Published at</span>
-      <strong style="font-size:1rem;">2026-04-09 07:27 UTC</strong>
+      <strong style="font-size:1rem;">2026-04-09 07:37 UTC</strong>
     </div>
   </div>
 </section>
