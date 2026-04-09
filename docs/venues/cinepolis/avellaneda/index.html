@@ -1023,6 +1023,10 @@
       display: grid;
       gap: var(--front-gap-stack);
       align-content: start;
+      background:
+        radial-gradient(circle at 100% 0%, rgba(88, 199, 179, 0.08), transparent 34%),
+        linear-gradient(180deg, rgba(255, 255, 255, 0.035), transparent 38%),
+        rgba(12, 15, 22, 0.88);
     }
 
     .front-cartelera-chips {
@@ -1181,6 +1185,26 @@
     .front-cartelera-board {
       gap: 0.72rem;
       padding: 1.04rem;
+      border-color: rgba(88, 199, 179, 0.16);
+      background:
+        linear-gradient(180deg, rgba(88, 199, 179, 0.05), rgba(12, 15, 22, 0.72)),
+        rgba(255, 255, 255, 0.02);
+    }
+
+    .front-cartelera-board-head {
+      align-items: end;
+      gap: 1rem;
+    }
+
+    .front-cartelera-board-title {
+      display: grid;
+      gap: 0.2rem;
+      min-width: 0;
+    }
+
+    .front-cartelera-board-title h3 {
+      font-size: clamp(1.42rem, 2.35vw, 1.9rem);
+      line-height: 0.96;
     }
 
     .front-section-head,
@@ -1312,6 +1336,10 @@
       gap: 0.95rem;
     }
 
+    .front-special-grid-premium {
+      gap: 1rem;
+    }
+
     .front-mini-board {
       display: grid;
       gap: 0.7rem;
@@ -1327,6 +1355,181 @@
     .front-mini-board h3 {
       font-size: 1.18rem;
       line-height: 1;
+    }
+
+    .front-specials {
+      background:
+        radial-gradient(circle at 0% 0%, rgba(88, 199, 179, 0.08), transparent 34%),
+        radial-gradient(circle at 100% 0%, rgba(240, 139, 101, 0.08), transparent 38%),
+        linear-gradient(180deg, rgba(255, 255, 255, 0.035), transparent 38%),
+        rgba(12, 15, 22, 0.88);
+    }
+
+    .front-special-card {
+      gap: 0.88rem;
+      min-height: 100%;
+      padding: 1.08rem;
+    }
+
+    .front-special-card--imax {
+      border-color: rgba(88, 199, 179, 0.24);
+      background:
+        linear-gradient(180deg, rgba(88, 199, 179, 0.12), rgba(12, 16, 22, 0.7)),
+        rgba(10, 13, 19, 0.88);
+    }
+
+    .front-special-card--dolby_atmos {
+      border-color: rgba(240, 139, 101, 0.24);
+      background:
+        linear-gradient(180deg, rgba(240, 139, 101, 0.12), rgba(12, 16, 22, 0.7)),
+        rgba(10, 13, 19, 0.88);
+    }
+
+    .front-special-card-head {
+      display: flex;
+      gap: 0.9rem;
+      align-items: start;
+      justify-content: space-between;
+    }
+
+    .front-special-card-title {
+      display: grid;
+      gap: 0.2rem;
+      min-width: 0;
+    }
+
+    .front-special-card-title h3 {
+      font-size: clamp(1.3rem, 2vw, 1.7rem);
+      line-height: 0.98;
+    }
+
+    .front-special-facts {
+      gap: 0.42rem;
+    }
+
+    .front-special-facts a {
+      text-decoration: none;
+    }
+
+    .front-special-card .front-date-group {
+      gap: 0.52rem;
+      padding: 0.76rem 0.82rem;
+      border-radius: var(--radius-md);
+      border: 1px solid rgba(165, 178, 198, 0.12);
+      background: rgba(9, 13, 19, 0.44);
+    }
+
+    .front-special-card .front-date-head {
+      padding-bottom: 0.3rem;
+    }
+
+    .front-special-card .front-screening-row {
+      padding-top: 0.42rem;
+    }
+
+    .front-movies {
+      background:
+        radial-gradient(circle at 0% 0%, rgba(233, 225, 209, 0.05), transparent 32%),
+        linear-gradient(180deg, rgba(255, 255, 255, 0.03), transparent 36%),
+        rgba(12, 15, 22, 0.9);
+    }
+
+    .front-movie-grid {
+      gap: 1rem;
+    }
+
+    .front-movie-section {
+      gap: 0.88rem;
+      padding: 1.08rem;
+    }
+
+    .front-movie-section--in_theaters {
+      border-color: rgba(165, 178, 198, 0.18);
+      background:
+        linear-gradient(180deg, rgba(255, 255, 255, 0.045), rgba(11, 15, 22, 0.7)),
+        rgba(12, 15, 22, 0.86);
+    }
+
+    .front-movie-section--upcoming_premieres {
+      border-color: rgba(240, 139, 101, 0.18);
+      background:
+        linear-gradient(180deg, rgba(240, 139, 101, 0.08), rgba(12, 15, 22, 0.72)),
+        rgba(12, 15, 22, 0.86);
+    }
+
+    .front-movie-section-body {
+      display: grid;
+      grid-template-columns: minmax(0, 1fr) minmax(0, 1.08fr);
+      gap: 0.92rem;
+      align-items: start;
+    }
+
+    .front-movie-section-body.is-single {
+      grid-template-columns: 1fr;
+    }
+
+    .front-movie-lead {
+      gap: 0.72rem;
+      min-height: 100%;
+      padding: 1.12rem;
+      border-color: rgba(165, 178, 198, 0.16);
+      background:
+        linear-gradient(180deg, rgba(255, 255, 255, 0.055), rgba(15, 20, 28, 0.88)),
+        rgba(255, 255, 255, 0.02);
+    }
+
+    .front-movie-lead-title {
+      font-family: var(--heading-font);
+      font-size: clamp(1.42rem, 2.35vw, 2rem);
+      line-height: 0.98;
+      letter-spacing: -0.02em;
+    }
+
+    .front-movie-summary {
+      align-items: center;
+    }
+
+    .front-movie-list {
+      display: grid;
+      gap: 0.62rem;
+      align-content: start;
+    }
+
+    .front-movie-row {
+      display: grid;
+      gap: 0.52rem;
+      padding: 0.88rem 0.92rem;
+      border-radius: var(--radius-md);
+      border: 1px solid rgba(165, 178, 198, 0.12);
+      background: rgba(13, 18, 25, 0.54);
+      text-decoration: none;
+    }
+
+    .front-movie-row-head {
+      display: flex;
+      justify-content: space-between;
+      gap: 0.8rem;
+      align-items: start;
+    }
+
+    .front-movie-row-copy {
+      display: grid;
+      gap: 0.24rem;
+      min-width: 0;
+    }
+
+    .front-movie-row-copy strong {
+      font-size: 1rem;
+      line-height: 1.14;
+    }
+
+    .front-movie-meta {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 0.22rem 0.56rem;
+      color: var(--muted);
+      font-size: 0.84rem;
+      line-height: 1.34;
     }
 
     .front-screening-groups,
@@ -1913,6 +2116,10 @@
         grid-template-columns: 1fr;
       }
 
+      .front-movie-section-body {
+        grid-template-columns: 1fr;
+      }
+
       .front-location-panel,
       .front-layout {
         gap: 0.88rem;
@@ -1953,6 +2160,12 @@
       .front-section-head,
       .front-mini-board-head,
       .front-date-head {
+        display: grid;
+        justify-content: stretch;
+      }
+
+      .front-special-card-head,
+      .front-movie-row-head {
         display: grid;
         justify-content: stretch;
       }
@@ -2078,7 +2291,7 @@
   </div>
   <div class="hero-side">
     <strong data-i18n-source>Venue signals</strong>
-    <p data-i18n-freshness>Updated 11 h ago</p>
+    <p data-i18n-freshness>Updated 23 min ago</p>
     <div class="stats">
       <span class="stat">11 active rooms</span>
       
@@ -2092,7 +2305,7 @@
   <div class="metrics">
     <div class="metric">
       <span class="muted" data-i18n-source>Cached screenings</span>
-      <strong>498</strong>
+      <strong>471</strong>
     </div>
     <div class="metric">
       <span class="muted" data-i18n-source>Cached titles</span>
@@ -2104,7 +2317,7 @@
     </div>
     <div class="metric">
       <span class="muted" data-i18n-source>Peak crowd</span>
-      <strong>31%</strong>
+      <strong>58%</strong>
     </div>
   </div>
 </section>
@@ -2169,14 +2382,14 @@
               <p>2026-04-08 19:30</p>
             </div>
             <div class="chips">
-              <span class="chip" data-i18n-meta-line>31% sold</span>
+              <span class="chip" data-i18n-meta-line>58% sold</span>
               
             <span
               class="stat"
               data-i18n-seat-note
               data-seats-total="96"
-              data-seats-available="66"
-            >66 available of 96</span>
+              data-seats-available="40"
+            >40 available of 96</span>
               
             </div>
           </div>
@@ -2203,286 +2416,16 @@
         <div class="result-day">
           <div class="row-head">
             <strong>2026-04-08</strong>
-            <span class="chip">54 screenings</span>
+            <span class="chip">27 screenings</span>
           </div>
           <div class="result-list">
-            
-            <div class="result-item">
-              <span class="time-badge">12:45</span>
-              <div class="result-copy">
-                <strong><a href="/cinema-watch-snapshot/movies/hoppers/">Hoppers</a></strong>
-                
-                <p data-i18n-meta-line>Classic • 2D • Español | Room 10</p>
-                
-              </div>
-            </div>
-            
-            <div class="result-item">
-              <span class="time-badge">13:00</span>
-              <div class="result-copy">
-                <strong><a href="/cinema-watch-snapshot/movies/super-mario-galaxy-la-pelicula/">Super Mario Galaxy: La película</a></strong>
-                
-                <p data-i18n-meta-line>Classic • 2D • Español | Room 11</p>
-                
-              </div>
-            </div>
-            
-            <div class="result-item">
-              <span class="time-badge">13:30</span>
-              <div class="result-copy">
-                <strong><a href="/cinema-watch-snapshot/movies/super-mario-galaxy-la-pelicula/">Super Mario Galaxy: La película</a></strong>
-                
-                <p data-i18n-meta-line>Classic • 2D • Español | Room 9 | 1% sold</p>
-                
-              </div>
-            </div>
-            
-            <div class="result-item">
-              <span class="time-badge">13:40</span>
-              <div class="result-copy">
-                <strong><a href="/cinema-watch-snapshot/movies/hoppers/">Hoppers</a></strong>
-                
-                <p data-i18n-meta-line>Classic • 3D • Español | Room 2 | 2% sold</p>
-                
-              </div>
-            </div>
-            
-            <div class="result-item">
-              <span class="time-badge">13:40</span>
-              <div class="result-copy">
-                <strong><a href="/cinema-watch-snapshot/movies/super-mario-galaxy-la-pelicula/">Super Mario Galaxy: La película</a></strong>
-                
-                <p data-i18n-meta-line>Classic • 2D • Español | Room 4 | 1% sold</p>
-                
-              </div>
-            </div>
-            
-            <div class="result-item">
-              <span class="time-badge">14:00</span>
-              <div class="result-copy">
-                <strong><a href="/cinema-watch-snapshot/movies/super-mario-galaxy-la-pelicula/">Super Mario Galaxy: La película</a></strong>
-                
-                <p data-i18n-meta-line>Classic • 2D • Español | Room 5 | 1% sold</p>
-                
-              </div>
-            </div>
-            
-            <div class="result-item">
-              <span class="time-badge">14:15</span>
-              <div class="result-copy">
-                <strong><a href="/cinema-watch-snapshot/movies/hoppers/">Hoppers</a></strong>
-                
-                <p data-i18n-meta-line>Classic • 2D • Español | Room 10 | 3% sold</p>
-                
-              </div>
-            </div>
-            
-            <div class="result-item">
-              <span class="time-badge">14:30</span>
-              <div class="result-copy">
-                <strong><a href="/cinema-watch-snapshot/movies/super-mario-galaxy-la-pelicula/">Super Mario Galaxy: La película</a></strong>
-                
-                <p data-i18n-meta-line>4D • 3D • Español | Room 8 | 3% sold</p>
-                
-              </div>
-            </div>
-            
-            <div class="result-item">
-              <span class="time-badge">14:40</span>
-              <div class="result-copy">
-                <strong><a href="/cinema-watch-snapshot/movies/super-mario-galaxy-la-pelicula/">Super Mario Galaxy: La película</a></strong>
-                
-                <p data-i18n-meta-line>Classic • 2D • Español | Room 3 | 1% sold</p>
-                
-              </div>
-            </div>
-            
-            <div class="result-item">
-              <span class="time-badge">15:00</span>
-              <div class="result-copy">
-                <strong><a href="/cinema-watch-snapshot/movies/super-mario-galaxy-la-pelicula/">Super Mario Galaxy: La película</a></strong>
-                
-                <p data-i18n-meta-line>Classic • 2D • Español | Room 6 | 3% sold</p>
-                
-              </div>
-            </div>
-            
-            <div class="result-item">
-              <span class="time-badge">15:15</span>
-              <div class="result-copy">
-                <strong><a href="/cinema-watch-snapshot/movies/hoppers/">Hoppers</a></strong>
-                
-                <p data-i18n-meta-line>Classic • 2D • Español | Room 10</p>
-                
-              </div>
-            </div>
-            
-            <div class="result-item">
-              <span class="time-badge">15:15</span>
-              <div class="result-copy">
-                <strong><a href="/cinema-watch-snapshot/movies/super-mario-galaxy-la-pelicula/">Super Mario Galaxy: La película</a></strong>
-                
-                <p data-i18n-meta-line>Classic • 3D • Español | Room 13 | 1% sold</p>
-                
-              </div>
-            </div>
-            
-            <div class="result-item">
-              <span class="time-badge">15:20</span>
-              <div class="result-copy">
-                <strong><a href="/cinema-watch-snapshot/movies/super-mario-galaxy-la-pelicula/">Super Mario Galaxy: La película</a></strong>
-                
-                <p data-i18n-meta-line>Classic • 2D • Subtitulado | Room 2 | 3% sold</p>
-                
-              </div>
-            </div>
-            
-            <div class="result-item">
-              <span class="time-badge">15:30</span>
-              <div class="result-copy">
-                <strong><a href="/cinema-watch-snapshot/movies/super-mario-galaxy-la-pelicula/">Super Mario Galaxy: La película</a></strong>
-                
-                <p data-i18n-meta-line>Classic • 2D • Español | Room 11 | 3% sold</p>
-                
-              </div>
-            </div>
-            
-            <div class="result-item">
-              <span class="time-badge">15:40</span>
-              <div class="result-copy">
-                <strong><a href="/cinema-watch-snapshot/movies/proyecto-fin-del-mundo/">Proyecto fin del mundo</a></strong>
-                
-                <p data-i18n-meta-line>Classic • 2D • Español | Room 12 | 3% sold</p>
-                
-              </div>
-            </div>
-            
-            <div class="result-item">
-              <span class="time-badge">16:00</span>
-              <div class="result-copy">
-                <strong><a href="/cinema-watch-snapshot/movies/super-mario-galaxy-la-pelicula/">Super Mario Galaxy: La película</a></strong>
-                
-                <p data-i18n-meta-line>Classic • 2D • Español | Room 9 | 2% sold</p>
-                
-              </div>
-            </div>
-            
-            <div class="result-item">
-              <span class="time-badge">16:10</span>
-              <div class="result-copy">
-                <strong><a href="/cinema-watch-snapshot/movies/super-mario-galaxy-la-pelicula/">Super Mario Galaxy: La película</a></strong>
-                
-                <p data-i18n-meta-line>Classic • 2D • Español | Room 4 | 1% sold</p>
-                
-              </div>
-            </div>
-            
-            <div class="result-item">
-              <span class="time-badge">16:15</span>
-              <div class="result-copy">
-                <strong><a href="/cinema-watch-snapshot/movies/super-mario-galaxy-la-pelicula/">Super Mario Galaxy: La película</a></strong>
-                
-                <p data-i18n-meta-line>Classic • 3D • Español | Room 2 | 2% sold</p>
-                
-              </div>
-            </div>
-            
-            <div class="result-item">
-              <span class="time-badge">16:30</span>
-              <div class="result-copy">
-                <strong><a href="/cinema-watch-snapshot/movies/super-mario-galaxy-la-pelicula/">Super Mario Galaxy: La película</a></strong>
-                
-                <p data-i18n-meta-line>Classic • 2D • Español | Room 5 | 1% sold</p>
-                
-              </div>
-            </div>
-            
-            <div class="result-item">
-              <span class="time-badge">16:45</span>
-              <div class="result-copy">
-                <strong><a href="/cinema-watch-snapshot/movies/hoppers/">Hoppers</a></strong>
-                
-                <p data-i18n-meta-line>Classic • 2D • Español | Room 10 | 3% sold</p>
-                
-              </div>
-            </div>
-            
-            <div class="result-item">
-              <span class="time-badge">17:00</span>
-              <div class="result-copy">
-                <strong><a href="/cinema-watch-snapshot/movies/super-mario-galaxy-la-pelicula/">Super Mario Galaxy: La película</a></strong>
-                
-                <p data-i18n-meta-line>4D • 3D • Español | Room 8 | 3% sold</p>
-                
-              </div>
-            </div>
-            
-            <div class="result-item">
-              <span class="time-badge">17:10</span>
-              <div class="result-copy">
-                <strong><a href="/cinema-watch-snapshot/movies/super-mario-galaxy-la-pelicula/">Super Mario Galaxy: La película</a></strong>
-                
-                <p data-i18n-meta-line>Classic • 2D • Español | Room 3 | 2% sold</p>
-                
-              </div>
-            </div>
-            
-            <div class="result-item">
-              <span class="time-badge">17:30</span>
-              <div class="result-copy">
-                <strong><a href="/cinema-watch-snapshot/movies/super-mario-galaxy-la-pelicula/">Super Mario Galaxy: La película</a></strong>
-                
-                <p data-i18n-meta-line>Classic • 2D • Español | Room 6 | 2% sold</p>
-                
-              </div>
-            </div>
-            
-            <div class="result-item">
-              <span class="time-badge">17:45</span>
-              <div class="result-copy">
-                <strong><a href="/cinema-watch-snapshot/movies/hoppers/">Hoppers</a></strong>
-                
-                <p data-i18n-meta-line>Classic • 2D • Español | Room 10</p>
-                
-              </div>
-            </div>
-            
-            <div class="result-item">
-              <span class="time-badge">17:45</span>
-              <div class="result-copy">
-                <strong><a href="/cinema-watch-snapshot/movies/super-mario-galaxy-la-pelicula/">Super Mario Galaxy: La película</a></strong>
-                
-                <p data-i18n-meta-line>Classic • 3D • Español | Room 13 | 1% sold</p>
-                
-              </div>
-            </div>
-            
-            <div class="result-item">
-              <span class="time-badge">17:50</span>
-              <div class="result-copy">
-                <strong><a href="/cinema-watch-snapshot/movies/super-mario-galaxy-la-pelicula/">Super Mario Galaxy: La película</a></strong>
-                
-                <p data-i18n-meta-line>Classic • 2D • Subtitulado | Room 2 | 2% sold</p>
-                
-              </div>
-            </div>
-            
-            <div class="result-item">
-              <span class="time-badge">18:00</span>
-              <div class="result-copy">
-                <strong><a href="/cinema-watch-snapshot/movies/super-mario-galaxy-la-pelicula/">Super Mario Galaxy: La película</a></strong>
-                
-                <p data-i18n-meta-line>Classic • 2D • Español | Room 11 | 5% sold</p>
-                
-              </div>
-            </div>
             
             <div class="result-item">
               <span class="time-badge">18:30</span>
               <div class="result-copy">
                 <strong><a href="/cinema-watch-snapshot/movies/super-mario-galaxy-la-pelicula/">Super Mario Galaxy: La película</a></strong>
                 
-                <p data-i18n-meta-line>Classic • 2D • Español | Room 9 | 3% sold</p>
+                <p data-i18n-meta-line>Classic • 2D • Español | Room 9 | 9% sold</p>
                 
               </div>
             </div>
@@ -2492,7 +2435,7 @@
               <div class="result-copy">
                 <strong><a href="/cinema-watch-snapshot/movies/hoppers/">Hoppers</a></strong>
                 
-                <p data-i18n-meta-line>Classic • 2D • Español | Room 2 | 2% sold</p>
+                <p data-i18n-meta-line>Classic • 2D • Español | Room 2 | 8% sold</p>
                 
               </div>
             </div>
@@ -2502,7 +2445,7 @@
               <div class="result-copy">
                 <strong><a href="/cinema-watch-snapshot/movies/super-mario-galaxy-la-pelicula/">Super Mario Galaxy: La película</a></strong>
                 
-                <p data-i18n-meta-line>Classic • 2D • Español | Room 4 | 3% sold</p>
+                <p data-i18n-meta-line>Classic • 2D • Español | Room 4 | 4% sold</p>
                 
               </div>
             </div>
@@ -2522,7 +2465,7 @@
               <div class="result-copy">
                 <strong><a href="/cinema-watch-snapshot/movies/proyecto-fin-del-mundo/">Proyecto fin del mundo</a></strong>
                 
-                <p data-i18n-meta-line>Classic • 2D • Español | Room 12 | 7% sold</p>
+                <p data-i18n-meta-line>Classic • 2D • Español | Room 12 | 10% sold</p>
                 
               </div>
             </div>
@@ -2532,7 +2475,7 @@
               <div class="result-copy">
                 <strong><a href="/cinema-watch-snapshot/movies/scream-7/">Scream 7</a></strong>
                 
-                <p data-i18n-meta-line>Classic • 2D • Español | Room 10 | 8% sold</p>
+                <p data-i18n-meta-line>Classic • 2D • Español | Room 10 | 10% sold</p>
                 
               </div>
             </div>
@@ -2542,7 +2485,7 @@
               <div class="result-copy">
                 <strong><a href="/cinema-watch-snapshot/movies/super-mario-galaxy-la-pelicula/">Super Mario Galaxy: La película</a></strong>
                 
-                <p data-i18n-meta-line>4D • 3D • Español | Room 8 | 31% sold</p>
+                <p data-i18n-meta-line>4D • 3D • Español | Room 8 | 58% sold</p>
                 
               </div>
             </div>
@@ -2552,7 +2495,7 @@
               <div class="result-copy">
                 <strong><a href="/cinema-watch-snapshot/movies/super-mario-galaxy-la-pelicula/">Super Mario Galaxy: La película</a></strong>
                 
-                <p data-i18n-meta-line>Classic • 2D • Español | Room 3 | 3% sold</p>
+                <p data-i18n-meta-line>Classic • 2D • Español | Room 3 | 8% sold</p>
                 
               </div>
             </div>
@@ -2572,7 +2515,7 @@
               <div class="result-copy">
                 <strong><a href="/cinema-watch-snapshot/movies/cumbres-borrascosas/">Cumbres Borrascosas</a></strong>
                 
-                <p data-i18n-meta-line>Classic • 2D • Español | Room 2 | 7% sold</p>
+                <p data-i18n-meta-line>Classic • 2D • Español | Room 2 | 8% sold</p>
                 
               </div>
             </div>
@@ -2582,7 +2525,7 @@
               <div class="result-copy">
                 <strong><a href="/cinema-watch-snapshot/movies/jugada-maestra/">Jugada Maestra</a></strong>
                 
-                <p data-i18n-meta-line>Classic • 2D • Español | Room 10 | 1% sold</p>
+                <p data-i18n-meta-line>Classic • 2D • Español | Room 10 | 4% sold</p>
                 
               </div>
             </div>
@@ -2592,7 +2535,7 @@
               <div class="result-copy">
                 <strong><a href="/cinema-watch-snapshot/movies/super-mario-galaxy-la-pelicula/">Super Mario Galaxy: La película</a></strong>
                 
-                <p data-i18n-meta-line>Classic • 3D • Español | Room 13 | 1% sold</p>
+                <p data-i18n-meta-line>Classic • 3D • Español | Room 13 | 4% sold</p>
                 
               </div>
             </div>
@@ -2602,7 +2545,7 @@
               <div class="result-copy">
                 <strong><a href="/cinema-watch-snapshot/movies/super-mario-galaxy-la-pelicula/">Super Mario Galaxy: La película</a></strong>
                 
-                <p data-i18n-meta-line>Classic • 2D • Español | Room 11 | 3% sold</p>
+                <p data-i18n-meta-line>Classic • 2D • Español | Room 11 | 4% sold</p>
                 
               </div>
             </div>
@@ -2622,7 +2565,7 @@
               <div class="result-copy">
                 <strong><a href="/cinema-watch-snapshot/movies/nuremberg-el-juicio-del-siglo/">Nuremberg: El juicio del siglo</a></strong>
                 
-                <p data-i18n-meta-line>Classic • 2D • Español | Room 2 | 5% sold</p>
+                <p data-i18n-meta-line>Classic • 2D • Español | Room 2 | 9% sold</p>
                 
               </div>
             </div>
@@ -2652,7 +2595,7 @@
               <div class="result-copy">
                 <strong><a href="/cinema-watch-snapshot/movies/super-mario-galaxy-la-pelicula/">Super Mario Galaxy: La película</a></strong>
                 
-                <p data-i18n-meta-line>4D • 3D • Español | Room 8 | 15% sold</p>
+                <p data-i18n-meta-line>4D • 3D • Español | Room 8 | 28% sold</p>
                 
               </div>
             </div>
@@ -2662,7 +2605,7 @@
               <div class="result-copy">
                 <strong><a href="/cinema-watch-snapshot/movies/scream-7/">Scream 7</a></strong>
                 
-                <p data-i18n-meta-line>Classic • 2D • Español | Room 10 | 5% sold</p>
+                <p data-i18n-meta-line>Classic • 2D • Español | Room 10 | 6% sold</p>
                 
               </div>
             </div>
@@ -2682,7 +2625,7 @@
               <div class="result-copy">
                 <strong><a href="/cinema-watch-snapshot/movies/proyecto-fin-del-mundo/">Proyecto fin del mundo</a></strong>
                 
-                <p data-i18n-meta-line>Classic • 2D • Español | Room 12 | 4% sold</p>
+                <p data-i18n-meta-line>Classic • 2D • Español | Room 12 | 7% sold</p>
                 
               </div>
             </div>
@@ -2702,7 +2645,7 @@
               <div class="result-copy">
                 <strong><a href="/cinema-watch-snapshot/movies/nuremberg-el-juicio-del-siglo/">Nuremberg: El juicio del siglo</a></strong>
                 
-                <p data-i18n-meta-line>Classic • 2D • Español | Room 10 | 1% sold</p>
+                <p data-i18n-meta-line>Classic • 2D • Español | Room 10 | 3% sold</p>
                 
               </div>
             </div>
@@ -2712,7 +2655,7 @@
               <div class="result-copy">
                 <strong><a href="/cinema-watch-snapshot/movies/super-mario-galaxy-la-pelicula/">Super Mario Galaxy: La película</a></strong>
                 
-                <p data-i18n-meta-line>Classic • 3D • Español | Room 13 | 1% sold</p>
+                <p data-i18n-meta-line>Classic • 3D • Español | Room 13 | 2% sold</p>
                 
               </div>
             </div>
@@ -2753,7 +2696,7 @@
         <div class="result-day">
           <div class="row-head">
             <strong>2026-04-09</strong>
-            <span class="chip">18 screenings</span>
+            <span class="chip">45 screenings</span>
           </div>
           <div class="result-list">
             
@@ -2902,7 +2845,7 @@
               <div class="result-copy">
                 <strong><a href="/cinema-watch-snapshot/movies/el-drama/">El Drama</a></strong>
                 
-                <p data-i18n-meta-line>Classic • 2D • Español | Room 12 | 2% sold</p>
+                <p data-i18n-meta-line>Classic • 2D • Español | Room 12 | 3% sold</p>
                 
               </div>
             </div>
@@ -2933,6 +2876,276 @@
                 <strong><a href="/cinema-watch-snapshot/movies/super-mario-galaxy-la-pelicula/">Super Mario Galaxy: La película</a></strong>
                 
                 <p data-i18n-meta-line>Classic • 2D • Español | Room 11</p>
+                
+              </div>
+            </div>
+            
+            <div class="result-item">
+              <span class="time-badge">16:00</span>
+              <div class="result-copy">
+                <strong><a href="/cinema-watch-snapshot/movies/super-mario-galaxy-la-pelicula/">Super Mario Galaxy: La película</a></strong>
+                
+                <p data-i18n-meta-line>Classic • 3D • Español | Room 2 | 2% sold</p>
+                
+              </div>
+            </div>
+            
+            <div class="result-item">
+              <span class="time-badge">16:00</span>
+              <div class="result-copy">
+                <strong><a href="/cinema-watch-snapshot/movies/hoppers/">Hoppers</a></strong>
+                
+                <p data-i18n-meta-line>Classic • 2D • Español | Room 10 | 3% sold</p>
+                
+              </div>
+            </div>
+            
+            <div class="result-item">
+              <span class="time-badge">16:10</span>
+              <div class="result-copy">
+                <strong><a href="/cinema-watch-snapshot/movies/torrente-presidente/">Torrente Presidente</a></strong>
+                
+                <p data-i18n-meta-line>Classic • 2D • Español | Room 10</p>
+                
+              </div>
+            </div>
+            
+            <div class="result-item">
+              <span class="time-badge">16:45</span>
+              <div class="result-copy">
+                <strong><a href="/cinema-watch-snapshot/movies/super-mario-galaxy-la-pelicula/">Super Mario Galaxy: La película</a></strong>
+                
+                <p data-i18n-meta-line>Classic • 2D • Español | Room 5 | 1% sold</p>
+                
+              </div>
+            </div>
+            
+            <div class="result-item">
+              <span class="time-badge">17:00</span>
+              <div class="result-copy">
+                <strong><a href="/cinema-watch-snapshot/movies/super-mario-galaxy-la-pelicula/">Super Mario Galaxy: La película</a></strong>
+                
+                <p data-i18n-meta-line>4D • 3D • Español | Room 8 | 1% sold</p>
+                
+              </div>
+            </div>
+            
+            <div class="result-item">
+              <span class="time-badge">17:15</span>
+              <div class="result-copy">
+                <strong><a href="/cinema-watch-snapshot/movies/scream-7/">Scream 7</a></strong>
+                
+                <p data-i18n-meta-line>Classic • 2D • Español | Room 2 | 2% sold</p>
+                
+              </div>
+            </div>
+            
+            <div class="result-item">
+              <span class="time-badge">17:15</span>
+              <div class="result-copy">
+                <strong><a href="/cinema-watch-snapshot/movies/super-mario-galaxy-la-pelicula/">Super Mario Galaxy: La película</a></strong>
+                
+                <p data-i18n-meta-line>Classic • 2D • Español | Room 6 | 2% sold</p>
+                
+              </div>
+            </div>
+            
+            <div class="result-item">
+              <span class="time-badge">17:30</span>
+              <div class="result-copy">
+                <strong><a href="/cinema-watch-snapshot/movies/super-mario-galaxy-la-pelicula/">Super Mario Galaxy: La película</a></strong>
+                
+                <p data-i18n-meta-line>Classic • 2D • Español | Room 3 | 2% sold</p>
+                
+              </div>
+            </div>
+            
+            <div class="result-item">
+              <span class="time-badge">17:45</span>
+              <div class="result-copy">
+                <strong><a href="/cinema-watch-snapshot/movies/super-mario-galaxy-la-pelicula/">Super Mario Galaxy: La película</a></strong>
+                
+                <p data-i18n-meta-line>Classic • 2D • Español | Room 4 | 1% sold</p>
+                
+              </div>
+            </div>
+            
+            <div class="result-item">
+              <span class="time-badge">18:00</span>
+              <div class="result-copy">
+                <strong><a href="/cinema-watch-snapshot/movies/el-drama/">El Drama</a></strong>
+                
+                <p data-i18n-meta-line>Classic • 2D • Español | Room 12 | 2% sold</p>
+                
+              </div>
+            </div>
+            
+            <div class="result-item">
+              <span class="time-badge">18:00</span>
+              <div class="result-copy">
+                <strong><a href="/cinema-watch-snapshot/movies/super-mario-galaxy-la-pelicula/">Super Mario Galaxy: La película</a></strong>
+                
+                <p data-i18n-meta-line>Classic • 3D • Español | Room 13 | 1% sold</p>
+                
+              </div>
+            </div>
+            
+            <div class="result-item">
+              <span class="time-badge">18:15</span>
+              <div class="result-copy">
+                <strong><a href="/cinema-watch-snapshot/movies/super-mario-galaxy-la-pelicula/">Super Mario Galaxy: La película</a></strong>
+                
+                <p data-i18n-meta-line>Classic • 2D • Español | Room 11</p>
+                
+              </div>
+            </div>
+            
+            <div class="result-item">
+              <span class="time-badge">18:30</span>
+              <div class="result-copy">
+                <strong><a href="/cinema-watch-snapshot/movies/beezel-la-devoradora-de-almas/">Beezel: La devoradora de almas</a></strong>
+                
+                <p data-i18n-meta-line>Classic • 2D • Español | Room 2 | 2% sold</p>
+                
+              </div>
+            </div>
+            
+            <div class="result-item">
+              <span class="time-badge">18:30</span>
+              <div class="result-copy">
+                <strong><a href="/cinema-watch-snapshot/movies/hoppers/">Hoppers</a></strong>
+                
+                <p data-i18n-meta-line>Classic • 2D • Español | Room 10 | 3% sold</p>
+                
+              </div>
+            </div>
+            
+            <div class="result-item">
+              <span class="time-badge">18:40</span>
+              <div class="result-copy">
+                <strong><a href="/cinema-watch-snapshot/movies/super-mario-galaxy-la-pelicula/">Super Mario Galaxy: La película</a></strong>
+                
+                <p data-i18n-meta-line>Classic • 2D • Español | Room 10</p>
+                
+              </div>
+            </div>
+            
+            <div class="result-item">
+              <span class="time-badge">19:00</span>
+              <div class="result-copy">
+                <strong><a href="/cinema-watch-snapshot/movies/proyecto-fin-del-mundo/">Proyecto fin del mundo</a></strong>
+                
+                <p data-i18n-meta-line>Classic • 2D • Subtitulado | Room 9 | 2% sold</p>
+                
+              </div>
+            </div>
+            
+            <div class="result-item">
+              <span class="time-badge">19:15</span>
+              <div class="result-copy">
+                <strong><a href="/cinema-watch-snapshot/movies/super-mario-galaxy-la-pelicula/">Super Mario Galaxy: La película</a></strong>
+                
+                <p data-i18n-meta-line>Classic • 2D • Español | Room 5 | 1% sold</p>
+                
+              </div>
+            </div>
+            
+            <div class="result-item">
+              <span class="time-badge">19:30</span>
+              <div class="result-copy">
+                <strong><a href="/cinema-watch-snapshot/movies/super-mario-galaxy-la-pelicula/">Super Mario Galaxy: La película</a></strong>
+                
+                <p data-i18n-meta-line>4D • 3D • Español | Room 8 | 1% sold</p>
+                
+              </div>
+            </div>
+            
+            <div class="result-item">
+              <span class="time-badge">19:45</span>
+              <div class="result-copy">
+                <strong><a href="/cinema-watch-snapshot/movies/super-mario-galaxy-la-pelicula/">Super Mario Galaxy: La película</a></strong>
+                
+                <p data-i18n-meta-line>Classic • 2D • Español | Room 6 | 2% sold</p>
+                
+              </div>
+            </div>
+            
+            <div class="result-item">
+              <span class="time-badge">20:00</span>
+              <div class="result-copy">
+                <strong><a href="/cinema-watch-snapshot/movies/la-casaca-de-dios/">La casaca de Dios</a></strong>
+                
+                <p data-i18n-meta-line>Classic • 2D • Español | Room 2 | 2% sold</p>
+                
+              </div>
+            </div>
+            
+            <div class="result-item">
+              <span class="time-badge">20:00</span>
+              <div class="result-copy">
+                <strong><a href="/cinema-watch-snapshot/movies/super-mario-galaxy-la-pelicula/">Super Mario Galaxy: La película</a></strong>
+                
+                <p data-i18n-meta-line>Classic • 2D • Español | Room 3 | 1% sold</p>
+                
+              </div>
+            </div>
+            
+            <div class="result-item">
+              <span class="time-badge">20:15</span>
+              <div class="result-copy">
+                <strong><a href="/cinema-watch-snapshot/movies/super-mario-galaxy-la-pelicula/">Super Mario Galaxy: La película</a></strong>
+                
+                <p data-i18n-meta-line>Classic • 2D • Español | Room 4 | 1% sold</p>
+                
+              </div>
+            </div>
+            
+            <div class="result-item">
+              <span class="time-badge">20:30</span>
+              <div class="result-copy">
+                <strong><a href="/cinema-watch-snapshot/movies/el-drama/">El Drama</a></strong>
+                
+                <p data-i18n-meta-line>Classic • 2D • Subtitulado | Room 12 | 7% sold</p>
+                
+              </div>
+            </div>
+            
+            <div class="result-item">
+              <span class="time-badge">20:30</span>
+              <div class="result-copy">
+                <strong><a href="/cinema-watch-snapshot/movies/super-mario-galaxy-la-pelicula/">Super Mario Galaxy: La película</a></strong>
+                
+                <p data-i18n-meta-line>Classic • 3D • Español | Room 13 | 1% sold</p>
+                
+              </div>
+            </div>
+            
+            <div class="result-item">
+              <span class="time-badge">20:40</span>
+              <div class="result-copy">
+                <strong><a href="/cinema-watch-snapshot/movies/el-mono-la-maldicion-regresa/">El Mono: La maldición regresa</a></strong>
+                
+                <p data-i18n-meta-line>Classic • 2D • Español | Room 2 | 2% sold</p>
+                
+              </div>
+            </div>
+            
+            <div class="result-item">
+              <span class="time-badge">20:45</span>
+              <div class="result-copy">
+                <strong><a href="/cinema-watch-snapshot/movies/super-mario-galaxy-la-pelicula/">Super Mario Galaxy: La película</a></strong>
+                
+                <p data-i18n-meta-line>Classic • 2D • Español | Room 11</p>
+                
+              </div>
+            </div>
+            
+            <div class="result-item">
+              <span class="time-badge">21:00</span>
+              <div class="result-copy">
+                <strong><a href="/cinema-watch-snapshot/movies/911-llamada-infernal/">911: Llamada infernal</a></strong>
+                
+                <p data-i18n-meta-line>Classic • 2D • Español | Room 10 | 3% sold</p>
                 
               </div>
             </div>
