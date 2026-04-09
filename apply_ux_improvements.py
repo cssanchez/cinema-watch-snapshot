@@ -201,6 +201,37 @@ def transform_6_add_csp(content: str) -> str:
             content = content.replace('<head>\n', '<head>\n' + csp_tag)
     return content
 
+
+RE_FOCUS_SELECTORS = re.compile(
+    r'(input:focus,\s*select:focus,\s*button:focus,\s*\.button-pill:focus,\s*\.button-card:focus\s*\{)'
+)
+
+def apply_focus_visible(content: str) -> str:
+    """
+    Upgrades :focus to :focus-visible for form controls and buttons,
+    and adds a distinct :focus-visible outline for all links.
+    """
+    replacement = (
+        r'input:focus-visible,\n'
+        r'    select:focus-visible,\n'
+        r'    button:focus-visible,\n'
+        r'    .button-pill:focus-visible,\n'
+        r'    .button-card:focus-visible {'
+    )
+    content = RE_FOCUS_SELECTORS.sub(replacement, content)
+
+    if 'a:focus-visible {' not in content:
+        link_focus_css = (
+            '\n\n    a:focus-visible {\n'
+            '      outline: 2px solid rgba(88, 199, 179, 0.45);\n'
+            '      outline-offset: 4px;\n'
+            '      border-radius: 4px;\n'
+            '    }'
+        )
+        content = RE_STYLE_CLOSING.sub(link_focus_css + r'\n  </style>', content)
+
+    return content
+
 def process_file(file_path: str) -> Tuple[bool, int]:
     """
     Process a single HTML file applying all 6 transformations.
@@ -221,6 +252,7 @@ def process_file(file_path: str) -> Tuple[bool, int]:
         content = transform_5_count_format(content)
 
         content = transform_6_add_csp(content)
+        content = apply_focus_visible(content)
         
         # Check if changes were made
         changes_made = 1 if content != original_content else 0

@@ -376,3 +376,19 @@ def test_transform_1_demote_freshness_partial():
     </style>
     """
     assert transform_1_demote_freshness(content) == expected
+
+def test_apply_focus_visible():
+    from apply_ux_improvements import apply_focus_visible
+    content = """
+    input:focus,
+    select:focus,
+    button:focus,
+    .button-pill:focus,
+    .button-card:focus {
+      outline: 2px solid rgba(88, 199, 179, 0.45);
+    }
+    </style>
+    """
+    result = apply_focus_visible(content)
+    assert 'input:focus-visible' in result
+    assert 'a:focus-visible {' in result
