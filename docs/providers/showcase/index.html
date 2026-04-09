@@ -2501,7 +2501,7 @@
   </div>
   <div class="hero-side">
     <strong>Provider snapshot</strong>
-    <p data-i18n-freshness>Updated 12 h ago</p>
+    <p data-i18n-freshness>Updated 13 h ago</p>
     <div class="stats">
       <span class="stat">2788 cached screenings</span>
       <span class="stat">28 cached titles</span>
@@ -2518,7 +2518,7 @@
     </div>
     <div class="metric">
       <span class="muted">Freshness</span>
-      <strong style="font-size:1rem;" data-i18n-freshness>Updated 12 h ago</strong>
+      <strong style="font-size:1rem;" data-i18n-freshness>Updated 13 h ago</strong>
     </div>
   </div>
 </section>
@@ -2588,7 +2588,7 @@
             <span class="stat">327 cached screenings</span>
             <span class="stat">18 cached titles</span>
           </div>
-          <p data-i18n-freshness>Updated 12 h ago</p>
+          <p data-i18n-freshness>Updated 13 h ago</p>
           
           <p>Date range: 2026-04-06 to 2026-05-08</p>
           
@@ -2608,7 +2608,7 @@
             <span class="stat">397 cached screenings</span>
             <span class="stat">18 cached titles</span>
           </div>
-          <p data-i18n-freshness>Updated 12 h ago</p>
+          <p data-i18n-freshness>Updated 13 h ago</p>
           
           <p>Date range: 2026-04-06 to 2026-05-08</p>
           
@@ -2628,7 +2628,7 @@
             <span class="stat">468 cached screenings</span>
             <span class="stat">21 cached titles</span>
           </div>
-          <p data-i18n-freshness>Updated 12 h ago</p>
+          <p data-i18n-freshness>Updated 13 h ago</p>
           
           <p>Date range: 2026-04-06 to 2026-04-22</p>
           
@@ -2648,7 +2648,7 @@
             <span class="stat">284 cached screenings</span>
             <span class="stat">12 cached titles</span>
           </div>
-          <p data-i18n-freshness>Updated 12 h ago</p>
+          <p data-i18n-freshness>Updated 13 h ago</p>
           
           <p>Date range: 2026-04-06 to 2026-05-08</p>
           
@@ -2668,7 +2668,7 @@
             <span class="stat">471 cached screenings</span>
             <span class="stat">20 cached titles</span>
           </div>
-          <p data-i18n-freshness>Updated 12 h ago</p>
+          <p data-i18n-freshness>Updated 13 h ago</p>
           
           <p>Date range: 2026-04-06 to 2026-05-08</p>
           
@@ -2688,7 +2688,7 @@
             <span class="stat">171 cached screenings</span>
             <span class="stat">6 cached titles</span>
           </div>
-          <p data-i18n-freshness>Updated 12 h ago</p>
+          <p data-i18n-freshness>Updated 13 h ago</p>
           
           <p>Date range: 2026-04-06 to 2026-04-16</p>
           
@@ -2708,7 +2708,7 @@
             <span class="stat">51 cached screenings</span>
             <span class="stat">3 cached titles</span>
           </div>
-          <p data-i18n-freshness>Updated 12 h ago</p>
+          <p data-i18n-freshness>Updated 13 h ago</p>
           
           <p>Date range: 2026-04-04 to 2026-04-22</p>
           
@@ -2728,7 +2728,7 @@
             <span class="stat">526 cached screenings</span>
             <span class="stat">26 cached titles</span>
           </div>
-          <p data-i18n-freshness>Updated 12 h ago</p>
+          <p data-i18n-freshness>Updated 13 h ago</p>
           
           <p>Date range: 2026-04-06 to 2026-05-08</p>
           
@@ -2748,7 +2748,7 @@
             <span class="stat">93 cached screenings</span>
             <span class="stat">6 cached titles</span>
           </div>
-          <p data-i18n-freshness>Updated 12 h ago</p>
+          <p data-i18n-freshness>Updated 13 h ago</p>
           
           <p>Date range: 2026-04-06 to 2026-04-14</p>
           
@@ -3390,6 +3390,18 @@
       window.CineVicioLocationTransition = window.CineVicioLocationTransition || { active: false, sectionKey: '' };
       let frozenViewportScrollY = null;
 
+      function jumpToScrollTop(nextTop) {
+        const root = document.documentElement;
+        const body = document.body;
+        const previousRootBehavior = root.style.scrollBehavior;
+        const previousBodyBehavior = body.style.scrollBehavior;
+        root.style.scrollBehavior = 'auto';
+        body.style.scrollBehavior = 'auto';
+        window.scrollTo(0, Math.max(0, Math.round(nextTop)));
+        root.style.scrollBehavior = previousRootBehavior;
+        body.style.scrollBehavior = previousBodyBehavior;
+      }
+
       function freezeViewport() {
         if (frozenViewportScrollY !== null) {
           return frozenViewportScrollY;
@@ -3413,10 +3425,7 @@
         document.body.style.width = '';
         document.body.style.overflowY = '';
         frozenViewportScrollY = null;
-        window.scrollTo({
-          top: typeof nextTop === 'number' && Number.isFinite(nextTop) ? nextTop : fallbackTop,
-          behavior: 'auto',
-        });
+        jumpToScrollTop(typeof nextTop === 'number' && Number.isFinite(nextTop) ? nextTop : fallbackTop);
       }
 
       function currentLocationKey(root = document) {
@@ -3540,7 +3549,7 @@
               window.requestAnimationFrame(() => {
                 const finalTop = window.CineVicioNav.resolveSectionStateTop(currentSectionState);
                 if (Number.isFinite(finalTop)) {
-                  window.scrollTo({ top: finalTop, behavior: 'auto' });
+                  jumpToScrollTop(finalTop);
                 }
                 transitionState.active = false;
                 transitionState.sectionKey = '';
@@ -3857,6 +3866,10 @@
         if (!Number.isFinite(nextTop)) {
           return false;
         }
+        if (behavior === 'auto') {
+          jumpToScrollTop(nextTop);
+          return true;
+        }
         window.scrollTo({
           top: nextTop,
           behavior,
@@ -4037,10 +4050,11 @@
         if (locationOption instanceof HTMLButtonElement) {
           event.preventDefault();
           const locationKey = locationOption.dataset.locationTarget || '';
+          const currentHash = window.CineVicioNav?.currentSectionHash?.() || window.location.hash || '';
           window.CinemaWatchLocations?.set?.(document, locationKey);
           closeToolbarZones();
           syncToolbarZoneSummaries();
-          window.CineVicioFrontAdvanced?.clearUrlFilters?.();
+          window.CineVicioFrontAdvanced?.clearUrlFilters?.({ hash: currentHash });
           const homePath = getHomePath();
           const relativePath = relativePathFromHome(window.location.pathname || '/', homePath);
           if (relativePath !== '/') {
@@ -4543,16 +4557,19 @@
         }
       }
 
-      function clearUrlFilters() {
+      function clearUrlFilters({ hash = null } = {}) {
         const params = new URLSearchParams(window.location.search || '');
         for (const key of FILTER_KEYS) {
           params.delete(key);
         }
         params.delete('focus');
         const query = params.toString();
+        const nextHash = typeof hash === 'string'
+          ? hash
+          : (window.CineVicioNav?.currentSectionHash?.() || window.location.hash || '#cartelera');
         const next = query
-          ? `${window.location.pathname}?${query}#cartelera`
-          : `${window.location.pathname}#cartelera`;
+          ? `${window.location.pathname}?${query}${nextHash}`
+          : `${window.location.pathname}${nextHash}`;
         window.history.replaceState({}, '', next);
         document.querySelectorAll('form[data-front-advanced-form="true"]').forEach((form) => {
           if (form instanceof HTMLFormElement) {
