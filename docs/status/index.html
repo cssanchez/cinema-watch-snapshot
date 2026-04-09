@@ -137,7 +137,7 @@
       top: 0;
       z-index: 20;
       backdrop-filter: blur(22px) saturate(140%);
-      overflow: hidden;
+      overflow: visible;
       isolation: isolate;
     }
 
@@ -361,6 +361,7 @@
     /* Masthead utility controls share one glass system so banner audits stay in one place. */
     .toolbar-zone {
       position: relative;
+      z-index: 3;
     }
 
     .toolbar-zone summary {
@@ -433,6 +434,7 @@
       position: absolute;
       top: calc(100% + 0.45rem);
       right: 0;
+      z-index: 25;
       min-width: 14rem;
       display: grid;
       gap: 0.38rem;
@@ -2506,7 +2508,7 @@
     </div>
     <div class="metric">
       <span class="muted">Published at</span>
-      <strong style="font-size:1rem;">2026-04-09 06:20 UTC</strong>
+      <strong style="font-size:1rem;">2026-04-09 06:38 UTC</strong>
     </div>
   </div>
 </section>
