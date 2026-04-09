@@ -1459,7 +1459,7 @@
 
     .front-movie-section-body {
       display: grid;
-      grid-template-columns: minmax(0, 1fr) minmax(0, 1.08fr);
+      grid-template-columns: minmax(17rem, 0.86fr) minmax(0, 1.14fr);
       gap: 0.92rem;
       align-items: start;
     }
@@ -1470,7 +1470,8 @@
 
     .front-movie-lead {
       gap: 0.72rem;
-      min-height: 100%;
+      min-height: 0;
+      align-self: start;
       padding: 1.12rem;
       border-color: rgba(165, 178, 198, 0.16);
       background:
@@ -1480,13 +1481,15 @@
 
     .front-movie-lead-title {
       font-family: var(--heading-font);
-      font-size: clamp(1.42rem, 2.35vw, 2rem);
-      line-height: 0.98;
+      font-size: clamp(1.28rem, 2vw, 1.76rem);
+      line-height: 1;
       letter-spacing: -0.02em;
+      max-width: 11ch;
     }
 
     .front-movie-summary {
       align-items: center;
+      justify-content: flex-start;
     }
 
     .front-movie-list {
@@ -2284,7 +2287,7 @@
   </div>
   <div class="hero-side">
     <strong>Provider snapshot</strong>
-    <p data-i18n-freshness>Updated 22 min ago</p>
+    <p data-i18n-freshness>Updated 5 h ago</p>
     <div class="stats">
       <span class="stat">2641 cached screenings</span>
       <span class="stat">44 cached titles</span>
@@ -2301,7 +2304,7 @@
     </div>
     <div class="metric">
       <span class="muted">Freshness</span>
-      <strong style="font-size:1rem;" data-i18n-freshness>Updated 22 min ago</strong>
+      <strong style="font-size:1rem;" data-i18n-freshness>Updated 5 h ago</strong>
     </div>
   </div>
 </section>
@@ -2373,7 +2376,7 @@
             <span class="stat">471 cached screenings</span>
             <span class="stat">21 cached titles</span>
           </div>
-          <p data-i18n-freshness>Updated 23 min ago</p>
+          <p data-i18n-freshness>Updated 5 h ago</p>
           
           <p>Date range: 2026-04-04 to 2026-04-14</p>
           
@@ -2393,7 +2396,7 @@
             <span class="stat">210 cached screenings</span>
             <span class="stat">12 cached titles</span>
           </div>
-          <p data-i18n-freshness>Updated 23 min ago</p>
+          <p data-i18n-freshness>Updated 5 h ago</p>
           
           <p>Date range: 2026-04-06 to 2026-04-14</p>
           
@@ -2413,7 +2416,7 @@
             <span class="stat">213 cached screenings</span>
             <span class="stat">11 cached titles</span>
           </div>
-          <p data-i18n-freshness>Updated 23 min ago</p>
+          <p data-i18n-freshness>Updated 5 h ago</p>
           
           <p>Date range: 2026-04-06 to 2026-04-14</p>
           
@@ -2433,7 +2436,7 @@
             <span class="stat">314 cached screenings</span>
             <span class="stat">14 cached titles</span>
           </div>
-          <p data-i18n-freshness>Updated 22 min ago</p>
+          <p data-i18n-freshness>Updated 5 h ago</p>
           
           <p>Date range: 2026-04-06 to 2026-04-14</p>
           
@@ -2453,7 +2456,7 @@
             <span class="stat">124 cached screenings</span>
             <span class="stat">10 cached titles</span>
           </div>
-          <p data-i18n-freshness>Updated 23 min ago</p>
+          <p data-i18n-freshness>Updated 5 h ago</p>
           
           <p>Date range: 2026-04-06 to 2026-04-13</p>
           
@@ -2475,7 +2478,7 @@
             <span class="stat">344 cached screenings</span>
             <span class="stat">32 cached titles</span>
           </div>
-          <p data-i18n-freshness>Updated 22 min ago</p>
+          <p data-i18n-freshness>Updated 5 h ago</p>
           
           <p>Date range: 2026-04-04 to 2026-04-14</p>
           
@@ -2495,7 +2498,7 @@
             <span class="stat">128 cached screenings</span>
             <span class="stat">8 cached titles</span>
           </div>
-          <p data-i18n-freshness>Updated 23 min ago</p>
+          <p data-i18n-freshness>Updated 5 h ago</p>
           
           <p>Date range: 2026-04-06 to 2026-04-14</p>
           
@@ -2515,7 +2518,7 @@
             <span class="stat">371 cached screenings</span>
             <span class="stat">16 cached titles</span>
           </div>
-          <p data-i18n-freshness>Updated 23 min ago</p>
+          <p data-i18n-freshness>Updated 5 h ago</p>
           
           <p>Date range: 2026-04-06 to 2026-04-14</p>
           
@@ -2535,7 +2538,7 @@
             <span class="stat">252 cached screenings</span>
             <span class="stat">12 cached titles</span>
           </div>
-          <p data-i18n-freshness>Updated 23 min ago</p>
+          <p data-i18n-freshness>Updated 5 h ago</p>
           
           <p>Date range: 2026-04-06 to 2026-04-14</p>
           
@@ -2555,7 +2558,7 @@
             <span class="stat">214 cached screenings</span>
             <span class="stat">11 cached titles</span>
           </div>
-          <p data-i18n-freshness>Updated 22 min ago</p>
+          <p data-i18n-freshness>Updated 5 h ago</p>
           
           <p>Date range: 2026-04-06 to 2026-04-14</p>
           
@@ -3304,6 +3307,13 @@
           return;
         }
 
+        const specialJump = event.target.closest('[data-front-special-jump-location]');
+        if (specialJump instanceof HTMLAnchorElement) {
+          event.preventDefault();
+          window.CineVicioFrontAdvanced?.runSpecialJump?.(specialJump);
+          return;
+        }
+
         const button = event.target.closest('[data-location-target]');
         if (!(button instanceof HTMLButtonElement)) {
           return;
@@ -3878,11 +3888,11 @@
         return matched;
       }
 
-      function parseFilterPreset(button) {
-        if (!(button instanceof HTMLButtonElement)) {
+      function parseFilterPreset(control) {
+        if (!(control instanceof HTMLElement)) {
           return null;
         }
-        const raw = String(button.dataset.frontFilterPreset || '').trim();
+        const raw = String(control.dataset.frontFilterPreset || '').trim();
         if (!raw) {
           return null;
         }
@@ -3894,11 +3904,11 @@
         }
       }
 
-      function parseResultPreset(button) {
-        if (!(button instanceof HTMLButtonElement)) {
+      function parseResultPreset(control) {
+        if (!(control instanceof HTMLElement)) {
           return null;
         }
-        const raw = String(button.dataset.frontResultPreset || '').trim();
+        const raw = String(control.dataset.frontResultPreset || '').trim();
         if (!raw) {
           return null;
         }
@@ -4027,6 +4037,36 @@
           updateUrl: true,
           resultPreset: parseResultPreset(button),
         });
+      }
+
+      function runSpecialJump(link) {
+        if (!(link instanceof HTMLAnchorElement)) {
+          return;
+        }
+        const locationKey = String(link.dataset.frontSpecialJumpLocation || '').trim();
+        if (!locationKey) {
+          return;
+        }
+        const form = document.querySelector(
+          `form[data-front-advanced-form="true"][data-front-location-key="${locationKey}"]`
+        );
+        if (!(form instanceof HTMLFormElement)) {
+          return;
+        }
+        const preset = parseFilterPreset(link);
+        if (!preset) {
+          return;
+        }
+        applyFilterPresetToForm(form, preset);
+        clearUrlFilters();
+        runAdvancedFilter(form, {
+          updateUrl: true,
+          resultPreset: parseResultPreset(link),
+        });
+        const anchor = document.getElementById('cartelera');
+        if (anchor instanceof HTMLElement) {
+          anchor.scrollIntoView({ behavior: 'smooth', block: 'start' });
+        }
       }
 
       function buildFrontInsights(rows) {
@@ -4368,7 +4408,7 @@
 
       initFrontAdvanced(document);
       syncActiveQuickBoardPresets(document);
-      window.CineVicioFrontAdvanced = { init: initFrontAdvanced, syncBoardPreset, clearUrlFilters, runShortcut };
+      window.CineVicioFrontAdvanced = { init: initFrontAdvanced, syncBoardPreset, clearUrlFilters, runShortcut, runSpecialJump };
     })();
   </script>
   
