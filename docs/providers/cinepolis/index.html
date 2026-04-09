@@ -3501,10 +3501,19 @@
       function setHomepageLocation(root, key, { persist = true } = {}) {
         const buttons = Array.from(root.querySelectorAll('[data-location-target]'));
         const panels = Array.from(root.querySelectorAll('[data-location-panel]'));
-        const currentSectionState = window.scrollY > 120
+        const intendedSectionKey = typeof window.CineVicioNav?.currentIntentSectionKey === 'function'
+          ? window.CineVicioNav.currentIntentSectionKey()
+          : '';
+        let currentSectionState = window.scrollY > 120
           && typeof window.CineVicioNav?.currentSectionState === 'function'
           ? window.CineVicioNav.currentSectionState()
           : null;
+        if (currentSectionState && intendedSectionKey && currentSectionState.key !== intendedSectionKey) {
+          currentSectionState = {
+            ...currentSectionState,
+            key: intendedSectionKey,
+          };
+        }
         const transitionState = window.CineVicioLocationTransition;
         transitionState.active = Boolean(currentSectionState);
         transitionState.sectionKey = currentSectionState?.key || '';
@@ -3770,6 +3779,23 @@
           return '#cartelera';
         }
         return '';
+      }
+
+      function currentHomeIntentSectionKey() {
+        const activeNavLink = document.querySelector('.nav-links [data-nav-link].is-active');
+        const navKey = activeNavLink instanceof HTMLElement
+          ? (activeNavLink.getAttribute('data-nav-link') || '')
+          : '';
+        if (navKey === 'movies') {
+          return 'movies';
+        }
+        if (navKey === 'special_rooms') {
+          return 'special_rooms';
+        }
+        if (navKey === 'screenings') {
+          return 'screenings';
+        }
+        return currentHomeSectionFocus();
       }
 
       function getVisibleLocationPanel() {
@@ -4107,6 +4133,7 @@
       });
       window.CineVicioNav = {
         applyHash: applyHomeHash,
+        currentIntentSectionKey: currentHomeIntentSectionKey,
         currentSectionHash: currentHomeSectionHash,
         currentSectionState: currentHomeSectionState,
         getHomePath,
