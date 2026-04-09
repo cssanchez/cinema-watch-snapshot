@@ -1335,6 +1335,11 @@
         rgba(255, 255, 255, 0.02);
     }
 
+    .front-cartelera-board[data-front-board-panel="advanced"] {
+      gap: 0.58rem;
+      padding-top: 0.96rem;
+    }
+
     .front-cartelera-board-head {
       align-items: end;
       gap: 1rem;
@@ -1385,92 +1390,6 @@
       margin-top: 0.28rem;
       font-size: 0.89rem;
       max-width: 54ch;
-    }
-
-    .front-board-signals {
-      display: grid;
-      gap: 0.72rem;
-      padding: 0.82rem 0.88rem;
-      border: 1px solid rgba(165, 178, 198, 0.12);
-      border-radius: calc(var(--radius-md) - 0.12rem);
-      background:
-        linear-gradient(180deg, rgba(88, 199, 179, 0.05), rgba(11, 15, 22, 0.2)),
-        rgba(255, 255, 255, 0.02);
-      box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.02);
-    }
-
-    .front-board-summary {
-      display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(10rem, 1fr));
-      gap: 0.5rem;
-    }
-
-    .front-board-stat {
-      display: grid;
-      gap: 0.16rem;
-      min-height: 100%;
-      padding: 0.48rem 0.58rem;
-      border-radius: var(--radius-sm);
-      border: 1px solid rgba(165, 178, 198, 0.1);
-      background: rgba(255, 255, 255, 0.024);
-    }
-
-    .front-board-stat,
-    .front-board-stat strong,
-    .front-board-stat a {
-      min-width: 0;
-    }
-
-    .front-board-stat-label,
-    .front-board-peak-label {
-      color: rgba(165, 178, 198, 0.88);
-      font-size: 0.72rem;
-      font-weight: 700;
-      letter-spacing: 0.07em;
-      text-transform: uppercase;
-    }
-
-    .front-board-stat strong {
-      font-size: 0.91rem;
-      line-height: 1.24;
-    }
-
-    .front-board-peak {
-      display: flex;
-      gap: 0.75rem;
-      align-items: start;
-      justify-content: space-between;
-      padding-top: 0.06rem;
-      border-top: 1px dashed rgba(255, 255, 255, 0.08);
-    }
-
-    .front-board-peak-copy {
-      display: grid;
-      gap: 0.22rem;
-      min-width: 0;
-    }
-
-    .front-board-peak-copy strong {
-      line-height: 1.16;
-      font-size: 1rem;
-    }
-
-    .front-board-peak-meta {
-      display: flex;
-      flex-wrap: wrap;
-      align-items: center;
-      gap: 0.2rem 0.45rem;
-      color: var(--muted);
-      font-size: 0.86rem;
-      line-height: 1.38;
-    }
-
-    .front-board-peak-chips {
-      display: flex;
-      flex-wrap: wrap;
-      gap: 0.42rem;
-      justify-content: flex-end;
-      align-items: start;
     }
 
     .front-special-grid {
@@ -2020,21 +1939,15 @@
       font-size: 0.8rem;
     }
 
-    .front-board-signals {
-      gap: 0.82rem;
-      padding: 0.88rem 0.94rem;
-      background:
-        linear-gradient(180deg, rgba(88, 199, 179, 0.055), rgba(11, 15, 22, 0.26)),
-        rgba(255, 255, 255, 0.02);
+    .front-advanced-summary {
+      display: grid;
+      gap: 0;
+      min-width: 0;
     }
 
-    .front-board-stat {
-      padding: 0.5rem 0.6rem;
-      background: rgba(255, 255, 255, 0.028);
-    }
-
-    .front-board-peak {
-      gap: 0.82rem;
+    .front-advanced-summary .front-cartelera-summary {
+      gap: 0.38rem;
+      padding-bottom: 0.54rem;
     }
 
     .front-specials {
@@ -2912,18 +2825,6 @@
         grid-template-columns: 1fr;
       }
 
-      .front-board-peak {
-        display: grid;
-      }
-
-      .front-board-summary {
-        grid-template-columns: 1fr;
-      }
-
-      .front-board-peak-chips {
-        justify-content: flex-start;
-      }
-
       .time-badge {
         justify-self: start;
       }
@@ -3279,7 +3180,6 @@
           'Where should we go?': '¿A dónde vamos?',
           "A quick guide to today's screenings, special rooms, and favorite cinemas.": 'Una guía rápida de las funciones de hoy, salas especiales y cines favoritos.',
           'View in Cartelera': 'Ver en Cartelera',
-          'Advanced filter': 'Filtro avanzado',
           'Now showing and upcoming premieres in this area.': 'En cartelera y próximos estrenos en esta zona.',
           'Zone': 'Zona',
           'Change the area and the boards below follow that choice.': 'Cambiá la zona y las carteleras de abajo siguen esa elección.',
@@ -3316,8 +3216,6 @@
           'Focused on Atmos-capable screenings first, then compare by cinema and time.': 'Primero funciones con Atmos, despues compara por cine y horario.',
           'Reset to all screenings': 'Volver a toda la cartelera',
           'Reset to default board': 'Volver a la cartelera inicial',
-          'Filtered results': 'Resultados filtrados',
-          'Results from advanced filters without leaving the homepage.': 'Resultados de filtros avanzados sin salir de la portada.',
           'IMAX focus': 'Foco IMAX',
           'Dolby Atmos focus': 'Foco Dolby Atmos',
           'You are viewing the IMAX cut of the board.': 'Estas viendo el recorte IMAX de la cartelera.',
@@ -5139,29 +5037,23 @@
         }
 
         const insights = buildFrontInsights(rows);
-        const summary = [];
+        const summary = [
+          `
+            <span
+              data-i18n-count="screening"
+              data-i18n-count-value="${rows.length}"
+            >${rows.length} screenings</span>
+          `,
+        ];
         if (insights.dateRange) {
-          summary.push(`
-            <div class="front-board-stat">
-              <span class="front-board-stat-label" data-i18n-source>Cache range</span>
-              <strong>${escapeHtml(insights.dateRange)}</strong>
-            </div>
-          `);
+          summary.unshift(`<span class="front-cartelera-summary-date">${escapeHtml(insights.dateRange)}</span>`);
         }
         if (insights.roomCount) {
           summary.push(`
-            <div class="front-board-stat">
-              <span class="front-board-stat-label" data-i18n-source>Rooms identified</span>
-              <strong>${insights.roomCount}</strong>
-            </div>
-          `);
-        }
-        if (insights.soldCount) {
-          summary.push(`
-            <div class="front-board-stat">
-              <span class="front-board-stat-label" data-i18n-source>Sold data</span>
-              <strong>${insights.soldCount}</strong>
-            </div>
+            <span
+              data-i18n-count="room"
+              data-i18n-count-value="${insights.roomCount}"
+            >${insights.roomCount} rooms</span>
           `);
         }
         if (insights.topVenue) {
@@ -5169,12 +5061,7 @@
           const venueHtml = insights.topVenue.href
             ? `<a href="${escapeHtml(insights.topVenue.href)}" data-live-nav="true">${venueLabel}</a>`
             : venueLabel;
-          summary.push(`
-            <div class="front-board-stat">
-              <span class="front-board-stat-label" data-i18n-source>Top venue</span>
-              <strong>${venueHtml}</strong>
-            </div>
-          `);
+          summary.push(`<span class="front-cartelera-summary-link">${venueHtml}</span>`);
         }
 
         let peakMarkup = '';
@@ -5190,56 +5077,41 @@
           const venueHtml = venueHref
             ? `<a href="${escapeHtml(venueHref)}" data-live-nav="true">${venueLabel}</a>`
             : venueLabel;
-          const peakMeta = `${peak.sold_percent}% sold${peak.room_number !== null ? ` | Room ${peak.room_number}` : ''}`;
-          const seatChip = peak.seats_total !== null
-            ? `
-              <span
-                class="chip chip-neutral"
-                data-i18n-seat-note
-                data-seats-total="${peak.seats_total}"
-                data-seats-available="${peak.seats_available === null ? '' : peak.seats_available}"
-              >${escapeHtml(seatNoteLabel(peak.seats_available, peak.seats_total))}</span>
-            `
-            : '';
+          const peakMeta = [
+            `<span class="front-cartelera-peak-meta">${venueHtml}</span>`,
+            `<span class="front-cartelera-peak-meta">${escapeHtml(String(peak.date_iso || ''))} ${escapeHtml(String(peak.time_label || ''))}</span>`,
+            `<span class="front-cartelera-peak-meta">${escapeHtml(String(peak.sold_percent))}% <span data-i18n-source>sold</span></span>`,
+          ];
+          if (peak.room_number !== null) {
+            peakMeta.push(
+              `<span class="front-cartelera-peak-meta"><span data-i18n-source>Room</span> ${escapeHtml(String(peak.room_number))}</span>`
+            );
+          }
           peakMarkup = `
-            <div class="front-board-peak">
-              <div class="front-board-peak-copy">
-                <span class="front-board-peak-label" data-i18n-source>Peak crowd</span>
-                <strong>${movieHtml}</strong>
-                <p class="front-board-peak-meta">${venueHtml}<span aria-hidden="true">·</span><span>${escapeHtml(String(peak.date_iso || ''))} ${escapeHtml(String(peak.time_label || ''))}</span></p>
-              </div>
-              <div class="front-board-peak-chips">
-                <span class="chip" data-i18n-meta-line>${escapeHtml(peakMeta)}</span>
-                ${seatChip}
-              </div>
+            <div class="front-cartelera-peak-line">
+              <span class="front-cartelera-peak-label" data-i18n-source>Peak crowd</span>
+              <span class="front-cartelera-peak-title">${movieHtml}</span>
+              ${peakMeta.join('')}
             </div>
           `;
         }
 
-        if (!summary.length && !peakMarkup) {
-          signalBox.hidden = true;
-          signalBox.innerHTML = '';
-          return;
-        }
-
         signalBox.hidden = false;
         signalBox.innerHTML = `
-          ${summary.length ? `<div class="front-board-summary">${summary.join('')}</div>` : ''}
-          ${peakMarkup}
+          <div class="front-cartelera-summary">
+            <div class="front-cartelera-summary-line">${summary.join('')}</div>
+            ${peakMarkup}
+          </div>
         `;
       }
 
       function renderAdvancedRows(panel, rows, resultPreset = null) {
-        const countChip = panel.querySelector('[data-front-advanced-count]');
         const container = panel.querySelector('[data-front-advanced-results]');
-        if (!(countChip instanceof HTMLElement) || !(container instanceof HTMLElement)) {
+        if (!(container instanceof HTMLElement)) {
           return;
         }
 
         const sorted = sortRowsForFront(rows, resultPreset);
-
-        countChip.dataset.i18nCountValue = String(sorted.length);
-        countChip.textContent = `${sorted.length} screenings`;
         renderFrontSignals(panel, sorted);
 
         if (!sorted.length) {
