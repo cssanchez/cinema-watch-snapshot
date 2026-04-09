@@ -2506,7 +2506,7 @@
   </div>
   <div class="hero-side">
     <strong data-i18n-source>Venue signals</strong>
-    <p data-i18n-freshness>Updated 11 h ago</p>
+    <p data-i18n-freshness>Updated 12 h ago</p>
     <div class="stats">
       <span class="stat">7 active rooms</span>
       
@@ -4163,9 +4163,13 @@
           window.CineVicioNav.restoreSectionState(currentSectionState, { behavior: 'auto' });
           window.CineVicioNav.sync?.();
           window.requestAnimationFrame(() => {
-            transitionState.active = false;
-            transitionState.sectionKey = '';
+            window.CineVicioNav.restoreSectionState(currentSectionState, { behavior: 'auto' });
             window.CineVicioNav.sync?.();
+            window.requestAnimationFrame(() => {
+              transitionState.active = false;
+              transitionState.sectionKey = '';
+              window.CineVicioNav.sync?.();
+            });
           });
         } else {
           transitionState.active = false;

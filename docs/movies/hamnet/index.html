@@ -3607,9 +3607,13 @@
           window.CineVicioNav.restoreSectionState(currentSectionState, { behavior: 'auto' });
           window.CineVicioNav.sync?.();
           window.requestAnimationFrame(() => {
-            transitionState.active = false;
-            transitionState.sectionKey = '';
+            window.CineVicioNav.restoreSectionState(currentSectionState, { behavior: 'auto' });
             window.CineVicioNav.sync?.();
+            window.requestAnimationFrame(() => {
+              transitionState.active = false;
+              transitionState.sectionKey = '';
+              window.CineVicioNav.sync?.();
+            });
           });
         } else {
           transitionState.active = false;

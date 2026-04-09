@@ -2563,7 +2563,7 @@
     
     <div class="front-hero-meta">
       <div class="front-freshness is-hero">
-        <strong data-i18n-freshness>Updated 11 h ago</strong>
+        <strong data-i18n-freshness>Updated 12 h ago</strong>
         <span class="front-freshness-divider" aria-hidden="true"></span>
         <span data-i18n-count="screening" data-i18n-count-value="5429">5429 screenings</span>
       </div>
@@ -9574,9 +9574,13 @@
           window.CineVicioNav.restoreSectionState(currentSectionState, { behavior: 'auto' });
           window.CineVicioNav.sync?.();
           window.requestAnimationFrame(() => {
-            transitionState.active = false;
-            transitionState.sectionKey = '';
+            window.CineVicioNav.restoreSectionState(currentSectionState, { behavior: 'auto' });
             window.CineVicioNav.sync?.();
+            window.requestAnimationFrame(() => {
+              transitionState.active = false;
+              transitionState.sectionKey = '';
+              window.CineVicioNav.sync?.();
+            });
           });
         } else {
           transitionState.active = false;
