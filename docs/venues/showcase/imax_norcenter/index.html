@@ -1981,7 +1981,7 @@
       min-width: 0;
     }
 
-    .front-special-ribbon-group > * + *::before {
+    .front-special-ribbon-signals > * + *::before {
       content: "•";
       margin-right: 0.5rem;
       color: rgba(255, 255, 255, 0.2);
@@ -1994,6 +1994,7 @@
 
     .front-special-ribbon-venues {
       justify-content: flex-start;
+      gap: 0.18rem 0.3rem;
     }
 
     .front-special-ribbon-venue {
@@ -2004,8 +2005,14 @@
       white-space: nowrap;
     }
 
-    .front-special-ribbon-venue + .front-special-ribbon-venue::before {
-      content: none;
+    .front-special-ribbon-separator {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      color: rgba(255, 255, 255, 0.24);
+      font-size: 0.78em;
+      line-height: 1;
+      transform: translateY(-0.02em);
     }
 
     .front-special-ribbon a:hover,
