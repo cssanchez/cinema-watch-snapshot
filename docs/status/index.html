@@ -2523,7 +2523,7 @@
     </div>
     <div class="metric">
       <span class="muted">Published at</span>
-      <strong style="font-size:1rem;">2026-04-09 08:30 UTC</strong>
+      <strong style="font-size:1rem;">2026-04-09 08:40 UTC</strong>
     </div>
   </div>
 </section>
@@ -3939,6 +3939,7 @@
   <script>
     (() => {
       const storageKey = 'cinema-watch-location';
+      window.CineVicioLocationTransition = window.CineVicioLocationTransition || { active: false, sectionKey: '' };
 
       function currentLocationKey(root = document) {
         const scope = root instanceof Element || root instanceof Document ? root : document;
@@ -4002,6 +4003,9 @@
           && typeof window.CineVicioNav?.currentSectionState === 'function'
           ? window.CineVicioNav.currentSectionState()
           : null;
+        const transitionState = window.CineVicioLocationTransition;
+        transitionState.active = Boolean(currentSectionState);
+        transitionState.sectionKey = currentSectionState?.key || '';
         const availableKeys = new Set([
           ...panels.map((panel) => panel.dataset.locationPanel || ''),
           ...buttons.map((button) => button.dataset.locationTarget || ''),
@@ -4035,11 +4039,17 @@
           window.localStorage.setItem(storageKey, nextKey);
         }
 
-        // Keep the reader at the same depth within the current homepage section.
         if (currentSectionState && typeof window.CineVicioNav?.restoreSectionState === 'function') {
+          window.CineVicioNav.restoreSectionState(currentSectionState, { behavior: 'auto' });
+          window.CineVicioNav.sync?.();
           window.requestAnimationFrame(() => {
-            window.CineVicioNav.restoreSectionState(currentSectionState, { behavior: 'auto' });
+            transitionState.active = false;
+            transitionState.sectionKey = '';
+            window.CineVicioNav.sync?.();
           });
+        } else {
+          transitionState.active = false;
+          transitionState.sectionKey = '';
         }
 
         return nextKey;
@@ -4210,6 +4220,10 @@
       }
 
       function currentHomeSectionFocus() {
+        const locationTransition = window.CineVicioLocationTransition;
+        if (locationTransition?.active && locationTransition.sectionKey) {
+          return locationTransition.sectionKey;
+        }
         const sections = getActiveHomeSections();
         const header = document.querySelector('.topbar');
         const headerHeight = header instanceof HTMLElement ? header.getBoundingClientRect().height : 0;
