@@ -1959,9 +1959,9 @@
     }
 
     .front-special-ribbon {
-      display: flex;
-      flex-wrap: wrap;
-      gap: 0.34rem 0.78rem;
+      display: grid;
+      grid-template-columns: minmax(0, 1fr) auto;
+      gap: 0.42rem 1rem;
       align-items: center;
       min-width: 0;
       color: rgba(200, 208, 217, 0.8);
@@ -1969,13 +1969,21 @@
       line-height: 1.35;
     }
 
-    .front-special-ribbon > * {
+    .front-special-ribbon-group {
+      display: inline-flex;
+      flex-wrap: wrap;
+      align-items: center;
+      gap: 0.18rem 0.22rem;
       min-width: 0;
     }
 
-    .front-special-ribbon > * + *::before {
+    .front-special-ribbon-group > * {
+      min-width: 0;
+    }
+
+    .front-special-ribbon-group > * + *::before {
       content: "•";
-      margin-right: 0.56rem;
+      margin-right: 0.5rem;
       color: rgba(255, 255, 255, 0.2);
     }
 
@@ -1985,11 +1993,7 @@
     }
 
     .front-special-ribbon-venues {
-      display: inline-flex;
-      flex-wrap: wrap;
-      gap: 0.18rem 0.2rem;
-      align-items: center;
-      min-width: 0;
+      justify-content: flex-start;
     }
 
     .front-special-ribbon-venue {
@@ -2001,15 +2005,17 @@
     }
 
     .front-special-ribbon-venue + .front-special-ribbon-venue::before {
-      content: "•";
-      margin-right: 0.48rem;
-      color: rgba(255, 255, 255, 0.22);
-      font-weight: 500;
+      content: none;
     }
 
     .front-special-ribbon a:hover,
     .front-special-ribbon a:focus-visible {
       color: rgba(255, 255, 255, 0.98);
+    }
+
+    .front-special-ribbon-signals {
+      justify-content: flex-end;
+      color: rgba(194, 205, 215, 0.78);
     }
 
     .front-special-ribbon-heat {
@@ -2918,6 +2924,14 @@
       }
 
       .front-special-card-actions {
+        justify-content: flex-start;
+      }
+
+      .front-special-ribbon {
+        grid-template-columns: 1fr;
+      }
+
+      .front-special-ribbon-signals {
         justify-content: flex-start;
       }
 
@@ -4540,12 +4554,11 @@
           
           <div class="front-special-ribbon">
             
-            <span class="front-special-ribbon-venues">
+            <span class="front-special-ribbon-group front-special-ribbon-venues">
               
               <a class="front-special-ribbon-venue" href="/cinema-watch-snapshot/venues/showcase/imax_norcenter/" data-live-nav="true">IMAX Theatre (Norcenter)</a>
               
             </span>
-            
             
             
           </div>
@@ -4768,7 +4781,7 @@
           
           <div class="front-special-ribbon">
             
-            <span class="front-special-ribbon-venues">
+            <span class="front-special-ribbon-group front-special-ribbon-venues">
               
               <a class="front-special-ribbon-venue" href="/cinema-watch-snapshot/venues/cinepolis/pilar/" data-live-nav="true">Pilar</a>
               
@@ -4777,16 +4790,20 @@
             </span>
             
             
-            <span data-i18n-count="room" data-i18n-count-value="2">2 rooms</span>
-            
-            
-            <span class="front-special-ribbon-heat">
+            <span class="front-special-ribbon-group front-special-ribbon-signals">
+              
+              <span data-i18n-count="room" data-i18n-count-value="2">2 rooms</span>
+              
+              
+              <span class="front-special-ribbon-heat">
               <span data-i18n-source>Peak</span>
               96%
               <span data-i18n-source>sold</span>
               
               <span aria-hidden="true">·</span>
               <span data-i18n-source>Room</span> 6
+              
+              </span>
               
             </span>
             
@@ -6807,23 +6824,27 @@
           
           <div class="front-special-ribbon">
             
-            <span class="front-special-ribbon-venues">
+            <span class="front-special-ribbon-group front-special-ribbon-venues">
               
               <a class="front-special-ribbon-venue" href="/cinema-watch-snapshot/venues/cinepolis/recoleta/" data-live-nav="true">Recoleta</a>
               
             </span>
             
             
-            <span data-i18n-count="room" data-i18n-count-value="1">1 rooms</span>
-            
-            
-            <span class="front-special-ribbon-heat">
+            <span class="front-special-ribbon-group front-special-ribbon-signals">
+              
+              <span data-i18n-count="room" data-i18n-count-value="1">1 rooms</span>
+              
+              
+              <span class="front-special-ribbon-heat">
               <span data-i18n-source>Peak</span>
               96%
               <span data-i18n-source>sold</span>
               
               <span aria-hidden="true">·</span>
               <span data-i18n-source>Room</span> 6
+              
+              </span>
               
             </span>
             
