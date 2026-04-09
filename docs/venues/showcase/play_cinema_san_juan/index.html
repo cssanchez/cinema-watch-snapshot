@@ -1423,7 +1423,8 @@
     }
 
     .front-movie-grid {
-      grid-template-columns: minmax(0, 1.18fr) minmax(22rem, 0.82fr);
+      grid-template-columns: minmax(0, 1.34fr) fit-content(35rem);
+      justify-content: space-between;
       gap: 1rem;
     }
 
@@ -1433,8 +1434,8 @@
     }
 
     .front-movie-section--single-title {
-      width: min(100%, 40rem);
-      justify-self: start;
+      width: min(100%, 35rem);
+      justify-self: end;
       align-self: start;
     }
 
