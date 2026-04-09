@@ -4023,7 +4023,6 @@
     (() => {
       const storageKey = 'cinema-watch-location';
       window.CineVicioLocationTransition = window.CineVicioLocationTransition || { active: false, sectionKey: '' };
-      let frozenViewportScrollY = null;
 
       function jumpToScrollTop(nextTop) {
         const root = document.documentElement;
@@ -4035,32 +4034,6 @@
         window.scrollTo(0, Math.max(0, Math.round(nextTop)));
         root.style.scrollBehavior = previousRootBehavior;
         body.style.scrollBehavior = previousBodyBehavior;
-      }
-
-      function freezeViewport() {
-        if (frozenViewportScrollY !== null) {
-          return frozenViewportScrollY;
-        }
-        frozenViewportScrollY = window.scrollY;
-        document.body.style.position = 'fixed';
-        document.body.style.top = `-${frozenViewportScrollY}px`;
-        document.body.style.left = '0';
-        document.body.style.right = '0';
-        document.body.style.width = '100%';
-        document.body.style.overflowY = 'scroll';
-        return frozenViewportScrollY;
-      }
-
-      function unfreezeViewport(nextTop = null) {
-        const fallbackTop = frozenViewportScrollY ?? window.scrollY;
-        document.body.style.position = '';
-        document.body.style.top = '';
-        document.body.style.left = '';
-        document.body.style.right = '';
-        document.body.style.width = '';
-        document.body.style.overflowY = '';
-        frozenViewportScrollY = null;
-        jumpToScrollTop(typeof nextTop === 'number' && Number.isFinite(nextTop) ? nextTop : fallbackTop);
       }
 
       function currentLocationKey(root = document) {
@@ -4137,9 +4110,6 @@
         const transitionState = window.CineVicioLocationTransition;
         transitionState.active = Boolean(currentSectionState);
         transitionState.sectionKey = currentSectionState?.key || '';
-        if (currentSectionState) {
-          freezeViewport();
-        }
         const availableKeys = new Set([
           ...panels.map((panel) => panel.dataset.locationPanel || ''),
           ...buttons.map((button) => button.dataset.locationTarget || ''),
@@ -4179,7 +4149,7 @@
             const firstTop = window.CineVicioNav.resolveSectionStateTop(currentSectionState);
             window.requestAnimationFrame(() => {
               const settledTop = window.CineVicioNav.resolveSectionStateTop(currentSectionState);
-              unfreezeViewport(Number.isFinite(settledTop) ? settledTop : firstTop);
+              jumpToScrollTop(Number.isFinite(settledTop) ? settledTop : firstTop);
               window.CineVicioNav.sync?.();
               window.requestAnimationFrame(() => {
                 const finalTop = window.CineVicioNav.resolveSectionStateTop(currentSectionState);
@@ -4195,9 +4165,6 @@
         } else {
           transitionState.active = false;
           transitionState.sectionKey = '';
-          if (frozenViewportScrollY !== null) {
-            unfreezeViewport();
-          }
         }
 
         return nextKey;
