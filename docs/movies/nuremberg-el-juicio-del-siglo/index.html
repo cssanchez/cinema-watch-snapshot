@@ -385,7 +385,9 @@
     .toolbar-zone-summary {
       display: inline-flex;
       align-items: center;
+      justify-content: space-between;
       gap: 0.52rem;
+      inline-size: 10.6rem;
       min-height: 2.24rem;
       padding: 0.42rem 0.72rem 0.44rem 0.82rem;
       border-radius: 999px;
@@ -2295,6 +2297,8 @@
       }
 
       .toolbar-zone-summary {
+        inline-size: auto;
+        min-width: 8.8rem;
         min-height: 2.1rem;
         padding: 0.38rem 0.66rem 0.4rem 0.74rem;
       }
@@ -3883,6 +3887,11 @@
       function setHomepageLocation(root, key, { persist = true } = {}) {
         const buttons = Array.from(root.querySelectorAll('[data-location-target]'));
         const panels = Array.from(root.querySelectorAll('[data-location-panel]'));
+        const shouldPreserveSection = window.scrollY > 120;
+        const currentSectionHash = shouldPreserveSection
+          && typeof window.CineVicioNav?.currentSectionHash === 'function'
+          ? window.CineVicioNav.currentSectionHash()
+          : '';
         const availableKeys = new Set([
           ...panels.map((panel) => panel.dataset.locationPanel || ''),
           ...buttons.map((button) => button.dataset.locationTarget || ''),
@@ -3914,6 +3923,13 @@
 
         if (persist) {
           window.localStorage.setItem(storageKey, nextKey);
+        }
+
+        // Keep the reader in the same homepage section after the location panel reflows.
+        if (currentSectionHash && typeof window.CineVicioNav?.applyHash === 'function') {
+          window.requestAnimationFrame(() => {
+            window.CineVicioNav.applyHash(currentSectionHash, { behavior: 'auto' });
+          });
         }
 
         return nextKey;
@@ -4097,6 +4113,20 @@
           return 'special_rooms';
         }
         return 'screenings';
+      }
+
+      function currentHomeSectionHash() {
+        const focus = currentHomeSectionFocus();
+        if (focus === 'movies') {
+          return '#peliculas';
+        }
+        if (focus === 'special_rooms') {
+          return '#salas-especiales';
+        }
+        if (window.scrollY > 120) {
+          return '#cartelera';
+        }
+        return '';
       }
 
       function setHomeHash(hash, { behavior = 'smooth' } = {}) {
@@ -4344,6 +4374,7 @@
       });
       window.CineVicioNav = {
         applyHash: applyHomeHash,
+        currentSectionHash: currentHomeSectionHash,
         getHomePath,
         navigateHomeHash,
         scrollToCartelera,
