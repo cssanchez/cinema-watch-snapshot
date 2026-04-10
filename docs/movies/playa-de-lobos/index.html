@@ -4996,6 +4996,110 @@
         return window.CinemaWatchI18n?.formatSold(percent) || `${percent}% sold`;
       }
 
+      function venueShortLabel(provider, venueName) {
+        const cleaned = String(venueName || '').trim().replace(/\s+/g, ' ');
+        if (!cleaned) return '';
+        if (provider === 'cinepolis') {
+          for (const prefix of ['Cinépolis ', 'Cinepolis ']) {
+            if (cleaned.startsWith(prefix)) {
+              return cleaned.slice(prefix.length).trim() || cleaned;
+            }
+          }
+        }
+        if (provider === 'showcase' && cleaned.startsWith('Showcase ')) {
+          return cleaned.slice('Showcase '.length).trim() || cleaned;
+        }
+        return cleaned;
+      }
+
+      function providerContextLabel(provider, providerName) {
+        if (provider === 'cinepolis') return 'Cinépolis';
+        if (provider === 'showcase') return 'Showcase';
+        return String(providerName || provider || '').trim();
+      }
+
+      function splitListingTokens(value) {
+        const text = String(value || '').trim();
+        if (!text) return [];
+        const normalized = text
+          .replaceAll('•', '|')
+          .replaceAll('·', '|')
+          .replaceAll('/', '|')
+          .replaceAll(' - ', '|');
+        return normalized
+          .split('|')
+          .map((part) => part.trim().replace(/\s+/g, ' '))
+          .filter(Boolean);
+      }
+
+      function buildRowDetailTokens(row) {
+        const provider = String(row?.provider || '').trim();
+        const providerName = String(row?.provider_name || '').trim();
+        const venueName = String(row?.venue_name || '').trim();
+        const venueLabel = venueShortLabel(provider, venueName);
+        const listingTokens = splitListingTokens(row?.listing_label || '');
+        const experience = String(row?.experience || '').trim();
+        const formatLabel = String(row?.format_label || '').trim();
+        const language = String(row?.language || '').trim();
+
+        const venueFolded = foldText(venueName);
+        const venueLabelFolded = foldText(venueLabel);
+        const experienceFolded = canonicalFormat(experience);
+        const formatFolded = canonicalFormat(formatLabel);
+        const languageFolded = canonicalLanguage(language);
+        const blockedExact = new Set([
+          foldText(provider),
+          foldText(providerName),
+          venueFolded,
+          venueLabelFolded,
+          experienceFolded,
+          formatFolded,
+          languageFolded,
+        ].filter(Boolean));
+        const blockedContains = [venueFolded, venueLabelFolded].filter(Boolean);
+
+        const detailTokens = [];
+        const seen = new Set();
+
+        const appendToken = (value) => {
+          const cleaned = String(value || '').trim().replace(/\s+/g, ' ');
+          const folded = foldText(cleaned);
+          if (!cleaned || !folded || seen.has(folded)) return;
+          detailTokens.push(cleaned);
+          seen.add(folded);
+        };
+
+        if (experience) {
+          if (!venueFolded || !venueFolded.includes(experienceFolded)) {
+            appendToken(experience);
+          }
+        }
+        if (formatLabel && canonicalFormat(formatLabel) !== canonicalFormat(experience)) {
+          appendToken(formatLabel);
+        }
+        if (language) {
+          appendToken(language);
+        }
+
+        for (const token of listingTokens) {
+          const folded = foldText(token);
+          if (!folded || blockedExact.has(folded)) continue;
+          if (folded.length >= 4 && blockedContains.some((candidate) => candidate.includes(folded))) continue;
+          appendToken(token);
+        }
+
+        return detailTokens;
+      }
+
+      function buildRowMetaLine(row) {
+        const parts = [];
+        const detailTokens = buildRowDetailTokens(row);
+        if (detailTokens.length) parts.push(detailTokens.join(' · '));
+        if (row?.room_number) parts.push(roomLabel(row.room_number));
+        if (Number.isInteger(row?.sold_percent)) parts.push(soldLabel(row.sold_percent));
+        return parts.join(' | ');
+      }
+
       function seatNoteLabel(available, total) {
         return window.CinemaWatchI18n?.formatSeatNote?.(available, total) || '';
       }
@@ -5570,15 +5674,14 @@
             const movieLine = item.movie_href
               ? `<a href="${escapeHtml(item.movie_href)}" data-live-nav="true">${movieTitle}</a>`
               : movieTitle;
-            const venueLabel = [item.provider_name, item.venue_name].filter(Boolean).join(' / ');
+            const venueLabel = [
+              providerContextLabel(item.provider, item.provider_name),
+              venueShortLabel(item.provider, item.venue_name),
+            ].filter(Boolean).join(' / ');
             const venueLine = item.venue_href
               ? `<a href="${escapeHtml(item.venue_href)}" data-live-nav="true">${escapeHtml(venueLabel)}</a>`
               : escapeHtml(venueLabel);
-            const metaParts = [];
-            if (item.listing_label) metaParts.push(item.listing_label);
-            if (item.room_number) metaParts.push(roomLabel(item.room_number));
-            if (Number.isInteger(item.sold_percent)) metaParts.push(soldLabel(item.sold_percent));
-            const metaLine = metaParts.join(' | ');
+            const metaLine = buildRowMetaLine(item);
             const peakFlag = peakRowIdentity && frontRowIdentity(item) === peakRowIdentity
               ? `<span class="chip chip-peak" data-i18n-source>Peak</span>`
               : '';
