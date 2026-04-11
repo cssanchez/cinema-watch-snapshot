@@ -1649,6 +1649,10 @@
       z-index: 1;
     }
 
+    .front-location-panel > .front-sector:first-child {
+      margin-top: clamp(-3.4rem, -5vw, -2.1rem);
+    }
+
     .front-hero-meta {
       display: flex;
       flex-wrap: wrap;
@@ -1718,8 +1722,8 @@
     .front-cartelera {
       background:
         radial-gradient(circle at 100% 0%, rgba(88, 199, 179, 0.1), transparent 32%),
-        linear-gradient(180deg, rgba(255, 255, 255, 0.04), transparent 34%),
-        rgba(12, 15, 22, 0.9);
+        linear-gradient(180deg, rgba(255, 255, 255, 0.06) 0%, rgba(255, 255, 255, 0.02) 8%, rgba(12, 15, 22, 0.74) 24%, rgba(12, 15, 22, 0.9) 100%);
+      backdrop-filter: blur(14px) saturate(112%);
     }
 
     .front-cartelera-shell {
@@ -3108,6 +3112,10 @@
         gap: 1rem;
       }
 
+      .front-location-panel > .front-sector:first-child {
+        margin-top: clamp(-2.1rem, -6vw, -1rem);
+      }
+
       .front-section-counts {
         justify-content: flex-start;
       }
@@ -3388,6 +3396,10 @@
       .front-hero-scene {
         min-height: 18rem;
         padding: 0.95rem 0.92rem 3.5rem;
+      }
+
+      .front-location-panel > .front-sector:first-child {
+        margin-top: -0.85rem;
       }
 
       .front-special-day {
