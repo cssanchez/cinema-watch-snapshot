@@ -1517,7 +1517,7 @@
       padding: 0;
       margin-left: calc(50% - 50vw);
       margin-right: calc(50% - 50vw);
-      margin-bottom: clamp(-4.4rem, -7vw, -2.6rem);
+      margin-bottom: clamp(-4.8rem, -7vw, -2.8rem);
       z-index: 0;
     }
 
@@ -1534,25 +1534,29 @@
       left: 0;
       right: 0;
       bottom: 0;
-      height: clamp(7rem, 18vw, 12rem);
+      height: clamp(8rem, 18vw, 13rem);
       background:
-        linear-gradient(180deg, rgba(8, 12, 22, 0) 0%, rgba(8, 12, 22, 0.18) 18%, rgba(8, 12, 22, 0.72) 70%, rgba(8, 12, 22, 1) 100%);
+        linear-gradient(180deg, rgba(8, 12, 22, 0) 0%, rgba(8, 12, 22, 0.12) 20%, rgba(8, 12, 22, 0.62) 68%, rgba(8, 12, 22, 1) 100%);
       pointer-events: none;
     }
 
     .front-hero-scene {
-      --front-hero-image-desktop: url("/cinema-watch-snapshot/hero/lobby-desktop.webp");
-      --front-hero-image-mobile: url("/cinema-watch-snapshot/hero/lobby-mobile.webp");
+      --front-hero-image-desktop:
+        linear-gradient(180deg, rgba(7, 11, 20, 0.02), rgba(7, 11, 20, 0.06) 100%),
+        url("/cinema-watch-snapshot/hero/lobby-desktop.webp");
+      --front-hero-image-mobile:
+        linear-gradient(180deg, rgba(7, 11, 20, 0.02), rgba(7, 11, 20, 0.08) 100%),
+        url("/cinema-watch-snapshot/hero/lobby-mobile.webp");
       position: relative;
       display: grid;
       align-items: end;
-      min-height: clamp(24rem, 46vw, 37rem);
+      min-height: clamp(29rem, 52vw, 43rem);
       width: 100%;
       overflow: hidden;
       padding:
-        clamp(0.5rem, 1vw, 0.8rem)
+        clamp(0.85rem, 1.8vw, 1.2rem)
         max(1.5rem, calc((100vw - 1280px) / 2 + 1rem))
-        clamp(5rem, 11vw, 7.2rem);
+        clamp(6.8rem, 13vw, 9rem);
       border: 0;
       border-radius: 0;
       background: transparent;
@@ -1566,10 +1570,10 @@
       inset: 0;
       z-index: 0;
       background:
-        linear-gradient(180deg, rgba(8, 12, 22, 0.16), rgba(8, 12, 22, 0.28) 100%),
-        var(--front-hero-image-desktop) center 58% / cover no-repeat;
-      filter: blur(28px) saturate(1.08) brightness(0.68);
-      transform: scale(1.08);
+        linear-gradient(180deg, rgba(6, 10, 18, 0.14), rgba(6, 10, 18, 0.28) 100%),
+        var(--front-hero-image-desktop) center 74% / cover no-repeat;
+      filter: saturate(1.03) brightness(0.56);
+      transform: scale(1.04);
       pointer-events: none;
     }
 
@@ -1578,9 +1582,9 @@
       position: absolute;
       inset: auto 0 0 0;
       z-index: 1;
-      height: 52%;
+      height: 54%;
       background:
-        linear-gradient(180deg, rgba(4, 7, 14, 0) 0%, rgba(4, 7, 14, 0.12) 18%, rgba(4, 7, 14, 0.56) 60%, rgba(4, 7, 14, 0.98) 100%);
+        linear-gradient(180deg, rgba(4, 7, 14, 0) 0%, rgba(4, 7, 14, 0.08) 14%, rgba(4, 7, 14, 0.42) 52%, rgba(4, 7, 14, 0.98) 100%);
       pointer-events: none;
     }
 
@@ -1589,12 +1593,10 @@
       inset: 0;
       z-index: 1;
       background:
-        linear-gradient(180deg, rgba(255, 255, 255, 0.03), rgba(255, 255, 255, 0) 22%),
-        var(--front-hero-image-desktop) center 100% / auto 100% no-repeat;
+        var(--front-hero-image-desktop) center 78% / cover no-repeat;
       background-repeat: no-repeat;
       transform: none;
       filter: saturate(1.08) contrast(1.03);
-      mask-image: linear-gradient(90deg, transparent 0%, rgba(0, 0, 0, 0.72) 14%, rgba(0, 0, 0, 1) 25%, rgba(0, 0, 0, 1) 75%, rgba(0, 0, 0, 0.72) 86%, transparent 100%);
     }
 
     .front-hero-art::before {
@@ -1602,7 +1604,8 @@
       position: absolute;
       inset: 0;
       background:
-        linear-gradient(180deg, rgba(8, 12, 22, 0.08), rgba(8, 12, 22, 0.02) 18%, rgba(8, 12, 22, 0.08) 54%, rgba(8, 12, 22, 0.22) 100%);
+        linear-gradient(180deg, rgba(8, 12, 22, 0.12) 0%, rgba(8, 12, 22, 0.02) 18%, rgba(8, 12, 22, 0.06) 58%, rgba(8, 12, 22, 0.2) 100%),
+        linear-gradient(90deg, rgba(8, 12, 22, 0.18), rgba(8, 12, 22, 0.02) 14%, rgba(8, 12, 22, 0.02) 86%, rgba(8, 12, 22, 0.18) 100%);
     }
 
     .front-hero-art::after {
@@ -1612,12 +1615,12 @@
     .front-hero-copy {
       position: absolute;
       z-index: 2;
-      left: max(1.3rem, calc((100vw - 1280px) / 2 + 1rem));
-      top: clamp(1rem, 2vw, 1.4rem);
+      right: max(1.25rem, calc((100vw - 1280px) / 2 + 1rem));
+      top: clamp(1rem, 2vw, 1.35rem);
       display: flex;
-      justify-content: flex-start;
+      justify-content: flex-end;
       max-width: none;
-      text-align: left;
+      text-align: right;
       padding: 0;
     }
 
@@ -1628,12 +1631,12 @@
     }
 
     .front-location-panel > .front-sector:first-child {
-      margin-top: clamp(-2rem, -3vw, -1rem);
+      margin-top: clamp(-3.2rem, -4.8vw, -1.7rem);
     }
 
     .front-hero-meta {
       display: flex;
-      justify-content: flex-start;
+      justify-content: flex-end;
       width: auto;
       margin-top: 0;
     }
@@ -1699,7 +1702,7 @@
     .front-cartelera {
       background:
         radial-gradient(circle at 100% 0%, rgba(88, 199, 179, 0.1), transparent 32%),
-        linear-gradient(180deg, rgba(12, 15, 22, 0.2) 0%, rgba(12, 15, 22, 0.62) 18%, rgba(12, 15, 22, 0.9) 100%);
+        linear-gradient(180deg, rgba(12, 15, 22, 0.12) 0%, rgba(12, 15, 22, 0.56) 18%, rgba(12, 15, 22, 0.9) 100%);
       backdrop-filter: blur(12px) saturate(110%);
     }
 
@@ -3071,27 +3074,24 @@
       }
 
       .front-hero-scene {
-        min-height: clamp(20rem, 58vw, 27rem);
+        min-height: clamp(22rem, 64vw, 29rem);
         padding: 0.7rem 1.08rem 4.6rem;
       }
 
       .front-hero-copy {
         max-width: none;
-        left: 1.08rem;
+        right: 1.08rem;
         top: 0.9rem;
       }
 
       .front-hero-scene::before {
         background:
-          linear-gradient(180deg, rgba(8, 12, 22, 0.16), rgba(8, 12, 22, 0.28) 100%),
-          var(--front-hero-image-mobile) center 42% / cover no-repeat;
+          linear-gradient(180deg, rgba(8, 12, 22, 0.14), rgba(8, 12, 22, 0.28) 100%),
+          var(--front-hero-image-mobile) center 58% / cover no-repeat;
       }
 
       .front-hero-art {
-        background:
-          linear-gradient(180deg, rgba(255, 255, 255, 0.03), rgba(255, 255, 255, 0) 18%),
-          var(--front-hero-image-mobile) center 100% / auto 100% no-repeat;
-        mask-image: linear-gradient(180deg, rgba(0, 0, 0, 0.7) 0%, rgba(0, 0, 0, 1) 14%, rgba(0, 0, 0, 1) 84%, rgba(0, 0, 0, 0.72) 94%, transparent 100%);
+        background: var(--front-hero-image-mobile) center 72% / cover no-repeat;
       }
 
       .front-location-panel,
@@ -3100,7 +3100,7 @@
       }
 
       .front-location-panel > .front-sector:first-child {
-        margin-top: clamp(-1.7rem, -5vw, -0.8rem);
+        margin-top: clamp(-1.5rem, -4vw, -0.75rem);
       }
 
       .front-section-counts {
@@ -3381,8 +3381,8 @@
       }
 
       .front-hero-scene {
-        min-height: 17rem;
-        padding: 0.55rem 0.92rem 3.7rem;
+        min-height: 18rem;
+        padding: 0.55rem 0.92rem 3.8rem;
       }
 
       .front-location-panel > .front-sector:first-child {
