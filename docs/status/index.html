@@ -1517,7 +1517,7 @@
       padding: 0;
       margin-left: calc(50% - 50vw);
       margin-right: calc(50% - 50vw);
-      margin-bottom: clamp(-4.8rem, -7vw, -2.8rem);
+      margin-bottom: clamp(-1.35rem, -1.9vw, -0.6rem);
       z-index: 0;
     }
 
@@ -1534,29 +1534,25 @@
       left: 0;
       right: 0;
       bottom: 0;
-      height: clamp(8rem, 18vw, 13rem);
+      height: clamp(6.6rem, 14vw, 10.5rem);
       background:
-        linear-gradient(180deg, rgba(8, 12, 22, 0) 0%, rgba(8, 12, 22, 0.12) 20%, rgba(8, 12, 22, 0.62) 68%, rgba(8, 12, 22, 1) 100%);
+        linear-gradient(180deg, rgba(8, 12, 22, 0) 0%, rgba(8, 12, 22, 0.04) 34%, rgba(8, 12, 22, 0.26) 72%, rgba(8, 12, 22, 0.9) 100%);
       pointer-events: none;
     }
 
     .front-hero-scene {
-      --front-hero-image-desktop:
-        linear-gradient(180deg, rgba(7, 11, 20, 0.02), rgba(7, 11, 20, 0.06) 100%),
-        url("/cinema-watch-snapshot/hero/lobby-desktop.webp");
-      --front-hero-image-mobile:
-        linear-gradient(180deg, rgba(7, 11, 20, 0.02), rgba(7, 11, 20, 0.08) 100%),
-        url("/cinema-watch-snapshot/hero/lobby-mobile.webp");
+      --front-hero-image-desktop: url("/cinema-watch-snapshot/hero/lobby-desktop.webp");
+      --front-hero-image-mobile: url("/cinema-watch-snapshot/hero/lobby-mobile.webp");
       position: relative;
       display: grid;
       align-items: end;
-      min-height: clamp(29rem, 52vw, 43rem);
+      min-height: clamp(34rem, 60vw, 58rem);
       width: 100%;
       overflow: hidden;
       padding:
-        clamp(0.85rem, 1.8vw, 1.2rem)
+        clamp(0.9rem, 1.7vw, 1.15rem)
         max(1.5rem, calc((100vw - 1280px) / 2 + 1rem))
-        clamp(6.8rem, 13vw, 9rem);
+        clamp(7.8rem, 14vw, 10rem);
       border: 0;
       border-radius: 0;
       background: transparent;
@@ -1570,10 +1566,7 @@
       inset: 0;
       z-index: 0;
       background:
-        linear-gradient(180deg, rgba(6, 10, 18, 0.14), rgba(6, 10, 18, 0.28) 100%),
-        var(--front-hero-image-desktop) center 74% / cover no-repeat;
-      filter: saturate(1.03) brightness(0.56);
-      transform: scale(1.04);
+        linear-gradient(180deg, rgba(8, 12, 22, 0.28) 0%, rgba(8, 12, 22, 0.08) 18%, rgba(8, 12, 22, 0.02) 42%, rgba(8, 12, 22, 0.18) 100%);
       pointer-events: none;
     }
 
@@ -1582,9 +1575,9 @@
       position: absolute;
       inset: auto 0 0 0;
       z-index: 1;
-      height: 54%;
+      height: 34%;
       background:
-        linear-gradient(180deg, rgba(4, 7, 14, 0) 0%, rgba(4, 7, 14, 0.08) 14%, rgba(4, 7, 14, 0.42) 52%, rgba(4, 7, 14, 0.98) 100%);
+        linear-gradient(180deg, rgba(4, 7, 14, 0) 0%, rgba(4, 7, 14, 0.08) 34%, rgba(4, 7, 14, 0.38) 78%, rgba(4, 7, 14, 0.88) 100%);
       pointer-events: none;
     }
 
@@ -1592,11 +1585,10 @@
       position: absolute;
       inset: 0;
       z-index: 1;
-      background:
-        var(--front-hero-image-desktop) center 78% / cover no-repeat;
+      background: var(--front-hero-image-desktop) center 88% / cover no-repeat;
       background-repeat: no-repeat;
       transform: none;
-      filter: saturate(1.08) contrast(1.03);
+      filter: saturate(1.04) contrast(1.02);
     }
 
     .front-hero-art::before {
@@ -1604,8 +1596,7 @@
       position: absolute;
       inset: 0;
       background:
-        linear-gradient(180deg, rgba(8, 12, 22, 0.12) 0%, rgba(8, 12, 22, 0.02) 18%, rgba(8, 12, 22, 0.06) 58%, rgba(8, 12, 22, 0.2) 100%),
-        linear-gradient(90deg, rgba(8, 12, 22, 0.18), rgba(8, 12, 22, 0.02) 14%, rgba(8, 12, 22, 0.02) 86%, rgba(8, 12, 22, 0.18) 100%);
+        linear-gradient(180deg, rgba(8, 12, 22, 0.08) 0%, rgba(8, 12, 22, 0) 18%, rgba(8, 12, 22, 0.03) 62%, rgba(8, 12, 22, 0.12) 100%);
     }
 
     .front-hero-art::after {
@@ -1615,12 +1606,12 @@
     .front-hero-copy {
       position: absolute;
       z-index: 2;
-      right: max(1.25rem, calc((100vw - 1280px) / 2 + 1rem));
+      left: max(1.25rem, calc((100vw - 1280px) / 2 + 1rem));
       top: clamp(1rem, 2vw, 1.35rem);
       display: flex;
-      justify-content: flex-end;
+      justify-content: flex-start;
       max-width: none;
-      text-align: right;
+      text-align: left;
       padding: 0;
     }
 
@@ -1631,12 +1622,12 @@
     }
 
     .front-location-panel > .front-sector:first-child {
-      margin-top: clamp(-3.2rem, -4.8vw, -1.7rem);
+      margin-top: clamp(-0.8rem, -1.4vw, -0.35rem);
     }
 
     .front-hero-meta {
       display: flex;
-      justify-content: flex-end;
+      justify-content: flex-start;
       width: auto;
       margin-top: 0;
     }
@@ -3074,24 +3065,23 @@
       }
 
       .front-hero-scene {
-        min-height: clamp(22rem, 64vw, 29rem);
-        padding: 0.7rem 1.08rem 4.6rem;
+        min-height: clamp(28rem, 92vw, 40rem);
+        padding: 0.7rem 1.08rem 5rem;
       }
 
       .front-hero-copy {
         max-width: none;
-        right: 1.08rem;
+        left: 1.08rem;
         top: 0.9rem;
       }
 
       .front-hero-scene::before {
         background:
-          linear-gradient(180deg, rgba(8, 12, 22, 0.14), rgba(8, 12, 22, 0.28) 100%),
-          var(--front-hero-image-mobile) center 58% / cover no-repeat;
+          linear-gradient(180deg, rgba(8, 12, 22, 0.26) 0%, rgba(8, 12, 22, 0.08) 22%, rgba(8, 12, 22, 0.02) 44%, rgba(8, 12, 22, 0.18) 100%);
       }
 
       .front-hero-art {
-        background: var(--front-hero-image-mobile) center 72% / cover no-repeat;
+        background: var(--front-hero-image-mobile) center 84% / cover no-repeat;
       }
 
       .front-location-panel,
@@ -3100,7 +3090,7 @@
       }
 
       .front-location-panel > .front-sector:first-child {
-        margin-top: clamp(-1.5rem, -4vw, -0.75rem);
+        margin-top: clamp(-0.5rem, -1.6vw, -0.2rem);
       }
 
       .front-section-counts {
@@ -3381,12 +3371,12 @@
       }
 
       .front-hero-scene {
-        min-height: 18rem;
-        padding: 0.55rem 0.92rem 3.8rem;
+        min-height: 24rem;
+        padding: 0.55rem 0.92rem 4.2rem;
       }
 
       .front-location-panel > .front-sector:first-child {
-        margin-top: -0.55rem;
+        margin-top: -0.12rem;
       }
 
       .front-special-day {
@@ -3535,7 +3525,7 @@
     </div>
     <div class="metric">
       <span class="muted">Published at</span>
-      <strong style="font-size:1rem;">2026-04-11 07:12 UTC</strong>
+      <strong style="font-size:1rem;">2026-04-11 07:26 UTC</strong>
     </div>
   </div>
 </section>
