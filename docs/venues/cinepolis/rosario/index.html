@@ -1536,28 +1536,23 @@
       bottom: 0;
       height: clamp(7rem, 18vw, 12rem);
       background:
-        linear-gradient(180deg, rgba(8, 12, 22, 0) 0%, rgba(8, 12, 22, 0.26) 24%, rgba(8, 12, 22, 0.8) 72%, rgba(8, 12, 22, 1) 100%),
-        radial-gradient(circle at 50% 0%, rgba(72, 128, 236, 0.12), transparent 58%);
+        linear-gradient(180deg, rgba(8, 12, 22, 0) 0%, rgba(8, 12, 22, 0.18) 18%, rgba(8, 12, 22, 0.72) 70%, rgba(8, 12, 22, 1) 100%);
       pointer-events: none;
     }
 
     .front-hero-scene {
-      --front-hero-art-background:
-        linear-gradient(180deg, rgba(9, 15, 27, 0.02), rgba(4, 7, 14, 0.14) 100%),
-        url("/cinema-watch-snapshot/hero/lobby-desktop.webp") center center / cover no-repeat;
-      --front-hero-art-background-mobile:
-        linear-gradient(180deg, rgba(4, 7, 14, 0.08) 0%, rgba(4, 7, 14, 0.22) 100%),
-        url("/cinema-watch-snapshot/hero/lobby-mobile.webp") center center / cover no-repeat;
+      --front-hero-image-desktop: url("/cinema-watch-snapshot/hero/lobby-desktop.webp");
+      --front-hero-image-mobile: url("/cinema-watch-snapshot/hero/lobby-mobile.webp");
       position: relative;
       display: grid;
       align-items: end;
-      min-height: clamp(25rem, 48vw, 39rem);
+      min-height: clamp(24rem, 46vw, 37rem);
       width: 100%;
       overflow: hidden;
       padding:
-        clamp(0.6rem, 1.4vw, 1rem)
+        clamp(0.5rem, 1vw, 0.8rem)
         max(1.5rem, calc((100vw - 1280px) / 2 + 1rem))
-        clamp(5.8rem, 12vw, 8.2rem);
+        clamp(5rem, 11vw, 7.2rem);
       border: 0;
       border-radius: 0;
       background: transparent;
@@ -1569,10 +1564,12 @@
       content: "";
       position: absolute;
       inset: 0;
-      z-index: 1;
+      z-index: 0;
       background:
-        linear-gradient(180deg, rgba(6, 10, 18, 0.18), transparent 18%),
-        linear-gradient(90deg, rgba(6, 10, 18, 0.18), rgba(6, 10, 18, 0.02) 24%, rgba(6, 10, 18, 0.02) 76%, rgba(6, 10, 18, 0.18));
+        linear-gradient(180deg, rgba(8, 12, 22, 0.16), rgba(8, 12, 22, 0.28) 100%),
+        var(--front-hero-image-desktop) center 58% / cover no-repeat;
+      filter: blur(28px) saturate(1.08) brightness(0.68);
+      transform: scale(1.08);
       pointer-events: none;
     }
 
@@ -1581,22 +1578,23 @@
       position: absolute;
       inset: auto 0 0 0;
       z-index: 1;
-      height: 56%;
+      height: 52%;
       background:
-        linear-gradient(180deg, rgba(4, 7, 14, 0) 0%, rgba(4, 7, 14, 0.1) 16%, rgba(4, 7, 14, 0.62) 62%, rgba(4, 7, 14, 0.98) 100%);
+        linear-gradient(180deg, rgba(4, 7, 14, 0) 0%, rgba(4, 7, 14, 0.12) 18%, rgba(4, 7, 14, 0.56) 60%, rgba(4, 7, 14, 0.98) 100%);
       pointer-events: none;
     }
 
     .front-hero-art {
       position: absolute;
       inset: 0;
-      z-index: 0;
-      background: var(--front-hero-art-background);
-      background-position: center 62%;
+      z-index: 1;
+      background:
+        linear-gradient(180deg, rgba(255, 255, 255, 0.03), rgba(255, 255, 255, 0) 22%),
+        var(--front-hero-image-desktop) center 100% / auto 100% no-repeat;
       background-repeat: no-repeat;
-      background-size: cover;
-      transform: scale(1.015);
+      transform: none;
       filter: saturate(1.08) contrast(1.03);
+      mask-image: linear-gradient(90deg, transparent 0%, rgba(0, 0, 0, 0.72) 14%, rgba(0, 0, 0, 1) 25%, rgba(0, 0, 0, 1) 75%, rgba(0, 0, 0, 0.72) 86%, transparent 100%);
     }
 
     .front-hero-art::before {
@@ -1604,7 +1602,7 @@
       position: absolute;
       inset: 0;
       background:
-        linear-gradient(180deg, rgba(8, 12, 22, 0.12), rgba(8, 12, 22, 0.02) 18%, rgba(8, 12, 22, 0.12) 56%, rgba(8, 12, 22, 0.46) 100%);
+        linear-gradient(180deg, rgba(8, 12, 22, 0.08), rgba(8, 12, 22, 0.02) 18%, rgba(8, 12, 22, 0.08) 54%, rgba(8, 12, 22, 0.22) 100%);
     }
 
     .front-hero-art::after {
@@ -1614,12 +1612,12 @@
     .front-hero-copy {
       position: absolute;
       z-index: 2;
-      right: max(1.4rem, calc((100vw - 1280px) / 2 + 1rem));
-      bottom: clamp(1.4rem, 3vw, 2.2rem);
+      left: max(1.3rem, calc((100vw - 1280px) / 2 + 1rem));
+      top: clamp(1rem, 2vw, 1.4rem);
       display: flex;
-      justify-content: flex-end;
+      justify-content: flex-start;
       max-width: none;
-      text-align: right;
+      text-align: left;
       padding: 0;
     }
 
@@ -1630,12 +1628,12 @@
     }
 
     .front-location-panel > .front-sector:first-child {
-      margin-top: clamp(-2.6rem, -4vw, -1.4rem);
+      margin-top: clamp(-2rem, -3vw, -1rem);
     }
 
     .front-hero-meta {
       display: flex;
-      justify-content: flex-end;
+      justify-content: flex-start;
       width: auto;
       margin-top: 0;
     }
@@ -1643,11 +1641,11 @@
     .front-freshness.is-hero {
       border-color: rgba(130, 178, 215, 0.18);
       background:
-        linear-gradient(180deg, rgba(255, 255, 255, 0.05), rgba(8, 14, 24, 0.84)),
-        rgba(8, 13, 22, 0.24);
+        linear-gradient(180deg, rgba(255, 255, 255, 0.06), rgba(8, 14, 24, 0.82)),
+        rgba(8, 13, 22, 0.18);
       box-shadow:
         inset 0 1px 0 rgba(255, 255, 255, 0.05),
-        0 8px 18px rgba(8, 12, 21, 0.14);
+        0 8px 18px rgba(8, 12, 21, 0.12);
       backdrop-filter: blur(14px) saturate(112%);
     }
 
@@ -1701,8 +1699,8 @@
     .front-cartelera {
       background:
         radial-gradient(circle at 100% 0%, rgba(88, 199, 179, 0.1), transparent 32%),
-        linear-gradient(180deg, rgba(12, 15, 22, 0.3) 0%, rgba(12, 15, 22, 0.68) 18%, rgba(12, 15, 22, 0.9) 100%);
-      backdrop-filter: blur(14px) saturate(112%);
+        linear-gradient(180deg, rgba(12, 15, 22, 0.2) 0%, rgba(12, 15, 22, 0.62) 18%, rgba(12, 15, 22, 0.9) 100%);
+      backdrop-filter: blur(12px) saturate(110%);
     }
 
     .front-cartelera-shell {
@@ -3074,18 +3072,26 @@
 
       .front-hero-scene {
         min-height: clamp(20rem, 58vw, 27rem);
-        padding: 0.7rem 1.08rem 4.8rem;
+        padding: 0.7rem 1.08rem 4.6rem;
       }
 
       .front-hero-copy {
         max-width: none;
-        right: 1.08rem;
-        bottom: 1.2rem;
+        left: 1.08rem;
+        top: 0.9rem;
+      }
+
+      .front-hero-scene::before {
+        background:
+          linear-gradient(180deg, rgba(8, 12, 22, 0.16), rgba(8, 12, 22, 0.28) 100%),
+          var(--front-hero-image-mobile) center 42% / cover no-repeat;
       }
 
       .front-hero-art {
-        background: var(--front-hero-art-background-mobile);
-        background-position: center 46%;
+        background:
+          linear-gradient(180deg, rgba(255, 255, 255, 0.03), rgba(255, 255, 255, 0) 18%),
+          var(--front-hero-image-mobile) center 100% / auto 100% no-repeat;
+        mask-image: linear-gradient(180deg, rgba(0, 0, 0, 0.7) 0%, rgba(0, 0, 0, 1) 14%, rgba(0, 0, 0, 1) 84%, rgba(0, 0, 0, 0.72) 94%, transparent 100%);
       }
 
       .front-location-panel,
@@ -3376,7 +3382,7 @@
 
       .front-hero-scene {
         min-height: 17rem;
-        padding: 0.55rem 0.92rem 4rem;
+        padding: 0.55rem 0.92rem 3.7rem;
       }
 
       .front-location-panel > .front-sector:first-child {
@@ -3512,7 +3518,7 @@
   </div>
   <div class="hero-side">
     <strong data-i18n-source>Venue signals</strong>
-    <p data-i18n-freshness>Updated 23 h ago</p>
+    <p data-i18n-freshness>Updated 1 d ago</p>
     <div class="stats">
       <span class="stat">8 active rooms</span>
       
