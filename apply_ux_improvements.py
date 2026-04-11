@@ -28,6 +28,7 @@ RE_SCREENING_ROW_FULL = re.compile(r'<div class="front-screening-row">.*?</div>\
 RE_DATE_GROUP_FULL = re.compile(r'<section class="front-date-group">(?:[^<]|<(?!/section))*</section>', flags=re.DOTALL)
 RE_SCREENING_ROW_OPEN = re.compile(r'<div class="front-screening-row"')
 RE_SHOWN_COUNT = re.compile(r'(>)(\d+)(\s+shown<)')
+RE_SOLD_PERCENT = re.compile(r'(\d+)%\s*sold')
 
 def find_all_html_files(root_path: Union[str, Path]) -> List[str]:
     """Find all HTML files in the docs directory."""
@@ -120,7 +121,7 @@ def transform_3_truncation_signal(content: str) -> str:
 
 def extract_sold_percentage(screening_text: str) -> float:
     """Extract sold percentage from screening metadata text."""
-    match = re.search(r'(\d+)%\s*sold', screening_text)
+    match = RE_SOLD_PERCENT.search(screening_text)
     if match:
         return float(match.group(1))
     return 0.0
