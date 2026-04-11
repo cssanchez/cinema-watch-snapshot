@@ -123,6 +123,34 @@
       z-index: 1;
     }
 
+    .shell::before {
+      --front-shell-hero-image-desktop: url("/cinema-watch-snapshot/hero/lobby-desktop.webp");
+      --front-shell-hero-image-mobile: url("/cinema-watch-snapshot/hero/lobby-mobile.webp");
+      content: "";
+      position: absolute;
+      top: 0;
+      left: 50%;
+      width: 100vw;
+      height: clamp(35rem, 56vw, 46rem);
+      transform: translateX(-50%);
+      background:
+        linear-gradient(180deg, rgba(8, 12, 22, 0.14) 0%, rgba(8, 12, 22, 0.03) 18%, rgba(8, 12, 22, 0.03) 54%, rgba(8, 12, 22, 0.16) 78%, rgba(8, 12, 22, 0.55) 100%),
+        var(--front-shell-hero-image-desktop) center top / cover no-repeat;
+      -webkit-mask-image: linear-gradient(180deg, #000 0%, #000 68%, rgba(0, 0, 0, 0.94) 79%, rgba(0, 0, 0, 0.52) 90%, transparent 100%);
+      mask-image: linear-gradient(180deg, #000 0%, #000 68%, rgba(0, 0, 0, 0.94) 79%, rgba(0, 0, 0, 0.52) 90%, transparent 100%);
+      -webkit-mask-size: 100% 100%;
+      mask-size: 100% 100%;
+      -webkit-mask-repeat: no-repeat;
+      mask-repeat: no-repeat;
+      pointer-events: none;
+      z-index: 0;
+    }
+
+    .shell > * {
+      position: relative;
+      z-index: 1;
+    }
+
     .topbar {
       margin-left: calc(50% - 50vw);
       margin-right: calc(50% - 50vw);
@@ -599,29 +627,6 @@
       background:
         linear-gradient(180deg, rgba(8, 12, 22, 0.08) 0%, rgba(8, 12, 22, 0.03) 18%, rgba(8, 12, 22, 0.08) 58%, rgba(8, 12, 22, 0.36) 82%, rgba(8, 12, 22, 0.9) 100%),
         var(--front-main-hero-continuation) center top / 100% auto no-repeat;
-      pointer-events: none;
-      z-index: 0;
-    }
-
-    main::after {
-      --front-main-hero-image-desktop: url("/cinema-watch-snapshot/hero/lobby-desktop.webp");
-      --front-main-hero-image-mobile: url("/cinema-watch-snapshot/hero/lobby-mobile.webp");
-      content: "";
-      position: absolute;
-      top: 0;
-      left: 50%;
-      width: 100vw;
-      height: clamp(34rem, 54vw, 44rem);
-      transform: translateX(-50%);
-      background:
-        linear-gradient(180deg, rgba(8, 12, 22, 0.18) 0%, rgba(8, 12, 22, 0.04) 18%, rgba(8, 12, 22, 0.02) 48%, rgba(8, 12, 22, 0.12) 100%),
-        var(--front-main-hero-image-desktop) center 83% / cover no-repeat;
-      -webkit-mask-image: linear-gradient(180deg, #000 0%, #000 64%, rgba(0, 0, 0, 0.94) 74%, rgba(0, 0, 0, 0.52) 88%, transparent 100%);
-      mask-image: linear-gradient(180deg, #000 0%, #000 64%, rgba(0, 0, 0, 0.94) 74%, rgba(0, 0, 0, 0.52) 88%, transparent 100%);
-      -webkit-mask-size: 100% 100%;
-      mask-size: 100% 100%;
-      -webkit-mask-repeat: no-repeat;
-      mask-repeat: no-repeat;
       pointer-events: none;
       z-index: 0;
     }
@@ -2963,11 +2968,11 @@
     }
 
     @media (max-width: 1080px) {
-      main::after {
-        height: clamp(30rem, 64vw, 38rem);
+      .shell::before {
+        height: clamp(31rem, 66vw, 39rem);
         background:
-          linear-gradient(180deg, rgba(8, 12, 22, 0.18) 0%, rgba(8, 12, 22, 0.04) 18%, rgba(8, 12, 22, 0.02) 48%, rgba(8, 12, 22, 0.14) 100%),
-          var(--front-main-hero-image-mobile) center 78% / cover no-repeat;
+          linear-gradient(180deg, rgba(8, 12, 22, 0.14) 0%, rgba(8, 12, 22, 0.04) 18%, rgba(8, 12, 22, 0.02) 50%, rgba(8, 12, 22, 0.16) 82%, rgba(8, 12, 22, 0.58) 100%),
+          var(--front-shell-hero-image-mobile) center top / cover no-repeat;
       }
 
       .topbar-inner {
@@ -3078,11 +3083,11 @@
     }
 
     @media (max-width: 860px) {
-      main::after {
-        height: clamp(27rem, 74vw, 34rem);
+      .shell::before {
+        height: clamp(28rem, 76vw, 35rem);
         background:
-          linear-gradient(180deg, rgba(8, 12, 22, 0.18) 0%, rgba(8, 12, 22, 0.05) 18%, rgba(8, 12, 22, 0.02) 48%, rgba(8, 12, 22, 0.16) 100%),
-          var(--front-main-hero-image-mobile) center 76% / cover no-repeat;
+          linear-gradient(180deg, rgba(8, 12, 22, 0.14) 0%, rgba(8, 12, 22, 0.05) 18%, rgba(8, 12, 22, 0.02) 50%, rgba(8, 12, 22, 0.18) 82%, rgba(8, 12, 22, 0.6) 100%),
+          var(--front-shell-hero-image-mobile) center top / cover no-repeat;
       }
 
       .shell {
@@ -3333,11 +3338,11 @@
     }
 
     @media (max-width: 620px) {
-      main::after {
-        height: clamp(23rem, 86vw, 30rem);
+      .shell::before {
+        height: clamp(24rem, 88vw, 31rem);
         background:
-          linear-gradient(180deg, rgba(8, 12, 22, 0.18) 0%, rgba(8, 12, 22, 0.06) 18%, rgba(8, 12, 22, 0.02) 48%, rgba(8, 12, 22, 0.18) 100%),
-          var(--front-main-hero-image-mobile) center 74% / cover no-repeat;
+          linear-gradient(180deg, rgba(8, 12, 22, 0.14) 0%, rgba(8, 12, 22, 0.06) 20%, rgba(8, 12, 22, 0.02) 52%, rgba(8, 12, 22, 0.2) 84%, rgba(8, 12, 22, 0.62) 100%),
+          var(--front-shell-hero-image-mobile) center top / cover no-repeat;
       }
 
       .nav {
@@ -3449,7 +3454,7 @@
     </div>
     <div class="metric">
       <span class="muted">Published at</span>
-      <strong style="font-size:1rem;">2026-04-11 08:50 UTC</strong>
+      <strong style="font-size:1rem;">2026-04-11 09:12 UTC</strong>
     </div>
   </div>
 </section>
