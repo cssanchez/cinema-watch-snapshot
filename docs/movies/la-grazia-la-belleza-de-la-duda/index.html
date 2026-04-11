@@ -4582,8 +4582,32 @@
         return event.defaultPrevented || event.button !== 0 || event.metaKey || event.ctrlKey || event.shiftKey || event.altKey;
       }
 
+      let _cachedTopbar = null;
+      function _getTopbar() {
+        if (!_cachedTopbar) _cachedTopbar = document.querySelector('.topbar');
+        return _cachedTopbar;
+      }
+
+      let _cachedScreeningsLink = null;
+      function _getScreeningsLink() {
+        if (!_cachedScreeningsLink) _cachedScreeningsLink = document.querySelector('[data-nav-link="screenings"]');
+        return _cachedScreeningsLink;
+      }
+
+      let _cachedCartelera = null;
+      function _getCartelera() {
+        if (!_cachedCartelera) _cachedCartelera = document.getElementById('cartelera');
+        return _cachedCartelera;
+      }
+
+      let _cachedNavLinks = null;
+      function _getNavLinks() {
+        if (!_cachedNavLinks) _cachedNavLinks = document.querySelectorAll('[data-nav-link]');
+        return _cachedNavLinks;
+      }
+
       function getScreeningsLink() {
-        return document.querySelector('[data-nav-link="screenings"]');
+        return _getScreeningsLink();
       }
 
       function extractHomePathFromScreeningsLink(link) {
@@ -4633,7 +4657,7 @@
         if (!(target instanceof HTMLElement)) {
           return false;
         }
-        const header = document.querySelector('.topbar');
+        const header = _getTopbar();
         const headerHeight = header instanceof HTMLElement ? header.getBoundingClientRect().height : 0;
         const targetTop = target.getBoundingClientRect().top + window.scrollY;
         const top = Math.max(0, targetTop - headerHeight - extraOffset);
@@ -4642,7 +4666,7 @@
       }
 
       function scrollToCartelera({ behavior = 'smooth' } = {}) {
-        const target = document.getElementById('cartelera');
+        const target = _getCartelera();
         return scrollToElementBelowHeader(target, { behavior, extraOffset: 22 });
       }
 
@@ -4688,7 +4712,7 @@
         const movies = visiblePanel?.querySelector('[data-front-movies="true"]')
           || document.querySelector('[data-front-movies="true"]');
         return {
-          cartelera: document.getElementById('cartelera'),
+          cartelera: _getCartelera(),
           specials: specials instanceof HTMLElement ? specials : null,
           movies: movies instanceof HTMLElement ? movies : null,
         };
@@ -4700,7 +4724,7 @@
           return locationTransition.sectionKey;
         }
         const sections = getActiveHomeSections();
-        const header = document.querySelector('.topbar');
+        const header = _getTopbar();
         const headerHeight = header instanceof HTMLElement ? header.getBoundingClientRect().height : 0;
         const anticipation = Math.max(88, Math.min(window.innerHeight * 0.2, 168));
         const offset = headerHeight + anticipation;
@@ -4944,7 +4968,7 @@
         const params = new URLSearchParams(window.location.search || '');
         const category = (params.get('category') || '').toLowerCase();
         const focusParam = (params.get('focus') || '').toLowerCase();
-        const screeningsLink = document.querySelector('[data-nav-link="screenings"]');
+        const screeningsLink = _getScreeningsLink();
         const homePath = ensureCarteleraNavHref(screeningsLink);
         const relativePath = relativePathFromHome(path, homePath);
         const onHome = relativePath === '/';
@@ -4957,7 +4981,7 @@
           special_rooms: (onHome && (homeScrollFocus === 'special_rooms' || specialRoomsFocusActive))
             || (relativePath.startsWith('/screenings') && ['imax', 'dolby_atmos'].includes(category)),
         };
-        document.querySelectorAll('[data-nav-link]').forEach((link) => {
+        _getNavLinks().forEach((link) => {
           if (!(link instanceof HTMLElement)) {
             return;
           }
@@ -5694,7 +5718,7 @@
           updateUrl: true,
           resultPreset: parseResultPreset(link),
         });
-        const anchor = document.getElementById('cartelera');
+        const anchor = _getCartelera();
         if (anchor instanceof HTMLElement) {
           anchor.scrollIntoView({ behavior: 'smooth', block: 'start' });
         }
