@@ -1514,8 +1514,18 @@
     .front-hero {
       position: relative;
       gap: 0;
-      padding: clamp(1rem, 2.5vw, 1.55rem) 0 clamp(0.2rem, 1vw, 0.45rem);
-      margin-bottom: clamp(0.35rem, 1.4vw, 0.75rem);
+      padding: clamp(0.35rem, 1.1vw, 0.7rem) 0 0;
+      margin-left: calc(50% - 50vw);
+      margin-right: calc(50% - 50vw);
+      margin-bottom: clamp(-2.8rem, -5vw, -1.5rem);
+      z-index: 0;
+    }
+
+    @supports (width: 100dvw) {
+      .front-hero {
+        margin-left: calc(50% - 50dvw);
+        margin-right: calc(50% - 50dvw);
+      }
     }
 
     .front-hero::after {
@@ -1524,8 +1534,10 @@
       left: 0;
       right: 0;
       bottom: 0;
-      height: clamp(3rem, 8vw, 4.8rem);
-      background: linear-gradient(180deg, rgba(8, 12, 22, 0), rgba(8, 12, 22, 0.72) 72%, rgba(8, 12, 22, 0.98) 100%);
+      height: clamp(6rem, 15vw, 10rem);
+      background:
+        linear-gradient(180deg, rgba(8, 12, 22, 0) 0%, rgba(8, 12, 22, 0.48) 42%, rgba(8, 12, 22, 0.88) 76%, rgba(8, 12, 22, 1) 100%),
+        radial-gradient(circle at 50% 0%, rgba(72, 128, 236, 0.18), transparent 58%);
       pointer-events: none;
     }
 
@@ -1540,18 +1552,17 @@
       position: relative;
       display: grid;
       align-items: end;
-      min-height: clamp(22rem, 42vw, 33rem);
+      min-height: clamp(24rem, 46vw, 37rem);
       width: 100%;
       overflow: hidden;
-      padding: clamp(1.3rem, 2.7vw, 1.9rem);
-      border: 1px solid rgba(111, 136, 163, 0.12);
-      border-radius: calc(var(--radius-xl) + 0.35rem);
-      background:
-        linear-gradient(180deg, rgba(255, 255, 255, 0.03), rgba(255, 255, 255, 0.01) 18%, transparent 42%),
-        linear-gradient(180deg, rgba(6, 10, 18, 0.14), rgba(6, 10, 18, 0.02) 38%, transparent 100%);
-      box-shadow:
-        inset 0 1px 0 rgba(255, 255, 255, 0.05),
-        0 16px 42px rgba(3, 7, 16, 0.16);
+      padding:
+        clamp(1.2rem, 2.7vw, 1.9rem)
+        max(1.5rem, calc((100vw - 1280px) / 2 + 1rem))
+        clamp(4.8rem, 10vw, 7.2rem);
+      border: 0;
+      border-radius: 0;
+      background: transparent;
+      box-shadow: none;
       isolation: isolate;
     }
 
@@ -1561,8 +1572,8 @@
       inset: 0;
       z-index: 1;
       background:
-        linear-gradient(180deg, rgba(255, 255, 255, 0.04), transparent 16%),
-        linear-gradient(90deg, rgba(255, 166, 75, 0.06), transparent 26%, transparent 72%, rgba(62, 147, 255, 0.08));
+        linear-gradient(180deg, rgba(255, 255, 255, 0.02), transparent 14%),
+        linear-gradient(90deg, rgba(255, 166, 75, 0.04), transparent 24%, transparent 74%, rgba(62, 147, 255, 0.06));
       pointer-events: none;
     }
 
@@ -1571,10 +1582,10 @@
       position: absolute;
       inset: auto 0 0 0;
       z-index: 1;
-      height: 48%;
+      height: 56%;
       background:
-        linear-gradient(180deg, rgba(4, 7, 14, 0), rgba(4, 7, 14, 0.7)),
-        radial-gradient(circle at 50% 0%, rgba(117, 175, 255, 0.12), transparent 54%);
+        linear-gradient(180deg, rgba(4, 7, 14, 0) 0%, rgba(4, 7, 14, 0.24) 26%, rgba(4, 7, 14, 0.78) 72%, rgba(4, 7, 14, 0.98) 100%),
+        radial-gradient(circle at 50% 0%, rgba(117, 175, 255, 0.1), transparent 54%);
       pointer-events: none;
     }
 
@@ -1583,10 +1594,10 @@
       inset: 0;
       z-index: 0;
       background: var(--front-hero-art-background);
-      background-position: center center;
+      background-position: center 42%;
       background-repeat: no-repeat;
       background-size: cover;
-      transform: scale(1.015);
+      transform: scale(1.03);
     }
 
     .front-hero-art::before {
@@ -1594,21 +1605,21 @@
       position: absolute;
       inset: 0;
       background:
-        linear-gradient(90deg, rgba(4, 7, 14, 0.78) 0%, rgba(4, 7, 14, 0.56) 26%, rgba(4, 7, 14, 0.18) 54%, rgba(4, 7, 14, 0.04) 100%),
-        linear-gradient(180deg, rgba(12, 18, 28, 0.02), rgba(4, 7, 14, 0.18) 70%, rgba(4, 7, 14, 0.5) 100%);
+        linear-gradient(90deg, rgba(4, 7, 14, 0.68) 0%, rgba(4, 7, 14, 0.44) 24%, rgba(4, 7, 14, 0.12) 48%, rgba(4, 7, 14, 0.02) 100%),
+        linear-gradient(180deg, rgba(12, 18, 28, 0.01), rgba(4, 7, 14, 0.12) 58%, rgba(4, 7, 14, 0.6) 100%);
     }
 
     .front-hero-art::after {
       content: "";
       position: absolute;
-      inset: auto -8% -12% -8%;
-      height: 44%;
+      inset: auto -6% -14% -6%;
+      height: 48%;
       background:
-        radial-gradient(circle at 50% 0%, rgba(119, 180, 255, 0.18), transparent 42%),
-        linear-gradient(180deg, rgba(76, 135, 255, 0.04), rgba(10, 17, 33, 0.82) 78%);
+        radial-gradient(circle at 50% 0%, rgba(119, 180, 255, 0.12), transparent 42%),
+        linear-gradient(180deg, rgba(76, 135, 255, 0.03), rgba(10, 17, 33, 0.92) 82%);
       transform: perspective(42rem) rotateX(68deg);
       transform-origin: top center;
-      opacity: 0.88;
+      opacity: 0.94;
     }
 
     .front-hero-copy {
@@ -1618,9 +1629,9 @@
       align-content: end;
       justify-items: start;
       gap: clamp(0.78rem, 1.8vw, 1rem);
-      max-width: 26rem;
+      max-width: 28rem;
       text-align: left;
-      padding: clamp(0.18rem, 0.9vw, 0.48rem);
+      padding: clamp(0.18rem, 0.9vw, 0.48rem) 0 clamp(1rem, 3vw, 1.5rem);
     }
 
     .front-hero-copy h1 {
@@ -1634,6 +1645,8 @@
 
     .front-location-panel {
       gap: clamp(0.95rem, 2.3vw, 1.35rem);
+      position: relative;
+      z-index: 1;
     }
 
     .front-hero-meta {
@@ -3077,8 +3090,8 @@
       }
 
       .front-hero-scene {
-        min-height: clamp(20rem, 48vw, 28rem);
-        padding: 1.18rem 1.08rem 1.04rem;
+        min-height: clamp(21rem, 56vw, 28rem);
+        padding: 1.1rem 1.08rem 4.2rem;
       }
 
       .front-hero-copy {
@@ -3087,6 +3100,7 @@
 
       .front-hero-art {
         background: var(--front-hero-art-background-mobile);
+        background-position: center 36%;
       }
 
       .front-location-panel,
@@ -3372,20 +3386,8 @@
       }
 
       .front-hero-scene {
-        min-height: 17rem;
-        padding: 1rem 0.92rem 0.92rem;
-      }
-
-      .front-hero-light--left {
-        left: 7%;
-      }
-
-      .front-hero-light--center {
-        left: 39%;
-      }
-
-      .front-hero-light--right {
-        right: 3%;
+        min-height: 18rem;
+        padding: 0.95rem 0.92rem 3.5rem;
       }
 
       .front-special-day {
@@ -3534,7 +3536,7 @@
     </div>
     <div class="metric">
       <span class="muted">Published at</span>
-      <strong style="font-size:1rem;">2026-04-11 03:39 UTC</strong>
+      <strong style="font-size:1rem;">2026-04-11 03:48 UTC</strong>
     </div>
   </div>
 </section>
