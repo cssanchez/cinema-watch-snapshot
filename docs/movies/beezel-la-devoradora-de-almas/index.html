@@ -4376,8 +4376,14 @@
         },
       };
 
+      const _normalizeSourceCache = new Map();
       function normalizeSource(value) {
-        return String(value ?? '').replace(/\s+/g, ' ').trim();
+        const strValue = String(value ?? '');
+        if (_normalizeSourceCache.has(strValue)) return _normalizeSourceCache.get(strValue);
+        const result = strValue.replace(/\s+/g, ' ').trim();
+        if (_normalizeSourceCache.size > 2000) _normalizeSourceCache.clear();
+        _normalizeSourceCache.set(strValue, result);
+        return result;
       }
 
       function initialLanguage() {
@@ -5402,33 +5408,57 @@
       const FILTER_KEYS = ['provider', 'venue', 'language', 'category', 'format', 'from_date', 'to_date', 'room'];
       const staticPayloadCache = new Map();
 
+const _escapeHtmlCache = new Map();
       function escapeHtml(value) {
-        return String(value ?? '')
+        const strValue = String(value ?? '');
+        if (_escapeHtmlCache.has(strValue)) return _escapeHtmlCache.get(strValue);
+        const result = strValue
           .replaceAll('&', '&amp;')
           .replaceAll('<', '&lt;')
           .replaceAll('>', '&gt;')
           .replaceAll('"', '&quot;')
           .replaceAll("'", '&#39;');
+        if (_escapeHtmlCache.size > 2000) _escapeHtmlCache.clear();
+        _escapeHtmlCache.set(strValue, result);
+        return result;
       }
 
+const _foldTextCache = new Map();
       function foldText(value) {
-        return String(value ?? '')
+        const strValue = String(value ?? '');
+        if (_foldTextCache.has(strValue)) return _foldTextCache.get(strValue);
+        const result = strValue
           .normalize('NFD')
           .replace(/[\u0300-\u036f]/g, '')
           .toLowerCase()
           .trim();
+        if (_foldTextCache.size > 2000) _foldTextCache.clear();
+        _foldTextCache.set(strValue, result);
+        return result;
       }
 
+const _canonicalLanguageCache = new Map();
       function canonicalLanguage(value) {
-        const text = foldText(value);
-        if (!text) return '';
-        if (text.includes('subti')) return 'subtitulado';
-        if (['espanol', 'español', 'castellano', 'doblada'].includes(text)) return 'espanol';
-        return text;
+        const strValue = String(value ?? '');
+        if (_canonicalLanguageCache.has(strValue)) return _canonicalLanguageCache.get(strValue);
+        const text = foldText(strValue);
+        let result = text;
+        if (!text) result = '';
+        else if (text.includes('subti')) result = 'subtitulado';
+        else if (['espanol', 'español', 'castellano', 'doblada'].includes(text)) result = 'espanol';
+        if (_canonicalLanguageCache.size > 2000) _canonicalLanguageCache.clear();
+        _canonicalLanguageCache.set(strValue, result);
+        return result;
       }
 
+const _canonicalFormatCache = new Map();
       function canonicalFormat(value) {
-        return foldText(value).replace(/\s+/g, '');
+        const strValue = String(value ?? '');
+        if (_canonicalFormatCache.has(strValue)) return _canonicalFormatCache.get(strValue);
+        const result = foldText(strValue).replace(/\s+/g, '');
+        if (_canonicalFormatCache.size > 2000) _canonicalFormatCache.clear();
+        _canonicalFormatCache.set(strValue, result);
+        return result;
       }
 
       function roomLabel(roomNumber) {
