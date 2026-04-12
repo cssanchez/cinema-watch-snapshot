@@ -5227,24 +5227,41 @@
           .replaceAll("'", '&#39;');
       }
 
+      const _foldTextCache = new Map();
+      // Memoize foldText to avoid redundant NFD normalization overhead in client-side filtering
       function foldText(value) {
-        return String(value ?? '')
-          .normalize('NFD')
-          .replace(/[\u0300-\u036f]/g, '')
-          .toLowerCase()
-          .trim();
+        if (_foldTextCache.size > 2000) _foldTextCache.clear();
+        const strValue = String(value ?? '');
+        if (_foldTextCache.has(strValue)) return _foldTextCache.get(strValue);
+        const result = strValue.normalize('NFD').replace(/[\u0300-\u036f]/g, '').toLowerCase().trim();
+        _foldTextCache.set(strValue, result);
+        return result;
       }
 
+      const _canonicalLanguageCache = new Map();
+      // Memoize canonicalLanguage to prevent redundant O(N) evaluations in client-side loops
       function canonicalLanguage(value) {
-        const text = foldText(value);
-        if (!text) return '';
-        if (text.includes('subti')) return 'subtitulado';
-        if (['espanol', 'español', 'castellano', 'doblada'].includes(text)) return 'espanol';
-        return text;
+        if (_canonicalLanguageCache.size > 2000) _canonicalLanguageCache.clear();
+        const strValue = String(value ?? '');
+        if (_canonicalLanguageCache.has(strValue)) return _canonicalLanguageCache.get(strValue);
+        const text = foldText(strValue);
+        let result = text;
+        if (!text) result = '';
+        else if (text.includes('subti')) result = 'subtitulado';
+        else if (['espanol', 'español', 'castellano', 'doblada'].includes(text)) result = 'espanol';
+        _canonicalLanguageCache.set(strValue, result);
+        return result;
       }
 
+      const _canonicalFormatCache = new Map();
+      // Memoize canonicalFormat to prevent redundant O(N) regex evaluation
       function canonicalFormat(value) {
-        return foldText(value).replace(/\s+/g, '');
+        if (_canonicalFormatCache.size > 2000) _canonicalFormatCache.clear();
+        const strValue = String(value ?? '');
+        if (_canonicalFormatCache.has(strValue)) return _canonicalFormatCache.get(strValue);
+        const result = foldText(strValue).replace(/\s+/g, '');
+        _canonicalFormatCache.set(strValue, result);
+        return result;
       }
 
       function roomLabel(roomNumber) {
@@ -5277,18 +5294,17 @@
         return String(providerName || provider || '').trim();
       }
 
+      const _splitListingTokensCache = new Map();
+      // Memoize splitListingTokens to avoid redundant string splitting and formatting across identical tokens
       function splitListingTokens(value) {
-        const text = String(value || '').trim();
-        if (!text) return [];
-        const normalized = text
-          .replaceAll('•', '|')
-          .replaceAll('·', '|')
-          .replaceAll('/', '|')
-          .replaceAll(' - ', '|');
-        return normalized
-          .split('|')
-          .map((part) => part.trim().replace(/\s+/g, ' '))
-          .filter(Boolean);
+        if (_splitListingTokensCache.size > 2000) _splitListingTokensCache.clear();
+        const strValue = String(value || '').trim();
+        if (!strValue) return [];
+        if (_splitListingTokensCache.has(strValue)) return [..._splitListingTokensCache.get(strValue)];
+        const normalized = strValue.replaceAll('•', '|').replaceAll('·', '|').replaceAll('/', '|').replaceAll(' - ', '|');
+        const result = normalized.split('|').map((part) => part.trim().replace(/\s+/g, ' ')).filter(Boolean);
+        _splitListingTokensCache.set(strValue, result);
+        return [...result];
       }
 
       function buildRowDetailTokens(row) {
