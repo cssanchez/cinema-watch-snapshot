@@ -12,3 +12,6 @@
 ## 2026-04-11 - Map Cache Size Constraints
 **Learning:** When injecting JavaScript `Map` objects for memoization of high-frequency text functions (like `escapeHtml` or `foldText`), unbounded caches can grow out of control if fed unpredictable inputs, leading to client-side memory leaks.
 **Action:** Always implement a naive bounded size constraint before setting new keys (e.g., `if (cache.size > 2000) cache.clear();`). This maintains high hit-rates for repetitive strings (like movie titles and venues) while protecting against garbage collection pressure.
+## 2024-05-18 - [DOM NodeList iteration]
+**Learning:** In the frontend static site, querying DOM elements and immediately iterating them via `Array.from(document.querySelectorAll(...)).find(...)` inside scroll handlers introduces measurable performance overhead (e.g. 2x-5x slower) because it allocates an intermediate array every time.
+**Action:** Replace `Array.from(NodeList).find(...)` with traditional `for` loops. Since this repository is a generated snapshot of a static site without a build step, write a Python patch script to reliably perform these exact regex replacements directly on the `docs/**/*.html` artifacts, but ensure `__pycache__` artifacts are not staged.
