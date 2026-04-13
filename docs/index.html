@@ -11094,42 +11094,47 @@
       }
 
       function scrollToSpecialRooms({ behavior = 'smooth' } = {}) {
-        const visiblePanel = Array.from(document.querySelectorAll('[data-location-panel]'))
-          .find((panel) => panel instanceof HTMLElement && !panel.hidden);
+        const visiblePanel = getVisibleLocationPanel();
         let target = visiblePanel?.querySelector('[data-front-specials="true"]');
         if (!(target instanceof HTMLElement)) {
-          target = Array.from(document.querySelectorAll('[data-front-specials="true"]'))
-            .find((section) => {
-              if (!(section instanceof HTMLElement)) {
-                return false;
-              }
+          const specials = document.querySelectorAll('[data-front-specials="true"]');
+          target = undefined;
+          for (let i = 0; i < specials.length; i++) {
+            const section = specials[i];
+            if (section instanceof HTMLElement) {
               const panel = section.closest('[data-location-panel]');
-              return !(panel instanceof HTMLElement) || !panel.hidden;
-            });
+              if (!(panel instanceof HTMLElement) || !panel.hidden) {
+                target = section;
+                break;
+              }
+            }
+          }
         }
         return scrollToElementBelowHeader(target, { behavior, extraOffset: 18 });
       }
 
       function scrollToMoviesSection({ behavior = 'smooth' } = {}) {
-        const visiblePanel = Array.from(document.querySelectorAll('[data-location-panel]'))
-          .find((panel) => panel instanceof HTMLElement && !panel.hidden);
+        const visiblePanel = getVisibleLocationPanel();
         let target = visiblePanel?.querySelector('[data-front-movies="true"]');
         if (!(target instanceof HTMLElement)) {
-          target = Array.from(document.querySelectorAll('[data-front-movies="true"]'))
-            .find((section) => {
-              if (!(section instanceof HTMLElement)) {
-                return false;
-              }
+          const movies = document.querySelectorAll('[data-front-movies="true"]');
+          target = undefined;
+          for (let i = 0; i < movies.length; i++) {
+            const section = movies[i];
+            if (section instanceof HTMLElement) {
               const panel = section.closest('[data-location-panel]');
-              return !(panel instanceof HTMLElement) || !panel.hidden;
-            });
+              if (!(panel instanceof HTMLElement) || !panel.hidden) {
+                target = section;
+                break;
+              }
+            }
+          }
         }
         return scrollToElementBelowHeader(target, { behavior, extraOffset: 18 });
       }
 
       function getActiveHomeSections() {
-        const visiblePanel = Array.from(document.querySelectorAll('[data-location-panel]'))
-          .find((panel) => panel instanceof HTMLElement && !panel.hidden);
+        const visiblePanel = getVisibleLocationPanel();
         const specials = visiblePanel?.querySelector('[data-front-specials="true"]')
           || document.querySelector('[data-front-specials="true"]');
         const movies = visiblePanel?.querySelector('[data-front-movies="true"]')
@@ -11193,8 +11198,12 @@
       }
 
       function getVisibleLocationPanel() {
-        return Array.from(document.querySelectorAll('[data-location-panel]'))
-          .find((panel) => panel instanceof HTMLElement && !panel.hidden) || null;
+        const panels = document.querySelectorAll('[data-location-panel]');
+        for (let i = 0; i < panels.length; i++) {
+          const panel = panels[i];
+          if (panel instanceof HTMLElement && !panel.hidden) return panel;
+        }
+        return null;
       }
 
       function getHomeSectionElement(sections, key) {
