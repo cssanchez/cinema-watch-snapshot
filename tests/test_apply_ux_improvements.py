@@ -6,7 +6,8 @@ from apply_ux_improvements import (
     transform_3_truncation_signal,
     transform_4_occupancy_highlight,
     transform_5_count_format,
-    transform_6_add_csp
+    transform_6_add_disabled_styles,
+    transform_7_add_csp
 )
 
 def test_transform_5_basic():
@@ -184,7 +185,23 @@ def test_transform_4_occupancy_highlight():
     assert '<div class="front-screening-row screening-high-occupancy">\n        <div class="front-screening-copy">99% sold</div>' in result
     assert '<div class="front-screening-row">\n        <div class="front-screening-copy">45% sold</div>' in result
 
-def test_transform_6_add_csp():
+def test_transform_6_add_disabled_styles():
+    """Test that disabled styles are injected correctly."""
+    content = "<style>\n  </style>"
+    result = transform_6_add_disabled_styles(content)
+    assert "button:disabled" in result
+    assert "opacity: 0.5;" in result
+    assert "cursor: not-allowed;" in result
+
+def test_transform_6_add_disabled_styles_no_duplicate():
+    """Test that disabled styles are not injected if already present."""
+    content = "<style>\n    button:disabled { opacity: 0.5; }\n  </style>"
+    result = transform_6_add_disabled_styles(content)
+    # Should only appear once (the one we passed in)
+    assert result.count("button:disabled") == 1
+
+
+def test_transform_7_add_csp():
     content_with_charset = """<!DOCTYPE html>
 <html>
 <head>
@@ -194,7 +211,7 @@ def test_transform_6_add_csp():
 <body></body>
 </html>"""
 
-    result = transform_6_add_csp(content_with_charset)
+    result = transform_7_add_csp(content_with_charset)
     assert '<meta http-equiv="Content-Security-Policy"' in result
     assert '<meta charset="utf-8">\n  <meta http-equiv="Content-Security-Policy"' in result
 
@@ -206,12 +223,12 @@ def test_transform_6_add_csp():
 <body></body>
 </html>"""
 
-    result2 = transform_6_add_csp(content_with_head)
+    result2 = transform_7_add_csp(content_with_head)
     assert '<meta http-equiv="Content-Security-Policy"' in result2
     assert '<head>\n  <meta http-equiv="Content-Security-Policy"' in result2
 
     # Check idempotent behavior
-    result3 = transform_6_add_csp(result)
+    result3 = transform_7_add_csp(result)
     assert result3.count('<meta http-equiv="Content-Security-Policy"') == 1
 def test_transform_2_basic():
     """Test basic transformation to add time context."""
