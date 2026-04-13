@@ -2,6 +2,7 @@
 <html lang="en">
 <head>
   <meta charset="utf-8">
+  <meta http-equiv="Content-Security-Policy" content="default-src 'self'; script-src 'self' 'unsafe-inline'; style-src 'self' 'unsafe-inline'; img-src 'self' data:; connect-src 'self'; font-src 'self'; object-src 'none'; base-uri 'self'; form-action 'self';">
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <meta name="description" content="Cine Vicio is a cached cinema listings snapshot: fast, focused showtime boards for today and tomorrow.">
   <meta name="robots" content="index,follow">
@@ -1078,8 +1079,8 @@
     }
 
     .front-freshness strong {
-      font-family: var(--heading-font);
-      font-size: 1.1rem;
+      font-family: var(--ui-font);
+      font-size: 0.9rem;
       line-height: 1.05;
     }
 
@@ -3381,6 +3382,38 @@
         scroll-margin-top: 10.1rem;
       }
     }
+
+    .button-see-all {
+      display: inline-block;
+      padding: 0.5rem 1rem;
+      border-radius: var(--radius-lg);
+      background: var(--accent);
+      color: var(--bg);
+      font-size: 0.85rem;
+      font-weight: 500;
+      text-decoration: none;
+      cursor: pointer;
+      transition: opacity 0.2s;
+    }
+
+    .button-see-all:hover {
+      opacity: 0.8;
+    }
+
+    .screening-high-occupancy {
+      background: rgba(240, 139, 101, 0.15);
+      border-left: 3px solid var(--warm);
+    }
+
+    button:disabled,
+    input:disabled,
+    select:disabled,
+    .button-pill:disabled,
+    .button-card:disabled {
+      opacity: 0.5;
+      cursor: not-allowed;
+      pointer-events: none;
+    }
   </style>
 </head>
 <body>
@@ -3940,11 +3973,12 @@
     
     
     
+    <div class="screening-time-context" style="display:flex; align-items:center; gap:0.5rem; padding:1rem; color:var(--accent); font-size:0.95rem;"><span style="color:var(--muted);">Coming up</span></div>
     <section class="front-date-group">
       <div class="front-date-head">
         <strong>2026-04-11</strong>
         
-        <span class="chip" data-i18n-count="shown" data-i18n-count-value="7">7 shown</span>
+        <span class="chip" data-i18n-count="shown" data-i18n-count-value="7">7 of 6 shown</span>
         
       </div>
       <div class="front-screening-list">
@@ -4015,7 +4049,7 @@
           </div>
         </div>
         
-        <div class="front-screening-row">
+        <div class="front-screening-row screening-high-occupancy">
           <span class="mini-time">16:00</span>
           <div class="front-screening-copy">
             <strong class="front-screening-title-line">
@@ -4062,11 +4096,12 @@
     
     
     
+    <div class="screening-time-context" style="display:flex; align-items:center; gap:0.5rem; padding:1rem; color:var(--accent); font-size:0.95rem;"><span style="color:var(--muted);">Coming up</span></div>
     <section class="front-date-group">
       <div class="front-date-head">
         <strong>2026-04-11</strong>
         
-        <span class="chip" data-i18n-count="shown" data-i18n-count-value="10">10 shown</span>
+        <span class="chip" data-i18n-count="shown" data-i18n-count-value="10">10 of 9 shown</span>
         
       </div>
       <div class="front-screening-list">
@@ -4170,7 +4205,7 @@
           </div>
         </div>
         
-        <div class="front-screening-row">
+        <div class="front-screening-row screening-high-occupancy">
           <span class="mini-time">16:00</span>
           <div class="front-screening-copy">
             <strong class="front-screening-title-line">
@@ -4217,11 +4252,12 @@
     
     
     
+    <div class="screening-time-context" style="display:flex; align-items:center; gap:0.5rem; padding:1rem; color:var(--accent); font-size:0.95rem;"><span style="color:var(--muted);">Coming up</span></div>
     <section class="front-date-group">
       <div class="front-date-head">
         <strong>2026-04-12</strong>
         
-        <span class="chip" data-i18n-count="shown" data-i18n-count-value="10">10 shown</span>
+        <span class="chip" data-i18n-count="shown" data-i18n-count-value="10">10 of 9 shown</span>
         
       </div>
       <div class="front-screening-list">
@@ -4325,7 +4361,7 @@
           </div>
         </div>
         
-        <div class="front-screening-row">
+        <div class="front-screening-row screening-high-occupancy">
           <span class="mini-time">16:30</span>
           <div class="front-screening-copy">
             <strong class="front-screening-title-line">
@@ -4372,11 +4408,12 @@
     
     
     
+    <div class="screening-time-context" style="display:flex; align-items:center; gap:0.5rem; padding:1rem; color:var(--accent); font-size:0.95rem;"><span style="color:var(--muted);">Coming up</span></div>
     <section class="front-date-group">
       <div class="front-date-head">
         <strong>2026-04-16</strong>
         
-        <span class="chip" data-i18n-count="shown" data-i18n-count-value="7">7 shown</span>
+        <span class="chip" data-i18n-count="shown" data-i18n-count-value="7">7 of 7 shown</span>
         
       </div>
       <div class="front-screening-list">
@@ -4467,11 +4504,12 @@
     
     
     
+    <div class="screening-time-context" style="display:flex; align-items:center; gap:0.5rem; padding:1rem; color:var(--accent); font-size:0.95rem;"><span style="color:var(--muted);">Coming up</span></div>
     <section class="front-date-group">
       <div class="front-date-head">
         <strong>2026-04-17</strong>
         
-        <span class="chip" data-i18n-count="shown" data-i18n-count-value="7">7 shown</span>
+        <span class="chip" data-i18n-count="shown" data-i18n-count-value="7">7 of 7 shown</span>
         
       </div>
       <div class="front-screening-list">
@@ -4560,11 +4598,12 @@
     
     
     
+    <div class="screening-time-context" style="display:flex; align-items:center; gap:0.5rem; padding:1rem; color:var(--accent); font-size:0.95rem;"><span style="color:var(--muted);">Coming up</span></div>
     <section class="front-date-group">
       <div class="front-date-head">
         <strong>2026-04-18</strong>
         
-        <span class="chip" data-i18n-count="shown" data-i18n-count-value="7">7 shown</span>
+        <span class="chip" data-i18n-count="shown" data-i18n-count-value="7">7 of 7 shown</span>
         
       </div>
       <div class="front-screening-list">
@@ -4680,11 +4719,12 @@
     
     
     
+    <div class="screening-time-context" style="display:flex; align-items:center; gap:0.5rem; padding:1rem; color:var(--accent); font-size:0.95rem;"><span style="color:var(--muted);">Coming up</span></div>
     <section class="front-date-group">
       <div class="front-date-head">
         <strong>2026-04-11</strong>
         
-        <span class="chip" data-i18n-count="shown" data-i18n-count-value="6">6 shown</span>
+        <span class="chip" data-i18n-count="shown" data-i18n-count-value="6">6 of 4 shown</span>
         
       </div>
       <div class="front-screening-list">
@@ -4733,7 +4773,7 @@
           </div>
         </div>
         
-        <div class="front-screening-row">
+        <div class="front-screening-row screening-high-occupancy">
           <span class="mini-time">14:20</span>
           <div class="front-screening-copy">
             <strong class="front-screening-title-line">
@@ -4744,7 +4784,7 @@
           </div>
         </div>
         
-        <div class="front-screening-row">
+        <div class="front-screening-row screening-high-occupancy">
           <span class="mini-time">16:00</span>
           <div class="front-screening-copy">
             <strong class="front-screening-title-line">
@@ -4764,11 +4804,12 @@
     
     
     
+    <div class="screening-time-context" style="display:flex; align-items:center; gap:0.5rem; padding:1rem; color:var(--accent); font-size:0.95rem;"><span style="color:var(--muted);">Coming up</span></div>
     <section class="front-date-group">
       <div class="front-date-head">
         <strong>2026-04-12</strong>
         
-        <span class="chip" data-i18n-count="shown" data-i18n-count-value="6">6 shown</span>
+        <span class="chip" data-i18n-count="shown" data-i18n-count-value="6">6 of 6 shown</span>
         
       </div>
       <div class="front-screening-list">
@@ -4873,16 +4914,17 @@
     
     
     
+    <div class="screening-time-context" style="display:flex; align-items:center; gap:0.5rem; padding:1rem; color:var(--accent); font-size:0.95rem;"><span style="color:var(--muted);">Coming up</span></div>
     <section class="front-date-group">
       <div class="front-date-head">
         <strong>2026-04-11</strong>
         
-        <span class="chip" data-i18n-count="shown" data-i18n-count-value="10">10 shown</span>
+        <span class="chip" data-i18n-count="shown" data-i18n-count-value="10">10 of 6 shown</span>
         
       </div>
       <div class="front-screening-list">
         
-        <div class="front-screening-row">
+        <div class="front-screening-row screening-high-occupancy">
           <span class="mini-time">16:00</span>
           <div class="front-screening-copy">
             <strong class="front-screening-title-line">
@@ -4895,7 +4937,7 @@
           </div>
         </div>
         
-        <div class="front-screening-row">
+        <div class="front-screening-row screening-high-occupancy">
           <span class="mini-time">16:00</span>
           <div class="front-screening-copy">
             <strong class="front-screening-title-line">
@@ -4906,7 +4948,7 @@
           </div>
         </div>
         
-        <div class="front-screening-row">
+        <div class="front-screening-row screening-high-occupancy">
           <span class="mini-time">14:20</span>
           <div class="front-screening-copy">
             <strong class="front-screening-title-line">
@@ -4917,7 +4959,7 @@
           </div>
         </div>
         
-        <div class="front-screening-row">
+        <div class="front-screening-row screening-high-occupancy">
           <span class="mini-time">16:30</span>
           <div class="front-screening-copy">
             <strong class="front-screening-title-line">
@@ -6278,11 +6320,12 @@
     
     
     
+    <div class="screening-time-context" style="display:flex; align-items:center; gap:0.5rem; padding:1rem; color:var(--accent); font-size:0.95rem;"><span style="color:var(--muted);">Coming up</span></div>
     <section class="front-date-group">
       <div class="front-date-head">
         <strong>2026-04-11</strong>
         
-        <span class="chip" data-i18n-count="shown" data-i18n-count-value="7">7 shown</span>
+        <span class="chip" data-i18n-count="shown" data-i18n-count-value="7">7 of 6 shown</span>
         
       </div>
       <div class="front-screening-list">
@@ -6353,7 +6396,7 @@
           </div>
         </div>
         
-        <div class="front-screening-row">
+        <div class="front-screening-row screening-high-occupancy">
           <span class="mini-time">16:00</span>
           <div class="front-screening-copy">
             <strong class="front-screening-title-line">
@@ -6373,11 +6416,12 @@
     
     
     
+    <div class="screening-time-context" style="display:flex; align-items:center; gap:0.5rem; padding:1rem; color:var(--accent); font-size:0.95rem;"><span style="color:var(--muted);">Coming up</span></div>
     <section class="front-date-group">
       <div class="front-date-head">
         <strong>2026-04-12</strong>
         
-        <span class="chip" data-i18n-count="shown" data-i18n-count-value="7">7 shown</span>
+        <span class="chip" data-i18n-count="shown" data-i18n-count-value="7">7 of 7 shown</span>
         
       </div>
       <div class="front-screening-list">
@@ -6466,11 +6510,12 @@
     
     
     
+    <div class="screening-time-context" style="display:flex; align-items:center; gap:0.5rem; padding:1rem; color:var(--accent); font-size:0.95rem;"><span style="color:var(--muted);">Coming up</span></div>
     <section class="front-date-group">
       <div class="front-date-head">
         <strong>2026-04-13</strong>
         
-        <span class="chip" data-i18n-count="shown" data-i18n-count-value="7">7 shown</span>
+        <span class="chip" data-i18n-count="shown" data-i18n-count-value="7">7 of 7 shown</span>
         
       </div>
       <div class="front-screening-list">
@@ -6586,11 +6631,12 @@
     
     
     
+    <div class="screening-time-context" style="display:flex; align-items:center; gap:0.5rem; padding:1rem; color:var(--accent); font-size:0.95rem;"><span style="color:var(--muted);">Coming up</span></div>
     <section class="front-date-group">
       <div class="front-date-head">
         <strong>2026-04-11</strong>
         
-        <span class="chip" data-i18n-count="shown" data-i18n-count-value="10">10 shown</span>
+        <span class="chip" data-i18n-count="shown" data-i18n-count-value="10">10 of 9 shown</span>
         
       </div>
       <div class="front-screening-list">
@@ -6694,7 +6740,7 @@
           </div>
         </div>
         
-        <div class="front-screening-row">
+        <div class="front-screening-row screening-high-occupancy">
           <span class="mini-time">16:00</span>
           <div class="front-screening-copy">
             <strong class="front-screening-title-line">
@@ -6741,11 +6787,12 @@
     
     
     
+    <div class="screening-time-context" style="display:flex; align-items:center; gap:0.5rem; padding:1rem; color:var(--accent); font-size:0.95rem;"><span style="color:var(--muted);">Coming up</span></div>
     <section class="front-date-group">
       <div class="front-date-head">
         <strong>2026-04-12</strong>
         
-        <span class="chip" data-i18n-count="shown" data-i18n-count-value="10">10 shown</span>
+        <span class="chip" data-i18n-count="shown" data-i18n-count-value="10">10 of 9 shown</span>
         
       </div>
       <div class="front-screening-list">
@@ -6849,7 +6896,7 @@
           </div>
         </div>
         
-        <div class="front-screening-row">
+        <div class="front-screening-row screening-high-occupancy">
           <span class="mini-time">16:30</span>
           <div class="front-screening-copy">
             <strong class="front-screening-title-line">
@@ -6896,11 +6943,12 @@
     
     
     
+    <div class="screening-time-context" style="display:flex; align-items:center; gap:0.5rem; padding:1rem; color:var(--accent); font-size:0.95rem;"><span style="color:var(--muted);">Coming up</span></div>
     <section class="front-date-group">
       <div class="front-date-head">
         <strong>2026-04-16</strong>
         
-        <span class="chip" data-i18n-count="shown" data-i18n-count-value="7">7 shown</span>
+        <span class="chip" data-i18n-count="shown" data-i18n-count-value="7">7 of 7 shown</span>
         
       </div>
       <div class="front-screening-list">
@@ -6991,11 +7039,12 @@
     
     
     
+    <div class="screening-time-context" style="display:flex; align-items:center; gap:0.5rem; padding:1rem; color:var(--accent); font-size:0.95rem;"><span style="color:var(--muted);">Coming up</span></div>
     <section class="front-date-group">
       <div class="front-date-head">
         <strong>2026-04-17</strong>
         
-        <span class="chip" data-i18n-count="shown" data-i18n-count-value="3">3 shown</span>
+        <span class="chip" data-i18n-count="shown" data-i18n-count-value="3">3 of 3 shown</span>
         
       </div>
       <div class="front-screening-list">
@@ -7040,11 +7089,12 @@
     
     
     
+    <div class="screening-time-context" style="display:flex; align-items:center; gap:0.5rem; padding:1rem; color:var(--accent); font-size:0.95rem;"><span style="color:var(--muted);">Coming up</span></div>
     <section class="front-date-group">
       <div class="front-date-head">
         <strong>2026-04-18</strong>
         
-        <span class="chip" data-i18n-count="shown" data-i18n-count-value="3">3 shown</span>
+        <span class="chip" data-i18n-count="shown" data-i18n-count-value="3">3 of 3 shown</span>
         
       </div>
       <div class="front-screening-list">
@@ -7116,11 +7166,12 @@
     
     
     
+    <div class="screening-time-context" style="display:flex; align-items:center; gap:0.5rem; padding:1rem; color:var(--accent); font-size:0.95rem;"><span style="color:var(--muted);">Coming up</span></div>
     <section class="front-date-group">
       <div class="front-date-head">
         <strong>2026-04-11</strong>
         
-        <span class="chip" data-i18n-count="shown" data-i18n-count-value="6">6 shown</span>
+        <span class="chip" data-i18n-count="shown" data-i18n-count-value="6">6 of 4 shown</span>
         
       </div>
       <div class="front-screening-list">
@@ -7158,7 +7209,7 @@
           </div>
         </div>
         
-        <div class="front-screening-row">
+        <div class="front-screening-row screening-high-occupancy">
           <span class="mini-time">14:20</span>
           <div class="front-screening-copy">
             <strong class="front-screening-title-line">
@@ -7180,7 +7231,7 @@
           </div>
         </div>
         
-        <div class="front-screening-row">
+        <div class="front-screening-row screening-high-occupancy">
           <span class="mini-time">16:00</span>
           <div class="front-screening-copy">
             <strong class="front-screening-title-line">
@@ -7200,11 +7251,12 @@
     
     
     
+    <div class="screening-time-context" style="display:flex; align-items:center; gap:0.5rem; padding:1rem; color:var(--accent); font-size:0.95rem;"><span style="color:var(--muted);">Coming up</span></div>
     <section class="front-date-group">
       <div class="front-date-head">
         <strong>2026-04-12</strong>
         
-        <span class="chip" data-i18n-count="shown" data-i18n-count-value="6">6 shown</span>
+        <span class="chip" data-i18n-count="shown" data-i18n-count-value="6">6 of 6 shown</span>
         
       </div>
       <div class="front-screening-list">
@@ -7309,16 +7361,17 @@
     
     
     
+    <div class="screening-time-context" style="display:flex; align-items:center; gap:0.5rem; padding:1rem; color:var(--accent); font-size:0.95rem;"><span style="color:var(--muted);">Coming up</span></div>
     <section class="front-date-group">
       <div class="front-date-head">
         <strong>2026-04-11</strong>
         
-        <span class="chip" data-i18n-count="shown" data-i18n-count-value="10">10 shown</span>
+        <span class="chip" data-i18n-count="shown" data-i18n-count-value="10">10 of 2 shown</span>
         
       </div>
       <div class="front-screening-list">
         
-        <div class="front-screening-row">
+        <div class="front-screening-row screening-high-occupancy">
           <span class="mini-time">16:00</span>
           <div class="front-screening-copy">
             <strong class="front-screening-title-line">
@@ -7331,7 +7384,7 @@
           </div>
         </div>
         
-        <div class="front-screening-row">
+        <div class="front-screening-row screening-high-occupancy">
           <span class="mini-time">16:00</span>
           <div class="front-screening-copy">
             <strong class="front-screening-title-line">
@@ -7342,7 +7395,7 @@
           </div>
         </div>
         
-        <div class="front-screening-row">
+        <div class="front-screening-row screening-high-occupancy">
           <span class="mini-time">19:30</span>
           <div class="front-screening-copy">
             <strong class="front-screening-title-line">
@@ -7353,7 +7406,7 @@
           </div>
         </div>
         
-        <div class="front-screening-row">
+        <div class="front-screening-row screening-high-occupancy">
           <span class="mini-time">19:45</span>
           <div class="front-screening-copy">
             <strong class="front-screening-title-line">
@@ -7364,7 +7417,7 @@
           </div>
         </div>
         
-        <div class="front-screening-row">
+        <div class="front-screening-row screening-high-occupancy">
           <span class="mini-time">14:20</span>
           <div class="front-screening-copy">
             <strong class="front-screening-title-line">
@@ -7375,7 +7428,7 @@
           </div>
         </div>
         
-        <div class="front-screening-row">
+        <div class="front-screening-row screening-high-occupancy">
           <span class="mini-time">19:45</span>
           <div class="front-screening-copy">
             <strong class="front-screening-title-line">
@@ -7386,7 +7439,7 @@
           </div>
         </div>
         
-        <div class="front-screening-row">
+        <div class="front-screening-row screening-high-occupancy">
           <span class="mini-time">22:00</span>
           <div class="front-screening-copy">
             <strong class="front-screening-title-line">
@@ -7397,7 +7450,7 @@
           </div>
         </div>
         
-        <div class="front-screening-row">
+        <div class="front-screening-row screening-high-occupancy">
           <span class="mini-time">16:30</span>
           <div class="front-screening-copy">
             <strong class="front-screening-title-line">
@@ -8472,11 +8525,12 @@
     
     
     
+    <div class="screening-time-context" style="display:flex; align-items:center; gap:0.5rem; padding:1rem; color:var(--accent); font-size:0.95rem;"><span style="color:var(--muted);">Coming up</span></div>
     <section class="front-date-group">
       <div class="front-date-head">
         <strong>2026-04-11</strong>
         
-        <span class="chip" data-i18n-count="shown" data-i18n-count-value="7">7 shown</span>
+        <span class="chip" data-i18n-count="shown" data-i18n-count-value="7">7 of 7 shown</span>
         
       </div>
       <div class="front-screening-list">
@@ -8567,11 +8621,12 @@
     
     
     
+    <div class="screening-time-context" style="display:flex; align-items:center; gap:0.5rem; padding:1rem; color:var(--accent); font-size:0.95rem;"><span style="color:var(--muted);">Coming up</span></div>
     <section class="front-date-group">
       <div class="front-date-head">
         <strong>2026-04-12</strong>
         
-        <span class="chip" data-i18n-count="shown" data-i18n-count-value="7">7 shown</span>
+        <span class="chip" data-i18n-count="shown" data-i18n-count-value="7">7 of 7 shown</span>
         
       </div>
       <div class="front-screening-list">
@@ -8660,11 +8715,12 @@
     
     
     
+    <div class="screening-time-context" style="display:flex; align-items:center; gap:0.5rem; padding:1rem; color:var(--accent); font-size:0.95rem;"><span style="color:var(--muted);">Coming up</span></div>
     <section class="front-date-group">
       <div class="front-date-head">
         <strong>2026-04-13</strong>
         
-        <span class="chip" data-i18n-count="shown" data-i18n-count-value="7">7 shown</span>
+        <span class="chip" data-i18n-count="shown" data-i18n-count-value="7">7 of 7 shown</span>
         
       </div>
       <div class="front-screening-list">
@@ -8780,11 +8836,12 @@
     
     
     
+    <div class="screening-time-context" style="display:flex; align-items:center; gap:0.5rem; padding:1rem; color:var(--accent); font-size:0.95rem;"><span style="color:var(--muted);">Coming up</span></div>
     <section class="front-date-group">
       <div class="front-date-head">
         <strong>2026-04-11</strong>
         
-        <span class="chip" data-i18n-count="shown" data-i18n-count-value="10">10 shown</span>
+        <span class="chip" data-i18n-count="shown" data-i18n-count-value="10">10 of 10 shown</span>
         
       </div>
       <div class="front-screening-list">
@@ -8935,11 +8992,12 @@
     
     
     
+    <div class="screening-time-context" style="display:flex; align-items:center; gap:0.5rem; padding:1rem; color:var(--accent); font-size:0.95rem;"><span style="color:var(--muted);">Coming up</span></div>
     <section class="front-date-group">
       <div class="front-date-head">
         <strong>2026-04-12</strong>
         
-        <span class="chip" data-i18n-count="shown" data-i18n-count-value="10">10 shown</span>
+        <span class="chip" data-i18n-count="shown" data-i18n-count-value="10">10 of 10 shown</span>
         
       </div>
       <div class="front-screening-list">
@@ -9090,11 +9148,12 @@
     
     
     
+    <div class="screening-time-context" style="display:flex; align-items:center; gap:0.5rem; padding:1rem; color:var(--accent); font-size:0.95rem;"><span style="color:var(--muted);">Coming up</span></div>
     <section class="front-date-group">
       <div class="front-date-head">
         <strong>2026-04-16</strong>
         
-        <span class="chip" data-i18n-count="shown" data-i18n-count-value="7">7 shown</span>
+        <span class="chip" data-i18n-count="shown" data-i18n-count-value="7">7 of 7 shown</span>
         
       </div>
       <div class="front-screening-list">
@@ -9185,11 +9244,12 @@
     
     
     
+    <div class="screening-time-context" style="display:flex; align-items:center; gap:0.5rem; padding:1rem; color:var(--accent); font-size:0.95rem;"><span style="color:var(--muted);">Coming up</span></div>
     <section class="front-date-group">
       <div class="front-date-head">
         <strong>2026-04-17</strong>
         
-        <span class="chip" data-i18n-count="shown" data-i18n-count-value="5">5 shown</span>
+        <span class="chip" data-i18n-count="shown" data-i18n-count-value="5">5 of 5 shown</span>
         
       </div>
       <div class="front-screening-list">
@@ -9256,11 +9316,12 @@
     
     
     
+    <div class="screening-time-context" style="display:flex; align-items:center; gap:0.5rem; padding:1rem; color:var(--accent); font-size:0.95rem;"><span style="color:var(--muted);">Coming up</span></div>
     <section class="front-date-group">
       <div class="front-date-head">
         <strong>2026-04-18</strong>
         
-        <span class="chip" data-i18n-count="shown" data-i18n-count-value="5">5 shown</span>
+        <span class="chip" data-i18n-count="shown" data-i18n-count-value="5">5 of 5 shown</span>
         
       </div>
       <div class="front-screening-list">
@@ -9354,11 +9415,12 @@
     
     
     
+    <div class="screening-time-context" style="display:flex; align-items:center; gap:0.5rem; padding:1rem; color:var(--accent); font-size:0.95rem;"><span style="color:var(--muted);">Coming up</span></div>
     <section class="front-date-group">
       <div class="front-date-head">
         <strong>2026-04-11</strong>
         
-        <span class="chip" data-i18n-count="shown" data-i18n-count-value="6">6 shown</span>
+        <span class="chip" data-i18n-count="shown" data-i18n-count-value="6">6 of 6 shown</span>
         
       </div>
       <div class="front-screening-list">
@@ -9438,11 +9500,12 @@
     
     
     
+    <div class="screening-time-context" style="display:flex; align-items:center; gap:0.5rem; padding:1rem; color:var(--accent); font-size:0.95rem;"><span style="color:var(--muted);">Coming up</span></div>
     <section class="front-date-group">
       <div class="front-date-head">
         <strong>2026-04-12</strong>
         
-        <span class="chip" data-i18n-count="shown" data-i18n-count-value="6">6 shown</span>
+        <span class="chip" data-i18n-count="shown" data-i18n-count-value="6">6 of 6 shown</span>
         
       </div>
       <div class="front-screening-list">
@@ -9547,11 +9610,12 @@
     
     
     
+    <div class="screening-time-context" style="display:flex; align-items:center; gap:0.5rem; padding:1rem; color:var(--accent); font-size:0.95rem;"><span style="color:var(--muted);">Coming up</span></div>
     <section class="front-date-group">
       <div class="front-date-head">
         <strong>2026-04-11</strong>
         
-        <span class="chip" data-i18n-count="shown" data-i18n-count-value="10">10 shown</span>
+        <span class="chip" data-i18n-count="shown" data-i18n-count-value="10">10 of 10 shown</span>
         
       </div>
       <div class="front-screening-list">

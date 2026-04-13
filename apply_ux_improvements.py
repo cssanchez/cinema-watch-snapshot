@@ -190,7 +190,27 @@ def transform_5_count_format(content: str) -> str:
     return content
 
 
-def transform_6_add_csp(content: str) -> str:
+def transform_6_add_disabled_styles(content: str) -> str:
+    """
+    Add CSS styles for disabled interactive elements.
+    """
+    if ':disabled' not in content:
+        css_rule = (
+            '\n\n    button:disabled,\n'
+            '    input:disabled,\n'
+            '    select:disabled,\n'
+            '    .button-pill:disabled,\n'
+            '    .button-card:disabled {\n'
+            '      opacity: 0.5;\n'
+            '      cursor: not-allowed;\n'
+            '      pointer-events: none;\n'
+            '    }'
+        )
+        content = RE_STYLE_CLOSING.sub(css_rule + r'\n  </style>', content)
+    return content
+
+
+def transform_7_add_csp(content: str) -> str:
     """
     Add Content-Security-Policy meta tag to prevent XSS attacks.
     """
@@ -220,8 +240,9 @@ def process_file(file_path: str) -> Tuple[bool, int]:
         content = transform_3_truncation_signal(content)
         content = transform_4_occupancy_highlight(content)
         content = transform_5_count_format(content)
+        content = transform_6_add_disabled_styles(content)
 
-        content = transform_6_add_csp(content)
+        content = transform_7_add_csp(content)
         
         # Check if changes were made
         changes_made = 1 if content != original_content else 0
@@ -276,7 +297,8 @@ def main():
     print("  3. Converted See all links to pill buttons")
     print("  4. Added occupancy highlights for 50%+ sold")
     print("  5. Updated count display format to 'X of Y'")
-    print("  6. Added Content-Security-Policy meta tag")
+    print("  6. Added disabled state styles")
+    print("  7. Added Content-Security-Policy meta tag")
 
 
 if __name__ == "__main__":
