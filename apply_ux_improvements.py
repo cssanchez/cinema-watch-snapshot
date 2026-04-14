@@ -222,6 +222,49 @@ def transform_7_add_csp(content: str) -> str:
             content = content.replace('<head>\n', '<head>\n' + csp_tag)
     return content
 
+
+def transform_8_advanced_filters_ux(content: str) -> str:
+    """
+    Add CSS styles for the "More filters" accordion summary.
+    """
+    if '.front-advanced-extra > summary:hover' not in content:
+        css_rule = (
+            '\n\n    .front-advanced-extra > summary {\n'
+            '      display: inline-flex;\n'
+            '      align-items: center;\n'
+            '      gap: 0.42rem;\n'
+            '      transition: color 140ms ease;\n'
+            '    }\n'
+            '\n'
+            '    .front-advanced-extra > summary:hover {\n'
+            '      color: var(--ink);\n'
+            '    }\n'
+            '\n'
+            '    .front-advanced-extra > summary:focus-visible {\n'
+            '      outline: 2px solid rgba(88, 199, 179, 0.4);\n'
+            '      outline-offset: 2px;\n'
+            '      border-radius: 2px;\n'
+            '    }\n'
+            '\n'
+            '    .front-advanced-extra > summary::after {\n'
+            '      content: "";\n'
+            '      width: 0.38rem;\n'
+            '      height: 0.38rem;\n'
+            '      border-right: 1.6px solid currentColor;\n'
+            '      border-bottom: 1.6px solid currentColor;\n'
+            '      transform: translateY(-0.05rem) rotate(45deg);\n'
+            '      opacity: 0.72;\n'
+            '      transition: transform 140ms ease, opacity 140ms ease;\n'
+            '    }\n'
+            '\n'
+            '    .front-advanced-extra[open] > summary::after {\n'
+            '      transform: translateY(0.06rem) rotate(225deg);\n'
+            '      opacity: 0.9;\n'
+            '    }'
+        )
+        content = RE_STYLE_CLOSING.sub(css_rule + r'\n  </style>', content)
+    return content
+
 def process_file(file_path: str) -> Tuple[bool, int]:
     """
     Process a single HTML file applying all 6 transformations.
@@ -244,6 +287,8 @@ def process_file(file_path: str) -> Tuple[bool, int]:
 
         content = transform_7_add_csp(content)
         
+        content = transform_8_advanced_filters_ux(content)
+
         # Check if changes were made
         changes_made = 1 if content != original_content else 0
 
@@ -299,6 +344,7 @@ def main():
     print("  5. Updated count display format to 'X of Y'")
     print("  6. Added disabled state styles")
     print("  7. Added Content-Security-Policy meta tag")
+    print("  8. Added advanced filters accordion UX")
 
 
 if __name__ == "__main__":
