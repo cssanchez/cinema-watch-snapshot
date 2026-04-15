@@ -1,6 +1,7 @@
 #!/usr/bin/env python3
 import re
 from pathlib import Path
+from concurrent.futures import ProcessPoolExecutor
 
 DOCS_ROOT = Path(__file__).parent / 'docs'
 
@@ -131,11 +132,11 @@ def process_file(file_path):
 
 def main():
     files = list(DOCS_ROOT.rglob('*.html'))
-    processed_count = 0
-    for file_path in files:
-        if process_file(file_path):
-            processed_count += 1
 
+    with ProcessPoolExecutor() as executor:
+        results = list(executor.map(process_file, files))
+
+    processed_count = sum(1 for r in results if r)
     print(f"Patched {processed_count} files out of {len(files)} total HTML files.")
 
 if __name__ == '__main__':
