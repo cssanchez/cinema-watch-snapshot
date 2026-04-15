@@ -5303,6 +5303,15 @@ const _canonicalFormatCache = new Map();
         return filters;
       }
 
+      function sanitizeUrl(url) {
+        const str = String(url || '').trim();
+        const lower = str.toLowerCase();
+        if (lower.startsWith('javascript:') || lower.startsWith('data:') || lower.startsWith('vbscript:')) {
+          return '#';
+        }
+        return str;
+      }
+
       function mapStaticRows(rows) {
         return (Array.isArray(rows) ? rows : []).map((row) => ({
           provider: String(row.provider || ''),
@@ -5312,8 +5321,8 @@ const _canonicalFormatCache = new Map();
           date_iso: String(row.date_iso || ''),
           time_label: String(row.time_label || ''),
           movie_title: String(row.movie_title || ''),
-          movie_href: String(row.movie_href || ''),
-          venue_href: String(row.venue_href || ''),
+          movie_href: sanitizeUrl(row.movie_href),
+          venue_href: sanitizeUrl(row.venue_href),
           listing_label: String(row.listing_label || ''),
           room_number: row.room_number,
           sold_percent: row.sold_percent,
@@ -5335,8 +5344,8 @@ const _canonicalFormatCache = new Map();
           date_iso: String(row.date_iso || ''),
           time_label: String(row.time_label || ''),
           movie_title: String(row.movie_title || ''),
-          movie_href: String(row.movie_href || ''),
-          venue_href: String(row.venue_href || (row.provider && row.venue_key ? `/venues/${row.provider}/${row.venue_key}` : '')),
+          movie_href: sanitizeUrl(row.movie_href),
+          venue_href: sanitizeUrl(row.venue_href || (row.provider && row.venue_key ? `/venues/${row.provider}/${row.venue_key}` : '')),
           listing_label: String(row.listing_label || ''),
           room_number: row.room_number,
           sold_percent: row.sold_percent,

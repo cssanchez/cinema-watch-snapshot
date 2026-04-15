@@ -11,3 +11,8 @@
 **Vulnerability:** Missing Content-Security-Policy (CSP) headers leaving the static site vulnerable to XSS and data injection attacks.
 **Learning:** For a statically exported site hosted on GitHub Pages, server HTTP headers cannot be configured directly. Therefore, the CSP must be implemented via HTML `<meta http-equiv="Content-Security-Policy" content="...">` tags injected into the `<head>` of every generated static HTML file.
 **Prevention:** Include a build step or post-processing script that automatically injects a strict CSP meta tag into all generated `.html` files before deploying to GitHub Pages.
+
+## 2026-04-14 - [DOM XSS via dynamic URLs]
+**Vulnerability:** DOM-based Cross-Site Scripting (XSS) vulnerability due to unvalidated `movie_href` and `venue_href` fields parsed from JSON.
+**Learning:** External or seemingly trusted JSON payloads parsed dynamically to generate `href` attributes must still sanitize protocols. Assigning a string like `javascript:alert(1)` from JSON directly into an `<a>` `href` allows DOM-based XSS when clicked.
+**Prevention:** Implement and inject a `sanitizeUrl` function to check strings, explicitly rejecting `javascript:`, `data:`, and `vbscript:` protocols from being rendered into `href` variables.
