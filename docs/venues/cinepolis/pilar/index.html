@@ -3414,6 +3414,39 @@
       cursor: not-allowed;
       pointer-events: none;
     }
+
+    .front-advanced-extra > summary {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.42rem;
+      transition: color 140ms ease;
+    }
+
+    .front-advanced-extra > summary:hover {
+      color: var(--ink);
+    }
+
+    .front-advanced-extra > summary:focus-visible {
+      outline: 2px solid rgba(88, 199, 179, 0.4);
+      outline-offset: 2px;
+      border-radius: 2px;
+    }
+
+    .front-advanced-extra > summary::after {
+      content: "";
+      width: 0.38rem;
+      height: 0.38rem;
+      border-right: 1.6px solid currentColor;
+      border-bottom: 1.6px solid currentColor;
+      transform: translateY(-0.05rem) rotate(45deg);
+      opacity: 0.72;
+      transition: transform 140ms ease, opacity 140ms ease;
+    }
+
+    .front-advanced-extra[open] > summary::after {
+      transform: translateY(0.06rem) rotate(225deg);
+      opacity: 0.9;
+    }
   </style>
 </head>
 <body>
