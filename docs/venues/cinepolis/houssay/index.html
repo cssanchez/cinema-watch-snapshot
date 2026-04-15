@@ -5257,17 +5257,24 @@
         return scrollToElementBelowHeader(target, { behavior, extraOffset: 18 });
       }
 
+      let _lastVisiblePanel = undefined;
+      let _lastActiveSections = null;
       function getActiveHomeSections() {
         const visiblePanel = getVisibleLocationPanel();
+        if (_lastVisiblePanel === visiblePanel && _lastActiveSections) {
+          return _lastActiveSections;
+        }
         const specials = visiblePanel?.querySelector('[data-front-specials="true"]')
           || document.querySelector('[data-front-specials="true"]');
         const movies = visiblePanel?.querySelector('[data-front-movies="true"]')
           || document.querySelector('[data-front-movies="true"]');
-        return {
+        _lastVisiblePanel = visiblePanel;
+        _lastActiveSections = {
           cartelera: _getCartelera(),
           specials: specials instanceof HTMLElement ? specials : null,
           movies: movies instanceof HTMLElement ? movies : null,
         };
+        return _lastActiveSections;
       }
 
       function currentHomeSectionFocus() {
@@ -5519,12 +5526,21 @@
         });
       }
 
+      let _lastSearch = null;
+      let _cachedCategory = '';
+      let _cachedFocusParam = '';
       function syncTopNavState() {
         const path = window.location.pathname || '/';
-        const params = new URLSearchParams(window.location.search || '');
-        const category = (params.get('category') || '').toLowerCase();
-        const focusParam = (params.get('focus') || '').toLowerCase();
-        const screeningsLink = _getScreeningsLink();
+        const currentSearch = window.location.search || '';
+        if (_lastSearch !== currentSearch) {
+          const params = new URLSearchParams(currentSearch);
+          _cachedCategory = (params.get('category') || '').toLowerCase();
+          _cachedFocusParam = (params.get('focus') || '').toLowerCase();
+          _lastSearch = currentSearch;
+        }
+        const category = _cachedCategory;
+        const focusParam = _cachedFocusParam;
+const screeningsLink = _getScreeningsLink();
         const homePath = ensureCarteleraNavHref(screeningsLink);
         const relativePath = relativePathFromHome(path, homePath);
         const onHome = relativePath === '/';
