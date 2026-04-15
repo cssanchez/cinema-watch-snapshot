@@ -5200,21 +5200,17 @@
       }
 
       function setFrontBoard(root, locationKey, boardKey) {
-        if (!locationKey) {
-          return;
-        }
-        const buttons = Array.from(
-          root.querySelectorAll(`[data-front-board-location="${locationKey}"][data-front-board-target]`)
-        );
-        const panels = Array.from(
-          root.querySelectorAll(`[data-front-board-location="${locationKey}"][data-front-board-panel]`)
-        );
-        if (!buttons.length || !panels.length) {
-          return;
-        }
+        if (!locationKey) return;
+        const buttonsNodes = root.querySelectorAll(`[data-front-board-location="${locationKey}"][data-front-board-target]`);
+        const panelsNodes = root.querySelectorAll(`[data-front-board-location="${locationKey}"][data-front-board-panel]`);
+        if (!buttonsNodes.length || !panelsNodes.length) return;
+        const buttons = Array.from(buttonsNodes);
+        const panels = Array.from(panelsNodes);
 
-        const availableKeys = new Set(panels.map((panel) => panel.dataset.frontBoardPanel || ''));
-        let nextKey = boardKey && availableKeys.has(boardKey) ? boardKey : '';
+
+        const availableKeys = new Set();
+        for (let i = 0; i < panels.length; i++) availableKeys.add(panels[i].dataset.frontBoardPanel || '');
+let nextKey = boardKey && availableKeys.has(boardKey) ? boardKey : '';
         if (!nextKey) {
           const activeButton = buttons.find((button) => button.getAttribute('aria-pressed') === 'true');
           nextKey = activeButton?.dataset.frontBoardTarget || buttons[0]?.dataset.frontBoardTarget || '';
@@ -5235,20 +5231,23 @@
       }
 
       function initFrontBoards(root = document) {
-        const locationKeys = new Set(
-          Array.from(root.querySelectorAll('[data-front-board-location]'))
-            .map((element) => element.getAttribute('data-front-board-location') || '')
-            .filter(Boolean)
-        );
-        for (const locationKey of locationKeys) {
+        const nodes = root.querySelectorAll('[data-front-board-location]');
+        const locationKeys = new Set();
+        for (let i = 0; i < nodes.length; i++) {
+          const key = nodes[i].getAttribute('data-front-board-location');
+          if (key) locationKeys.add(key);
+        }
+for (const locationKey of locationKeys) {
           setFrontBoard(root, locationKey, '');
         }
       }
 
       function setHomepageLocation(root, key, { persist = true } = {}) {
-        const buttons = Array.from(root.querySelectorAll('[data-location-target]'));
-        const panels = Array.from(root.querySelectorAll('[data-location-panel]'));
-        const intendedSectionKey = typeof window.CineVicioNav?.currentIntentSectionKey === 'function'
+        const buttonsNodes = root.querySelectorAll('[data-location-target]');
+        const panelsNodes = root.querySelectorAll('[data-location-panel]');
+        const buttons = Array.from(buttonsNodes);
+        const panels = Array.from(panelsNodes);
+const intendedSectionKey = typeof window.CineVicioNav?.currentIntentSectionKey === 'function'
           ? window.CineVicioNav.currentIntentSectionKey()
           : '';
         let currentSectionState = window.scrollY > 120
@@ -5264,11 +5263,10 @@
         const transitionState = window.CineVicioLocationTransition;
         transitionState.active = Boolean(currentSectionState);
         transitionState.sectionKey = currentSectionState?.key || '';
-        const availableKeys = new Set([
-          ...panels.map((panel) => panel.dataset.locationPanel || ''),
-          ...buttons.map((button) => button.dataset.locationTarget || ''),
-        ]);
-        let nextKey = key && availableKeys.has(key) ? key : '';
+        const availableKeys = new Set();
+        for (let i = 0; i < panels.length; i++) availableKeys.add(panels[i].dataset.locationPanel || '');
+        for (let i = 0; i < buttons.length; i++) availableKeys.add(buttons[i].dataset.locationTarget || '');
+let nextKey = key && availableKeys.has(key) ? key : '';
         if (!nextKey) {
           const activeButton = buttons.find((button) => button.getAttribute('aria-pressed') === 'true');
           nextKey = activeButton?.dataset.locationTarget || buttons[0]?.dataset.locationTarget || '';
@@ -6097,18 +6095,23 @@ const _canonicalFormatCache = new Map();
         return String(providerName || provider || '').trim();
       }
 
+      const _splitListingTokensCache = new Map();
       function splitListingTokens(value) {
         const text = String(value || '').trim();
         if (!text) return [];
+        if (_splitListingTokensCache.has(text)) return [..._splitListingTokensCache.get(text)];
         const normalized = text
           .replaceAll('•', '|')
           .replaceAll('·', '|')
           .replaceAll('/', '|')
           .replaceAll(' - ', '|');
-        return normalized
+        const result = normalized
           .split('|')
           .map((part) => part.trim().replace(/\s+/g, ' '))
           .filter(Boolean);
+        if (_splitListingTokensCache.size > 2000) _splitListingTokensCache.clear();
+        _splitListingTokensCache.set(text, result);
+        return [...result];
       }
 
       function buildRowDetailTokens(row) {
@@ -6318,13 +6321,9 @@ const _canonicalFormatCache = new Map();
 
       function setBoardPanel(locationKey, panelKey) {
         if (!locationKey || !panelKey) return;
-        const buttons = Array.from(
-          document.querySelectorAll(`[data-front-board-location="${locationKey}"][data-front-board-target]`)
-        );
-        const panels = Array.from(
-          document.querySelectorAll(`[data-front-board-location="${locationKey}"][data-front-board-panel]`)
-        );
-        for (const button of buttons) {
+        const buttons = document.querySelectorAll(`[data-front-board-location="${locationKey}"][data-front-board-target]`);
+        const panels = document.querySelectorAll(`[data-front-board-location="${locationKey}"][data-front-board-panel]`);
+for (const button of buttons) {
           const pressed = button.dataset.frontBoardTarget === panelKey;
           button.setAttribute('aria-pressed', pressed ? 'true' : 'false');
           button.classList.toggle('is-active', pressed);
@@ -6480,12 +6479,14 @@ const _canonicalFormatCache = new Map();
       }
 
       function syncActiveQuickBoardPresets(root = document) {
-        const locationKeys = new Set(
-          Array.from(root.querySelectorAll('form[data-front-advanced-form="true"]'))
-            .map((form) => form instanceof HTMLFormElement ? String(form.dataset.frontLocationKey || '').trim() : '')
-            .filter(Boolean)
-        );
-        for (const locationKey of locationKeys) {
+        const nodes = root.querySelectorAll('form[data-front-advanced-form="true"]');
+        const locationKeys = new Set();
+        for (let i = 0; i < nodes.length; i++) {
+          const form = nodes[i];
+          const key = form instanceof HTMLFormElement ? String(form.dataset.frontLocationKey || '').trim() : '';
+          if (key) locationKeys.add(key);
+        }
+for (const locationKey of locationKeys) {
           syncBoardPreset(root, locationKey, '', { force: false });
         }
       }
