@@ -7,7 +7,8 @@ from apply_ux_improvements import (
     transform_4_occupancy_highlight,
     transform_5_count_format,
     transform_6_add_disabled_styles,
-    transform_7_add_csp
+    transform_7_add_csp,
+    transform_8_advanced_filters_ux
 )
 
 def test_transform_5_basic():
@@ -393,3 +394,27 @@ def test_transform_1_demote_freshness_partial():
     </style>
     """
     assert transform_1_demote_freshness(content) == expected
+
+def test_transform_8_advanced_filters_ux_basic():
+    """Test that advanced filters CSS is injected before the </style> tag."""
+    content = "<style>\n  </style>"
+    result = transform_8_advanced_filters_ux(content)
+    assert ".front-advanced-extra > summary" in result
+    assert ".front-advanced-extra > summary:hover" in result
+    assert ".front-advanced-extra > summary:focus-visible" in result
+    assert ".front-advanced-extra > summary::after" in result
+    assert ".front-advanced-extra[open] > summary::after" in result
+    assert "</style>" in result
+
+def test_transform_8_advanced_filters_ux_no_duplicate():
+    """Test that advanced filters CSS is not injected if already present."""
+    content = "<style>\n    .front-advanced-extra > summary:hover { color: var(--ink); }\n  </style>"
+    result = transform_8_advanced_filters_ux(content)
+    # Should only appear once (the one we passed in)
+    assert result.count(".front-advanced-extra > summary:hover") == 1
+
+def test_transform_8_advanced_filters_ux_no_style_tag():
+    """Test that nothing is changed if there is no </style> tag."""
+    content = "<div>No style tag here</div>"
+    result = transform_8_advanced_filters_ux(content)
+    assert result == content
