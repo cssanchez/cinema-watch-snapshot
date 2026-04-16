@@ -10882,7 +10882,24 @@ const _canonicalFormatCache = new Map();
           .filter(Boolean);
       }
 
+// ⚡ Bolt Optimization: Memoize buildRowDetailTokens to avoid redundant string allocations and sets creation for recurring rows.
+const _buildRowDetailTokensCache = new Map();
       function buildRowDetailTokens(row) {
+        // Use a composite key representing the row identity to cache tokens
+        const key = [
+          row?.provider || '',
+          row?.provider_name || '',
+          row?.venue_name || '',
+          row?.listing_label || '',
+          row?.experience || '',
+          row?.format_label || '',
+          row?.language || ''
+        ].join('|');
+
+        if (_buildRowDetailTokensCache.has(key)) {
+            return [..._buildRowDetailTokensCache.get(key)];
+        }
+
         const provider = String(row?.provider || '').trim();
         const providerName = String(row?.provider_name || '').trim();
         const venueName = String(row?.venue_name || '').trim();
@@ -10938,7 +10955,9 @@ const _canonicalFormatCache = new Map();
           appendToken(token);
         }
 
-        return detailTokens;
+        if (_buildRowDetailTokensCache.size > 2000) _buildRowDetailTokensCache.clear();
+        _buildRowDetailTokensCache.set(key, detailTokens);
+        return [...detailTokens];
       }
 
       function buildRowMetaLine(row) {
