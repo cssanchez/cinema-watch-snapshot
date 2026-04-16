@@ -140,6 +140,144 @@ CANONICAL_FORMAT_ORIG_2 = """      function canonicalFormat(value) {
         return foldText(value).replace(/\\s+/g, '');
       }"""
 
+
+
+BUILD_ROW_DETAIL_TOKENS_ORIG_2 = """      function buildRowDetailTokens(row) {
+        const provider = String(row?.provider || '').trim();
+        const providerName = String(row?.provider_name || '').trim();
+        const venueName = String(row?.venue_name || '').trim();
+        const venueLabel = venueShortLabel(provider, venueName);
+        const listingTokens = splitListingTokens(row?.listing_label || '');
+        const experience = String(row?.experience || '').trim();
+        const formatLabel = String(row?.format_label || '').trim();
+        const language = String(row?.language || '').trim();
+
+        const venueFolded = foldText(venueName);
+        const venueLabelFolded = foldText(venueLabel);
+        const experienceFolded = canonicalFormat(experience);
+        const formatFolded = canonicalFormat(formatLabel);
+        const languageFolded = canonicalLanguage(language);
+        const blockedExact = new Set([
+          foldText(provider),
+          foldText(providerName),
+          venueFolded,
+          venueLabelFolded,
+          experienceFolded,
+          formatFolded,
+          languageFolded,
+        ].filter(Boolean));
+        const blockedContains = [venueFolded, venueLabelFolded].filter(Boolean);
+
+        const detailTokens = [];
+        const seen = new Set();
+
+        const appendToken = (value) => {
+          const cleaned = String(value || '').trim().replace(/\\s+/g, ' ');
+          const folded = foldText(cleaned);
+          if (!cleaned || !folded || seen.has(folded)) return;
+          detailTokens.push(cleaned);
+          seen.add(folded);
+        };
+
+        if (experience) {
+          if (!venueFolded || !venueFolded.includes(experienceFolded)) {
+            appendToken(experience);
+          }
+        }
+        if (formatLabel && canonicalFormat(formatLabel) !== canonicalFormat(experience)) {
+          appendToken(formatLabel);
+        }
+        if (language) {
+          appendToken(language);
+        }
+
+        for (const token of listingTokens) {
+          const folded = foldText(token);
+          if (!folded || blockedExact.has(folded)) continue;
+          if (folded.length >= 4 && blockedContains.some((candidate) => candidate.includes(folded))) continue;
+          appendToken(token);
+        }
+
+        return detailTokens;
+      }"""
+
+BUILD_ROW_DETAIL_TOKENS_NEW_2 = """// ⚡ Bolt Optimization: Memoize buildRowDetailTokens to avoid redundant string allocations and sets creation for recurring rows.
+const _buildRowDetailTokensCache = new Map();
+      function buildRowDetailTokens(row) {
+        // Use a composite key representing the row identity to cache tokens
+        const key = [
+          row?.provider || '',
+          row?.provider_name || '',
+          row?.venue_name || '',
+          row?.listing_label || '',
+          row?.experience || '',
+          row?.format_label || '',
+          row?.language || ''
+        ].join('|');
+
+        if (_buildRowDetailTokensCache.has(key)) {
+            return [..._buildRowDetailTokensCache.get(key)];
+        }
+
+        const provider = String(row?.provider || '').trim();
+        const providerName = String(row?.provider_name || '').trim();
+        const venueName = String(row?.venue_name || '').trim();
+        const venueLabel = venueShortLabel(provider, venueName);
+        const listingTokens = splitListingTokens(row?.listing_label || '');
+        const experience = String(row?.experience || '').trim();
+        const formatLabel = String(row?.format_label || '').trim();
+        const language = String(row?.language || '').trim();
+
+        const venueFolded = foldText(venueName);
+        const venueLabelFolded = foldText(venueLabel);
+        const experienceFolded = canonicalFormat(experience);
+        const formatFolded = canonicalFormat(formatLabel);
+        const languageFolded = canonicalLanguage(language);
+        const blockedExact = new Set([
+          foldText(provider),
+          foldText(providerName),
+          venueFolded,
+          venueLabelFolded,
+          experienceFolded,
+          formatFolded,
+          languageFolded,
+        ].filter(Boolean));
+        const blockedContains = [venueFolded, venueLabelFolded].filter(Boolean);
+
+        const detailTokens = [];
+        const seen = new Set();
+
+        const appendToken = (value) => {
+          const cleaned = String(value || '').trim().replace(/\\s+/g, ' ');
+          const folded = foldText(cleaned);
+          if (!cleaned || !folded || seen.has(folded)) return;
+          detailTokens.push(cleaned);
+          seen.add(folded);
+        };
+
+        if (experience) {
+          if (!venueFolded || !venueFolded.includes(experienceFolded)) {
+            appendToken(experience);
+          }
+        }
+        if (formatLabel && canonicalFormat(formatLabel) !== canonicalFormat(experience)) {
+          appendToken(formatLabel);
+        }
+        if (language) {
+          appendToken(language);
+        }
+
+        for (const token of listingTokens) {
+          const folded = foldText(token);
+          if (!folded || blockedExact.has(folded)) continue;
+          if (folded.length >= 4 && blockedContains.some((candidate) => candidate.includes(folded))) continue;
+          appendToken(token);
+        }
+
+        if (_buildRowDetailTokensCache.size > 2000) _buildRowDetailTokensCache.clear();
+        _buildRowDetailTokensCache.set(key, detailTokens);
+        return [...detailTokens];
+      }"""
 CANONICAL_FORMAT_NEW_2 = """const _canonicalFormatCache = new Map();
       function canonicalFormat(value) {
         const strValue = String(value ?? '');
@@ -168,6 +306,7 @@ def process_file(file_path):
     content = content.replace(FOLD_TEXT_ORIG_2, FOLD_TEXT_NEW_2)
     content = content.replace(CANONICAL_LANGUAGE_ORIG_2, CANONICAL_LANGUAGE_NEW_2)
     content = content.replace(CANONICAL_FORMAT_ORIG_2, CANONICAL_FORMAT_NEW_2)
+    content = content.replace(BUILD_ROW_DETAIL_TOKENS_ORIG_2, BUILD_ROW_DETAIL_TOKENS_NEW_2)
 
     if content != original_content:
         with open(file_path, 'w', encoding='utf-8') as f:

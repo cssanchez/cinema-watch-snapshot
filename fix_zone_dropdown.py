@@ -164,16 +164,14 @@ def main():
     failed_count = 0
 
     for file_path in files:
+        relative_path = file_path.relative_to(DOCS_ROOT)
         try:
             if fix_zone_dropdown(file_path):
-                relative_path = file_path.relative_to(DOCS_ROOT)
                 print(f"  [+] Fixed {relative_path}")
                 fixed_count += 1
             else:
-                relative_path = file_path.relative_to(DOCS_ROOT)
                 print(f"  [-] No changes needed for {relative_path}")
         except Exception as e:
-            relative_path = file_path.relative_to(DOCS_ROOT)
             print(f"  [E] Error processing {relative_path}: {e}")
             failed_count += 1
 

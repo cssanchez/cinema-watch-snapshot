@@ -5904,6 +5904,22 @@ const screeningsLink = _getScreeningsLink();
       const FILTER_KEYS = ['provider', 'venue', 'language', 'category', 'format', 'from_date', 'to_date', 'room'];
       const staticPayloadCache = new Map();
 
+const _sanitizeUrlCache = new Map();
+      function sanitizeUrl(url) {
+        const strUrl = String(url ?? '').trim();
+        if (_sanitizeUrlCache.has(strUrl)) return _sanitizeUrlCache.get(strUrl);
+        let result = strUrl;
+        const lowerUrl = strUrl.toLowerCase();
+        if (lowerUrl.startsWith('javascript:') ||
+            lowerUrl.startsWith('data:') ||
+            lowerUrl.startsWith('vbscript:')) {
+          result = '#';
+        }
+        if (_sanitizeUrlCache.size > 2000) _sanitizeUrlCache.clear();
+        _sanitizeUrlCache.set(strUrl, result);
+        return result;
+      }
+
 const _escapeHtmlCache = new Map();
       function escapeHtml(value) {
         const strValue = String(value ?? '');
@@ -6001,7 +6017,24 @@ const _canonicalFormatCache = new Map();
           .filter(Boolean);
       }
 
+// ⚡ Bolt Optimization: Memoize buildRowDetailTokens to avoid redundant string allocations and sets creation for recurring rows.
+const _buildRowDetailTokensCache = new Map();
       function buildRowDetailTokens(row) {
+        // Use a composite key representing the row identity to cache tokens
+        const key = [
+          row?.provider || '',
+          row?.provider_name || '',
+          row?.venue_name || '',
+          row?.listing_label || '',
+          row?.experience || '',
+          row?.format_label || '',
+          row?.language || ''
+        ].join('|');
+
+        if (_buildRowDetailTokensCache.has(key)) {
+            return [..._buildRowDetailTokensCache.get(key)];
+        }
+
         const provider = String(row?.provider || '').trim();
         const providerName = String(row?.provider_name || '').trim();
         const venueName = String(row?.venue_name || '').trim();
@@ -6057,7 +6090,9 @@ const _canonicalFormatCache = new Map();
           appendToken(token);
         }
 
-        return detailTokens;
+        if (_buildRowDetailTokensCache.size > 2000) _buildRowDetailTokensCache.clear();
+        _buildRowDetailTokensCache.set(key, detailTokens);
+        return [...detailTokens];
       }
 
       function buildRowMetaLine(row) {
@@ -6641,14 +6676,14 @@ const _canonicalFormatCache = new Map();
           const renderedItems = items.slice(0, 12).map((item) => {
             const movieTitle = escapeHtml(item.movie_title);
             const movieLine = item.movie_href
-              ? `<a href="${escapeHtml(item.movie_href)}" data-live-nav="true">${movieTitle}</a>`
+              ? `<a href="${escapeHtml(sanitizeUrl(item.movie_href))}" data-live-nav="true">${movieTitle}</a>`
               : movieTitle;
             const venueLabel = [
               providerContextLabel(item.provider, item.provider_name),
               venueShortLabel(item.provider, item.venue_name),
             ].filter(Boolean).join(' / ');
             const venueLine = item.venue_href
-              ? `<a href="${escapeHtml(item.venue_href)}" data-live-nav="true">${escapeHtml(venueLabel)}</a>`
+              ? `<a href="${escapeHtml(sanitizeUrl(item.venue_href))}" data-live-nav="true">${escapeHtml(venueLabel)}</a>`
               : escapeHtml(venueLabel);
             const metaLine = buildRowMetaLine(item);
             const peakFlag = peakRowIdentity && frontRowIdentity(item) === peakRowIdentity
