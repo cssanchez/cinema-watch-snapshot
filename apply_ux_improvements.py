@@ -66,8 +66,6 @@ def transform_1_demote_freshness(content: str) -> str:
 def transform_2_add_time_context(content: str) -> str:
     """
     Add time context label before each screening group.
-    Insert: <div class="screening-time-context" ...>Coming up</div>
-    before: <section class="front-date-group">
     """
     time_context_html = (
         '<div class="screening-time-context" style="display:flex; align-items:center; gap:0.5rem; '
@@ -75,7 +73,9 @@ def transform_2_add_time_context(content: str) -> str:
         'Coming up</span></div>\n    '
     )
 
-    # Replace all occurrences of <section class="front-date-group"> with the context label + section
+    # Make idempotent: First strip existing ones
+    content = re.sub(r'<div class="screening-time-context"[^>]*>.*?</div>\s*', '', content)
+
     replacement = r'\1' + time_context_html.rstrip('\n    ') + r'\n    \2'
     content = RE_DATE_GROUP.sub(replacement, content)
 
@@ -265,6 +265,18 @@ def transform_8_advanced_filters_ux(content: str) -> str:
         content = RE_STYLE_CLOSING.sub(css_rule + r'\n  </style>', content)
     return content
 
+
+def transform_9_add_focus_visible(content: str) -> str:
+    """
+    Add a:focus-visible and button:focus-visible to the global focus styles.
+    """
+    if 'a:focus-visible,' not in content:
+        content = content.replace(
+            'input:focus,\n    select:focus,\n    button:focus,\n    .button-pill:focus,\n    .button-card:focus {',
+            'a:focus-visible,\n    button:focus-visible,\n    .button-pill:focus-visible,\n    .button-card:focus-visible,\n    input:focus,\n    select:focus,\n    button:focus,\n    .button-pill:focus,\n    .button-card:focus {'
+        )
+    return content
+
 def process_file(file_path: str) -> Tuple[bool, int]:
     """
     Process a single HTML file applying all 6 transformations.
@@ -288,6 +300,7 @@ def process_file(file_path: str) -> Tuple[bool, int]:
         content = transform_7_add_csp(content)
         
         content = transform_8_advanced_filters_ux(content)
+        content = transform_9_add_focus_visible(content)
 
         # Check if changes were made
         changes_made = 1 if content != original_content else 0
@@ -345,6 +358,7 @@ def main():
     print("  6. Added disabled state styles")
     print("  7. Added Content-Security-Policy meta tag")
     print("  8. Added advanced filters accordion UX")
+    print("  9. Added global focus-visible styles for keyboard accessibility")
 
 
 if __name__ == "__main__":
