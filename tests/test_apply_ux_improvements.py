@@ -395,6 +395,31 @@ def test_transform_1_demote_freshness_partial():
     """
     assert transform_1_demote_freshness(content) == expected
 
+from apply_ux_improvements import transform_9_add_clear_filters_button
+
+def test_transform_9_add_clear_filters_button():
+    content = """
+    <div class="form-actions front-advanced-actions">
+              <button type="submit" class="button-pill" data-tone="accent" data-i18n-source>Filter</button>
+    </div>
+    """
+    expected = """
+    <div class="form-actions front-advanced-actions">
+              <button type="submit" class="button-pill" data-tone="accent" data-i18n-source>Filter</button>
+              <button type="button" class="button-pill" data-tone="neutral" data-front-advanced-reset="true" data-i18n-source>Clear filters</button>
+    </div>
+    """
+    result = transform_9_add_clear_filters_button(content)
+    assert result == expected
+
+def test_transform_9_add_clear_filters_button_no_duplicate():
+    content = """
+    <div class="form-actions front-advanced-actions">
+              <button type="submit" class="button-pill" data-tone="accent" data-i18n-source>Filter</button>
+              <button type="button" class="button-pill" data-tone="neutral" data-front-advanced-reset="true" data-i18n-source>Clear filters</button>
+    </div>
+    """
+    result = transform_9_add_clear_filters_button(content)
 def test_transform_8_advanced_filters_ux_basic():
     """Test that advanced filters CSS is injected before the </style> tag."""
     content = "<style>\n  </style>"

@@ -1,3 +1,4 @@
+import re
 #!/usr/bin/env python3
 """
 Implement 6 UX/Security improvements to cinema listing website.
@@ -265,6 +266,20 @@ def transform_8_advanced_filters_ux(content: str) -> str:
         content = RE_STYLE_CLOSING.sub(css_rule + r'\n  </style>', content)
     return content
 
+
+
+def transform_9_add_clear_filters_button(content: str) -> str:
+    """
+    Add a 'Clear filters' button to the advanced filters form next to the 'Filter' submit button.
+    """
+    # Prevent replacing the JS querySelector call string
+    if '<button type="button" class="button-pill" data-tone="neutral" data-front-advanced-reset="true" data-i18n-source>Clear filters</button>' not in content:
+        import re
+        target_pattern = r'(<button type="submit" class="button-pill" data-tone="accent" data-i18n-source>Filter<\/button>)'
+        replacement = r'\1\n              <button type="button" class="button-pill" data-tone="neutral" data-front-advanced-reset="true" data-i18n-source>Clear filters</button>'
+        content = re.sub(target_pattern, replacement, content)
+    return content
+
 def process_file(file_path: str) -> Tuple[bool, int]:
     """
     Process a single HTML file applying all 6 transformations.
@@ -288,6 +303,7 @@ def process_file(file_path: str) -> Tuple[bool, int]:
         content = transform_7_add_csp(content)
         
         content = transform_8_advanced_filters_ux(content)
+        content = transform_9_add_clear_filters_button(content)
 
         # Check if changes were made
         changes_made = 1 if content != original_content else 0
@@ -345,6 +361,7 @@ def main():
     print("  6. Added disabled state styles")
     print("  7. Added Content-Security-Policy meta tag")
     print("  8. Added advanced filters accordion UX")
+    print("  9. Added clear filters button to advanced form")
 
 
 if __name__ == "__main__":
