@@ -39,6 +39,7 @@ def test_process_file_inject_definition(tmp_path):
     new_content = file_path.read_text(encoding="utf-8")
     assert "function sanitizeUrl(url)" in new_content
     assert "const _escapeHtmlCache =" in new_content
+    assert r"replace(/[\x00-\x1F\x7F-\x9F\s]/g, '')" in new_content
 
 def test_process_file_idempotency(tmp_path):
     file_path = tmp_path / "index.html"
@@ -72,3 +73,36 @@ def test_process_file_full_patch(tmp_path):
     assert "escapeHtml(sanitizeUrl(item.movie_href))" in new_content
     assert "escapeHtml(sanitizeUrl(item.venue_href))" in new_content
     assert "const _escapeHtmlCache =" in new_content
+    assert r"replace(/[\x00-\x1F\x7F-\x9F\s]/g, '')" in new_content
+
+def test_process_file_upgrade(tmp_path):
+    file_path = tmp_path / "index.html"
+    old_content = """
+    <script>
+    const _sanitizeUrlCache = new Map();
+      function sanitizeUrl(url) {
+        const strUrl = String(url ?? '').trim();
+        if (_sanitizeUrlCache.has(strUrl)) return _sanitizeUrlCache.get(strUrl);
+        let result = strUrl;
+        const lowerUrl = strUrl.toLowerCase();
+        if (lowerUrl.startsWith('javascript:') ||
+            lowerUrl.startsWith('data:') ||
+            lowerUrl.startsWith('vbscript:')) {
+          result = '#';
+        }
+        if (_sanitizeUrlCache.size > 2000) _sanitizeUrlCache.clear();
+        _sanitizeUrlCache.set(strUrl, result);
+        return result;
+      }
+
+const _escapeHtmlCache = new Map();
+    function render() {
+        return `<div>${escapeHtml(item.movie_href)}</div><div>${escapeHtml(item.venue_href)}</div>`;
+    }
+    </script>
+    """
+    file_path.write_text(old_content, encoding="utf-8")
+
+    assert fix_security_xss.process_file(file_path) is True
+    new_content = file_path.read_text(encoding="utf-8")
+    assert r"replace(/[\x00-\x1F\x7F-\x9F\s]/g, '')" in new_content
