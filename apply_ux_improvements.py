@@ -1,4 +1,3 @@
-import re
 #!/usr/bin/env python3
 """
 Implement 6 UX/Security improvements to cinema listing website.
@@ -30,6 +29,8 @@ RE_DATE_GROUP_FULL = re.compile(r'<section class="front-date-group">(?:[^<]|<(?!
 RE_SCREENING_ROW_OPEN = re.compile(r'<div class="front-screening-row"')
 RE_SHOWN_COUNT = re.compile(r'(>)(\d+)(\s+shown<)')
 RE_SOLD_PERCENT = re.compile(r'(\d+)%\s*sold')
+
+RE_CLEAR_FILTERS_BTN = re.compile(r'(<button type="submit" class="button-pill" data-tone="accent" data-i18n-source>Filter<\/button>)')
 
 def find_all_html_files(root_path: Union[str, Path]) -> List[str]:
     """Find all HTML files in the docs directory."""
@@ -274,10 +275,8 @@ def transform_9_add_clear_filters_button(content: str) -> str:
     """
     # Prevent replacing the JS querySelector call string
     if '<button type="button" class="button-pill" data-tone="neutral" data-front-advanced-reset="true" data-i18n-source>Clear filters</button>' not in content:
-        import re
-        target_pattern = r'(<button type="submit" class="button-pill" data-tone="accent" data-i18n-source>Filter<\/button>)'
         replacement = r'\1\n              <button type="button" class="button-pill" data-tone="neutral" data-front-advanced-reset="true" data-i18n-source>Clear filters</button>'
-        content = re.sub(target_pattern, replacement, content)
+        content = RE_CLEAR_FILTERS_BTN.sub(replacement, content)
     return content
 
 def process_file(file_path: str) -> Tuple[bool, int]:
