@@ -10159,15 +10159,19 @@
         return _getScreeningsLink();
       }
 
+// ⚡ Bolt Optimization: Memoize extractHomePathFromScreeningsLink to avoid expensive new URL() allocations during scroll.
+      const _extractHomePathCache = new Map();
       function extractHomePathFromScreeningsLink(link) {
-        if (!(link instanceof HTMLAnchorElement)) {
-          return '/';
-        }
+        if (!(link instanceof HTMLAnchorElement)) return '/';
+        const rawHref = link.getAttribute('href') || '/';
+        if (_extractHomePathCache.has(rawHref)) return _extractHomePathCache.get(rawHref);
+        let result = '/';
         try {
-          return new URL(link.getAttribute('href') || '/', window.location.origin).pathname || '/';
-        } catch (_) {
-          return '/';
-        }
+          result = new URL(rawHref, window.location.origin).pathname || '/';
+        } catch (_) {}
+        if (_extractHomePathCache.size > 2000) _extractHomePathCache.clear();
+        _extractHomePathCache.set(rawHref, result);
+        return result;
       }
 
       function ensureCarteleraNavHref(link) {

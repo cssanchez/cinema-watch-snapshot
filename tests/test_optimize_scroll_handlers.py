@@ -84,3 +84,26 @@ def test_idempotency(temp_docs_dir):
     content_after_second_pass = test_html.read_text(encoding="utf-8")
 
     assert content_after_first_pass == content_after_second_pass
+
+def test_replaces_extractHomePathFromScreeningsLink(temp_docs_dir):
+    test_html = temp_docs_dir / "test.html"
+    test_html.write_text("""
+      function extractHomePathFromScreeningsLink(link) {
+        if (!(link instanceof HTMLAnchorElement)) {
+          return '/';
+        }
+        try {
+          return new URL(link.getAttribute('href') || '/', window.location.origin).pathname || '/';
+        } catch (_) {
+          return '/';
+        }
+      }
+    """, encoding="utf-8")
+
+    optimize_scroll_handlers.process_file(test_html)
+    content = test_html.read_text(encoding="utf-8")
+
+    assert "const _extractHomePathCache = new Map();" in content
+    assert "_extractHomePathCache.has(rawHref)" in content
+    assert "result = new URL(rawHref, window.location.origin).pathname || '/';" in content
+    assert "_extractHomePathCache.set(rawHref, result);" in content

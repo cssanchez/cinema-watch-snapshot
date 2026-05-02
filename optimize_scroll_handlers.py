@@ -84,6 +84,42 @@ def process_file(file_path):
 
     content = pattern_sync_top_nav.sub(repl_sync_top_nav, content)
 
+    # 3. Optimize extractHomePathFromScreeningsLink URL parsing during scroll handlers
+    pattern_url_parsing = re.compile(
+        r"([ \t]*)function extractHomePathFromScreeningsLink\(link\) \{\s*"
+        r"if \(!\(link instanceof HTMLAnchorElement\)\) \{\s*"
+        r"return '/';\s*"
+        r"\}\s*"
+        r"try \{\s*"
+        r"return new URL\(link\.getAttribute\('href'\) \|\| '/', window\.location\.origin\)\.pathname \|\| '/';\s*"
+        r"\} catch \(_\) \{\s*"
+        r"return '/';\s*"
+        r"\}\s*"
+        r"\}",
+        re.MULTILINE
+    )
+
+    def repl_url_parsing(match):
+        indent = match.group(1)
+        return (
+            f"// ⚡ Bolt Optimization: Memoize extractHomePathFromScreeningsLink to avoid expensive new URL() allocations during scroll.\n"
+            f"{indent}const _extractHomePathCache = new Map();\n"
+            f"{indent}function extractHomePathFromScreeningsLink(link) {{\n"
+            f"{indent}  if (!(link instanceof HTMLAnchorElement)) return '/';\n"
+            f"{indent}  const rawHref = link.getAttribute('href') || '/';\n"
+            f"{indent}  if (_extractHomePathCache.has(rawHref)) return _extractHomePathCache.get(rawHref);\n"
+            f"{indent}  let result = '/';\n"
+            f"{indent}  try {{\n"
+            f"{indent}    result = new URL(rawHref, window.location.origin).pathname || '/';\n"
+            f"{indent}  }} catch (_) {{}}\n"
+            f"{indent}  if (_extractHomePathCache.size > 2000) _extractHomePathCache.clear();\n"
+            f"{indent}  _extractHomePathCache.set(rawHref, result);\n"
+            f"{indent}  return result;\n"
+            f"{indent}}}"
+        )
+
+    content = pattern_url_parsing.sub(repl_url_parsing, content)
+
     if content != original_content:
         with open(file_path, 'w', encoding='utf-8') as f:
             f.write(content)
