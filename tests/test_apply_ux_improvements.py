@@ -395,7 +395,7 @@ def test_transform_1_demote_freshness_partial():
     """
     assert transform_1_demote_freshness(content) == expected
 
-from apply_ux_improvements import transform_9_add_clear_filters_button
+from apply_ux_improvements import transform_9_add_clear_filters_button, transform_10_skip_link_focus_visible
 
 def test_transform_9_add_clear_filters_button():
     content = """
@@ -443,3 +443,39 @@ def test_transform_8_advanced_filters_ux_no_style_tag():
     content = "<div>No style tag here</div>"
     result = transform_8_advanced_filters_ux(content)
     assert result == content
+
+def test_transform_10_skip_link_focus_visible():
+    """Test that .skip-link:focus is converted to .skip-link:focus-visible."""
+    content = """
+    .skip-link {
+      position: absolute;
+    }
+
+    .skip-link:focus {
+      transform: translateY(0);
+      outline: 2px solid rgba(88, 199, 179, 0.55);
+      outline-offset: 2px;
+    }
+    """
+
+    expected = """
+    .skip-link {
+      position: absolute;
+    }
+
+    .skip-link:focus-visible {
+      transform: translateY(0);
+      outline: 2px solid rgba(88, 199, 179, 0.55);
+      outline-offset: 2px;
+    }
+    """
+    assert transform_10_skip_link_focus_visible(content) == expected
+
+def test_transform_10_skip_link_focus_visible_idempotent():
+    """Test that the transformation is idempotent."""
+    content = """
+    .skip-link:focus-visible {
+      transform: translateY(0);
+    }
+    """
+    assert transform_10_skip_link_focus_visible(content) == content
