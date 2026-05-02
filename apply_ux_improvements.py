@@ -71,6 +71,10 @@ def transform_2_add_time_context(content: str) -> str:
     Insert: <div class="screening-time-context" ...>Coming up</div>
     before: <section class="front-date-group">
     """
+    # Fix idempotency issue by checking if it already exists
+    if 'class="screening-time-context"' in content:
+        return content
+
     time_context_html = (
         '<div class="screening-time-context" style="display:flex; align-items:center; gap:0.5rem; '
         'padding:1rem; color:var(--accent); font-size:0.95rem;"><span style="color:var(--muted);">'
@@ -279,6 +283,12 @@ def transform_9_add_clear_filters_button(content: str) -> str:
         content = RE_CLEAR_FILTERS_BTN.sub(replacement, content)
     return content
 
+def transform_10_skip_link_focus_visible(content: str) -> str:
+    """
+    Change .skip-link:focus to .skip-link:focus-visible for better mouse UX.
+    """
+    return content.replace('.skip-link:focus {', '.skip-link:focus-visible {')
+
 def process_file(file_path: str) -> Tuple[bool, int]:
     """
     Process a single HTML file applying all 6 transformations.
@@ -303,6 +313,7 @@ def process_file(file_path: str) -> Tuple[bool, int]:
         
         content = transform_8_advanced_filters_ux(content)
         content = transform_9_add_clear_filters_button(content)
+        content = transform_10_skip_link_focus_visible(content)
 
         # Check if changes were made
         changes_made = 1 if content != original_content else 0
@@ -361,6 +372,7 @@ def main():
     print("  7. Added Content-Security-Policy meta tag")
     print("  8. Added advanced filters accordion UX")
     print("  9. Added clear filters button to advanced form")
+    print("  10. Converted skip-link focus to focus-visible")
 
 
 if __name__ == "__main__":
