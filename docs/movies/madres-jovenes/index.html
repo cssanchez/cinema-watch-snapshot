@@ -5184,7 +5184,7 @@ const _sanitizeUrlCache = new Map();
         const strUrl = String(url ?? '').trim();
         if (_sanitizeUrlCache.has(strUrl)) return _sanitizeUrlCache.get(strUrl);
         let result = strUrl;
-        const lowerUrl = strUrl.toLowerCase();
+        const lowerUrl = strUrl.toLowerCase().replace(/[\x00-\x1F\x7F-\x9F\s]/g, '');
         if (lowerUrl.startsWith('javascript:') ||
             lowerUrl.startsWith('data:') ||
             lowerUrl.startsWith('vbscript:')) {
