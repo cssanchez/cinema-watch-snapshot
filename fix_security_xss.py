@@ -1,5 +1,4 @@
 import os
-import re
 
 def create_sanitize_url_function():
     return (
