@@ -5888,15 +5888,21 @@ const _buildRowDetailTokensCache = new Map();
         return nextRows;
       }
 
+// ⚡ Bolt Optimization: Memoize frontRowIdentity to avoid repeated string concatenation and array allocations in render loops.
+      const _frontRowIdentityCache = new WeakMap();
       function frontRowIdentity(row) {
-        return [
-          String(row?.date_iso || ''),
-          String(row?.time_label || ''),
-          String(row?.movie_title || ''),
-          String(row?.provider_name || ''),
-          String(row?.venue_name || row?.venue_href || ''),
-          row?.room_number === null || row?.room_number === undefined ? '' : String(row.room_number),
+        if (!row) return '';
+        if (_frontRowIdentityCache.has(row)) return _frontRowIdentityCache.get(row);
+        const result = [
+          String(row.date_iso || ''),
+          String(row.time_label || ''),
+          String(row.movie_title || ''),
+          String(row.provider_name || ''),
+          String(row.venue_name || row.venue_href || ''),
+          row.room_number === null || row.room_number === undefined ? '' : String(row.room_number),
         ].join('|');
+        _frontRowIdentityCache.set(row, result);
+        return result;
       }
 
       function renderFrontSignals(panel, rows) {
