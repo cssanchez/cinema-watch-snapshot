@@ -289,6 +289,16 @@ def transform_10_skip_link_focus_visible(content: str) -> str:
     """
     return content.replace('.skip-link:focus {', '.skip-link:focus-visible {')
 
+def transform_11_global_focus_visible(content: str) -> str:
+    """
+    Change interactive elements :focus to :focus-visible for better mouse UX.
+    """
+    return re.sub(
+        r'(input|select|button|\.button-pill|\.button-card):focus(?!-)',
+        r'\1:focus-visible',
+        content
+    )
+
 def process_file(file_path: str) -> Tuple[bool, int]:
     """
     Process a single HTML file applying all 6 transformations.
@@ -314,6 +324,7 @@ def process_file(file_path: str) -> Tuple[bool, int]:
         content = transform_8_advanced_filters_ux(content)
         content = transform_9_add_clear_filters_button(content)
         content = transform_10_skip_link_focus_visible(content)
+        content = transform_11_global_focus_visible(content)
 
         # Check if changes were made
         changes_made = 1 if content != original_content else 0
@@ -373,6 +384,7 @@ def main():
     print("  8. Added advanced filters accordion UX")
     print("  9. Added clear filters button to advanced form")
     print("  10. Converted skip-link focus to focus-visible")
+    print("  11. Changed interactive elements focus to focus-visible")
 
 
 if __name__ == "__main__":
