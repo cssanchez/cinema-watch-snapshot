@@ -278,6 +278,34 @@ const _buildRowDetailTokensCache = new Map();
         _buildRowDetailTokensCache.set(key, detailTokens);
         return [...detailTokens];
       }"""
+FRONT_ROW_IDENTITY_ORIG_2 = """      function frontRowIdentity(row) {
+        return [
+          String(row?.date_iso || ''),
+          String(row?.time_label || ''),
+          String(row?.movie_title || ''),
+          String(row?.provider_name || ''),
+          String(row?.venue_name || row?.venue_href || ''),
+          row?.room_number === null || row?.room_number === undefined ? '' : String(row.room_number),
+        ].join('|');
+      }"""
+
+FRONT_ROW_IDENTITY_NEW_2 = """// ⚡ Bolt Optimization: Memoize frontRowIdentity to avoid repeated string concatenation and array allocations in render loops.
+const _frontRowIdentityCache = new WeakMap();
+      function frontRowIdentity(row) {
+        if (!row) return '';
+        if (_frontRowIdentityCache.has(row)) return _frontRowIdentityCache.get(row);
+        const result = [
+          String(row.date_iso || ''),
+          String(row.time_label || ''),
+          String(row.movie_title || ''),
+          String(row.provider_name || ''),
+          String(row.venue_name || row.venue_href || ''),
+          row.room_number === null || row.room_number === undefined ? '' : String(row.room_number),
+        ].join('|');
+        _frontRowIdentityCache.set(row, result);
+        return result;
+      }"""
+
 CANONICAL_FORMAT_NEW_2 = """const _canonicalFormatCache = new Map();
       function canonicalFormat(value) {
         const strValue = String(value ?? '');
@@ -307,6 +335,7 @@ def process_file(file_path):
     content = content.replace(CANONICAL_LANGUAGE_ORIG_2, CANONICAL_LANGUAGE_NEW_2)
     content = content.replace(CANONICAL_FORMAT_ORIG_2, CANONICAL_FORMAT_NEW_2)
     content = content.replace(BUILD_ROW_DETAIL_TOKENS_ORIG_2, BUILD_ROW_DETAIL_TOKENS_NEW_2)
+    content = content.replace(FRONT_ROW_IDENTITY_ORIG_2, FRONT_ROW_IDENTITY_NEW_2)
 
     if content != original_content:
         with open(file_path, 'w', encoding='utf-8') as f:
