@@ -7855,16 +7855,19 @@ const _buildRowDetailTokensCache = new Map();
           };
         }
 
+        // ⚡ Bolt Optimization: Replaced O(N log N) sorting with O(N) reduction to find the peak row
         let peakRow = null;
         if (soldRows.length) {
-          peakRow = [...soldRows].sort((left, right) => {
-            if ((right.sold_percent || 0) !== (left.sold_percent || 0)) {
-              return (right.sold_percent || 0) - (left.sold_percent || 0);
+          peakRow = soldRows.reduce((max, current) => {
+            const maxSold = max.sold_percent || 0;
+            const currentSold = current.sold_percent || 0;
+            if (currentSold !== maxSold) {
+              return currentSold > maxSold ? current : max;
             }
-            const leftKey = `${left.date_iso}|${left.time_label}|${left.movie_title}`;
-            const rightKey = `${right.date_iso}|${right.time_label}|${right.movie_title}`;
-            return leftKey.localeCompare(rightKey);
-          })[0];
+            const maxKey = `${max.date_iso}|${max.time_label}|${max.movie_title}`;
+            const currentKey = `${current.date_iso}|${current.time_label}|${current.movie_title}`;
+            return currentKey.localeCompare(maxKey) < 0 ? current : max;
+          });
         }
 
         return {
