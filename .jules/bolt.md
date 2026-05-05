@@ -28,3 +28,7 @@
 ## 2024-05-18 - [Optimizing find max/peak operations]
 **Learning:** In `buildFrontInsights`, finding the `peakRow` (the screening with the highest sold percentage or alphabetically first if tied) was done by fully sorting the `soldRows` array and picking the first element. Sorting takes O(N log N) time, which is inefficient when we only need the maximum element. My benchmarking showed that a simple `reduce` operation is around 100x faster for larger arrays.
 **Action:** Replace `[...array].sort(...)[0]` with a single `reduce` pass `array.reduce((max, current) => ...)` to find the extremum element in O(N) time without allocating a new array or doing a full sort.
+
+## 2024-05-18 - [Cleanup generated scripts]
+**Learning:** Temporary Python scripts or test files used for patching the static HTML output are just artifacts of the development process and should not be included in the PR to avoid repository bloat. They have no place in the snapshot repository.
+**Action:** Always clean up temporary script files, scratchpads, and associated tests before submitting changes or requesting code reviews. Ensure they are not staged in git.
