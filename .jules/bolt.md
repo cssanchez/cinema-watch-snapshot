@@ -32,3 +32,7 @@
 ## 2024-05-18 - [Cleanup generated scripts]
 **Learning:** Temporary Python scripts or test files used for patching the static HTML output are just artifacts of the development process and should not be included in the PR to avoid repository bloat. They have no place in the snapshot repository.
 **Action:** Always clean up temporary script files, scratchpads, and associated tests before submitting changes or requesting code reviews. Ensure they are not staged in git.
+
+## 2024-05-18 - [Optimizing find min/max range operations]
+**Learning:** In `buildFrontInsights`, extracting a date range by mapping properties to strings, wrapping in a `Set` to remove duplicates, spreading back to an `Array`, and fully sorting `O(N log N)` just to pick the first and last elements is an immense performance anti-pattern. This needlessly allocates memory for intermediate Maps, Arrays, and Sets, forcing garbage collection.
+**Action:** Replace `Array.from(new Set(...)).sort(...);` with a single O(N) `.reduce()` pass that tracks and compares `min` and `max` values directly. This executes significantly faster without intermediate memory allocations or expensive sorts.
