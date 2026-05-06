@@ -5968,18 +5968,19 @@ const _buildRowDetailTokensCache = new Map();
       }
 
       function buildFrontInsights(rows) {
-        const dates = Array.from(
-          new Set(
-            rows
-              .map((row) => String(row.date_iso || '').trim())
-              .filter(Boolean)
-          )
-        ).sort((left, right) => left.localeCompare(right));
-        const dateRange = !dates.length
+        // ⚡ Bolt Optimization: Replaced O(N log N) sorting and Set allocation with O(N) single pass to find min/max dates
+        const dateBounds = rows.reduce((acc, row) => {
+          const d = row.date_iso ? String(row.date_iso).trim() : '';
+          if (!d) return acc;
+          if (!acc.min || d < acc.min) acc.min = d;
+          if (!acc.max || d > acc.max) acc.max = d;
+          return acc;
+        }, { min: null, max: null });
+        const dateRange = !dateBounds.min
           ? ''
-          : dates[0] === dates[dates.length - 1]
-            ? dates[0]
-            : `${dates[0]} to ${dates[dates.length - 1]}`;
+          : dateBounds.min === dateBounds.max
+            ? dateBounds.min
+            : `${dateBounds.min} to ${dateBounds.max}`;
 
         const roomCount = new Set(
           rows
