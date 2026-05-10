@@ -36,3 +36,7 @@
 ## 2024-05-18 - [Optimizing find min/max range operations]
 **Learning:** In `buildFrontInsights`, extracting a date range by mapping properties to strings, wrapping in a `Set` to remove duplicates, spreading back to an `Array`, and fully sorting `O(N log N)` just to pick the first and last elements is an immense performance anti-pattern. This needlessly allocates memory for intermediate Maps, Arrays, and Sets, forcing garbage collection.
 **Action:** Replace `Array.from(new Set(...)).sort(...);` with a single O(N) `.reduce()` pass that tracks and compares `min` and `max` values directly. This executes significantly faster without intermediate memory allocations or expensive sorts.
+
+## 2024-05-18 - [Optimizing map/filter chains into Set creation]
+**Learning:** In the frontend static site, chaining `.map()` and `.filter()` operations on large arrays or `Array.from(NodeList)` collections just to initialize a `Set` creates substantial performance overhead due to the allocation and garbage collection of multiple intermediate arrays.
+**Action:** Replace `Array.from(NodeList).map(...).filter(...)` and similar array chains with a single `for` loop that iterates over the collection and conditionally calls `.add()` on a new `Set`. This reduces memory allocations and runs significantly faster.

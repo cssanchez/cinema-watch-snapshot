@@ -10,9 +10,6 @@ def process_file(file_path):
 
     original_content = content
 
-    # We want to replace `Array.from(document.querySelectorAll(...)).find(...)` with a for-loop over NodeList.
-    # The functions currentHomeSectionFocus and other functions rely on these panel searches frequently.
-
     # 1. getVisibleLocationPanel
     pattern1 = re.compile(
         r"([ \t]*)function getVisibleLocationPanel\(\)\s*\{\s*"
@@ -113,15 +110,74 @@ def process_file(file_path):
 
     content = pattern4.sub(repl4, content)
 
-    # 5. _getNavLinks replacement
-    # We should also replace Array.from on document.querySelectorAll generally where find is used.
-    # We found `Array.from(document.querySelectorAll('[data-location-panel]')).find` inside:
-    # - getVisibleLocationPanel
-    # - getActiveHomeSections
-    # - scrollToCartelera
-    # - scrollToSpecialRooms
-    # - scrollToMoviesSection
-    # Since `pattern2` replaces the exact code `const visiblePanel = Array.from(document.querySelectorAll('[data-location-panel]')).find(...)` with `const visiblePanel = getVisibleLocationPanel();`, and since that exact code is used inside `getActiveHomeSections`, `scrollToCartelera`, `scrollToSpecialRooms`, and `scrollToMoviesSection`, it actually covers all of them!
+    # 5. NEW: Replace Array.from(NodeList).map().filter() with single pass loops.
+
+    pattern5 = re.compile(
+        r"([ \t]*)const locationKeys = new Set\(\s*"
+        r"Array\.from\(root\.querySelectorAll\('\[data-front-board-location\]'\)\)\s*"
+        r"\.map\(\(element\) => element\.getAttribute\('data-front-board-location'\) \|\| ''\)\s*"
+        r"\.filter\(Boolean\)\s*"
+        r"\);",
+        re.MULTILINE
+    )
+
+    def repl5(match):
+        indent = match.group(1)
+        return (
+            f"{indent}// ⚡ Bolt Optimization: Replaced Array.from(NodeList).map().filter() with a single-pass loop to reduce memory allocations.\n"
+            f"{indent}const locationKeys = new Set();\n"
+            f"{indent}const elements = root.querySelectorAll('[data-front-board-location]');\n"
+            f"{indent}for (let i = 0; i < elements.length; i++) {{\n"
+            f"{indent}  const val = elements[i].getAttribute('data-front-board-location') || '';\n"
+            f"{indent}  if (val) locationKeys.add(val);\n"
+            f"{indent}}}"
+        )
+    content = pattern5.sub(repl5, content)
+
+    pattern6 = re.compile(
+        r"([ \t]*)const locationKeys = new Set\(\s*"
+        r"Array\.from\(root\.querySelectorAll\('form\[data-front-advanced-form=\"true\"\]'\)\)\s*"
+        r"\.map\(\(form\) => form instanceof HTMLFormElement \? String\(form\.dataset\.frontLocationKey \|\| ''\)\.trim\(\) : ''\)\s*"
+        r"\.filter\(Boolean\)\s*"
+        r"\);",
+        re.MULTILINE
+    )
+
+    def repl6(match):
+        indent = match.group(1)
+        return (
+            f"{indent}// ⚡ Bolt Optimization: Replaced Array.from(NodeList).map().filter() with a single-pass loop to reduce memory allocations.\n"
+            f"{indent}const locationKeys = new Set();\n"
+            f"{indent}const forms = root.querySelectorAll('form[data-front-advanced-form=\"true\"]');\n"
+            f"{indent}for (let i = 0; i < forms.length; i++) {{\n"
+            f"{indent}  const form = forms[i];\n"
+            f"{indent}  const val = form instanceof HTMLFormElement ? String(form.dataset.frontLocationKey || '').trim() : '';\n"
+            f"{indent}  if (val) locationKeys.add(val);\n"
+            f"{indent}}}"
+        )
+    content = pattern6.sub(repl6, content)
+
+    pattern7 = re.compile(
+        r"([ \t]*)const roomCount = new Set\(\s*"
+        r"rows\s*"
+        r"\.map\(\(row\) => toInt\(row\.room_number\)\)\s*"
+        r"\.filter\(\(value\) => value !== null\)\s*"
+        r"\)\.size;",
+        re.MULTILINE
+    )
+
+    def repl7(match):
+        indent = match.group(1)
+        return (
+            f"{indent}// ⚡ Bolt Optimization: Replaced rows.map().filter() with a single-pass loop to reduce array allocations.\n"
+            f"{indent}const _roomSet = new Set();\n"
+            f"{indent}for (let i = 0; i < rows.length; i++) {{\n"
+            f"{indent}  const val = toInt(rows[i].room_number);\n"
+            f"{indent}  if (val !== null) _roomSet.add(val);\n"
+            f"{indent}}}\n"
+            f"{indent}const roomCount = _roomSet.size;"
+        )
+    content = pattern7.sub(repl7, content)
 
     if content != original_content:
         with open(file_path, 'w', encoding='utf-8') as f:

@@ -9990,11 +9990,13 @@
       }
 
       function initFrontBoards(root = document) {
-        const locationKeys = new Set(
-          Array.from(root.querySelectorAll('[data-front-board-location]'))
-            .map((element) => element.getAttribute('data-front-board-location') || '')
-            .filter(Boolean)
-        );
+        // ⚡ Bolt Optimization: Replaced Array.from(NodeList).map().filter() with a single-pass loop to reduce memory allocations.
+        const locationKeys = new Set();
+        const elements = root.querySelectorAll('[data-front-board-location]');
+        for (let i = 0; i < elements.length; i++) {
+          const val = elements[i].getAttribute('data-front-board-location') || '';
+          if (val) locationKeys.add(val);
+        }
         for (const locationKey of locationKeys) {
           setFrontBoard(root, locationKey, '');
         }
@@ -11274,11 +11276,14 @@ const _buildRowDetailTokensCache = new Map();
       }
 
       function syncActiveQuickBoardPresets(root = document) {
-        const locationKeys = new Set(
-          Array.from(root.querySelectorAll('form[data-front-advanced-form="true"]'))
-            .map((form) => form instanceof HTMLFormElement ? String(form.dataset.frontLocationKey || '').trim() : '')
-            .filter(Boolean)
-        );
+        // ⚡ Bolt Optimization: Replaced Array.from(NodeList).map().filter() with a single-pass loop to reduce memory allocations.
+        const locationKeys = new Set();
+        const forms = root.querySelectorAll('form[data-front-advanced-form="true"]');
+        for (let i = 0; i < forms.length; i++) {
+          const form = forms[i];
+          const val = form instanceof HTMLFormElement ? String(form.dataset.frontLocationKey || '').trim() : '';
+          if (val) locationKeys.add(val);
+        }
         for (const locationKey of locationKeys) {
           syncBoardPreset(root, locationKey, '', { force: false });
         }
@@ -11376,11 +11381,13 @@ const _buildRowDetailTokensCache = new Map();
             ? dateBounds.min
             : `${dateBounds.min} to ${dateBounds.max}`;
 
-        const roomCount = new Set(
-          rows
-            .map((row) => toInt(row.room_number))
-            .filter((value) => value !== null)
-        ).size;
+        // ⚡ Bolt Optimization: Replaced rows.map().filter() with a single-pass loop to reduce array allocations.
+        const _roomSet = new Set();
+        for (let i = 0; i < rows.length; i++) {
+          const val = toInt(rows[i].room_number);
+          if (val !== null) _roomSet.add(val);
+        }
+        const roomCount = _roomSet.size;
 
         const soldRows = rows
           .map((row) => ({
