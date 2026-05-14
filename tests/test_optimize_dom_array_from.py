@@ -82,3 +82,41 @@ def test_replaces_scrollToMoviesSection(temp_docs_dir):
     assert "Array.from" not in content
     assert "const movies = document.querySelectorAll('[data-front-movies=\"true\"]');" in content
     assert "target = undefined;" in content
+
+def test_optimize_dom_array_from_map_filter(tmp_path):
+    html_content = """
+      function initFrontBoards(root = document) {
+        const locationKeys = new Set(
+          Array.from(root.querySelectorAll('[data-front-board-location]'))
+            .map((element) => element.getAttribute('data-front-board-location') || '')
+            .filter(Boolean)
+        );
+        for (const locationKey of locationKeys) {
+          setFrontBoard(root, locationKey, '');
+        }
+      }
+
+      function syncActiveQuickBoardPresets(root = document) {
+        const locationKeys = new Set(
+          Array.from(root.querySelectorAll('form[data-front-advanced-form="true"]'))
+            .map((form) => form instanceof HTMLFormElement ? String(form.dataset.frontLocationKey || '').trim() : '')
+            .filter(Boolean)
+        );
+        for (const locationKey of locationKeys) {
+          syncBoardPreset(root, locationKey, '', { force: false });
+        }
+      }
+"""
+    test_file = tmp_path / "index.html"
+    test_file.write_text(html_content, encoding='utf-8')
+
+    assert optimize_dom_array_from.process_file(test_file) is True
+
+    patched_content = test_file.read_text(encoding='utf-8')
+
+    assert "Array.from(root.querySelectorAll" not in patched_content
+    assert "const locationKeys = new Set();" in patched_content
+    assert "const advancedForms = root.querySelectorAll('form[data-front-advanced-form=\"true\"]');" in patched_content
+    assert "for (let i = 0; i < advancedForms.length; i++) {" in patched_content
+    assert "const boardElements = root.querySelectorAll('[data-front-board-location]');" in patched_content
+    assert "for (let i = 0; i < boardElements.length; i++) {" in patched_content
