@@ -299,6 +299,59 @@ def transform_11_global_focus_visible(content: str) -> str:
         content
     )
 
+
+def transform_12_add_submit_spinner(content: str) -> str:
+    """
+    Add a loading spinner to the async submit button during advanced filter processing.
+    """
+    if '.is-loading' not in content:
+        css_rule = (
+            '\n\n    .button-pill.is-loading {\n'
+            '      color: transparent !important;\n'
+            '      pointer-events: none;\n'
+            '    }\n'
+            '\n'
+            '    .button-pill.is-loading::after {\n'
+            '      content: "";\n'
+            '      position: absolute;\n'
+            '      top: 50%;\n'
+            '      left: 50%;\n'
+            '      width: 1.2rem;\n'
+            '      height: 1.2rem;\n'
+            '      margin: -0.6rem 0 0 -0.6rem;\n'
+            '      border: 2px solid rgba(255, 255, 255, 0.3);\n'
+            '      border-top-color: #fff;\n'
+            '      border-radius: 50%;\n'
+            '      animation: button-spin 0.8s linear infinite;\n'
+            '    }\n'
+            '\n'
+            '    @keyframes button-spin {\n'
+            '      to { transform: rotate(360deg); }\n'
+            '    }'
+        )
+        content = re.sub(r'(\n\s*</style>)', css_rule + r'\1', content)
+
+    # Patch JavaScript to add/remove the 'is-loading' class
+    # Find the disabling logic
+    js_disable_target = r"submitButton\.disabled = true;"
+    if "submitButton.classList.add('is-loading');" not in content:
+        content = re.sub(
+            js_disable_target,
+            r"submitButton.disabled = true;\n          submitButton.classList.add('is-loading');",
+            content
+        )
+
+    # Find the enabling logic
+    js_enable_target = r"submitButton\.disabled = false;"
+    if "submitButton.classList.remove('is-loading');" not in content:
+        content = re.sub(
+            js_enable_target,
+            r"submitButton.disabled = false;\n            submitButton.classList.remove('is-loading');",
+            content
+        )
+
+    return content
+
 def process_file(file_path: str) -> Tuple[bool, int]:
     """
     Process a single HTML file applying all 6 transformations.
@@ -325,6 +378,7 @@ def process_file(file_path: str) -> Tuple[bool, int]:
         content = transform_9_add_clear_filters_button(content)
         content = transform_10_skip_link_focus_visible(content)
         content = transform_11_global_focus_visible(content)
+        content = transform_12_add_submit_spinner(content)
 
         # Check if changes were made
         changes_made = 1 if content != original_content else 0
@@ -385,6 +439,7 @@ def main():
     print("  9. Added clear filters button to advanced form")
     print("  10. Converted skip-link focus to focus-visible")
     print("  11. Changed interactive elements focus to focus-visible")
+    print("  12. Added loading spinner to async submit buttons")
 
 
 if __name__ == "__main__":
