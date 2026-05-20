@@ -36,3 +36,6 @@
 ## 2024-05-18 - [Optimizing find min/max range operations]
 **Learning:** In `buildFrontInsights`, extracting a date range by mapping properties to strings, wrapping in a `Set` to remove duplicates, spreading back to an `Array`, and fully sorting `O(N log N)` just to pick the first and last elements is an immense performance anti-pattern. This needlessly allocates memory for intermediate Maps, Arrays, and Sets, forcing garbage collection.
 **Action:** Replace `Array.from(new Set(...)).sort(...);` with a single O(N) `.reduce()` pass that tracks and compares `min` and `max` values directly. This executes significantly faster without intermediate memory allocations or expensive sorts.
+## 2024-05-20 - [Optimizing Set initialization from DOM NodeList]
+**Learning:** In the static frontend site, replacing a multi-pass JavaScript processing chain like `Array.from(NodeList).map().filter()` with a single-pass `for` loop populating a `Set` directly from the `NodeList` can reduce execution time significantly by preventing intermediate memory allocations, avoiding multiple passes over the array, and avoiding array re-allocation overheads.
+**Action:** Use a single `for` loop to populate Sets from DOM elements. Write a Python patch script to replace this pattern in static HTML generation.
