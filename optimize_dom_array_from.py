@@ -123,6 +123,57 @@ def process_file(file_path):
     # - scrollToMoviesSection
     # Since `pattern2` replaces the exact code `const visiblePanel = Array.from(document.querySelectorAll('[data-location-panel]')).find(...)` with `const visiblePanel = getVisibleLocationPanel();`, and since that exact code is used inside `getActiveHomeSections`, `scrollToCartelera`, `scrollToSpecialRooms`, and `scrollToMoviesSection`, it actually covers all of them!
 
+    # 6. Optimize initFrontBoards multi-pass generation
+    pattern_init_front_boards = re.compile(
+        r"([ \t]*)const locationKeys = new Set\(\s*"
+        r"Array\.from\(root\.querySelectorAll\('\[data-front-board-location\]'\)\)\s*"
+        r"\.map\(\(element\) => element\.getAttribute\('data-front-board-location'\) \|\| ''\)\s*"
+        r"\.filter\(Boolean\)\s*"
+        r"\);",
+        re.MULTILINE
+    )
+
+    def repl_init_front_boards(match):
+        indent = match.group(1)
+        return (
+            f"{indent}// ⚡ Bolt Optimization: Replaced multi-pass Array.from().map().filter() with a single-pass Set population\n"
+            f"{indent}const locationKeys = new Set();\n"
+            f"{indent}const nodes = root.querySelectorAll('[data-front-board-location]');\n"
+            f"{indent}for (let i = 0; i < nodes.length; i++) {{\n"
+            f"{indent}  const val = nodes[i].getAttribute('data-front-board-location');\n"
+            f"{indent}  if (val) locationKeys.add(val);\n"
+            f"{indent}}}"
+        )
+
+    content = pattern_init_front_boards.sub(repl_init_front_boards, content)
+
+    # 7. Optimize syncActiveQuickBoardPresets multi-pass generation
+    pattern_sync_presets = re.compile(
+        r"([ \t]*)const locationKeys = new Set\(\s*"
+        r"Array\.from\(root\.querySelectorAll\('form\[data-front-advanced-form=\"true\"\]'\)\)\s*"
+        r"\.map\(\(form\) => form instanceof HTMLFormElement \? String\(form\.dataset\.frontLocationKey \|\| ''\)\.trim\(\) : ''\)\s*"
+        r"\.filter\(Boolean\)\s*"
+        r"\);",
+        re.MULTILINE
+    )
+
+    def repl_sync_presets(match):
+        indent = match.group(1)
+        return (
+            f"{indent}// ⚡ Bolt Optimization: Replaced multi-pass Array.from().map().filter() with a single-pass Set population\n"
+            f"{indent}const locationKeys = new Set();\n"
+            f"{indent}const forms = root.querySelectorAll('form[data-front-advanced-form=\"true\"]');\n"
+            f"{indent}for (let i = 0; i < forms.length; i++) {{\n"
+            f"{indent}  const form = forms[i];\n"
+            f"{indent}  if (form instanceof HTMLFormElement) {{\n"
+            f"{indent}    const val = String(form.dataset.frontLocationKey || '').trim();\n"
+            f"{indent}    if (val) locationKeys.add(val);\n"
+            f"{indent}  }}\n"
+            f"{indent}}}"
+        )
+
+    content = pattern_sync_presets.sub(repl_sync_presets, content)
+
     if content != original_content:
         with open(file_path, 'w', encoding='utf-8') as f:
             f.write(content)
