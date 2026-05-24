@@ -36,3 +36,6 @@
 ## 2024-05-18 - [Optimizing find min/max range operations]
 **Learning:** In `buildFrontInsights`, extracting a date range by mapping properties to strings, wrapping in a `Set` to remove duplicates, spreading back to an `Array`, and fully sorting `O(N log N)` just to pick the first and last elements is an immense performance anti-pattern. This needlessly allocates memory for intermediate Maps, Arrays, and Sets, forcing garbage collection.
 **Action:** Replace `Array.from(new Set(...)).sort(...);` with a single O(N) `.reduce()` pass that tracks and compares `min` and `max` values directly. This executes significantly faster without intermediate memory allocations or expensive sorts.
+## 2024-05-18 - [Memoizing object identity strings for sort and render operations]
+**Learning:** Generating identity strings repeatedly using string interpolations and string/array allocations inside hot paths like sort functions (`sortRowsForFront`) creates immense performance overhead and GC pressure. When multiple sorts or rendering iterations use these functions to calculate an identity key, O(N*logN) repetitive memory allocations occur.
+**Action:** Use a `WeakMap` to memoize the string identity, using the object itself as the key. This avoids repeated memory allocations and string concatenations, drastically improving performance in sorting algorithms.
