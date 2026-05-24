@@ -7881,6 +7881,27 @@ const _buildRowDetailTokensCache = new Map();
         };
       }
 
+// ⚡ Bolt Optimization: Memoize object identity strings for sort operations
+      const _sortKeyCache = new WeakMap();
+      function _getSortKey(row, type) {
+        if (!row) return '';
+        let cache = _sortKeyCache.get(row);
+        if (!cache) {
+          cache = { sold: undefined, default: undefined };
+          _sortKeyCache.set(row, cache);
+        }
+        if (type === 'sold_desc') {
+          if (cache.sold === undefined) {
+            cache.sold = `${row.date_iso || ''}|${row.time_label || ''}|${row.movie_title || ''}`;
+          }
+          return cache.sold;
+        }
+        if (cache.default === undefined) {
+          cache.default = `${row.date_iso || ''}|${row.time_label || ''}`;
+        }
+        return cache.default;
+      }
+
       function sortRowsForFront(rows, resultPreset = null) {
         const normalizedSort = String(resultPreset?.sort || '').trim().toLowerCase();
         const nextRows = [...rows];
@@ -7893,15 +7914,15 @@ const _buildRowDetailTokensCache = new Map();
             if (rightRank !== leftRank) {
               return rightRank - leftRank;
             }
-            const leftKey = `${left.date_iso}|${left.time_label}|${left.movie_title}`;
-            const rightKey = `${right.date_iso}|${right.time_label}|${right.movie_title}`;
+            const leftKey = _getSortKey(left, 'sold_desc');
+            const rightKey = _getSortKey(right, 'sold_desc');
             return leftKey.localeCompare(rightKey);
           });
           return nextRows;
         }
         nextRows.sort((left, right) => {
-          const leftKey = `${left.date_iso}|${left.time_label}`;
-          const rightKey = `${right.date_iso}|${right.time_label}`;
+          const leftKey = _getSortKey(left, 'default');
+          const rightKey = _getSortKey(right, 'default');
           return leftKey.localeCompare(rightKey);
         });
         return nextRows;

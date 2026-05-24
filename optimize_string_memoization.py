@@ -317,6 +317,81 @@ CANONICAL_FORMAT_NEW_2 = """const _canonicalFormatCache = new Map();
       }"""
 
 
+
+
+SORT_ROWS_FOR_FRONT_ORIG = """      function sortRowsForFront(rows, resultPreset = null) {
+        const normalizedSort = String(resultPreset?.sort || '').trim().toLowerCase();
+        const nextRows = [...rows];
+        if (normalizedSort === 'sold_desc') {
+          nextRows.sort((left, right) => {
+            const leftSold = toInt(left.sold_percent);
+            const rightSold = toInt(right.sold_percent);
+            const leftRank = leftSold === null ? -1 : leftSold;
+            const rightRank = rightSold === null ? -1 : rightSold;
+            if (rightRank !== leftRank) {
+              return rightRank - leftRank;
+            }
+            const leftKey = `${left.date_iso}|${left.time_label}|${left.movie_title}`;
+            const rightKey = `${right.date_iso}|${right.time_label}|${right.movie_title}`;
+            return leftKey.localeCompare(rightKey);
+          });
+          return nextRows;
+        }
+        nextRows.sort((left, right) => {
+          const leftKey = `${left.date_iso}|${left.time_label}`;
+          const rightKey = `${right.date_iso}|${right.time_label}`;
+          return leftKey.localeCompare(rightKey);
+        });
+        return nextRows;
+      }"""
+
+SORT_ROWS_FOR_FRONT_NEW = """// ⚡ Bolt Optimization: Memoize object identity strings for sort operations
+      const _sortKeyCache = new WeakMap();
+      function _getSortKey(row, type) {
+        if (!row) return '';
+        let cache = _sortKeyCache.get(row);
+        if (!cache) {
+          cache = { sold: undefined, default: undefined };
+          _sortKeyCache.set(row, cache);
+        }
+        if (type === 'sold_desc') {
+          if (cache.sold === undefined) {
+            cache.sold = `${row.date_iso || ''}|${row.time_label || ''}|${row.movie_title || ''}`;
+          }
+          return cache.sold;
+        }
+        if (cache.default === undefined) {
+          cache.default = `${row.date_iso || ''}|${row.time_label || ''}`;
+        }
+        return cache.default;
+      }
+
+      function sortRowsForFront(rows, resultPreset = null) {
+        const normalizedSort = String(resultPreset?.sort || '').trim().toLowerCase();
+        const nextRows = [...rows];
+        if (normalizedSort === 'sold_desc') {
+          nextRows.sort((left, right) => {
+            const leftSold = toInt(left.sold_percent);
+            const rightSold = toInt(right.sold_percent);
+            const leftRank = leftSold === null ? -1 : leftSold;
+            const rightRank = rightSold === null ? -1 : rightSold;
+            if (rightRank !== leftRank) {
+              return rightRank - leftRank;
+            }
+            const leftKey = _getSortKey(left, 'sold_desc');
+            const rightKey = _getSortKey(right, 'sold_desc');
+            return leftKey.localeCompare(rightKey);
+          });
+          return nextRows;
+        }
+        nextRows.sort((left, right) => {
+          const leftKey = _getSortKey(left, 'default');
+          const rightKey = _getSortKey(right, 'default');
+          return leftKey.localeCompare(rightKey);
+        });
+        return nextRows;
+      }"""
+
 def process_file(file_path):
     with open(file_path, 'r', encoding='utf-8') as f:
         content = f.read()
@@ -336,6 +411,7 @@ def process_file(file_path):
     content = content.replace(CANONICAL_FORMAT_ORIG_2, CANONICAL_FORMAT_NEW_2)
     content = content.replace(BUILD_ROW_DETAIL_TOKENS_ORIG_2, BUILD_ROW_DETAIL_TOKENS_NEW_2)
     content = content.replace(FRONT_ROW_IDENTITY_ORIG_2, FRONT_ROW_IDENTITY_NEW_2)
+    content = content.replace(SORT_ROWS_FOR_FRONT_ORIG, SORT_ROWS_FOR_FRONT_NEW)
 
     if content != original_content:
         with open(file_path, 'w', encoding='utf-8') as f:
