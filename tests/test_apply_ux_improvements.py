@@ -479,3 +479,27 @@ def test_transform_10_skip_link_focus_visible_idempotent():
     }
     """
     assert transform_10_skip_link_focus_visible(content) == content
+
+def test_transform_12_add_aria_live():
+    """Test that dynamic results container and empty states get aria-live."""
+    from apply_ux_improvements import transform_12_add_aria_live
+
+    content = """
+    <div class="front-screening-groups" data-front-advanced-results></div>
+    <div class="empty" data-i18n-source>No IMAX screenings in the current snapshot.</div>
+    container.innerHTML = `<div class="empty" data-i18n-source>No screenings matched the published board with these filters.</div>`;
+    """
+
+    expected_results = '<div class="front-screening-groups" data-front-advanced-results aria-live="polite" role="status"></div>'
+    expected_empty1 = '<div class="empty" data-i18n-source aria-live="polite" role="status">No IMAX screenings in the current snapshot.</div>'
+    expected_empty2 = '`<div class="empty" data-i18n-source aria-live="polite" role="status">No screenings matched the published board with these filters.</div>`'
+
+    # Test basic transformation
+    result = transform_12_add_aria_live(content)
+    assert expected_results in result
+    assert expected_empty1 in result
+    assert expected_empty2 in result
+
+    # Test idempotency
+    result2 = transform_12_add_aria_live(result)
+    assert result == result2
