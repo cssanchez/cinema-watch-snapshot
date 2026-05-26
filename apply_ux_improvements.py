@@ -299,6 +299,23 @@ def transform_11_global_focus_visible(content: str) -> str:
         content
     )
 
+def transform_12_dynamic_filtering_a11y(content: str) -> str:
+    """
+    Add aria-live="polite" and role="status" to dynamic filter results container and empty states.
+    """
+    if 'aria-live="polite" role="status"' not in content:
+        # Update results container
+        content = content.replace(
+            '<div class="front-screening-groups" data-front-advanced-results>',
+            '<div class="front-screening-groups" data-front-advanced-results aria-live="polite" role="status">'
+        )
+        # Update empty states
+        content = content.replace(
+            '<div class="empty"',
+            '<div class="empty" aria-live="polite" role="status"'
+        )
+    return content
+
 def process_file(file_path: str) -> Tuple[bool, int]:
     """
     Process a single HTML file applying all 6 transformations.
@@ -325,6 +342,7 @@ def process_file(file_path: str) -> Tuple[bool, int]:
         content = transform_9_add_clear_filters_button(content)
         content = transform_10_skip_link_focus_visible(content)
         content = transform_11_global_focus_visible(content)
+        content = transform_12_dynamic_filtering_a11y(content)
 
         # Check if changes were made
         changes_made = 1 if content != original_content else 0
@@ -385,6 +403,7 @@ def main():
     print("  9. Added clear filters button to advanced form")
     print("  10. Converted skip-link focus to focus-visible")
     print("  11. Changed interactive elements focus to focus-visible")
+    print("  12. Added dynamic filtering aria-live attributes")
 
 
 if __name__ == "__main__":
