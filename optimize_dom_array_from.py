@@ -123,6 +123,55 @@ def process_file(file_path):
     # - scrollToMoviesSection
     # Since `pattern2` replaces the exact code `const visiblePanel = Array.from(document.querySelectorAll('[data-location-panel]')).find(...)` with `const visiblePanel = getVisibleLocationPanel();`, and since that exact code is used inside `getActiveHomeSections`, `scrollToCartelera`, `scrollToSpecialRooms`, and `scrollToMoviesSection`, it actually covers all of them!
 
+        # 5. initFrontBoards replacement
+    pattern5 = re.compile(
+        r"([ \t]*)const locationKeys = new Set\(\s*"
+        r"Array\.from\(root\.querySelectorAll\('\[data-front-board-location\]'\)\)\s*"
+        r"\.map\(\(element\) => element\.getAttribute\('data-front-board-location'\) \|\| ''\)\s*"
+        r"\.filter\(Boolean\)\s*"
+        r"\);",
+        re.MULTILINE
+    )
+
+    def repl5(match):
+        indent = match.group(1)
+        return (
+            f"{indent}const locationKeys = new Set();\n"
+            f"{indent}const locations = root.querySelectorAll('[data-front-board-location]');\n"
+            f"{indent}for (let i = 0; i < locations.length; i++) {{\n"
+            f"{indent}  const val = locations[i].getAttribute('data-front-board-location');\n"
+            f"{indent}  if (val) locationKeys.add(val);\n"
+            f"{indent}}}"
+        )
+
+    content = pattern5.sub(repl5, content)
+
+    # 6. syncActiveQuickBoardPresets replacement
+    pattern6 = re.compile(
+        r"([ \t]*)const locationKeys = new Set\(\s*"
+        r"Array\.from\(root\.querySelectorAll\('form\[data-front-advanced-form=\"true\"\]'\)\)\s*"
+        r"\.map\(\(form\) => form instanceof HTMLFormElement \? String\(form\.dataset\.frontLocationKey \|\| ''\)\.trim\(\) : ''\)\s*"
+        r"\.filter\(Boolean\)\s*"
+        r"\);",
+        re.MULTILINE
+    )
+
+    def repl6(match):
+        indent = match.group(1)
+        return (
+            f"{indent}const locationKeys = new Set();\n"
+            f"{indent}const forms = root.querySelectorAll('form[data-front-advanced-form=\"true\"]');\n"
+            f"{indent}for (let i = 0; i < forms.length; i++) {{\n"
+            f"{indent}  const form = forms[i];\n"
+            f"{indent}  if (form instanceof HTMLFormElement) {{\n"
+            f"{indent}    const val = String(form.dataset.frontLocationKey || '').trim();\n"
+            f"{indent}    if (val) locationKeys.add(val);\n"
+            f"{indent}  }}\n"
+            f"{indent}}}"
+        )
+
+    content = pattern6.sub(repl6, content)
+
     if content != original_content:
         with open(file_path, 'w', encoding='utf-8') as f:
             f.write(content)

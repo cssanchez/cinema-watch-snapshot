@@ -82,3 +82,47 @@ def test_replaces_scrollToMoviesSection(temp_docs_dir):
     assert "Array.from" not in content
     assert "const movies = document.querySelectorAll('[data-front-movies=\"true\"]');" in content
     assert "target = undefined;" in content
+
+def test_replaces_initFrontBoards(temp_docs_dir):
+    test_html = temp_docs_dir / "test.html"
+    test_html.write_text("""
+      function initFrontBoards(root = document) {
+        const locationKeys = new Set(
+          Array.from(root.querySelectorAll('[data-front-board-location]'))
+            .map((element) => element.getAttribute('data-front-board-location') || '')
+            .filter(Boolean)
+        );
+        for (const locationKey of locationKeys) {
+          setFrontBoard(root, locationKey, '');
+        }
+      }
+    """)
+
+    import optimize_dom_array_from
+    optimize_dom_array_from.process_file(test_html)
+    content = test_html.read_text()
+
+    assert "Array.from" not in content
+    assert "const locations = root.querySelectorAll('[data-front-board-location]');" in content
+
+def test_replaces_syncActiveQuickBoardPresets(temp_docs_dir):
+    test_html = temp_docs_dir / "test.html"
+    test_html.write_text("""
+      function syncActiveQuickBoardPresets(root = document) {
+        const locationKeys = new Set(
+          Array.from(root.querySelectorAll('form[data-front-advanced-form="true"]'))
+            .map((form) => form instanceof HTMLFormElement ? String(form.dataset.frontLocationKey || '').trim() : '')
+            .filter(Boolean)
+        );
+        for (const locationKey of locationKeys) {
+          syncBoardPreset(root, locationKey, '', { force: false });
+        }
+      }
+    """)
+
+    import optimize_dom_array_from
+    optimize_dom_array_from.process_file(test_html)
+    content = test_html.read_text()
+
+    assert "Array.from" not in content
+    assert "const forms = root.querySelectorAll('form[data-front-advanced-form=\"true\"]');" in content
