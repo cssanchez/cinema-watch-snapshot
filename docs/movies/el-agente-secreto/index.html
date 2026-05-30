@@ -4377,20 +4377,27 @@
         if (!locationKey) {
           return;
         }
-        const buttons = Array.from(
-          root.querySelectorAll(`[data-front-board-location="${locationKey}"][data-front-board-target]`)
-        );
-        const panels = Array.from(
-          root.querySelectorAll(`[data-front-board-location="${locationKey}"][data-front-board-panel]`)
-        );
+        const buttons = root.querySelectorAll(`[data-front-board-location="${locationKey}"][data-front-board-target]`);
+        const panels = root.querySelectorAll(`[data-front-board-location="${locationKey}"][data-front-board-panel]`);
         if (!buttons.length || !panels.length) {
           return;
         }
 
-        const availableKeys = new Set(panels.map((panel) => panel.dataset.frontBoardPanel || ''));
+        // ⚡ Bolt Optimization: Replace Array.map() with single-pass loop for Set initialization
+        const availableKeys = new Set();
+        for (let i = 0; i < panels.length; i++) {
+          availableKeys.add(panels[i].dataset.frontBoardPanel || '');
+        }
         let nextKey = boardKey && availableKeys.has(boardKey) ? boardKey : '';
         if (!nextKey) {
-          const activeButton = buttons.find((button) => button.getAttribute('aria-pressed') === 'true');
+          // ⚡ Bolt Optimization: Replace Array.find() with loop to avoid NodeList to Array conversion
+          let activeButton = undefined;
+          for (let i = 0; i < buttons.length; i++) {
+            if (buttons[i].getAttribute('aria-pressed') === 'true') {
+              activeButton = buttons[i];
+              break;
+            }
+          }
           nextKey = activeButton?.dataset.frontBoardTarget || buttons[0]?.dataset.frontBoardTarget || '';
         }
         if (!nextKey) {
@@ -4409,19 +4416,21 @@
       }
 
       function initFrontBoards(root = document) {
-        const locationKeys = new Set(
-          Array.from(root.querySelectorAll('[data-front-board-location]'))
-            .map((element) => element.getAttribute('data-front-board-location') || '')
-            .filter(Boolean)
-        );
+        // ⚡ Bolt Optimization: Replace Array.from().map().filter() with single-pass loop
+        const _elements = root.querySelectorAll('[data-front-board-location]');
+        const locationKeys = new Set();
+        for (let i = 0; i < _elements.length; i++) {
+          const val = _elements[i].getAttribute('data-front-board-location');
+          if (val) locationKeys.add(val);
+        }
         for (const locationKey of locationKeys) {
           setFrontBoard(root, locationKey, '');
         }
       }
 
       function setHomepageLocation(root, key, { persist = true } = {}) {
-        const buttons = Array.from(root.querySelectorAll('[data-location-target]'));
-        const panels = Array.from(root.querySelectorAll('[data-location-panel]'));
+        const buttons = root.querySelectorAll('[data-location-target]');
+        const panels = root.querySelectorAll('[data-location-panel]');
         const intendedSectionKey = typeof window.CineVicioNav?.currentIntentSectionKey === 'function'
           ? window.CineVicioNav.currentIntentSectionKey()
           : '';
@@ -4444,7 +4453,14 @@
         ]);
         let nextKey = key && availableKeys.has(key) ? key : '';
         if (!nextKey) {
-          const activeButton = buttons.find((button) => button.getAttribute('aria-pressed') === 'true');
+          // ⚡ Bolt Optimization: Replace Array.find() with loop to avoid NodeList to Array conversion
+          let activeButton = undefined;
+          for (let i = 0; i < buttons.length; i++) {
+            if (buttons[i].getAttribute('aria-pressed') === 'true') {
+              activeButton = buttons[i];
+              break;
+            }
+          }
           nextKey = activeButton?.dataset.locationTarget || buttons[0]?.dataset.locationTarget || '';
         }
         if (!nextKey) {
@@ -5531,12 +5547,8 @@ const _buildRowDetailTokensCache = new Map();
 
       function setBoardPanel(locationKey, panelKey) {
         if (!locationKey || !panelKey) return;
-        const buttons = Array.from(
-          document.querySelectorAll(`[data-front-board-location="${locationKey}"][data-front-board-target]`)
-        );
-        const panels = Array.from(
-          document.querySelectorAll(`[data-front-board-location="${locationKey}"][data-front-board-panel]`)
-        );
+        const buttons = document.querySelectorAll(`[data-front-board-location="${locationKey}"][data-front-board-target]`);
+        const panels = document.querySelectorAll(`[data-front-board-location="${locationKey}"][data-front-board-panel]`);
         for (const button of buttons) {
           const pressed = button.dataset.frontBoardTarget === panelKey;
           button.setAttribute('aria-pressed', pressed ? 'true' : 'false');
@@ -5587,7 +5599,7 @@ const _buildRowDetailTokensCache = new Map();
           if (!value) continue;
           const field = form.elements.namedItem(key);
           if (!(field instanceof HTMLInputElement || field instanceof HTMLSelectElement)) continue;
-          if (field instanceof HTMLSelectElement && key === 'room' && !Array.from(field.options).some((opt) => opt.value === value)) {
+          if (field instanceof HTMLSelectElement && key === 'room' && !Array.prototype.some.call(field.options, (opt) => opt.value === value)) {
             field.add(new Option(roomLabel(value), value));
           }
           field.value = value;
@@ -5634,7 +5646,7 @@ const _buildRowDetailTokensCache = new Map();
           return;
         }
         const nextValue = String(value || '').trim();
-        if (field instanceof HTMLSelectElement && key === 'room' && nextValue && !Array.from(field.options).some((opt) => opt.value === nextValue)) {
+        if (field instanceof HTMLSelectElement && key === 'room' && nextValue && !Array.prototype.some.call(field.options, (opt) => opt.value === nextValue)) {
           field.add(new Option(roomLabel(nextValue), nextValue));
         }
         field.value = nextValue;
@@ -5693,11 +5705,16 @@ const _buildRowDetailTokensCache = new Map();
       }
 
       function syncActiveQuickBoardPresets(root = document) {
-        const locationKeys = new Set(
-          Array.from(root.querySelectorAll('form[data-front-advanced-form="true"]'))
-            .map((form) => form instanceof HTMLFormElement ? String(form.dataset.frontLocationKey || '').trim() : '')
-            .filter(Boolean)
-        );
+        // ⚡ Bolt Optimization: Replace Array.from().map().filter() with single-pass loop
+        const _forms = root.querySelectorAll('form[data-front-advanced-form="true"]');
+        const locationKeys = new Set();
+        for (let i = 0; i < _forms.length; i++) {
+          const form = _forms[i];
+          if (form instanceof HTMLFormElement) {
+            const val = String(form.dataset.frontLocationKey || '').trim();
+            if (val) locationKeys.add(val);
+          }
+        }
         for (const locationKey of locationKeys) {
           syncBoardPreset(root, locationKey, '', { force: false });
         }
