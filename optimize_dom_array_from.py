@@ -123,6 +123,20 @@ def process_file(file_path):
     # - scrollToMoviesSection
     # Since `pattern2` replaces the exact code `const visiblePanel = Array.from(document.querySelectorAll('[data-location-panel]')).find(...)` with `const visiblePanel = getVisibleLocationPanel();`, and since that exact code is used inside `getActiveHomeSections`, `scrollToCartelera`, `scrollToSpecialRooms`, and `scrollToMoviesSection`, it actually covers all of them!
 
+
+
+    # 6. Optimize Array.from(HTMLOptionsCollection).some()
+    # Replaces: !Array.from(field.options).some(...)
+    # With:     !Array.prototype.some.call(field.options, ...)
+    pattern5 = re.compile(r"Array\.from\((field\.options)\)\.some\(")
+    content = pattern5.sub(r"Array.prototype.some.call(\1, ", content)
+
+    # 7. Optimize Array.from(NodeList).map()
+    # Replaces: Array.from(root.querySelectorAll(...)).map(...)
+    # With:     Array.prototype.map.call(root.querySelectorAll(...), ...)
+    pattern6 = re.compile(r"Array\.from\((root\.querySelectorAll\([^)]+\))\)\s*\.map\(")
+    content = pattern6.sub(r"Array.prototype.map.call(\1, ", content)
+
     if content != original_content:
         with open(file_path, 'w', encoding='utf-8') as f:
             f.write(content)

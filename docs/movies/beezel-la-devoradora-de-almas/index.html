@@ -4721,8 +4721,7 @@
 
       function initFrontBoards(root = document) {
         const locationKeys = new Set(
-          Array.from(root.querySelectorAll('[data-front-board-location]'))
-            .map((element) => element.getAttribute('data-front-board-location') || '')
+          Array.prototype.map.call(root.querySelectorAll('[data-front-board-location]'), (element) => element.getAttribute('data-front-board-location') || '')
             .filter(Boolean)
         );
         for (const locationKey of locationKeys) {
@@ -5898,7 +5897,7 @@ const _buildRowDetailTokensCache = new Map();
           if (!value) continue;
           const field = form.elements.namedItem(key);
           if (!(field instanceof HTMLInputElement || field instanceof HTMLSelectElement)) continue;
-          if (field instanceof HTMLSelectElement && key === 'room' && !Array.from(field.options).some((opt) => opt.value === value)) {
+          if (field instanceof HTMLSelectElement && key === 'room' && !Array.prototype.some.call(field.options, (opt) => opt.value === value)) {
             field.add(new Option(roomLabel(value), value));
           }
           field.value = value;
@@ -5945,7 +5944,7 @@ const _buildRowDetailTokensCache = new Map();
           return;
         }
         const nextValue = String(value || '').trim();
-        if (field instanceof HTMLSelectElement && key === 'room' && nextValue && !Array.from(field.options).some((opt) => opt.value === nextValue)) {
+        if (field instanceof HTMLSelectElement && key === 'room' && nextValue && !Array.prototype.some.call(field.options, (opt) => opt.value === nextValue)) {
           field.add(new Option(roomLabel(nextValue), nextValue));
         }
         field.value = nextValue;
@@ -6005,8 +6004,7 @@ const _buildRowDetailTokensCache = new Map();
 
       function syncActiveQuickBoardPresets(root = document) {
         const locationKeys = new Set(
-          Array.from(root.querySelectorAll('form[data-front-advanced-form="true"]'))
-            .map((form) => form instanceof HTMLFormElement ? String(form.dataset.frontLocationKey || '').trim() : '')
+          Array.prototype.map.call(root.querySelectorAll('form[data-front-advanced-form="true"]'), (form) => form instanceof HTMLFormElement ? String(form.dataset.frontLocationKey || '').trim() : '')
             .filter(Boolean)
         );
         for (const locationKey of locationKeys) {
