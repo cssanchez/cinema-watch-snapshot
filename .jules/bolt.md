@@ -36,3 +36,7 @@
 ## 2024-05-18 - [Optimizing find min/max range operations]
 **Learning:** In `buildFrontInsights`, extracting a date range by mapping properties to strings, wrapping in a `Set` to remove duplicates, spreading back to an `Array`, and fully sorting `O(N log N)` just to pick the first and last elements is an immense performance anti-pattern. This needlessly allocates memory for intermediate Maps, Arrays, and Sets, forcing garbage collection.
 **Action:** Replace `Array.from(new Set(...)).sort(...);` with a single O(N) `.reduce()` pass that tracks and compares `min` and `max` values directly. This executes significantly faster without intermediate memory allocations or expensive sorts.
+
+## 2024-05-18 - [DOM NodeList Multi-Pass iteration]
+**Learning:** In the frontend static site, querying DOM elements and immediately iterating them via a chained multi-pass approach like `Array.from(document.querySelectorAll(...)).map(...).filter(...)` introduces significant measurable overhead. It creates intermediate array allocations and causes excess garbage collection pressure.
+**Action:** Replace `Array.from(NodeList).map(...).filter(...)` with single-pass traditional `for` loops directly populating the desired final collection, such as a `Set`. Since this repository is a generated snapshot of a static site without a build step, apply the optimization via the persistent Python patch script (`optimize_dom_array_from.py`) directly on the `docs/**/*.html` artifacts.

@@ -114,6 +114,57 @@ def process_file(file_path):
     content = pattern4.sub(repl4, content)
 
     # 5. _getNavLinks replacement
+    # 5. initFrontBoards locationKeys Set optimization
+    pattern5 = re.compile(
+        r"([ \t]*)const locationKeys = new Set\(\s*"
+        r"Array\.from\(root\.querySelectorAll\('\[data-front-board-location\]'\)\)\s*"
+        r"\.map\(\(element\) => element\.getAttribute\('data-front-board-location'\) \|\| ''\)\s*"
+        r"\.filter\(Boolean\)\s*"
+        r"\);",
+        re.MULTILINE
+    )
+
+    def repl5(match):
+        indent = match.group(1)
+        return (
+            f"{indent}// ⚡ Bolt Optimization: Replace Array.from(NodeList).map().filter() with a single-pass for loop\n"
+            f"{indent}const locationKeys = new Set();\n"
+            f"{indent}const boardLocations = root.querySelectorAll('[data-front-board-location]');\n"
+            f"{indent}for (let i = 0; i < boardLocations.length; i++) {{\n"
+            f"{indent}  const val = boardLocations[i].getAttribute('data-front-board-location');\n"
+            f"{indent}  if (val) locationKeys.add(val);\n"
+            f"{indent}}}"
+        )
+
+    content = pattern5.sub(repl5, content)
+
+    # 6. syncActiveQuickBoardPresets locationKeys Set optimization
+    pattern6 = re.compile(
+        r"([ \t]*)const locationKeys = new Set\(\s*"
+        r"Array\.from\(root\.querySelectorAll\('form\[data-front-advanced-form=\"true\"\]'\)\)\s*"
+        r"\.map\(\(form\) => form instanceof HTMLFormElement \? String\(form\.dataset\.frontLocationKey \|\| ''\)\.trim\(\) : ''\)\s*"
+        r"\.filter\(Boolean\)\s*"
+        r"\);",
+        re.MULTILINE
+    )
+
+    def repl6(match):
+        indent = match.group(1)
+        return (
+            f"{indent}// ⚡ Bolt Optimization: Replace Array.from(NodeList).map().filter() with a single-pass for loop\n"
+            f"{indent}const locationKeys = new Set();\n"
+            f"{indent}const advancedForms = root.querySelectorAll('form[data-front-advanced-form=\"true\"]');\n"
+            f"{indent}for (let i = 0; i < advancedForms.length; i++) {{\n"
+            f"{indent}  const form = advancedForms[i];\n"
+            f"{indent}  if (form instanceof HTMLFormElement) {{\n"
+            f"{indent}    const val = String(form.dataset.frontLocationKey || '').trim();\n"
+            f"{indent}    if (val) locationKeys.add(val);\n"
+            f"{indent}  }}\n"
+            f"{indent}}}"
+        )
+
+    content = pattern6.sub(repl6, content)
+
     # We should also replace Array.from on document.querySelectorAll generally where find is used.
     # We found `Array.from(document.querySelectorAll('[data-location-panel]')).find` inside:
     # - getVisibleLocationPanel
