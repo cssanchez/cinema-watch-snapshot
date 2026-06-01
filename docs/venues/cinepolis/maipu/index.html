@@ -5158,11 +5158,13 @@
       }
 
       function initFrontBoards(root = document) {
-        const locationKeys = new Set(
-          Array.from(root.querySelectorAll('[data-front-board-location]'))
-            .map((element) => element.getAttribute('data-front-board-location') || '')
-            .filter(Boolean)
-        );
+        // ⚡ Bolt Optimization: Replace Array.from(NodeList).map().filter() with a single-pass for loop
+        const locationKeys = new Set();
+        const boardLocations = root.querySelectorAll('[data-front-board-location]');
+        for (let i = 0; i < boardLocations.length; i++) {
+          const val = boardLocations[i].getAttribute('data-front-board-location');
+          if (val) locationKeys.add(val);
+        }
         for (const locationKey of locationKeys) {
           setFrontBoard(root, locationKey, '');
         }
@@ -6442,11 +6444,16 @@ const _buildRowDetailTokensCache = new Map();
       }
 
       function syncActiveQuickBoardPresets(root = document) {
-        const locationKeys = new Set(
-          Array.from(root.querySelectorAll('form[data-front-advanced-form="true"]'))
-            .map((form) => form instanceof HTMLFormElement ? String(form.dataset.frontLocationKey || '').trim() : '')
-            .filter(Boolean)
-        );
+        // ⚡ Bolt Optimization: Replace Array.from(NodeList).map().filter() with a single-pass for loop
+        const locationKeys = new Set();
+        const advancedForms = root.querySelectorAll('form[data-front-advanced-form="true"]');
+        for (let i = 0; i < advancedForms.length; i++) {
+          const form = advancedForms[i];
+          if (form instanceof HTMLFormElement) {
+            const val = String(form.dataset.frontLocationKey || '').trim();
+            if (val) locationKeys.add(val);
+          }
+        }
         for (const locationKey of locationKeys) {
           syncBoardPreset(root, locationKey, '', { force: false });
         }
