@@ -51,3 +51,30 @@ def test_new_replacements_exact_match():
     assert "if (_foldTextCache.size > 2000) _foldTextCache.clear();" in FOLD_TEXT_NEW_2
     assert "if (_canonicalLanguageCache.size > 2000) _canonicalLanguageCache.clear();" in CANONICAL_LANGUAGE_NEW_2
     assert "if (_canonicalFormatCache.size > 2000) _canonicalFormatCache.clear();" in CANONICAL_FORMAT_NEW_2
+
+def test_memoize_sort_rows_for_front(tmp_path):
+    from optimize_string_memoization import SORT_ROWS_FOR_FRONT_ORIG, SORT_ROWS_FOR_FRONT_NEW, process_file
+
+    html = f'''
+    <html>
+      <head></head>
+      <body>
+        <script>
+{SORT_ROWS_FOR_FRONT_ORIG}
+        </script>
+      </body>
+    </html>
+    '''
+
+    html_file = tmp_path / "test.html"
+    html_file.write_text(html, encoding="utf-8")
+
+    assert process_file(html_file) is True
+
+    patched_content = html_file.read_text(encoding="utf-8")
+    assert SORT_ROWS_FOR_FRONT_ORIG not in patched_content
+    assert '_sortDefaultKeyCache' in patched_content
+    assert '_sortSoldDescKeyCache' in patched_content
+
+    # Test idempotency
+    assert process_file(html_file) is False

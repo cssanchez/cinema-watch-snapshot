@@ -289,6 +289,81 @@ FRONT_ROW_IDENTITY_ORIG_2 = """      function frontRowIdentity(row) {
         ].join('|');
       }"""
 
+
+SORT_ROWS_FOR_FRONT_ORIG = """      function sortRowsForFront(rows, resultPreset = null) {
+        const normalizedSort = String(resultPreset?.sort || '').trim().toLowerCase();
+        const nextRows = [...rows];
+        if (normalizedSort === 'sold_desc') {
+          nextRows.sort((left, right) => {
+            const leftSold = toInt(left.sold_percent);
+            const rightSold = toInt(right.sold_percent);
+            const leftRank = leftSold === null ? -1 : leftSold;
+            const rightRank = rightSold === null ? -1 : rightSold;
+            if (rightRank !== leftRank) {
+              return rightRank - leftRank;
+            }
+            const leftKey = `${left.date_iso}|${left.time_label}|${left.movie_title}`;
+            const rightKey = `${right.date_iso}|${right.time_label}|${right.movie_title}`;
+            return leftKey.localeCompare(rightKey);
+          });
+          return nextRows;
+        }
+        nextRows.sort((left, right) => {
+          const leftKey = `${left.date_iso}|${left.time_label}`;
+          const rightKey = `${right.date_iso}|${right.time_label}`;
+          return leftKey.localeCompare(rightKey);
+        });
+        return nextRows;
+      }"""
+
+SORT_ROWS_FOR_FRONT_NEW = """// ⚡ Bolt Optimization: Memoize object identity strings using WeakMap to prevent extreme GC pressure and O(N log N) memory allocations.
+const _sortDefaultKeyCache = new WeakMap();
+const _sortSoldDescKeyCache = new WeakMap();
+
+      function sortRowsForFront(rows, resultPreset = null) {
+        const normalizedSort = String(resultPreset?.sort || '').trim().toLowerCase();
+        const nextRows = [...rows];
+        if (normalizedSort === 'sold_desc') {
+          nextRows.sort((left, right) => {
+            const leftSold = toInt(left.sold_percent);
+            const rightSold = toInt(right.sold_percent);
+            const leftRank = leftSold === null ? -1 : leftSold;
+            const rightRank = rightSold === null ? -1 : rightSold;
+            if (rightRank !== leftRank) {
+              return rightRank - leftRank;
+            }
+
+            let leftKey = _sortSoldDescKeyCache.get(left);
+            if (leftKey === undefined) {
+              leftKey = `${left.date_iso}|${left.time_label}|${left.movie_title}`;
+              _sortSoldDescKeyCache.set(left, leftKey);
+            }
+            let rightKey = _sortSoldDescKeyCache.get(right);
+            if (rightKey === undefined) {
+              rightKey = `${right.date_iso}|${right.time_label}|${right.movie_title}`;
+              _sortSoldDescKeyCache.set(right, rightKey);
+            }
+
+            return leftKey.localeCompare(rightKey);
+          });
+          return nextRows;
+        }
+        nextRows.sort((left, right) => {
+          let leftKey = _sortDefaultKeyCache.get(left);
+          if (leftKey === undefined) {
+            leftKey = `${left.date_iso}|${left.time_label}`;
+            _sortDefaultKeyCache.set(left, leftKey);
+          }
+          let rightKey = _sortDefaultKeyCache.get(right);
+          if (rightKey === undefined) {
+            rightKey = `${right.date_iso}|${right.time_label}`;
+            _sortDefaultKeyCache.set(right, rightKey);
+          }
+          return leftKey.localeCompare(rightKey);
+        });
+        return nextRows;
+      }"""
+
 FRONT_ROW_IDENTITY_NEW_2 = """// ⚡ Bolt Optimization: Memoize frontRowIdentity to avoid repeated string concatenation and array allocations in render loops.
 const _frontRowIdentityCache = new WeakMap();
       function frontRowIdentity(row) {
@@ -336,6 +411,7 @@ def process_file(file_path):
     content = content.replace(CANONICAL_FORMAT_ORIG_2, CANONICAL_FORMAT_NEW_2)
     content = content.replace(BUILD_ROW_DETAIL_TOKENS_ORIG_2, BUILD_ROW_DETAIL_TOKENS_NEW_2)
     content = content.replace(FRONT_ROW_IDENTITY_ORIG_2, FRONT_ROW_IDENTITY_NEW_2)
+    content = content.replace(SORT_ROWS_FOR_FRONT_ORIG, SORT_ROWS_FOR_FRONT_NEW)
 
     if content != original_content:
         with open(file_path, 'w', encoding='utf-8') as f:

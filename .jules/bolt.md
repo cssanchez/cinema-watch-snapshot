@@ -36,3 +36,7 @@
 ## 2024-05-18 - [Optimizing find min/max range operations]
 **Learning:** In `buildFrontInsights`, extracting a date range by mapping properties to strings, wrapping in a `Set` to remove duplicates, spreading back to an `Array`, and fully sorting `O(N log N)` just to pick the first and last elements is an immense performance anti-pattern. This needlessly allocates memory for intermediate Maps, Arrays, and Sets, forcing garbage collection.
 **Action:** Replace `Array.from(new Set(...)).sort(...);` with a single O(N) `.reduce()` pass that tracks and compares `min` and `max` values directly. This executes significantly faster without intermediate memory allocations or expensive sorts.
+
+## 2024-06-03 - WeakMap Memoization in Render-Loop Sort
+**Learning:** Generating object identity strings (e.g. `` `${left.date_iso}|${left.time_label}` ``) inside `Array.prototype.sort()` callbacks for large arrays causes extreme GC pressure and `O(N log N)` memory allocations, drastically slowing down render loops.
+**Action:** Use a `WeakMap` keyed by the row objects to memoize the identity strings, turning repeated string concatenations into $O(1)$ object lookups.
