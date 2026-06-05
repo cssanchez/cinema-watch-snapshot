@@ -8,7 +8,8 @@ from apply_ux_improvements import (
     transform_5_count_format,
     transform_6_add_disabled_styles,
     transform_7_add_csp,
-    transform_8_advanced_filters_ux
+    transform_8_advanced_filters_ux,
+    transform_12_add_aria_live_to_empty_states
 )
 
 def test_transform_5_basic():
@@ -411,6 +412,32 @@ def test_transform_9_add_clear_filters_button():
     """
     result = transform_9_add_clear_filters_button(content)
     assert result == expected
+
+def test_transform_12_basic():
+    """Test adding aria-live properties to .empty messages."""
+    content = '<div class="empty" data-i18n-source>No IMAX screenings in the current snapshot.</div>'
+    expected = '<div class="empty" aria-live="polite" role="status" data-i18n-source>No IMAX screenings in the current snapshot.</div>'
+
+    result = transform_12_add_aria_live_to_empty_states(content)
+
+    assert result == expected
+
+def test_transform_12_advanced_results():
+    """Test adding aria-live properties to data-front-advanced-results containers."""
+    content = '<div class="front-screening-groups" data-front-advanced-results></div>'
+    expected = '<div class="front-screening-groups" data-front-advanced-results aria-live="polite" role="status"></div>'
+
+    result = transform_12_add_aria_live_to_empty_states(content)
+
+    assert result == expected
+
+def test_transform_12_idempotency():
+    """Test idempotency for transform_12_add_aria_live_to_empty_states."""
+    content = '<div class="empty" aria-live="polite" role="status" data-i18n-source>No IMAX screenings in the current snapshot.</div>'
+
+    result = transform_12_add_aria_live_to_empty_states(content)
+
+    assert result == content
 
 def test_transform_9_add_clear_filters_button_no_duplicate():
     content = """
