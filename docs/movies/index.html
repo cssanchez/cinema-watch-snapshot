@@ -4687,7 +4687,7 @@
           window.CineVicioLiveNav.load(targetUrl);
           return;
         }
-        window.location.assign(targetUrl);
+        safeAssign(targetUrl);
       }
 
       function closeToolbarZones(except = null) {
@@ -4805,7 +4805,7 @@ const screeningsLink = _getScreeningsLink();
             if (window.CineVicioLiveNav?.load) {
               window.CineVicioLiveNav.load(targetUrl);
             } else {
-              window.location.assign(targetUrl);
+              safeAssign(targetUrl);
             }
           }
           return;
@@ -4953,6 +4953,17 @@ const screeningsLink = _getScreeningsLink();
       const staticPayloadCache = new Map();
 
 const _sanitizeUrlCache = new Map();
+      function safeAssign(targetUrl) {
+        try {
+          const url = new URL(targetUrl, window.location.origin);
+          if (url.origin === window.location.origin) {
+            window.location.assign(url.href);
+            return;
+          }
+        } catch (_) {}
+        window.location.assign('/');
+      }
+
       function sanitizeUrl(url) {
         const strUrl = String(url ?? '').trim();
         if (_sanitizeUrlCache.has(strUrl)) return _sanitizeUrlCache.get(strUrl);
