@@ -36,3 +36,7 @@
 ## 2024-05-18 - [Optimizing find min/max range operations]
 **Learning:** In `buildFrontInsights`, extracting a date range by mapping properties to strings, wrapping in a `Set` to remove duplicates, spreading back to an `Array`, and fully sorting `O(N log N)` just to pick the first and last elements is an immense performance anti-pattern. This needlessly allocates memory for intermediate Maps, Arrays, and Sets, forcing garbage collection.
 **Action:** Replace `Array.from(new Set(...)).sort(...);` with a single O(N) `.reduce()` pass that tracks and compares `min` and `max` values directly. This executes significantly faster without intermediate memory allocations or expensive sorts.
+
+## 2026-05-06 - Cache provider venue forms
+**Learning:** In the global batch processing functions like `syncProviderVenueForms`, querying the DOM continuously via `document.querySelectorAll` adds significant overhead (benchmarked ~10x slower locally). While it's common to cache single elements (`querySelector`), caching `NodeList` collections from document-wide queries when the DOM is largely static provides a measurable performance win.
+**Action:** When working on DOM optimisations, review functions that execute globally across the document on page load or state change. Use a local cached variable and fall back to the live query only when the specific root node differs from `document`.

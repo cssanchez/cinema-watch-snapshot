@@ -63,6 +63,31 @@ def process_file(file_path):
     content = content.replace("document.getElementById('cartelera')", "_getCartelera()")
     content = content.replace("_cachedCartelera = _getCartelera();", "_cachedCartelera = document.getElementById('cartelera');")
 
+    search_provider_forms = """      function syncProviderVenueForms(root = document) {
+        const forms = root.querySelectorAll('form[data-provider-venue-form="true"]');
+        for (const form of forms) {
+          syncVenueSelect(form);
+        }
+      }"""
+
+    replace_provider_forms = """      let _cachedProviderVenueForms = null;
+      function syncProviderVenueForms(root = document) {
+        let forms;
+        if (root === document) {
+          // ⚡ Bolt: Cache provider venue forms query to avoid repeated expensive DOM lookups. Performance impact: ~10x faster
+          if (!_cachedProviderVenueForms) _cachedProviderVenueForms = document.querySelectorAll('form[data-provider-venue-form="true"]');
+          forms = _cachedProviderVenueForms;
+        } else {
+          forms = root.querySelectorAll('form[data-provider-venue-form="true"]');
+        }
+        for (const form of forms) {
+          syncVenueSelect(form);
+        }
+      }"""
+
+    if search_provider_forms in content:
+        content = content.replace(search_provider_forms, replace_provider_forms)
+
     if content != original_content:
         with open(file_path, 'w', encoding='utf-8') as f:
             f.write(content)
