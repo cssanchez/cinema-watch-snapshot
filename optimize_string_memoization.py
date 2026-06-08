@@ -317,6 +317,78 @@ CANONICAL_FORMAT_NEW_2 = """const _canonicalFormatCache = new Map();
       }"""
 
 
+SORT_ROWS_FOR_FRONT_ORIG = """      function sortRowsForFront(rows, resultPreset = null) {
+        const normalizedSort = String(resultPreset?.sort || '').trim().toLowerCase();
+        const nextRows = [...rows];
+        if (normalizedSort === 'sold_desc') {
+          nextRows.sort((left, right) => {
+            const leftSold = toInt(left.sold_percent);
+            const rightSold = toInt(right.sold_percent);
+            const leftRank = leftSold === null ? -1 : leftSold;
+            const rightRank = rightSold === null ? -1 : rightSold;
+            if (rightRank !== leftRank) {
+              return rightRank - leftRank;
+            }
+            const leftKey = `${left.date_iso}|${left.time_label}|${left.movie_title}`;
+            const rightKey = `${right.date_iso}|${right.time_label}|${right.movie_title}`;
+            return leftKey.localeCompare(rightKey);
+          });
+          return nextRows;
+        }
+        nextRows.sort((left, right) => {
+          const leftKey = `${left.date_iso}|${left.time_label}`;
+          const rightKey = `${right.date_iso}|${right.time_label}`;
+          return leftKey.localeCompare(rightKey);
+        });
+        return nextRows;
+      }"""
+
+SORT_ROWS_FOR_FRONT_NEW = """// ⚡ Bolt Optimization: Memoize sort keys to avoid excessive object property accesses and string allocations during O(N log N) sort operations.
+const _sortKeySoldDescCache = new WeakMap();
+const _sortKeyDefaultCache = new WeakMap();
+
+      function sortRowsForFront(rows, resultPreset = null) {
+        const normalizedSort = String(resultPreset?.sort || '').trim().toLowerCase();
+        const nextRows = [...rows];
+        if (normalizedSort === 'sold_desc') {
+          nextRows.sort((left, right) => {
+            const leftSold = toInt(left.sold_percent);
+            const rightSold = toInt(right.sold_percent);
+            const leftRank = leftSold === null ? -1 : leftSold;
+            const rightRank = rightSold === null ? -1 : rightSold;
+            if (rightRank !== leftRank) {
+              return rightRank - leftRank;
+            }
+            let leftKey = _sortKeySoldDescCache.get(left);
+            if (leftKey === undefined) {
+              leftKey = `${left.date_iso}|${left.time_label}|${left.movie_title}`;
+              _sortKeySoldDescCache.set(left, leftKey);
+            }
+            let rightKey = _sortKeySoldDescCache.get(right);
+            if (rightKey === undefined) {
+              rightKey = `${right.date_iso}|${right.time_label}|${right.movie_title}`;
+              _sortKeySoldDescCache.set(right, rightKey);
+            }
+            return leftKey.localeCompare(rightKey);
+          });
+          return nextRows;
+        }
+        nextRows.sort((left, right) => {
+          let leftKey = _sortKeyDefaultCache.get(left);
+          if (leftKey === undefined) {
+            leftKey = `${left.date_iso}|${left.time_label}`;
+            _sortKeyDefaultCache.set(left, leftKey);
+          }
+          let rightKey = _sortKeyDefaultCache.get(right);
+          if (rightKey === undefined) {
+            rightKey = `${right.date_iso}|${right.time_label}`;
+            _sortKeyDefaultCache.set(right, rightKey);
+          }
+          return leftKey.localeCompare(rightKey);
+        });
+        return nextRows;
+      }"""
+
 def process_file(file_path):
     with open(file_path, 'r', encoding='utf-8') as f:
         content = f.read()
@@ -336,6 +408,7 @@ def process_file(file_path):
     content = content.replace(CANONICAL_FORMAT_ORIG_2, CANONICAL_FORMAT_NEW_2)
     content = content.replace(BUILD_ROW_DETAIL_TOKENS_ORIG_2, BUILD_ROW_DETAIL_TOKENS_NEW_2)
     content = content.replace(FRONT_ROW_IDENTITY_ORIG_2, FRONT_ROW_IDENTITY_NEW_2)
+    content = content.replace(SORT_ROWS_FOR_FRONT_ORIG, SORT_ROWS_FOR_FRONT_NEW)
 
     if content != original_content:
         with open(file_path, 'w', encoding='utf-8') as f:

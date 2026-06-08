@@ -6458,6 +6458,10 @@ const _buildRowDetailTokensCache = new Map();
         };
       }
 
+// ⚡ Bolt Optimization: Memoize sort keys to avoid excessive object property accesses and string allocations during O(N log N) sort operations.
+const _sortKeySoldDescCache = new WeakMap();
+const _sortKeyDefaultCache = new WeakMap();
+
       function sortRowsForFront(rows, resultPreset = null) {
         const normalizedSort = String(resultPreset?.sort || '').trim().toLowerCase();
         const nextRows = [...rows];
@@ -6470,15 +6474,31 @@ const _buildRowDetailTokensCache = new Map();
             if (rightRank !== leftRank) {
               return rightRank - leftRank;
             }
-            const leftKey = `${left.date_iso}|${left.time_label}|${left.movie_title}`;
-            const rightKey = `${right.date_iso}|${right.time_label}|${right.movie_title}`;
+            let leftKey = _sortKeySoldDescCache.get(left);
+            if (leftKey === undefined) {
+              leftKey = `${left.date_iso}|${left.time_label}|${left.movie_title}`;
+              _sortKeySoldDescCache.set(left, leftKey);
+            }
+            let rightKey = _sortKeySoldDescCache.get(right);
+            if (rightKey === undefined) {
+              rightKey = `${right.date_iso}|${right.time_label}|${right.movie_title}`;
+              _sortKeySoldDescCache.set(right, rightKey);
+            }
             return leftKey.localeCompare(rightKey);
           });
           return nextRows;
         }
         nextRows.sort((left, right) => {
-          const leftKey = `${left.date_iso}|${left.time_label}`;
-          const rightKey = `${right.date_iso}|${right.time_label}`;
+          let leftKey = _sortKeyDefaultCache.get(left);
+          if (leftKey === undefined) {
+            leftKey = `${left.date_iso}|${left.time_label}`;
+            _sortKeyDefaultCache.set(left, leftKey);
+          }
+          let rightKey = _sortKeyDefaultCache.get(right);
+          if (rightKey === undefined) {
+            rightKey = `${right.date_iso}|${right.time_label}`;
+            _sortKeyDefaultCache.set(right, rightKey);
+          }
           return leftKey.localeCompare(rightKey);
         });
         return nextRows;
