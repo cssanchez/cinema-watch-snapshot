@@ -6533,7 +6533,7 @@ const _buildRowDetailTokensCache = new Map();
         const peakRowIdentity = insights?.peakRow ? frontRowIdentity(insights.peakRow) : '';
 
         if (!sorted.length) {
-          container.innerHTML = `<div class="empty" data-i18n-source>No screenings matched the published board with these filters.</div>`;
+          container.innerHTML = `<div class="empty" data-i18n-source role="status" aria-live="polite">No screenings matched the published board with these filters.</div>`;
           window.CinemaWatchI18n?.apply(panel);
           return;
         }

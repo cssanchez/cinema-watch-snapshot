@@ -8,8 +8,28 @@ from apply_ux_improvements import (
     transform_5_count_format,
     transform_6_add_disabled_styles,
     transform_7_add_csp,
-    transform_8_advanced_filters_ux
+    transform_8_advanced_filters_ux,
+    transform_12_add_aria_live
 )
+
+def test_transform_12_add_aria_live():
+    """Test adding aria-live and role="status" to dynamic results and empty states."""
+    content = """
+    <article>
+        <div class="front-screening-groups" data-front-advanced-results></div>
+        <div class="empty" data-i18n-source>No IMAX screenings in the current snapshot.</div>
+    </article>
+    """
+
+    expected = """
+    <article>
+        <div class="front-screening-groups" data-front-advanced-results aria-live="polite" role="status"></div>
+        <div class="empty" data-i18n-source role="status" aria-live="polite">No IMAX screenings in the current snapshot.</div>
+    </article>
+    """
+
+    result = transform_12_add_aria_live(content)
+    assert result == expected
 
 def test_transform_5_basic():
     """Test basic transformation with a single section and correct count."""
