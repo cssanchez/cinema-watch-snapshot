@@ -12,3 +12,6 @@
 - **Date:** 2026-04-14
 - **Learning:** The "Skip to content" link used `:focus` to show an outline when activated. However, mouse users who click it (even accidentally) will also see the focus outline, which is suboptimal UX. Modern CSS provides `:focus-visible` to specifically target keyboard-driven focus events, keeping the outline hidden for pointer clicks but visible for keyboard tabs.
 - **Action:** Added `transform_10_skip_link_focus_visible` to `apply_ux_improvements.py` to convert `.skip-link:focus` to `.skip-link:focus-visible`.
+- **Date:** 2026-06-09
+- **Learning:** In client-side filtering systems, statically injected error or empty states (like "No screenings matched") and dynamic result containers must utilize `aria-live="polite"` and `role="status"` to ensure screen readers announce these asynchronous updates to the user.
+- **Action:** Added `transform_12_add_aria_live_regions` to `apply_ux_improvements.py` to automatically inject these ARIA attributes into the `.front-screening-groups` containers and `.empty` state elements across all generated HTML files.
