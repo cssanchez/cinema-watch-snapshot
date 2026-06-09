@@ -36,3 +36,10 @@
 ## 2024-05-18 - [Optimizing find min/max range operations]
 **Learning:** In `buildFrontInsights`, extracting a date range by mapping properties to strings, wrapping in a `Set` to remove duplicates, spreading back to an `Array`, and fully sorting `O(N log N)` just to pick the first and last elements is an immense performance anti-pattern. This needlessly allocates memory for intermediate Maps, Arrays, and Sets, forcing garbage collection.
 **Action:** Replace `Array.from(new Set(...)).sort(...);` with a single O(N) `.reduce()` pass that tracks and compares `min` and `max` values directly. This executes significantly faster without intermediate memory allocations or expensive sorts.
+## 2024-05-18 - [DOM Collection array methods]
+**Learning:** In the frontend static site, applying array methods directly to DOM NodeLists or HTMLCollections using `Array.from(nodeList).method(...)` forces the Javascript engine to allocate and initialize an unnecessary intermediate array before applying the method. This causes measurable execution overhead and garbage collection pressure in hot paths.
+**Action:** When filtering, mapping, or finding in DOM NodeLists, explicitly bypass `Array.from()` by using `Array.prototype.<method>.call(nodeList, ...)` (e.g., `Array.prototype.some.call(field.options, ...)`), which avoids the intermediate array allocation entirely. Applied via a Python regex patching script directly into `optimize_dom_array_from.py`.
+
+## 2024-05-18 - [Iterable reduction]
+**Learning:** Converting an Iterable object (like `Map.keys()`) into an array via `Array.from()` just to run a `reduce()` operation is a major performance anti-pattern. Benchmarks showed that evaluating top values via `Array.from(map.keys()).reduce(...)` is ~3x slower than a manual `for...of` loop over `map.entries()`.
+**Action:** Avoid `Array.from().reduce()` for Maps and Sets. Instead, unroll the reduction into a manual `for (const [key, value] of map.entries())` loop.

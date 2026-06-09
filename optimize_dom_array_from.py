@@ -113,15 +113,40 @@ def process_file(file_path):
 
     content = pattern4.sub(repl4, content)
 
-    # 5. _getNavLinks replacement
-    # We should also replace Array.from on document.querySelectorAll generally where find is used.
-    # We found `Array.from(document.querySelectorAll('[data-location-panel]')).find` inside:
-    # - getVisibleLocationPanel
-    # - getActiveHomeSections
-    # - scrollToCartelera
-    # - scrollToSpecialRooms
-    # - scrollToMoviesSection
-    # Since `pattern2` replaces the exact code `const visiblePanel = Array.from(document.querySelectorAll('[data-location-panel]')).find(...)` with `const visiblePanel = getVisibleLocationPanel();`, and since that exact code is used inside `getActiveHomeSections`, `scrollToCartelera`, `scrollToSpecialRooms`, and `scrollToMoviesSection`, it actually covers all of them!
+    # 5. Optimize Array.from(field.options).some() to Array.prototype.some.call()
+    content = re.sub(
+        r"Array\.from\((field\.options)\)\.some\(\(opt\) => opt\.value === (value|nextValue)\)",
+        r"Array.prototype.some.call(\1, (opt) => opt.value === \2)",
+        content
+    )
+
+    # 6. Optimize Array.from(venueBuckets.keys()).reduce() to a for-of loop
+    ORIGINAL_VENUE_BUCKET = """        if (venueBuckets.size) {
+          const bucketKey = Array.from(venueBuckets.keys()).reduce((best, current) => {
+            const bestCount = venueBuckets.get(best) || 0;
+            const currentCount = venueBuckets.get(current) || 0;
+            if (currentCount !== bestCount) {
+              return currentCount > bestCount ? current : best;
+            }
+            return current.localeCompare(best) < 0 ? current : best;
+          });
+          const [provider, venueKey, venueName, venueHref] = bucketKey.split('||');"""
+
+    OPTIMIZED_VENUE_BUCKET = """        // ⚡ Bolt Optimization: Replace O(N log N) sorting with O(N) iteration
+        if (venueBuckets.size) {
+          let bucketKey = undefined;
+          let bestVal = -1;
+          for (const [current, currentCount] of venueBuckets.entries()) {
+            if (bucketKey === undefined || currentCount > bestVal) {
+              bucketKey = current;
+              bestVal = currentCount;
+            } else if (currentCount === bestVal) {
+              bucketKey = current.localeCompare(bucketKey) < 0 ? current : bucketKey;
+            }
+          }
+          const [provider, venueKey, venueName, venueHref] = bucketKey.split('||');"""
+
+    content = content.replace(ORIGINAL_VENUE_BUCKET, OPTIMIZED_VENUE_BUCKET)
 
     if content != original_content:
         with open(file_path, 'w', encoding='utf-8') as f:
