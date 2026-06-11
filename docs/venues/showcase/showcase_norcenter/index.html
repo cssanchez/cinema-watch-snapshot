@@ -6533,6 +6533,10 @@ const _buildRowDetailTokensCache = new Map();
         };
       }
 
+// ⚡ Bolt Optimization: Memoize object identity strings for sorting to avoid O(N log N) GC pressure
+      const _sortRowsSoldDescCache = new WeakMap();
+      const _sortRowsDefaultCache = new WeakMap();
+
       function sortRowsForFront(rows, resultPreset = null) {
         const normalizedSort = String(resultPreset?.sort || '').trim().toLowerCase();
         const nextRows = [...rows];
@@ -6545,15 +6549,31 @@ const _buildRowDetailTokensCache = new Map();
             if (rightRank !== leftRank) {
               return rightRank - leftRank;
             }
-            const leftKey = `${left.date_iso}|${left.time_label}|${left.movie_title}`;
-            const rightKey = `${right.date_iso}|${right.time_label}|${right.movie_title}`;
+            let leftKey = _sortRowsSoldDescCache.get(left);
+            if (leftKey === undefined) {
+              leftKey = `${left.date_iso}|${left.time_label}|${left.movie_title}`;
+              _sortRowsSoldDescCache.set(left, leftKey);
+            }
+            let rightKey = _sortRowsSoldDescCache.get(right);
+            if (rightKey === undefined) {
+              rightKey = `${right.date_iso}|${right.time_label}|${right.movie_title}`;
+              _sortRowsSoldDescCache.set(right, rightKey);
+            }
             return leftKey.localeCompare(rightKey);
           });
           return nextRows;
         }
         nextRows.sort((left, right) => {
-          const leftKey = `${left.date_iso}|${left.time_label}`;
-          const rightKey = `${right.date_iso}|${right.time_label}`;
+          let leftKey = _sortRowsDefaultCache.get(left);
+          if (leftKey === undefined) {
+            leftKey = `${left.date_iso}|${left.time_label}`;
+            _sortRowsDefaultCache.set(left, leftKey);
+          }
+          let rightKey = _sortRowsDefaultCache.get(right);
+          if (rightKey === undefined) {
+            rightKey = `${right.date_iso}|${right.time_label}`;
+            _sortRowsDefaultCache.set(right, rightKey);
+          }
           return leftKey.localeCompare(rightKey);
         });
         return nextRows;
