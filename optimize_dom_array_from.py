@@ -123,6 +123,30 @@ def process_file(file_path):
     # - scrollToMoviesSection
     # Since `pattern2` replaces the exact code `const visiblePanel = Array.from(document.querySelectorAll('[data-location-panel]')).find(...)` with `const visiblePanel = getVisibleLocationPanel();`, and since that exact code is used inside `getActiveHomeSections`, `scrollToCartelera`, `scrollToSpecialRooms`, and `scrollToMoviesSection`, it actually covers all of them!
 
+    # 6. Optimize Array.from + map/filter in Set generation for roomCount
+    pattern_room_count = re.compile(
+        r"([ \t]*)const roomCount = new Set\(\s*"
+        r"rows\s*"
+        r"\.map\(\(row\) => toInt\(row\.room_number\)\)\s*"
+        r"\.filter\(\(value\) => value !== null\)\s*"
+        r"\)\.size;",
+        re.MULTILINE
+    )
+
+    def repl_room_count(match):
+        indent = match.group(1)
+        return (
+            f"{indent}// ⚡ Bolt Optimization: Replace map/filter + Set constructor with single-pass Set population\n"
+            f"{indent}const _roomSet = new Set();\n"
+            f"{indent}for (let i = 0; i < rows.length; i++) {{\n"
+            f"{indent}  const val = toInt(rows[i].room_number);\n"
+            f"{indent}  if (val !== null) _roomSet.add(val);\n"
+            f"{indent}}}\n"
+            f"{indent}const roomCount = _roomSet.size;"
+        )
+
+    content = pattern_room_count.sub(repl_room_count, content)
+
     if content != original_content:
         with open(file_path, 'w', encoding='utf-8') as f:
             f.write(content)

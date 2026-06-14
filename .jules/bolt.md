@@ -36,3 +36,7 @@
 ## 2024-05-18 - [Optimizing find min/max range operations]
 **Learning:** In `buildFrontInsights`, extracting a date range by mapping properties to strings, wrapping in a `Set` to remove duplicates, spreading back to an `Array`, and fully sorting `O(N log N)` just to pick the first and last elements is an immense performance anti-pattern. This needlessly allocates memory for intermediate Maps, Arrays, and Sets, forcing garbage collection.
 **Action:** Replace `Array.from(new Set(...)).sort(...);` with a single O(N) `.reduce()` pass that tracks and compares `min` and `max` values directly. This executes significantly faster without intermediate memory allocations or expensive sorts.
+
+## 2024-05-18 - [Optimizing map-filter Set generation]
+**Learning:** In frontend performance logic, chaining `.map()` and `.filter()` arrays directly inside a `new Set(...)` constructor forces the engine to iterate over the dataset three times and allocate multiple intermediate arrays, causing unnecessary garbage collection spikes and CPU load.
+**Action:** Replace `new Set(array.map(...).filter(...))` with a single `for` loop that populates an empty `Set` directly. This O(N) single-pass approach drastically reduces memory overhead. For this static site snapshot, implement the replacement logic within the existing Python patch scripts like `optimize_dom_array_from.py`.
