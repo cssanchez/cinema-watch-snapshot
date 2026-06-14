@@ -7863,11 +7863,13 @@ const _buildRowDetailTokensCache = new Map();
             ? dateBounds.min
             : `${dateBounds.min} to ${dateBounds.max}`;
 
-        const roomCount = new Set(
-          rows
-            .map((row) => toInt(row.room_number))
-            .filter((value) => value !== null)
-        ).size;
+        // ⚡ Bolt Optimization: Replace map/filter + Set constructor with single-pass Set population
+        const _roomSet = new Set();
+        for (let i = 0; i < rows.length; i++) {
+          const val = toInt(rows[i].room_number);
+          if (val !== null) _roomSet.add(val);
+        }
+        const roomCount = _roomSet.size;
 
         const soldRows = rows
           .map((row) => ({
