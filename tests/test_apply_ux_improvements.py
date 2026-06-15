@@ -479,3 +479,27 @@ def test_transform_10_skip_link_focus_visible_idempotent():
     }
     """
     assert transform_10_skip_link_focus_visible(content) == content
+
+def test_transform_12_add_aria_live_dynamic_results():
+    from apply_ux_improvements import transform_12_add_aria_live
+    content = '<div class="front-screening-groups" data-front-advanced-results></div>'
+    result = transform_12_add_aria_live(content)
+    assert 'aria-live="polite"' in result
+    assert 'role="status"' in result
+    assert result == '<div class="front-screening-groups" data-front-advanced-results aria-live="polite" role="status"></div>'
+
+def test_transform_12_add_aria_live_empty_state():
+    from apply_ux_improvements import transform_12_add_aria_live
+    content = '<div class="empty" data-i18n-source>No IMAX screenings</div>'
+    result = transform_12_add_aria_live(content)
+    assert 'aria-live="polite"' in result
+    assert 'role="status"' in result
+    assert result == '<div class="empty" aria-live="polite" role="status" data-i18n-source>No IMAX screenings</div>'
+
+def test_transform_12_add_aria_live_idempotency():
+    from apply_ux_improvements import transform_12_add_aria_live
+    content = '<div class="empty" aria-live="polite" role="status" data-i18n-source>No IMAX screenings</div>'
+    result = transform_12_add_aria_live(content)
+    # Should not add it again
+    assert result.count('aria-live="polite"') == 1
+    assert result.count('role="status"') == 1
