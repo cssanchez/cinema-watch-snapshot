@@ -36,3 +36,7 @@
 ## 2024-05-18 - [Optimizing find min/max range operations]
 **Learning:** In `buildFrontInsights`, extracting a date range by mapping properties to strings, wrapping in a `Set` to remove duplicates, spreading back to an `Array`, and fully sorting `O(N log N)` just to pick the first and last elements is an immense performance anti-pattern. This needlessly allocates memory for intermediate Maps, Arrays, and Sets, forcing garbage collection.
 **Action:** Replace `Array.from(new Set(...)).sort(...);` with a single O(N) `.reduce()` pass that tracks and compares `min` and `max` values directly. This executes significantly faster without intermediate memory allocations or expensive sorts.
+
+## 2024-05-18 - [DOM NodeList/HTMLCollection Method Iteration]
+**Learning:** In the frontend static site, calling `Array.from(NodeList).map().filter()` or `Array.from(HTMLCollection).some()` inside UI initialization or event handlers creates significant garbage collection pressure due to intermediate array allocations before processing.
+**Action:** Optimize by replacing `Array.from()` chains with direct `for` loops populating native structures like `Set`, or use `Array.prototype.<method>.call(nodeList)` to avoid array instantiation overhead altogether.
