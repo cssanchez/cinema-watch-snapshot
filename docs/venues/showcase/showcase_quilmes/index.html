@@ -5595,7 +5595,12 @@
           setHomeAndScrollCartelera();
           return;
         }
-        const targetUrl = `${homePath}${hash || ''}`;
+        let targetUrl;
+        try {
+          targetUrl = new URL(`${homePath}${hash || ''}`, window.location.origin).href;
+        } catch (e) {
+          targetUrl = '/';
+        }
         if (window.CineVicioLiveNav?.load) {
           window.CineVicioLiveNav.load(targetUrl);
           return;
@@ -5714,7 +5719,12 @@ const screeningsLink = _getScreeningsLink();
           const homePath = getHomePath();
           const relativePath = relativePathFromHome(window.location.pathname || '/', homePath);
           if (relativePath !== '/') {
-            const targetUrl = `${homePath}#cartelera`;
+            let targetUrl;
+            try {
+              targetUrl = new URL(`${homePath}#cartelera`, window.location.origin).href;
+            } catch (e) {
+              targetUrl = '/';
+            }
             if (window.CineVicioLiveNav?.load) {
               window.CineVicioLiveNav.load(targetUrl);
             } else {
