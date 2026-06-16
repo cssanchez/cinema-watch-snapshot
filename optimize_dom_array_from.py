@@ -123,6 +123,54 @@ def process_file(file_path):
     # - scrollToMoviesSection
     # Since `pattern2` replaces the exact code `const visiblePanel = Array.from(document.querySelectorAll('[data-location-panel]')).find(...)` with `const visiblePanel = getVisibleLocationPanel();`, and since that exact code is used inside `getActiveHomeSections`, `scrollToCartelera`, `scrollToSpecialRooms`, and `scrollToMoviesSection`, it actually covers all of them!
 
+
+    # 6. Optimize Map Iteration in buildFrontInsights
+    pattern6 = re.compile(
+        r"([ \t]*)const bucketKey = Array\.from\(venueBuckets\.keys\(\)\)\.reduce\(\(best, current\) => \{\s*"
+        r"const bestCount = venueBuckets\.get\(best\) \|\| 0;\s*"
+        r"const currentCount = venueBuckets\.get\(current\) \|\| 0;\s*"
+        r"if \(currentCount !== bestCount\) \{\s*"
+        r"return currentCount > bestCount \? current : best;\s*"
+        r"\}\s*"
+        r"return current\.localeCompare\(best\) < 0 \? current : best;\s*"
+        r"\}\);"
+    )
+
+    def repl6(match):
+        indent = match.group(1)
+        return (
+            f"{indent}let bucketKey = null;\n"
+            f"{indent}let bestCount = 0;\n"
+            f"{indent}for (const [current, currentCount] of venueBuckets.entries()) {{\n"
+            f"{indent}  if (bucketKey === null) {{\n"
+            f"{indent}    bucketKey = current;\n"
+            f"{indent}    bestCount = currentCount;\n"
+            f"{indent}    continue;\n"
+            f"{indent}  }}\n"
+            f"{indent}  if (currentCount !== bestCount) {{\n"
+            f"{indent}    if (currentCount > bestCount) {{\n"
+            f"{indent}      bucketKey = current;\n"
+            f"{indent}      bestCount = currentCount;\n"
+            f"{indent}    }}\n"
+            f"{indent}  }} else if (current.localeCompare(bucketKey) < 0) {{\n"
+            f"{indent}    bucketKey = current;\n"
+            f"{indent}  }}\n"
+            f"{indent}}}"
+        )
+
+    content = pattern6.sub(repl6, content)
+
+    # 7. Array.from(field.options) optimizations
+    pattern7 = re.compile(
+        r"!Array\.from\(field\.options\)\.some\(\(opt\) => opt\.value === (value|nextValue)\)"
+    )
+
+    def repl7(match):
+        var_name = match.group(1)
+        return f"!Array.prototype.some.call(field.options, (opt) => opt.value === {var_name})"
+
+    content = pattern7.sub(repl7, content)
+
     if content != original_content:
         with open(file_path, 'w', encoding='utf-8') as f:
             f.write(content)

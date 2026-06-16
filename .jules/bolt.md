@@ -36,3 +36,11 @@
 ## 2024-05-18 - [Optimizing find min/max range operations]
 **Learning:** In `buildFrontInsights`, extracting a date range by mapping properties to strings, wrapping in a `Set` to remove duplicates, spreading back to an `Array`, and fully sorting `O(N log N)` just to pick the first and last elements is an immense performance anti-pattern. This needlessly allocates memory for intermediate Maps, Arrays, and Sets, forcing garbage collection.
 **Action:** Replace `Array.from(new Set(...)).sort(...);` with a single O(N) `.reduce()` pass that tracks and compares `min` and `max` values directly. This executes significantly faster without intermediate memory allocations or expensive sorts.
+
+## 2024-05-18 - [Optimizing map extremum finding]
+**Learning:** In `buildFrontInsights` and similar functions, finding the maximum value in a Map by extracting keys (`Array.from(map.keys())`) and using `.reduce()` allocates unnecessary intermediate arrays, placing pressure on garbage collection.
+**Action:** Replace `Array.from(map.keys()).reduce(...)` with a direct `for...of` loop over `map.entries()`. This executes significantly faster without intermediate memory allocations.
+
+## 2024-05-18 - [Optimizing HTMLCollection iteration]
+**Learning:** When checking if a value exists in an `HTMLCollection` like `HTMLSelectElement.options`, using `Array.from(field.options).some(...)` creates an intermediate array for every check.
+**Action:** Replace `Array.from(nodeListOrCollection)` with `Array.prototype.<method>.call(collection, ...)` to perform operations directly on the collection without allocation overhead.
