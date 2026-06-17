@@ -479,3 +479,32 @@ def test_transform_10_skip_link_focus_visible_idempotent():
     }
     """
     assert transform_10_skip_link_focus_visible(content) == content
+
+from apply_ux_improvements import transform_12_add_language_aria_labels
+
+def test_transform_12_add_language_aria_labels():
+    """Test that aria-labels are added to language switcher buttons."""
+    content = """
+    <div class="language-switch" aria-label="Language">
+      <button type="button" data-language-option="en" aria-pressed="false">EN</button>
+      <button type="button" data-language-option="es" aria-pressed="false">ES</button>
+    </div>
+    """
+
+    expected = """
+    <div class="language-switch" aria-label="Language">
+      <button type="button" data-language-option="en" aria-label="English" aria-pressed="false">EN</button>
+      <button type="button" data-language-option="es" aria-label="Español" aria-pressed="false">ES</button>
+    </div>
+    """
+    assert transform_12_add_language_aria_labels(content) == expected
+
+def test_transform_12_add_language_aria_labels_idempotent():
+    """Test that the transformation is idempotent."""
+    content = """
+    <div class="language-switch" aria-label="Language">
+      <button type="button" data-language-option="en" aria-label="English" aria-pressed="false">EN</button>
+      <button type="button" data-language-option="es" aria-label="Español" aria-pressed="false">ES</button>
+    </div>
+    """
+    assert transform_12_add_language_aria_labels(content) == content
