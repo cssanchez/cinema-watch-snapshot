@@ -299,6 +299,22 @@ def transform_11_global_focus_visible(content: str) -> str:
         content
     )
 
+def transform_12_add_language_aria_labels(content: str) -> str:
+    """
+    Add aria-labels to the language switcher buttons to improve screen reader UX.
+    """
+    if 'data-language-option="en" aria-label="English"' not in content:
+        content = content.replace(
+            'data-language-option="en"',
+            'data-language-option="en" aria-label="English"'
+        )
+    if 'data-language-option="es" aria-label="Español"' not in content:
+        content = content.replace(
+            'data-language-option="es"',
+            'data-language-option="es" aria-label="Español"'
+        )
+    return content
+
 def process_file(file_path: str) -> Tuple[bool, int]:
     """
     Process a single HTML file applying all 6 transformations.
@@ -325,6 +341,7 @@ def process_file(file_path: str) -> Tuple[bool, int]:
         content = transform_9_add_clear_filters_button(content)
         content = transform_10_skip_link_focus_visible(content)
         content = transform_11_global_focus_visible(content)
+        content = transform_12_add_language_aria_labels(content)
 
         # Check if changes were made
         changes_made = 1 if content != original_content else 0
@@ -385,6 +402,7 @@ def main():
     print("  9. Added clear filters button to advanced form")
     print("  10. Converted skip-link focus to focus-visible")
     print("  11. Changed interactive elements focus to focus-visible")
+    print("  12. Added aria-labels to language switcher buttons")
 
 
 if __name__ == "__main__":
