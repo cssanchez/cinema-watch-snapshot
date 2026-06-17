@@ -123,6 +123,17 @@ def process_file(file_path):
     # - scrollToMoviesSection
     # Since `pattern2` replaces the exact code `const visiblePanel = Array.from(document.querySelectorAll('[data-location-panel]')).find(...)` with `const visiblePanel = getVisibleLocationPanel();`, and since that exact code is used inside `getActiveHomeSections`, `scrollToCartelera`, `scrollToSpecialRooms`, and `scrollToMoviesSection`, it actually covers all of them!
 
+    # 6. Array.from(iterable).some(...) -> Array.prototype.some.call(iterable, ...)
+    # ⚡ Bolt Optimization: Replace intermediate array allocation with direct method call on iterable
+    pattern5 = re.compile(r"Array\.from\(([^)]+)\)\.some\(\(opt\) => opt\.value === ([^)]+)\)")
+
+    def repl5(match):
+        iterable = match.group(1)
+        value = match.group(2)
+        return f"Array.prototype.some.call({iterable}, (opt) => opt.value === {value})"
+
+    content = pattern5.sub(repl5, content)
+
     if content != original_content:
         with open(file_path, 'w', encoding='utf-8') as f:
             f.write(content)
