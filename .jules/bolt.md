@@ -36,3 +36,7 @@
 ## 2024-05-18 - [Optimizing find min/max range operations]
 **Learning:** In `buildFrontInsights`, extracting a date range by mapping properties to strings, wrapping in a `Set` to remove duplicates, spreading back to an `Array`, and fully sorting `O(N log N)` just to pick the first and last elements is an immense performance anti-pattern. This needlessly allocates memory for intermediate Maps, Arrays, and Sets, forcing garbage collection.
 **Action:** Replace `Array.from(new Set(...)).sort(...);` with a single O(N) `.reduce()` pass that tracks and compares `min` and `max` values directly. This executes significantly faster without intermediate memory allocations or expensive sorts.
+
+## 2024-05-18 - [Optimizing intermediate array allocation in iteration]
+**Learning:** Using `Array.from(nodeList)` or `Array.from(HTMLCollection)` repeatedly to apply array methods (like `.some()`, `.map()`, or `.filter()`) allocates a new intermediate array each time. This creates memory pressure and unnecessary garbage collection overhead, especially in frequently executed functions (e.g. form filtering loops that execute on input change).
+**Action:** Replace `Array.from(iterable).some(...)` with `Array.prototype.some.call(iterable, ...)` or use standard loops to avoid the intermediate array allocation. In this codebase, integrate this change into the existing Python patch scripts (`optimize_dom_array_from.py`).
