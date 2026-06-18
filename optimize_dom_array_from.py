@@ -123,6 +123,48 @@ def process_file(file_path):
     # - scrollToMoviesSection
     # Since `pattern2` replaces the exact code `const visiblePanel = Array.from(document.querySelectorAll('[data-location-panel]')).find(...)` with `const visiblePanel = getVisibleLocationPanel();`, and since that exact code is used inside `getActiveHomeSections`, `scrollToCartelera`, `scrollToSpecialRooms`, and `scrollToMoviesSection`, it actually covers all of them!
 
+
+    # 6. venueBuckets map iteration optimization
+    pattern_map = re.compile(
+        r"([ 	]*)// ⚡ Bolt Optimization: Replaced O\(N log N\) sorting with O\(N\) reduction to find the top venue\n"
+        r"[ 	]*if \(venueBuckets\.size\) \{\n"
+        r"[ 	]*const bucketKey = Array\.from\(venueBuckets\.keys\(\)\)\.reduce\(\(best, current\) => \{\n"
+        r"[ 	]*const bestCount = venueBuckets\.get\(best\) \|\| 0;\n"
+        r"[ 	]*const currentCount = venueBuckets\.get\(current\) \|\| 0;\n"
+        r"[ 	]*if \(currentCount !== bestCount\) \{\n"
+        r"[ 	]*return currentCount > bestCount \? current : best;\n"
+        r"[ 	]*\}\n"
+        r"[ 	]*return current\.localeCompare\(best\) < 0 \? current : best;\n"
+        r"[ 	]*\}\);\n",
+        re.MULTILINE
+    )
+
+    def repl_map(match):
+        indent = match.group(1)
+        return (
+            f"{indent}// ⚡ Bolt Optimization: Replaced intermediate array allocation with direct map iteration to find the top venue\n"
+            f"{indent}if (venueBuckets.size) {{\n"
+            f"{indent}  let bucketKey = null;\n"
+            f"{indent}  let maxCount = 0;\n"
+            f"{indent}  for (const [current, currentCount] of venueBuckets) {{\n"
+            f"{indent}    if (bucketKey === null) {{\n"
+            f"{indent}      bucketKey = current;\n"
+            f"{indent}      maxCount = currentCount;\n"
+            f"{indent}      continue;\n"
+            f"{indent}    }}\n"
+            f"{indent}    if (currentCount !== maxCount) {{\n"
+            f"{indent}      if (currentCount > maxCount) {{\n"
+            f"{indent}        bucketKey = current;\n"
+            f"{indent}        maxCount = currentCount;\n"
+            f"{indent}      }}\n"
+            f"{indent}    }} else if (current.localeCompare(bucketKey) < 0) {{\n"
+            f"{indent}      bucketKey = current;\n"
+            f"{indent}    }}\n"
+            f"{indent}  }}\n"
+        )
+
+    content = pattern_map.sub(repl_map, content)
+
     if content != original_content:
         with open(file_path, 'w', encoding='utf-8') as f:
             f.write(content)
