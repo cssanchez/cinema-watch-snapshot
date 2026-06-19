@@ -19,6 +19,34 @@ ORIGINAL_PEAK_ROW = """        let peakRow = null;
           })[0];
         }"""
 
+
+ORIGINAL_TOP_VENUE = """        // ⚡ Bolt Optimization: Replaced O(N log N) sorting with O(N) reduction to find the top venue
+        if (venueBuckets.size) {
+          const bucketKey = Array.from(venueBuckets.keys()).reduce((best, current) => {
+            const bestCount = venueBuckets.get(best) || 0;
+            const currentCount = venueBuckets.get(current) || 0;
+            if (currentCount !== bestCount) {
+              return currentCount > bestCount ? current : best;
+            }
+            return current.localeCompare(best) < 0 ? current : best;
+          });"""
+
+OPTIMIZED_TOP_VENUE = """        // ⚡ Bolt Optimization: Replaced O(N log N) sorting with O(N) reduction to find the top venue
+        if (venueBuckets.size) {
+          let bucketKey = null;
+          let bestCount = -1;
+          for (const [current, currentCount] of venueBuckets.entries()) {
+            if (bucketKey === null || currentCount !== bestCount) {
+              if (bucketKey === null || currentCount > bestCount) {
+                bucketKey = current;
+                bestCount = currentCount;
+              }
+            } else if (current.localeCompare(bucketKey) < 0) {
+              bucketKey = current;
+              bestCount = currentCount;
+            }
+          }"""
+
 OPTIMIZED_PEAK_ROW = """        // ⚡ Bolt Optimization: Replaced O(N log N) sorting with O(N) reduction to find the peak row
         let peakRow = null;
         if (soldRows.length) {
@@ -37,9 +65,16 @@ OPTIMIZED_PEAK_ROW = """        // ⚡ Bolt Optimization: Replaced O(N log N) so
 def process_file(file_path):
     try:
         content = file_path.read_text(encoding="utf-8")
+        changed = False
         if ORIGINAL_PEAK_ROW in content:
-            new_content = content.replace(ORIGINAL_PEAK_ROW, OPTIMIZED_PEAK_ROW)
-            file_path.write_text(new_content, encoding="utf-8")
+            content = content.replace(ORIGINAL_PEAK_ROW, OPTIMIZED_PEAK_ROW)
+            changed = True
+        if ORIGINAL_TOP_VENUE in content:
+            content = content.replace(ORIGINAL_TOP_VENUE, OPTIMIZED_TOP_VENUE)
+            changed = True
+
+        if changed:
+            file_path.write_text(content, encoding="utf-8")
             return True
     except Exception as e:
         print(f"Error processing {file_path}: {e}")
