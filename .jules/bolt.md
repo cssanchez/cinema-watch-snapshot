@@ -36,3 +36,6 @@
 ## 2024-05-18 - [Optimizing find min/max range operations]
 **Learning:** In `buildFrontInsights`, extracting a date range by mapping properties to strings, wrapping in a `Set` to remove duplicates, spreading back to an `Array`, and fully sorting `O(N log N)` just to pick the first and last elements is an immense performance anti-pattern. This needlessly allocates memory for intermediate Maps, Arrays, and Sets, forcing garbage collection.
 **Action:** Replace `Array.from(new Set(...)).sort(...);` with a single O(N) `.reduce()` pass that tracks and compares `min` and `max` values directly. This executes significantly faster without intermediate memory allocations or expensive sorts.
+## 2024-05-18 - [Optimizing sorting string allocations]
+**Learning:** Generating identity strings repeatedly using array allocations and `join()` inside hot paths like sort functions (`sortRowsForFront`) and render loops creates immense performance overhead and GC pressure. When multiple criteria are evaluated, building composite string keys (e.g. `${date}|${time}`) adds unnecessary string allocations.
+**Action:** Replace string interpolation and concatenated keys with direct property comparisons in sort comparators, using fallback falsy checks (e.g., `val || ''`) and early returns to avoid composite key allocations.

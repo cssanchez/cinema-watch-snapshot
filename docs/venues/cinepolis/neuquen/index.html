@@ -6612,16 +6612,18 @@ const _buildRowDetailTokensCache = new Map();
             if (rightRank !== leftRank) {
               return rightRank - leftRank;
             }
-            const leftKey = `${left.date_iso}|${left.time_label}|${left.movie_title}`;
-            const rightKey = `${right.date_iso}|${right.time_label}|${right.movie_title}`;
-            return leftKey.localeCompare(rightKey);
+            const dateCmp = (left.date_iso || '').localeCompare(right.date_iso || '');
+            if (dateCmp !== 0) return dateCmp;
+            const timeCmp = (left.time_label || '').localeCompare(right.time_label || '');
+            if (timeCmp !== 0) return timeCmp;
+            return (left.movie_title || '').localeCompare(right.movie_title || '');
           });
           return nextRows;
         }
         nextRows.sort((left, right) => {
-          const leftKey = `${left.date_iso}|${left.time_label}`;
-          const rightKey = `${right.date_iso}|${right.time_label}`;
-          return leftKey.localeCompare(rightKey);
+          const dateCmp = (left.date_iso || '').localeCompare(right.date_iso || '');
+          if (dateCmp !== 0) return dateCmp;
+          return (left.time_label || '').localeCompare(right.time_label || '');
         });
         return nextRows;
       }
