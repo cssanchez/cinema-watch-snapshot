@@ -123,6 +123,41 @@ def process_file(file_path):
     # - scrollToMoviesSection
     # Since `pattern2` replaces the exact code `const visiblePanel = Array.from(document.querySelectorAll('[data-location-panel]')).find(...)` with `const visiblePanel = getVisibleLocationPanel();`, and since that exact code is used inside `getActiveHomeSections`, `scrollToCartelera`, `scrollToSpecialRooms`, and `scrollToMoviesSection`, it actually covers all of them!
 
+    # 6. Optimize Array.from(venueBuckets.keys()).reduce
+    pattern6 = re.compile(
+        r"([ \t]*)(// ⚡ Bolt Optimization: Replaced O\(N log N\) sorting with O\(N\) reduction to find the top venue\n?)"
+        r"([ \t]*)if \(venueBuckets\.size\) \{\n"
+        r"([ \t]*)const bucketKey = Array\.from\(venueBuckets\.keys\(\)\)\.reduce\(\(best, current\) => \{\n"
+        r"([ \t]*)const bestCount = venueBuckets\.get\(best\) \|\| 0;\n"
+        r"([ \t]*)const currentCount = venueBuckets\.get\(current\) \|\| 0;\n"
+        r"([ \t]*)if \(currentCount !== bestCount\) \{\n"
+        r"([ \t]*)return currentCount > bestCount \? current : best;\n"
+        r"([ \t]*)\}\n"
+        r"([ \t]*)return current\.localeCompare\(best\) < 0 \? current : best;\n"
+        r"([ \t]*)\}\);\n"
+        r"([ \t]*)const \[provider, venueKey, venueName, venueHref\] = bucketKey\.split\('\|\|'\);",
+        re.MULTILINE
+    )
+
+    def repl6(match):
+        indent = match.group(1)
+        inner_indent = match.group(3)
+        return (
+            f"{indent}// ⚡ Bolt Optimization: Replace Array.from(keys).reduce with for...of entries to avoid allocation and repeated map lookups\n"
+            f"{inner_indent}if (venueBuckets.size) {{\n"
+            f"{inner_indent}  let bucketKey = null;\n"
+            f"{inner_indent}  let bestCount = -1;\n"
+            f"{inner_indent}  for (const [current, currentCount] of venueBuckets.entries()) {{\n"
+            f"{inner_indent}    if (bucketKey === null || currentCount > bestCount || (currentCount === bestCount && current.localeCompare(bucketKey) < 0)) {{\n"
+            f"{inner_indent}      bucketKey = current;\n"
+            f"{inner_indent}      bestCount = currentCount;\n"
+            f"{inner_indent}    }}\n"
+            f"{inner_indent}  }}\n"
+            f"{inner_indent}  const [provider, venueKey, venueName, venueHref] = bucketKey.split('||');"
+        )
+
+    content = pattern6.sub(repl6, content)
+
     if content != original_content:
         with open(file_path, 'w', encoding='utf-8') as f:
             f.write(content)
