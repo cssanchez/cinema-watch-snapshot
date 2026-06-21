@@ -479,3 +479,23 @@ def test_transform_10_skip_link_focus_visible_idempotent():
     }
     """
     assert transform_10_skip_link_focus_visible(content) == content
+
+def test_transform_12_add_aria_live_regions():
+    """Test adding aria-live and role=status to dynamic content containers."""
+    from apply_ux_improvements import transform_12_add_aria_live_regions
+    content = """
+    <div class="front-advanced-summary" data-front-advanced-signals hidden></div>
+    <div class="front-screening-groups" data-front-advanced-results></div>
+
+    <div class="empty" data-i18n-source>No IMAX screenings in the current snapshot.</div>
+    """
+    expected = """
+    <div class="front-advanced-summary" data-front-advanced-signals hidden></div>
+    <div class="front-screening-groups" data-front-advanced-results aria-live="polite" role="status"></div>
+
+    <div class="empty" data-i18n-source aria-live="polite" role="status">No IMAX screenings in the current snapshot.</div>
+    """
+    assert expected == transform_12_add_aria_live_regions(content)
+
+    # Idempotency check
+    assert expected == transform_12_add_aria_live_regions(expected)
