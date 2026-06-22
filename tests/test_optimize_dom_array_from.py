@@ -82,3 +82,24 @@ def test_replaces_scrollToMoviesSection(temp_docs_dir):
     assert "Array.from" not in content
     assert "const movies = document.querySelectorAll('[data-front-movies=\"true\"]');" in content
     assert "target = undefined;" in content
+
+def test_optimize_venue_buckets_iteration(tmp_path):
+    file_path = tmp_path / "index.html"
+    file_path.write_text("""
+        if (venueBuckets.size) {
+          const bucketKey = Array.from(venueBuckets.keys()).reduce((best, current) => {
+            const bestCount = venueBuckets.get(best) || 0;
+            const currentCount = venueBuckets.get(current) || 0;
+            if (currentCount !== bestCount) {
+              return currentCount > bestCount ? current : best;
+            }
+            return current.localeCompare(best) < 0 ? current : best;
+          });
+          const [provider, venueKey, venueName, venueHref] = bucketKey.split('||');
+        }
+    """)
+    assert optimize_dom_array_from.process_file(file_path) is True
+    content = file_path.read_text()
+    assert "Array.from(venueBuckets.keys()).reduce" not in content
+    assert "for (const [current, currentCount] of venueBuckets.entries())" in content
+    assert "let bucketKey = null;" in content
