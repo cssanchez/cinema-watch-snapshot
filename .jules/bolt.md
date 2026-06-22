@@ -36,3 +36,7 @@
 ## 2024-05-18 - [Optimizing find min/max range operations]
 **Learning:** In `buildFrontInsights`, extracting a date range by mapping properties to strings, wrapping in a `Set` to remove duplicates, spreading back to an `Array`, and fully sorting `O(N log N)` just to pick the first and last elements is an immense performance anti-pattern. This needlessly allocates memory for intermediate Maps, Arrays, and Sets, forcing garbage collection.
 **Action:** Replace `Array.from(new Set(...)).sort(...);` with a single O(N) `.reduce()` pass that tracks and compares `min` and `max` values directly. This executes significantly faster without intermediate memory allocations or expensive sorts.
+
+## 2024-06-22 - [Map Iteration Array Overhead]
+**Learning:** To avoid unnecessary garbage collection overhead and intermediate array allocations when processing Iterable objects (like Map iterators), replace `Array.from(map.keys()).reduce(...)` with a direct `for...of` loop over `map.entries()`.
+**Action:** Always prefer `for...of` on iterables over spreading/`Array.from()` unless array methods are strictly required.
