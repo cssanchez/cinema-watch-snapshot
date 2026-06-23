@@ -12,3 +12,7 @@
 - **Date:** 2026-04-14
 - **Learning:** The "Skip to content" link used `:focus` to show an outline when activated. However, mouse users who click it (even accidentally) will also see the focus outline, which is suboptimal UX. Modern CSS provides `:focus-visible` to specifically target keyboard-driven focus events, keeping the outline hidden for pointer clicks but visible for keyboard tabs.
 - **Action:** Added `transform_10_skip_link_focus_visible` to `apply_ux_improvements.py` to convert `.skip-link:focus` to `.skip-link:focus-visible`.
+
+## 2024-04-15 - Dynamic Filtering Accessibility
+**Learning:** Asynchronous UI updates in the static site's dynamic filtering (e.g. replacing content in `[data-front-advanced-results]`) fail to notify screen readers of changes unless explicitly marked. Both the results container and empty state messages require `aria-live="polite"` and `role="status"` to ensure updates are announced.
+**Action:** Added `transform_12_add_aria_live_to_results` in `apply_ux_improvements.py` to inject `aria-live="polite"` and `role="status"` into `<div class="front-screening-groups" data-front-advanced-results>` and `<div class="empty">` elements.
