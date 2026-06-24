@@ -5913,14 +5913,15 @@ const _buildRowDetailTokensCache = new Map();
         }
         // ⚡ Bolt Optimization: Replaced O(N log N) sorting with O(N) reduction to find the top venue
         if (venueBuckets.size) {
-          const bucketKey = Array.from(venueBuckets.keys()).reduce((best, current) => {
-            const bestCount = venueBuckets.get(best) || 0;
-            const currentCount = venueBuckets.get(current) || 0;
-            if (currentCount !== bestCount) {
-              return currentCount > bestCount ? current : best;
+          let best = null;
+          let bestCount = -1;
+          for (const [current, currentCount] of venueBuckets.entries()) {
+            if (currentCount > bestCount || (currentCount === bestCount && (best === null || current.localeCompare(best) < 0))) {
+              bestCount = currentCount;
+              best = current;
             }
-            return current.localeCompare(best) < 0 ? current : best;
-          });
+          }
+          const bucketKey = best;
           const [provider, venueKey, venueName, venueHref] = bucketKey.split('||');
           topVenue = {
             label: venueName,
