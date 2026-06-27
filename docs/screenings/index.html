@@ -3488,9 +3488,14 @@
     <main id="app-main">
       
 <script>
-  const query = window.location.search || '';
-  const target = `/cinema-watch-snapshot/${query}#cartelera`;
-  window.location.replace(target);
+  try {
+    const safeUrl = new URL('/cinema-watch-snapshot/', window.location.origin);
+    safeUrl.search = window.location.search;
+    safeUrl.hash = 'cartelera';
+    window.location.replace(safeUrl.href);
+  } catch (e) {
+    window.location.replace('/cinema-watch-snapshot/#cartelera');
+  }
 </script>
 <section class="hero">
   <div class="hero-copy">
