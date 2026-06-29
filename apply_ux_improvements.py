@@ -289,6 +289,20 @@ def transform_10_skip_link_focus_visible(content: str) -> str:
     """
     return content.replace('.skip-link:focus {', '.skip-link:focus-visible {')
 
+def transform_12_accessible_empty_states(content: str) -> str:
+    """Add aria-live polite and role status to dynamic filtering empty states."""
+    if '<div class="empty" role="status" aria-live="polite"' not in content:
+        content = content.replace(
+            '<div class="empty"',
+            '<div class="empty" role="status" aria-live="polite"'
+        )
+    if '<div class="front-screening-groups" data-front-advanced-results role="status" aria-live="polite">' not in content:
+        content = content.replace(
+            '<div class="front-screening-groups" data-front-advanced-results>',
+            '<div class="front-screening-groups" data-front-advanced-results role="status" aria-live="polite">'
+        )
+    return content
+
 def transform_11_global_focus_visible(content: str) -> str:
     """
     Change interactive elements :focus to :focus-visible for better mouse UX.
@@ -325,6 +339,7 @@ def process_file(file_path: str) -> Tuple[bool, int]:
         content = transform_9_add_clear_filters_button(content)
         content = transform_10_skip_link_focus_visible(content)
         content = transform_11_global_focus_visible(content)
+        content = transform_12_accessible_empty_states(content)
 
         # Check if changes were made
         changes_made = 1 if content != original_content else 0
@@ -385,6 +400,7 @@ def main():
     print("  9. Added clear filters button to advanced form")
     print("  10. Converted skip-link focus to focus-visible")
     print("  11. Changed interactive elements focus to focus-visible")
+    print("  12. Added aria-live and role=status to empty states and results containers")
 
 
 if __name__ == "__main__":

@@ -479,3 +479,9 @@ def test_transform_10_skip_link_focus_visible_idempotent():
     }
     """
     assert transform_10_skip_link_focus_visible(content) == content
+
+def test_transform_12_accessible_empty_states():
+    content = '<div class="empty" data-i18n-source>No results</div>\n<div class="front-screening-groups" data-front-advanced-results></div>'
+    from apply_ux_improvements import transform_12_accessible_empty_states
+    expected = '<div class="empty" role="status" aria-live="polite" data-i18n-source>No results</div>\n<div class="front-screening-groups" data-front-advanced-results role="status" aria-live="polite"></div>'
+    assert transform_12_accessible_empty_states(content) == expected
