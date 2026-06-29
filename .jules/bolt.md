@@ -36,3 +36,6 @@
 ## 2024-05-18 - [Optimizing find min/max range operations]
 **Learning:** In `buildFrontInsights`, extracting a date range by mapping properties to strings, wrapping in a `Set` to remove duplicates, spreading back to an `Array`, and fully sorting `O(N log N)` just to pick the first and last elements is an immense performance anti-pattern. This needlessly allocates memory for intermediate Maps, Arrays, and Sets, forcing garbage collection.
 **Action:** Replace `Array.from(new Set(...)).sort(...);` with a single O(N) `.reduce()` pass that tracks and compares `min` and `max` values directly. This executes significantly faster without intermediate memory allocations or expensive sorts.
+## 2024-05-18 - [Optimizing Map Iterable reduction]
+**Learning:** In frontend static logic, converting Map keys to an array via `Array.from(map.keys())` purely to run a `.reduce(...)` operation creates unnecessary O(N) memory allocations, forces garbage collection, and demands repeated `map.get()` lookups inside the loop.
+**Action:** Replace `Array.from(map.keys()).reduce(...)` with a direct `for...of` loop over `map.entries()`. This allows executing the reduction logic O(N) time with O(1) space footprint and removes redundant Map hash lookups, drastically reducing GC pressure on frequent executions.
