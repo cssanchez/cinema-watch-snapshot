@@ -113,7 +113,35 @@ def process_file(file_path):
 
     content = pattern4.sub(repl4, content)
 
-    # 5. _getNavLinks replacement
+    # 5. venueBuckets.reduce -> for...of loop optimization
+    pattern_venue_buckets_reduce = re.compile(
+        r"([ \t]*)const bucketKey = Array\.from\(venueBuckets\.keys\(\)\)\.reduce\(\(best, current\) => \{\s*"
+        r"const bestCount = venueBuckets\.get\(best\) \|\| 0;\s*"
+        r"const currentCount = venueBuckets\.get\(current\) \|\| 0;\s*"
+        r"if \(currentCount !== bestCount\) \{\s*"
+        r"return currentCount > bestCount \? current : best;\s*"
+        r"\}\s*"
+        r"return current\.localeCompare\(best\) < 0 \? current : best;\s*"
+        r"\}\);",
+        re.MULTILINE
+    )
+
+    def repl_venue_buckets(match):
+        indent = match.group(1)
+        return (
+            f"{indent}let bucketKey = null;\n"
+            f"{indent}let bestCount = -1;\n"
+            f"{indent}for (const [current, currentCount] of venueBuckets.entries()) {{\n"
+            f"{indent}  if (bucketKey === null || currentCount > bestCount || (currentCount === bestCount && current.localeCompare(bucketKey) < 0)) {{\n"
+            f"{indent}    bucketKey = current;\n"
+            f"{indent}    bestCount = currentCount;\n"
+            f"{indent}  }}\n"
+            f"{indent}}}"
+        )
+
+    content = pattern_venue_buckets_reduce.sub(repl_venue_buckets, content)
+
+    # 6. _getNavLinks replacement
     # We should also replace Array.from on document.querySelectorAll generally where find is used.
     # We found `Array.from(document.querySelectorAll('[data-location-panel]')).find` inside:
     # - getVisibleLocationPanel
