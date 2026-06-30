@@ -8,7 +8,8 @@ from apply_ux_improvements import (
     transform_5_count_format,
     transform_6_add_disabled_styles,
     transform_7_add_csp,
-    transform_8_advanced_filters_ux
+    transform_8_advanced_filters_ux,
+    transform_12_dynamic_filtering_a11y
 )
 
 def test_transform_5_basic():
@@ -479,3 +480,13 @@ def test_transform_10_skip_link_focus_visible_idempotent():
     }
     """
     assert transform_10_skip_link_focus_visible(content) == content
+
+def test_transform_12_dynamic_filtering_a11y():
+    content = '<div class="front-screening-groups" data-front-advanced-results></div><div class="empty" data-i18n-source>No results</div>'
+    expected = '<div class="front-screening-groups" data-front-advanced-results aria-live="polite" role="status"></div><div class="empty" data-i18n-source aria-live="polite" role="status">No results</div>'
+
+    updated = transform_12_dynamic_filtering_a11y(content)
+    assert updated == expected
+
+    # Test idempotency
+    assert transform_12_dynamic_filtering_a11y(updated) == updated
