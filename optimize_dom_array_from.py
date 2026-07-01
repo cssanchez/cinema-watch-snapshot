@@ -113,7 +113,50 @@ def process_file(file_path):
 
     content = pattern4.sub(repl4, content)
 
-    # 5. _getNavLinks replacement
+    # 5. Top Venue Map Reduce allocation avoidance
+    pattern5 = re.compile(
+        r"([ \t]*)if \(venueBuckets\.size\) \{\s*"
+        r"const bucketKey = Array\.from\(venueBuckets\.keys\(\)\)\.reduce\(\(best, current\) => \{\s*"
+        r"const bestCount = venueBuckets\.get\(best\) \|\| 0;\s*"
+        r"const currentCount = venueBuckets\.get\(current\) \|\| 0;\s*"
+        r"if \(currentCount !== bestCount\) \{\s*"
+        r"return currentCount > bestCount \? current : best;\s*"
+        r"\}\s*"
+        r"return current\.localeCompare\(best\) < 0 \? current : best;\s*"
+        r"\}\);\s*"
+        r"const \[provider, venueKey, venueName, venueHref\] = bucketKey\.split\('\|\|'\);",
+        re.MULTILINE
+    )
+
+    def repl5(match):
+        indent = match.group(1)
+        return (
+            f"{indent}if (venueBuckets.size) {{\n"
+            f"{indent}  let bestKey = null;\n"
+            f"{indent}  let bestCount = -1;\n"
+            f"{indent}  for (const [currentKey, currentCount] of venueBuckets.entries()) {{\n"
+            f"{indent}    if (bestKey === null) {{\n"
+            f"{indent}      bestKey = currentKey;\n"
+            f"{indent}      bestCount = currentCount;\n"
+            f"{indent}      continue;\n"
+            f"{indent}    }}\n"
+            f"{indent}    if (currentCount !== bestCount) {{\n"
+            f"{indent}      if (currentCount > bestCount) {{\n"
+            f"{indent}        bestKey = currentKey;\n"
+            f"{indent}        bestCount = currentCount;\n"
+            f"{indent}      }}\n"
+            f"{indent}    }} else if (currentKey.localeCompare(bestKey) < 0) {{\n"
+            f"{indent}      bestKey = currentKey;\n"
+            f"{indent}      bestCount = currentCount;\n"
+            f"{indent}    }}\n"
+            f"{indent}  }}\n"
+            f"{indent}  const bucketKey = bestKey;\n"
+            f"{indent}  const [provider, venueKey, venueName, venueHref] = bucketKey.split('||');"
+        )
+
+    content = pattern5.sub(repl5, content)
+
+    # 6. _getNavLinks replacement
     # We should also replace Array.from on document.querySelectorAll generally where find is used.
     # We found `Array.from(document.querySelectorAll('[data-location-panel]')).find` inside:
     # - getVisibleLocationPanel
