@@ -479,3 +479,16 @@ def test_transform_10_skip_link_focus_visible_idempotent():
     }
     """
     assert transform_10_skip_link_focus_visible(content) == content
+
+
+from apply_ux_improvements import transform_12_accessible_live_region
+
+def test_transform_12_accessible_live_region():
+    content = '<div class="front-screening-groups" data-front-advanced-results></div>'
+    expected = '<div class="front-screening-groups" data-front-advanced-results aria-live="polite" role="status"></div>'
+    assert transform_12_accessible_live_region(content) == expected
+
+
+def test_transform_12_accessible_live_region_idempotent():
+    content = '<div class="front-screening-groups" data-front-advanced-results aria-live="polite" role="status"></div>'
+    assert transform_12_accessible_live_region(content) == content
