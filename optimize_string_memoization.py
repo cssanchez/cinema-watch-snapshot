@@ -278,6 +278,63 @@ const _buildRowDetailTokensCache = new Map();
         _buildRowDetailTokensCache.set(key, detailTokens);
         return [...detailTokens];
       }"""
+SORT_ROWS_ORIG = """          nextRows.sort((left, right) => {
+            const leftSold = toInt(left.sold_percent);
+            const rightSold = toInt(right.sold_percent);
+            const leftRank = leftSold === null ? -1 : leftSold;
+            const rightRank = rightSold === null ? -1 : rightSold;
+            if (rightRank !== leftRank) {
+              return rightRank - leftRank;
+            }
+            const leftKey = `${left.date_iso}|${left.time_label}|${left.movie_title}`;
+            const rightKey = `${right.date_iso}|${right.time_label}|${right.movie_title}`;
+            return leftKey.localeCompare(rightKey);
+          });
+          return nextRows;
+        }
+        nextRows.sort((left, right) => {
+          const leftKey = `${left.date_iso}|${left.time_label}`;
+          const rightKey = `${right.date_iso}|${right.time_label}`;
+          return leftKey.localeCompare(rightKey);
+        });
+        return nextRows;
+      }"""
+
+SORT_ROWS_NEW = """          nextRows.sort((left, right) => {
+            const leftSold = toInt(left.sold_percent);
+            const rightSold = toInt(right.sold_percent);
+            const leftRank = leftSold === null ? -1 : leftSold;
+            const rightRank = rightSold === null ? -1 : rightSold;
+            if (rightRank !== leftRank) {
+              return rightRank - leftRank;
+            }
+            // ⚡ Bolt Optimization: Replace template strings and localeCompare with sequential inequality operators to reduce GC pressure
+            const lDate = left.date_iso || '';
+            const rDate = right.date_iso || '';
+            if (lDate !== rDate) return lDate < rDate ? -1 : 1;
+            const lTime = left.time_label || '';
+            const rTime = right.time_label || '';
+            if (lTime !== rTime) return lTime < rTime ? -1 : 1;
+            const lMovie = left.movie_title || '';
+            const rMovie = right.movie_title || '';
+            if (lMovie !== rMovie) return lMovie < rMovie ? -1 : 1;
+            return 0;
+          });
+          return nextRows;
+        }
+        nextRows.sort((left, right) => {
+          // ⚡ Bolt Optimization: Replace template strings and localeCompare with sequential inequality operators to reduce GC pressure
+          const lDate = left.date_iso || '';
+          const rDate = right.date_iso || '';
+          if (lDate !== rDate) return lDate < rDate ? -1 : 1;
+          const lTime = left.time_label || '';
+          const rTime = right.time_label || '';
+          if (lTime !== rTime) return lTime < rTime ? -1 : 1;
+          return 0;
+        });
+        return nextRows;
+      }"""
+
 FRONT_ROW_IDENTITY_ORIG_2 = """      function frontRowIdentity(row) {
         return [
           String(row?.date_iso || ''),
@@ -336,6 +393,7 @@ def process_file(file_path):
     content = content.replace(CANONICAL_FORMAT_ORIG_2, CANONICAL_FORMAT_NEW_2)
     content = content.replace(BUILD_ROW_DETAIL_TOKENS_ORIG_2, BUILD_ROW_DETAIL_TOKENS_NEW_2)
     content = content.replace(FRONT_ROW_IDENTITY_ORIG_2, FRONT_ROW_IDENTITY_NEW_2)
+    content = content.replace(SORT_ROWS_ORIG, SORT_ROWS_NEW)
 
     if content != original_content:
         with open(file_path, 'w', encoding='utf-8') as f:
