@@ -36,3 +36,6 @@
 ## 2024-05-18 - [Optimizing find min/max range operations]
 **Learning:** In `buildFrontInsights`, extracting a date range by mapping properties to strings, wrapping in a `Set` to remove duplicates, spreading back to an `Array`, and fully sorting `O(N log N)` just to pick the first and last elements is an immense performance anti-pattern. This needlessly allocates memory for intermediate Maps, Arrays, and Sets, forcing garbage collection.
 **Action:** Replace `Array.from(new Set(...)).sort(...);` with a single O(N) `.reduce()` pass that tracks and compares `min` and `max` values directly. This executes significantly faster without intermediate memory allocations or expensive sorts.
+## 2025-05-18 - [Optimizing sort comparisons with fast operators]
+**Learning:** Using `localeCompare()` with string interpolation (e.g., `|`) inside high-frequency comparators creates significant garbage collection pressure and is drastically slower than using standard inequality operators (`<`, `>`) with direct sequential checks.
+**Action:** Replaced `localeCompare()` with standard JavaScript string comparisons (`<`, `>`) and removed intermediate string concatenations within sorting routines and reduction functions.

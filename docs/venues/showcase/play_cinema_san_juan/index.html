@@ -6520,7 +6520,7 @@ const _buildRowDetailTokensCache = new Map();
             if (currentCount !== bestCount) {
               return currentCount > bestCount ? current : best;
             }
-            return current.localeCompare(best) < 0 ? current : best;
+            return current < best ? current : best;
           });
           const [provider, venueKey, venueName, venueHref] = bucketKey.split('||');
           topVenue = {
@@ -6538,9 +6538,16 @@ const _buildRowDetailTokensCache = new Map();
             if (currentSold !== maxSold) {
               return currentSold > maxSold ? current : max;
             }
-            const maxKey = `${max.date_iso}|${max.time_label}|${max.movie_title}`;
-            const currentKey = `${current.date_iso}|${current.time_label}|${current.movie_title}`;
-            return currentKey.localeCompare(maxKey) < 0 ? current : max;
+            const md = max.date_iso || '';
+            const cd = current.date_iso || '';
+            if (cd !== md) return cd < md ? current : max;
+            const mt = max.time_label || '';
+            const ct = current.time_label || '';
+            if (ct !== mt) return ct < mt ? current : max;
+            const mm = max.movie_title || '';
+            const cm = current.movie_title || '';
+            if (cm !== mm) return cm < mm ? current : max;
+            return max;
           });
         }
 
@@ -6565,16 +6572,27 @@ const _buildRowDetailTokensCache = new Map();
             if (rightRank !== leftRank) {
               return rightRank - leftRank;
             }
-            const leftKey = `${left.date_iso}|${left.time_label}|${left.movie_title}`;
-            const rightKey = `${right.date_iso}|${right.time_label}|${right.movie_title}`;
-            return leftKey.localeCompare(rightKey);
+            const ld = left.date_iso || '';
+            const rd = right.date_iso || '';
+            if (ld !== rd) return ld < rd ? -1 : 1;
+            const lt = left.time_label || '';
+            const rt = right.time_label || '';
+            if (lt !== rt) return lt < rt ? -1 : 1;
+            const lm = left.movie_title || '';
+            const rm = right.movie_title || '';
+            if (lm !== rm) return lm < rm ? -1 : 1;
+            return 0;
           });
           return nextRows;
         }
         nextRows.sort((left, right) => {
-          const leftKey = `${left.date_iso}|${left.time_label}`;
-          const rightKey = `${right.date_iso}|${right.time_label}`;
-          return leftKey.localeCompare(rightKey);
+          const ld = left.date_iso || '';
+          const rd = right.date_iso || '';
+          if (ld !== rd) return ld < rd ? -1 : 1;
+          const lt = left.time_label || '';
+          const rt = right.time_label || '';
+          if (lt !== rt) return lt < rt ? -1 : 1;
+          return 0;
         });
         return nextRows;
       }
