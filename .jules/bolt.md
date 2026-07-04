@@ -36,3 +36,7 @@
 ## 2024-05-18 - [Optimizing find min/max range operations]
 **Learning:** In `buildFrontInsights`, extracting a date range by mapping properties to strings, wrapping in a `Set` to remove duplicates, spreading back to an `Array`, and fully sorting `O(N log N)` just to pick the first and last elements is an immense performance anti-pattern. This needlessly allocates memory for intermediate Maps, Arrays, and Sets, forcing garbage collection.
 **Action:** Replace `Array.from(new Set(...)).sort(...);` with a single O(N) `.reduce()` pass that tracks and compares `min` and `max` values directly. This executes significantly faster without intermediate memory allocations or expensive sorts.
+
+## 2024-05-24 - [Sorting Comparator Optimization]
+**Learning:** In frontend sorting algorithms, constructing composite sorting keys inside the loop using string interpolation (e.g. `${left.date_iso}|${left.time_label}`) and executing `.localeCompare()` creates massive O(N log N) garbage collection pressure and CPU overhead during frequent array sorting.
+**Action:** Replace string interpolation and `.localeCompare()` with direct field-by-field inequality checks (e.g., `<` and `>`) using standard operators and falsy fallbacks (e.g., `|| ''`) to drastically reduce memory allocations and improve sorting speed.
