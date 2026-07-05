@@ -479,3 +479,15 @@ def test_transform_10_skip_link_focus_visible_idempotent():
     }
     """
     assert transform_10_skip_link_focus_visible(content) == content
+def test_transform_12_empty_state_aria_live():
+    """Test that role='status' and aria-live='polite' are added to empty states and results containers."""
+    from apply_ux_improvements import transform_12_empty_state_aria_live
+    content = '''
+    <div class="front-screening-groups" data-front-advanced-results></div>
+    <div class="empty" data-i18n-source>No screenings matched</div>
+    '''
+    expected = '''
+    <div class="front-screening-groups" data-front-advanced-results role="status" aria-live="polite"></div>
+    <div class="empty" role="status" aria-live="polite" data-i18n-source>No screenings matched</div>
+    '''
+    assert transform_12_empty_state_aria_live(content) == expected
