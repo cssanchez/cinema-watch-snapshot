@@ -6718,16 +6718,27 @@ const _buildRowDetailTokensCache = new Map();
             if (rightRank !== leftRank) {
               return rightRank - leftRank;
             }
-            const leftKey = `${left.date_iso}|${left.time_label}|${left.movie_title}`;
-            const rightKey = `${right.date_iso}|${right.time_label}|${right.movie_title}`;
-            return leftKey.localeCompare(rightKey);
+            // ⚡ Bolt Optimization: Avoided string interpolation overhead and localeCompare with falsy fallbacks
+            const l1 = left.date_iso || '';
+            const r1 = right.date_iso || '';
+            if (l1 !== r1) return l1 < r1 ? -1 : 1;
+            const l2 = left.time_label || '';
+            const r2 = right.time_label || '';
+            if (l2 !== r2) return l2 < r2 ? -1 : 1;
+            const l3 = left.movie_title || '';
+            const r3 = right.movie_title || '';
+            return l3 < r3 ? -1 : l3 > r3 ? 1 : 0;
           });
           return nextRows;
         }
         nextRows.sort((left, right) => {
-          const leftKey = `${left.date_iso}|${left.time_label}`;
-          const rightKey = `${right.date_iso}|${right.time_label}`;
-          return leftKey.localeCompare(rightKey);
+          // ⚡ Bolt Optimization: Avoided string interpolation overhead and localeCompare with falsy fallbacks
+          const l1 = left.date_iso || '';
+          const r1 = right.date_iso || '';
+          if (l1 !== r1) return l1 < r1 ? -1 : 1;
+          const l2 = left.time_label || '';
+          const r2 = right.time_label || '';
+          return l2 < r2 ? -1 : l2 > r2 ? 1 : 0;
         });
         return nextRows;
       }
