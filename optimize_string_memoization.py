@@ -317,6 +317,69 @@ CANONICAL_FORMAT_NEW_2 = """const _canonicalFormatCache = new Map();
       }"""
 
 
+SORT_ROWS_FOR_FRONT_ORIG = """      function sortRowsForFront(rows, resultPreset = null) {
+        const normalizedSort = String(resultPreset?.sort || '').trim().toLowerCase();
+        const nextRows = [...rows];
+        if (normalizedSort === 'sold_desc') {
+          nextRows.sort((left, right) => {
+            const leftSold = toInt(left.sold_percent);
+            const rightSold = toInt(right.sold_percent);
+            const leftRank = leftSold === null ? -1 : leftSold;
+            const rightRank = rightSold === null ? -1 : rightSold;
+            if (rightRank !== leftRank) {
+              return rightRank - leftRank;
+            }
+            const leftKey = `${left.date_iso}|${left.time_label}|${left.movie_title}`;
+            const rightKey = `${right.date_iso}|${right.time_label}|${right.movie_title}`;
+            return leftKey.localeCompare(rightKey);
+          });
+          return nextRows;
+        }
+        nextRows.sort((left, right) => {
+          const leftKey = `${left.date_iso}|${left.time_label}`;
+          const rightKey = `${right.date_iso}|${right.time_label}`;
+          return leftKey.localeCompare(rightKey);
+        });
+        return nextRows;
+      }"""
+
+SORT_ROWS_FOR_FRONT_NEW = """      function sortRowsForFront(rows, resultPreset = null) {
+        const normalizedSort = String(resultPreset?.sort || '').trim().toLowerCase();
+        const nextRows = [...rows];
+        if (normalizedSort === 'sold_desc') {
+          nextRows.sort((left, right) => {
+            const leftSold = toInt(left.sold_percent);
+            const rightSold = toInt(right.sold_percent);
+            const leftRank = leftSold === null ? -1 : leftSold;
+            const rightRank = rightSold === null ? -1 : rightSold;
+            if (rightRank !== leftRank) {
+              return rightRank - leftRank;
+            }
+            // ⚡ Bolt Optimization: Avoided string interpolation overhead and localeCompare with falsy fallbacks
+            const l1 = left.date_iso || '';
+            const r1 = right.date_iso || '';
+            if (l1 !== r1) return l1 < r1 ? -1 : 1;
+            const l2 = left.time_label || '';
+            const r2 = right.time_label || '';
+            if (l2 !== r2) return l2 < r2 ? -1 : 1;
+            const l3 = left.movie_title || '';
+            const r3 = right.movie_title || '';
+            return l3 < r3 ? -1 : l3 > r3 ? 1 : 0;
+          });
+          return nextRows;
+        }
+        nextRows.sort((left, right) => {
+          // ⚡ Bolt Optimization: Avoided string interpolation overhead and localeCompare with falsy fallbacks
+          const l1 = left.date_iso || '';
+          const r1 = right.date_iso || '';
+          if (l1 !== r1) return l1 < r1 ? -1 : 1;
+          const l2 = left.time_label || '';
+          const r2 = right.time_label || '';
+          return l2 < r2 ? -1 : l2 > r2 ? 1 : 0;
+        });
+        return nextRows;
+      }"""
+
 def process_file(file_path):
     with open(file_path, 'r', encoding='utf-8') as f:
         content = f.read()
@@ -336,6 +399,7 @@ def process_file(file_path):
     content = content.replace(CANONICAL_FORMAT_ORIG_2, CANONICAL_FORMAT_NEW_2)
     content = content.replace(BUILD_ROW_DETAIL_TOKENS_ORIG_2, BUILD_ROW_DETAIL_TOKENS_NEW_2)
     content = content.replace(FRONT_ROW_IDENTITY_ORIG_2, FRONT_ROW_IDENTITY_NEW_2)
+    content = content.replace(SORT_ROWS_FOR_FRONT_ORIG, SORT_ROWS_FOR_FRONT_NEW)
 
     if content != original_content:
         with open(file_path, 'w', encoding='utf-8') as f:

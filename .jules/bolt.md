@@ -36,3 +36,11 @@
 ## 2024-05-18 - [Optimizing find min/max range operations]
 **Learning:** In `buildFrontInsights`, extracting a date range by mapping properties to strings, wrapping in a `Set` to remove duplicates, spreading back to an `Array`, and fully sorting `O(N log N)` just to pick the first and last elements is an immense performance anti-pattern. This needlessly allocates memory for intermediate Maps, Arrays, and Sets, forcing garbage collection.
 **Action:** Replace `Array.from(new Set(...)).sort(...);` with a single O(N) `.reduce()` pass that tracks and compares `min` and `max` values directly. This executes significantly faster without intermediate memory allocations or expensive sorts.
+
+## 2024-05-18 - [Optimizing sorting logic]
+**Learning:** In high-frequency sorting loops like `sortRowsForFront`, using string interpolation (e.g., `${a}|${b}`) and `localeCompare()` creates immense garbage collection pressure and intermediate string allocations.
+**Action:** Replace string interpolation and `localeCompare()` with sequential, standard JavaScript string inequality operators (`<`, `>`) combined with falsy fallbacks (`|| ''`). This minimizes overhead and significantly speeds up execution time.
+
+## 2024-05-18 - [Optimizing sorting logic]
+**Learning:** In high-frequency sorting loops like `sortRowsForFront`, using string interpolation (e.g., `${a}|${b}`) and `localeCompare()` creates immense garbage collection pressure and intermediate string allocations.
+**Action:** Replace string interpolation and `localeCompare()` with sequential, standard JavaScript string inequality operators (`<`, `>`) combined with falsy fallbacks (`|| ''`). This minimizes overhead and significantly speeds up execution time. Integrated changes into existing string optimization python scripts rather than creating one-off patch scripts.

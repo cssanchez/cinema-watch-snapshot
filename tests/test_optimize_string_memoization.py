@@ -14,7 +14,8 @@ from optimize_string_memoization import (
     CANONICAL_LANGUAGE_ORIG_2,
     CANONICAL_LANGUAGE_NEW_2,
     CANONICAL_FORMAT_ORIG_2,
-    CANONICAL_FORMAT_NEW_2
+    CANONICAL_FORMAT_NEW_2,
+    SORT_ROWS_FOR_FRONT_NEW
 )
 
 def test_normalize_source_replacement():
@@ -51,3 +52,7 @@ def test_new_replacements_exact_match():
     assert "if (_foldTextCache.size > 2000) _foldTextCache.clear();" in FOLD_TEXT_NEW_2
     assert "if (_canonicalLanguageCache.size > 2000) _canonicalLanguageCache.clear();" in CANONICAL_LANGUAGE_NEW_2
     assert "if (_canonicalFormatCache.size > 2000) _canonicalFormatCache.clear();" in CANONICAL_FORMAT_NEW_2
+
+def test_sort_rows_for_front_replacement():
+    assert "⚡ Bolt Optimization: Avoided string interpolation overhead and localeCompare with falsy fallbacks" in SORT_ROWS_FOR_FRONT_NEW
+    assert "return leftKey.localeCompare(rightKey);" not in SORT_ROWS_FOR_FRONT_NEW
