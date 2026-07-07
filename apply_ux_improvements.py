@@ -299,6 +299,19 @@ def transform_11_global_focus_visible(content: str) -> str:
         content
     )
 
+def transform_12_add_aria_live(content: str) -> str:
+    """
+    Add aria-live="polite" and role="status" to the front-advanced-results container
+    so screen readers announce dynamically injected content or empty state messages.
+    """
+    target = '<div class="front-screening-groups" data-front-advanced-results aria-live="polite" role="status"></div>'
+    if target in content:
+        return content
+    return content.replace(
+        '<div class="front-screening-groups" data-front-advanced-results></div>',
+        target
+    )
+
 def process_file(file_path: str) -> Tuple[bool, int]:
     """
     Process a single HTML file applying all 6 transformations.
@@ -325,6 +338,7 @@ def process_file(file_path: str) -> Tuple[bool, int]:
         content = transform_9_add_clear_filters_button(content)
         content = transform_10_skip_link_focus_visible(content)
         content = transform_11_global_focus_visible(content)
+        content = transform_12_add_aria_live(content)
 
         # Check if changes were made
         changes_made = 1 if content != original_content else 0
