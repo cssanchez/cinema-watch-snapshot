@@ -123,6 +123,40 @@ def process_file(file_path):
     # - scrollToMoviesSection
     # Since `pattern2` replaces the exact code `const visiblePanel = Array.from(document.querySelectorAll('[data-location-panel]')).find(...)` with `const visiblePanel = getVisibleLocationPanel();`, and since that exact code is used inside `getActiveHomeSections`, `scrollToCartelera`, `scrollToSpecialRooms`, and `scrollToMoviesSection`, it actually covers all of them!
 
+
+    # 6. Top Venue Iteration
+    original_top_venue = """        // ⚡ Bolt Optimization: Replaced O(N log N) sorting with O(N) reduction to find the top venue
+        if (venueBuckets.size) {
+          const bucketKey = Array.from(venueBuckets.keys()).reduce((best, current) => {
+            const bestCount = venueBuckets.get(best) || 0;
+            const currentCount = venueBuckets.get(current) || 0;
+            if (currentCount !== bestCount) {
+              return currentCount > bestCount ? current : best;
+            }
+            return current.localeCompare(best) < 0 ? current : best;
+          });"""
+    optimized_top_venue = """        // ⚡ Bolt Optimization: Replaced O(N) Array allocation and reduce with direct Iterable loop for top venue finding
+        if (venueBuckets.size) {
+          let bucketKey = undefined;
+          let bestCount = 0;
+          for (const [current, currentCount] of venueBuckets.entries()) {
+            if (bucketKey === undefined) {
+              bucketKey = current;
+              bestCount = currentCount;
+              continue;
+            }
+            if (currentCount !== bestCount) {
+              if (currentCount > bestCount) {
+                bucketKey = current;
+                bestCount = currentCount;
+              }
+            } else if (current < bucketKey) {
+              bucketKey = current;
+              bestCount = currentCount;
+            }
+          }"""
+    content = content.replace(original_top_venue, optimized_top_venue)
+
     if content != original_content:
         with open(file_path, 'w', encoding='utf-8') as f:
             f.write(content)
