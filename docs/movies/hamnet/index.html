@@ -6052,6 +6052,10 @@ const _buildRowDetailTokensCache = new Map();
         };
       }
 
+      // ⚡ Bolt Optimization: Use WeakMap to memoize object identity strings for sort operations, preventing extreme garbage collection pressure and O(N log N) memory allocations.
+      const _sortIdentityCacheFull = new WeakMap();
+      const _sortIdentityCacheShort = new WeakMap();
+
       function sortRowsForFront(rows, resultPreset = null) {
         const normalizedSort = String(resultPreset?.sort || '').trim().toLowerCase();
         const nextRows = [...rows];
@@ -6064,15 +6068,31 @@ const _buildRowDetailTokensCache = new Map();
             if (rightRank !== leftRank) {
               return rightRank - leftRank;
             }
-            const leftKey = `${left.date_iso}|${left.time_label}|${left.movie_title}`;
-            const rightKey = `${right.date_iso}|${right.time_label}|${right.movie_title}`;
+            let leftKey = _sortIdentityCacheFull.get(left);
+            if (leftKey === undefined) {
+              leftKey = `${left.date_iso}|${left.time_label}|${left.movie_title}`;
+              _sortIdentityCacheFull.set(left, leftKey);
+            }
+            let rightKey = _sortIdentityCacheFull.get(right);
+            if (rightKey === undefined) {
+              rightKey = `${right.date_iso}|${right.time_label}|${right.movie_title}`;
+              _sortIdentityCacheFull.set(right, rightKey);
+            }
             return leftKey.localeCompare(rightKey);
           });
           return nextRows;
         }
         nextRows.sort((left, right) => {
-          const leftKey = `${left.date_iso}|${left.time_label}`;
-          const rightKey = `${right.date_iso}|${right.time_label}`;
+          let leftKey = _sortIdentityCacheShort.get(left);
+          if (leftKey === undefined) {
+            leftKey = `${left.date_iso}|${left.time_label}`;
+            _sortIdentityCacheShort.set(left, leftKey);
+          }
+          let rightKey = _sortIdentityCacheShort.get(right);
+          if (rightKey === undefined) {
+            rightKey = `${right.date_iso}|${right.time_label}`;
+            _sortIdentityCacheShort.set(right, rightKey);
+          }
           return leftKey.localeCompare(rightKey);
         });
         return nextRows;
