@@ -479,3 +479,15 @@ def test_transform_10_skip_link_focus_visible_idempotent():
     }
     """
     assert transform_10_skip_link_focus_visible(content) == content
+
+def test_transform_12_dynamic_filtering_a11y():
+    from apply_ux_improvements import transform_12_dynamic_filtering_a11y
+    content = """
+    <div class="front-screening-groups" data-front-advanced-results></div>
+    <div class="empty" data-i18n-source>No screenings matched the published board with these filters.</div>
+    """
+    expected = """
+    <div class="front-screening-groups" data-front-advanced-results aria-live="polite" role="status"></div>
+    <div class="empty" data-i18n-source aria-live="polite" role="status">No screenings matched the published board with these filters.</div>
+    """
+    assert transform_12_dynamic_filtering_a11y(content) == expected
